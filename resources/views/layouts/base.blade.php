@@ -25,9 +25,11 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <x-nav-bar/>
     </head>
 
-    <body>
+    <body class="max-w-7xl mx-auto">        
         @yield('body')
 
         @livewireScripts
