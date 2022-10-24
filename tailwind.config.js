@@ -4,9 +4,16 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+                sans: ['DMSans-Regular', ...defaultTheme.fontFamily.sans],    
+                fredokaOne: ['FredokaOne'],            
             },
-        },
+            colors: {                
+                'pink-red':'#E11166',
+            },
+        },  
+        maxWidth: {
+            '7xl': '1440px',
+        }              
     },
     variants: {
         extend: {
