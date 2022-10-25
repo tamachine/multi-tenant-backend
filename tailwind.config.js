@@ -14,13 +14,8 @@ module.exports = {
         maxWidth: {
             '7xl': '1440px',
         }              
-    },
-    variants: {
-        extend: {
-            backgroundColor: ['active'],
-        }
-    },
-    purge: {
+    },    
+    content: {
         content: [
             './app/**/*.php',
             './resources/**/*.html',
