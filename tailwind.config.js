@@ -7,13 +7,19 @@ module.exports = {
                 sans: ['DMSans-Regular', ...defaultTheme.fontFamily.sans],    
                 fredokaOne: ['FredokaOne'],            
             },
-            colors: {                
+            colors: {               
+                'black-primary': '#300000',
+                'black-secondary': '#3B3E44', 
+                'gray-primary' : '#F4F5F7',
+                'gray-secondary' : '#E7E8EA',
+                'gray-tertiary' : '#B1B5C4',
                 'pink-red':'#E11166',
             },
-        },  
-        maxWidth: {
-            '7xl': '1440px',
-        }              
+            maxWidth: {
+                '6xl': '1170px',
+                '7xl': '1440px',
+            } 
+        },                       
     },    
     content: {
         content: [

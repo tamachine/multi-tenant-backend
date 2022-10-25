@@ -48,7 +48,31 @@
 
     h5 {
         @apply font-fredokaOne text-pink-red font-semibold text-3xl;
-    }    
+    }   
+    
+    .btn {
+        @apply rounded-xl text-xl px-14 py-5 font-bold;
+    }
+
+    .btn-red {
+        @apply bg-pink-red text-white;
+    }
+
+    .search-input-group {
+        @apply relative flex-grow cursor-pointer hover:ring-pink-red hover:ring-2 rounded-lg;
+
+        & > div {
+            @apply absolute top-2 left-6;
+            
+            & > div:last-of-type {
+                @apply text-gray-tertiary text-base;
+            }
+        }
+
+        input {
+            @apply cursor-pointer bg-gray-primary rounded-lg text-lg placeholder:text-black-primary py-5 border-gray-secondary border w-full focus:outline-none focus:ring-0 focus:border-0 caret-transparent;
+        }
+    }   
 }
 
 /**

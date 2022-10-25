@@ -29,7 +29,7 @@
         <x-nav-bar/>
     </head>
 
-    <body class="max-w-7xl mx-auto">        
+    <body class="max-w-7xl mx-auto bg-zinc-900">        
         @yield('body')
 
         @livewireScripts

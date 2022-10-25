@@ -4,7 +4,7 @@
 
     <div class="flex flex-row gap-6">
 
-      <div class="flex flex-col pl-16 py-6 w-full">
+      <div class="flex flex-col pl-16 pb-6 mt-4 w-full">
         
         <div class="flex flex-row justify-start mb-7 border-b gap-12">
 
@@ -18,18 +18,38 @@
         
         <div>
           
-          <div x-show="tab == '#sameLocation'" x-cloak>
-            <div class="flex flex-row flex-wrap">
-              <input type="text" class="search-input" />
-              <input type="text" class="search-input" />
-              <input type="text" class="search-input" />
-              <input type="text" class="search-input" />
+          <div>
+            <div class="flex flex-row w-full justify-between gap-2">
+              <div class="search-input-group">
+                <div>
+                  <div>First day</div>
+                  <div>Pick up day</div>
+                </div>
+                <input type="text" class="search-input" />                
+              </div>
+              <div class="search-input-group">
+                <div>
+                  <div>Last day</div>
+                  <div>Drop off day</div>
+                </div>
+                <input type="text" class="search-input" />                
+              </div>
+              <div class="search-input-group">
+                <div>
+                  <div>Pick up</div>
+                  <div>Select location</div>
+                </div>
+                <input type="text" class="search-input" />                
+              </div>
+              <div class="search-input-group" x-show="tab == '#differentLocation'">
+                <div>
+                  <div>Return</div>
+                  <div>Select location</div>
+                </div>
+                <input type="text" class="search-input" />                
+              </div>              
             </div>
-          </div>
-
-          <div x-show="tab == '#differentLocation'" x-cloak>
-              <p>This is the content of Tab 2</p>
-          </div>
+          </div>          
 
         </div>
 
