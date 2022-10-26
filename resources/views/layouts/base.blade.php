@@ -16,8 +16,8 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ url(mix('css/app.css')) }}">
+        <!-- Styles -->        
+        <link href="/css/app.css" rel="stylesheet">
         @livewireStyles
 
         <!-- Scripts -->
@@ -29,7 +29,7 @@
         <x-nav-bar/>
     </head>
 
-    <body class="max-w-7xl mx-auto bg-zinc-900">        
+    <body class="max-w-7xl mx-auto">        
         @yield('body')
 
         @livewireScripts
