@@ -945,6 +945,10 @@ h5 {
   bottom: -1.5rem;
 }
 
+.-bottom-24 {
+  bottom: -6rem;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -1034,8 +1038,8 @@ h5 {
   height: 4rem;
 }
 
-.h-\[790px\] {
-  height: 790px;
+.h-\[718px\] {
+  height: 718px;
 }
 
 .h-4 {
@@ -1044,10 +1048,6 @@ h5 {
 
 .h-5 {
   height: 1.25rem;
-}
-
-.h-\[718px\] {
-  height: 718px;
 }
 
 .min-h-screen {
@@ -1265,25 +1265,12 @@ h5 {
   background-color: rgb(240 253 244 / var(--tw-bg-opacity));
 }
 
-.bg-stone-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 245 244 / var(--tw-bg-opacity));
-}
-
 .bg-home-hero {
   background-image: url('/images/home/hero.png');
 }
 
-.bg-contain {
-  background-size: contain;
-}
-
 .bg-cover {
   background-size: cover;
-}
-
-.bg-center {
-  background-position: center;
 }
 
 .bg-bottom {
@@ -1512,6 +1499,12 @@ h5 {
   color: rgb(252 165 165 / var(--tw-placeholder-opacity));
 }
 
+.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -1521,12 +1514,6 @@ h5 {
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-xl {
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 

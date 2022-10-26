@@ -1,3 +1,12 @@
 {
-    "/js/app.js": "/js/app.js"
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/fonts/DMSans/DMSans-Bold.ttf": "/fonts/DMSans/DMSans-Bold.ttf",
+    "/fonts/DMSans/DMSans-BoldItalic.ttf": "/fonts/DMSans/DMSans-BoldItalic.ttf",
+    "/fonts/DMSans/DMSans-Italic.ttf": "/fonts/DMSans/DMSans-Italic.ttf",
+    "/fonts/DMSans/DMSans-Medium.ttf": "/fonts/DMSans/DMSans-Medium.ttf",
+    "/fonts/DMSans/DMSans-MediumItalic.ttf": "/fonts/DMSans/DMSans-MediumItalic.ttf",
+    "/fonts/DMSans/DMSans-Regular.ttf": "/fonts/DMSans/DMSans-Regular.ttf",
+    "/fonts/FredokaOne/FredokaOne-Regular.ttf": "/fonts/FredokaOne/FredokaOne-Regular.ttf",
+    "/fonts/FredokaOne-Regular.ttf": "/fonts/FredokaOne-Regular.ttf"
 }
