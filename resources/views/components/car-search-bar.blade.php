@@ -1,4 +1,4 @@
-<div x-data="{ tab: '#sameLocation' }" class="bg-white rounded-3xl max-w-6xl mx-auto text-lg font-medium text-black-secondary">
+<div x-data="{ tab: '#sameLocation' }" class="bg-white rounded-3xl w-6xl mx-auto text-lg font-medium text-black-secondary shadow-xl">
 
   <form>
 
@@ -9,10 +9,10 @@
         <div class="flex flex-row justify-start mb-7 border-b gap-12">
 
           <a class="px-4 pb-1 hover:border-pink-red border-transparent border-b-2" 
-            href="#" @click="tab='#sameLocation'" :class="{ 'border-pink-red': tab == '#sameLocation' }">Same location</a>
+            href="#" @click.prevent="tab='#sameLocation'" :class="{ 'border-pink-red': tab == '#sameLocation' }">Same location</a>
             
           <a class="px-4 pb-1 hover:border-pink-red border-transparent border-b-2" 
-            href="#" @click="tab='#differentLocation'" :class="{ 'border-pink-red': tab == '#differentLocation' }">Different location</a>      
+            href="#" @click.prevent="tab='#differentLocation'" :class="{ 'border-pink-red': tab == '#differentLocation' }">Different location</a>      
               
         </div>
         
