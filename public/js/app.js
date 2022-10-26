@@ -98,6 +98,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./resources/css/app.css":
+/*!*******************************!*\
+  !*** ./resources/css/app.css ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module build failed (from ./node_modules/css-loader/index.js):\\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\\nSassError: expected \\\"{\\\".\\n  ╷\\n2 │ var content = require(\\\"!!../../node_modules/css-loader/index.js?{\\\\\\\"importLoaders\\\\\\\":1}!../../node_modules/postcss-loader/src/index.js?{}!./app.css\\\");\\n  │                                                                                                                                                    ^\\n  ╵\\n  /var/www/html/reykjavic-auto-new/resources/css/app.css 2:148  root stylesheet\\n    at /var/www/html/reykjavic-auto-new/node_modules/webpack/lib/NormalModule.js:316:20\\n    at /var/www/html/reykjavic-auto-new/node_modules/loader-runner/lib/LoaderRunner.js:367:11\\n    at /var/www/html/reykjavic-auto-new/node_modules/loader-runner/lib/LoaderRunner.js:233:18\\n    at context.callback (/var/www/html/reykjavic-auto-new/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\\n    at /var/www/html/reykjavic-auto-new/node_modules/sass-loader/dist/index.js:73:7\\n    at Function.call$2 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:101257:16)\\n    at render_closure1.call$2 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:86329:12)\\n    at _RootZone.runBinary$3$3 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:30053:18)\\n    at _FutureListener.handleError$1 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:28582:21)\\n    at _Future__propagateToListeners_handleError.call$0 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:28889:49)\\n    at Object._Future__propagateToListeners (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:3911:77)\\n    at _Future._completeError$2 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:28735:9)\\n    at _AsyncAwaitCompleter.completeError$2 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:28383:12)\\n    at Object._asyncRethrow (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:3713:17)\\n    at /var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:20081:20\\n    at _wrapJsFunctionForAsync_closure.$protected (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:3738:15)\\n    at _wrapJsFunctionForAsync_closure.call$2 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:28402:12)\\n    at _awaitOnObject_closure0.call$2 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:28396:25)\\n    at _RootZone.runBinary$3$3 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:30053:18)\\n    at _FutureListener.handleError$1 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:28582:21)\\n    at _Future__propagateToListeners_handleError.call$0 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:28889:49)\\n    at Object._Future__propagateToListeners (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:3911:77)\\n    at _Future._completeError$2 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:28735:9)\\n    at _Future__asyncCompleteError_closure.call$0 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:28819:18)\\n    at Object._microtaskLoop (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:3967:24)\\n    at StaticClosure._startMicrotaskLoop (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:3973:11)\\n    at _AsyncRun__scheduleImmediateJsOverride_internalCallback.call$0 (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:28303:21)\\n    at invokeClosure (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:1448:26)\\n    at Immediate.<anonymous> (/var/www/html/reykjavic-auto-new/node_modules/sass/sass.dart.js:1469:18)\\n    at processImmediate (node:internal/timers:466:21)\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3Jlc291cmNlcy9jc3MvYXBwLmNzcy5qcyIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/css/app.css\n");
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -121,26 +132,15 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var alpi
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Fzcy9hcHAuc2Nzcz80NGJjIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6Ii4vcmVzb3VyY2VzL3Nhc3MvYXBwLnNjc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyByZW1vdmVkIGJ5IGV4dHJhY3QtdGV4dC13ZWJwYWNrLXBsdWdpbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/sass/app.scss\n");
-
-/***/ }),
-
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!***********************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/css/app.css ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /var/www/html/reykjavic-auto-new/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/html/reykjavic-auto-new/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /var/www/html/reykjavic-auto-new/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })
