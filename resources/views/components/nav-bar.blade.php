@@ -10,7 +10,7 @@
     </div>
     <div class="pl-5 text-sm flex items-center gap-1">
       <span>ENG</span>
-      <img class="inline" src="{{URL::asset('/images/flags/en.png')}}" />
+      <img class="inline" src="{{URL::asset('/images/flags/en.svg')}}" />
     </div>
   </div>
 </nav>
