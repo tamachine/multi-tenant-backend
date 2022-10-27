@@ -920,6 +920,9 @@ h5 {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
+.divide-custom {
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -945,10 +948,6 @@ h5 {
   bottom: -1.5rem;
 }
 
-.-bottom-24 {
-  bottom: -6rem;
-}
-
 .z-0 {
   z-index: 0;
 }
@@ -970,16 +969,24 @@ h5 {
   margin-bottom: 1.75rem;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
 .mt-6 {
   margin-top: 1.5rem;
 }
 
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.mt-8 {
-  margin-top: 2rem;
 }
 
 .mt-1 {
@@ -1026,6 +1033,10 @@ h5 {
   display: inline-flex;
 }
 
+.grid {
+  display: grid;
+}
+
 .contents {
   display: contents;
 }
@@ -1036,6 +1047,10 @@ h5 {
 
 .h-16 {
   height: 4rem;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .h-\[718px\] {
@@ -1064,6 +1079,10 @@ h5 {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[1px\] {
+  width: 1px;
 }
 
 .w-4 {
@@ -1100,12 +1119,20 @@ h5 {
           appearance: none;
 }
 
+.grid-cols-9 {
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
 .flex-row {
   flex-direction: row;
 }
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse;
 }
 
 .flex-wrap {
@@ -1250,6 +1277,11 @@ h5 {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-rose-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 228 230 / var(--tw-bg-opacity));
+}
+
 .bg-indigo-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(79 70 229 / var(--tw-bg-opacity));
@@ -1258,6 +1290,11 @@ h5 {
 .bg-green-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+
+.bg-violet-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 233 254 / var(--tw-bg-opacity));
 }
 
 .bg-green-50 {
@@ -1334,6 +1371,11 @@ h5 {
   padding-right: 0.5rem;
 }
 
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
 .pl-16 {
   padding-left: 4rem;
 }
@@ -1362,6 +1404,14 @@ h5 {
   padding-top: 0.75rem;
 }
 
+.pt-0 {
+  padding-top: 0px;
+}
+
+.pb-0 {
+  padding-bottom: 0px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1377,6 +1427,11 @@ h5 {
 
 .text-lg {
   font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
@@ -1396,6 +1451,10 @@ h5 {
 
 .font-extrabold {
   font-weight: 800;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .font-normal {
@@ -1432,6 +1491,16 @@ h5 {
 .text-pink-red {
   --tw-text-opacity: 1;
   color: rgb(225 17 102 / var(--tw-text-opacity));
+}
+
+.text-black-primary {
+  --tw-text-opacity: 1;
+  color: rgb(48 0 0 / var(--tw-text-opacity));
+}
+
+.text-amber-400 {
+  --tw-text-opacity: 1;
+  color: rgb(251 191 36 / var(--tw-text-opacity));
 }
 
 .text-gray-900 {
