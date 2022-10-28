@@ -862,9 +862,19 @@ h5 {
   flex-grow: 1;
   cursor: pointer;
   border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 245 247 / var(--tw-bg-opacity));
 }
 
 .search-input-group:hover {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(225 17 102 / var(--tw-ring-opacity));
+}
+
+.search-input-group:focus-within {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
@@ -876,6 +886,7 @@ h5 {
   position: absolute;
   top: 0.5rem;
   left: 1.5rem;
+  z-index: 0;
 }
 
 .search-input-group > div > div:last-of-type {
@@ -886,14 +897,15 @@ h5 {
 }
 
 .search-input-group input {
+  position: relative;
+  z-index: 10;
   width: 100%;
   cursor: pointer;
   border-radius: 0.5rem;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(231 232 234 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 245 247 / var(--tw-bg-opacity));
+  background-color: transparent;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
   font-size: 1.125rem;
@@ -912,7 +924,7 @@ h5 {
 }
 
 .search-input-group input:focus {
-  border-width: 0px;
+  border-color: transparent;
   outline: 2px solid transparent;
   outline-offset: 2px;
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
@@ -1129,10 +1141,6 @@ h5 {
 
 .flex-col {
   flex-direction: column;
-}
-
-.flex-col-reverse {
-  flex-direction: column-reverse;
 }
 
 .flex-wrap {
