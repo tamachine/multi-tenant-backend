@@ -37,6 +37,7 @@ Run the database migrations (**Set the database connection in .env before migrat
     php artisan migrate
 
 Run the database seeder for translations 
+
     php artisan db:seed --class=LanguageLineSeeder
 
 Start the local development server
