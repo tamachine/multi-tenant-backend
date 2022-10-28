@@ -58,6 +58,10 @@ There is one Seeder for every 'group.key-group'. You can run LanguageLineSeeder 
 
 Please, note that 'group.key-group.key' must be unique and that all translations can be changed by users so as far as possible, don't include parameters in the translations so the user can not modify them.
 
+## Model Translations
+
+Model translations use the package https://github.com/spatie/laravel-translatable:4.6.0 (**version 4.6.0 is the one with compapatibility with PHP 7.4 and Laravel 8**)
+
 ## Tailwind
 
 In order to start the Tailwind CLI build process in local environment to scan templates files or classes and build your css , run: 
