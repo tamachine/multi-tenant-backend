@@ -52,8 +52,9 @@ Translations are stored in database using https://github.com/spatie/laravel-tran
 
 The structure for the translations is always:
 
-'group' ->  web / admin / api
-'key'   -> 'key-group.key' where  'key-group' is something like 'general', 'reviews', 'home'
+    'group' ->  web / admin / api
+
+    'key'   -> 'key-group.key' where  'key-group' is something like 'general', 'reviews', 'home'
 
 There is one Seeder for every 'group.key-group'. You can run LanguageLineSeeder to run all translations seeders (if you create a new one, include it in LanguageLineSeeder). You can run it as many times as you want since it uses the firstOrCreate method.
 
