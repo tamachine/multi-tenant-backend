@@ -48,6 +48,10 @@ h3 {
     @apply text-black-primary text-3xl font-medium text-center;
 }
 
+h4 {
+    @apply text-2xl text-black-primary font-normal;
+}
+
 h5 {
     @apply font-fredokaOne text-pink-red font-semibold text-3xl text-center;
 }   

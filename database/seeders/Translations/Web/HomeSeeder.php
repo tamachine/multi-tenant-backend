@@ -32,6 +32,26 @@ class HomeSeeder extends Seeder
             [                
                 'text' => ['en' => 'The best car rental in Iceland', 'es' => 'El mejor alquiler de coches en Islandia'],
             ]
-        );        
+        );   
+        
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.box1-h2-title',    
+            ],
+            [                
+                'text' => ['en' => 'Best way to find your perfect car in Iceland', 'es' => 'La mejor forma de encontrar el coche perfecto en Islandia'],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.box1-h2-subtitle',    
+            ],
+            [                
+                'text' => ['en' => 'We are locals and treat each customer to our acquired expertise and knowledge that is unsurpassed by any other car rental in Iceland.', 'es' => 'Somos locales y tratamos a cada cliente con nuestra experiencia y conocimiento adquiridos que no tienen comparación con ningún otro alquiler de autos en Islandia.'],
+            ]
+        ); 
     }
 }

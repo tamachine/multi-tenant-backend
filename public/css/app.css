@@ -829,6 +829,14 @@ h3 {
   color: rgb(48 0 0 / var(--tw-text-opacity));
 }
 
+h4 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 400;
+  --tw-text-opacity: 1;
+  color: rgb(48 0 0 / var(--tw-text-opacity));
+}
+
 h5 {
   text-align: center;
   font-family: FredokaOne;
@@ -1082,10 +1090,6 @@ h5 {
   width: auto;
 }
 
-.w-6xl {
-  width: 1170px;
-}
-
 .w-full {
   width: 100%;
 }
@@ -1102,12 +1106,12 @@ h5 {
   width: 1.25rem;
 }
 
-.max-w-7xl {
-  max-width: 1440px;
-}
-
 .max-w-6xl {
   max-width: 1170px;
+}
+
+.max-w-7xl {
+  max-width: 1440px;
 }
 
 .flex-1 {
@@ -1380,9 +1384,19 @@ h5 {
   padding-right: 0.5rem;
 }
 
+.px-24 {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
 .py-24 {
   padding-top: 6rem;
   padding-bottom: 6rem;
+}
+
+.px-22 {
+  padding-left: 84px;
+  padding-right: 84px;
 }
 
 .pl-16 {
@@ -1399,6 +1413,10 @@ h5 {
 
 .pr-16 {
   padding-right: 4rem;
+}
+
+.pt-5 {
+  padding-top: 1.25rem;
 }
 
 .pl-5 {

@@ -35,6 +35,9 @@ module.exports = {
             },
             backgroundImage: {
                 'home-hero': "url('/images/home/hero.png')",                
+            },
+            padding: {
+                '22' : "84px",
             }
         },                       
     },        

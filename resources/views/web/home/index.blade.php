@@ -10,6 +10,15 @@
         </div>                
     </div>
 
-    @include('web.home.info')
-       
+    <div class="max-w-6xl mx-auto">
+
+        @include('web.home.info')
+        
+        <div class="px-22">
+            <x-heading-h2 title="{{ __('web.home.box1-h2-title') }}" subtitle="{{ __('web.home.box1-h2-subtitle') }}" />
+        </div>
+
+    </div>
+    
+
 @endsection
