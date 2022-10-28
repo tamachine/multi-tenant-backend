@@ -4,7 +4,7 @@
 New Reykjavik auto site (Intergalactic spaceship)
 
 ## Pre requisites
-This project is using PHP 7.4 version with TALL stack (Tailwind 3, Alpine, Livewire and Laravel)
+This project is using PHP 7.4 with TALL stack (Tailwind 3, Alpine, Livewire and Laravel 8) and Laravel mix 6
 
 ## Installation
 
@@ -36,11 +36,27 @@ Run the database migrations (**Set the database connection in .env before migrat
 
     php artisan migrate
 
+Run the database seeder for translations 
+    php artisan db:seed --class=LanguageLineSeeder
+
 Start the local development server
 
     php artisan serve
 
 You can now access the server at http://localhost:8000
+
+## Translations
+
+Translations are stored in database using https://github.com/spatie/laravel-translation-loader package. With this package, all laravel 'trans' function are available. You can mix using language files and the database. If a translation is present in both a file and the database, the database version will be returned.
+
+The structure for the translations is always:
+
+'group' ->  web / admin / api
+'key'   -> 'key-group.key' where  'key-group' is something like 'general', 'reviews', 'home'
+
+There is one Seeder for every 'group.key-group'. You can run LanguageLineSeeder to run all translations seeders (if you create a new one, include it in LanguageLineSeeder). You can run it as many times as you want since it uses the firstOrCreate method.
+
+Please, note that 'group.key-group.key' must be unique and that all translations can be changed by users so as far as possible, don't include parameters in the translations so the user can not modify them.
 
 ## Tailwind
 
