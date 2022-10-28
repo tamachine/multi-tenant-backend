@@ -1,4 +1,4 @@
-<div x-data="{ tab: '#sameLocation' }" class="bg-white rounded-3xl w-6xl mx-auto text-lg font-medium text-black-secondary shadow-xl">
+<div x-data="{ tab: '#sameLocation' }" class="bg-white rounded-3xl max-w-6xl mx-auto text-lg font-medium text-black-secondary shadow-xl">
 
   <form>
 

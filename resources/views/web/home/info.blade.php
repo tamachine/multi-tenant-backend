@@ -1,4 +1,4 @@
-<div class="py-24 grid grid-cols-9 w-6xl mx-auto">
+<div class="py-24 grid grid-cols-9 max-w-6xl mx-auto">
     <div class="pt-0">
         <x-reviews-info :reviewInfoComponent="$googleReviewInfoComponent" />
     </div>  
