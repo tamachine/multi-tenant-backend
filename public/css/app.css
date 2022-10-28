@@ -932,9 +932,6 @@ h5 {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-.divide-custom {
-}
-
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -1318,8 +1315,8 @@ h5 {
   background-size: cover;
 }
 
-.bg-bottom {
-  background-position: bottom;
+.bg-center {
+  background-position: center;
 }
 
 .bg-no-repeat {
@@ -1624,6 +1621,16 @@ h5 {
   display: none;
 }
 
+/**
+ * Class to expand a div the total width of the screen overriding its parents widht
+ */
+
+.w-fill-screen {
+  position: relative;
+  left: calc(-50vw + 50%);
+  width: 100vw;
+}
+
 .hover\:border-pink-red:hover {
   --tw-border-opacity: 1;
   border-color: rgb(225 17 102 / var(--tw-border-opacity));
@@ -1765,5 +1772,5 @@ h5 {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-}
+} 
  

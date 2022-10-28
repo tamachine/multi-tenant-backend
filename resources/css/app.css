@@ -79,10 +79,6 @@ h5 {
         @apply relative bg-transparent z-10 cursor-pointer rounded-lg text-lg placeholder:text-black-primary py-5 border-gray-secondary border w-full focus:outline-none focus:ring-0 focus:border-transparent caret-transparent;
     }
 
-.divide-custom {
-    
-}
-
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
@@ -102,4 +98,11 @@ h5 {
 [x-cloak] {
     display: none;
 }
+
+/**
+ * Class to expand a div the total width of the screen overriding its parents widht
+ */
+.w-fill-screen {
+    @apply w-screen relative left-[calc(-50vw+50%)]
+} 
  
