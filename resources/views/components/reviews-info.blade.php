@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center h-full">
     <div class="text-black-primary text-lg">
-        <span class="font-fredokaOne text-pink-red text-3xl">{{ $reviewInfoComponent->getNote() }}</span> of {{ $reviewInfoComponent->getMaxNote() }}</div>
+        <span class="font-fredokaOne text-pink-red text-3xl">{{ $reviewInfoComponent->getNote() }}</span> {{ __('web.reviews.of') }} {{ $reviewInfoComponent->getMaxNote() }}</div>
     <div> 
         @for($x=1; $x<=$reviewInfoComponent->getTotalStars(); $x++)     
             @if($x<=$reviewInfoComponent->getMarkedStars())                   
@@ -11,5 +11,5 @@
         @endfor
     </div>
     <div class="mt-auto"><img src="{{ $reviewInfoComponent->getIconPath() }}" /></div>
-    <div class="mt-auto">{{ $reviewInfoComponent->getTotalReviews() }} reviews</div>    
+    <div class="mt-auto">{{ $reviewInfoComponent->getTotalReviews() }} {{ __('web.reviews.reviews') }}</div>    
 </div>
