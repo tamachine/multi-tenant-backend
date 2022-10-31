@@ -1,5 +1,5 @@
 <div class="py-24 grid grid-cols-9">
-    <div class="pt-0">
+    <div class="pt-0 flex justify-start">
         <x-reviews-info :reviewInfoComponent="$googleReviewInfoComponent" />
     </div>  
     <x-divide-custom />
@@ -15,7 +15,7 @@
         <x-icon-text text="{{ trans('web.reviews.award') }}" icon-path="{{asset('images/icons/award.svg')}}" />
     </div>
     <x-divide-custom />
-    <div class="pb-0">
+    <div class="pb-0 flex justify-end">
         <x-icon-text text="{{ trans('web.reviews.24-support') }}" icon-path="{{asset('images/icons/24hsupport.svg')}}" />        
     </div>
 </div> 

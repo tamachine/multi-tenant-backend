@@ -10,7 +10,7 @@
         </div>                
     </div>
 
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-6xl mx-auto p-3">
 
         @include('web.home.info')
         
@@ -18,7 +18,8 @@
             <x-heading-h2 title="{{ __('web.home.box1-h2-title') }}" subtitle="{{ __('web.home.box1-h2-subtitle') }}" />
         </div>
 
+        @include('web.home.cards-default')
+               
     </div>
     
-
 @endsection
