@@ -973,6 +973,11 @@ h5 {
   margin-right: auto;
 }
 
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
@@ -1093,6 +1098,11 @@ h5 {
   width: 100%;
 }
 
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .w-\[1px\] {
   width: 1px;
 }
@@ -1208,6 +1218,11 @@ h5 {
        column-gap: 3.5rem;
 }
 
+.gap-x-6 {
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
+}
+
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -1232,6 +1247,10 @@ h5 {
 
 .rounded {
   border-radius: 0.25rem;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
 }
 
 .rounded-md {
@@ -1366,6 +1385,21 @@ h5 {
   padding-bottom: 0.75rem;
 }
 
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.px-\[10px\] {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .px-20 {
   padding-left: 5rem;
   padding-right: 5rem;
@@ -1426,6 +1460,18 @@ h5 {
   padding-right: 4rem;
 }
 
+.pl-1 {
+  padding-left: 0.25rem;
+}
+
+.pt-\[212px\] {
+  padding-top: 212px;
+}
+
+.pb-9 {
+  padding-bottom: 2.25rem;
+}
+
 .pl-5 {
   padding-left: 1.25rem;
 }
@@ -1442,12 +1488,12 @@ h5 {
   padding-top: 4rem;
 }
 
-.pt-36 {
-  padding-top: 9rem;
+.pt-6 {
+  padding-top: 1.5rem;
 }
 
-.pb-12 {
-  padding-bottom: 3rem;
+.pt-36 {
+  padding-top: 9rem;
 }
 
 .pt-2 {
@@ -1484,6 +1530,15 @@ h5 {
   line-height: 1.75rem;
 }
 
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-\[32px\] {
+  font-size: 32px;
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1492,11 +1547,6 @@ h5 {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
-}
-
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
 }
 
 .font-medium {
@@ -1542,14 +1592,19 @@ h5 {
   color: rgb(59 62 68 / var(--tw-text-opacity));
 }
 
-.text-pink-red {
+.text-white {
   --tw-text-opacity: 1;
-  color: rgb(225 17 102 / var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-black-primary {
   --tw-text-opacity: 1;
   color: rgb(48 0 0 / var(--tw-text-opacity));
+}
+
+.text-pink-red {
+  --tw-text-opacity: 1;
+  color: rgb(225 17 102 / var(--tw-text-opacity));
 }
 
 .text-amber-400 {
@@ -1575,11 +1630,6 @@ h5 {
 .text-red-600 {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
-}
-
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-indigo-700 {

@@ -133,5 +133,95 @@ class HomeSeeder extends Seeder
                 'text' => ['en' => 'to discover all guides and secrets in Iceland', 'es' => 'para descubrir todas las guías y secretos de Islandia'],
             ]
         ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.card-elongated-1-title',    
+            ],
+            [                
+                'text' => ['en' => 'Tap Water in Iceland: Is it Safe?', 'es' => 'Agua del grifo en Islandia: ¿es segura?'],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.card-elongated-1-text',    
+            ],
+            [                
+                'text' => ['en' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all.", 'es' => "¿Es seguro beber agua del grifo en Islandia? ¿Y qué pasa con los rumores de un olor a azufre? Respondamos a estas preguntas de una vez por todas."],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.card-elongated-2-title',    
+            ],
+            [                
+                'text' => ['en' => 'Driving Highland Road F208 in Iceland', 'es' => 'Conducir Highland Road F208 en Islandia'],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.card-elongated-2-text',    
+            ],
+            [                
+                'text' => ['en' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all.", 'es' => "¿Es seguro beber agua del grifo en Islandia? ¿Y qué pasa con los rumores de un olor a azufre? Respondamos a estas preguntas de una vez por todas."],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.card-elongated-3-title',    
+            ],
+            [                
+                'text' => ['en' => "Seljalandsfoss Waterfall: Iceland's Beauty", 'es' => "Cascada de Seljalandsfoss: la belleza de Islandia"],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.card-elongated-3-text',    
+            ],
+            [                
+                'text' => ['en' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all.", 'es' => "¿Es seguro beber agua del grifo en Islandia? ¿Y qué pasa con los rumores de un olor a azufre? Respondamos a estas preguntas de una vez por todas."],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.card-elongated-1-time',    
+            ],
+            [                
+                'text' => ['en' => "2 Minutes", 'es' => '2 Minutos'],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.card-elongated-2-time',    
+            ],
+            [                
+                'text' => ['en' => "2 Minutes", 'es' => '2 Minutos'],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.card-elongated-3-time',    
+            ],
+            [                
+                'text' => ['en' => "2 Minutes", 'es' => '2 Minutos'],
+            ]
+        ); 
     }
 }

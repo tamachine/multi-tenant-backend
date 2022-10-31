@@ -38,7 +38,7 @@ module.exports = {
             },
             padding: {
                 '22' : "84px",
-            }
+            }           
         },                       
     },        
     plugins: [
