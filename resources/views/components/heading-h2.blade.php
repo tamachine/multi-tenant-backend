@@ -2,7 +2,7 @@
     <h2>
         {{ $title }}
     </h2>
-    <h4 class="pt-5">
+    <h4 class="{{ $tailwindPaddingClass }}">
         {{ $subtitle }}
     </h4>
 </div>

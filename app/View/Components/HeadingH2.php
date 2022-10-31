@@ -25,18 +25,26 @@ class HeadingH2 extends Component
      *
      * @var string
      */
-    public $tailwindAlignClass = "text-center";
+    public $tailwindAlignClass;
+
+    /**
+     * The padding between items.
+     *
+     * @var string
+     */
+    public $tailwindPaddingClass;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $subtitle, $tailwindAlignClass = 'text-center')
+    public function __construct($title, $subtitle, $tailwindAlignClass = 'text-center', $tailwindPaddingClass = 'pt-5')
     {
         $this->title = $title;
         $this->subtitle = $subtitle;
         $this->tailwindAlignClass = $tailwindAlignClass;
+        $this->tailwindPaddingClass = $tailwindPaddingClass;
     }
 
     /**

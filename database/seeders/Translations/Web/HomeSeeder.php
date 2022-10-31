@@ -113,5 +113,25 @@ class HomeSeeder extends Seeder
                 'text' => ['en' => "Got any questions or need an answer about something that's not even related to the car hire? We are are available 24/7 to answer any questions about your trip!", 'es' => '¿Tiene alguna pregunta o necesita una respuesta sobre algo que ni siquiera está relacionado con el alquiler de coches? ¡Estamos disponibles las 24 horas del día, los 7 días de la semana para responder cualquier pregunta sobre su viaje!'],
             ]
         ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.box2-h2-title',    
+            ],
+            [                
+                'text' => ['en' => 'Explore our latest articles', 'es' => 'Explora nuestros últimos artículos'],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.box2-h2-subtitle',    
+            ],
+            [                
+                'text' => ['en' => 'to discover all guides and secrets in Iceland', 'es' => 'para descubrir todas las guías y secretos de Islandia'],
+            ]
+        ); 
     }
 }
