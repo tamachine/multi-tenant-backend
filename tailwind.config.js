@@ -25,6 +25,7 @@ module.exports = {
                 'gray-secondary' : '#E7E8EA',
                 'gray-tertiary' : '#B1B5C4',
                 'pink-red':'#E11166',
+                'pink-red-secondary' : '#FDEEF4',
             },
             maxWidth: {
                 '6xl': '1170px',

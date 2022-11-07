@@ -873,8 +873,12 @@ h5 {
   color: rgb(48 0 0 / var(--tw-text-opacity));
 }
 
-.tab.active,
 .tab:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 238 244 / var(--tw-bg-opacity));
+}
+
+.tab.active {
   --tw-bg-opacity: 1;
   background-color: rgb(225 17 102 / var(--tw-bg-opacity));
   font-weight: 700;
@@ -1569,6 +1573,10 @@ h5 {
   padding-top: 1.5rem;
 }
 
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+
 .pt-36 {
   padding-top: 9rem;
 }
@@ -1583,10 +1591,6 @@ h5 {
 
 .pb-0 {
   padding-bottom: 0px;
-}
-
-.pb-3 {
-  padding-bottom: 0.75rem;
 }
 
 .text-left {

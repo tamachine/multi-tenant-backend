@@ -61,11 +61,10 @@ h5 {
 }
 
 .tab {
-    @apply rounded-[10px] text-base py-[14px] px-6 font-normal text-black-primary border-pink-red border;
+    @apply rounded-[10px] text-base py-[14px] px-6 font-normal text-black-primary border-pink-red border hover:bg-pink-red-secondary;
 }
 
-.tab.active,
-.tab:hover {
+.tab.active {
     @apply bg-pink-red text-white font-bold;
 }
 
