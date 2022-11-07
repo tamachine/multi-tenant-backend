@@ -30,6 +30,8 @@
         </div>
 
         @include('web.home.cards-elongated')
+
+        @include('web.home.faqs')
     </div>
     
 @endsection

@@ -223,5 +223,25 @@ class HomeSeeder extends Seeder
                 'text' => ['en' => "2 Minutes", 'es' => '2 Minutos'],
             ]
         ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.faqs-title',    
+            ],
+            [                
+                'text' => ['en' => "Frequently asked questions", 'es' => 'Preguntas frecuentes'],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.faqs-subtitle',    
+            ],
+            [                
+                'text' => ['en' => "No worries we have you covered. Check in here for answers to top questions. Remember, we love traveling through beautiful, wild and wonderful Iceland!", 'es' => "No se preocupe, lo tenemos cubierto. Consulte aquí para obtener respuestas a las principales preguntas. Recuerda, ¡nos encanta viajar por la hermosa, salvaje y maravillosa Islandia!"],
+            ]
+        );         
     }
 }

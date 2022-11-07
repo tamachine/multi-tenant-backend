@@ -60,6 +60,15 @@ h5 {
     @apply rounded-xl text-xl px-14 py-5 font-bold;
 }
 
+.tab {
+    @apply rounded-[10px] text-base py-[14px] px-6 font-normal text-black-primary border-pink-red border;
+}
+
+.tab.active,
+.tab:hover {
+    @apply bg-pink-red text-white font-bold;
+}
+
 .btn-red {
     @apply bg-pink-red text-white;
 }
