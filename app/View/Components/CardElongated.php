@@ -35,13 +35,21 @@ class CardElongated extends Component
     public $time;
 
     /**
+     * The image hover path
+     *
+     * @var string
+     */
+    public $backgroundHoverRelativePath;
+
+    /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($backgroundRelativePath, $title, $text, $time)
+    public function __construct($backgroundRelativePath, $title, $text, $time, $backgroundHoverRelativePath = null)
     {
         $this->backgroundRelativePath = $backgroundRelativePath;
+        $this->backgroundHoverRelativePath = $backgroundHoverRelativePath;
         $this->title = $title;
         $this->text = $text;
         $this->time = $time;
@@ -54,6 +62,12 @@ class CardElongated extends Component
      */
     public function render()
     {
-        return view('components.card-elongated');
+        return view(
+            'components.card-elongated', 
+            [
+                'hover' => $this->backgroundHoverRelativePath ?? $this->backgroundRelativePath ,
+                'image' => $this->backgroundRelativePath 
+            ]
+        );
     }
 }
