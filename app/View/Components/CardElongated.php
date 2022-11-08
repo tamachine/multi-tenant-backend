@@ -63,7 +63,7 @@ class CardElongated extends Component
     public function render()
     {
         return view(
-            'components.card-elongated', 
+            'components.card-elongated.card-elongated', 
             [
                 'hover' => $this->backgroundHoverRelativePath ?? $this->backgroundRelativePath ,
                 'image' => $this->backgroundRelativePath 
