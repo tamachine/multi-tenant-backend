@@ -5,8 +5,8 @@
 
 <div x-data="{ image: '{{ $image }}' }"
     class="flex flex-col bg-cover rounded-2xl text-white justify-between relative" 
-    @mouseover="image= '{{ $hover }}'"
-    @mouseout="image= '{{ $image }}'"      
+    x-on:mouseenter="image= '{{ $hover }}'"
+    x-on:mouseleave="image= '{{ $image }}'"      
 >    
     @include('components.card-elongated.background', ['image' => $image])
     
@@ -16,7 +16,7 @@
         <div class="flex flex-col h-full">
             <div class="flex-grow">
                 <div class="my-8 bg-white rounded-2xl py-1 px-[10px] w-fit">
-                    <img class="inline" src="{{ asset('images/icons/clock.svg') }}" /> 
+                    <img class="inline" src="{{ asset('images/icons/clock-red.svg') }}" /> 
                     <span class="text-sm font-medium text-black-primary pl-1">{{ $time }}</span>
                 </div>
             </div>
