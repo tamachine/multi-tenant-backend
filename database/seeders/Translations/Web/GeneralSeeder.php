@@ -20,7 +20,7 @@ class GeneralSeeder extends Seeder
                 'key' => 'general.brand',    
             ],
             [                
-                'text' => ['en' => 'Reykjavic Auto', 'es' => 'Reykjavic Auto'],
+                'text' => ['en' => 'Reykjavik Auto', 'es' => 'Reykjavik Auto'],
             ]
         );    
         

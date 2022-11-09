@@ -33,7 +33,7 @@
 
         @include('web.home.deals')
 
-        @include('web.home.faqs')
+        <x-faqs />
     </div>
     
 @endsection
