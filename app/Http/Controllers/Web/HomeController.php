@@ -7,11 +7,12 @@ use App\Providers\RouteServiceProvider;
 use App\Services\ReviewsInfo\GoogleReviewsInfoComponent;
 use App\Services\ReviewsInfo\FacebookReviewsInfoComponent;
 use App\Services\ReviewsInfo\TrustPilotReviewsInfoComponent;
+use App\Models\Faq;
 
 class HomeController extends Controller
 {
     public function index() 
-    {
+    {        
         return view(
             'web.home.index', 
             [
