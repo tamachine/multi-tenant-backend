@@ -31,6 +31,8 @@
 
         @include('web.home.cards-elongated')
 
+        @include('web.home.deals')
+
         @include('web.home.faqs')
     </div>
     

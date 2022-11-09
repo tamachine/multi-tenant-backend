@@ -41,7 +41,7 @@ h1 {
 }
 
 h2 {
-    @apply font-fredokaOne text-pink-red font-semibold text-5xl;
+    @apply font-fredokaOne text-pink-red font-semibold text-5xl leading-[60px] tracking-[-0.005em];
 }
 
 h3 {
