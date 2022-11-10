@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Auth;
+use Illuminate\View\View;
 
 class DashboardController extends Controller
 {
-    public function index() 
-    {        
-        return view(
-            'admin.dashboard.index');
+    /**
+     *  Dashboard
+     */
+    public function index(): View
+    {
+        return view('admin.dashboard.index');
     }
 }
