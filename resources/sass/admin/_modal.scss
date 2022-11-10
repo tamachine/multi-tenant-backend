@@ -1,0 +1,75 @@
+.modal {
+    @apply fixed;
+    @apply w-full;
+    @apply h-full;
+    @apply top-0;
+    @apply left-0;
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply z-10;
+}
+
+.modal-overlay {
+    @apply absolute;
+    @apply w-full;
+    @apply h-full;
+    @apply bg-gray-900;
+    @apply opacity-50;
+}
+
+.modal-container {
+    @apply bg-white;
+    @apply w-full;
+    @apply max-w-md;
+    @apply max-h-full;
+    @apply mx-auto;
+    @apply rounded;
+    @apply shadow-lg;
+    @apply z-50;
+    @apply overflow-y-auto;
+}
+
+.modal-lg .modal-container {
+    @apply max-w-xl;
+}
+
+.modal-full .modal-container {
+    @apply w-auto;
+    @apply max-w-full;
+}
+
+.modal-content {
+    @apply py-4;
+    @apply text-left;
+    @apply px-6;
+}
+
+.modal-heading {
+    @apply flex;
+    @apply justify-between;
+    @apply items-center;
+    @apply pb-3;
+    @apply text-xl;
+}
+
+.modal-body {
+
+}
+
+.modal-footer {
+    @apply flex;
+    @apply justify-end;
+    @apply pt-2;
+    @apply mt-4;
+
+    button {
+        &.btn-danger:hover {
+            @apply bg-red-300;
+        }
+
+        &.btn-success:hover {
+            @apply bg-green-300;
+        }
+    }
+}

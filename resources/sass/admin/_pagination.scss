@@ -1,0 +1,42 @@
+.pagination {
+    @apply text-center;
+
+    ul {
+        @apply inline-block;
+    }
+
+    li {
+        @apply inline-block;
+        @apply text-xs;
+        @apply font-bold;
+
+        &.active span, &.disabled span, button{
+            @apply rounded-full;
+            @apply h-6;
+            @apply w-6;
+            @apply flex;
+            @apply items-center;
+            @apply justify-center;
+        }
+
+        button{
+            @apply bg-gray-100;
+            @apply text-gray-900;
+
+            &:hover, &:active {
+                @apply text-gray-100;
+                @apply bg-gray-900;
+            }
+        }
+
+        &.active span{
+            @apply bg-gray-900;
+            @apply text-white;
+        }
+
+        &.disabled span {
+            @apply text-gray-300;
+            @apply bg-gray-100;
+        }
+    }
+}

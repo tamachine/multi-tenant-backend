@@ -13,10 +13,12 @@ require("laravel-mix-tailwind");
  |
  */
 
-mix.js("resources/js/app.js", "public/js/app.js")      
+mix.js("resources/js/app.js", "public/js/app.js")
+   .js("resources/js/admin.js", "public/js/admin.js")
     .postCss('resources/css/app.css', 'public/css', [
         require('tailwindcss'),
-    ])  
+    ])
+    .sass('resources/sass/admin.scss', 'public/css')
     .tailwind("./tailwind.config.js")
     .copy("resources/fonts", "public/fonts")
     .sourceMaps();

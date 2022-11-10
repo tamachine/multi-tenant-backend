@@ -1,0 +1,13 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+[x-cloak] {
+    display:none;
+}
+
+@import 'admin/modal';
+@import 'admin/pagination';
+@import 'admin/others';
