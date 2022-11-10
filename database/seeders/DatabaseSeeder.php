@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
      */
     private function runStaging()
     {
-        //
+        $this->runLocal();
     }
 
      /**
