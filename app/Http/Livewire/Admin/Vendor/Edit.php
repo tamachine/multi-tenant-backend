@@ -4,9 +4,13 @@ namespace App\Http\Livewire\Admin\Vendor;
 
 use App\Models\Vendor;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Storage;
 
 class Edit extends Component
 {
+    use WithFileUploads;
+
     /*
     ***************************************************************
     ** PROPERTIES
@@ -43,6 +47,16 @@ class Edit extends Component
      */
     public $brand_color;
 
+    /**
+     * @var object
+     */
+    public $logo;
+
+     /**
+     * @var string
+     */
+    public $logo_url;
+
     /*
     ***************************************************************
     ** METHODS
@@ -57,6 +71,7 @@ class Edit extends Component
         $this->service_fee = $this->vendor->service_fee;
         $this->status = $this->vendor->status;
         $this->brand_color = $this->vendor->brand_color;
+        $this->logo_url = $this->vendor->logo_url;
     }
 
     public function saveVendor()
@@ -80,7 +95,32 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Vendor edited successfully');
 
-        return redirect()->route('vendor.index');
+        return redirect()->route('vendor.edit', $this->vendor->hashid);
+    }
+
+    public function uploadLogo()
+    {
+        $this->validate([
+            'logo'      => ['required', 'mimes:jpeg,jpg,png,gif,webp'],
+        ]);
+
+        // Delete previous logo (if there is one)
+        if (!emptyOrNull($this->vendor->logo)) {
+            Storage::disk('public')->delete("vendors/" . $this->vendor->logo);
+        }
+
+        $extension = $this->logo->getClientOriginalExtension();
+        $filename = $this->vendor->hashid . "." . $extension;
+        $this->logo->storeAs("public/vendors" , $filename);
+
+        $this->vendor->update([
+            'logo' => $filename,
+        ]);
+
+        session()->flash('status', 'success');
+        session()->flash('message', 'Logo uploaded successfully');
+
+        return redirect()->route('vendor.edit', $this->vendor->hashid);
     }
 
     public function deleteVendor($hashid)

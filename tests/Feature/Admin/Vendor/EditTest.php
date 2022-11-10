@@ -95,8 +95,8 @@ class EditTest extends TestCase
         ->set('service_fee', 250)
         ->set('status', 'active')
         ->set('brand_color', '#FFFFFF')
-            ->call('saveVendor')
-            ->assertRedirect(route('vendor.index'));
+        ->call('saveVendor')
+        ->assertStatus(200);
 
         $vendor = Vendor::first();
 
