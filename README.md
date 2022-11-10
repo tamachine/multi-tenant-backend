@@ -36,9 +36,13 @@ Run the database migrations (**Set the database connection in .env before migrat
 
     php artisan migrate
 
-Run the database seeder for translations 
+Run the database seeder for translations. You can run it as much as you want.
 
     php artisan db:seed --class=LanguageLineSeeder
+
+Run the database seeder for faqs. You should run it just once.
+
+    php artisan db:seed --class=FaqsSeeder
 
 Start the local development server
 

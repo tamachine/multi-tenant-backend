@@ -1229,6 +1229,14 @@ h5 {
     height: 4rem;
 }
 
+.h-5 {
+  height: 1.25rem;
+}
+
+.h-\[50px\] {
+  height: 50px;
+}
+
 .h-full {
     height: 100%;
 }
@@ -1245,44 +1253,16 @@ h5 {
     height: 3.5rem;
 }
 
-.h-5 {
-    height: 1.25rem;
-}
-
-.h-10 {
-    height: 2.5rem;
-}
-
-.h-0 {
-    height: 0px;
-}
-
-.h-\[495px\] {
-    height: 495px;
-}
-
-.h-\[718px\] {
-    height: 718px;
-}
-
-.h-4 {
-    height: 1rem;
-}
-
 .h-\[512px\] {
     height: 512px;
 }
 
-.h-\[50px\] {
-    height: 50px;
+.h-\[20px\] {
+  height: 20px;
 }
 
-.h-20 {
-    height: 5rem;
-}
-
-.h-auto {
-    height: auto;
+.h-10 {
+  height: 2.5rem;
 }
 
 .min-h-screen {
@@ -1297,12 +1277,21 @@ h5 {
     width: 100%;
 }
 
+.w-5 {
+  width: 1.25rem;
+}
+
 .w-\[1px\] {
     width: 1px;
 }
 
-.w-0 {
-    width: 0px;
+.w-\[136px\] {
+  width: 136px;
+}
+
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .w-6 {
@@ -1325,53 +1314,24 @@ h5 {
     width: 20rem;
 }
 
-.w-5 {
-    width: 1.25rem;
+.w-\[20px\] {
+  width: 20px;
 }
 
 .w-10 {
-    width: 2.5rem;
-}
-
-.w-64 {
-    width: 16rem;
-}
-
-.w-1\/2 {
-    width: 50%;
-}
-
-.w-fit {
-    width: -moz-fit-content;
-    width: fit-content;
-}
-
-.w-4 {
-    width: 1rem;
-}
-
-.w-\[136px\] {
-    width: 136px;
+  width: 2.5rem;
 }
 
 .min-w-0 {
     min-width: 0px;
 }
 
-.min-w-full {
-    min-width: 100%;
-}
-
-.max-w-6xl {
-    max-width: 1170px;
-}
-
-.max-w-xs {
-    max-width: 20rem;
+.max-w-2xl {
+  max-width: 42rem;
 }
 
 .max-w-7xl {
-    max-width: 1440px;
+  max-width: 1440px;
 }
 
 .max-w-xl {
@@ -1382,8 +1342,16 @@ h5 {
     max-width: 42rem;
 }
 
+.max-w-none {
+  max-width: none;
+}
+
 .flex-1 {
     flex: 1 1 0%;
+}
+
+.flex-\[0_0_50\%\] {
+  flex: 0 0 50%;
 }
 
 .flex-shrink-0 {
@@ -1446,16 +1414,20 @@ h5 {
             appearance: none;
 }
 
-.grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
 .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .grid-cols-9 {
     grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -1510,6 +1482,10 @@ h5 {
     gap: 0.5rem;
 }
 
+.gap-5 {
+  gap: 1.25rem;
+}
+
 .gap-10 {
     gap: 2.5rem;
 }
@@ -1522,8 +1498,8 @@ h5 {
     gap: 1.25rem;
 }
 
-.gap-8 {
-    gap: 2rem;
+.gap-7 {
+  gap: 1.75rem;
 }
 
 .gap-x-14 {
@@ -1560,12 +1536,6 @@ h5 {
     margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.divide-x > :not([hidden]) ~ :not([hidden]) {
-    --tw-divide-x-reverse: 0;
-    border-right-width: calc(1px * var(--tw-divide-x-reverse));
-    border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
-}
-
 .divide-y > :not([hidden]) ~ :not([hidden]) {
     --tw-divide-y-reverse: 0;
     border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -1597,6 +1567,12 @@ h5 {
 
 .whitespace-nowrap {
     white-space: nowrap;
+}
+
+.divide-x > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-x-reverse: 0;
+  border-right-width: calc(1px * var(--tw-divide-x-reverse));
+  border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
 }
 
 .rounded-3xl {
@@ -1850,6 +1826,16 @@ h5 {
     padding-bottom: 0.75rem;
 }
 
+.py-36 {
+  padding-top: 9rem;
+  padding-bottom: 9rem;
+}
+
+.py-9 {
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+}
+
 .px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -1910,16 +1896,6 @@ h5 {
     padding-bottom: 2rem;
 }
 
-.py-36 {
-    padding-top: 9rem;
-    padding-bottom: 9rem;
-}
-
-.py-9 {
-    padding-top: 2.25rem;
-    padding-bottom: 2.25rem;
-}
-
 .px-22 {
     padding-left: 84px;
     padding-right: 84px;
@@ -1959,6 +1935,14 @@ h5 {
     padding-right: 4rem;
 }
 
+.pt-12 {
+  padding-top: 3rem;
+}
+
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+
 .pl-5 {
     padding-left: 1.25rem;
 }
@@ -1991,10 +1975,6 @@ h5 {
     padding-top: 10px;
 }
 
-.pt-12 {
-    padding-top: 3rem;
-}
-
 .pt-3 {
     padding-top: 0.75rem;
 }
@@ -2015,10 +1995,6 @@ h5 {
     padding-top: 2.5rem;
 }
 
-.pb-3 {
-    padding-bottom: 0.75rem;
-}
-
 .pt-36 {
     padding-top: 9rem;
 }
@@ -2028,7 +2004,11 @@ h5 {
 }
 
 .pb-0 {
-    padding-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.pr-28 {
+  padding-right: 7rem;
 }
 
 .text-left {
@@ -2822,5 +2802,5 @@ h5 {
     .xl\:grid-cols-3 {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-} 
- 
+}
+
