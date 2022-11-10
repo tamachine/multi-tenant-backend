@@ -34,6 +34,10 @@
         @include('web.home.deals')
 
         <x-faqs />
+
+        <div class="px-10">
+            @include('web.home.why-iceland')
+        </div>
     </div>
     
 @endsection

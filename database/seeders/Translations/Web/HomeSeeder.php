@@ -252,6 +252,42 @@ class HomeSeeder extends Seeder
             [                
                 'text' => ['en' => "View all questions", "es" => "Ver todas las preguntas"],
             ]
-        );          
+        );   
+        
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.why-iceland-title',    
+            ],
+            [                
+                'text' => ['en' => "Why Iceland?", "es" => "¿Por qué Islandia?"],
+            ]
+        );   
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.why-iceland-text',    
+            ],
+            [                
+                'text' => [
+                    'en' => "While many travelers love to chase the sun and the hustle and bustle of major cities, there are others looking for a more relaxed vacation in a cooler climate. Iceland may be the most sparsely populated country in Europe, but it is also a place that is drawing a lot of attention from tourists looking for a new place to explore.<br><br>Some of the most spectacular natural wonders in the world can be found there, and the small population means that it never feels overcrowded. Getting around can be tough due to the lack of public transport to the remote areas, which is why a car hire in Iceland is such a good idea.", 
+                    "es" => "Mientras que a muchos viajeros les encanta perseguir el sol y el ajetreo y el bullicio de las principales ciudades, hay otros que buscan unas vacaciones más relajadas en un clima más fresco. Islandia puede ser el país menos poblado de Europa, pero también es un lugar que está atrayendo mucho la atención de los turistas que buscan un nuevo lugar para explorar.<br><br>Algunas de las maravillas naturales más espectaculares del mundo se pueden encontrar allí, y la pequeña población significa que nunca se siente abarrotado. Moverse puede ser difícil debido a la falta de transporte público a las zonas remotas, por lo que alquilar un coche en Islandia es una buena idea."
+                ],
+            ]
+        );   
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.why-iceland-more',    
+            ],
+            [                
+                'text' => [
+                    'en' => "Read more", 
+                    "es" => "Leer más"
+                ],
+            ]
+        ); 
     }
 }
