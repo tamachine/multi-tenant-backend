@@ -1,5 +1,5 @@
 @if ($faqs)
-    <div x-data="{ tab: '#tab1' }"  class="py-36">
+    <div x-data="{ tab: '#tab1' }"  class="py-36 px-32">
         <x-heading-h2 
             title="{{ __('web.home.faqs-title') }}" 
             subtitle="{{ __('web.home.faqs-subtitle') }}" 

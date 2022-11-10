@@ -61,6 +61,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             LanguageLineSeeder::class,
+            FaqsSeeder::class,
             VendorSeeder::class,
         ]);
     }
