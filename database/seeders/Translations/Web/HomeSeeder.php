@@ -252,6 +252,6 @@ class HomeSeeder extends Seeder
             [                
                 'text' => ['en' => "View all questions", "es" => "Ver todas las preguntas"],
             ]
-        );  
+        );          
     }
 }
