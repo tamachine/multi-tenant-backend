@@ -5,7 +5,7 @@
             <span class="font-bold text-base leading[26px]">James Gordon</span>
         </div>
         <div>
-            We have compiled an impressive staff capable of servicing customers in 10 widely used international languages. 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac euismod sapien. Etiam sodales ut velit. 
         </div>
     </div>
 </div>
