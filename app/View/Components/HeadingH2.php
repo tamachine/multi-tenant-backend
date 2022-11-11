@@ -21,30 +21,30 @@ class HeadingH2 extends Component
     public $subtitle;
 
     /**
-     * The flex direction.
+     * The text direction.
      *
      * @var string
      */
-    public $tailwindAlignClass;
+    public $textDirection;
 
     /**
      * The padding between items.
      *
      * @var string
      */
-    public $tailwindPaddingClass;
+    public $paddingTop;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $subtitle, $tailwindAlignClass = 'text-center', $tailwindPaddingClass = 'pt-5')
+    public function __construct($title, $subtitle, $textDirection = 'center', $paddingTop = '5')
     {
         $this->title = $title;
         $this->subtitle = $subtitle;
-        $this->tailwindAlignClass = $tailwindAlignClass;
-        $this->tailwindPaddingClass = $tailwindPaddingClass;
+        $this->textDirection = $textDirection;
+        $this->paddingTop = $paddingTop;
     }
 
     /**

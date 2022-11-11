@@ -5,14 +5,7 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 
 class ReadMoreBlock extends Component
-{
-    /**
-     * The line clamp for the text
-     *
-     * @var string
-     */
-    public $lineClampTailwindClass;
-
+{  
     /**
      * The text
      *
@@ -25,18 +18,17 @@ class ReadMoreBlock extends Component
      *
      * @var string
      */
-    public $textAlignDesktop;
+    public $reverseTextAlign;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($text, $textAlignDesktop = 'text-left', $lineClampTailwindClass = 'line-clamp-6')
+    public function __construct($text, $reverseTextAlign = false)
     {
         $this->text = $text;
-        $this->textAlignDesktop = $textAlignDesktop;
-        $this->lineClampTailwindClass = $lineClampTailwindClass;
+        $this->reverseTextAlign = $reverseTextAlign;        
     }
 
     /**
