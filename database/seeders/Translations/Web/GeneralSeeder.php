@@ -32,6 +32,16 @@ class GeneralSeeder extends Seeder
             [                
                 'text' => ['en' => 'Search', 'es' => 'Buscar'],
             ]
-        );          
+        );    
+        
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'general.read-more',    
+            ],
+            [                
+                'text' => ['en' => 'Read more', 'es' => 'Leer más'],
+            ]
+        );  
     }
 }

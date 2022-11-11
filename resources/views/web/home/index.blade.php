@@ -37,6 +37,23 @@
 
         <div class="px-10">
             @include('web.home.why-iceland')
+
+            <div class="pt-28 md:pt-40">
+                <x-feature 
+                    title="{!! __('web.home.feature-1-title') !!}" 
+                    text="{!! __('web.home.feature-1-text') !!}" 
+                    image-path="{{ asset('images/home/feature-1.png') }}"                 
+                    />
+            </div>
+
+            <div class="pt-28 md:pt-40">
+                <x-feature 
+                    title="{!! __('web.home.feature-2-title') !!}" 
+                    text="{!! __('web.home.feature-2-text') !!}" 
+                    image-path="{{ asset('images/home/feature-2.png') }}"     
+                    tailwind-desktop-direction-class="flex-row-reverse"
+                    />
+            </div>
         </div>
     </div>
     
