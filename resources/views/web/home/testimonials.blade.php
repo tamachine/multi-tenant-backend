@@ -2,7 +2,7 @@
     <div class="hidden md:block md:absolute z-10 top-[158px] left-1/2 -translate-x-1/2 w-64">
             @include('web.home.testimonials-slide')
     </div>
-    <h2 class="text-center px-10 md:hidden">Customer satisfaction</h2>     
+    <h2 class="text-center px-10 md:hidden">{{ __('web.home.testimonials-title') }}</h2>     
     <div class="grid grid-cols-2 gap-2 pt-28 md:pt-0 justify-between relative md:flex-1">        
         <img class="rounded-2xl w-full" src="{{ asset('images/home/testimonials-left.png') }}" />
         <img class="rounded-2xl w-full" src="{{ asset('images/home/testimonials-right.png') }}" />
@@ -11,10 +11,10 @@
         </div>
     </div>   
     <div class="md:flex-1 md:flex md:flex-col md:justify-end md:items-end">
-        <h2 class="hidden md:block text-center px-10 md:px-0 md:text-right md:pl-24 md:pr-9">Customer satisfaction</h2>   
+        <h2 class="hidden md:block text-center px-10 md:px-0 md:text-right md:pl-24 md:pr-9">{{ __('web.home.testimonials-title') }}</h2>   
         <div class="leading-[30px] md:text-right md:pl-24 md:pt-3 md:pr-9">
-            We have compiled an impressive staff capable of servicing customers in 10 widely used international languages. You can feel comfortable in asking us anything about our vehicles, Iceland or telling us about your trip plans in your native tongue!
+            {!! __('web.home.testimonials-text') !!}
         </div>
-        <button class="tab hidden md:block md:mt-3 md:mr-9">View all</button>
+        <button class="tab hidden md:block md:mt-3 md:mr-9">{{ __('web.home.testimonials-all') }}</button>
     <div>
 </div>

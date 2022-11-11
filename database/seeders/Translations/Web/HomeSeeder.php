@@ -328,5 +328,44 @@ class HomeSeeder extends Seeder
                 ],
             ]
         ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.testimonials-title',    
+            ],
+            [                
+                'text' => [
+                    'en' => "Customer satisfaction", 
+                    "es" => "Testimonios"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.testimonials-text',    
+            ],
+            [                
+                'text' => [
+                    'en' => "We have compiled an impressive staff capable of servicing customers in 10 widely used international languages. You can feel comfortable in asking us anything about our vehicles, Iceland or telling us about your trip plans in your native tongue!", 
+                    "es" => "Hemos reunido un personal impresionante capaz de atender a los clientes en 10 idiomas internacionales ampliamente utilizados. ¡Puede sentirse cómodo preguntándonos cualquier cosa sobre nuestros vehículos, Islandia o contándonos sus planes de viaje en su lengua materna!"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.testimonials-all',    
+            ],
+            [                
+                'text' => [
+                    'en' => "View all", 
+                    "es" => "Ver todos"
+                ],
+            ]
+        ); 
     }
 }
