@@ -2,8 +2,9 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
-class CreateLanguageLinesTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -30,4 +31,4 @@ class CreateLanguageLinesTable extends Migration
     {
         Schema::drop('language_lines');
     }
-}
+};
