@@ -1143,14 +1143,14 @@ h5 {
   margin-bottom: 2rem;
 }
 
-.-my-2 {
-  margin-top: -0.5rem;
-  margin-bottom: -0.5rem;
-}
-
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+.-my-2 {
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
 }
 
 .mt-4 {
@@ -1977,11 +1977,6 @@ h5 {
   padding-bottom: 2rem;
 }
 
-.px-22 {
-  padding-left: 84px;
-  padding-right: 84px;
-}
-
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -2000,10 +1995,6 @@ h5 {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-}
-
-.pt-5 {
-  padding-top: 1.25rem;
 }
 
 .pt-9 {
@@ -2042,6 +2033,14 @@ h5 {
   padding-bottom: 1.25rem;
 }
 
+.pt-5 {
+  padding-top: 1.25rem;
+}
+
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
 .pl-5 {
   padding-left: 1.25rem;
 }
@@ -2060,10 +2059,6 @@ h5 {
 
 .pb-4 {
   padding-bottom: 1rem;
-}
-
-.pt-2 {
-  padding-top: 0.5rem;
 }
 
 .pl-1 {
