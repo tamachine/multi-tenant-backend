@@ -12,13 +12,13 @@ class CreateFaqFaqCategoryTable extends Migration
      * @return void
      */
     public function up()
-    {        
+    {
         Schema::create('faq_category_faq', function (Blueprint $table) {
             $table->integer('faq_id')->unsigned()->index();
             $table->foreign('faq_id')->references('id')->on('faqs');
             $table->integer('faq_category_id')->unsigned()->index();
             $table->foreign('faq_category_id')->references('id')->on('faq_categories');
-            $table->primary(['faq_id', 'faq_category_id']);            
+            $table->primary(['faq_id', 'faq_category_id']);
         });
     }
 
@@ -29,6 +29,6 @@ class CreateFaqFaqCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faq_faq_category');
+        Schema::dropIfExists('faq_category_faq');
     }
 }

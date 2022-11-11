@@ -7,4 +7,5 @@ return [
      * number and return the id of the record
      */
     'App\Models\Voucher' => 1,
+    'App\Models\Location' => 2,
 ];

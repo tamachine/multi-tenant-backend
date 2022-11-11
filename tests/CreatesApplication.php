@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Models\Location;
 use App\Models\User;
 use App\Models\Vendor;
 use Illuminate\Contracts\Console\Kernel;
@@ -20,6 +21,18 @@ trait CreatesApplication
         $app->make(Kernel::class)->bootstrap();
 
         return $app;
+    }
+
+    /**
+     * Create a location
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\Location
+     */
+    protected function createLocation($attributes = [])
+    {
+        return Location::factory($attributes)->create();
     }
 
     /**
