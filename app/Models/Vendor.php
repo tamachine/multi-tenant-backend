@@ -17,8 +17,24 @@ class Vendor extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'service_fee', 'vendor_code', 'status', 'brand_color'
+        'name', 'service_fee', 'vendor_code', 'status', 'brand_color', 'logo'
     ];
+
+    /**********************************
+     * Accessors & Mutators
+     **********************************/
+
+    /**
+     * Get the vendor's logo URL
+     *
+     * @return     string
+     */
+    public function getLogoUrlAttribute()
+    {
+        return $this->logo
+            ? asset('storage/vendors/' . $this->logo)
+            : '';
+    }
 
     /**********************************
      * Scopes

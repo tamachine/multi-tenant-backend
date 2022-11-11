@@ -21,6 +21,7 @@ class CreateVendorsTable extends Migration
             $table->string('vendor_code', 11);
             $table->string('status', 10)->default('active');
             $table->string('brand_color', 9)->default('#249e8f');
+            $table->string('logo')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

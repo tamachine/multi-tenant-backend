@@ -92,7 +92,7 @@ class CreateTest extends TestCase
             ->set('status', 'active')
             ->set('brand_color', '#FFFFFF')
             ->call('saveVendor')
-            ->assertRedirect(route('vendor.index'));
+            ->assertStatus(200);
 
         $vendor = Vendor::first();
 

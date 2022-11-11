@@ -42,3 +42,30 @@ if (!function_exists('recursivelyCollect')) {
         return $item;
     }
 }
+
+if (!function_exists('emptyOrNull')) {
+
+    /**
+     * Check if the item provided is empty or null
+     *
+     * @param      mixed  $value
+     *
+     * @return     boolean
+     */
+    function emptyOrNull($value = null)
+    {
+        if (is_bool($value) || is_numeric($value)) {
+            return false;
+        }
+
+        if ($value instanceof \Illuminate\Support\Collection) {
+            return $value->isEmpty();
+        }
+
+        if (is_object($value) || is_array($value)) {
+            return count($value) == 0;
+        }
+
+        return is_null($value) || trim($value) == '';
+    }
+}

@@ -71,7 +71,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Vendor created successfully');
 
-        return redirect()->route('vendor.index');
+        return redirect()->route('vendor.edit', $vendor->hashid);
     }
 
     public function render()
