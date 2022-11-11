@@ -1,4 +1,4 @@
-@props(['submit'])
+@props(['submit', 'formClass'])
 
 <div {{ $attributes->merge(['class' => 'bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6']) }}>
     <div class="md:flex">
@@ -9,7 +9,7 @@
 
         <div class="md:w-3/4 mt-8 md:mt-0">
             <form class="space-y-6" wire:submit.prevent="{{ $submit }}">
-                <div class="md:grid md:gap-4 md:grid-cols-2 xl:grid-cols-3">
+                <div class="{{isset($formClass) ? $formClass : 'md:grid md:gap-4 md:grid-cols-2 xl:grid-cols-3'}}">
                     {{ $form }}
                 </div>
 
