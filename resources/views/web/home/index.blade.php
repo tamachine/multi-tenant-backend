@@ -54,6 +54,8 @@
                     reversed="true"
                     />
             </div>
+
+            @include('web.home.testimonials')
         </div>
     </div>
     
