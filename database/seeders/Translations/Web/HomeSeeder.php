@@ -280,12 +280,51 @@ class HomeSeeder extends Seeder
         LanguageLine::firstOrCreate(
             [
                 'group' => 'web',
-                'key' => 'home.why-iceland-more',    
+                'key' => 'home.feature-1-title',    
             ],
             [                
                 'text' => [
-                    'en' => "Read more", 
-                    "es" => "Leer más"
+                    'en' => "Pick ups & Drop offs", 
+                    "es" => "Recogidas y entregas"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.feature-1-text',    
+            ],
+            [                
+                'text' => [
+                    'en' => "The great thing about renting a car in Iceland is that you will often feel as though you have the road to yourself. Even in the major cities, there aren’t any issues with traffic jams, making life on the road very comfortable indeed. You should be aware that you drive on the right side of the road in Iceland, so just keep that in mind if you come from a country where traffic is on the left.<br><br>To make things easy for drivers, there is a single, two-lane ring road that runs around Iceland, and which essentially takes you anywhere you want to go. You will of course have to take off-roads to visit attractions, but these are clearly marked and easy to navigate. If you are not sure about driving in snowy.", 
+                    "es" => "Lo bueno de alquilar un automóvil en Islandia es que a menudo sentirás que tienes el camino para ti solo. Incluso en las principales ciudades, no hay ningún problema con los atascos de tráfico, lo que hace que la vida en la carretera sea muy cómoda. Debe tener en cuenta que conduce por el lado derecho de la carretera en Islandia, así que tenga esto en cuenta si viene de un país donde el tráfico es por la izquierda.<br><br>Para facilitar las cosas a los conductores, hay es una carretera de circunvalación única de dos carriles que recorre Islandia y que esencialmente te lleva a donde quieras ir. Por supuesto, tendrá que salir de la carretera para visitar las atracciones, pero están claramente señalizadas y son fáciles de navegar. Si no está seguro de conducir en nieve."
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.feature-2-title',    
+            ],
+            [                
+                'text' => [
+                    'en' => "Driving in Iceland", 
+                    "es" => "Conducir en Islandia"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.feature-2-text',    
+            ],
+            [                
+                'text' => [
+                    'en' => "The great thing about renting a car in Iceland is that you will often feel as though you have the road to yourself. Even in the major cities, there aren’t any issues with traffic jams, making life on the road very comfortable indeed. You should be aware that you drive on the right side of the road in Iceland, so just keep that in mind if you come from a country where traffic is on the left.<br><br>To make things easy for drivers, there is a single, two-lane ring road that runs around Iceland, and which essentially takes you anywhere you want to go. You will of course have to take off-roads to visit attractions, but these are clearly marked and easy to navigate. If you are not sure about driving in snowy and icy conditions, you may want to consider visiting in the summer months when.", 
+                    "es" => "Lo bueno de alquilar un automóvil en Islandia es que a menudo sentirás que tienes el camino para ti solo. Incluso en las principales ciudades, no hay ningún problema con los atascos de tráfico, lo que hace que la vida en la carretera sea muy cómoda. Debe tener en cuenta que conduce por el lado derecho de la carretera en Islandia, así que tenga esto en cuenta si viene de un país donde el tráfico es por la izquierda.<br><br>Para facilitar las cosas a los conductores, hay es una carretera de circunvalación única de dos carriles que recorre Islandia y que esencialmente te lleva a donde quieras ir. Por supuesto, tendrá que salir de la carretera para visitar las atracciones, pero están claramente señalizadas y son fáciles de navegar. Si no está seguro de conducir en condiciones de nieve y hielo, es posible que desee considerar visitar en los meses de verano cuando."
                 ],
             ]
         ); 
