@@ -32,19 +32,19 @@ class Feature extends Component
      *
      * @var string
      */
-    public $tailwindDesktopDirectionClass;
+    public $reversed;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $text, $imagePath, $tailwindDesktopDirectionClass = 'flex-row')
+    public function __construct($title, $text, $imagePath, $reversed = false)
     {
         $this->title = $title;
         $this->text = $text;
         $this->imagePath = $imagePath;
-        $this->tailwindDesktopDirectionClass = $tailwindDesktopDirectionClass;
+        $this->reversed = $reversed;
     }
 
     /**
@@ -54,13 +54,6 @@ class Feature extends Component
      */
     public function render()
     {
-        return view(
-            'components.feature', 
-            [
-                'textAlign'  => $this->tailwindDesktopDirectionClass == 'flex-row' ? 'text-right' : 'text-left',
-                'itemsClass' => $this->tailwindDesktopDirectionClass == 'flex-row' ? 'items-end' : 'items-start',
-                'paddingCol1' => $this->tailwindDesktopDirectionClass == 'flex-row' ? 'md:pl-16' : '',
-                'paddingCol2' => $this->tailwindDesktopDirectionClass == 'flex-row' ? '' : 'md:ml-16',
-            ]);
+        return view('components.feature');
     }
 }

@@ -14,7 +14,7 @@
 
         @include('web.home.info')
         
-        <div class="px-22">
+        <div class="px-18">
             <x-heading-h2 title="{{ __('web.home.box1-h2-title') }}" subtitle="{{ __('web.home.box1-h2-subtitle') }}" />
         </div>
 
@@ -24,8 +24,8 @@
             <x-heading-h2 
                 title="{{ __('web.home.box2-h2-title') }}" 
                 subtitle="{{ __('web.home.box2-h2-subtitle') }}" 
-                tailwind-align-class="text-left"
-                tailwind-padding-class="pt-2"
+                text-direction="left"
+                padding-top="2"
             />
         </div>
 
@@ -51,7 +51,7 @@
                     title="{!! __('web.home.feature-2-title') !!}" 
                     text="{!! __('web.home.feature-2-text') !!}" 
                     image-path="{{ asset('images/home/feature-2.png') }}"     
-                    tailwind-desktop-direction-class="flex-row-reverse"
+                    reversed="true"
                     />
             </div>
         </div>
