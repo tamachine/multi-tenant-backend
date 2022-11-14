@@ -4,7 +4,7 @@
 New Reykjavik auto site (Intergalactic spaceship)
 
 ## Pre requisites
-This project is using PHP 8 with TALL stack (Tailwind 3, Alpine, Livewire and Laravel 9) and Laravel mix 6
+This project is using PHP 8.1 with TALL stack (Tailwind 3, Alpine, Livewire and Laravel 9) and Laravel mix 6
 
 ## Installation
 
@@ -43,6 +43,10 @@ Run the database seeder for translations. You can run it as much as you want.
 Run the database seeder for faqs. You should run it just once.
 
     php artisan db:seed --class=FaqsSeeder
+
+There is a commmand to run the migrations and seeders altogether. (Alternative to the 3 "artisan" commands above)
+
+    php artisan migrate:refresh --seed
 
 Start the local development server
 
