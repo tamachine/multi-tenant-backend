@@ -18,7 +18,18 @@ class Vendor extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'service_fee', 'vendor_code', 'status', 'brand_color', 'logo'
+        'name', 'service_fee', 'vendor_code', 'status', 'brand_color', 'logo',
+        'long_rental', 'early_bird'
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'long_rental' => 'array',
+        'early_bird' => 'array',
     ];
 
     /**********************************

@@ -175,11 +175,11 @@
         </div>
 
         <div x-show="tab == 'tab6'">
-            Long Rental
+            <livewire:admin.vendor.long-rental :vendor="$vendor" />
         </div>
 
         <div x-show="tab == 'tab7'">
-            Early Bird
+            <livewire:admin.vendor.early-bird :vendor="$vendor" />
         </div>
 
         <div x-show="tab == 'tab8'">

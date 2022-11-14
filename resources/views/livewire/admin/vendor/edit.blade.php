@@ -1,7 +1,7 @@
 <div>
     @include('admin.vendor.partial.create-edit', [
         'formTitle'         => __('Edit Vendor'),
-        'formDescription'   => __('Enter the Vendor details'),
+        'formDescription'   => __('Update the basic details'),
         'formButton'        => __('Save Vendor'),
     ])
 
