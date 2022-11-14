@@ -61,7 +61,7 @@ class Pdf extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Pdf uploaded successfully');
 
-        return redirect()->route('vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "tab4"]);
+        return redirect()->route('vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "pdf"]);
     }
 
     public function deletePdf()
@@ -72,7 +72,7 @@ class Pdf extends Component
         session()->flash('status', 'success');
         session()->flash('message', __('The PDF has been deleted successfully'));
 
-        return redirect()->route('vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "tab4"]);
+        return redirect()->route('vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "pdf"]);
     }
 
     public function render()

@@ -35,8 +35,8 @@
                                 </td>
 
                                 <td class="px-4 py-2 whitespace-nowrap">
-                                    <label for="zoom_meeting" class="inline-flex items-center">
-                                        <x-admin.checkbox id="zoom_meeting" wire:model="lines.{{ $key }}.available" />
+                                    <label for="available" class="inline-flex items-center">
+                                        <x-admin.checkbox id="available" wire:model="lines.{{ $key }}.available" />
                                     </label>
                                 </td>
 

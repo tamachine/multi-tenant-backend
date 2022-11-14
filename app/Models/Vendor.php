@@ -110,4 +110,14 @@ class Vendor extends Model
     {
         return $this->hasMany(VendorLocationFee::class);
     }
+
+    /**
+     * Vendor holidays
+     *
+     * @return object
+     */
+    public function holidays()
+    {
+        return $this->hasMany(VendorHoliday::class);
+    }
 }

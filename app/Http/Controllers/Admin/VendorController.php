@@ -38,11 +38,12 @@ class VendorController extends Controller
 
         $data = [
             'vendor' => $hashid,
+            'vendorName' => $vendor->name,
             'action' => collect([
                 'route' => route('vendor.index'),
                 'title' => 'Vendors'
             ]),
-            'tab' => emptyOrNull($tab) ? 'tab1' : $tab,
+            'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];
 
         return view('admin.vendor.edit')->with($data);

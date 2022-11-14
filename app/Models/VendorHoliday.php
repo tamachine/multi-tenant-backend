@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class VendorLocation extends Model
+class VendorHoliday extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'vendor_location';
+    protected $table = 'vendor_holidays';
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +19,20 @@ class VendorLocation extends Model
      * @var array
      */
     protected $fillable = [
-        'vendor_id', 'location_id', 'price'
+        'date', 'pickup_from', 'pickup_to', 'dropoff_from', 'dropoff_to', 'closed'
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'date' => 'date',
+        'pickup_from' => 'datetime',
+        'pickup_to' => 'datetime',
+        'dropoff_from' => 'datetime',
+        'dropoff_to' => 'datetime',
     ];
 
     /**********************************
@@ -37,16 +50,6 @@ class VendorLocation extends Model
     /**********************************
      * Relationships
      **********************************/
-
-    /**
-     * Related location
-     *
-     * @return object
-     */
-    public function location()
-    {
-        return $this->belongsTo(Location::class);
-    }
 
     /**
      * Related vendor

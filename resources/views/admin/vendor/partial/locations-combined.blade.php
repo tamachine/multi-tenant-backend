@@ -49,7 +49,7 @@
                 </table>
             </div>
         @else
-            <div class="bg-white shadow mt-8 px-4 py-5 sm:rounded-lg sm:p-6">
+            <div class="bg-white shadow mt-8 md:mt-0 px-4 py-5 sm:rounded-lg sm:p-6">
                 <h5>This vendor has no locations assigned.</h5>
             </div>
         @endif

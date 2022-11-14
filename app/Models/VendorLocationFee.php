@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class VendorLocationFee extends Model
 {
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'vendor_location_fees';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -14,13 +21,6 @@ class VendorLocationFee extends Model
     protected $fillable = [
         'vendor_id', 'location_pickup', 'location_dropoff', 'fee'
     ];
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'vendor_location_fees';
 
     /**********************************
      * Accessors & Mutators
