@@ -167,7 +167,7 @@
         </div>
 
         <div x-show="tab == 'tab4'">
-            PDF info
+            <livewire:admin.vendor.pdf :vendor="$vendor" />
         </div>
 
         <div x-show="tab == 'tab5'">

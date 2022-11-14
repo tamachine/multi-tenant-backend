@@ -6,6 +6,7 @@ use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Storage;
 
 class Vendor extends Model
 {
@@ -33,6 +34,18 @@ class Vendor extends Model
     {
         return $this->logo
             ? asset('storage/vendors/' . $this->logo)
+            : '';
+    }
+
+    /**
+     * Get the vendor's PDF path
+     *
+     * @return     string
+     */
+    public function getPdfPathAttribute()
+    {
+        return Storage::disk('public')->exists('vendors/pdf/' . $this->hashid . '.pdf')
+            ? asset('storage/vendors/pdf/' . $this->hashid . '.pdf')
             : '';
     }
 

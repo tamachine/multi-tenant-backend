@@ -57,8 +57,6 @@ class LocationsCombined extends Component
                 'fees'      => $locationFees,
             ];
         }
-
-        \Log::info($this->lines);
     }
 
     public function saveLocations()
