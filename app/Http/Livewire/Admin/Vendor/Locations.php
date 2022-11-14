@@ -20,6 +20,9 @@ class Locations extends Component
      */
     public $vendor;
 
+    /**
+     * @var array
+     */
     public $lines = [];
 
     /*

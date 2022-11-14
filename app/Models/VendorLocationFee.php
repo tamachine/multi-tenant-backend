@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class VendorLocation extends Model
+class VendorLocationFee extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,7 +12,7 @@ class VendorLocation extends Model
      * @var array
      */
     protected $fillable = [
-        'vendor_id', 'location_id', 'price'
+        'vendor_id', 'location_pickup', 'location_dropoff', 'fee'
     ];
 
     /**
@@ -20,7 +20,7 @@ class VendorLocation extends Model
      *
      * @var string
      */
-    protected $table = 'vendor_location';
+    protected $table = 'vendor_location_fees';
 
     /**********************************
      * Accessors & Mutators
@@ -39,13 +39,23 @@ class VendorLocation extends Model
      **********************************/
 
     /**
-     * Related location
+     * Related location (pickup)
      *
      * @return object
      */
-    public function location()
+    public function locationPickup()
     {
-        return $this->belongsTo(Location::class);
+        return $this->belongsTo(Location::class, 'location_pickup');
+    }
+
+    /**
+     * Related location (dropoff)
+     *
+     * @return object
+     */
+    public function locationDropoff()
+    {
+        return $this->belongsTo(Location::class, 'location_dropoff');
     }
 
     /**

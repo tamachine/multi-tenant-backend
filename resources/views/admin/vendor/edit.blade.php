@@ -163,7 +163,7 @@
         </div>
 
         <div x-show="tab == 'tab3'">
-            Locations Combined
+            <livewire:admin.vendor.locations-combined :vendor="$vendor" />
         </div>
 
         <div x-show="tab == 'tab4'">

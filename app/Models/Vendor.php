@@ -76,4 +76,14 @@ class Vendor extends Model
     {
         return $this->hasMany(VendorLocation::class);
     }
+
+    /**
+     * Pivot table vendor_location_fees
+     *
+     * @return object
+     */
+    public function vendorLocationFees()
+    {
+        return $this->hasMany(VendorLocationFee::class);
+    }
 }
