@@ -4,12 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Vendor;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class VendorController extends Controller
 {
-    public function index(Request $request): View
+    public function index(): View
     {
         $data = [
             'action' => collect([
@@ -21,7 +20,7 @@ class VendorController extends Controller
         return view('admin.vendor.index')->with($data);
     }
 
-    public function create(Request $request): View
+    public function create(): View
     {
         $data = [
             'action' => collect([
@@ -33,7 +32,7 @@ class VendorController extends Controller
         return view('admin.vendor.create')->with($data);
     }
 
-    public function edit($hashid, Request $request): View
+    public function edit($hashid, $tab = null): View
     {
         $vendor = Vendor::where('hashid', $hashid)->firstOrFail();
 
@@ -43,6 +42,7 @@ class VendorController extends Controller
                 'route' => route('vendor.index'),
                 'title' => 'Vendors'
             ]),
+            'tab' => emptyOrNull($tab) ? 'tab1' : $tab,
         ];
 
         return view('admin.vendor.edit')->with($data);

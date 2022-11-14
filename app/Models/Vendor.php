@@ -62,4 +62,18 @@ class Vendor extends Model
 
         return $query;
     }
+
+    /**********************************
+     * Relationships
+     **********************************/
+
+    /**
+     * Pivot table vendor_location
+     *
+     * @return object
+     */
+    public function vendorLocations()
+    {
+        return $this->hasMany(VendorLocation::class);
+    }
 }
