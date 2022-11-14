@@ -4,7 +4,7 @@
 New Reykjavik auto site (Intergalactic spaceship)
 
 ## Pre requisites
-This project is using PHP 7.4 with TALL stack (Tailwind 3, Alpine, Livewire and Laravel 8) and Laravel mix 6
+This project is using PHP 8 with TALL stack (Tailwind 3, Alpine, Livewire and Laravel 9) and Laravel mix 6
 
 ## Installation
 
