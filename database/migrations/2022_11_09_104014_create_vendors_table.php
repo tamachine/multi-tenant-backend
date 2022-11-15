@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('status', 10)->default('active');
             $table->string('brand_color', 9)->default('#249e8f');
             $table->string('logo')->nullable();
+            $table->text('long_rental')->nullable();
+            $table->text('early_bird')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

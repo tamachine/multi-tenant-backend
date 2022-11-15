@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\Admin\Vendor;
 
 use App\Models\Vendor;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Storage;
 
 class Edit extends Component
 {

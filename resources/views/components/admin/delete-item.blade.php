@@ -41,7 +41,7 @@
                     @else
                         <button
                             class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                            x-on:click="$dispatch('delete-element', { hashid: '{{ $hashid }}' })"
+                            x-on:click="$dispatch('{{isset($event) ? $event : 'delete-element'}}', { hashid: '{{ $hashid }}' })"
                             wire:loading.attr="disabled"
                         >Delete</button>
 

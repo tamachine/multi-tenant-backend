@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
             ['email' => 'pablo.santamaria@scandinavianehf.com', 'name' => 'Pablo Santamaría'],
             ['email' => 'tamara.rios@scandinavianehf.com', 'name' => 'Tamara Ríos'],
             ['email' => 'victor.planchuelo@scandinavianehf.com', 'name' => 'Víctor Planchuelo'],
+            ['email' => 'ester.molina@scandinavianehf.com', 'name' => 'Ester Molina'],
         ];
 
         foreach ($users as $user) {

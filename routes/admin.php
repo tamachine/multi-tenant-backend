@@ -28,7 +28,7 @@ Route::group(
         Route::group(['prefix' => 'vendor', 'as' => 'vendor.'], function () {
             Route::get('/', ['as' => 'index', 'uses' => 'VendorController@index']);
             Route::get('create', ['as' => 'create', 'uses' => 'VendorController@create']);
-            Route::get('{vendor}/edit', ['as' => 'edit', 'uses' => 'VendorController@edit']);
+            Route::get('{vendor}/edit/{tab?}', ['as' => 'edit', 'uses' => 'VendorController@edit']);
         });
     }
 );

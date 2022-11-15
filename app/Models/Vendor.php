@@ -6,6 +6,7 @@ use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Storage;
 
 class Vendor extends Model
 {
@@ -17,7 +18,18 @@ class Vendor extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'service_fee', 'vendor_code', 'status', 'brand_color', 'logo'
+        'name', 'service_fee', 'vendor_code', 'status', 'brand_color', 'logo',
+        'long_rental', 'early_bird'
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'long_rental' => 'array',
+        'early_bird' => 'array',
     ];
 
     /**********************************
@@ -33,6 +45,18 @@ class Vendor extends Model
     {
         return $this->logo
             ? asset('storage/vendors/' . $this->logo)
+            : '';
+    }
+
+    /**
+     * Get the vendor's PDF path
+     *
+     * @return     string
+     */
+    public function getPdfPathAttribute()
+    {
+        return Storage::disk('public')->exists('vendors/pdf/' . $this->hashid . '.pdf')
+            ? asset('storage/vendors/pdf/' . $this->hashid . '.pdf')
             : '';
     }
 
@@ -61,5 +85,39 @@ class Vendor extends Model
         }
 
         return $query;
+    }
+
+    /**********************************
+     * Relationships
+     **********************************/
+
+    /**
+     * Pivot table vendor_location
+     *
+     * @return object
+     */
+    public function vendorLocations()
+    {
+        return $this->hasMany(VendorLocation::class);
+    }
+
+    /**
+     * Pivot table vendor_location_fees
+     *
+     * @return object
+     */
+    public function vendorLocationFees()
+    {
+        return $this->hasMany(VendorLocationFee::class);
+    }
+
+    /**
+     * Vendor holidays
+     *
+     * @return object
+     */
+    public function holidays()
+    {
+        return $this->hasMany(VendorHoliday::class);
     }
 }

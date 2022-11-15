@@ -8,6 +8,6 @@
     </x-slot>
 
     <div class="space-y-6 p-10">
-        <livewire:admin.location.edit :location="$location" />
+        <livewire:admin.location.edit :location="$location" :tab="$tab" />
     </div>
 </x-admin-layout>
