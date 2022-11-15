@@ -16,5 +16,5 @@
             {!! __('web.home.testimonials-text') !!}
         </div>
         <button class="tab hidden md:block md:mt-3 md:mr-9">{{ __('web.home.testimonials-all') }}</button>
-    <div>
+    </div>
 </div>

@@ -4,22 +4,18 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Services\ReviewsInfo\GoogleReviewsInfoComponent;
-use App\Services\ReviewsInfo\FacebookReviewsInfoComponent;
-use App\Services\ReviewsInfo\TrustPilotReviewsInfoComponent;
+
 use App\Models\Faq;
 
-class HomeController extends Controller
+class HomeController extends BaseController
 {
     public function index() 
     {        
-        return view(
-            'web.home.index', 
-            [
-                'googleReviewInfoComponent' => new GoogleReviewsInfoComponent(),
-                'facebookReviewInfoComponent' => new FacebookReviewsInfoComponent(),
-                'trustpilotReviewInfoComponent' => new TrustPilotReviewsInfoComponent(),
-            ]
-        );
+        return view('web.home.index');
+    }
+
+    protected function footerImagePath() : string 
+    {
+        return asset('images/footer/home.png');
     }
 }
