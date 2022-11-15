@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.web')
 
 @section('body')
     
@@ -55,7 +55,7 @@
                     />
             </div>
 
-            @include('web.home.testimonials')
+            
         </div>
     </div>
     

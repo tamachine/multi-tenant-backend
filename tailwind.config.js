@@ -17,6 +17,7 @@ module.exports = {
             fontFamily: {
                 sans: ['DMSans-Regular', ...defaultTheme.fontFamily.sans],    
                 fredokaOne: ['FredokaOne'],            
+                fredoka: ['Fredoka'],    
             },
             colors: {               
                 'black-primary': '#300000',
@@ -35,7 +36,8 @@ module.exports = {
                 '6xl': '1170px',
             },
             backgroundImage: {
-                'home-hero': "url('/images/home/hero.png')",                
+                'home-hero': "url('/images/home/hero.png')",    
+                'footer-image-pattern': 'linear-gradient(0deg, rgba(7,0,0,1) 6%, rgba(121,9,9,0) 35%, rgba(255,255,255,1) 100%)',                
             },
             padding: {
                 '22' : "84px",

@@ -1,11 +1,45 @@
-@extends('layouts.base')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        @hasSection('title')
 
-@section('body')
-    <div class="flex flex-col justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
-        @yield('content')
+            <title>@yield('title') - {{ config('app.name') }}</title>
+        @else
+            <title>{{ config('app.name') }}</title>
+        @endif
 
-        @isset($slot)
-            {{ $slot }}
-        @endisset
-    </div>
-@endsection
+        <!-- Favicon -->
+		<link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+        <!-- Styles -->        
+        <link href="/css/app.css" rel="stylesheet">
+        @livewireStyles
+
+        <!-- Scripts -->
+        <script src="{{ url(mix('js/app.js')) }}" defer></script>
+
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">        
+    </head>
+
+    {{-- 
+        Horizontal overflow is hidden because w-fill-screen class uses a width=100vw and some browsers include the vertical scrollbar in the full screen size so a horizontal scrollbar is shown if a verticall one is needed.
+    --}}
+    <body>                        
+        <div>
+            @yield('content')
+
+            @isset($slot)
+                {{ $slot }}
+            @endisset
+        </div>      
+
+        @livewireScripts        
+    </body>
+</html>
+
