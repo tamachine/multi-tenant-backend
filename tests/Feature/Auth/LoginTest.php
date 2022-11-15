@@ -29,7 +29,7 @@ class LoginTest extends TestCase
         $this->be($user);
 
         $this->get(route('login'))
-            ->assertRedirect(route('home'));
+            ->assertRedirect(route('dashboard'));
     }
 
     /** @test */

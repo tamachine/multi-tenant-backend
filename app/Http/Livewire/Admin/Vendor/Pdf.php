@@ -37,15 +37,18 @@ class Pdf extends Component
     ** METHODS
     ***************************************************************
     */
-    public function mount($vendor, Vendor $vendorModel)
+
+    public function mount(Vendor $vendor)
     {
-        $this->vendor = $vendorModel->where('hashid', $vendor)->firstOrFail();
+        $this->vendor = $vendor;
 
         $this->path = $this->vendor->pdf_path;
     }
 
     public function uploadPdf()
     {
+        $this->dispatchBrowserEvent('validationError');
+
         $this->validate([
             'pdf'      => ['required', 'mimes:pdf'],
         ]);

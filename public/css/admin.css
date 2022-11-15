@@ -1864,9 +1864,9 @@ select{
     background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
-.bg-purple-700{
+.bg-green-700{
     --tw-bg-opacity: 1;
-    background-color: rgb(126 34 206 / var(--tw-bg-opacity));
+    background-color: rgb(21 128 61 / var(--tw-bg-opacity));
 }
 
 .bg-red-600{
@@ -1882,11 +1882,6 @@ select{
 .bg-gray-600{
     --tw-bg-opacity: 1;
     background-color: rgb(75 85 99 / var(--tw-bg-opacity));
-}
-
-.bg-green-700{
-    --tw-bg-opacity: 1;
-    background-color: rgb(21 128 61 / var(--tw-bg-opacity));
 }
 
 .bg-red-700{
@@ -2468,6 +2463,11 @@ select{
     color: rgb(67 56 202 / var(--tw-text-opacity));
 }
 
+.text-blue-700{
+    --tw-text-opacity: 1;
+    color: rgb(29 78 216 / var(--tw-text-opacity));
+}
+
 .text-green-400{
     --tw-text-opacity: 1;
     color: rgb(74 222 128 / var(--tw-text-opacity));
@@ -2476,11 +2476,6 @@ select{
 .text-green-800{
     --tw-text-opacity: 1;
     color: rgb(22 101 52 / var(--tw-text-opacity));
-}
-
-.text-blue-700{
-    --tw-text-opacity: 1;
-    color: rgb(29 78 216 / var(--tw-text-opacity));
 }
 
 .placeholder-gray-400::-moz-placeholder{
@@ -2813,6 +2808,18 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+/*  Hack for Pikaday */
+
+.pika-prev,
+.is-rtl .pika-next {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAUklEQVR42u3VMQoAIBADQf8Pgj+OD9hG2CtONJB2ymQkKe0HbwAP0xucDiQWARITIDEBEnMgMQ8S8+AqBIl6kKgHiXqQqAeJepBo/z38J/U0uAHlaBkBl9I4GwAAAABJRU5ErkJggg==") !important;
+}
+
+.pika-next,
+.is-rtl .pika-prev {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAU0lEQVR42u3VOwoAMAgE0dwfAnNjU26bYkBCFGwfiL9VVWoO+BJ4Gf3gtsEKKoFBNTCoCAYVwaAiGNQGMUHMkjGbgjk2mIONuXo0nC8XnCf1JXgArVIZAQh5TKYAAAAASUVORK5CYII=") !important;
+}
+
 .text-shadow {
   text-shadow: -1px 1px 3px #ffffff;
 }
@@ -2882,9 +2889,9 @@ input[type=number] {
     border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
-.hover\:border-purple-700:hover{
+.hover\:border-green-700:hover{
     --tw-border-opacity: 1;
-    border-color: rgb(126 34 206 / var(--tw-border-opacity));
+    border-color: rgb(21 128 61 / var(--tw-border-opacity));
 }
 
 .hover\:border-blue-700:hover{
@@ -2942,9 +2949,9 @@ input[type=number] {
     color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
-.hover\:text-purple-700:hover{
+.hover\:text-green-700:hover{
     --tw-text-opacity: 1;
-    color: rgb(126 34 206 / var(--tw-text-opacity));
+    color: rgb(21 128 61 / var(--tw-text-opacity));
 }
 
 .hover\:text-indigo-600:hover{
@@ -3082,9 +3089,9 @@ input[type=number] {
     --tw-ring-offset-color: #f3f4f6;
 }
 
-.active\:border-purple-700:active{
+.active\:border-green-700:active{
     --tw-border-opacity: 1;
-    border-color: rgb(126 34 206 / var(--tw-border-opacity));
+    border-color: rgb(21 128 61 / var(--tw-border-opacity));
 }
 
 .active\:border-blue-700:active{
@@ -3117,9 +3124,9 @@ input[type=number] {
     background-color: rgb(127 29 29 / var(--tw-bg-opacity));
 }
 
-.active\:text-purple-700:active{
+.active\:text-green-700:active{
     --tw-text-opacity: 1;
-    color: rgb(126 34 206 / var(--tw-text-opacity));
+    color: rgb(21 128 61 / var(--tw-text-opacity));
 }
 
 .active\:text-gray-700:active{

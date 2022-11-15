@@ -29,9 +29,9 @@ class EarlyBird extends Component
     ***************************************************************
     */
 
-    public function mount($vendor, Vendor $vendorModel)
+    public function mount(Vendor $vendor)
     {
-        $this->vendor = $vendorModel->where('hashid', $vendor)->firstOrFail();
+        $this->vendor = $vendor;
         $this->early_bird = $this->vendor->early_bird;
 
         if (is_null($this->early_bird)) {
@@ -45,6 +45,8 @@ class EarlyBird extends Component
 
     public function saveEarlyBird()
     {
+        $this->dispatchBrowserEvent('validationError');
+
         $this->validate(
             [
                 'early_bird.*' => ['required', 'numeric', 'gte:0', 'lt:100'],

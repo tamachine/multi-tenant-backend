@@ -37,7 +37,7 @@ class VendorController extends Controller
         $vendor = Vendor::where('hashid', $hashid)->firstOrFail();
 
         $data = [
-            'vendor' => $hashid,
+            'vendor' => $vendor,
             'vendorName' => $vendor->name,
             'action' => collect([
                 'route' => route('vendor.index'),

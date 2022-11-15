@@ -74,6 +74,8 @@ class Edit extends Component
 
     public function saveLocation()
     {
+        $this->dispatchBrowserEvent('validationError');
+
         $this->validate([
             'name' => ['required', 'unique:locations,name,' . $this->location->id],
         ]);

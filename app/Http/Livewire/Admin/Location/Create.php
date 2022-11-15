@@ -60,6 +60,8 @@ class Create extends Component
 
     public function saveLocation(Location $location)
     {
+        $this->dispatchBrowserEvent('validationError');
+
         $this->validate([
             'name' => ['required', 'unique:locations,name'],
         ]);

@@ -132,7 +132,7 @@
                                         type="button"
                                         wire:click="deleteHolidays({{$key}})"
                                     >
-                                        Edit
+                                        Delete
                                     </button>
                                 </td>
                             </tr>

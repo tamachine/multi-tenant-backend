@@ -41,6 +41,8 @@ class Create extends Component
 
     public function saveCar(Car $car)
     {
+        $this->dispatchBrowserEvent('validationError');
+
         $this->validate([
             'name' => ['required'],
             'vendor' => ['required'],

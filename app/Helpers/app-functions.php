@@ -12,7 +12,7 @@ if (!function_exists('perPage')) {
      */
     function perPage(): int
     {
-        return 25;
+        return 20;
     }
 }
 

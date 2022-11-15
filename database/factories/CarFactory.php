@@ -25,6 +25,7 @@ class CarFactory extends Factory
         return [
             'name' => $this->faker->company,
             'vendor_id' => Vendor::inRandomOrder()->first()->id,
+            'fleet_position' => $this->faker->numberBetween(1, 100)
         ];
     }
 }

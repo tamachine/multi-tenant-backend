@@ -180,6 +180,8 @@ class Edit extends Component
 
     public function saveCar()
     {
+        $this->dispatchBrowserEvent('validationError');
+
         $this->validate([
             'name' => ['required'],
             'car_code' => ['required', 'string', 'max:4'],

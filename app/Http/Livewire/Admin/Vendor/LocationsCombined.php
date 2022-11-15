@@ -34,9 +34,9 @@ class LocationsCombined extends Component
     ** METHODS
     ***************************************************************
     */
-    public function mount($vendor, Vendor $vendorModel)
+    public function mount(Vendor $vendor)
     {
-        $this->vendor = $vendorModel->where('hashid', $vendor)->firstOrFail();
+        $this->vendor = $vendor;
         $vendorLocations = $this->vendor->vendorLocations;
         $vendorFees = $this->vendor->vendorLocationFees;
 
@@ -61,6 +61,8 @@ class LocationsCombined extends Component
 
     public function saveLocations()
     {
+        $this->dispatchBrowserEvent('validationError');
+
         $this->validate(
             [
                 'lines.*.fees.*' => ['required', 'numeric', 'gte:0'],
