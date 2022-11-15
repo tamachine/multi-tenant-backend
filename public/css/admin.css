@@ -1091,6 +1091,10 @@ select{
     margin: 1rem;
 }
 
+.m-1{
+    margin: 0.25rem;
+}
+
 .mx-auto{
     margin-left: auto;
     margin-right: auto;
@@ -1139,6 +1143,11 @@ select{
 .-my-2{
     margin-top: -0.5rem;
     margin-bottom: -0.5rem;
+}
+
+.my-4{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .mt-4{
@@ -1237,6 +1246,10 @@ select{
     margin-left: -1px;
 }
 
+.ml-4{
+    margin-left: 1rem;
+}
+
 .block{
     display: block;
 }
@@ -1329,6 +1342,14 @@ select{
     height: 512px;
 }
 
+.h-8{
+    height: 2rem;
+}
+
+.h-20{
+    height: 5rem;
+}
+
 .min-h-screen{
     min-height: 100vh;
 }
@@ -1369,6 +1390,10 @@ select{
     width: 3.5rem;
 }
 
+.w-40{
+    width: 10rem;
+}
+
 .w-80{
     width: 20rem;
 }
@@ -1394,6 +1419,10 @@ select{
     width: 1rem;
 }
 
+.w-24{
+    width: 6rem;
+}
+
 .w-16{
     width: 4rem;
 }
@@ -1402,12 +1431,12 @@ select{
     width: 5rem;
 }
 
-.w-40{
-    width: 10rem;
+.w-8{
+    width: 2rem;
 }
 
-.w-24{
-    width: 6rem;
+.w-32{
+    width: 8rem;
 }
 
 .min-w-0{
@@ -1860,6 +1889,11 @@ select{
     background-color: rgb(253 238 244 / var(--tw-bg-opacity));
 }
 
+.bg-blue-700{
+    --tw-bg-opacity: 1;
+    background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+
 .bg-red-800{
     --tw-bg-opacity: 1;
     background-color: rgb(153 27 27 / var(--tw-bg-opacity));
@@ -1870,9 +1904,9 @@ select{
     background-color: rgb(240 253 244 / var(--tw-bg-opacity));
 }
 
-.bg-blue-700{
+.bg-gray-500{
     --tw-bg-opacity: 1;
-    background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+    background-color: rgb(107 114 128 / var(--tw-bg-opacity));
 }
 
 .bg-home-hero{
@@ -1908,12 +1942,12 @@ select{
     padding: 0px;
 }
 
-.p-5{
-    padding: 1.25rem;
-}
-
 .p-10{
     padding: 2.5rem;
+}
+
+.p-5{
+    padding: 1.25rem;
 }
 
 .p-3{
@@ -2266,6 +2300,10 @@ select{
     line-height: 30px;
 }
 
+.leading-4{
+    line-height: 1rem;
+}
+
 .tracking-wider{
     letter-spacing: 0.05em;
 }
@@ -2339,11 +2377,6 @@ select{
     color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-gray-900{
-    --tw-text-opacity: 1;
-    color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-
 .text-black{
     --tw-text-opacity: 1;
     color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -2352,6 +2385,11 @@ select{
 .text-red-600{
     --tw-text-opacity: 1;
     color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
+.text-gray-900{
+    --tw-text-opacity: 1;
+    color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
 .text-gray-800{
@@ -2379,16 +2417,6 @@ select{
     color: rgb(22 101 52 / var(--tw-text-opacity));
 }
 
-.placeholder-gray-500::-moz-placeholder{
-    --tw-placeholder-opacity: 1;
-    color: rgb(107 114 128 / var(--tw-placeholder-opacity));
-}
-
-.placeholder-gray-500::placeholder{
-    --tw-placeholder-opacity: 1;
-    color: rgb(107 114 128 / var(--tw-placeholder-opacity));
-}
-
 .placeholder-gray-400::-moz-placeholder{
     --tw-placeholder-opacity: 1;
     color: rgb(156 163 175 / var(--tw-placeholder-opacity));
@@ -2397,6 +2425,16 @@ select{
 .placeholder-gray-400::placeholder{
     --tw-placeholder-opacity: 1;
     color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+
+.placeholder-gray-500::-moz-placeholder{
+    --tw-placeholder-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-placeholder-opacity));
+}
+
+.placeholder-gray-500::placeholder{
+    --tw-placeholder-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-placeholder-opacity));
 }
 
 .placeholder-red-300::-moz-placeholder{
@@ -2826,13 +2864,13 @@ input[type=number] {
     z-index: 10;
 }
 
-.focus\:border-transparent:focus{
-    border-color: transparent;
-}
-
 .focus\:border-purple-700:focus{
     --tw-border-opacity: 1;
     border-color: rgb(126 34 206 / var(--tw-border-opacity));
+}
+
+.focus\:border-transparent:focus{
+    border-color: transparent;
 }
 
 .focus\:border-blue-300:focus{
@@ -3060,6 +3098,10 @@ input[type=number] {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
+    .sm\:flex-wrap{
+        flex-wrap: wrap;
+    }
+
     .sm\:items-center{
         align-items: center;
     }
@@ -3084,6 +3126,10 @@ input[type=number] {
 
     .sm\:p-6{
         padding: 1.5rem;
+    }
+
+    .sm\:p-10{
+        padding: 2.5rem;
     }
 
     .sm\:px-6{
@@ -3182,6 +3228,10 @@ input[type=number] {
 
     .md\:grid-cols-4{
         grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .md\:grid-cols-3{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .md\:flex-row{
@@ -3313,12 +3363,12 @@ input[type=number] {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .lg\:grid-cols-7{
-        grid-template-columns: repeat(7, minmax(0, 1fr));
-    }
-
     .lg\:grid-cols-4{
         grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .lg\:grid-cols-7{
+        grid-template-columns: repeat(7, minmax(0, 1fr));
     }
 
     .lg\:px-8{
@@ -3347,6 +3397,10 @@ input[type=number] {
 
     .xl\:grid-cols-8{
         grid-template-columns: repeat(8, minmax(0, 1fr));
+    }
+
+    .xl\:grid-cols-4{
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
 

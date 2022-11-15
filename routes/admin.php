@@ -17,6 +17,13 @@ Route::group(
         // Dashboard
         Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 
+        // Cars
+        Route::group(['prefix' => 'car', 'as' => 'car.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'CarController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'CarController@create']);
+            Route::get('{car}/edit{tab?}', ['as' => 'edit', 'uses' => 'CarController@edit']);
+        });
+
         // Locations
         Route::group(['prefix' => 'location', 'as' => 'location.'], function () {
             Route::get('/', ['as' => 'index', 'uses' => 'LocationController@index']);

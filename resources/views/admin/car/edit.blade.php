@@ -1,6 +1,6 @@
 <x-admin-layout>
     <x-slot name="title">
-        {{ __('Edit Location') }}
+        {{ __('Edit Car') }}
     </x-slot>
 
     <x-slot name="backTo">
@@ -8,6 +8,6 @@
     </x-slot>
 
     <div class="space-y-6 p-10">
-        <livewire:admin.location.edit :location="$location" />
+        <livewire:admin.car.edit :car="$car" :tab="$tab" />
     </div>
 </x-admin-layout>
