@@ -1,7 +1,7 @@
 @extends('layouts.web')
 
 @section('body')
-    
+
     <div class="relative bg-violet-100">
         <x-home.hero />
 
@@ -12,12 +12,20 @@
 
     <div class="max-w-6xl mx-auto p-3">
 
+
+    
         @include('web.home.info')
         
         <div class="px-18">
             <x-heading-h2 title="{{ __('web.home.box1-h2-title') }}" subtitle="{{ __('web.home.box1-h2-subtitle') }}" />
         </div>
-
+       
+        <x-datepicker-range
+            name="date"
+            placeholder="Click to select date"           
+            autocomplete="off"            
+        />
+    
         @include('web.home.cards-default')
 
         <div class="pt-36 pb-6">
@@ -58,5 +66,6 @@
             
         </div>
     </div>
+    
     
 @endsection

@@ -33,10 +33,12 @@
         Horizontal overflow is hidden because w-fill-screen class uses a width=100vw and some browsers include the vertical scrollbar in the full screen size so a horizontal scrollbar is shown if a verticall one is needed.
     --}}
     <body class="max-w-7xl mx-auto overflow-x-hidden">                        
-        @yield('body')        
+        @yield('body')                
 
         @livewireScripts
 
         <x-footer imagePath="{{ $footerImagePath }}" />
+
+        @stack('scripts')
     </body>
 </html>
