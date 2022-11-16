@@ -1,7 +1,7 @@
 <div>
     @include('admin.location.partial.create-edit', [
         'formTitle'         => __('Edit Location'),
-        'formDescription'   => __('Enter the Location details'),
+        'formDescription'   => __('Enter the location details'),
         'formButton'        => __('Save Location'),
     ])
 

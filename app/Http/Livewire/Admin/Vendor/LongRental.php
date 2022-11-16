@@ -29,9 +29,9 @@ class LongRental extends Component
     ***************************************************************
     */
 
-    public function mount($vendor, Vendor $vendorModel)
+    public function mount(Vendor $vendor)
     {
-        $this->vendor = $vendorModel->where('hashid', $vendor)->firstOrFail();
+        $this->vendor = $vendor;
         $this->long_rental = $this->vendor->long_rental;
 
         if (is_null($this->long_rental)) {
@@ -45,6 +45,8 @@ class LongRental extends Component
 
     public function saveLongRental()
     {
+        $this->dispatchBrowserEvent('validationError');
+
         $this->validate(
             [
                 'long_rental.*' => ['required', 'numeric', 'gte:0', 'lt:100'],

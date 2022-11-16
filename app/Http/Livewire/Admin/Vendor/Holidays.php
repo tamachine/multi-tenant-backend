@@ -65,9 +65,9 @@ class Holidays extends Component
     ***************************************************************
     */
 
-    public function mount($vendor, Vendor $vendorModel)
+    public function mount(Vendor $vendor)
     {
-        $this->vendor = $vendorModel->where('hashid', $vendor)->firstOrFail();
+        $this->vendor = $vendor;
         $holidays = $this->vendor->holidays;
 
         // Load the hours for the dropdowns
@@ -95,6 +95,8 @@ class Holidays extends Component
 
     public function addHolidays()
     {
+        $this->dispatchBrowserEvent('validationError');
+
         $this->validate([
             'date' => ['required'],
         ]);

@@ -52,6 +52,8 @@ class Create extends Component
 
     public function saveVendor(Vendor $vendor)
     {
+        $this->dispatchBrowserEvent('validationError');
+
         $this->validate([
             'name' => ['required', 'unique:vendors,name'],
             'vendor_code' => ['required', 'unique:vendors,vendor_code'],

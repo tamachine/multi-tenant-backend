@@ -12,7 +12,7 @@ if (!function_exists('perPage')) {
      */
     function perPage(): int
     {
-        return 25;
+        return 20;
     }
 }
 
@@ -67,5 +67,19 @@ if (!function_exists('emptyOrNull')) {
         }
 
         return is_null($value) || trim($value) == '';
+    }
+}
+
+if (!function_exists('dehash')) {
+    /**
+     * Dehash a hashid ID
+     *
+     * @param  string    $hashid
+     * @return integer
+     */
+    function dehash($hashid)
+    {
+        $hashidArray = app('hashids')->decode($hashid);
+        return !empty($hashidArray) ? $hashidArray[0] : null;
     }
 }

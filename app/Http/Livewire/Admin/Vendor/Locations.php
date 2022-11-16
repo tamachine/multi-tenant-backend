@@ -30,9 +30,9 @@ class Locations extends Component
     ** METHODS
     ***************************************************************
     */
-    public function mount($vendor, Vendor $vendorModel, Location $location)
+    public function mount(Vendor $vendor, Location $location)
     {
-        $this->vendor = $vendorModel->where('hashid', $vendor)->firstOrFail();
+        $this->vendor = $vendor;
         $vendorLocations = $this->vendor->vendorLocations;
 
         $locations = Location::orderBy('name')->get();
@@ -52,6 +52,8 @@ class Locations extends Component
 
     public function saveLocations()
     {
+        $this->dispatchBrowserEvent('validationError');
+
         $this->validate(
             [
                 'lines.*.price' => ['required', 'numeric', 'gte:0'],

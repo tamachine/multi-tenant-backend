@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Models\Car;
 use App\Models\Location;
 use App\Models\User;
 use App\Models\Vendor;
@@ -21,6 +22,18 @@ trait CreatesApplication
         $app->make(Kernel::class)->bootstrap();
 
         return $app;
+    }
+
+    /**
+     * Create a car
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\Car
+     */
+    protected function createCar($attributes = [])
+    {
+        return Car::factory($attributes)->create();
     }
 
     /**

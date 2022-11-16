@@ -1,4 +1,4 @@
-<div>
+<div wire:loading.class="hidden">
     @include('admin.vendor.partial.create-edit', [
         'formTitle'         => __('Edit Vendor'),
         'formDescription'   => __('Update the basic details'),

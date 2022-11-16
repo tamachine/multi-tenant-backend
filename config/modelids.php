@@ -6,6 +6,8 @@ return [
      * additional id to the hashing method When we dehash, we ignore this second
      * number and return the id of the record
      */
+
     'App\Models\Voucher' => 1,
     'App\Models\Location' => 2,
+    'App\Models\Car' => 3,
 ];

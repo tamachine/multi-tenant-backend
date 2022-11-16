@@ -20,14 +20,14 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./resources/js/admin.js.js":
-/*!**********************************!*\
-  !*** ./resources/js/admin.js.js ***!
-  \**********************************/
+/***/ "./resources/js/admin.js":
+/*!*******************************!*\
+  !*** ./resources/js/admin.js ***!
+  \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ \"./node_modules/alpinejs/dist/module.esm.js\");\n\nwindow.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\nalpinejs__WEBPACK_IMPORTED_MODULE_0__[\"default\"].start();\nwindow.Pikaday = __webpack_require__(/*! pikaday */ \"./node_modules/pikaday/pikaday.js\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYWRtaW4uanMuanMuanMiLCJtYXBwaW5ncyI6Ijs7QUFBOEI7QUFDOUJDLE1BQU0sQ0FBQ0QsTUFBTSxHQUFHQSxnREFBTTtBQUN0QkEsc0RBQVksRUFBRTtBQUVkQyxNQUFNLENBQUNFLE9BQU8sR0FBR0MsbUJBQU8sQ0FBQyxrREFBUyxDQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL2pzL2FkbWluLmpzLmpzP2FlMDYiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IEFscGluZSBmcm9tICdhbHBpbmVqcyc7XG53aW5kb3cuQWxwaW5lID0gQWxwaW5lO1xuQWxwaW5lLnN0YXJ0KCk7XG5cbndpbmRvdy5QaWthZGF5ID0gcmVxdWlyZSgncGlrYWRheScpO1xuIl0sIm5hbWVzIjpbIkFscGluZSIsIndpbmRvdyIsInN0YXJ0IiwiUGlrYWRheSIsInJlcXVpcmUiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/admin.js.js\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ \"./node_modules/alpinejs/dist/module.esm.js\");\n\nwindow.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\nalpinejs__WEBPACK_IMPORTED_MODULE_0__[\"default\"].start();\nwindow.Pikaday = __webpack_require__(/*! pikaday */ \"./node_modules/pikaday/pikaday.js\");\nfunction goToError() {\n  var errorDiv = document.getElementsByClassName('validation-error')[0];\n  if (errorDiv) {\n    errorDiv.scrollIntoView({\n      behavior: 'smooth',\n      block: 'center',\n      inline: 'nearest'\n    });\n  }\n}\nwindow.addEventListener('validationError', function (event) {\n  setTimeout(goToError, 500);\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYWRtaW4uanMuanMiLCJtYXBwaW5ncyI6Ijs7QUFBOEI7QUFDOUJDLE1BQU0sQ0FBQ0QsTUFBTSxHQUFHQSxnREFBTTtBQUN0QkEsc0RBQVksRUFBRTtBQUVkQyxNQUFNLENBQUNFLE9BQU8sR0FBR0MsbUJBQU8sQ0FBQyxrREFBUyxDQUFDO0FBRW5DLFNBQVNDLFNBQVMsR0FBRztFQUNqQixJQUFJQyxRQUFRLEdBQUdDLFFBQVEsQ0FBQ0Msc0JBQXNCLENBQUMsa0JBQWtCLENBQUMsQ0FBQyxDQUFDLENBQUM7RUFDckUsSUFBR0YsUUFBUSxFQUFDO0lBQ1JBLFFBQVEsQ0FBQ0csY0FBYyxDQUFDO01BQUNDLFFBQVEsRUFBRSxRQUFRO01BQUVDLEtBQUssRUFBRSxRQUFRO01BQUVDLE1BQU0sRUFBRTtJQUFTLENBQUMsQ0FBQztFQUNyRjtBQUNKO0FBRUFYLE1BQU0sQ0FBQ1ksZ0JBQWdCLENBQUMsaUJBQWlCLEVBQUUsVUFBQUMsS0FBSyxFQUFJO0VBQ2hEQyxVQUFVLENBQUNWLFNBQVMsRUFBRSxHQUFHLENBQUM7QUFDOUIsQ0FBQyxDQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL2pzL2FkbWluLmpzPzkyNmQiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IEFscGluZSBmcm9tICdhbHBpbmVqcyc7XG53aW5kb3cuQWxwaW5lID0gQWxwaW5lO1xuQWxwaW5lLnN0YXJ0KCk7XG5cbndpbmRvdy5QaWthZGF5ID0gcmVxdWlyZSgncGlrYWRheScpO1xuXG5mdW5jdGlvbiBnb1RvRXJyb3IoKSB7XG4gICAgbGV0IGVycm9yRGl2ID0gZG9jdW1lbnQuZ2V0RWxlbWVudHNCeUNsYXNzTmFtZSgndmFsaWRhdGlvbi1lcnJvcicpWzBdO1xuICAgIGlmKGVycm9yRGl2KXtcbiAgICAgICAgZXJyb3JEaXYuc2Nyb2xsSW50b1ZpZXcoe2JlaGF2aW9yOiAnc21vb3RoJywgYmxvY2s6ICdjZW50ZXInLCBpbmxpbmU6ICduZWFyZXN0J30pO1xuICAgIH1cbn1cblxud2luZG93LmFkZEV2ZW50TGlzdGVuZXIoJ3ZhbGlkYXRpb25FcnJvcicsIGV2ZW50ID0+IHtcbiAgICBzZXRUaW1lb3V0KGdvVG9FcnJvciwgNTAwKTtcbn0pO1xuIl0sIm5hbWVzIjpbIkFscGluZSIsIndpbmRvdyIsInN0YXJ0IiwiUGlrYWRheSIsInJlcXVpcmUiLCJnb1RvRXJyb3IiLCJlcnJvckRpdiIsImRvY3VtZW50IiwiZ2V0RWxlbWVudHNCeUNsYXNzTmFtZSIsInNjcm9sbEludG9WaWV3IiwiYmVoYXZpb3IiLCJibG9jayIsImlubGluZSIsImFkZEV2ZW50TGlzdGVuZXIiLCJldmVudCIsInNldFRpbWVvdXQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/admin.js\n");
 
 /***/ }),
 
@@ -1774,7 +1774,7 @@ eval("/*!\n * Pikaday\n *\n * Copyright © 2014 David Bushell | BSD & MIT licens
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./resources/js/admin.js.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/js/admin.js");
 /******/ 	
 /******/ })()
 ;

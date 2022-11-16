@@ -25,7 +25,6 @@ class LocationFactory extends Factory
             'name' => $this->faker->company,
             'pickup_input_info' => $this->faker->text(35),
             'dropoff_input_info' => $this->faker->text(35),
-            'order_appearance' => $this->faker->numberBetween(1, 15)
         ];
     }
 }

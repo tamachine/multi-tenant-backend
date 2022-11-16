@@ -62,9 +62,10 @@ class Edit extends Component
     ** METHODS
     ***************************************************************
     */
-    public function mount($vendor, Vendor $vendorModel)
+
+    public function mount(Vendor $vendor)
     {
-        $this->vendor = $vendorModel->where('hashid', $vendor)->firstOrFail();
+        $this->vendor = $vendor;
 
         $this->name = $this->vendor->name;
         $this->vendor_code = $this->vendor->vendor_code;
@@ -76,6 +77,8 @@ class Edit extends Component
 
     public function saveVendor()
     {
+        $this->dispatchBrowserEvent('validationError');
+
         $this->validate([
             'name' => ['required', 'unique:vendors,name,' . $this->vendor->id],
             'vendor_code' => ['required', 'unique:vendors,vendor_code,' . $this->vendor->id],
@@ -100,6 +103,8 @@ class Edit extends Component
 
     public function uploadLogo()
     {
+        $this->dispatchBrowserEvent('validationError');
+
         $this->validate([
             'logo'      => ['required', 'mimes:jpeg,jpg,png,gif,webp'],
         ]);

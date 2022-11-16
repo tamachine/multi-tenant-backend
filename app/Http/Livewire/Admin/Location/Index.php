@@ -15,6 +15,11 @@ class Index extends Component
      */
     public $search;
 
+    /**
+     * @var int
+     */
+    public $count;
+
     protected $updatesQueryString = [
         'search',
         'page' => ['except' => 1],
@@ -25,10 +30,19 @@ class Index extends Component
         $this->fill(request()->only('search', 'page'));
     }
 
-    public function changeOrder($locationId, $order) {
+    public function moveLocation($locationId, $up)
+    {
         $location = Location::find($locationId);
-        $location->update(['order_appearance' => $order]);
-        $this->render();
+
+        if ($up) {
+            $swapLocation = Location::where('order_appearance', $location->order_appearance - 1)->first();
+            $location->update(['order_appearance' => $location->order_appearance - 1]);
+            $swapLocation->update(['order_appearance' => $swapLocation->order_appearance + 1]);
+        } else {
+            $swapLocation = Location::where('order_appearance', $location->order_appearance + 1)->first();
+            $location->update(['order_appearance' => $location->order_appearance + 1]);
+            $swapLocation->update(['order_appearance' => $swapLocation->order_appearance - 1]);
+        }
     }
 
     public function render()
@@ -36,6 +50,8 @@ class Index extends Component
         $locations = Location::livewireSearch($this->search)
             ->orderBy('order_appearance')
             ->paginate(perPage());
+
+        $this->count = $locations->count();
 
         return view('livewire.admin.location.index', ['locations' => $locations]);
     }
