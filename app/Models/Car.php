@@ -83,4 +83,14 @@ class Car extends Model
     {
         return $this->belongsTo(Vendor::class);
     }
+
+    /**
+     * Related images
+     *
+     * @return object
+     */
+    public function images()
+    {
+        return $this->hasMany(CarImage::class);
+    }
 }

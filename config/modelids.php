@@ -10,4 +10,5 @@ return [
     'App\Models\Voucher' => 1,
     'App\Models\Location' => 2,
     'App\Models\Car' => 3,
+    'App\Models\CarImage' => 4,
 ];

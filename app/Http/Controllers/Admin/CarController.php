@@ -38,6 +38,7 @@ class CarController extends Controller
 
         $data = [
             'car' => $car,
+            'carName' => $car->name,
             'action' => collect([
                 'route' => route('car.index'),
                 'title' => 'Cars'
