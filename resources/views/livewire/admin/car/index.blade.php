@@ -52,7 +52,7 @@
                                         <div class="w-16 text-center text-shadow"
                                             style="background:{{$car->brand_color}}"
                                         >
-                                            {{$index + 1}}
+                                            {{($page - 1) * perPage() + $index + 1}}
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">

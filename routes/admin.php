@@ -21,7 +21,7 @@ Route::group(
         Route::group(['prefix' => 'car', 'as' => 'car.'], function () {
             Route::get('/', ['as' => 'index', 'uses' => 'CarController@index']);
             Route::get('create', ['as' => 'create', 'uses' => 'CarController@create']);
-            Route::get('{car}/edit{tab?}', ['as' => 'edit', 'uses' => 'CarController@edit']);
+            Route::get('{car}/edit/{tab?}', ['as' => 'edit', 'uses' => 'CarController@edit']);
         });
 
         // Locations

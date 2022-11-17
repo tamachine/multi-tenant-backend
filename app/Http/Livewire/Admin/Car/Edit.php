@@ -29,19 +29,9 @@ class Edit extends Component
     public $name;
 
     /**
-     * @var array
-     */
-    public $names;
-
-    /**
      * @var string
      */
     public $description;
-
-    /**
-     * @var array
-     */
-    public $descriptions;
 
     /**
      * @var bool
@@ -138,24 +128,15 @@ class Edit extends Component
     ** METHODS
     ***************************************************************
     */
-    public function mount($car, Car $carModel)
+
+    public function mount(Car $car)
     {
-        $this->car = $carModel->where('hashid', $car)->firstOrFail();
+        $this->car = $car;
 
         $this->vendor = $this->car->vendor->name;
 
-        // Names
         $this->name = $this->car->name;
-        foreach(config('languages') as $key => $language) {
-            $this->names[$key] = $this->car->getTranslation('name', $key);
-        }
-
-        // Descriptions
         $this->description = $this->car->description;
-        foreach(config('languages') as $key => $language) {
-            $this->descriptions[$key] = $this->car->getTranslation('description', $key);
-        }
-
         $this->active = $this->car->active;
         $this->car_code = $this->car->car_code;
         $this->year = $this->car->year;
@@ -212,14 +193,6 @@ class Edit extends Component
             'f_roads_name' => $this->f_roads_name,
             'vehicle_class' => $this->vehicle_class,
         ]);
-
-        // Save translations
-        foreach(config('languages') as $key => $language) {
-            $this->car
-                ->setTranslation('name', $key, $this->names[$key])
-                ->setTranslation('description', $key, $this->descriptions[$key])
-                ->save();
-        }
 
         session()->flash('status', 'success');
         session()->flash('message', 'Car edited successfully');
