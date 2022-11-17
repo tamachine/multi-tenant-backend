@@ -18,6 +18,7 @@ mix.js("resources/js/app.js", "public/js/app.js")
     .postCss('resources/css/app.css', 'public/css', [
         require('tailwindcss'),
     ])
+    .postCss('resources/css/easepick.css', 'public/css') //it is needed here to avoid overriding css classes when using easepick
     .sass('resources/sass/admin.scss', 'public/css')
     .tailwind("./tailwind.config.js")
     .copy("resources/fonts", "public/fonts")

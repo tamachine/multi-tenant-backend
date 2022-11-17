@@ -1,5 +1,6 @@
-<div x-data="{ tab: '#sameLocation' }" class="bg-white rounded-3xl max-w-6xl mx-auto text-lg font-medium text-black-secondary shadow-xl">
-
+<div x-data="{ tab: '#sameLocation' }" class="bg-white rounded-3xl max-w-6xl mx-auto text-lg font-medium text-black-secondary shadow-xl"
+:class="!showOverlay || 'shadow-t-xl'"
+>
   <form>
 
     <div class="flex flex-row gap-6">
@@ -25,7 +26,7 @@
                   <div>{{ __('web.car-search-bar.first-day') }}</div>
                   <div>{{ __('web.car-search-bar.pick-up-day') }}</div>
                 </div>
-                <input type="text" class="search-input" />                
+                <input type="text" class="search-input" id="start-date" x-on:click="showOverlay = true"/>                
               </div>
               <div class="search-input-group">
                 <div>
@@ -62,5 +63,9 @@
     </div>
 
   </form>
-
+  
+  <x-datepicker-range
+    id="start-date"        
+  />
 </div>
+

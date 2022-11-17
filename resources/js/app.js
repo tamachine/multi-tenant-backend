@@ -7,12 +7,9 @@ Alpine.start();
 
 require('@fortawesome/fontawesome-free/js/all.min.js');
 
-window.Pikaday = require('pikaday');
-
-import { easepick, RangePlugin, AmpPlugin, PresetPlugin } from '@easepick/bundle';
+import { easepick, RangePlugin, TimePlugin } from '@easepick/bundle';
 
 window.easepick = easepick;
 window.RangePlugin = RangePlugin;
-window.AmpPlugin = AmpPlugin;
-window.PresetPlugin = PresetPlugin;
+window.TimePlugin = TimePlugin;
 

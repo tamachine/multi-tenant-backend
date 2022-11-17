@@ -1,5 +1,4 @@
 @import 'fonts.css';
-@import '../../node_modules/pikaday/css/pikaday.css';
 
 /**
  * This injects Tailwind's base styles, which is a combination of
@@ -118,4 +117,5 @@ h5 {
 .w-fill-screen {
     @apply w-screen relative left-[calc(-50vw+50%)]
 } 
+
  

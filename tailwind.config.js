@@ -14,34 +14,40 @@ module.exports = {
     ],
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['DMSans-Regular', ...defaultTheme.fontFamily.sans],    
-                fredokaOne: ['FredokaOne'],            
-                fredoka: ['Fredoka'],    
+            
+            backgroundImage: {
+                'home-hero': "url('/images/home/hero.png')",    
+                'footer-image-pattern': 'linear-gradient(0deg, rgba(7,0,0,1) 6%, rgba(121,9,9,0) 35%, rgba(255,255,255,1) 100%)',  
+                'calendar-selected-pattern' : 'linear-gradient(to right, white 20%, #E11166 20%, #E11166 40%, #E11166 40%, #E11166 60%, #E11166 60%, #E11166 80%, white 80%, white 100%)',              
+            },
+            boxShadow: {
+                't-xl': '1px 1px 54px -30px rgba(0,0,0,0.3),1px 1px 54px -30px rgba(0,0,0,0.3)'
             },
             colors: {               
                 'black-primary': '#300000',
                 'black-secondary': '#3B3E44', 
+                'black-not-deep': '#14272C',
                 'gray-primary' : '#F4F5F7',
                 'gray-secondary' : '#E7E8EA',
                 'gray-tertiary' : '#B1B5C4',
                 'pink-red':'#E11166',
                 'pink-red-secondary' : '#FDEEF4',
             },
+            fontFamily: {
+                sans: ['DMSans-Regular', ...defaultTheme.fontFamily.sans],    
+                fredokaOne: ['FredokaOne'],            
+                fredoka: ['Fredoka'],    
+            },
             maxWidth: {
                 '6xl': '1170px',
                 '7xl': '1440px',
             },
-            width: {
-                '6xl': '1170px',
-            },
-            backgroundImage: {
-                'home-hero': "url('/images/home/hero.png')",    
-                'footer-image-pattern': 'linear-gradient(0deg, rgba(7,0,0,1) 6%, rgba(121,9,9,0) 35%, rgba(255,255,255,1) 100%)',                
-            },
             padding: {
                 '22' : "84px",
-            }           
+            } ,
+            width: {
+                '6xl': '1170px',
+            },                                  
         },                       
     },        
     plugins: [
