@@ -6,11 +6,10 @@ use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Spatie\Translatable\HasTranslations;
 
-class Car extends Model
+class Season extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
+    use HasFactory, HashidTrait, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -18,19 +17,18 @@ class Car extends Model
      * @var array
      */
     protected $fillable = [
-        'active', 'vendor_id', 'name', 'car_code', 'description', 'year',
-        'ranking', 'fleet_position', 'users_number_votes', 'min_preparation_time', 'min_days_booking',
-        'adult_passengers', 'doors', 'luggage', 'units', 'online_percentage', 'discount_percentage', 'beds',
-        'km_unlimited', 'bath_shower', 'kitchen', 'heater', 'cdw_insurance', 'driver_extra',
-        'engine', 'transmission', 'vehicle_type', 'vehicle_brand', 'f_roads_name', 'vehicle_class',
+        'name', 'vendor_id', 'start_date', 'end_date', 'min_days_season', 'season_discount',
     ];
 
     /**
-     * The attributes that are translatable.
+     * The attributes that should be cast to native types.
      *
-     * @var array
+     * @var array<string, string>
      */
-    public $translatable = ['name', 'description'];
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date',
+    ];
 
     /**********************************
      * Accessors & Mutators
@@ -46,20 +44,15 @@ class Car extends Model
      * Scope to search the model
      *
      * @param      object  $query   Illuminate\Database\Query\Builder
-     * @param      string  $status  Car Status
      * @param      string  $vendor  Vendor hashid
      * @param      string  $search  String to search
      *
      * @return     object  Illuminate\Database\Query\Builder
      */
-    public function scopeLivewireSearch($query, $status, $vendor, $search)
+    public function scopeLivewireSearch($query, $vendor, $search)
     {
-        if (!empty($status)) {
-            $query->where('cars.active', intval($status));
-        }
-
         if (!empty($vendor)) {
-            $query->where('cars.vendor_id', dehash($vendor));
+            $query->where('seasons.vendor_id', dehash($vendor));
         }
 
         if (!empty($search)) {
@@ -67,7 +60,7 @@ class Car extends Model
             //into a single query
             collect(str_getcsv($search, ' ', '"'))->filter()->each(function ($term) use ($query) {
                 $term = '%' . $term . '%';
-                $query->where('cars.name', 'like', $term)
+                $query->where('seasons.name', 'like', $term)
                     ->orWhere('vendors.name', 'like', $term);
             });
         }
@@ -87,15 +80,5 @@ class Car extends Model
     public function vendor()
     {
         return $this->belongsTo(Vendor::class);
-    }
-
-    /**
-     * Related images
-     *
-     * @return object
-     */
-    public function images()
-    {
-        return $this->hasMany(CarImage::class);
     }
 }

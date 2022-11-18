@@ -3,12 +3,19 @@
 namespace App\Http\Livewire\Admin\Car;
 
 use App\Models\Car;
+use App\Models\Vendor;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class Index extends Component
 {
     use WithPagination;
+
+    /*
+    ***************************************************************
+    ** PROPERTIES
+    ***************************************************************
+    */
 
     /**
      * @var string
@@ -25,13 +32,30 @@ class Index extends Component
      */
     public $order = "vendor";
 
+    /**
+     * @var string
+     */
+    public $vendor = '';
+
+    /**
+     * @var array
+     */
+    public $vendors;
+
+    /*
+    ***************************************************************
+    ** METHODS
+    ***************************************************************
+    */
+
     protected $updatesQueryString = [
         'search',
         'page' => ['except' => 1],
     ];
 
-    public function mount()
+    public function mount(Vendor $vendor)
     {
+        $this->vendors = $vendor->pluck('name', 'hashid');
         $this->fill(request()->only('search', 'page'));
     }
 
@@ -42,7 +66,7 @@ class Index extends Component
             : 'cars.fleet_position';
 
         $cars = Car::join('vendors', 'cars.vendor_id', '=', 'vendors.id')
-            ->livewireSearch($this->status, $this->search)
+            ->livewireSearch($this->status, $this->vendor, $this->search)
             ->select('cars.hashid', 'cars.name', 'cars.active', 'cars.fleet_position', 'vendors.name as vendor_name', 'vendors.brand_color')
             ->orderBy($order)
             ->paginate(perPage());

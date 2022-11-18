@@ -4,6 +4,7 @@ namespace Tests;
 
 use App\Models\Car;
 use App\Models\Location;
+use App\Models\Season;
 use App\Models\User;
 use App\Models\Vendor;
 use Illuminate\Contracts\Console\Kernel;
@@ -46,6 +47,18 @@ trait CreatesApplication
     protected function createLocation($attributes = [])
     {
         return Location::factory($attributes)->create();
+    }
+
+     /**
+     * Create a season
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\Season
+     */
+    protected function createSeason($attributes = [])
+    {
+        return Season::factory($attributes)->create();
     }
 
     /**

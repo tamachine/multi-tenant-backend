@@ -1,10 +1,10 @@
 <div class="flex flex-col p-4 sm:p-10">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <!-- Order filter -->
-            <div class="flex justify-start">
+            <!-- Filters -->
+            <div class="sm:flex sm:justify-start">
                 <select id="status" name="status" wire:model="status"
-                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-32 h-10 mt-4 sm:mt-0 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
                 >
                     @foreach(config('settings.cars_status') as $statusKey => $statusOption)
                         <option value="{{$statusKey}}">{{ $statusOption }}</option>
@@ -12,10 +12,19 @@
                 </select>
 
                 <select id="order" name="order" wire:model="order"
-                    class="disable-arrow block w-48 h-10 mt-1 ml-4 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-48 h-10 mt-4 sm:mt-0 sm:ml-4 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
                 >
                     @foreach(config('settings.cars_order') as $statusKey => $statusOption)
                         <option value="{{$statusKey}}">{{ $statusOption }}</option>
+                    @endforeach
+                </select>
+
+                <select id="vendor" name="vendor" wire:model="vendor"
+                    class="disable-arrow block w-auto h-10 mt-4 sm:mt-0 sm:ml-4 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                >
+                    <option value="">All vendors</option>
+                    @foreach ($vendors as $id => $name)
+                        <option value="{{$id}}">{{ $name }}</option>
                     @endforeach
                 </select>
             </div>

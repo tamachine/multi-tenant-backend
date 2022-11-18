@@ -31,6 +31,13 @@ Route::group(
             Route::get('{location}/edit', ['as' => 'edit', 'uses' => 'LocationController@edit']);
         });
 
+        // Seasons
+        Route::group(['prefix' => 'season', 'as' => 'season.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'SeasonController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'SeasonController@create']);
+            Route::get('{season}/edit', ['as' => 'edit', 'uses' => 'SeasonController@edit']);
+        });
+
         // Vendors
         Route::group(['prefix' => 'vendor', 'as' => 'vendor.'], function () {
             Route::get('/', ['as' => 'index', 'uses' => 'VendorController@index']);

@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Admin\Location;
 
 use App\Models\Location;
 use Livewire\Component;
-use Storage;
 
 class Edit extends Component
 {
@@ -59,9 +58,9 @@ class Edit extends Component
     ** METHODS
     ***************************************************************
     */
-    public function mount($location, Location $locationModel)
+    public function mount(Location $location)
     {
-        $this->location = $locationModel->where('hashid', $location)->firstOrFail();
+        $this->location = $location;
 
         $this->name = $this->location->name;
         $this->pickup_show_input = $this->location->pickup_show_input;

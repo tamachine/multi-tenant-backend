@@ -4,12 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Location;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class LocationController extends Controller
 {
-    public function index(Request $request): View
+    public function index(): View
     {
         $data = [
             'action' => collect([
@@ -21,7 +20,7 @@ class LocationController extends Controller
         return view('admin.location.index')->with($data);
     }
 
-    public function create(Request $request): View
+    public function create(): View
     {
         $data = [
             'action' => collect([
@@ -33,12 +32,13 @@ class LocationController extends Controller
         return view('admin.location.create')->with($data);
     }
 
-    public function edit($hashid, Request $request): View
+    public function edit($hashid): View
     {
         $location = Location::where('hashid', $hashid)->firstOrFail();
 
         $data = [
-            'location' => $hashid,
+            'location' => $location,
+            'locationName' => $location->name,
             'action' => collect([
                 'route' => route('location.index'),
                 'title' => 'Locations'

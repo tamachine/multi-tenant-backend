@@ -34,6 +34,7 @@ class Create extends Component
     ** METHODS
     ***************************************************************
     */
+
     public function mount(Vendor $vendor)
     {
         $this->vendors = $vendor->pluck('name', 'hashid');
