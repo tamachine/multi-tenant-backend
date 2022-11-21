@@ -79,7 +79,7 @@ class Holidays extends Component
             $start->addMinutes(30);
         }
 
-        // Load the locations
+        // Load the vendor's holidays
         foreach ($holidays as $holiday) {
             $this->holidays[] = [
                 'id'            => $holiday->id,

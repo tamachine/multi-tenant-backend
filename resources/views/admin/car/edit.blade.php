@@ -82,6 +82,23 @@
                         </a>
                     </li>
                 @endif
+
+                <li class="mr-2">
+                    <a href="javascript:void(0);"
+                        @click.prevent="tab='unavailability'"
+                        class="inline-flex p-4 rounded-t-lg border-b-2"
+                        :class="tab == 'unavailability' ? 'text-blue-600 border-blue-600' : 'border-transparent hover:text-gray-600 hover:border-gray-300'"
+                    >
+                        <svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                            class="mr-2 w-5 h-5"
+                            :class="tab == 'unavailability' ? 'text-blue-600' : 'text-gray-400'"
+                        >
+                            <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM20.25 5.507v11.561L5.853 2.671c.15-.043.306-.075.467-.094a49.255 49.255 0 0111.36 0c1.497.174 2.57 1.46 2.57 2.93zM3.75 21V6.932l14.063 14.063L12 18.088l-7.165 3.583A.75.75 0 013.75 21z" />
+                        </svg>
+
+                        Unavailability
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -102,5 +119,9 @@
                 <livewire:admin.car.seasons :car="$car" />
             </div>
         @endif
+
+        <div x-show="tab == 'unavailability'">
+            <livewire:admin.car.unavailability :car="$car" />
+        </div>
     </div>
 </x-admin-layout>

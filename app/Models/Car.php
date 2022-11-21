@@ -98,4 +98,14 @@ class Car extends Model
     {
         return $this->hasMany(CarImage::class);
     }
+
+    /**
+     * Related unavailable dates
+     *
+     * @return object
+     */
+    public function unavailable_dates()
+    {
+        return $this->hasMany(CarUnavailable::class);
+    }
 }
