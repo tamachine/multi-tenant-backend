@@ -38,7 +38,7 @@ class CarController extends Controller
 
         $data = [
             'car' => $car,
-            'carName' => $car->name,
+            'carName' => $car->name . " (" . $car->vendor->name . ")",
             'action' => collect([
                 'route' => route('car.index'),
                 'title' => 'Cars'

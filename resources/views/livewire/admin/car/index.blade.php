@@ -6,7 +6,7 @@
                 <select id="status" name="status" wire:model="status"
                     class="disable-arrow block w-32 h-10 mt-4 sm:mt-0 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
                 >
-                    @foreach(config('settings.cars_status') as $statusKey => $statusOption)
+                    @foreach(config('admin.cars_status') as $statusKey => $statusOption)
                         <option value="{{$statusKey}}">{{ $statusOption }}</option>
                     @endforeach
                 </select>
@@ -14,7 +14,7 @@
                 <select id="order" name="order" wire:model="order"
                     class="disable-arrow block w-48 h-10 mt-4 sm:mt-0 sm:ml-4 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
                 >
-                    @foreach(config('settings.cars_order') as $statusKey => $statusOption)
+                    @foreach(config('admin.cars_order') as $statusKey => $statusOption)
                         <option value="{{$statusKey}}">{{ $statusOption }}</option>
                     @endforeach
                 </select>
