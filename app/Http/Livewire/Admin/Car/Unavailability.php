@@ -44,7 +44,7 @@ class Unavailability extends Component
     {
         $this->car = $car;
 
-        // Load the locations
+        // Load the unavaliable dates
         foreach ($car->unavailable_dates as $date) {
             $this->dates[] = [
                 'id'            => $date->id,

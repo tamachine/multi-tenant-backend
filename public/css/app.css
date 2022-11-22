@@ -1917,14 +1917,14 @@ h5 {
     background-color: rgb(253 238 244 / var(--tw-bg-opacity));
 }
 
-.bg-red-800 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(153 27 27 / var(--tw-bg-opacity));
-}
-
 .bg-blue-700 {
     --tw-bg-opacity: 1;
     background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+
+.bg-red-800 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(153 27 27 / var(--tw-bg-opacity));
 }
 
 .bg-green-50 {

@@ -1,4 +1,4 @@
-<x-admin.form-section submit="saveLocations" formClass="block">
+<x-admin.form-section submit="dummy" formClass="block">
     <x-slot name="title">
         {{ $formTitle }}
     </x-slot>

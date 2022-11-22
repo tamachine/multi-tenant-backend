@@ -4,6 +4,7 @@
     x-cloak
 >
     <button
+        type="button"
         x-on:click="openDelete = true"
         class="{{ isset($class) ? $class : ''}}"
     >{{ $trigger }}</button>
@@ -40,12 +41,15 @@
                         {!! $footer !!}
                     @else
                         <button
+                            type="button"
                             class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                             x-on:click="$dispatch('{{isset($event) ? $event : 'delete-element'}}', { hashid: '{{ $hashid }}' })"
                             wire:loading.attr="disabled"
                         >Delete</button>
 
-                        <button class="ml-3 bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ks-green"
+                        <button
+                            type="button"
+                            class="ml-3 bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ks-green"
                             x-on:click="openDelete = false">
                             Cancel
                         </button>

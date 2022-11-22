@@ -108,4 +108,14 @@ class Car extends Model
     {
         return $this->hasMany(CarUnavailable::class);
     }
+
+    /**
+     * Pivot table car_free_day
+     *
+     * @return object
+     */
+    public function carFreeDays()
+    {
+        return $this->hasMany(CarFreeDay::class);
+    }
 }
