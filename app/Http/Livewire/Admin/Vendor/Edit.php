@@ -96,7 +96,7 @@ class Edit extends Component
         ]);
 
         session()->flash('status', 'success');
-        session()->flash('message', 'Vendor edited successfully');
+        session()->flash('message', 'Vendor "' . $this->name .'" edited');
 
         return redirect()->route('vendor.edit', $this->vendor->hashid);
     }
@@ -123,17 +123,17 @@ class Edit extends Component
         ]);
 
         session()->flash('status', 'success');
-        session()->flash('message', 'Logo uploaded successfully');
+        session()->flash('message', 'Logo uploaded for ' . $this->name);
 
         return redirect()->route('vendor.edit', $this->vendor->hashid);
     }
 
-    public function deleteVendor($hashid)
+    public function deleteVendor()
     {
         $this->vendor->delete();
 
         session()->flash('status', 'success');
-        session()->flash('message', __('The vendor has been deleted successfully'));
+        session()->flash('message', __('The vendor has been deleted'));
 
         return redirect()->route('vendor.index');
     }

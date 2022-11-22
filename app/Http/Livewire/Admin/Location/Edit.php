@@ -90,17 +90,17 @@ class Edit extends Component
         ]);
 
         session()->flash('status', 'success');
-        session()->flash('message', 'Location edited successfully');
+        session()->flash('message', 'Location "' . $this->name .'" edited');
 
         return redirect()->route('location.edit', $this->location->hashid);
     }
 
-    public function deleteLocation($hashid)
+    public function deleteLocation()
     {
         $this->location->delete();
 
         session()->flash('status', 'success');
-        session()->flash('message', __('The location has been deleted successfully'));
+        session()->flash('message', __('The location has been deleted'));
 
         return redirect()->route('location.index');
     }

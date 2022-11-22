@@ -14,9 +14,9 @@
 @endif
 
 <div x-data="{ openSuccess: false, message: '' }"
-    x-on:open-success.window="openSuccess = true; message = event.detail.message;"
+    x-on:open-success.window="openSuccess = true; message = event.detail.message; setTimeout(() => openSuccess = false, 5000)"
     x-show="openSuccess"
-    class="z-50 absolute top-10 left-1/4 w-1/2 shadow sm:rounded-lg sm:p-6 flex justify-between bg-green-700"
+    class="wire-response z-50 absolute top-10 left-1/4 w-1/2 shadow sm:rounded-lg sm:p-6 flex justify-between bg-green-700"
     x-cloak
 >
     <div class="text-md font-medium text-white">
@@ -29,9 +29,9 @@
 </div>
 
 <div x-data="{ openError: false, message: '' }"
-    x-on:open-error.window="openError = true; message = event.detail.message;"
+    x-on:open-error.window="openError = true; message = event.detail.message; setTimeout(() => openError = false, 5000)"
     x-show="openError"
-    class="z-50 absolute top-10 left-1/4 w-1/2 shadow sm:rounded-lg sm:p-6 flex justify-between bg-red-700"
+    class="wire-response z-50 absolute top-10 left-1/4 w-1/2 shadow sm:rounded-lg sm:p-6 flex justify-between bg-red-700"
     x-cloak
 >
     <div class="text-md font-medium text-white">

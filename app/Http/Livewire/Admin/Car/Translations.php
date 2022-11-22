@@ -58,10 +58,7 @@ class Translations extends Component
                 ->save();
         }
 
-        session()->flash('status', 'success');
-        session()->flash('message', 'Translations saved successfully');
-
-        return redirect()->route('car.edit', ["car" => $this->car->hashid, "tab" => "translations"]);
+        $this->dispatchBrowserEvent('open-success', ['message' => 'The translations have been saved']);
     }
 
     public function render()

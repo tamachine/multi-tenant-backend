@@ -55,7 +55,7 @@ class Create extends Component
         ]);
 
         session()->flash('status', 'success');
-        session()->flash('message', 'Car created successfully');
+        session()->flash('message', 'Car "' . $this->name . '" created');
 
         return redirect()->route('car.edit', $car->hashid);
     }

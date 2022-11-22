@@ -34,7 +34,7 @@
 @push('scripts')
     <script>
         window.addEventListener('delete-element', event => {
-            @this.call('deleteLocation', event.detail.hashid)
+            @this.call('deleteLocation')
         });
     </script>
 @endpush

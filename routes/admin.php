@@ -24,6 +24,12 @@ Route::group(
             Route::get('{car}/edit/{tab?}', ['as' => 'edit', 'uses' => 'CarController@edit']);
         });
 
+        // Free days
+        Route::group(['prefix' => 'free-day', 'as' => 'free-day.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'FreeDayController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'FreeDayController@create']);
+        });
+
         // Locations
         Route::group(['prefix' => 'location', 'as' => 'location.'], function () {
             Route::get('/', ['as' => 'index', 'uses' => 'LocationController@index']);

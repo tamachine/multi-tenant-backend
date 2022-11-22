@@ -42,7 +42,7 @@
 @push('scripts')
     <script>
         window.addEventListener('delete-element', event => {
-            @this.call('deleteVendor', event.detail.hashid)
+            @this.call('deleteVendor')
         });
     </script>
 @endpush

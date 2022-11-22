@@ -1,7 +1,7 @@
 <div>
-    @include('admin.season.partial.create-edit', [
-        'formTitle'         => __('Create Season'),
-        'formDescription'   => __('Enter the new season details'),
-        'formButton'        => __('Save Season'),
+    @include('admin.free-day.partial.create', [
+        'formTitle'         => __('Create Free day plan'),
+        'formDescription'   => __('Enter the new free day plan details'),
+        'formButton'        => __('Save Free day plan'),
     ])
 </div>

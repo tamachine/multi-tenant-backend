@@ -84,7 +84,7 @@ class Create extends Component
         ]);
 
         session()->flash('status', 'success');
-        session()->flash('message', 'Season created successfully');
+        session()->flash('message', 'Season "' . $this->name . '" created');
 
         return redirect()->route('season.index');
     }

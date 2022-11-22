@@ -204,7 +204,6 @@ class UnavailabilityTest extends TestCase
      * @group admin
      * @group car
      * @group car-unavailability
-     * @group pepe
      *
      * @return void
      */

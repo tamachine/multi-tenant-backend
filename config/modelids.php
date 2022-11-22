@@ -12,4 +12,5 @@ return [
     'App\Models\Car' => 3,
     'App\Models\CarImage' => 4,
     'App\Models\Season' => 5,
+    'App\Models\FreeDay' => 6,
 ];

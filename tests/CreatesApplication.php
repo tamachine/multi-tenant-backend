@@ -3,6 +3,7 @@
 namespace Tests;
 
 use App\Models\Car;
+use App\Models\FreeDay;
 use App\Models\Location;
 use App\Models\Season;
 use App\Models\User;
@@ -35,6 +36,18 @@ trait CreatesApplication
     protected function createCar($attributes = [])
     {
         return Car::factory($attributes)->create();
+    }
+
+    /**
+     * Create a free day
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\FreeDay
+     */
+    protected function createFreeDay($attributes = [])
+    {
+        return FreeDay::factory($attributes)->create();
     }
 
     /**

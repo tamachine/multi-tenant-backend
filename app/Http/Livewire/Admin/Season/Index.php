@@ -68,7 +68,7 @@ class Index extends Component
         ]);
 
         session()->flash('status', 'success');
-        session()->flash('message', __('The season has been duplicated'));
+        session()->flash('message', __('The season "' . $origin->name . '" has been duplicated'));
 
         return redirect()->route('season.index');
     }
@@ -78,7 +78,7 @@ class Index extends Component
         $season->whereHashid($hashid)->delete();
 
         session()->flash('status', 'success');
-        session()->flash('message', __('The season has been deleted successfully'));
+        session()->flash('message', __('The season has been deleted'));
 
         return redirect()->route('season.index');
     }

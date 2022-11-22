@@ -77,7 +77,7 @@ class Create extends Component
         ]);
 
         session()->flash('status', 'success');
-        session()->flash('message', 'Location created successfully');
+        session()->flash('message', 'Location "' . $this->name .'" created');
 
         return redirect()->route('location.edit', $location->hashid);
     }

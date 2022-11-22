@@ -74,7 +74,7 @@
             <x-admin.input-error for="end_date" class="mt-2" />
         </div>
 
-        <!-- Minimum days -->
+        <!-- Season Discount -->
         <div class="px-4 mt-4 md:mt-0">
             <x-admin.label for="season_discount" value="{{ __('Season Discount') }}" />
             <x-admin.input id="season_discount" type="number" class="w-20 mt-1 block" min="0" max="99" wire:model.defer="season_discount" />
