@@ -100,7 +100,7 @@
 
             {{-- Preparation Time --}}
             <div class="px-4 mt-4">
-                <x-admin.label for="min_preparation_time" value="{{ __('Preparation Time') }}" />
+                <x-admin.label-tooltip for="min_preparation_time" value="{{ __('Preparation Time') }}" tooltip="Between user time and booking time" />
                 <x-admin.input id="min_preparation_time" type="number" class="w-20 mt-1 block" min="0" max="7200" wire:model.defer="min_preparation_time" />
                 <x-admin.input-help value="{{ __('In minutes') }}" />
                 <x-admin.input-error for="min_preparation_time" class="mt-2" />
