@@ -14,6 +14,16 @@
             {{$vendor}}
         </div>
 
+        <!-- Percentage -->
+        <div class="px-4 mt-4">
+            <x-admin.label for="online_percentage" value="{{ __('Booking commission') }}" />
+            <div class="flex">
+                <x-admin.input id="online_percentage" type="number" class="w-12 mt-1 block" min="1" max="99" wire:model.defer="online_percentage" />
+                <div class="mt-3 ml-1">%</div>
+            </div>
+            <x-admin.input-error for="online_percentage" class="mt-2" />
+        </div>
+
         <!-- Name -->
         <div class="px-4 mt-4">
             <x-admin.label for="name" value="{{ __('Name') }}" />

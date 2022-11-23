@@ -106,7 +106,7 @@ class UnavailabilityTest extends TestCase
         $this->actingAs($this->admin);
 
         $car = $this->createCar();
-        $car->unavailable_dates()->create([
+        $car->unavailableDates()->create([
             'start_date'    => Carbon::createFromFormat("d-m-Y", "25-11-2022"),
             'end_date'      => Carbon::createFromFormat("d-m-Y", "27-11-2022"),
         ]);
@@ -173,7 +173,7 @@ class UnavailabilityTest extends TestCase
         $this->actingAs($this->admin);
 
         $car = $this->createCar();
-        $car->unavailable_dates()->create([
+        $car->unavailableDates()->create([
             'start_date'    => Carbon::createFromFormat("d-m-Y", "1-11-2022"),
             'end_date'      => Carbon::createFromFormat("d-m-Y", "15-11-2022"),
         ]);
@@ -213,8 +213,7 @@ class UnavailabilityTest extends TestCase
 
         $car = $this->createCar();
 
-        $car = $this->createCar();
-        $car->unavailable_dates()->create([
+        $car->unavailableDates()->create([
             'start_date'    => Carbon::createFromFormat("d-m-Y", "1-11-2022"),
             'end_date'      => Carbon::createFromFormat("d-m-Y", "15-11-2022"),
         ]);

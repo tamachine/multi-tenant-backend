@@ -8,7 +8,7 @@
     </x-slot>
 
     <x-slot name="form">
-        <!-- Dropdown -->
+        <!-- Plans' dropdown -->
         <div class="px-4 mt-4 md:mt-0">
             <select id="plan" name="plan" wire:model="plan"
                 class="disable-arrow block w-full h-10 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"

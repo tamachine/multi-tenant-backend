@@ -24,6 +24,11 @@ class Edit extends Component
     public $vendor;
 
     /**
+     * @var int
+     */
+    public $online_percentage;
+
+    /**
      * @var string
      */
     public $name;
@@ -135,6 +140,7 @@ class Edit extends Component
 
         $this->vendor = $this->car->vendor->name;
 
+        $this->online_percentage = $car->online_percentage;
         $this->name = $this->car->name;
         $this->description = $this->car->description;
         $this->active = $this->car->active;
@@ -164,12 +170,14 @@ class Edit extends Component
         $this->dispatchBrowserEvent('validationError');
 
         $this->validate([
+            'online_percentage' => ['required', 'numeric', 'gte:1', 'lte:99'],
             'name' => ['required'],
             'car_code' => ['required', 'string', 'max:4'],
             'year' => ['required', 'numeric', 'gte:2000', 'lte:' . now()->year],
         ]);
 
         $this->car->update([
+            'online_percentage' => $this->online_percentage,
             'name' => $this->name,
             'description' => $this->description,
             'active' => $this->active,

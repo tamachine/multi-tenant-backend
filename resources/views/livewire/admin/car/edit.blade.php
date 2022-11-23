@@ -1,4 +1,4 @@
-<div wire:loading.class="hidden">
+<div>
     @include('admin.car.partial.edit', [
         'formTitle'         => __('Edit Car'),
         'formDescription'   => __('Enter the car details'),

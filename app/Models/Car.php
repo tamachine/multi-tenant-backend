@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Location;
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -36,7 +37,17 @@ class Car extends Model
      * Accessors & Mutators
      **********************************/
 
-    //
+    /**
+     * Get the vendor's logo URL
+     *
+     * @return     \Illuminate\Support\Collection
+     */
+    public function getAssignableLocationsAttribute()
+    {
+        $vendorLocationIds = ($this->vendor->vendorLocations->pluck('location_id'));
+
+        return Location::whereIn('id', $vendorLocationIds)->orderBy('name')->get();
+    }
 
     /**********************************
      * Scopes
@@ -104,7 +115,7 @@ class Car extends Model
      *
      * @return object
      */
-    public function unavailable_dates()
+    public function unavailableDates()
     {
         return $this->hasMany(CarUnavailable::class);
     }
@@ -117,5 +128,15 @@ class Car extends Model
     public function carFreeDays()
     {
         return $this->hasMany(CarFreeDay::class);
+    }
+
+    /**
+     * Pivot table car_location
+     *
+     * @return object
+     */
+    public function carLocations()
+    {
+        return $this->hasMany(CarLocation::class);
     }
 }

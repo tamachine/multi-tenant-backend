@@ -1139,14 +1139,14 @@ select{
     margin-right: 3rem;
 }
 
-.mx-4{
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
 .-my-2{
     margin-top: -0.5rem;
     margin-bottom: -0.5rem;
+}
+
+.mx-4{
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .mt-4{
@@ -1424,6 +1424,10 @@ select{
 
 .w-4{
     width: 1rem;
+}
+
+.w-12{
+    width: 3rem;
 }
 
 .w-20{
@@ -1935,6 +1939,11 @@ select{
 .bg-green-50{
     --tw-bg-opacity: 1;
     background-color: rgb(240 253 244 / var(--tw-bg-opacity));
+}
+
+.bg-gray-700{
+    --tw-bg-opacity: 1;
+    background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
 .bg-home-hero{
@@ -2913,6 +2922,11 @@ input[type=number] {
     border-color: rgb(185 28 28 / var(--tw-border-opacity));
 }
 
+.hover\:border-gray-700:hover{
+    --tw-border-opacity: 1;
+    border-color: rgb(55 65 81 / var(--tw-border-opacity));
+}
+
 .hover\:bg-gray-100:hover{
     --tw-bg-opacity: 1;
     background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -2986,6 +3000,11 @@ input[type=number] {
 .hover\:text-red-700:hover{
     --tw-text-opacity: 1;
     color: rgb(185 28 28 / var(--tw-text-opacity));
+}
+
+.hover\:text-gray-700:hover{
+    --tw-text-opacity: 1;
+    color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover{
@@ -3113,6 +3132,11 @@ input[type=number] {
     border-color: rgb(185 28 28 / var(--tw-border-opacity));
 }
 
+.active\:border-gray-700:active{
+    --tw-border-opacity: 1;
+    border-color: rgb(55 65 81 / var(--tw-border-opacity));
+}
+
 .active\:bg-white:active{
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -3178,14 +3202,14 @@ input[type=number] {
         margin-right: auto;
     }
 
-    .sm\:mx-4{
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-
     .sm\:-mx-6{
         margin-left: -1.5rem;
         margin-right: -1.5rem;
+    }
+
+    .sm\:mx-4{
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 
     .sm\:mt-0{

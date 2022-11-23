@@ -83,3 +83,24 @@ if (!function_exists('dehash')) {
         return !empty($hashidArray) ? $hashidArray[0] : null;
     }
 }
+
+if (!function_exists('hours_dropdown')) {
+    /**
+     * Returns an array for hours dropdowns
+     *
+     * @return array
+     */
+    function hours_dropdown()
+    {
+        $hours = [];
+        $start = now()->startOfDay();
+        $end = now()->endOfDay();
+
+        while($start < $end) {
+            $hours[] = $start->format('H:i');
+            $start->addMinutes(30);
+        }
+
+        return $hours;
+    }
+}

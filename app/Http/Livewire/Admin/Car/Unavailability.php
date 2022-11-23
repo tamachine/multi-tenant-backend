@@ -45,7 +45,7 @@ class Unavailability extends Component
         $this->car = $car;
 
         // Load the unavaliable dates
-        foreach ($car->unavailable_dates as $date) {
+        foreach ($car->unavailableDates as $date) {
             $this->dates[] = [
                 'id'            => $date->id,
                 'start_date'    => $date->start_date->format('d-m-Y'),
@@ -63,7 +63,7 @@ class Unavailability extends Component
             'end_date' => ['required', 'date', 'after:start_date'],
         ]);
 
-        $this->car->unavailable_dates()->create([
+        $this->car->unavailableDates()->create([
             'start_date'    => Carbon::createFromFormat("d-m-Y", $this->start_date),
             'end_date'      => Carbon::createFromFormat("d-m-Y", $this->end_date),
         ]);
@@ -87,7 +87,7 @@ class Unavailability extends Component
 
         $date = $this->dates[$key];
 
-        $this->car->unavailable_dates()->where('id', $date['id'])->update([
+        $this->car->unavailableDates()->where('id', $date['id'])->update([
             'start_date'    => Carbon::createFromFormat("d-m-Y", $date["start_date"]),
             'end_date'      => Carbon::createFromFormat("d-m-Y", $date["end_date"]),
         ]);
@@ -102,7 +102,7 @@ class Unavailability extends Component
     {
         $date = $this->dates[$key];
 
-        $this->car->unavailable_dates()->where('id', $date['id'])->delete();
+        $this->car->unavailableDates()->where('id', $date['id'])->delete();
 
         session()->flash('status', 'success');
         session()->flash('message', 'Deleted unavailable dates for ' . $this->car->name);
