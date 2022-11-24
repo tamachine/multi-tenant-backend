@@ -69,7 +69,7 @@ h5 {
 }
 
 .btn-red {
-    @apply bg-pink-red text-white;
+    @apply bg-pink-red text-white hover:bg-[#F42077];
 }
 
 .search-input-group {

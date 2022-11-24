@@ -942,6 +942,11 @@ h5 {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.btn-red:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 32 119 / var(--tw-bg-opacity));
+}
+
 .search-input-group {
   position: relative;
   height: 70px;
