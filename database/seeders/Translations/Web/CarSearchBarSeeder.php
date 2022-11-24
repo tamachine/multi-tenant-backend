@@ -113,5 +113,35 @@ class CarSearchBarSeeder extends Seeder
                 'text' => ['en' => 'Select location', 'es' => 'Selección ubicación'],
             ]
         );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'car-search-bar.select-hours',    
+            ],
+            [                
+                'text' => ['en' => 'Select your pick up and return time', 'es' => 'Selecciona la hora de recogida y retorno'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'car-search-bar.hours-pickup',    
+            ],
+            [                
+                'text' => ['en' => 'Pick up', 'es' => 'Recogida'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'car-search-bar.hours-return',    
+            ],
+            [                
+                'text' => ['en' => 'Return', 'es' => 'Retorno'],
+            ]
+        );  
     }
 }

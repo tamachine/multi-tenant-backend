@@ -9,7 +9,7 @@
     > 
     <div class="flex flexrow justify-left items-center gap-6 text-lg text-black-primary">
         <div class="text-gray-light">
-            Select your pick up and return time
+            {!! __('web.car-search-bar.select-hours') !!}
         </div>
 
         <div class="w-auto flex flex-row items-center gap-3">
@@ -20,7 +20,7 @@
             </div>
 
             <span>
-                Pick up
+                {!! __('web.car-search-bar.hours-pickup') !!}
             </span>
         </div>
 
@@ -32,7 +32,7 @@
             </div>
         
             <span>
-                Return
+            {!! __('web.car-search-bar.hours-return') !!}
             </span>
         </div>
     </div>   
