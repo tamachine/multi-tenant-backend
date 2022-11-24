@@ -43,5 +43,25 @@ class GeneralSeeder extends Seeder
                 'text' => ['en' => 'Read more', 'es' => 'Leer más'],
             ]
         );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'general.after-meridiem',    
+            ],
+            [                
+                'text' => ['en' => 'AM', 'es' => 'AM'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'general.post-meridiem',    
+            ],
+            [                
+                'text' => ['en' => 'PM', 'es' => 'PM'],
+            ]
+        );  
     }
 }

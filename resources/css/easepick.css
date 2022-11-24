@@ -12,7 +12,7 @@
 }
 
 .container.show {
-    @apply bg-white px-12 py-10 shadow-none rounded-[20px];
+    @apply bg-white px-12 pt-10 pb-28    shadow-none rounded-[20px];
 }
 
 .calendar {
@@ -45,6 +45,10 @@
     @apply px-8 border-none text-lg font-medium;
 }
 
+.calendar>.days-grid>.day.disabled  {
+    @apply pointer-events-none opacity-40
+}
+
 /* selected day */
 .container.range-plugin 
 .calendar>.days-grid>.day.end, 
@@ -72,4 +76,8 @@
 
 .container.range-plugin .calendar>.days-grid>.day.in-range {
     @apply bg-pink-red-secondary border-none text-black-primary;
+}
+
+footer {
+   @apply hidden
 }

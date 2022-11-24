@@ -1,14 +1,14 @@
 @extends('layouts.web')
 
-@section('body')    
+@section('body')        
     <div class="relative bg-violet-100">
         <x-home.hero />
-
+       
         <div class="absolute -bottom-6 mx-auto w-full z-30">
             <x-car-search-bar />
         </div>                
     </div>
-
+    
     <div class="max-w-6xl mx-auto p-3">    
         @include('web.home.info')
         
