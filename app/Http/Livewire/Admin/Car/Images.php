@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\Admin\Car;
 
 use App\Models\Car;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Storage;
 
 class Images extends Component
 {

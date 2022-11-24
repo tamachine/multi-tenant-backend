@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('name');
             $table->text('description')->nullable();
             $table->unsignedSmallInteger('order_appearance')->default(15);
+            $table->string('image')->nullable();
 
             $table->unsignedInteger('price')->default(0);
             $table->unsignedInteger('maximum_fee')->default(800000);

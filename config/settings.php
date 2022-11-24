@@ -8,4 +8,8 @@ return [
     'car' => [
         'seasons' => false,
     ],
+
+    'vendor' => [
+        'multivendor' => false,
+    ],
 ];

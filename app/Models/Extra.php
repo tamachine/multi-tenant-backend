@@ -6,10 +6,11 @@ use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Translatable\HasTranslations;
 
 class Extra extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
 
     /**
      * The attributes that are mass assignable.
@@ -20,6 +21,7 @@ class Extra extends Model
         'vendor_id', 'name', 'description', 'active', 'order_appearance',
         'price', 'maximum_fee', 'max_units', 'price_mode', 'category',
         'included', 'insurance_premium',
+        'image'
     ];
 
     /**
@@ -33,7 +35,17 @@ class Extra extends Model
      * Accessors & Mutators
      **********************************/
 
-    //
+     /**
+     * Get the extra's image URL
+     *
+     * @return     string
+     */
+    public function getImageUrlAttribute()
+    {
+        return $this->image
+            ? asset('storage/extras/' . $this->image)
+            : '';
+    }
 
     /**********************************
      * Scopes

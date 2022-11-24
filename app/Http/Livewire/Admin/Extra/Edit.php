@@ -123,7 +123,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Extra "' . $this->name . '" edited');
 
-        return redirect()->route('extra.index');
+        return redirect()->route('extra.edit', $this->extra->hashid);
     }
 
     public function deleteExtra()

@@ -28,7 +28,7 @@ Route::group(
         Route::group(['prefix' => 'extra', 'as' => 'extra.'], function () {
             Route::get('/', ['as' => 'index', 'uses' => 'ExtraController@index']);
             Route::get('create', ['as' => 'create', 'uses' => 'ExtraController@create']);
-            Route::get('{extra}/edit', ['as' => 'edit', 'uses' => 'ExtraController@edit']);
+            Route::get('{extra}/edit/{tab?}', ['as' => 'edit', 'uses' => 'ExtraController@edit']);
         });
 
         // Free days

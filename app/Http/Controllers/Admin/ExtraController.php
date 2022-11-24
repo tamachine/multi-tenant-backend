@@ -32,7 +32,7 @@ class ExtraController extends Controller
         return view('admin.extra.create')->with($data);
     }
 
-    public function edit($hashid): View
+    public function edit($hashid, $tab = null): View
     {
         $extra = Extra::where('hashid', $hashid)->firstOrFail();
 
@@ -43,6 +43,7 @@ class ExtraController extends Controller
                 'route' => route('extra.index'),
                 'title' => 'Extras'
             ]),
+            'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];
 
         return view('admin.extra.edit')->with($data);
