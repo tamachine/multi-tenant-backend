@@ -42,16 +42,21 @@ class Index extends Component
      */
     public $vendors;
 
+     /**
+     * @var array
+     */
+    protected $updatesQueryString = [
+        'search',
+        'page' => ['except' => 1],
+    ];
+
     /*
     ***************************************************************
     ** METHODS
     ***************************************************************
     */
 
-    protected $updatesQueryString = [
-        'search',
-        'page' => ['except' => 1],
-    ];
+
 
     public function mount(Vendor $vendor)
     {

@@ -13,7 +13,7 @@
         </div>
 
         <div class="relative" x-cloak x-show.transition.origin.top="tooltip">
-            <div class="absolute top-0 z-10 w-32 p-2 -mt-1 text-sm leading-tight text-white transform -translate-x-1/2 -translate-y-full bg-blue-500 rounded-lg shadow-lg">
+            <div class="absolute top-0 z-10 w-64 p-2 -mt-1 text-sm leading-tight text-white transform -translate-x-1/2 -translate-y-full bg-blue-500 rounded-lg shadow-lg">
                 {{ $tooltip ?? $slot }}
             </div>
             <svg class="absolute left-2 z-10 w-6 h-6 text-blue-500 transform -translate-x-12 -translate-y-3 fill-current stroke-current" width="8" height="8">

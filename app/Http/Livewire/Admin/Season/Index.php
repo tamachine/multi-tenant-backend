@@ -23,11 +23,6 @@ class Index extends Component
     public $search;
 
     /**
-     * @var int
-     */
-    public $count;
-
-    /**
      * @var string
      */
     public $vendor = '';
@@ -37,16 +32,21 @@ class Index extends Component
      */
     public $vendors;
 
+    /**
+     * @var array
+     */
+    protected $updatesQueryString = [
+        'search',
+        'page' => ['except' => 1],
+    ];
+
     /*
     ***************************************************************
     ** METHODS
     ***************************************************************
     */
 
-    protected $updatesQueryString = [
-        'search',
-        'page' => ['except' => 1],
-    ];
+
 
     public function mount(Vendor $vendor)
     {
@@ -91,8 +91,6 @@ class Index extends Component
             ->orderBy('vendor_id', 'asc')
             ->orderBy('start_date', 'desc')
             ->paginate(perPage());
-
-        $this->count = $seasons->count();
 
         return view('livewire.admin.season.index', ['seasons' => $seasons]);
     }

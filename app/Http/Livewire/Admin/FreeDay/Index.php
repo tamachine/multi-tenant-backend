@@ -31,16 +31,20 @@ class Index extends Component
      */
     public $test = false;
 
+
+    /**
+     * @var array
+     */
+    protected $updatesQueryString = [
+        'search',
+        'page' => ['except' => 1],
+    ];
+
     /*
     ***************************************************************
     ** METHODS
     ***************************************************************
     */
-
-    protected $updatesQueryString = [
-        'search',
-        'page' => ['except' => 1],
-    ];
 
     public function mount()
     {

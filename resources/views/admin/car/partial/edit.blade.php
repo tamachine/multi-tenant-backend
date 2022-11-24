@@ -40,6 +40,7 @@
         </div>
 
         <div class="w-full sm:grid sm:gap-2 sm:grid-cols-2 md:grid-cols-3">
+            <!-- Active -->
             <div class="px-4 mt-4">
                 <x-admin.label for="active" value="{{ __('Active') }}" />
 
