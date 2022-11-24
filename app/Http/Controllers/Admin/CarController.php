@@ -37,7 +37,8 @@ class CarController extends Controller
         $car = Car::where('hashid', $hashid)->firstOrFail();
 
         $data = [
-            'car' => $hashid,
+            'car' => $car,
+            'carName' => $car->name . " (" . $car->vendor->name . ")",
             'action' => collect([
                 'route' => route('car.index'),
                 'title' => 'Cars'

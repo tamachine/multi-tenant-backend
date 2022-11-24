@@ -15,7 +15,7 @@
             <x-admin.input-error for="name" class="mt-2" />
         </div>
 
-         <!-- Vendor -->
+        <!-- Vendor -->
         <div class="px-4 mt-4 md:mt-0">
             <x-admin.label for="vendor" value="{{ __('Vendor') }}" />
             <select id="vendor" name="vendor" wire:model="vendor"

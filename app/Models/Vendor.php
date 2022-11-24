@@ -6,7 +6,7 @@ use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 
 class Vendor extends Model
 {

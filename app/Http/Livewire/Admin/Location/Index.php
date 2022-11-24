@@ -10,6 +10,12 @@ class Index extends Component
 {
     use WithPagination;
 
+    /*
+    ***************************************************************
+    ** PROPERTIES
+    ***************************************************************
+    */
+
     /**
      * @var string
      */
@@ -20,10 +26,19 @@ class Index extends Component
      */
     public $count;
 
+    /**
+     * @var array
+     */
     protected $updatesQueryString = [
         'search',
         'page' => ['except' => 1],
     ];
+
+    /*
+    ***************************************************************
+    ** METHODS
+    ***************************************************************
+    */
 
     public function mount()
     {

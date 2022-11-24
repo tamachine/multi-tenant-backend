@@ -14,6 +14,16 @@
             {{$vendor}}
         </div>
 
+        <!-- Percentage -->
+        <div class="px-4 mt-4">
+            <x-admin.label for="online_percentage" value="{{ __('Booking commission') }}" />
+            <div class="flex">
+                <x-admin.input id="online_percentage" type="number" class="w-12 mt-1 block" min="1" max="99" wire:model.defer="online_percentage" />
+                <div class="mt-3 ml-1">%</div>
+            </div>
+            <x-admin.input-error for="online_percentage" class="mt-2" />
+        </div>
+
         <!-- Name -->
         <div class="px-4 mt-4">
             <x-admin.label for="name" value="{{ __('Name') }}" />
@@ -30,6 +40,7 @@
         </div>
 
         <div class="w-full sm:grid sm:gap-2 sm:grid-cols-2 md:grid-cols-3">
+            <!-- Active -->
             <div class="px-4 mt-4">
                 <x-admin.label for="active" value="{{ __('Active') }}" />
 
@@ -41,7 +52,7 @@
             <!-- Car code -->
             <div class="px-4 mt-4">
                 <x-admin.label for="car_code" value="{{ __('Car Code') }}" />
-                <x-admin.input id="car_code" type="text" class="w-24 mt-1 block" maxlength="4" wire:model.defer="car_code" />
+                <x-admin.input id="car_code" type="text" class="w-20 mt-1 block" maxlength="4" wire:model.defer="car_code" />
                 <x-admin.input-help value="{{ __('(4 letters)') }}" />
                 <x-admin.input-error for="car_code" class="mt-2" />
             </div>
@@ -49,7 +60,7 @@
             <!-- Year -->
             <div class="px-4 mt-4">
                 <x-admin.label for="year" value="{{ __('Year') }}" />
-                <x-admin.input id="year" type="number" class="w-24 mt-1 block" min="2000" max="{{now()->year}}" wire:model.defer="year" />
+                <x-admin.input id="year" type="number" class="w-20 mt-1 block" min="2000" max="{{now()->year}}" wire:model.defer="year" />
                 <x-admin.input-error for="year" class="mt-2" />
             </div>
         </div>
@@ -60,7 +71,7 @@
             {{-- Fleet Position --}}
             <div class="px-4 mt-4">
                 <x-admin.label for="fleet_position" value="{{ __('Fleet Position') }}" />
-                <x-admin.input id="fleet_position" type="number" class="w-24 mt-1 block" min="0" max="300" wire:model.defer="fleet_position" />
+                <x-admin.input id="fleet_position" type="number" class="w-20 mt-1 block" min="0" max="300" wire:model.defer="fleet_position" />
                 <x-admin.input-help value="{{ __('Between 0 and 300') }}" />
                 <x-admin.input-error for="fleet_position" class="mt-2" />
             </div>
@@ -68,7 +79,7 @@
             {{-- Score --}}
             <div class="px-4 mt-4">
                 <x-admin.label for="ranking" value="{{ __('Score') }}" />
-                <x-admin.input id="ranking" type="number" class="w-24 mt-1 block" min="0" max="10" wire:model.defer="ranking" />
+                <x-admin.input id="ranking" type="number" class="w-20 mt-1 block" min="0" max="10" wire:model.defer="ranking" />
                 <x-admin.input-help value="{{ __('Between 0 and 10') }}" />
                 <x-admin.input-error for="ranking" class="mt-2" />
             </div>
@@ -76,7 +87,7 @@
             {{-- Users Votes Number --}}
             <div class="px-4 mt-4">
                 <x-admin.label for="users_number_votes" value="{{ __('Users Votes Number') }}" />
-                <x-admin.input id="users_number_votes" type="number" class="w-24 mt-1 block" min="0" max="10000" wire:model.defer="users_number_votes" />
+                <x-admin.input id="users_number_votes" type="number" class="w-20 mt-1 block" min="0" max="10000" wire:model.defer="users_number_votes" />
                 <x-admin.input-help value="{{ __('Between 0 and 10000') }}" />
                 <x-admin.input-error for="users_number_votes" class="mt-2" />
             </div>
@@ -84,14 +95,14 @@
             {{-- Minimum days booking --}}
             <div class="px-4 mt-4">
                 <x-admin.label for="min_days_booking" value="{{ __('Minimum days booking') }}" />
-                <x-admin.input id="min_days_booking" type="number" class="w-24 mt-1 block" min="0" max="50" wire:model.defer="min_days_booking" />
+                <x-admin.input id="min_days_booking" type="number" class="w-20 mt-1 block" min="0" max="50" wire:model.defer="min_days_booking" />
                 <x-admin.input-error for="min_days_booking" class="mt-2" />
             </div>
 
             {{-- Preparation Time --}}
             <div class="px-4 mt-4">
-                <x-admin.label for="min_preparation_time" value="{{ __('Preparation Time') }}" />
-                <x-admin.input id="min_preparation_time" type="number" class="w-24 mt-1 block" min="0" max="7200" wire:model.defer="min_preparation_time" />
+                <x-admin.label-tooltip for="min_preparation_time" value="{{ __('Preparation Time') }}" tooltip="Between user time and booking time" />
+                <x-admin.input id="min_preparation_time" type="number" class="w-20 mt-1 block" min="0" max="7200" wire:model.defer="min_preparation_time" />
                 <x-admin.input-help value="{{ __('In minutes') }}" />
                 <x-admin.input-error for="min_preparation_time" class="mt-2" />
             </div>
@@ -99,28 +110,28 @@
             {{-- Adult Passengers --}}
             <div class="px-4 mt-4">
                 <x-admin.label for="adult_passengers" value="{{ __('Adult Passengers') }}" />
-                <x-admin.input id="adult_passengers" type="number" class="w-24 mt-1 block" min="1" max="50" wire:model.defer="adult_passengers" />
+                <x-admin.input id="adult_passengers" type="number" class="w-20 mt-1 block" min="1" max="50" wire:model.defer="adult_passengers" />
                 <x-admin.input-error for="adult_passengers" class="mt-2" />
             </div>
 
             {{-- Doors --}}
             <div class="px-4 mt-4">
                 <x-admin.label for="doors" value="{{ __('Doors') }}" />
-                <x-admin.input id="doors" type="number" class="w-24 mt-1 block" min="1" max="50" wire:model.defer="doors" />
+                <x-admin.input id="doors" type="number" class="w-20 mt-1 block" min="1" max="50" wire:model.defer="doors" />
                 <x-admin.input-error for="doors" class="mt-2" />
             </div>
 
             {{-- Luggage --}}
             <div class="px-4 mt-4">
                 <x-admin.label for="luggage" value="{{ __('Luggage') }}" />
-                <x-admin.input id="luggage" type="number" class="w-24 mt-1 block" min="1" max="50" wire:model.defer="luggage" />
+                <x-admin.input id="luggage" type="number" class="w-20 mt-1 block" min="1" max="50" wire:model.defer="luggage" />
                 <x-admin.input-error for="luggage" class="mt-2" />
             </div>
 
             {{-- Total Units --}}
             <div class="px-4 mt-4">
                 <x-admin.label for="units" value="{{ __('Total Units') }}" />
-                <x-admin.input id="units" type="number" class="w-24 mt-1 block" min="1" max="50" wire:model.defer="units" />
+                <x-admin.input id="units" type="number" class="w-20 mt-1 block" min="1" max="50" wire:model.defer="units" />
                 <x-admin.input-error for="units" class="mt-2" />
             </div>
         </div>
@@ -202,24 +213,6 @@
         </div>
 
         <hr class="mt-8 mb-4 px-4">
-
-        @foreach(config('languages') as $key => $language)
-            <!-- Name (Translated) -->
-            <div class="px-4 mt-4">
-                <x-admin.label for="name_{{$key}}" value="{{ __('Name') }} - {{$language}}" />
-                <x-admin.input id="name_{{$key}}" type="text" class="w-full mt-1 block" maxlength="255" wire:model.defer="names.{{ $key }}" autocomplete="car_name" />
-            </div>
-
-            <!-- Description (Translated) -->
-            <div class="px-4 mt-4">
-                <x-admin.label for="description_{{$key}}" value="{{ __('Description') }} - {{$language}}" />
-                <textarea id="description_{{$key}}" class="mt-1 focus:ring-purple-700 focus:purple-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
-                    wire:model.defer="descriptions.{{ $key }}" rows="3" autocomplete="car_description">
-                </textarea>
-            </div>
-        @endforeach
-
-        <hr class="my-8 px-4">
     </x-slot>
 
     <x-slot name="actions">

@@ -37,11 +37,13 @@ class EditTest extends TestCase
         $car = $this->createCar();
 
         Livewire::test(Edit::class, ['car' => $car->hashid])
+            ->set('online_percentage', null)
             ->set('name', null)
             ->set('car_code', null)
             ->set('year', null)
             ->call('saveCar')
             ->assertHasErrors([
+                'online_percentage' => ['required'],
                 'name' => ['required'],
                 'car_code' => ['required'],
                 'year' => ['required'],
@@ -59,6 +61,20 @@ class EditTest extends TestCase
             ->call('saveCar')
             ->assertHasErrors([
                 'year' => ['lte'],
+            ]);
+
+        Livewire::test(Edit::class, ['car' => $car->hashid])
+            ->set('online_percentage', 0)
+            ->call('saveCar')
+            ->assertHasErrors([
+                'online_percentage' => ['gte'],
+            ]);
+
+        Livewire::test(Edit::class, ['car' => $car->hashid])
+            ->set('online_percentage', 100)
+            ->call('saveCar')
+            ->assertHasErrors([
+                'online_percentage' => ['lte'],
             ]);
     }
 

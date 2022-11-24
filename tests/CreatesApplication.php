@@ -3,7 +3,10 @@
 namespace Tests;
 
 use App\Models\Car;
+use App\Models\Extra;
+use App\Models\FreeDay;
 use App\Models\Location;
+use App\Models\Season;
 use App\Models\User;
 use App\Models\Vendor;
 use Illuminate\Contracts\Console\Kernel;
@@ -37,6 +40,30 @@ trait CreatesApplication
     }
 
     /**
+     * Create an extra
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\Extra
+     */
+    protected function createExtra($attributes = [])
+    {
+        return Extra::factory($attributes)->create();
+    }
+
+    /**
+     * Create a free day
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\FreeDay
+     */
+    protected function createFreeDay($attributes = [])
+    {
+        return FreeDay::factory($attributes)->create();
+    }
+
+    /**
      * Create a location
      *
      * @param      array   $attributes
@@ -46,6 +73,18 @@ trait CreatesApplication
     protected function createLocation($attributes = [])
     {
         return Location::factory($attributes)->create();
+    }
+
+     /**
+     * Create a season
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\Season
+     */
+    protected function createSeason($attributes = [])
+    {
+        return Season::factory($attributes)->create();
     }
 
     /**

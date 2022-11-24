@@ -22,7 +22,7 @@
                 <x-admin.delete-item
                     trigger="Delete Location"
                     title="Delete Location"
-                    class="inline-flex items-center px-4 py-4 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-900 focus:ring ring-red-300 disabled:opacity-25 transition ease-in-out duration-150"
+                    class="inline-flex items-center px-4 py-4 bg-red-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-white hover:border-red-700 hover:text-red-700 active:bg-white active:border-red-700 active:text-red-700 disabled:opacity-25 transition ease-in-out duration-150"
                     name="{{ $location->name }}"
                     hashid="{{ $location->hashid }}"
                 />
@@ -34,7 +34,7 @@
 @push('scripts')
     <script>
         window.addEventListener('delete-element', event => {
-            @this.call('deleteLocation', event.detail.hashid)
+            @this.call('deleteLocation')
         });
     </script>
 @endpush

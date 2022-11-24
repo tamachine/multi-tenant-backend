@@ -4,6 +4,7 @@
     x-cloak
 >
     <button
+        type="button"
         x-on:click="openDelete = true"
         class="{{ isset($class) ? $class : ''}}"
     >{{ $trigger }}</button>
@@ -40,12 +41,15 @@
                         {!! $footer !!}
                     @else
                         <button
-                            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                            type="button"
+                            class="inline-flex items-center px-4 py-2 bg-red-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-white hover:border-red-700 hover:text-red-700 active:bg-white active:border-red-700 active:text-red-700 disabled:opacity-25 transition ease-in-out duration-150"
                             x-on:click="$dispatch('{{isset($event) ? $event : 'delete-element'}}', { hashid: '{{ $hashid }}' })"
                             wire:loading.attr="disabled"
                         >Delete</button>
 
-                        <button class="ml-3 bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ks-green"
+                        <button
+                            type="button"
+                            class="ml-3 inline-flex items-center px-4 py-2 bg-gray-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-white hover:border-gray-700 hover:text-gray-700 active:bg-white active:border-gray-700 active:text-gray-700 disabled:opacity-25 transition ease-in-out duration-150"
                             x-on:click="openDelete = false">
                             Cancel
                         </button>

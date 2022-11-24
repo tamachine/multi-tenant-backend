@@ -71,7 +71,7 @@ class Create extends Component
         ]);
 
         session()->flash('status', 'success');
-        session()->flash('message', 'Vendor created successfully');
+        session()->flash('message', 'Vendor "' . $this->name . '" created');
 
         return redirect()->route('vendor.edit', $vendor->hashid);
     }

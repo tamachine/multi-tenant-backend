@@ -1,14 +1,15 @@
 <?php
 
+/*
+    This settings will be moved to the landlord-tenants system some time in the future
+*/
+
 return [
-    'cars_order' => [
-        'fleet' => 'Fleet Page Order',
-        'vendor' => 'Vendor Order',
+    'car' => [
+        'seasons' => false,
     ],
 
-    'cars_status' => [
-        '' => 'All Cars',
-        '1' => 'Active Cars',
-        '0' => 'Hidden Cars',
+    'vendor' => [
+        'multivendor' => false,
     ],
 ];

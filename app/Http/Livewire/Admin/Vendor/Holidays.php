@@ -54,7 +54,7 @@ class Holidays extends Component
      */
     public $holidays = [];
 
-     /**
+    /**
      * @var array
      */
     public $hours = [];
@@ -71,15 +71,9 @@ class Holidays extends Component
         $holidays = $this->vendor->holidays;
 
         // Load the hours for the dropdowns
-        $start = now()->startOfDay();
-        $end = now()->endOfDay();
+        $this->hours = hours_dropdown();
 
-        while($start < $end) {
-            $this->hours[] = $start->format('H:i');
-            $start->addMinutes(30);
-        }
-
-        // Load the locations
+        // Load the vendor's holidays
         foreach ($holidays as $holiday) {
             $this->holidays[] = [
                 'id'            => $holiday->id,

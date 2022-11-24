@@ -65,6 +65,8 @@ class DatabaseSeeder extends Seeder
             LocationSeeder::class,
             VendorSeeder::class,
             CarSeeder::class,
+            FreeDaySeeder::class,
+            ExtraSeeder::class,
         ]);
     }
 

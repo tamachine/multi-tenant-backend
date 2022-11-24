@@ -21,7 +21,20 @@ Route::group(
         Route::group(['prefix' => 'car', 'as' => 'car.'], function () {
             Route::get('/', ['as' => 'index', 'uses' => 'CarController@index']);
             Route::get('create', ['as' => 'create', 'uses' => 'CarController@create']);
-            Route::get('{car}/edit{tab?}', ['as' => 'edit', 'uses' => 'CarController@edit']);
+            Route::get('{car}/edit/{tab?}', ['as' => 'edit', 'uses' => 'CarController@edit']);
+        });
+
+        // Extras
+        Route::group(['prefix' => 'extra', 'as' => 'extra.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'ExtraController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'ExtraController@create']);
+            Route::get('{extra}/edit/{tab?}', ['as' => 'edit', 'uses' => 'ExtraController@edit']);
+        });
+
+        // Free days
+        Route::group(['prefix' => 'free-day', 'as' => 'free-day.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'FreeDayController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'FreeDayController@create']);
         });
 
         // Locations
@@ -29,6 +42,13 @@ Route::group(
             Route::get('/', ['as' => 'index', 'uses' => 'LocationController@index']);
             Route::get('create', ['as' => 'create', 'uses' => 'LocationController@create']);
             Route::get('{location}/edit', ['as' => 'edit', 'uses' => 'LocationController@edit']);
+        });
+
+        // Seasons
+        Route::group(['prefix' => 'season', 'as' => 'season.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'SeasonController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'SeasonController@create']);
+            Route::get('{season}/edit', ['as' => 'edit', 'uses' => 'SeasonController@edit']);
         });
 
         // Vendors

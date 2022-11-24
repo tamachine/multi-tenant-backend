@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Location;
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -36,7 +37,17 @@ class Car extends Model
      * Accessors & Mutators
      **********************************/
 
-    //
+    /**
+     * Get the vendor's logo URL
+     *
+     * @return     \Illuminate\Support\Collection
+     */
+    public function getAssignableLocationsAttribute()
+    {
+        $vendorLocationIds = ($this->vendor->vendorLocations->pluck('location_id'));
+
+        return Location::whereIn('id', $vendorLocationIds)->orderBy('name')->get();
+    }
 
     /**********************************
      * Scopes
@@ -47,14 +58,19 @@ class Car extends Model
      *
      * @param      object  $query   Illuminate\Database\Query\Builder
      * @param      string  $status  Car Status
+     * @param      string  $vendor  Vendor hashid
      * @param      string  $search  String to search
      *
      * @return     object  Illuminate\Database\Query\Builder
      */
-    public function scopeLivewireSearch($query, $status, $search)
+    public function scopeLivewireSearch($query, $status, $vendor, $search)
     {
         if (!empty($status)) {
             $query->where('cars.active', intval($status));
+        }
+
+        if (!empty($vendor)) {
+            $query->where('cars.vendor_id', dehash($vendor));
         }
 
         if (!empty($search)) {
@@ -82,5 +98,45 @@ class Car extends Model
     public function vendor()
     {
         return $this->belongsTo(Vendor::class);
+    }
+
+    /**
+     * Related images
+     *
+     * @return object
+     */
+    public function images()
+    {
+        return $this->hasMany(CarImage::class);
+    }
+
+    /**
+     * Related unavailable dates
+     *
+     * @return object
+     */
+    public function unavailableDates()
+    {
+        return $this->hasMany(CarUnavailable::class);
+    }
+
+    /**
+     * Pivot table car_free_day
+     *
+     * @return object
+     */
+    public function carFreeDays()
+    {
+        return $this->hasMany(CarFreeDay::class);
+    }
+
+    /**
+     * Pivot table car_location
+     *
+     * @return object
+     */
+    public function carLocations()
+    {
+        return $this->hasMany(CarLocation::class);
     }
 }
