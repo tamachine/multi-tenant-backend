@@ -32,11 +32,27 @@
     {{-- 
         Horizontal overflow is hidden because w-fill-screen class uses a width=100vw and some browsers include the vertical scrollbar in the full screen size so a horizontal scrollbar is shown if a verticall one is needed.
     --}}
-    <body class="max-w-7xl mx-auto overflow-x-hidden">                        
-        @yield('body')        
+    
+    <body 
+        class="overflow-x-hidden relative" 
+        x-data="{'showOverlay': false}"
+        >       
+        <div 
+            id="overlay"
+            class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-20"
+            x-show="showOverlay"
+            x-cloak
+            >
+            <div id="hide-overlay" class="hidden" x-on:click="showOverlay = false"></div> {{-- this is used in the date picker range component in order to hide the overlay from an event --}}            
+        </div>
+        
+        <div class="max-w-7xl mx-auto ">
+            @yield('body')                
 
-        @livewireScripts
+            @livewireScripts
 
-        <x-footer imagePath="{{ $footerImagePath }}" />
+            <x-footer imagePath="{{ $footerImagePath }}" />
+        </div>
+        @stack('scripts')
     </body>
 </html>

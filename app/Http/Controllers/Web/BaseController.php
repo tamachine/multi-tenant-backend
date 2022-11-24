@@ -7,6 +7,7 @@ use View;
 use App\Services\ReviewsInfo\GoogleReviewsInfoComponent;
 use App\Services\ReviewsInfo\FacebookReviewsInfoComponent;
 use App\Services\ReviewsInfo\TrustPilotReviewsInfoComponent;
+use App\Services\Selectable\CarSearchHoursSelectableComponent;
 
 abstract class BaseController extends Controller
 {    
@@ -19,6 +20,7 @@ abstract class BaseController extends Controller
         View::share('googleReviewInfoComponent', new GoogleReviewsInfoComponent());
         View::share('facebookReviewInfoComponent', new FacebookReviewsInfoComponent());
         View::share('trustpilotReviewInfoComponent', new TrustPilotReviewsInfoComponent());
+        View::share('carSearchHoursSelectableComponent', new CarSearchHoursSelectableComponent());
 
         View::share('footerImagePath', $this->footerImagePath());
     }

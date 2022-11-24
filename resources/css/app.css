@@ -73,8 +73,16 @@ h5 {
 }
 
 .search-input-group {
-    @apply relative flex-grow cursor-pointer hover:ring-pink-red hover:ring-2 rounded-lg bg-gray-primary;
+    @apply relative h-[70px] flex-1 cursor-pointer hover:ring-pink-red hover:ring-2 rounded-lg bg-gray-primary border-gray-secondary border;
 }  
+
+.search-input-group.active {
+    @apply bg-white ring-pink-red ring-2
+}
+
+.search-input-group.active.stepped {
+    @apply ring-black-primary
+}
 
 .search-input-group:focus-within {
     @apply ring-pink-red ring-2;
@@ -85,10 +93,23 @@ h5 {
     }    
         .search-input-group > div > div:last-of-type {
             @apply text-gray-tertiary text-base;
-        }
+        }   
+        
+        .search-input-group.active > div > div:last-of-type {
+            @apply hidden
+        }       
     
     .search-input-group input {
-        @apply relative bg-transparent z-10 cursor-pointer rounded-lg text-lg placeholder:text-black-primary py-5 border-gray-secondary border w-full focus:outline-none focus:ring-0 focus:border-transparent caret-transparent;
+        @apply 
+            relative left-6 -bottom-3
+            z-10            
+            cursor-pointer
+            rounded-lg border-0 ring-0 focus:outline-none focus:ring-0 focus:border-transparent caret-transparent
+            bg-transparent    
+            text-black-primary 
+            py-5
+            px-0    
+            w-fit;
     }
 
 /**
@@ -97,6 +118,9 @@ h5 {
  */
 @tailwind utilities;
 
+.scrollbar-none::-webkit-scrollbar {
+    display:none;
+}
 /**
  * Here you would add any custom utilities you need that don't come out of the
  * box with Tailwind.
@@ -117,4 +141,5 @@ h5 {
 .w-fill-screen {
     @apply w-screen relative left-[calc(-50vw+50%)]
 } 
+
  
