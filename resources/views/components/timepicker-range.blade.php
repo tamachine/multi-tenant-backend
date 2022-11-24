@@ -63,9 +63,9 @@
                         let thereIsPlaceForElementAbove = input.getBoundingClientRect().top >= (calendar.offsetHeight + 20);                                                 
 
                         if (thereIsPlaceForElementAbove) {                           
-                            this.$refs.timePicker.style.top = (topAbove + calendar.offsetHeight - 20) + "px";
+                            this.$refs.timePicker.style.top = topAboveDifferentLocation + calendar.offsetHeight - 20 + "px";
                         } else {                           
-                            this.$refs.timePicker.style.top = topBelow + calendar.offsetHeight - 10 + "px";
+                            this.$refs.timePicker.style.top = topBelowDifferentLocation + calendar.offsetHeight + "px";
                         }    
                         
                         this.setHorizontalPosition(this.$refs.timePicker)                                          
@@ -73,7 +73,7 @@
                 },
 
                 setHorizontalPosition: function (el) {
-                    el.style.left = "100px"
+                    el.style.left = "115px"
                     el.style.right = "0px"
                     el.style.marginLeft = "auto"
                     el.style.marginRight = "auto"                    

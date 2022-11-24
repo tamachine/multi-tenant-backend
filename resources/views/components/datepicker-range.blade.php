@@ -4,13 +4,16 @@
 
 @push('scripts')
     <script>		
-		const topAbove = -595;
-		const topBelow = 77;
-		const lefCustom = -310;
+		const topAbove = -670;
+		const topAboveDifferentLocation = -595;
+		const topBelow = 5;
+		const topBelowDifferentLocation = 73;
+		const lefCustom = -30;
+		const lefCustomDifferentLocation = -223;
 						
     	document.addEventListener('DOMContentLoaded', () => {          
         	const picker = new easepick.create({
-				element: document.getElementById('{{$startId}}'),
+				element: document.getElementById('{{$id}}'),
 				css: [
 					'css/easepick.css',					
 				],
@@ -93,14 +96,15 @@
 			 */
 			const setPosition = function(el, input) {														
 				let thereIsPlaceForElementAbove = input.getBoundingClientRect().top >= (el.offsetHeight + 20)
-								
+				let sameLocation = document.getElementById('differentLocationInputGroup').offsetParent === null
+
 				if (thereIsPlaceForElementAbove) {
-					el.style.top = topAbove + "px"
+					el.style.top = (sameLocation ? topAbove : topAboveDifferentLocation) + "px"
 				} else {
-					el.style.top = topBelow + "px"
+					el.style.top = (sameLocation ? topBelow : topBelowDifferentLocation) + "px"
 				}
 
-				el.style.left = lefCustom + "px"
+				el.style.left = (sameLocation ? lefCustom : lefCustomDifferentLocation) + "px"
 			}	
 			
 			const hideOverlay = function() {
@@ -134,7 +138,7 @@
 				toggleClassToInputGroup(input, 'active', date)				
 			}
 
-			const toggleClassToInputGroup = function(input, klass, add = true) {
+			const toggleClassToInputGroup = function(input, klass, add = true) {				
 				if (add) {
 					input.parentElement.classList.add(klass)
 				} else {

@@ -73,7 +73,7 @@ h5 {
 }
 
 .search-input-group {
-    @apply relative flex-1 cursor-pointer hover:ring-pink-red hover:ring-2 rounded-lg bg-gray-primary border-gray-secondary border;
+    @apply relative h-[70px] flex-1 cursor-pointer hover:ring-pink-red hover:ring-2 rounded-lg bg-gray-primary border-gray-secondary border;
 }  
 
 .search-input-group.active {
@@ -106,7 +106,7 @@ h5 {
             cursor-pointer
             rounded-lg border-0 ring-0 focus:outline-none focus:ring-0 focus:border-transparent caret-transparent
             bg-transparent    
-            text-black-primary font-medium text-2xl
+            text-black-primary 
             py-5
             px-0    
             w-fit;

@@ -21,21 +21,24 @@
         
         <div>
           
-          <div>
-            <div class="flex flex-row w-full justify-between gap-2">
+          <div>            
+            <div 
+                class="grid w-full justify-between gap-2"
+                :class="tab=='#differentLocation' ? 'grid-cols-4' : 'grid-cols-3'"
+                >                
                 <div class="search-input-group">
                     <div>
                         <div>{{ __('web.car-search-bar.first-day') }}</div>
                         <div>{{ __('web.car-search-bar.pick-up-day') }}</div>
                     </div>
-                    <input type="text" class="search-input" id="start-date" x-on:click="startDateClick()" x-ref="startDateButton"/>                                    
+                    <input type="text" class="search-input" :class="tab=='#differentLocation' ? '' : 'font-medium text-2xl'" id="start-date" x-on:click="startDateClick()" x-ref="startDateButton" />                                    
                 </div>
                 <div class="search-input-group">
                     <div>
                         <div>{{ __('web.car-search-bar.last-day') }}</div>
                         <div>{{ __('web.car-search-bar.drop-off-day') }}</div>
                     </div>
-                    <input type="text" class="search-input" id="end-date" x-on:click="endDateClick()"/>                
+                    <input type="text" class="search-input" :class="tab=='#differentLocation' ? '' : 'font-medium text-2xl'" id="end-date" x-on:click="endDateClick()" />                
                 </div>
                 <div class="search-input-group">
                     <div>
@@ -44,7 +47,7 @@
                     </div>
                     <input type="text" class="search-input" />                
                 </div>
-                <div class="search-input-group" x-show="tab == '#differentLocation'">
+                <div class="search-input-group" x-show="tab == '#differentLocation'" id="differentLocationInputGroup">
                     <div>
                         <div>{{ __('web.car-search-bar.drop-off') }}</div>
                         <div>{{ __('web.car-search-bar.select-location') }}</div>
@@ -63,13 +66,11 @@
       </div>
 
     </div>
-
   </form>  
 </div>
 
 <x-datepicker-range
-    start-id="start-date"
-    end-id="end-date"    
+    id="start-date"    
 />
 
 @push('scripts')

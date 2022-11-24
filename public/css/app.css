@@ -944,6 +944,7 @@ h5 {
 
 .search-input-group {
   position: relative;
+  height: 70px;
   flex: 1 1 0%;
   cursor: pointer;
   border-radius: 0.5rem;
@@ -1018,9 +1019,6 @@ h5 {
   padding-bottom: 1.25rem;
   padding-left: 0px;
   padding-right: 0px;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 500;
   --tw-text-opacity: 1;
   color: rgb(48 0 0 / var(--tw-text-opacity));
   caret-color: transparent;
@@ -1623,6 +1621,14 @@ h5 {
           appearance: none;
 }
 
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -1633,10 +1639,6 @@ h5 {
 
 .grid-cols-\[auto_1fr\] {
   grid-template-columns: auto 1fr;
-}
-
-.grid-cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .grid-cols-9 {
