@@ -3,7 +3,7 @@
     x-data="selectable({ data: {{ json_encode($selectableComponent->getItems()) }}, value: '{{ $selectedValue }}' })"
     x-init="init()"
     >
-    <div class="absolute bottom-11 left-[5px] z-30 bg-white rounded-xl">
+    <div class="absolute bottom-11 flex justify-center w-full z-30 bg-white rounded-xl">
         <div 
             class="relative w-fit rounded-xl shadow-t-md font-medium text-right"
             x-show="openDropdown"
