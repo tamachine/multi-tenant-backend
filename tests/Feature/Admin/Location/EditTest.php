@@ -42,13 +42,6 @@ class EditTest extends TestCase
             ->assertHasErrors([
                 'name' => ['required'],
             ]);
-
-        Livewire::test(Edit::class, ['location' => $location->hashid])
-            ->set('name', $locationOther->name)
-            ->call('saveLocation')
-            ->assertHasErrors([
-                'name' => ['unique'],
-            ]);
     }
 
     /**

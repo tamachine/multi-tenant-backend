@@ -5,6 +5,11 @@
 */
 
 return [
+    'booking_enabled' => [
+        'own' => false,
+        'caren' => true
+    ],
+
     'car' => [
         'seasons' => false,
     ],

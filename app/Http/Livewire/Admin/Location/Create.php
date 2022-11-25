@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Location;
 
+use App\Models\CarenLocation;
 use App\Models\Location;
 use Livewire\Component;
 
@@ -19,62 +20,64 @@ class Create extends Component
     public $name;
 
     /**
-     * @var bool
+     * @var array
      */
-    public $pickup_show_input = false;
-
-    /**
-     * @var bool
-     */
-    public $pickup_input_require = false;
-
-    /**
-     * @var string
-     */
-    public $pickup_input_info;
-
-     /**
-     * @var bool
-     */
-    public $dropoff_show_input = false;
-
-    /**
-     * @var bool
-     */
-    public $dropoff_input_require = false;
+    public $caren_locations = [];
 
      /**
      * @var string
      */
-    public $dropoff_input_info;
+    public $caren_location;
 
     /*
     ***************************************************************
     ** METHODS
     ***************************************************************
     */
-    public function mount()
+
+    public function mount(CarenLocation $carenLocation)
     {
-        //
+        if (config('settings.booking_enabled.caren')) {
+            $this->caren_locations = $carenLocation->whereNull('location_id')->pluck('name', 'id');
+
+            if (!config('settings.booking_enabled.own') && count($this->caren_locations) == 0) {
+                session()->flash('status', 'error');
+                session()->flash('message', 'No more locations can be created for the moment');
+
+                return redirect()->route('location.index');
+            }
+        }
     }
 
     public function saveLocation(Location $location)
     {
         $this->dispatchBrowserEvent('validationError');
 
-        $this->validate([
-            'name' => ['required', 'unique:locations,name'],
-        ]);
+        $rules = [
+            'name' => ['required'],
+        ];
+
+        if (config('settings.booking_enabled.caren') && !config('settings.booking_enabled.own')) {
+            $rules = array_merge($rules, ['caren_location' => ['required']]);
+        }
+
+        $this->validate($rules);
 
         $location = $location->create([
             'name' => $this->name,
-            'pickup_show_input' => $this->pickup_show_input,
-            'pickup_input_require' => $this->pickup_input_require,
-            'pickup_input_info' => $this->pickup_input_info,
-            'dropoff_show_input' => $this->dropoff_show_input,
-            'dropoff_input_require' => $this->dropoff_input_require,
-            'dropoff_input_info' => $this->dropoff_input_info,
         ]);
+
+        if (!empty($this->caren_location)) {
+            $carenLocation = CarenLocation::find($this->caren_location);
+            $carenLocation->update(['location_id' => $location->id]);
+
+            $location->update([
+                'caren_settings' => [
+                    'caren_pickup_location_id'  => $carenLocation->caren_dropoff_location_id,
+                    'caren_dropoff_location_id' => $carenLocation->caren_dropoff_location_id,
+                ]
+            ]);
+        }
 
         session()->flash('status', 'success');
         session()->flash('message', 'Location "' . $this->name .'" created');

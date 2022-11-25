@@ -11,7 +11,7 @@
         <!-- Name -->
         <div class="px-4 mt-4 md:mt-0">
             <x-admin.label for="name" value="{{ __('Name') }}" />
-            <x-admin.input id="name" type="text" class="mt-1 block" maxlength="255" wire:model.defer="name" autocomplete="name" />
+            <x-admin.input id="name" type="text" class="mt-1 block" maxlength="255" wire:model.defer="name" autocomplete="location_name" />
             <x-admin.input-error for="name" class="mt-2" />
         </div>
 
