@@ -101,7 +101,6 @@ class EditTest extends TestCase
      * @group admin
      * @group free-day
      * @group free-day-edit
-     * @group pepe
      *
      * @return void
      */

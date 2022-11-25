@@ -32,7 +32,7 @@ class LocationController extends Controller
         return view('admin.location.create')->with($data);
     }
 
-    public function edit($hashid): View
+    public function edit($hashid, $tab = null): View
     {
         $location = Location::where('hashid', $hashid)->firstOrFail();
 
@@ -43,6 +43,7 @@ class LocationController extends Controller
                 'route' => route('location.index'),
                 'title' => 'Locations'
             ]),
+            'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];
 
         return view('admin.location.edit')->with($data);

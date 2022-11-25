@@ -19,7 +19,8 @@ class Vendor extends Model
      */
     protected $fillable = [
         'name', 'service_fee', 'vendor_code', 'status', 'brand_color', 'logo',
-        'long_rental', 'early_bird'
+        'long_rental', 'early_bird',
+        'caren_settings'
     ];
 
     /**
@@ -30,6 +31,7 @@ class Vendor extends Model
     protected $casts = [
         'long_rental' => 'array',
         'early_bird' => 'array',
+        'caren_settings' => 'array'
     ];
 
     /**********************************

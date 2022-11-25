@@ -18,6 +18,7 @@ class CreateTest extends TestCase
     {
         parent::setUp();
         $this->admin = $this->createUser();
+        $this->caren_vendor = $this->createCarenVendor();
     }
 
     /**
@@ -91,6 +92,7 @@ class CreateTest extends TestCase
             ->set('service_fee', 250)
             ->set('status', 'active')
             ->set('brand_color', '#FFFFFF')
+            ->set('caren_vendor', $this->caren_vendor->id)
             ->call('saveVendor')
             ->assertStatus(200);
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Vendor;
 
+use App\Models\CarenVendor;
 use App\Models\Vendor;
 use Livewire\Component;
 
@@ -12,6 +13,11 @@ class Create extends Component
     ** PROPERTIES
     ***************************************************************
     */
+
+    /**
+     * @var bool
+     */
+    public $edit = false;
 
     /**
      * @var string
@@ -26,41 +32,65 @@ class Create extends Component
     /**
      * @var int
      */
-    public $service_fee;
+    public $service_fee = 0;
 
     /**
      * @var string
      */
-    public $status;
+    public $status = "active";
 
     /**
      * @var string
      */
-    public $brand_color;
+    public $brand_color = "#ffffff";
+
+    /**
+     * @var string
+     */
+    public $caren_vendor = "";
+
+    /**
+     * @var array
+     */
+    public $caren_vendors = [];
 
     /*
     ***************************************************************
     ** METHODS
     ***************************************************************
     */
-    public function mount()
+
+    public function mount(CarenVendor $carenVendor)
     {
-        $this->service_fee = 0;
-        $this->status = "active";
-        $this->brand_color = "#ffffff";
+        if (config('settings.booking_enabled.caren')) {
+            $this->caren_vendors = $carenVendor->whereNull('vendor_id')->pluck('name', 'id');
+
+            if (!config('settings.booking_enabled.own') && count($this->caren_vendors) == 0) {
+                session()->flash('status', 'error');
+                session()->flash('message', 'No more vendors can be created for the moment');
+
+                return redirect()->route('vendor.index');
+            }
+        }
     }
 
     public function saveVendor(Vendor $vendor)
     {
         $this->dispatchBrowserEvent('validationError');
 
-        $this->validate([
+        $rules = [
             'name' => ['required', 'unique:vendors,name'],
             'vendor_code' => ['required', 'unique:vendors,vendor_code'],
             'service_fee' => ['required', 'numeric', 'gte:0'],
             'status' => ['required', 'in:active,hidden'],
             'brand_color' => ['required'],
-        ]);
+        ];
+
+        if (config('settings.booking_enabled.caren') && !config('settings.booking_enabled.own')) {
+            $rules = array_merge($rules, ['caren_vendor' => ['required']]);
+        }
+
+        $this->validate($rules);
 
         $vendor = $vendor->create([
             'name' => $this->name,
@@ -69,6 +99,17 @@ class Create extends Component
             'status' => $this->status,
             'brand_color' => $this->brand_color,
         ]);
+
+        if (!empty($this->caren_vendor)) {
+            $carenVendor = CarenVendor::find($this->caren_vendor);
+            $carenVendor->update(['vendor_id' => $vendor->id]);
+
+            $vendor->update([
+                'caren_settings' => [
+                    array_merge(config('caren.vendor_settings'), ['rental_id' => $carenVendor->caren_rental_id])
+                ]
+            ]);
+        }
 
         session()->flash('status', 'success');
         session()->flash('message', 'Vendor "' . $this->name . '" created');

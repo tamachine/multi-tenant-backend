@@ -58,6 +58,7 @@ class Edit extends Component
     ** METHODS
     ***************************************************************
     */
+
     public function mount(Location $location)
     {
         $this->location = $location;

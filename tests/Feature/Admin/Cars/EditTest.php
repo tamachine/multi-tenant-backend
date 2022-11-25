@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Admin\Car;
+namespace Tests\Feature\Admin\Cars;
 
 use App\Http\Livewire\Admin\Car\Edit;
 use App\Models\Car;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Admin\Car;
+namespace Tests\Feature\Admin\Cars;
 
 use App\Http\Livewire\Admin\Car\Locations;
 use App\Models\CarLocation;
@@ -135,7 +135,6 @@ class LocationsTest extends TestCase
      * @group admin
      * @group car
      * @group car-locations
-     * @group pepe
      *
      * @return void
      */

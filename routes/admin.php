@@ -41,7 +41,7 @@ Route::group(
         Route::group(['prefix' => 'location', 'as' => 'location.'], function () {
             Route::get('/', ['as' => 'index', 'uses' => 'LocationController@index']);
             Route::get('create', ['as' => 'create', 'uses' => 'LocationController@create']);
-            Route::get('{location}/edit', ['as' => 'edit', 'uses' => 'LocationController@edit']);
+            Route::get('{location}/edit/{tab?}', ['as' => 'edit', 'uses' => 'LocationController@edit']);
         });
 
         // Seasons

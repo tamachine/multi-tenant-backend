@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Vendor;
 
+use App\Models\CarenVendor;
 use App\Models\Vendor;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -16,6 +17,11 @@ class Edit extends Component
     ** PROPERTIES
     ***************************************************************
     */
+
+    /**
+     * @var bool
+     */
+    public $edit = true;
 
     /**
      * @var App\Models\Vendor
@@ -130,6 +136,11 @@ class Edit extends Component
 
     public function deleteVendor()
     {
+        // Check if any Caren vendors are linked to the vendor
+        CarenVendor::where('vendor_id', $this->vendor->id)->update([
+            'vendor_id' => null
+        ]);
+
         $this->vendor->delete();
 
         session()->flash('status', 'success');
