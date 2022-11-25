@@ -53,7 +53,11 @@
                     />
             </div>
 
+            @include('web.home.testimonials')
             
+            <div class="pt-22 md:pt-56">
+                @include('web.home.location-map')
+            </div>
         </div>
     </div>
     

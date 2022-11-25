@@ -28,6 +28,22 @@
   font-style: normal;
 }
 
+a[href^="http://maps.google.com/maps"]{
+  display:none !important
+}
+
+a[href^="https://maps.google.com/maps"]{
+  display:none !important
+}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+  display:none;
+}
+
+.gmnoprint div {
+  background:none !important;
+}
+
 /**
  * This injects Tailwind's base styles, which is a combination of
  * Normalize.css and some additional base styles.
@@ -1142,6 +1158,10 @@ h5 {
   left: 50%;
 }
 
+.left-20 {
+  left: 5rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -1436,6 +1456,10 @@ h5 {
   height: 512px;
 }
 
+.h-96 {
+  height: 24rem;
+}
+
 .h-64 {
   height: 16rem;
 }
@@ -1444,8 +1468,28 @@ h5 {
   height: 10rem;
 }
 
+.h-\[270px\] {
+  height: 270px;
+}
+
+.h-\[500px\] {
+  height: 500px;
+}
+
+.h-1\/2 {
+  height: 50%;
+}
+
+.h-\[250px\] {
+  height: 250px;
+}
+
 .max-h-80 {
   max-height: 20rem;
+}
+
+.max-h-\[270px\] {
+  max-height: 270px;
 }
 
 .min-h-screen {
@@ -1541,6 +1585,10 @@ h5 {
   width: 4rem;
 }
 
+.w-\[500px\] {
+  width: 500px;
+}
+
 .min-w-0 {
   min-width: 0px;
 }
@@ -1571,6 +1619,10 @@ h5 {
 
 .max-w-7xl {
   max-width: 1440px;
+}
+
+.max-w-\[500px\] {
+  max-width: 500px;
 }
 
 .flex-1 {
@@ -1775,6 +1827,19 @@ h5 {
        column-gap: 1.5rem;
 }
 
+.gap-x-2 {
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+}
+
+.gap-y-2 {
+  row-gap: 0.5rem;
+}
+
+.gap-y-6 {
+  row-gap: 1.5rem;
+}
+
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
@@ -1874,6 +1939,10 @@ h5 {
   border-radius: 9999px;
 }
 
+.rounded-\[10px\] {
+  border-radius: 10px;
+}
+
 .rounded-t-lg {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
@@ -1956,6 +2025,11 @@ h5 {
 .border-gray-500 {
   --tw-border-opacity: 1;
   border-color: rgb(107 114 128 / var(--tw-border-opacity));
+}
+
+.border-\[\#E7ECF3\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(231 236 243 / var(--tw-border-opacity));
 }
 
 .bg-gray-50 {
@@ -2077,6 +2151,11 @@ h5 {
   background-color: rgb(240 253 244 / var(--tw-bg-opacity));
 }
 
+.bg-pink-red-secondary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 238 244 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -2102,6 +2181,10 @@ h5 {
 .via-white {
   --tw-gradient-to: rgb(255 255 255 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), #fff, var(--tw-gradient-to);
+}
+
+.to-white {
+  --tw-gradient-to: #fff;
 }
 
 .bg-cover {
@@ -2155,6 +2238,10 @@ h5 {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .py-12 {
@@ -2397,6 +2484,30 @@ h5 {
   padding-top: 8rem;
 }
 
+.pb-7 {
+  padding-bottom: 1.75rem;
+}
+
+.pt-56 {
+  padding-top: 14rem;
+}
+
+.pl-20 {
+  padding-left: 5rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
+.pr-2 {
+  padding-right: 0.5rem;
+}
+
+.pt-22 {
+  padding-top: 84px;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2469,6 +2580,10 @@ h5 {
   font-size: 32px;
 }
 
+.text-\[10px\] {
+  font-size: 10px;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -2527,6 +2642,10 @@ h5 {
 
 .leading-\[30px\] {
   line-height: 30px;
+}
+
+.leading-4 {
+  line-height: 1rem;
 }
 
 .tracking-wider {
@@ -3357,6 +3476,10 @@ h5 {
     top: 5%;
   }
 
+  .md\:top-20 {
+    top: 5rem;
+  }
+
   .md\:col-auto {
     grid-column: auto;
   }
@@ -3364,6 +3487,11 @@ h5 {
   .md\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
+  }
+
+  .md\:mx-6 {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
   }
 
   .md\:ml-16 {
@@ -3384,6 +3512,14 @@ h5 {
 
   .md\:mr-9 {
     margin-right: 2.25rem;
+  }
+
+  .md\:mt-20 {
+    margin-top: 5rem;
+  }
+
+  .md\:mt-32 {
+    margin-top: 8rem;
   }
 
   .md\:block {
@@ -3428,6 +3564,15 @@ h5 {
 
   .md\:w-2\/3 {
     width: 66.666667%;
+  }
+
+  .md\:w-fit {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+
+  .md\:w-\[500px\] {
+    width: 500px;
   }
 
   .md\:flex-1 {
@@ -3514,6 +3659,10 @@ h5 {
     padding: 1.25rem;
   }
 
+  .md\:p-4 {
+    padding: 1rem;
+  }
+
   .md\:px-9 {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
@@ -3591,6 +3740,18 @@ h5 {
     padding-bottom: 2.25rem;
   }
 
+  .md\:pl-20 {
+    padding-left: 5rem;
+  }
+
+  .md\:pt-20 {
+    padding-top: 5rem;
+  }
+
+  .md\:pt-56 {
+    padding-top: 14rem;
+  }
+
   .md\:text-left {
     text-align: left;
   }
@@ -3612,6 +3773,26 @@ h5 {
   .md\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  .md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
   .md\:leading-\[110px\] {
