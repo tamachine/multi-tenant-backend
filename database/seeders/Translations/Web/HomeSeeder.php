@@ -367,5 +367,174 @@ class HomeSeeder extends Seeder
                 ],
             ]
         ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.location-map-title',    
+            ],
+            [                
+                'text' => [
+                    'en' => "Main Location", 
+                    "es" => "Ubicación principal"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.location-map-address',    
+            ],
+            [                
+                'text' => [
+                    'en' => "Hólmbergsbraut, 230 Keflavík", 
+                    "es" => "Hólmbergsbraut, 230 Keflavík"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.location-map-time',    
+            ],
+            [                
+                'text' => [
+                    'en' => "5 minutes away", 
+                    "es" => "A 5 minutos"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.location-map-phone',    
+            ],
+            [                
+                'text' => [
+                    'en' => "+354 539 0605", 
+                    "es" => "+354 539 0605"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.location-map-email',    
+            ],
+            [                
+                'text' => [
+                    'en' => "info@reykjavikauto.com", 
+                    "es" => "info@reykjavikauto.com"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.location-map-hours-title',    
+            ],
+            [                
+                'text' => [
+                    'en' => "We are always available for you", 
+                    "es" => "Siempre disponibles"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.location-map-hours-monday',    
+            ],
+            [                
+                'text' => [
+                    'en' => "Monday - Open 24 hours", 
+                    "es" => "Lunes - Abierto 24 horas"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.location-map-hours-tuesday',    
+            ],
+            [                
+                'text' => [
+                    'en' => "Tuesday - Open 24 hours", 
+                    "es" => "Martes - Abierto 24 horas"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.location-map-hours-wednesday',    
+            ],
+            [                
+                'text' => [
+                    'en' => "Wednesday - Open 24 hours", 
+                    "es" => "Miércoles - Abierto 24 horas"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.location-map-hours-thursday',    
+            ],
+            [                
+                'text' => [
+                    'en' => "Thursday - Open 24 hours", 
+                    "es" => "Jueves - Abierto 24 horas"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.location-map-hours-friday',    
+            ],
+            [                
+                'text' => [
+                    'en' => "Friday - Open 24 hours", 
+                    "es" => "Viernes - Abierto 24 horas"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.location-map-hours-saturday',    
+            ],
+            [                
+                'text' => [
+                    'en' => "Saturday - Open 24 hours", 
+                    "es" => "Sábado - Abierto 24 horas"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'home.location-map-hours-sunday',    
+            ],
+            [                
+                'text' => [
+                    'en' => "Sunday - Open 24 hours", 
+                    "es" => "Domingo - Abierto 24 horas"
+                ],
+            ]
+        ); 
     }
 }
