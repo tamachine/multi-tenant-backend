@@ -83,5 +83,55 @@ class NavBarSeeder extends Seeder
                 'text' => ['en' => 'ES', 'es' => 'ES'],
             ]
         );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'navbar.close',    
+            ],
+            [                
+                'text' => ['en' => 'close', 'es' => 'cerrar'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'navbar.open',    
+            ],
+            [                
+                'text' => ['en' => 'menu', 'es' => 'menu'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'navbar.email',    
+            ],
+            [                
+                'text' => ['en' => 'info@reykjavikauto.com', 'es' => 'info@reykjavikauto.com'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'navbar.cars-title',    
+            ],
+            [                
+                'text' => ['en' => 'Pay only 15% now', 'es' => 'Paga solo el 15% ahora'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'navbar.cars-button',    
+            ],
+            [                
+                'text' => ['en' => 'View all cars', 'es' => 'Todos los coches'],
+            ]
+        );  
     }
 }
