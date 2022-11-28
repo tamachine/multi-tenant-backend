@@ -4,7 +4,7 @@
             <!-- Vendor filter -->
             <div>
                 <select id="vendor" name="vendor" wire:model="vendor"
-                    class="disable-arrow block w-auto h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-auto h-10 mt-1 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md font-medium"
                 >
                     <option value="">All vendors</option>
                     @foreach ($vendors as $id => $name)

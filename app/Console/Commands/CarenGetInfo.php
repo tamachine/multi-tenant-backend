@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Apis\Caren\Api;
+use App\Models\CarenCar;
 use App\Models\CarenLocation;
 use App\Models\CarenVendor;
 use Illuminate\Console\Command;
@@ -48,10 +49,13 @@ class CarenGetInfo extends Command
         Log::info("CarenGetInfo -  START");
 
         // 1. Vendors
-        $this->vendors($api);
+        //$this->vendors($api);
 
         // 2. Locations
-        $this->locations($api);
+        //$this->locations($api);
+
+        // 3. Cars/Vehicles
+        $this->cars($api);
 
         Log::info("CarenGetInfo -  END");
     }
@@ -123,6 +127,37 @@ class CarenGetInfo extends Command
                     CarenLocation::create([
                         'name'                      => $dropoffLocation["Name"],
                         'caren_dropoff_location_id' => $dropoffLocation["Id"],
+                    ]);
+                }
+            }
+        }
+    }
+
+    /**
+     * Get the list of cars
+     *
+     * @param   App\Apis\Caren\Api  $api
+     *
+     * @return void
+     */
+    private function cars(Api $api)
+    {
+        foreach (CarenVendor::all() as $carenVendor) {
+            $cars = $api->fullCarList(["RentalId" => $carenVendor->caren_rental_id]);
+
+            foreach($cars['Classes'] as $car) {
+                $existingCar = CarenCar::where('caren_id', $car['Id'])->first();
+
+                if (!$existingCar) {
+                    //SlackAlert::message("New Caren car: ". $car["Name"]);
+
+                    unset($car['Currencies']);
+
+                    CarenCar::create([
+                        'name'          => $car["Name"],
+                        'caren_id'      => $car["Id"],
+                        'vendor_id'     => $carenVendor->vendor_id,
+                        'caren_data'    => $car
                     ]);
                 }
             }

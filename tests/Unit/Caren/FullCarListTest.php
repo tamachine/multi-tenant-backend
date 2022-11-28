@@ -5,22 +5,23 @@ namespace Tests\Unit\Caren;
 use Tests\TestCase;
 use App\Apis\Caren\Api;
 
-class GetSessionIdTest extends TestCase
+class FullCarListTest extends TestCase
 {
     /**
      * @test
      * @group unit
      * @group api
      * @group api-caren
-     * @group api-caren-session
+     * @group api-caren-cars
      * @group external
      *
      * @return void
      */
-    public function getSessionIdTest()
+    public function fullCarListTest()
     {
         $api = new Api;
-        $sessionId = $api->getSessionIdFromCaren();
-        $this->assertTrue(is_string($sessionId));
+        $carList = $api->fullCarList(["RentalId" => 6]);
+
+        $this->assertEquals(25, count($carList['Classes']));
     }
 }

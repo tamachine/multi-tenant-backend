@@ -11,6 +11,7 @@ return [
         'vendor_list'       => 'vehicleapi/rental/list',
         'pickup_locations'  => 'vehicleapi/location/getpickuplist',
         'dropoff_locations' => 'vehicleapi/location/getdropofflist',
+        'full_car_list'     => 'vehicleapi/class/getlist',
     ],
 
     'vendor_settings' => [

@@ -24,6 +24,7 @@ class Car extends Model
         'adult_passengers', 'doors', 'luggage', 'units', 'online_percentage', 'discount_percentage', 'beds',
         'km_unlimited', 'bath_shower', 'kitchen', 'heater', 'cdw_insurance', 'driver_extra',
         'engine', 'transmission', 'vehicle_type', 'vehicle_brand', 'f_roads_name', 'vehicle_class',
+        'caren_id'
     ];
 
     /**
@@ -32,6 +33,61 @@ class Car extends Model
      * @var array
      */
     public $translatable = ['name', 'description'];
+
+    /**********************************
+     * Methods
+     **********************************/
+
+    /**
+     * Update some fields from Caren Settings
+     *
+     * @param   array   $carenSettings
+     *
+     * @return  void
+     */
+    public function updateFromCarenCar($carenSettings)
+    {
+        $carFields = [];
+
+        if (isset($carenSettings["Id"])) {
+            $carFields["caren_id"] = $carenSettings["Id"];
+        }
+
+        if (isset($carenSettings["Seats"])) {
+            $carFields["adult_passengers"] = $carenSettings["Seats"];
+        }
+
+        if (isset($carenSettings["Doors"])) {
+            $carFields["doors"] = $carenSettings["Doors"];
+        }
+
+        if (isset($carenSettings["Beds"])) {
+            $carFields["beds"] = $carenSettings["Beds"];
+        }
+
+        if (isset($carenSettings["FuelName"])) {
+            $fuelName = translate_caren_fuelname($carenSettings["FuelName"]);
+            if ($fuelName != '') {
+                $carFields["engine"] = $fuelName;
+            }
+        }
+
+        if (isset($carenSettings["TransmissionName"])) {
+            $transmissionName = translate_caren_transmission($carenSettings["TransmissionName"]);
+            if ($transmissionName != '') {
+                $carFields["transmission"] = $transmissionName;
+            }
+        }
+
+        if (isset($carenSettings["DriveName"])) {
+            $roadName = translate_caren_road($carenSettings["DriveName"]);
+            if ($roadName != '') {
+                $carFields["f_roads_name"] = $roadName;
+            }
+        }
+
+        $this->update($carFields);
+    }
 
     /**********************************
      * Accessors & Mutators

@@ -104,3 +104,72 @@ if (!function_exists('hours_dropdown')) {
         return $hours;
     }
 }
+
+if (!function_exists('translate_caren_fuelname')) {
+    /**
+     * Translate Caren fuel name into the "engine" names in config/car-specs
+     *
+     * @param   string
+     *
+     * @return  string
+     */
+    function translate_caren_fuelname($fuelName)
+    {
+        switch(strtolower($fuelName)) {
+            case 'gasoline':
+                return 'gas';
+
+            case 'diesel':
+                return 'diesel';
+
+            default:
+                return '';
+        }
+    }
+}
+
+if (!function_exists('translate_caren_transmission')) {
+    /**
+     * Translate Caren transmission name into the "transmission" names in config/car-specs
+     *
+     * @param   string
+     *
+     * @return  string
+     */
+    function translate_caren_transmission($transmission)
+    {
+        switch(strtolower($transmission)) {
+            case 'automatic':
+                return 'auto';
+
+            case 'manual':
+                return 'manual';
+
+            default:
+                return '';
+        }
+    }
+}
+
+if (!function_exists('translate_caren_road')) {
+    /**
+     * Translate Caren "DriveName" into the "road" names in config/car-specs
+     *
+     * @param   string
+     *
+     * @return  string
+     */
+    function translate_caren_road($driveName)
+    {
+        switch(strtolower($driveName)) {
+            case 'fwd':
+                return 'fwd';
+
+            case '4wd':
+                return '4wd';
+
+            default:
+                return '';
+        }
+    }
+}

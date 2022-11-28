@@ -72,7 +72,7 @@ class Index extends Component
 
         $cars = Car::join('vendors', 'cars.vendor_id', '=', 'vendors.id')
             ->livewireSearch($this->status, $this->vendor, $this->search)
-            ->select('cars.hashid', 'cars.name', 'cars.active', 'cars.fleet_position', 'vendors.name as vendor_name', 'vendors.brand_color')
+            ->select('cars.hashid', 'cars.name', 'cars.active', 'cars.fleet_position', 'cars.caren_id', 'vendors.name as vendor_name', 'vendors.brand_color')
             ->orderBy($order)
             ->paginate(perPage());
 
