@@ -1170,6 +1170,10 @@ h5 {
   top: 3.5rem;
 }
 
+.top-\[60px\] {
+  top: 60px;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -1494,6 +1498,14 @@ h5 {
 
 .h-\[calc\(100vh_-_25px\)\] {
   height: calc(100vh - 25px);
+}
+
+.h-\[calc\(100\%_-_20px\)\] {
+  height: calc(100% - 20px);
+}
+
+.h-\[calc\(100\%_-_40px\)\] {
+  height: calc(100% - 40px);
 }
 
 .max-h-80 {
