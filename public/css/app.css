@@ -1126,8 +1126,8 @@ h5 {
   right: 0.75rem;
 }
 
-.top-16 {
-  top: 4rem;
+.top-\[60px\] {
+  top: 60px;
 }
 
 .bottom-11 {
@@ -1160,18 +1160,6 @@ h5 {
 
 .left-1\/2 {
   left: 50%;
-}
-
-.top-12 {
-  top: 3rem;
-}
-
-.top-14 {
-  top: 3.5rem;
-}
-
-.top-\[60px\] {
-  top: 60px;
 }
 
 .z-10 {
@@ -1424,8 +1412,8 @@ h5 {
   height: 100vh;
 }
 
-.h-\[calc\(100\%_-_25px\)\] {
-  height: calc(100% - 25px);
+.h-\[calc\(100\%_-_40px\)\] {
+  height: calc(100% - 40px);
 }
 
 .h-5 {
@@ -1492,20 +1480,8 @@ h5 {
   height: 10rem;
 }
 
-.h-\[calc\(100vh_\+_25px\)\] {
-  height: calc(100vh + 25px);
-}
-
-.h-\[calc\(100vh_-_25px\)\] {
-  height: calc(100vh - 25px);
-}
-
-.h-\[calc\(100\%_-_20px\)\] {
-  height: calc(100% - 20px);
-}
-
-.h-\[calc\(100\%_-_40px\)\] {
-  height: calc(100% - 40px);
+.h-\[calc\(100\%_-_22px\)\] {
+  height: calc(100% - 22px);
 }
 
 .max-h-80 {
@@ -2326,14 +2302,14 @@ h5 {
   padding-right: 1.75rem;
 }
 
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .py-2 {
@@ -2445,6 +2421,10 @@ h5 {
   padding-left: 1.25rem;
 }
 
+.pb-0 {
+  padding-bottom: 0px;
+}
+
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -2495,10 +2475,6 @@ h5 {
 
 .pt-0 {
   padding-top: 0px;
-}
-
-.pb-0 {
-  padding-bottom: 0px;
 }
 
 .pr-2 {
@@ -2571,6 +2547,10 @@ h5 {
   line-height: 2.25rem;
 }
 
+.text-\[26px\] {
+  font-size: 26px;
+}
+
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
@@ -2587,10 +2567,6 @@ h5 {
 
 .text-\[10px\] {
   font-size: 10px;
-}
-
-.text-\[26px\] {
-  font-size: 26px;
 }
 
 .font-medium {

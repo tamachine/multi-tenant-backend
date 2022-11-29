@@ -21,15 +21,16 @@
     {{-- desktop --}}
     <div class="hidden md:flex items-center divide-x gap-10">
         <div class="flex items-end justify-between flex-wrap gap-10 text-lg">
-            <a href="#">{{ __('web.navbar.cars') }}</a>
-            <a href="#">{{ __('web.navbar.about') }}</a>
-            <a href="#">{{ __('web.navbar.faq') }}</a>
-            <a href="#">{{ __('web.navbar.blog') }}</a>
-            <a href="#">{{ __('web.navbar.contact') }}</a>
+            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.cars') }}</a>
+            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.about') }}</a>
+            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.faq') }}</a>
+            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.blog') }}</a>
+            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.contact') }}</a>
         </div>
-        <div class="pl-5 text-sm flex items-center gap-1">
-            <span>{{ __("web.navbar." . App::currentLocale()) }}</span>
+        <div class="pl-5 text-sm font-medium flex items-center gap-1">
+            <img class="inline" src='{{ URL::asset("/images/currencies/dollar.svg") }}' />
             <img class="inline" src='{{ URL::asset("/images/flags/".App::currentLocale().".svg") }}' />
+            <span>{{ __("web.navbar." . App::currentLocale()) }}</span>
         </div>
     </div>
     {{-- desktop end --}}
@@ -48,7 +49,7 @@
     x-transition:leave-start="transform translate-y-0 opacity-full"
     x-transition:leave-end="transform -translate-y-full opacity-[90%]"
     >
-    <div class="flex flex-col h-[calc(100%_-_40px)] justify-between">
+    <div class="flex flex-col h-[calc(100%_-_22px)] justify-between">
         <div class="h-full">
             <div class="flex flex-col divide-y h-full">
                 <div class="h-full p-9 pb-0 flex flex-col items-center justify-between">

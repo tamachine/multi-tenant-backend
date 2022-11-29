@@ -23,7 +23,7 @@
           
           <div>            
             <div 
-                class="grid w-full justify-between gap-2"
+                class="grid grid-cols-3 w-full justify-between gap-2"
                 :class="tab=='#differentLocation' ? 'grid-cols-4' : 'grid-cols-3'"
                 >                
                 <div class="search-input-group">
