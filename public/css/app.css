@@ -1605,6 +1605,11 @@ h5 {
   width: 4rem;
 }
 
+.w-min {
+  width: -moz-min-content;
+  width: min-content;
+}
+
 .min-w-0 {
   min-width: 0px;
 }
@@ -2082,6 +2087,11 @@ h5 {
   background-color: transparent;
 }
 
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -2232,6 +2242,11 @@ h5 {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.object-fill {
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 
 .p-4 {
@@ -3580,6 +3595,10 @@ h5 {
     height: 718px;
   }
 
+  .md\:h-full {
+    height: 100%;
+  }
+
   .md\:max-h-full {
     max-height: 100%;
   }
@@ -3607,6 +3626,14 @@ h5 {
 
   .md\:w-2\/3 {
     width: 66.666667%;
+  }
+
+  .md\:w-0 {
+    width: 0px;
+  }
+
+  .md\:w-full {
+    width: 100%;
   }
 
   .md\:flex-1 {

@@ -22,22 +22,22 @@ class IconText extends Component
     public $text;
 
     /**
-     * The flex direction.
+     * Is it column or row?
      *
-     * @var string
+     * @var bool
      */
-    public $tailwindDirectionClass;
+    public $isColumn;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($iconPath, $text, $tailwindDirectionClass = 'flex-col')
+    public function __construct($iconPath, $text, $isColumn = true)
     {
         $this->iconPath = $iconPath;
         $this->text = $text;
-        $this->tailwindDirectionClass = $tailwindDirectionClass;
+        $this->isColumn = $isColumn;
     }
 
     /**
