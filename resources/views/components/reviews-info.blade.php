@@ -1,15 +1,31 @@
-<div class="flex flex-col items-center h-full">
-    <div class="text-black-primary text-lg">
-        <span class="font-fredokaOne text-pink-red text-3xl">{{ $reviewInfoComponent->getNote() }}</span> {{ __('web.reviews.of') }} {{ $reviewInfoComponent->getMaxNote() }}</div>
-    <div> 
-        @for($x=1; $x<=$reviewInfoComponent->getTotalStars(); $x++)     
-            @if($x<=$reviewInfoComponent->getMarkedStars())                   
-                <i class="fa-solid fa-star text-amber-400"></i>
-            @else
-                <i class="fa-regular fa-star text-amber-400"></i>
-            @endif                       
-        @endfor
+<div class="
+        flex items-center gap-1
+        h-fit w-max 
+        md:border-0 border border-[#E7ECF3] rounded-xl
+        md:p-0 px-3 py-2
+        "
+    >
+    
+    <div class="md:hidden">
+        <img src="{{ $reviewInfoComponent->getMobileIconPath() }}" />
     </div>
-    <div class="mt-auto"><img src="{{ $reviewInfoComponent->getIconPath() }}" /></div>
-    <div class="mt-auto">{{ $reviewInfoComponent->getTotalReviews() }} {{ __('web.reviews.reviews') }}</div>    
+    
+    <div class="flex flex-col items-center ">
+        <div class="text-black-primary font-fredoka">
+            <span class="text-pink-red text-2xl md:text-3xl font-bold">{{ $reviewInfoComponent->getNote() }}</span> 
+            <span class="md:text-2xl text-lg font-normal">{{ __('web.reviews.of') }} {{ $reviewInfoComponent->getMaxNote() }}</span>
+        </div>
+        <div class="hidden md:inline-block"> 
+            @for($x=1; $x<=$reviewInfoComponent->getTotalStars(); $x++)     
+                @if($x<=$reviewInfoComponent->getMarkedStars())                   
+                    <i class="fa-solid fa-star text-amber-400"></i>
+                @else
+                    <i class="fa-regular fa-star text-amber-400"></i>
+                @endif                       
+            @endfor
+        </div>
+        <div class="hidden md:inline-block mt-auto"><img src="{{ $reviewInfoComponent->getIconPath() }}" /></div>
+        <div class="mt-auto md:font-normal font-medium">{{ $reviewInfoComponent->getTotalReviews() }} {{ __('web.reviews.reviews') }}</div>    
+    </div>
 </div>
+

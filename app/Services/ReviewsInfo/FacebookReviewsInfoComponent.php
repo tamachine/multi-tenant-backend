@@ -15,6 +15,11 @@ class FacebookReviewsInfoComponent extends ReviewsInfoAbstract implements Review
     {
         return asset('images/logos/facebook.svg');
     }
+
+    public function getMobileIconPath(): string
+    {
+        return asset('images/logos/facebook-icon.svg');
+    }
     
     public function getTotalReviews(): int
     {

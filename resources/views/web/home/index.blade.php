@@ -10,7 +10,7 @@
     </div>
     
     <div class="max-w-6xl mx-auto p-3">    
-        @include('web.home.info')
+        @include('web.home.partial.reviews')
         
         <div class="px-18">
             <x-heading-h2 title="{{ __('web.home.box1-h2-title') }}" subtitle="{{ __('web.home.box1-h2-subtitle') }}" />
