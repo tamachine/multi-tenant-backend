@@ -3,24 +3,24 @@
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <!-- Filters -->
             <div class="sm:flex sm:justify-start">
-                <select id="status" name="status" wire:model="status"
-                    class="disable-arrow block w-32 h-10 mt-4 sm:mt-0 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
-                >
-                    @foreach(config('admin.cars_status') as $statusKey => $statusOption)
-                        <option value="{{$statusKey}}">{{ $statusOption }}</option>
-                    @endforeach
-                </select>
-
                 <select id="order" name="order" wire:model="order"
-                    class="disable-arrow block w-48 h-10 mt-4 sm:mt-0 sm:ml-4 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-48 h-10 mt-4 sm:mt-0 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
                 >
                     @foreach(config('admin.cars_order') as $statusKey => $statusOption)
                         <option value="{{$statusKey}}">{{ $statusOption }}</option>
                     @endforeach
                 </select>
 
+                <select id="status" name="status" wire:model="status"
+                    class="disable-arrow block w-32 h-10 mt-4 sm:mt-0 sm:ml-4 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                >
+                    @foreach(config('admin.cars_status') as $statusKey => $statusOption)
+                        <option value="{{$statusKey}}">{{ $statusOption }}</option>
+                    @endforeach
+                </select>
+
                 <select id="vendor" name="vendor" wire:model="vendor"
-                    class="disable-arrow block w-auto h-10 mt-4 sm:mt-0 sm:ml-4 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-auto h-10 mt-4 sm:mt-0 sm:ml-4 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md font-medium"
                 >
                     <option value="">All vendors</option>
                     @foreach ($vendors as $id => $name)
@@ -49,6 +49,9 @@
                                     Status
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Source
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Fleet Order
                                 </th>
                             </tr>
@@ -74,6 +77,9 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         {{ $car->active ? 'Active' : 'Hidden' }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        {{ $car->caren_id ? 'Caren' : 'Own' }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         {{ $car->fleet_position }}

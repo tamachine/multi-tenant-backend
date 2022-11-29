@@ -1,5 +1,5 @@
 <x-admin.form-section submit="dummy">
-    <x-slot name="title" submit="addDate">
+    <x-slot name="title">
         {{ $formTitle }}
     </x-slot>
 

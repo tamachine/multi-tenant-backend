@@ -73,7 +73,7 @@ class Api
     }
 
     /**
-     * Get the token from FBA Labs
+     * Get the session ID from Caren
      *
      * @return string
      */
@@ -193,6 +193,40 @@ class Api
     public function dropoffLocations($params = [])
     {
         $this->endpoint = config('caren.endpoints.dropoff_locations');
+
+        return $this->post($params);
+    }
+
+    /**
+     * @param   array   $params
+     * @return  array
+     */
+    public function fullCarList($params = [])
+    {
+        $params = array_merge($params, [
+            "skipDateCheck" => true,
+            "sortColumn" => "Id",
+            "showPrices" => false
+        ]);
+
+        $this->endpoint = config('caren.endpoints.full_car_list');
+
+        return $this->post($params);
+    }
+
+    /**
+     * @param   string  $type (extra or insurance)
+     * @param   array   $params
+     * @return  array
+     */
+    public function extraList($type, $params = [])
+    {
+        if ($type == 'extra') {
+            $this->endpoint = config('caren.endpoints.extra_list');
+        } else {
+            $this->endpoint = config('caren.endpoints.insurance_list');
+        }
+
 
         return $this->post($params);
     }

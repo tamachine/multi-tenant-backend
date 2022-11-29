@@ -105,9 +105,7 @@ class Create extends Component
             $carenVendor->update(['vendor_id' => $vendor->id]);
 
             $vendor->update([
-                'caren_settings' => [
-                    array_merge(config('caren.vendor_settings'), ['rental_id' => $carenVendor->caren_rental_id])
-                ]
+                'caren_settings' => array_merge(config('caren.vendor_settings'), ['rental_id' => $carenVendor->caren_rental_id])
             ]);
         }
 

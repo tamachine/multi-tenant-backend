@@ -20,8 +20,8 @@ class Extra extends Model
     protected $fillable = [
         'vendor_id', 'name', 'description', 'active', 'order_appearance',
         'price', 'maximum_fee', 'max_units', 'price_mode', 'category',
-        'included', 'insurance_premium',
-        'image'
+        'included', 'insurance_premium', 'image',
+        'caren_id'
     ];
 
     /**
@@ -91,5 +91,15 @@ class Extra extends Model
     public function vendor()
     {
         return $this->belongsTo(Vendor::class);
+    }
+
+    /**
+     * Define belongsToMany cars
+     *
+     * @return object
+     */
+    public function cars()
+    {
+        return $this->belongsToMany('App\Models\Car')->withTimestamps();
     }
 }

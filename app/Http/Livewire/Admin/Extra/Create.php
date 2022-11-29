@@ -57,7 +57,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Extra "' . $this->name . '" created');
 
-        return redirect()->route('extra.index');
+        return redirect()->route('extra.edit', $extra->hashid);
     }
 
     public function render()

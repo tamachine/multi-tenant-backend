@@ -38,6 +38,11 @@ class Index extends Component
     public $vendors;
 
     /**
+     * @var bool
+     */
+    public $oneVendor = false;
+
+    /**
      * @var array
      */
     protected $updatesQueryString = [
@@ -55,6 +60,11 @@ class Index extends Component
     {
         $this->vendors = $vendor->orderBy('name')->pluck('name', 'hashid');
         $this->fill(request()->only('search', 'page'));
+
+        if (count($this->vendors) == 1) {
+            $this->vendor = $this->vendors->keys()->first();
+            $this->oneVendor = true;
+        }
     }
 
     public function moveExtra($hashid, $up)
@@ -76,10 +86,10 @@ class Index extends Component
     {
         $extras = Extra::join('vendors', 'extras.vendor_id', '=', 'vendors.id')
             ->livewireSearch($this->vendor, $this->search)
-            ->select('extras.hashid', 'extras.name', 'extras.active', 'vendors.name as vendor_name', 'vendors.brand_color')
+            ->select('extras.hashid', 'extras.name', 'extras.active', 'extras.caren_id', 'vendors.name as vendor_name', 'vendors.brand_color')
             ->orderBy('vendor_name', 'asc')
             ->orderBy('extras.order_appearance', 'asc')
-            ->paginate(perPage());
+            ->get();
 
         $this->count = $extras->count();
 
