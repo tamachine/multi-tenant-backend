@@ -23,8 +23,7 @@
 {{-- desktop end --}}
 
 {{-- mobile --}}
-
-<div class="md:hidden flex flex-nowrap gap-3 overflow-x-auto scrollbar-none pt-10">
+<div class="md:hidden flex flex-nowrap gap-3 overflow-x-auto scrollbar-none py-10">
     <div>
         <x-reviews-info :reviewInfoComponent="$googleReviewInfoComponent" />
     </div>      
@@ -41,5 +40,4 @@
         <x-icon-text text="{{ trans('web.reviews.24-support') }}" icon-path="{{asset('images/icons/24hsupport.svg')}}" />        
     </div>
 </div> 
-
 {{-- mobile end --}}
