@@ -122,6 +122,9 @@ if (!function_exists('translate_caren_fuelname')) {
             case 'diesel':
                 return 'diesel';
 
+            case 'electric':
+                return 'electric';
+
             default:
                 return '';
         }

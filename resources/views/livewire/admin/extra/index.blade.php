@@ -2,18 +2,20 @@
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <!-- Vendor filter -->
-            <div>
-                <select id="vendor" name="vendor" wire:model="vendor"
-                    class="disable-arrow block w-auto h-10 mt-1 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md font-medium"
-                >
-                    <option value="">All vendors</option>
-                    @foreach ($vendors as $id => $name)
-                        <option value="{{$id}}">{{ $name }}</option>
-                    @endforeach
-                </select>
+            @if (!$oneVendor)
+                <div>
+                    <select id="vendor" name="vendor" wire:model="vendor"
+                        class="disable-arrow block w-auto h-10 mt-1 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md font-medium"
+                    >
+                        <option value="">All vendors</option>
+                        @foreach ($vendors as $id => $name)
+                            <option value="{{$id}}">{{ $name }}</option>
+                        @endforeach
+                    </select>
 
-                <x-admin.input-help value="{{ __('Select a vendor to reorder the extras') }}" />
-            </div>
+                    <x-admin.input-help value="{{ __('Select a vendor to reorder the extras') }}" />
+                </div>
+            @endif
 
             <x-admin.search />
 
@@ -41,6 +43,9 @@
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Status
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Source
                                 </th>
                             </tr>
                         </thead>
@@ -91,13 +96,15 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         {{ $extra->active ? 'Active' : 'Hidden' }}
                                     </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        {{ $extra->caren_id ? 'Caren' : 'Own' }}
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-
-                {{ $extras->links('livewire.partials.pagination') }}
             @else
                 <div class="bg-white shadow mt-8 px-4 py-5 sm:rounded-lg sm:p-6">
                     <h5>No extras found</h5>

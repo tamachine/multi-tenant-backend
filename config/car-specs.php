@@ -55,7 +55,8 @@ return [
 
     'engine' => [
         'gas',
-        'diesel'
+        'diesel',
+        'electric'
     ],
 
     'road' => [

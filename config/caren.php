@@ -12,6 +12,8 @@ return [
         'pickup_locations'  => 'vehicleapi/location/getpickuplist',
         'dropoff_locations' => 'vehicleapi/location/getdropofflist',
         'full_car_list'     => 'vehicleapi/class/getlist',
+        'extra_list'        => 'vehicleapi/extra/getlist',
+        'insurance_list'    => 'vehicleapi/insurance/getlist',
     ],
 
     'vendor_settings' => [

@@ -4,7 +4,7 @@
             <!-- Filters -->
             <div class="sm:flex sm:justify-start">
                 <select id="order" name="order" wire:model="order"
-                    class="disable-arrow block w-48 h-10 mt-4 sm:mt-0pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-48 h-10 mt-4 sm:mt-0 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
                 >
                     @foreach(config('admin.cars_order') as $statusKey => $statusOption)
                         <option value="{{$statusKey}}">{{ $statusOption }}</option>

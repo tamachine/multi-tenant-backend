@@ -195,4 +195,14 @@ class Car extends Model
     {
         return $this->hasMany(CarLocation::class);
     }
+
+    /**
+     * Define belongsToMany extras
+     *
+     * @return object
+     */
+    public function extras()
+    {
+        return $this->belongsToMany('App\Models\Extra')->withTimestamps();
+    }
 }

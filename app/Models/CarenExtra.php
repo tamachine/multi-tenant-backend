@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class CarenCar extends Model
+class CarenExtra extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -16,7 +16,7 @@ class CarenCar extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'caren_id', 'car_id', 'vendor_id',
+        'name', 'caren_id', 'extra_id', 'vendor_id',
         'caren_data'
     ];
 
@@ -46,16 +46,16 @@ class CarenCar extends Model
      **********************************/
 
     /**
-     * Related car
+     * Related extra
      *
      * @return object
      */
-    public function car()
+    public function extra()
     {
-        return $this->belongsTo(Car::class);
+        return $this->belongsTo(Extra::class);
     }
 
-     /**
+    /**
      * Related vendor
      *
      * @return object
@@ -66,12 +66,12 @@ class CarenCar extends Model
     }
 
     /**
-     * Define belongsToMany caren_extra
+     * Define belongsToMany caren_car
      *
      * @return object
      */
-    public function carenExtras()
+    public function carenCars()
     {
-        return $this->belongsToMany('App\Models\CarenExtra')->withTimestamps();
+        return $this->belongsToMany('App\Models\CarenCar')->withTimestamps();
     }
 }

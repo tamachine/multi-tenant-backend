@@ -213,4 +213,21 @@ class Api
 
         return $this->post($params);
     }
+
+    /**
+     * @param   string  $type (extra or insurance)
+     * @param   array   $params
+     * @return  array
+     */
+    public function extraList($type, $params = [])
+    {
+        if ($type == 'extra') {
+            $this->endpoint = config('caren.endpoints.extra_list');
+        } else {
+            $this->endpoint = config('caren.endpoints.insurance_list');
+        }
+
+
+        return $this->post($params);
+    }
 }

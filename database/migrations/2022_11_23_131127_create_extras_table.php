@@ -32,6 +32,8 @@ return new class extends Migration
             $table->boolean('included')->default(0);
             $table->boolean('insurance_premium')->default(0);
 
+            $table->unsignedBigInteger('caren_id')->nullable()->unsigned()->index();
+
             $table->timestamps();
             $table->softDeletes();
 
