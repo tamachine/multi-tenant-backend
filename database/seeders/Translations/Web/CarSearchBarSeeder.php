@@ -143,5 +143,25 @@ class CarSearchBarSeeder extends Seeder
                 'text' => ['en' => 'Return', 'es' => 'Retorno'],
             ]
         );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'car-search-bar.mobile-first-input-title',    
+            ],
+            [                
+                'text' => ['en' => 'Calendar', 'es' => 'Calendario'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'car-search-bar.mobile-first-input-placeholder',    
+            ],
+            [                
+                'text' => ['en' => 'Pick up & return days', 'es' => 'Recogida y retorno'],
+            ]
+        );  
     }
 }

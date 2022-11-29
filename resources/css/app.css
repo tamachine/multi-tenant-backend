@@ -38,7 +38,9 @@ input:invalid, textarea:invalid, select:invalid {
  */
 
 h1 {
-    @apply font-fredokaOne text-pink-red font-semibold text-7xl text-center;
+    @apply 
+        font-fredoka text-pink-red font-semibold text-center leading-[46px] md:leading-[76px]
+        text-5xl md:text-7xl;
 }
 
 h2 {
@@ -46,7 +48,7 @@ h2 {
 }
 
 h3 {
-    @apply text-black-primary text-3xl font-medium text-center;
+    @apply text-black-primary md:text-3xl font-medium text-center;
 }
 
 h4 {
