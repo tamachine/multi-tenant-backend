@@ -133,6 +133,23 @@
                         Locations
                     </a>
                 </li>
+
+                <li class="mr-2">
+                    <a href="javascript:void(0);"
+                        @click.prevent="tab='extras'"
+                        class="inline-flex p-4 rounded-t-lg border-b-2"
+                        :class="tab == 'extras' ? 'text-blue-600 border-blue-600' : 'border-transparent hover:text-gray-600 hover:border-gray-300'"
+                    >
+                        <svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                            class="mr-2 w-5 h-5"
+                            :class="tab == 'extras' ? 'text-blue-600' : 'text-gray-400'"
+                        >
+                        <path fill-rule="evenodd" d="M2.625 6.75a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875 0A.75.75 0 018.25 6h12a.75.75 0 010 1.5h-12a.75.75 0 01-.75-.75zM2.625 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zM7.5 12a.75.75 0 01.75-.75h12a.75.75 0 010 1.5h-12A.75.75 0 017.5 12zm-4.875 5.25a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875 0a.75.75 0 01.75-.75h12a.75.75 0 010 1.5h-12a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                        </svg>
+
+                        Extras
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -164,6 +181,10 @@
 
         <div x-show="tab == 'locations'">
             <livewire:admin.car.locations :car="$car" />
+        </div>
+
+        <div x-show="tab == 'extras'">
+            <livewire:admin.car.extras :car="$car" />
         </div>
     </div>
 </x-admin-layout>

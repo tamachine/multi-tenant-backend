@@ -69,6 +69,9 @@ class Images extends Component
 
         $this->validate([
             'images.*'      => ['mimes:jpeg,jpg,png,gif,webp'],
+        ],
+        [
+            'images.*.mimes' => 'The image must be a file of type: jpeg, jpg, png, gif, webp'
         ]);
 
         foreach ($this->images as $key => $image) {

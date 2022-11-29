@@ -19,6 +19,7 @@ class CreateTest extends TestCase
         parent::setUp();
         $this->admin = $this->createUser();
         $this->vendor = $this->createVendor();
+        $this->caren_car = $this->createCarenCar();
     }
 
     /**
@@ -60,6 +61,7 @@ class CreateTest extends TestCase
         Livewire::test(Create::class)
             ->set('name', "Car 1")
             ->set('vendor', $this->vendor->hashid)
+            ->set('caren_car',  $this->caren_car->id)
             ->call('saveCar')
             ->assertStatus(200);
 

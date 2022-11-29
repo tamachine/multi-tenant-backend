@@ -50,6 +50,8 @@ return new class extends Migration
             $table->string('f_roads_name')->default('fwd');
             $table->string('vehicle_class')->default('car');
 
+            $table->unsignedBigInteger('caren_id')->nullable()->unsigned()->index();
+
             $table->timestamps();
             $table->softDeletes();
 

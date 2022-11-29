@@ -7,11 +7,10 @@ use App\Apis\Caren\Api;
 
 class VendorListTest extends TestCase
 {
-
     /**
      * @test
      * @group unit
-     * @group apiInsu
+     * @group api
      * @group api-caren
      * @group api-caren-vendors
      * @group external
