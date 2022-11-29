@@ -11,7 +11,11 @@
         <!-- Vendor -->
         <div class="px-4 mt-4 md:mt-0">
             <x-admin.label for="vendor" value="{{ __('Vendor') }}" />
-            {{$vendor}}
+            <a href="{{route('vendor.edit', $vendor_id)}}" target="_blank"
+                class="text-purple-700 hover:underline"
+            >
+                {{$vendor_name}}
+            </a>
         </div>
 
         <!-- Name -->
@@ -61,35 +65,43 @@
         <hr class="mt-8 mb-4 px-4">
 
         <div class="w-full sm:grid sm:gap-2 sm:grid-cols-2 md:grid-cols-3">
-            <!-- Price -->
-            <div class="px-4 mt-4">
-                <x-admin.label-tooltip for="price" value="{{ __('Price') }}" tooltip="If the extra is configured as 'Included' the price will be zero" />
+            @if ($caren)
+                <div class="px-4 mt-4">
+                    This extra was added from Caren.
+                    <br>
+                    You can't modify the price.
+                </div>
+            @else
+                <!-- Price -->
+                <div class="px-4 mt-4">
+                    <x-admin.label-tooltip for="price" value="{{ __('Price') }}" tooltip="If the extra is configured as 'Included' the price will be zero" />
 
-                @if ($included)
-                    <div class="mt-2 font-bold">
-                        0 ISK
-                    </div>
-                @else
-                    <x-admin.input id="price" type="number" class="w-20 mt-1 block" min="0" wire:model.defer="price"/>
-                    <x-admin.input-help value="{{ __('In ISK') }}" />
-                    <x-admin.input-error for="price" class="mt-2" />
-                @endif
-            </div>
+                    @if ($included)
+                        <div class="mt-2 font-bold">
+                            0 ISK
+                        </div>
+                    @else
+                        <x-admin.input id="price" type="number" class="w-20 mt-1 block" min="0" wire:model.defer="price"/>
+                        <x-admin.input-help value="{{ __('In ISK') }}" />
+                        <x-admin.input-error for="price" class="mt-2" />
+                    @endif
+                </div>
 
-           <!-- Maximum Price -->
-           <div class="px-4 mt-4">
-                <x-admin.label-tooltip for="maximum_fee" value="{{ __('Maximum Price') }}" tooltip="If the extra is configured as 'Included' the price will be zero" />
+                <!-- Maximum Price -->
+                <div class="px-4 mt-4">
+                    <x-admin.label-tooltip for="maximum_fee" value="{{ __('Maximum Price') }}" tooltip="If the extra is configured as 'Included' the price will be zero" />
 
-                @if ($included)
-                    <div class="mt-2 font-bold">
-                        0 ISK
-                    </div>
-                @else
-                    <x-admin.input id="maximum_fee" type="number" class="w-20 mt-1 block" min="0" wire:model.defer="maximum_fee" />
-                    <x-admin.input-help value="{{ __('In ISK') }}" />
-                    <x-admin.input-error for="maximum_fee" class="mt-2" />
-                @endif
-            </div>
+                    @if ($included)
+                        <div class="mt-2 font-bold">
+                            0 ISK
+                        </div>
+                    @else
+                        <x-admin.input id="maximum_fee" type="number" class="w-20 mt-1 block" min="0" wire:model.defer="maximum_fee" />
+                        <x-admin.input-help value="{{ __('In ISK') }}" />
+                        <x-admin.input-error for="maximum_fee" class="mt-2" />
+                    @endif
+                </div>
+            @endif
 
             <!-- Max Units -->
            <div class="px-4 mt-4">

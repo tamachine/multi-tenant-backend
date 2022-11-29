@@ -35,6 +35,20 @@ class Car extends Model
     public $translatable = ['name', 'description'];
 
     /**********************************
+     * Accessors & Mutators
+     **********************************/
+
+    /**
+     * Get the car's edit URL
+     *
+     * @return     string
+     */
+    public function getEditUrlAttribute()
+    {
+        return route('car.edit', $this->hashid);
+    }
+
+    /**********************************
      * Methods
      **********************************/
 

@@ -4,6 +4,7 @@ namespace Tests;
 
 use App\Models\Car;
 use App\Models\CarenCar;
+use App\Models\CarenExtra;
 use App\Models\CarenLocation;
 use App\Models\CarenVendor;
 use App\Models\Extra;
@@ -53,6 +54,19 @@ trait CreatesApplication
     {
         return CarenCar::factory($attributes)->create();
     }
+
+    /**
+     * Create a Caren extra
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\CarenExtra
+     */
+    protected function createCarenExtra($attributes = [])
+    {
+        return CarenExtra::factory($attributes)->create();
+    }
+
 
     /**
      * Create a Caren location

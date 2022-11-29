@@ -20,13 +20,14 @@ class CarController extends Controller
         return view('admin.car.index')->with($data);
     }
 
-    public function create(): View
+    public function create($caren_car = null): View
     {
         $data = [
             'action' => collect([
                 'route' => route('car.index'),
                 'title' => 'Cars'
             ]),
+            'caren_car' => $caren_car,
         ];
 
         return view('admin.car.create')->with($data);

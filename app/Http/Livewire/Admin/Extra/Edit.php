@@ -21,7 +21,17 @@ class Edit extends Component
     /**
      * @var string
      */
-    public $vendor;
+    public $vendor_name;
+
+    /**
+     * @var string
+     */
+    public $vendor_id;
+
+    /**
+     * @var bool
+     */
+    public $caren = false;
 
     /**
      * @var string
@@ -83,7 +93,8 @@ class Edit extends Component
     {
         $this->extra = $extra;
 
-        $this->vendor = $this->extra->vendor->name;
+        $this->vendor_name = $this->extra->vendor->name;
+        $this->vendor_id = $this->extra->vendor->hashid;
 
         $this->name = $this->extra->name;
         $this->description = $this->extra->description;
@@ -95,6 +106,10 @@ class Edit extends Component
         $this->category = $this->extra->category;
         $this->included = $this->extra->included;
         $this->insurance_premium = $this->extra->insurance_premium;
+
+        if ($this->extra->caren_id) {
+            $this->caren = true;
+        }
     }
 
     public function saveExtra()
@@ -111,8 +126,8 @@ class Edit extends Component
             'name'              => $this->name,
             'description'       => $this->description,
             'active'            => $this->active,
-            'price'             => $this->included ? 0 : $this->price,
-            'maximum_fee'       => $this->included ? 0 : $this->maximum_fee,
+            'price'             => $this->included || $this->caren ? 0 : $this->price,
+            'maximum_fee'       => $this->included || $this->caren ? 0 : $this->maximum_fee,
             'max_units'         => $this->max_units,
             'price_mode'        => $this->price_mode,
             'category'          => $this->category,

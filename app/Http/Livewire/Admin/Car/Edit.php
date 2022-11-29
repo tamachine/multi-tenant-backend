@@ -21,7 +21,12 @@ class Edit extends Component
     /**
      * @var string
      */
-    public $vendor;
+    public $vendor_name;
+
+    /**
+     * @var string
+     */
+    public $vendor_id;
 
     /**
      * @var int
@@ -138,7 +143,8 @@ class Edit extends Component
     {
         $this->car = $car;
 
-        $this->vendor = $this->car->vendor->name;
+        $this->vendor_name = $this->car->vendor->name;
+        $this->vendor_id = $this->car->vendor->hashid;
 
         $this->online_percentage = $car->online_percentage;
         $this->name = $this->car->name;

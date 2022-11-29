@@ -35,10 +35,11 @@ class Create extends Component
     ***************************************************************
     */
 
-    public function mount(CarenLocation $carenLocation)
+    public function mount($caren_location)
     {
         if (config('settings.booking_enabled.caren')) {
-            $this->caren_locations = $carenLocation->whereNull('location_id')->pluck('name', 'id');
+            $this->caren_location = $caren_location;
+            $this->caren_locations = CarenLocation::whereNull('location_id')->pluck('name', 'id');
 
             if (!config('settings.booking_enabled.own') && count($this->caren_locations) == 0) {
                 session()->flash('status', 'error');

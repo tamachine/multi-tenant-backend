@@ -28,6 +28,21 @@
             </select>
             <x-admin.input-error for="vendor" class="mt-2" />
         </div>
+
+        @if (config('settings.booking_enabled.caren'))
+            <!-- Caren Extra -->
+            <div class="px-4 mt-4 md:mt-0">
+                <x-admin.label for="caren_extra" value="{{ __('Caren Extra') }}" />
+                <select id="caren_extra" name="caren_extra" wire:model="caren_extra"
+                    class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                >
+                    <option value="">Select Extra</option>
+                    @foreach ($caren_extras as $id => $name)
+                        <option value="{{$id}}">{{ $name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        @endif
     </x-slot>
 
     <x-slot name="actions">

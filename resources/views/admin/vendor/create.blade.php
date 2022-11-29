@@ -8,6 +8,6 @@
     </x-slot>
 
     <div class="space-y-6 p-10">
-        <livewire:admin.vendor.create />
+        <livewire:admin.vendor.create :caren_vendor="$caren_vendor" />
     </div>
 </x-admin-layout>
