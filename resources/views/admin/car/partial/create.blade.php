@@ -29,19 +29,21 @@
             <x-admin.input-error for="vendor" class="mt-2" />
         </div>
 
-        <!-- Caren Car -->
-        <div class="px-4 mt-4 md:mt-0">
-            <x-admin.label for="caren_car" value="{{ __('Caren Car') }}" />
-            <select id="caren_car" name="caren_car" wire:model="caren_car"
-                class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
-            >
-                <option value="">Select Car</option>
-                @foreach ($caren_cars as $id => $name)
-                    <option value="{{$id}}">{{ $name }}</option>
-                @endforeach
-            </select>
-            <x-admin.input-error for="caren_car" class="mt-2" />
-        </div>
+        @if (config('settings.booking_enabled.caren'))
+            <!-- Caren Car -->
+            <div class="px-4 mt-4 md:mt-0">
+                <x-admin.label for="caren_car" value="{{ __('Caren Car') }}" />
+                <select id="caren_car" name="caren_car" wire:model="caren_car"
+                    class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                >
+                    <option value="">Select Car</option>
+                    @foreach ($caren_cars as $id => $name)
+                        <option value="{{$id}}">{{ $name }}</option>
+                    @endforeach
+                </select>
+                <x-admin.input-error for="caren_car" class="mt-2" />
+            </div>
+        @endif
     </x-slot>
 
     <x-slot name="actions">

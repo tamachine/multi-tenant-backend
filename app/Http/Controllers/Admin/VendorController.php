@@ -20,13 +20,14 @@ class VendorController extends Controller
         return view('admin.vendor.index')->with($data);
     }
 
-    public function create(): View
+    public function create($caren_vendor = null): View
     {
         $data = [
             'action' => collect([
                 'route' => route('vendor.index'),
                 'title' => 'Vendors'
             ]),
+            'caren_vendor' => $caren_vendor,
         ];
 
         return view('admin.vendor.create')->with($data);

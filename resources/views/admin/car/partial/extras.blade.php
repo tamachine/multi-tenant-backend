@@ -31,7 +31,11 @@
                                     </td>
 
                                     <td class="px-4 py-2 whitespace-nowrap">
-                                        {{$record["name"]}}
+                                        <a href="{{route('extra.edit', $record["id"])}}" target="_blank"
+                                            class="text-purple-700 hover:underline"
+                                        >
+                                            {{$record["name"]}}
+                                        </a>
                                     </td>
 
                                     <td class="px-4 py-2 whitespace-nowrap">

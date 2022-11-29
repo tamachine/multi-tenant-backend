@@ -34,7 +34,7 @@ class CreateTest extends TestCase
     {
         $this->actingAs($this->admin);
 
-        Livewire::test(Create::class)
+        Livewire::test(Create::class, ['caren_location' => $this->caren_location->id])
             ->set('name', null)
             ->call('saveLocation')
             ->assertHasErrors([
@@ -55,7 +55,7 @@ class CreateTest extends TestCase
     {
         $this->actingAs($this->admin);
 
-        Livewire::test(Create::class)
+        Livewire::test(Create::class, ['caren_location' => $this->caren_location->id])
             ->set('name', "Location 1")
             ->set('caren_location',  $this->caren_location->id)
             ->call('saveLocation')

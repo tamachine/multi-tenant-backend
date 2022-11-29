@@ -20,13 +20,14 @@ class ExtraController extends Controller
         return view('admin.extra.index')->with($data);
     }
 
-    public function create(): View
+    public function create($caren_extra = null): View
     {
         $data = [
             'action' => collect([
                 'route' => route('extra.index'),
                 'title' => 'Extras'
             ]),
+            'caren_extra' => $caren_extra,
         ];
 
         return view('admin.extra.create')->with($data);

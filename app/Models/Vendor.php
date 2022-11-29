@@ -39,6 +39,16 @@ class Vendor extends Model
      **********************************/
 
     /**
+     * Get the vendor's edit URL
+     *
+     * @return     string
+     */
+    public function getEditUrlAttribute()
+    {
+        return route('vendor.edit', $this->hashid);
+    }
+
+    /**
      * Get the vendor's logo URL
      *
      * @return     string

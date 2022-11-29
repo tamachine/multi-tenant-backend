@@ -70,6 +70,6 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.admin.season.create');
+        return view('livewire.admin.free-day.create');
     }
 }

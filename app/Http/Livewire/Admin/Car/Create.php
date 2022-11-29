@@ -46,12 +46,13 @@ class Create extends Component
     ***************************************************************
     */
 
-    public function mount(Vendor $vendor, CarenCar $carenCar)
+    public function mount($caren_car)
     {
-        $this->vendors = $vendor->pluck('name', 'hashid');
+        $this->vendors = Vendor::pluck('name', 'hashid');
 
         if (config('settings.booking_enabled.caren')) {
-            $this->caren_cars = $carenCar->whereNull('car_id')->pluck('name', 'id');
+            $this->caren_cars = CarenCar::whereNull('car_id')->pluck('name', 'id');
+            $this->caren_car = $caren_car;
 
             if (!config('settings.booking_enabled.own') && count($this->caren_cars) == 0) {
                 session()->flash('status', 'error');
@@ -86,7 +87,11 @@ class Create extends Component
             $carenCar = CarenCar::find($this->caren_car);
             $carenCar->update(['car_id' => $car->id]);
 
+            // Update some information from the Caren car and its extras
             $car->updateFromCarenCar($carenCar->caren_data);
+            foreach($carenCar->carenExtras as $carenExtra) {
+                $car->extras()->attach($carenExtra->id);
+            }
         }
 
         session()->flash('status', 'success');
