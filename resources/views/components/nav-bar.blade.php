@@ -21,11 +21,11 @@
     {{-- desktop --}}
     <div class="hidden md:flex items-center divide-x gap-10">
         <div class="flex items-end justify-between flex-wrap gap-10 text-lg">
-            <a href="#">{{ __('web.navbar.cars') }}</a>
-            <a href="#">{{ __('web.navbar.about') }}</a>
-            <a href="#">{{ __('web.navbar.faq') }}</a>
-            <a href="#">{{ __('web.navbar.blog') }}</a>
-            <a href="#">{{ __('web.navbar.contact') }}</a>
+            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.cars') }}</a>
+            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.about') }}</a>
+            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.faq') }}</a>
+            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.blog') }}</a>
+            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.contact') }}</a>
         </div>
         <div class="pl-5 text-sm flex items-center gap-1">
             <span>{{ __("web.navbar." . App::currentLocale()) }}</span>
