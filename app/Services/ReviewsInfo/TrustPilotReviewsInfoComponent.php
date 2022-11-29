@@ -15,6 +15,11 @@ class TrustPilotReviewsInfoComponent extends ReviewsInfoAbstract implements Revi
     {
         return asset('images/logos/trustpilot.svg');
     }
+
+    public function getMobileIconPath(): string
+    {
+        return asset('images/logos/trustpilot-icon.svg');
+    }
     
     public function getTotalReviews(): int
     {

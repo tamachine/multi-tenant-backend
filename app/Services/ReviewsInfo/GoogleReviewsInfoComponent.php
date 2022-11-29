@@ -15,6 +15,11 @@ class GoogleReviewsInfoComponent extends ReviewsInfoAbstract implements ReviewsI
     {
         return asset('images/logos/google.svg');
     }
+
+    public function getMobileIconPath(): string
+    {
+        return asset('images/logos/google-icon.svg');
+    }
     
     public function getTotalReviews(): int
     {
