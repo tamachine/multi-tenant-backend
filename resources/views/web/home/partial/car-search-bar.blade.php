@@ -84,7 +84,7 @@
 />
 
 @push('scripts')
-  <script>
+<script>
     function carSearchBar() {
         return { 
             tab: '#sameLocation',
@@ -100,14 +100,6 @@
             }
         }
     }
-
-    function carSearchBarMobile() {
-        return { 
-            startDateClick: function() {
-                this.showOverlay = true                                               
-            },            
-        }
-    }
-  </script>
+</script>
 @endpush
 
