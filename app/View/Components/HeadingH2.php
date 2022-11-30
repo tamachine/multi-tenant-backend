@@ -35,16 +35,22 @@ class HeadingH2 extends Component
     public $paddingTop;
 
     /**
+     * for mobile: h2 font size: 42px h4 font size: 18px
+     */
+    public $mobileSmall;
+
+    /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($title, $subtitle, $textDirection = 'center', $paddingTop = '5')
+    public function __construct($title, $subtitle, $textDirection = 'center', $paddingTop = '5', $mobileSmall = false)
     {
         $this->title = $title;
         $this->subtitle = $subtitle;
         $this->textDirection = $textDirection;
         $this->paddingTop = $paddingTop;
+        $this->mobileSmall = $mobileSmall;
     }
 
     /**

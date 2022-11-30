@@ -915,8 +915,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 22px;
   font-weight: 400;
   --tw-text-opacity: 1;
   color: rgb(48 0 0 / var(--tw-text-opacity));
@@ -1275,6 +1274,11 @@ h5 {
   margin-right: 1rem;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
@@ -1480,12 +1484,12 @@ h5 {
   height: 495px;
 }
 
-.h-4 {
-  height: 1rem;
+.h-\[inherit\] {
+  height: inherit;
 }
 
-.h-\[512px\] {
-  height: 512px;
+.h-4 {
+  height: 1rem;
 }
 
 .h-\[270px\] {
@@ -1506,6 +1510,10 @@ h5 {
 
 .h-40 {
   height: 10rem;
+}
+
+.h-\[512px\] {
+  height: 512px;
 }
 
 .h-\[400px\] {
@@ -1860,13 +1868,33 @@ h5 {
        column-gap: 2.25rem;
 }
 
+.gap-y-2 {
+  row-gap: 0.5rem;
+}
+
 .gap-x-6 {
   -moz-column-gap: 1.5rem;
        column-gap: 1.5rem;
 }
 
-.gap-y-2 {
-  row-gap: 0.5rem;
+.gap-y-\[26px\] {
+  row-gap: 26px;
+}
+
+.gap-y-\[12px\] {
+  row-gap: 12px;
+}
+
+.gap-y-\[14px\] {
+  row-gap: 14px;
+}
+
+.gap-y-3 {
+  row-gap: 0.75rem;
+}
+
+.gap-y-4 {
+  row-gap: 1rem;
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -2534,6 +2562,10 @@ h5 {
   padding-top: 0px;
 }
 
+.pt-\[1236px\] {
+  padding-top: 1236px;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2612,6 +2644,10 @@ h5 {
 
 .text-\[10px\] {
   font-size: 10px;
+}
+
+.text-\[42px\] {
+  font-size: 42px;
 }
 
 .font-medium {
@@ -3532,6 +3568,16 @@ h5 {
     margin-right: 0px;
   }
 
+  .md\:mx-6 {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .md\:my-8 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
   .md\:ml-16 {
     margin-left: 4rem;
   }
@@ -3690,6 +3736,11 @@ h5 {
          column-gap: 3.5rem;
   }
 
+  .md\:gap-x-6 {
+    -moz-column-gap: 1.5rem;
+         column-gap: 1.5rem;
+  }
+
   .md\:overflow-auto {
     overflow: auto;
   }
@@ -3831,6 +3882,10 @@ h5 {
 
   .md\:pb-3 {
     padding-bottom: 0.75rem;
+  }
+
+  .md\:pt-6 {
+    padding-top: 1.5rem;
   }
 
   .md\:text-left {

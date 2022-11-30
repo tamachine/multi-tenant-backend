@@ -55,7 +55,7 @@ h3 {
 }
 
 h4 {
-    @apply md:text-2xl text-lg text-black-primary font-normal;
+    @apply md:text-2xl text-[22px] text-black-primary font-normal;
 }
 
 h5 {
