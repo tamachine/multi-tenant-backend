@@ -44,7 +44,10 @@ h1 {
 }
 
 h2 {
-    @apply font-fredokaOne text-pink-red font-semibold text-5xl leading-[60px] tracking-[-0.005em];
+    @apply 
+        font-fredoka text-pink-red font-semibold tracking-[-0.005em]
+        md:leading-[60px] leading-[50px]
+        md:text-5xl text-[48px];
 }
 
 h3 {
@@ -52,11 +55,11 @@ h3 {
 }
 
 h4 {
-    @apply text-2xl text-black-primary font-normal;
+    @apply md:text-2xl text-lg text-black-primary font-normal;
 }
 
 h5 {
-    @apply font-fredokaOne text-pink-red font-semibold text-3xl text-center;
+    @apply font-fredoka text-pink-red font-semibold text-[28px] text-center;
 }   
 
 .btn {
