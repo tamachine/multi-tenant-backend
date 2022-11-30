@@ -1,4 +1,4 @@
-<div class="grid grid-cols-3 w-100 pt-6 gap-x-6 h-[512px]">
+<div class="grid grid-cols-1 md:grid-cols-3 w-100 md:pt-6 md:gap-x-6 gap-y-4 h-[512px]">
     <x-card-elongated 
         background-relative-path="{{ '/images/home/cardElongated-1.png' }}" 
         background-hover-relative-path="{{ '/images/home/cardElongated-5.png' }}" 

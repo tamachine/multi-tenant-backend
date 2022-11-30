@@ -1,4 +1,4 @@
-<div class="pt-40 grid grid-cols-2 items-center gap-7 ">
+<div class="pt-[1236px] md:pt-40 grid grid-cols-2 items-center gap-7 ">
     <div class="rounded-2xl">
         <img class="object-cover" src="{{ asset('images/home/deals.png') }}" />
     </div>

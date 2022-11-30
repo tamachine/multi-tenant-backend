@@ -9,27 +9,19 @@
         </div>                
     </div>
     
-    <div class="max-w-6xl mx-auto p-3">    
+    <div class="max-w-6xl mx-auto p-3">   
+         
         @include('web.home.partial.reviews')
         
-        <div class="md:px-18">
-            <x-heading-h2 title="{{ __('web.home.box1-h2-title') }}" subtitle="{{ __('web.home.box1-h2-subtitle') }}" />
-        </div>        
+        @include('web.home.partial.box1')
     
         @include('web.home.partial.cards-default')
 
-        <div class="pt-28 md:pt-36 pb-6">
-            <x-heading-h2 
-                title="{{ __('web.home.box2-h2-title') }}" 
-                subtitle="{{ __('web.home.box2-h2-subtitle') }}" 
-                text-direction="left"
-                padding-top="2"
-            />
-        </div>
+        @include('web.home.partial.box2')
 
-        @include('web.home.cards-elongated')
+        @include('web.home.partial.cards-elongated')
 
-        @include('web.home.deals')
+        @include('web.home.partial.deals')
 
         <x-faqs />
 
