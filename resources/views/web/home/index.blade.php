@@ -12,13 +12,13 @@
     <div class="max-w-6xl mx-auto p-3">    
         @include('web.home.partial.reviews')
         
-        <div class="px-18">
+        <div class="md:px-18">
             <x-heading-h2 title="{{ __('web.home.box1-h2-title') }}" subtitle="{{ __('web.home.box1-h2-subtitle') }}" />
         </div>        
     
-        @include('web.home.cards-default')
+        @include('web.home.partial.cards-default')
 
-        <div class="pt-36 pb-6">
+        <div class="pt-28 md:pt-36 pb-6">
             <x-heading-h2 
                 title="{{ __('web.home.box2-h2-title') }}" 
                 subtitle="{{ __('web.home.box2-h2-subtitle') }}" 
