@@ -10,6 +10,8 @@ class SeasonController extends Controller
 {
     public function index(): View
     {
+        $this->authorize('admin');
+
         $data = [
             'action' => collect([
                 'route' => route('season.create'),
@@ -22,6 +24,8 @@ class SeasonController extends Controller
 
     public function create(): View
     {
+        $this->authorize('admin');
+
         $data = [
             'action' => collect([
                 'route' => route('season.index'),
@@ -34,6 +38,8 @@ class SeasonController extends Controller
 
     public function edit($hashid): View
     {
+        $this->authorize('admin');
+
         $season = Season::where('hashid', $hashid)->firstOrFail();
 
         $data = [

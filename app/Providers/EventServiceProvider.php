@@ -5,10 +5,12 @@ namespace App\Providers;
 use App\Models\Car;
 use App\Models\Extra;
 use App\Models\Location;
+use App\Models\User;
 use App\Models\Vendor;
 use App\Observers\CarObserver;
 use App\Observers\ExtraObserver;
 use App\Observers\LocationObserver;
+use App\Observers\UserObserver;
 use App\Observers\VendorObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -37,6 +39,7 @@ class EventServiceProvider extends ServiceProvider
         Car::observe(CarObserver::class);
         Extra::observe(ExtraObserver::class);
         Location::observe(LocationObserver::class);
+        User::observe(UserObserver::class);
         Vendor::observe(VendorObserver::class);
     }
 

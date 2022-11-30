@@ -7,11 +7,12 @@ return [
      * number and return the id of the record
      */
 
-    'App\Models\Voucher' => 1,
-    'App\Models\Location' => 2,
-    'App\Models\Car' => 3,
-    'App\Models\CarImage' => 4,
-    'App\Models\Season' => 5,
-    'App\Models\FreeDay' => 6,
-    'App\Models\Extra' => 7,
+    'App\Models\User' => 1,
+    'App\Models\Vendor' => 2,
+    'App\Models\Location' => 3,
+    'App\Models\Car' => 4,
+    'App\Models\CarImage' => 5,
+    'App\Models\Season' => 6,
+    'App\Models\FreeDay' => 7,
+    'App\Models\Extra' => 8,
 ];

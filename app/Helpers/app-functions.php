@@ -84,6 +84,25 @@ if (!function_exists('dehash')) {
     }
 }
 
+if (!function_exists('collectConfig')) {
+    /**
+     * Return a config as a collection
+     *
+     * @param      string   $path
+     * @param      boolean  $recursive  True returns a recursive collection
+     *
+     * @return     object   Illuminate\Support\Collection
+     */
+    function collectConfig($path, $recursive = false)
+    {
+        if ($recursive) {
+            return recursivelyCollect(config($path));
+        }
+
+        return collect(config($path));
+    }
+}
+
 if (!function_exists('hours_dropdown')) {
     /**
      * Returns an array for hours dropdowns

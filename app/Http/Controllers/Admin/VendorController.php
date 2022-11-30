@@ -10,6 +10,8 @@ class VendorController extends Controller
 {
     public function index(): View
     {
+        $this->authorize('admin');
+
         $data = [
             'action' => collect([
                 'route' => route('vendor.create'),
@@ -22,6 +24,8 @@ class VendorController extends Controller
 
     public function create($caren_vendor = null): View
     {
+        $this->authorize('admin');
+
         $data = [
             'action' => collect([
                 'route' => route('vendor.index'),
@@ -35,6 +39,8 @@ class VendorController extends Controller
 
     public function edit($hashid, $tab = null): View
     {
+        $this->authorize('admin');
+
         $vendor = Vendor::where('hashid', $hashid)->firstOrFail();
 
         $data = [

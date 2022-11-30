@@ -10,6 +10,8 @@ class LocationController extends Controller
 {
     public function index(): View
     {
+        $this->authorize('admin');
+
         $data = [
             'action' => collect([
                 'route' => route('location.create'),
@@ -22,6 +24,8 @@ class LocationController extends Controller
 
     public function create($caren_location = null): View
     {
+        $this->authorize('admin');
+
         $data = [
             'action' => collect([
                 'route' => route('location.index'),
@@ -35,6 +39,8 @@ class LocationController extends Controller
 
     public function edit($hashid, $tab = null): View
     {
+        $this->authorize('admin');
+
         $location = Location::where('hashid', $hashid)->firstOrFail();
 
         $data = [

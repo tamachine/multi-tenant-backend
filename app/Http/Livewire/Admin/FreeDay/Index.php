@@ -26,11 +26,10 @@ class Index extends Component
      */
     public $days = [];
 
-     /**
+    /**
      * @var bool
      */
     public $test = false;
-
 
     /**
      * @var array
