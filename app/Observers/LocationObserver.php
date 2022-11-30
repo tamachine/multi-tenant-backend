@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Models\CarenLocation;
 use App\Models\Location;
 
 class LocationObserver
@@ -21,13 +22,16 @@ class LocationObserver
 
     /**
      * Handle the Location "deleted" event.
-     * Reorder the elements
+     * 1. Remove the Caren Location linked to it
+     * 2. Reorder the elements
      *
      * @param  \App\Models\Location  $location
      * @return void
      */
     public function deleted(Location $location)
     {
+        CarenLocation::where('location_id', $location->id)->update(['location_id' => null]);
+
         $order = 1;
 
         foreach (Location::orderBy('order_appearance')->get() as $location) {

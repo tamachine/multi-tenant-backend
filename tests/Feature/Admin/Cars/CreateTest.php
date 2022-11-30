@@ -35,7 +35,7 @@ class CreateTest extends TestCase
     {
         $this->actingAs($this->admin);
 
-        Livewire::test(Create::class)
+        Livewire::test(Create::class, ['caren_car' => $this->caren_car->id])
             ->set('name', null)
             ->set('vendor', null)
             ->call('saveCar')
@@ -58,7 +58,7 @@ class CreateTest extends TestCase
     {
         $this->actingAs($this->admin);
 
-        Livewire::test(Create::class)
+        Livewire::test(Create::class, ['caren_car' => $this->caren_car->id])
             ->set('name', "Car 1")
             ->set('vendor', $this->vendor->hashid)
             ->set('caren_car',  $this->caren_car->id)

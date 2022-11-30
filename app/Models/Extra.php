@@ -36,6 +36,16 @@ class Extra extends Model
      **********************************/
 
      /**
+     * Get the extra's edit URL
+     *
+     * @return     string
+     */
+    public function getEditUrlAttribute()
+    {
+        return route('extra.edit', $this->hashid);
+    }
+
+     /**
      * Get the extra's image URL
      *
      * @return     string

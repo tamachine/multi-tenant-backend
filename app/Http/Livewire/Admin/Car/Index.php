@@ -56,8 +56,6 @@ class Index extends Component
     ***************************************************************
     */
 
-
-
     public function mount(Vendor $vendor)
     {
         $this->vendors = $vendor->pluck('name', 'hashid');

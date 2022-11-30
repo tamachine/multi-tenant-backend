@@ -60,10 +60,11 @@ class Create extends Component
     ***************************************************************
     */
 
-    public function mount(CarenVendor $carenVendor)
+    public function mount($caren_vendor)
     {
         if (config('settings.booking_enabled.caren')) {
-            $this->caren_vendors = $carenVendor->whereNull('vendor_id')->pluck('name', 'id');
+            $this->caren_vendor = $caren_vendor;
+            $this->caren_vendors = CarenVendor::whereNull('vendor_id')->pluck('name', 'id');
 
             if (!config('settings.booking_enabled.own') && count($this->caren_vendors) == 0) {
                 session()->flash('status', 'error');

@@ -9,6 +9,5 @@ return [
     'category' => [
         'insurance' => 'Insurance',
         'standard'  => 'Standard',
-        'camping'   => 'Camping',
     ],
 ];

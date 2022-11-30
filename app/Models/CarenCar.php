@@ -39,7 +39,27 @@ class CarenCar extends Model
      * Scopes
      **********************************/
 
-    //
+    /**
+     * Scope to search the model
+     *
+     * @param      object  $query    Illuminate\Database\Query\Builder
+     * @param      object  $request  Illuminate\Http\Request
+     *
+     * @return     object  Illuminate\Database\Query\Builder
+     */
+    public function scopeLivewireSearch($query, $search)
+    {
+        if (!empty($search)) {
+            //break down multiple words into sepearate string queries, using " " to group words
+            //into a single query
+            collect(str_getcsv($search, ' ', '"'))->filter()->each(function ($term) use ($query) {
+                $term = '%' . $term . '%';
+                $query->where('name', 'like', $term);
+            });
+        }
+
+        return $query;
+    }
 
     /**********************************
      * Relationships

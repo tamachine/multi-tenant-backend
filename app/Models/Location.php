@@ -43,7 +43,15 @@ class Location extends Model
      * Accessors & Mutators
      **********************************/
 
-    //
+    /**
+     * Get the location's edit URL
+     *
+     * @return     string
+     */
+    public function getEditUrlAttribute()
+    {
+        return route('location.edit', $this->hashid);
+    }
 
     /**********************************
      * Scopes

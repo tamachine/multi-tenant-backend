@@ -8,6 +8,6 @@
     </x-slot>
 
     <div class="space-y-6 p-10">
-        <livewire:admin.extra.create />
+        <livewire:admin.extra.create :caren_extra="$caren_extra" />
     </div>
 </x-admin-layout>

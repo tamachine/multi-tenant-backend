@@ -20,13 +20,14 @@ class LocationController extends Controller
         return view('admin.location.index')->with($data);
     }
 
-    public function create(): View
+    public function create($caren_location = null): View
     {
         $data = [
             'action' => collect([
                 'route' => route('location.index'),
                 'title' => 'Locations'
             ]),
+            'caren_location' => $caren_location,
         ];
 
         return view('admin.location.create')->with($data);
