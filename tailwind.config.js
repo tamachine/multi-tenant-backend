@@ -19,6 +19,7 @@ module.exports = {
                 'home-hero': "url('/images/home/hero.png')",    
                 'home-hero-mobile': "linear-gradient(180deg, #FFFFFF 8.65%, rgba(255, 255, 255, 0) 30%), url('/images/home/hero.png')",
                 'footer-image-pattern': 'linear-gradient(0deg, rgba(7,0,0,1) 6%, rgba(121,9,9,0) 35%, rgba(255,255,255,1) 100%)',  
+                'footer-image-pattern-mobile': 'linear-gradient(0deg, rgba(7,0,0,1) 6%, rgba(121,9,9,0) 35%, rgba(255,255,255,1) 70%)',  
                 'calendar-selected-pattern' : 'linear-gradient(to right, white 20%, #E11166 20%, #E11166 40%, #E11166 40%, #E11166 60%, #E11166 60%, #E11166 80%, white 80%, white 100%)',              
             },
             boxShadow: {

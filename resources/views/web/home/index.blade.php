@@ -25,30 +25,18 @@
 
         <x-faqs />
 
-        <div class="px-10">
-            @include('web.home.why-iceland')
+        <div class="md:px-10">
 
-            <div class="pt-28 md:pt-40">
-                <x-feature 
-                    title="{!! __('web.home.feature-1-title') !!}" 
-                    text="{!! __('web.home.feature-1-text') !!}" 
-                    image-path="{{ asset('images/home/feature-1.png') }}"                 
-                    />
-            </div>
+            @include('web.home.partial.why-iceland')
 
-            <div class="pt-28 md:pt-40">
-                <x-feature 
-                    title="{!! __('web.home.feature-2-title') !!}" 
-                    text="{!! __('web.home.feature-2-text') !!}" 
-                    image-path="{{ asset('images/home/feature-2.png') }}"     
-                    reversed="true"
-                    />
-            </div>
+            @include('web.home.partial.feature1')
 
-            @include('web.home.testimonials')
+            @include('web.home.partial.feature2')
+
+            @include('web.home.partial.testimonials')
             
             <div class="pt-22 md:pt-56">
-                @include('web.home.location-map')
+                @include('web.home.partial.location-map')
             </div>
         </div>
     </div>
