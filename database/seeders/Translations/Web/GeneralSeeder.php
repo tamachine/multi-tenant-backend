@@ -63,5 +63,75 @@ class GeneralSeeder extends Seeder
                 'text' => ['en' => 'PM', 'es' => 'PM'],
             ]
         );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'general.languages-en',    
+            ],
+            [                
+                'text' => ['en' => 'English', 'es' => 'Inglés'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'general.languages-es',    
+            ],
+            [                
+                'text' => ['en' => 'Spanish', 'es' => 'Español'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'general.languages-de',    
+            ],
+            [                
+                'text' => ['en' => 'Deutch', 'es' => 'Alemán'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'general.languages-fr',    
+            ],
+            [                
+                'text' => ['en' => 'Français', 'es' => 'Francés'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'general.languages-da',    
+            ],
+            [                
+                'text' => ['en' => 'Dansk', 'es' => 'Danés'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'general.languages-it',    
+            ],
+            [                
+                'text' => ['en' => 'Italian', 'es' => 'Italiano'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'general.languages-remember',    
+            ],
+            [                
+                'text' => ['en' => 'Remember that the final transaction will be made in ISK', 'es' => 'Recuerda que la transacción final se realizará en ISK'],
+            ]
+        );  
     }
 }

@@ -10,4 +10,5 @@ return [
     'de' => 'Deutsch',
     'fr' => 'Français',
     'it' => 'Italiano',
+    'da' => 'Dansk',
 ];

@@ -1,4 +1,4 @@
-<nav class="flex items-center justify-between flex-wrap p-3 md:px-20 md:py-5 border md:border-0 border-[#E7ECF3] bg-white relative z-50">
+<nav x-data="{showLanguageSelector: false}" class="flex items-center justify-between flex-wrap p-3 md:px-20 md:py-5 border md:border-0 border-[#E7ECF3] bg-white relative z-50">
     <div class="font-fredokaOne text-pink-red font-normal text-3xl leading-9  ">{{ __('web.general.brand') }}</div>
 
     {{-- mobile --}}
@@ -27,14 +27,23 @@
             <a href="#" class="hover:text-pink-red">{{ __('web.navbar.blog') }}</a>
             <a href="#" class="hover:text-pink-red">{{ __('web.navbar.contact') }}</a>
         </div>
-        <div class="pl-5 text-sm font-medium flex items-center gap-1">
-            <img class="inline" src='{{ URL::asset("/images/currencies/dollar.svg") }}' />
-            <img class="inline" src='{{ URL::asset("/images/flags/".App::currentLocale().".svg") }}' />
-            <span>{{ __("web.navbar." . App::currentLocale()) }}</span>
+        <div class="pl-5 text-sm font-medium flex items-center gap-1" x-on:click="showLanguageSelector = !showLanguageSelector">
+            <img class="inline" src='{{ asset("/images/currencies/dollar.svg") }}' />
+            <img class="inline" src='{{ asset("/images/flags/".App::currentLocale().".svg") }}' />
+            <img class="cursor-pointer" src="{{ asset('images/icons/arrow-down.svg') }}" />
         </div>
     </div>
     {{-- desktop end --}}
+
+    <div 
+        class="absolute top-[76px] right-16 z-50"
+        x-cloak 
+        x-show="showLanguageSelector"
+        >
+        <x-language-selector />
+    </div>
 </nav>
+
 
 {{-- mobile --}}
 <div 
