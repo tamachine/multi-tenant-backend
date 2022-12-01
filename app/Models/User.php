@@ -73,6 +73,26 @@ class User extends Authenticatable
         return in_array($this->role, ['developer', 'superAdmin', 'admin']);
     }
 
+    /**
+     * Check if the user has the role 'booking' or higher
+     *
+     * @return  bool
+     */
+    public function bookingOrHigher()
+    {
+        return in_array($this->role, ['developer', 'superAdmin', 'admin', 'booking']);
+    }
+
+    /**
+     * Check if the user has the role 'content' or higher
+     *
+     * @return  bool
+     */
+    public function contentOrHigher()
+    {
+        return in_array($this->role, ['developer', 'superAdmin', 'admin', 'content']);
+    }
+
     /**********************************
      * Accessors & Mutators
      **********************************/

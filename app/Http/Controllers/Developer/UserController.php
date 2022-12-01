@@ -30,6 +30,9 @@ class UserController extends Controller
                 'route' => route('developer.user.index'),
                 'title' => 'Developer users'
             ]),
+            'crumbs' => [
+                'Developer users' => route('user.index')
+            ],
         ];
 
         return view('developer.user.create')->with($data);

@@ -30,7 +30,7 @@ class Index extends Component
     /**
      * @var string
      */
-    public $order = "vendor";
+    public $order = "fleet";
 
     /**
      * @var string
