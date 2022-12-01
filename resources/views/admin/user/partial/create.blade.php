@@ -42,6 +42,15 @@
                 <x-admin.checkbox id="blogger" wire:model="blogger" class="w-10 h-10 mt-1" />
             </label>
         </div>
+
+        <!-- Send welcome email -->
+        <div class="px-4 mt-4 md:mt-0">
+            <x-admin.label for="welcome" value="{{ __('Send welcome email') }}" />
+
+            <label for="welcome" class="inline-flex items-center">
+                <x-admin.checkbox id="welcome" wire:model="welcome" class="w-10 h-10 mt-1" />
+            </label>
+        </div>
     </x-slot>
 
     <x-slot name="actions">
