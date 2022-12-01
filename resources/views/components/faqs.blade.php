@@ -1,5 +1,5 @@
 @if ($faqs)
-    <div x-data="{ tab: '#tab1' }"  class="py-36 px-32">
+    <div x-data="{ tab: '#tab1' }"  class="py-32 md:py-36 md:px-32">
         <x-heading-h2 
             title="{{ __('web.home.faqs-title') }}" 
             subtitle="{{ __('web.home.faqs-subtitle') }}" 
@@ -17,12 +17,16 @@
             @foreach($categories as $category)             
                 <div x-show="tab == '#tab{{ $category->id }}'" class="grid grid-cols-1 divide-y">             
                     @foreach($category->faqs as $faq)                  
-                        <div class="py-9"><x-accordion question="{!! $faq->question !!}" answer="{!! $faq->answer !!}" /></div>                    
+                        <div class="py-4 md:py-9">
+                            <x-accordion question="{!! $faq->question !!}" answer="{!! $faq->answer !!}" />
+                        </div>                    
                     @endforeach                   
-                </div>               
+                </div>                               
             @endforeach            
 
-            <div class="flex justify-center py-3">
+            <div class="block md:hidden w-full border-t"></div>
+
+            <div class="flex justify-center py-7 md:py-3">
                 <button class="tab">{{ __('web.home.faqs-view-all') }}</button>
             </div>          
         </div>
