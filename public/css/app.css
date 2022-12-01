@@ -1479,10 +1479,6 @@ h5 {
   height: 495px;
 }
 
-.h-\[inherit\] {
-  height: inherit;
-}
-
 .h-4 {
   height: 1rem;
 }
@@ -1814,6 +1810,10 @@ h5 {
   gap: 1.5rem;
 }
 
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .gap-5 {
   gap: 1.25rem;
 }
@@ -1828,10 +1828,6 @@ h5 {
 
 .gap-10 {
   gap: 2.5rem;
-}
-
-.gap-3 {
-  gap: 0.75rem;
 }
 
 .gap-1 {
@@ -2404,10 +2400,6 @@ h5 {
   padding-top: 2.25rem;
 }
 
-.pr-28 {
-  padding-right: 7rem;
-}
-
 .pt-12 {
   padding-top: 3rem;
 }
@@ -2528,10 +2520,6 @@ h5 {
   padding-top: 2.75rem;
 }
 
-.pt-\[1236px\] {
-  padding-top: 1236px;
-}
-
 .pt-10 {
   padding-top: 2.5rem;
 }
@@ -2556,12 +2544,12 @@ h5 {
   vertical-align: middle;
 }
 
-.font-fredokaOne {
-  font-family: FredokaOne;
-}
-
 .font-fredoka {
   font-family: Fredoka;
+}
+
+.font-fredokaOne {
+  font-family: FredokaOne;
 }
 
 .text-5xl {
@@ -2648,16 +2636,16 @@ h5 {
   text-transform: uppercase;
 }
 
+.leading-9 {
+  line-height: 2.25rem;
+}
+
 .leading-7 {
   line-height: 1.75rem;
 }
 
 .leading-\[50px\] {
   line-height: 50px;
-}
-
-.leading-9 {
-  line-height: 2.25rem;
 }
 
 .leading-6 {
@@ -3612,6 +3600,10 @@ h5 {
     max-height: 100%;
   }
 
+  .md\:w-auto {
+    width: auto;
+  }
+
   .md\:w-full {
     width: 100%;
   }
@@ -3639,10 +3631,6 @@ h5 {
 
   .md\:w-2\/3 {
     width: 66.666667%;
-  }
-
-  .md\:w-auto {
-    width: auto;
   }
 
   .md\:flex-1 {
@@ -3806,6 +3794,10 @@ h5 {
     padding-bottom: 6rem;
   }
 
+  .md\:pr-28 {
+    padding-right: 7rem;
+  }
+
   .md\:pl-16 {
     padding-left: 4rem;
   }
@@ -3866,10 +3858,6 @@ h5 {
     padding-bottom: 0.75rem;
   }
 
-  .md\:pr-28 {
-    padding-right: 7rem;
-  }
-
   .md\:text-left {
     text-align: left;
   }
@@ -3883,6 +3871,11 @@ h5 {
     line-height: 1.5rem;
   }
 
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .md\:text-8xl {
     font-size: 6rem;
     line-height: 1;
@@ -3891,11 +3884,6 @@ h5 {
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
-  }
-
-  .md\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 
   .md\:text-lg {
