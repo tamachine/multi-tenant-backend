@@ -10,6 +10,8 @@ class CarController extends Controller
 {
     public function index(): View
     {
+        $this->authorize('admin');
+
         $data = [
             'action' => collect([
                 'route' => route('car.create'),
@@ -22,6 +24,8 @@ class CarController extends Controller
 
     public function create($caren_car = null): View
     {
+        $this->authorize('admin');
+
         $data = [
             'action' => collect([
                 'route' => route('car.index'),
@@ -35,6 +39,8 @@ class CarController extends Controller
 
     public function edit($hashid, $tab = null): View
     {
+        $this->authorize('admin');
+
         $car = Car::where('hashid', $hashid)->firstOrFail();
 
         $data = [

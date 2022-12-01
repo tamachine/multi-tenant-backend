@@ -9,6 +9,8 @@ class FreeDayController extends Controller
 {
     public function index(): View
     {
+        $this->authorize('admin');
+
         $data = [
             'action' => collect([
                 'route' => route('free-day.create'),
@@ -21,6 +23,8 @@ class FreeDayController extends Controller
 
     public function create(): View
     {
+        $this->authorize('admin');
+
         $data = [
             'action' => collect([
                 'route' => route('free-day.index'),

@@ -141,6 +141,66 @@ trait CreatesApplication
     }
 
     /**
+     * Create a developer user
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\User
+     */
+    protected function createDeveloper($attributes = [])
+    {
+        return User::factory($attributes)->developer()->create();
+    }
+
+    /**
+     * Create a super admin
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\User
+     */
+    protected function createSuperAdmin($attributes = [])
+    {
+        return User::factory($attributes)->superAdmin()->create();
+    }
+
+    /**
+     * Create an admin
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\User
+     */
+    protected function createAdmin($attributes = [])
+    {
+        return User::factory($attributes)->admin()->create();
+    }
+
+    /**
+     * Create a booking agent
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\User
+     */
+    protected function createBookingAgent($attributes = [])
+    {
+        return User::factory($attributes)->booking()->create();
+    }
+
+    /**
+     * Create a content user
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\User
+     */
+    protected function createContentUser($attributes = [])
+    {
+        return User::factory($attributes)->content()->create();
+    }
+
+    /**
      * Create a user
      *
      * @param      array   $attributes

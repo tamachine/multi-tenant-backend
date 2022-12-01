@@ -10,6 +10,8 @@ class ExtraController extends Controller
 {
     public function index(): View
     {
+        $this->authorize('admin');
+
         $data = [
             'action' => collect([
                 'route' => route('extra.create'),
@@ -22,6 +24,8 @@ class ExtraController extends Controller
 
     public function create($caren_extra = null): View
     {
+        $this->authorize('admin');
+
         $data = [
             'action' => collect([
                 'route' => route('extra.index'),
@@ -35,6 +39,8 @@ class ExtraController extends Controller
 
     public function edit($hashid, $tab = null): View
     {
+        $this->authorize('admin');
+
         $extra = Extra::where('hashid', $hashid)->firstOrFail();
 
         $data = [

@@ -14,8 +14,9 @@ Route::group(
         'namespace' => 'Admin'
     ],
     function () {
-        // Dashboard
+        // Dashboards
         Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
+        Route::get('settings', ['as' => 'settings', 'uses' => 'DashboardController@settings']);
 
         // Caren
         Route::group(['prefix' => 'caren', 'as' => 'caren.'], function () {
@@ -54,6 +55,12 @@ Route::group(
             Route::get('/', ['as' => 'index', 'uses' => 'SeasonController@index']);
             Route::get('create', ['as' => 'create', 'uses' => 'SeasonController@create']);
             Route::get('{season}/edit', ['as' => 'edit', 'uses' => 'SeasonController@edit']);
+        });
+
+        // Users
+        Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'UserController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'UserController@create']);
         });
 
         // Vendors
