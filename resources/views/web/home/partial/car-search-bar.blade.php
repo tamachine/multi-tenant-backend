@@ -4,6 +4,7 @@
     :class="showOverlay ? 'shadow-t-xl' : 'shadow-xl'"
     class="hidden md:block bg-white rounded-3xl max-w-6xl mx-auto text-lg font-medium text-black-secondary"
 >
+<<<<<<< Updated upstream:resources/views/web/home/partial/car-search-bar.blade.php
     <form>
         <div class="flex flex-row gap-6">
             <div class="flex flex-col pl-16 pb-6 mt-4 w-full">                
@@ -13,6 +14,44 @@
                         
                     <a class="px-4 pb-1 hover:border-pink-red border-transparent border-b-2" 
                         href="#" @click.prevent="tab='#differentLocation'" :class="{ 'border-pink-red': tab == '#differentLocation' }">{{ __('web.car-search-bar.different') }}</a>                          
+=======
+  <form>
+
+    <div class="flex flex-row gap-6">
+
+      <div class="flex flex-col pl-16 pb-6 mt-4 w-full">
+        
+        <div class="flex flex-row justify-start mb-7 border-b gap-12">
+
+          <a class="px-4 pb-1 hover:border-pink-red border-transparent border-b-2" 
+            href="#" @click.prevent="tab='#sameLocation'" :class="{ 'border-pink-red': tab == '#sameLocation' }">{{ __('web.car-search-bar.same') }}</a>
+            
+          <a class="px-4 pb-1 hover:border-pink-red border-transparent border-b-2" 
+            href="#" @click.prevent="tab='#differentLocation'" :class="{ 'border-pink-red': tab == '#differentLocation' }">{{ __('web.car-search-bar.different') }}</a>      
+              
+        </div>
+        
+        <div>
+          
+          <div>            
+            <div 
+                class="grid grid-cols-4 w-full justify-between gap-2"
+                :class="tab=='#differentLocation' ? 'grid-cols-4' : 'grid-cols-3'"
+                >                
+                <div class="search-input-group">
+                    <div>
+                        <div>{{ __('web.car-search-bar.first-day') }}</div>
+                        <div>{{ __('web.car-search-bar.pick-up-day') }}</div>
+                    </div>
+                    <input type="text" class="search-input" :class="tab=='#differentLocation' ? '' : 'font-medium text-2xl'" id="start-date" x-on:click="startDateClick()" x-ref="startDateButton" />                                    
+                </div>
+                <div class="search-input-group">
+                    <div>
+                        <div>{{ __('web.car-search-bar.last-day') }}</div>
+                        <div>{{ __('web.car-search-bar.drop-off-day') }}</div>
+                    </div>
+                    <input type="text" class="search-input" :class="tab=='#differentLocation' ? '' : 'font-medium text-2xl'" id="end-date" x-on:click="endDateClick()" />                
+>>>>>>> Stashed changes:resources/views/components/car-search-bar.blade.php
                 </div>
                 
                 <div>

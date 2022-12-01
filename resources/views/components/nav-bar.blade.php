@@ -39,7 +39,9 @@
 {{-- mobile --}}
 <div 
     x-cloak 
-    class="md:hidden bg-white fixed top-[60px] left-0 h-screen w-screen z-40 overflow-hidden"
+    class="
+        md:hidden fixed w-screen top-[60px] left-0 h-[calc(100vh_-_20px)] {{-- the screen, minus 60px for the top position, plus 20px for every bottom line (red and black) so -60 +20 +20 = 100vh -20px --}}
+        bg-white z-40 overflow-hidden"
     x-show="showMobileNavBar"  
     x-transition:enter="transition ease-out duration-700"
     x-transition:enter-start="transform -translate-y-full opacity-[90%]"
@@ -49,7 +51,7 @@
     x-transition:leave-start="transform translate-y-0 opacity-full"
     x-transition:leave-end="transform -translate-y-full opacity-[90%]"
     >
-    <div class="flex flex-col h-[calc(100%_-_22px)] justify-between">
+    <div class="flex flex-col h-full justify-between">
         <div class="h-full">
             <div class="flex flex-col divide-y h-full">
                 <div class="h-full p-9 pb-0 flex flex-col items-center justify-between">

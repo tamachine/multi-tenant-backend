@@ -1512,6 +1512,14 @@ h5 {
   height: 335px;
 }
 
+.h-\[calc\(100vh_-_60px\)\] {
+  height: calc(100vh - 60px);
+}
+
+.h-\[calc\(100vh_-_20px\)\] {
+  height: calc(100vh - 20px);
+}
+
 .max-h-80 {
   max-height: 20rem;
 }
@@ -2187,6 +2195,21 @@ h5 {
 .bg-\[\#fdeef4\] {
   --tw-bg-opacity: 1;
   background-color: rgb(253 238 244 / var(--tw-bg-opacity));
+}
+
+.bg-blue-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
+}
+
+.bg-orange-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 146 60 / var(--tw-bg-opacity));
+}
+
+.bg-green-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
