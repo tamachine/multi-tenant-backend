@@ -1249,14 +1249,14 @@ h5 {
   margin-right: 0.75rem;
 }
 
-.mx-6 {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .mx-12 {
@@ -1269,14 +1269,9 @@ h5 {
   margin-bottom: -0.5rem;
 }
 
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .mt-4 {
@@ -1843,16 +1838,16 @@ h5 {
   gap: 0.25rem;
 }
 
-.gap-8 {
-  gap: 2rem;
-}
-
 .gap-2 {
   gap: 0.5rem;
 }
 
 .gap-12 {
   gap: 3rem;
+}
+
+.gap-8 {
+  gap: 2rem;
 }
 
 .gap-y-10 {
@@ -1870,27 +1865,6 @@ h5 {
 
 .gap-y-2 {
   row-gap: 0.5rem;
-}
-
-.gap-x-6 {
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
-}
-
-.gap-y-\[26px\] {
-  row-gap: 26px;
-}
-
-.gap-y-\[12px\] {
-  row-gap: 12px;
-}
-
-.gap-y-\[14px\] {
-  row-gap: 14px;
-}
-
-.gap-y-3 {
-  row-gap: 0.75rem;
 }
 
 .gap-y-4 {
@@ -2510,16 +2484,12 @@ h5 {
   padding-top: 10px;
 }
 
-.pt-40 {
-  padding-top: 10rem;
-}
-
-.pt-10 {
-  padding-top: 2.5rem;
-}
-
 .pt-22 {
   padding-top: 84px;
+}
+
+.pt-40 {
+  padding-top: 10rem;
 }
 
 .pr-2 {
@@ -2558,12 +2528,16 @@ h5 {
   padding-top: 2.75rem;
 }
 
-.pt-0 {
-  padding-top: 0px;
-}
-
 .pt-\[1236px\] {
   padding-top: 1236px;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
+.pt-0 {
+  padding-top: 0px;
 }
 
 .text-left {
@@ -2624,6 +2598,10 @@ h5 {
   line-height: 2.25rem;
 }
 
+.text-\[42px\] {
+  font-size: 42px;
+}
+
 .text-\[26px\] {
   font-size: 26px;
 }
@@ -2644,10 +2622,6 @@ h5 {
 
 .text-\[10px\] {
   font-size: 10px;
-}
-
-.text-\[42px\] {
-  font-size: 42px;
 }
 
 .font-medium {
@@ -3667,6 +3641,10 @@ h5 {
     width: 66.666667%;
   }
 
+  .md\:w-auto {
+    width: auto;
+  }
+
   .md\:flex-1 {
     flex: 1 1 0%;
   }
@@ -3844,10 +3822,6 @@ h5 {
     padding-top: 0.75rem;
   }
 
-  .md\:pt-36 {
-    padding-top: 9rem;
-  }
-
   .md\:pt-40 {
     padding-top: 10rem;
   }
@@ -3876,16 +3850,24 @@ h5 {
     padding-bottom: 2.25rem;
   }
 
+  .md\:pt-36 {
+    padding-top: 9rem;
+  }
+
   .md\:pt-16 {
     padding-top: 4rem;
+  }
+
+  .md\:pt-6 {
+    padding-top: 1.5rem;
   }
 
   .md\:pb-3 {
     padding-bottom: 0.75rem;
   }
 
-  .md\:pt-6 {
-    padding-top: 1.5rem;
+  .md\:pr-28 {
+    padding-right: 7rem;
   }
 
   .md\:text-left {

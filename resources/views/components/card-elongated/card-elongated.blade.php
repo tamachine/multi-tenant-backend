@@ -4,7 +4,7 @@
 --}}
 
 <div x-data="{ image: '{{ $image }}' }"
-    class="flex flex-col bg-cover rounded-2xl text-white justify-between relative h-[inherit]" 
+    class="flex flex-col bg-cover rounded-2xl text-white justify-between relative h-[495px]" 
     x-on:mouseenter="image= '{{ $hover }}'"
     x-on:mouseleave="image= '{{ $image }}'"      
 >    
