@@ -74,6 +74,29 @@ class User extends Authenticatable
     }
 
     /**********************************
+     * Accessors & Mutators
+     **********************************/
+
+     /**
+     * After a user logs in, work out the URL for the right redirect
+     *
+     * @return     string
+     */
+    public function getAfterLoginRedirectToAttribute()
+    {
+        switch ($this->role) {
+            case 'developer':
+            case 'superAdmin':
+            case 'admin':
+            case 'booking':
+            case 'content':
+                return route('dashboard');
+            default:
+                return '/';
+        }
+    }
+
+    /**********************************
      * Scopes
      **********************************/
 

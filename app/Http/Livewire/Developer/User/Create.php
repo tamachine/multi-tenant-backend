@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Developer\User;
 
 use App\Models\User;
+use App\Notifications\SendWelcomeMail;
 use Livewire\Component;
 
 class Create extends Component
@@ -22,6 +23,11 @@ class Create extends Component
      * @var string
      */
     public $email;
+
+     /**
+     * @var bool
+     */
+    public $welcome = false;
 
     /*
     ***************************************************************
@@ -50,6 +56,11 @@ class Create extends Component
             'blogger'   => true,
             'password'  => bcrypt(now())
         ]);
+
+        // Dispatch welcome email
+        if ($this->welcome) {
+            $user->notify(new SendWelcomeMail);
+        }
 
         session()->flash('status', 'success');
         session()->flash('message', 'User "' . $this->name . '" created');
