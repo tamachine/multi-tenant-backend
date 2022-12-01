@@ -133,5 +133,25 @@ class GeneralSeeder extends Seeder
                 'text' => ['en' => 'Remember that the final transaction will be made in ISK', 'es' => 'Recuerda que la transacción final se realizará en ISK'],
             ]
         );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'general.languages-language',    
+            ],
+            [                
+                'text' => ['en' => 'Select language', 'es' => 'Selecciona idioma'],
+            ]
+        );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'general.languages-currency',    
+            ],
+            [                
+                'text' => ['en' => 'Select currency', 'es' => 'Selecciona moneda'],
+            ]
+        );  
     }
 }

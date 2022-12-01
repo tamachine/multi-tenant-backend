@@ -1,7 +1,7 @@
 <div class="rounded-b-xl shadow-xl bg-white font-fredoka text-xl md:text-base">
     <div class="md:p-8 md:pb-4">
         <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-x-12">
-            <div>Select language</div>
+            <div>{!! __('web.general.languages-language') !!}</div>
             <div class="grid md:grid-cols-3 grid-cols-2 gap-x-7 gap-y-5">
                 @foreach(config('languages') as $code => $language)
                     <div class="flex gap-2">
@@ -10,7 +10,7 @@
                     </div>
                 @endforeach                
             </div>
-            <div class="mt-12">Select currency</div>
+            <div class="mt-12">{!! __('web.general.languages-currency') !!}</div>
             <div class="mt-12 grid md:grid-cols-4 grid-cols-2 gap-8">
                 <div class="flex gap-2">
                     <img src="{{ asset('images/currencies/dollar-red.svg') }}" />
