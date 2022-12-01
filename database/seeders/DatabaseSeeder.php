@@ -46,7 +46,13 @@ class DatabaseSeeder extends Seeder
      */
     private function runStaging()
     {
-        $this->runLocal();
+        // Only clean database when running seeders if not on production
+        $this->cleanDatabase();
+        $this->call([
+            UserSeeder::class,
+            LanguageLineSeeder::class,
+            FaqsSeeder::class,
+        ]);
     }
 
      /**
