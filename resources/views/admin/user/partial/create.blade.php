@@ -28,10 +28,13 @@
             <select id="role" name="role" wire:model="role"
                 class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
             >
+                <option value="">Select role</option>
                 @foreach(config('roles.intranet_roles') as $key => $value)
                     <option value="{{$key}}">{{ $value }}</option>
                 @endforeach
             </select>
+
+            <x-admin.input-error for="role" class="mt-2" />
         </div>
 
         <!-- Blogger -->
@@ -44,7 +47,7 @@
         </div>
 
         <!-- Send welcome email -->
-        <div class="px-4 mt-4 md:mt-0">
+        <div class="px-4 mt-4">
             <x-admin.label for="welcome" value="{{ __('Send welcome email') }}" />
 
             <label for="welcome" class="inline-flex items-center">
