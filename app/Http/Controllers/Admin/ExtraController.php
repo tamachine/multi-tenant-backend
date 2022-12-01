@@ -17,6 +17,9 @@ class ExtraController extends Controller
                 'route' => route('extra.create'),
                 'title' => 'Create Extra'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings')
+            ]
         ];
 
         return view('admin.extra.index')->with($data);
@@ -31,6 +34,10 @@ class ExtraController extends Controller
                 'route' => route('extra.index'),
                 'title' => 'Extras'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings'),
+                'Extras' => route('extra.index')
+            ],
             'caren_extra' => $caren_extra,
         ];
 
@@ -50,6 +57,10 @@ class ExtraController extends Controller
                 'route' => route('extra.index'),
                 'title' => 'Extras'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings'),
+                'Extras' => route('extra.index')
+            ],
             'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];
 

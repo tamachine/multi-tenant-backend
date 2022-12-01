@@ -30,6 +30,9 @@ class UserController extends Controller
                 'route' => route('user.index'),
                 'title' => 'Intranet users'
             ]),
+            'crumbs' => [
+                'Intranet users' => route('user.index')
+            ],
         ];
 
         return view('admin.user.create')->with($data);

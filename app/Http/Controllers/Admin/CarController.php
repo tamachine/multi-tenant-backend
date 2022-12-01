@@ -17,6 +17,9 @@ class CarController extends Controller
                 'route' => route('car.create'),
                 'title' => 'Create Car'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings')
+            ]
         ];
 
         return view('admin.car.index')->with($data);
@@ -31,6 +34,10 @@ class CarController extends Controller
                 'route' => route('car.index'),
                 'title' => 'Cars'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings'),
+                'Cars' => route('car.index')
+            ],
             'caren_car' => $caren_car,
         ];
 
@@ -50,6 +57,10 @@ class CarController extends Controller
                 'route' => route('car.index'),
                 'title' => 'Cars'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings'),
+                'Cars' => route('car.index')
+            ],
             'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];
 
