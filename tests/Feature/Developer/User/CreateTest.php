@@ -4,7 +4,9 @@ namespace Tests\Feature\Developer\User;
 
 use App\Http\Livewire\Developer\User\Create;
 use App\Models\User;
+use App\Notifications\SendWelcomeMail;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Notification;
 use Livewire;
 use Tests\TestCase;
 
@@ -70,13 +72,16 @@ class CreateTest extends TestCase
      *
      * @return void
      */
-    public function createUserPostDataSaves()
+    public function createUserPostDataSavesWithNotification()
     {
         $this->actingAs($this->developer);
+
+        Notification::fake();
 
         Livewire::test(Create::class)
             ->set('name', 'Unicornio Devélopez')
             ->set('email', 'unicornio@scandinavianehf.com')
+            ->set('welcome', true)
             ->call('saveUser')
             ->assertStatus(200);
 
@@ -86,5 +91,39 @@ class CreateTest extends TestCase
         $this->assertEquals("unicornio@scandinavianehf.com", $user->email);
         $this->assertEquals("developer", $user->role);
         $this->assertEquals(1, $user->blogger);
+
+        Notification::assertSentTo($user, SendWelcomeMail::class);
+    }
+
+    /**
+     * @test
+     * @group feature
+     * @group developer
+     * @group user
+     * @group user-create
+     *
+     * @return void
+     */
+    public function createUserPostDataSavesWithoutNotification()
+    {
+        $this->actingAs($this->developer);
+
+        Notification::fake();
+
+        Livewire::test(Create::class)
+            ->set('name', 'Unicornio Devélopez')
+            ->set('email', 'unicornio@scandinavianehf.com')
+            ->set('welcome', false)
+            ->call('saveUser')
+            ->assertStatus(200);
+
+        $user = User::find(2);
+
+        $this->assertEquals("Unicornio Devélopez", $user->name);
+        $this->assertEquals("unicornio@scandinavianehf.com", $user->email);
+        $this->assertEquals("developer", $user->role);
+        $this->assertEquals(1, $user->blogger);
+
+        Notification::assertNothingSent();
     }
 }

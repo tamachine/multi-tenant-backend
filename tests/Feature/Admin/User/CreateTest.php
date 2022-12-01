@@ -4,7 +4,9 @@ namespace Tests\Feature\Admin\User;
 
 use App\Http\Livewire\Admin\User\Create;
 use App\Models\User;
+use App\Notifications\SendWelcomeMail;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Notification;
 use Livewire;
 use Tests\TestCase;
 
@@ -82,15 +84,18 @@ class CreateTest extends TestCase
      *
      * @return void
      */
-    public function createUserPostDataSaves()
+    public function createUserPostDataSavesWithNotification()
     {
         $this->actingAs($this->superAdmin);
+
+        Notification::fake();
 
         Livewire::test(Create::class)
             ->set('name', 'Super Admin')
             ->set('email', 'super.admin@scandinavianehf.com')
             ->set('role', 'superAdmin')
             ->set('blogger', 1)
+            ->set('welcome', 1)
             ->call('saveUser')
             ->assertStatus(200);
 
@@ -100,5 +105,41 @@ class CreateTest extends TestCase
         $this->assertEquals("super.admin@scandinavianehf.com", $user->email);
         $this->assertEquals("superAdmin", $user->role);
         $this->assertEquals(1, $user->blogger);
+
+        Notification::assertSentTo($user, SendWelcomeMail::class);
+    }
+
+    /**
+     * @test
+     * @group feature
+     * @group super-admin
+     * @group user
+     * @group user-create
+     *
+     * @return void
+     */
+    public function createUserPostDataSavesWithoutNotification()
+    {
+        $this->actingAs($this->superAdmin);
+
+        Notification::fake();
+
+        Livewire::test(Create::class)
+            ->set('name', 'Super Admin')
+            ->set('email', 'super.admin@scandinavianehf.com')
+            ->set('role', 'superAdmin')
+            ->set('blogger', 1)
+            ->set('welcome', 0)
+            ->call('saveUser')
+            ->assertStatus(200);
+
+        $user = User::find(2);
+
+        $this->assertEquals("Super Admin", $user->name);
+        $this->assertEquals("super.admin@scandinavianehf.com", $user->email);
+        $this->assertEquals("superAdmin", $user->role);
+        $this->assertEquals(1, $user->blogger);
+
+        Notification::assertNothingSent();
     }
 }

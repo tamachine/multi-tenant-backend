@@ -71,7 +71,8 @@ class Index extends Component
 
     public function deleteUser($hashid, User $user)
     {
-        $user->whereHashid($hashid)->delete();
+        $user = $user->whereHashid($hashid)->firstOrFail();
+        $user->delete();
 
         session()->flash('status', 'success');
         session()->flash('message', 'User deleted successfully');
