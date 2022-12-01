@@ -1,13 +1,13 @@
 <div class="flex flex-col md:flex-row gap-7 pt-32 relative">
     <div class="hidden md:block md:absolute z-10 top-[158px] left-1/2 -translate-x-1/2 w-64">
-            @include('web.home.testimonials-slide')
+            @include('web.home.partial.testimonials-slide')
     </div>
     <h2 class="text-center px-10 md:hidden">{{ __('web.home.testimonials-title') }}</h2>     
     <div class="grid grid-cols-2 gap-2 pt-28 md:pt-0 justify-between relative md:flex-1">        
         <img class="rounded-2xl w-full" src="{{ asset('images/home/testimonials-left.png') }}" />
         <img class="rounded-2xl w-full" src="{{ asset('images/home/testimonials-right.png') }}" />
         <div class="absolute z-10 md:hidden mx-12">
-            @include('web.home.testimonials-slide')
+            @include('web.home.partial.testimonials-slide')
         </div>
     </div>   
     <div class="md:flex-1 md:flex md:flex-col md:justify-end md:items-end">

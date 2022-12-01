@@ -1,10 +1,10 @@
-<footer class="pt-36">
-    <div class="max-w-6xl mx-auto px-10 pb-5 md:pb-0 text-pink-red text-5xl md:text-8xl text-center md:text-left font-semibold leading-[50px] md:leading-[110px] font-fredokaOne">
+<footer class="pt-28 md:pt-36">
+    <div class="max-w-6xl mx-auto px-10 pb-5 md:pb-0 text-pink-red text-5xl md:text-8xl text-center md:text-left font-semibold leading-[50px] md:leading-[110px] font-fredoka">
         {!! __('web.footer.title') !!}
     </div>
     <div 
         before="" 
-        class="relative before:content-[attr(before)] pt-28 md:pt-0 before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:z-0 before:bg-footer-image-pattern w-fill-screen">
+        class="relative before:content-[attr(before)] pt-28 md:pt-0 before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:z-0 md:before:bg-footer-image-pattern before:bg-footer-image-pattern-mobile w-fill-screen">
             <img class="w-full h-[587px] md:h-auto object-cover" src="{{ $footerImagePath }}" />
             <div class="absolute md:top-[5%] top-0 left-0 right-0 bottom-0 z-10 text-lg">
                 <div class="max-w-6xl mx-auto p-3">
@@ -57,7 +57,7 @@
 
             <div class="
                 grid grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_1fr] justify-center items-center gap-y-10 md:gap-0
-                px-3 md:px-[14px]"
+                px-3 md:px-[14px] pb-10 md:pb-7"
                 >
                 <div class="flex flex-col">
                     <div class="font-fredokaOne text-3xl text-pink-red">{{ __('web.general.brand') }}</div>
@@ -67,13 +67,13 @@
                     <x-social color="white"/>
                 </div>
                 <div class="ml-auto col-span-2 md:col-auto text-center md:text-right w-full">
-                    <img class="inline" src="{{ asset('images/icons/cards/masterCard.png') }}" />
-                    <img class="inline" src="{{ asset('images/icons/cards/maestro.png') }}" />
-                    <img class="inline" src="{{ asset('images/icons/cards/visa.png') }}" />
-                    <img class="inline" src="{{ asset('images/icons/cards/americanExpress.png') }}" />
-                    <img class="inline" src="{{ asset('images/icons/cards/discover.png') }}" />
-                    <img class="inline" src="{{ asset('images/icons/cards/unionPay.png') }}" />
-                    <img class="inline" src="{{ asset('images/icons/cards/jcb.png') }}" />    
+                    <img class="inline" src="{{ asset('images/icons/cards/master-card.svg') }}" />
+                    <img class="inline" src="{{ asset('images/icons/cards/maestro.svg') }}" />
+                    <img class="inline" src="{{ asset('images/icons/cards/visa.svg') }}" />
+                    <img class="inline" src="{{ asset('images/icons/cards/american-express.svg') }}" />
+                    <img class="inline" src="{{ asset('images/icons/cards/discover.svg') }}" />
+                    <img class="inline" src="{{ asset('images/icons/cards/union-pay.svg') }}" />
+                    <img class="inline" src="{{ asset('images/icons/cards/jcb.svg') }}" />    
                                     
                     <div class="text-sm text-[#8c8c8c] md:hidden pt-4 md:pt-0">{!! __('web.footer.copyright') !!}</div>
                 </div>                

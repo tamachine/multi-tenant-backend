@@ -1,19 +1,20 @@
 @if ($reversed) 
-    <div class="flex flex-col md:flex-row-reverse md:text-left">    
+    <div class="flex flex-col md:flex-row-reverse md:text-left gap-5">    
         <div 
             class="hidden md:block md:flex-1 md:rounded-2xl md:bg-cover md:ml-16" 
             style="background-image: url('{{ $imagePath }}')">        
         </div>
-        <div class="md:hidden md:ml-16 pb-5">        
+        <h2 class="md:hidden block md:text-left">{!! $title !!}</h2>
+        <div class="md:hidden md:ml-16 md:pb-5">        
             <img class="rounded-2xl bg-cover w-full" src="{{ $imagePath }}" />
         </div>
 
         <div class="md:flex-1 flex flex-col md:items-start gap-7">
-            <h2 class="md:text-left">{!! $title !!}</h2>
+            <h2 class="hidden md:block md:text-left">{!! $title !!}</h2>
             <div>
                 <x-read-more-block text="{!! $text !!}" text-align-desktop="text-left" />    
             </div>
-            <button class="tab hidden md:block">Learn more</button>
+            <button class="tab hidden md:block">{!! __('web.home.feature-more') !!}</button>
         </div>
     </div>
 @else
@@ -27,11 +28,11 @@
         </div>
 
         <div class="md:flex-1 flex flex-col md:items-end gap-7">
-            <h2 class="md:text-right md:pl-16">{!! $title !!}</h2>
+            <h2 class="md:text-right md:pl-16 md:pr-0 pr-28">{!! $title !!}</h2>
             <div class="md:pl-16">
                 <x-read-more-block text="{!! $text !!}" text-align-desktop="text-right" />    
             </div>
-            <button class="tab hidden md:block">Learn more</button>
+            <button class="tab hidden md:block">{!! __('web.home.feature-more') !!}</button>
         </div>
     </div>
 @endif

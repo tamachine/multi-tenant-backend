@@ -280,6 +280,19 @@ class HomeSeeder extends Seeder
         LanguageLine::firstOrCreate(
             [
                 'group' => 'web',
+                'key' => 'home.feature-more',    
+            ],
+            [                
+                'text' => [
+                    'en' => "Learn more", 
+                    "es" => "Aprender más"
+                ],
+            ]
+        ); 
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
                 'key' => 'home.feature-1-title',    
             ],
             [                
