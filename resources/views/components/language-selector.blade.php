@@ -1,6 +1,6 @@
 <div
     class="rounded-b-xl shadow-xl bg-white font-fredoka text-xl md:text-base h-full"     
-    x-on:click.away="close()"
+    x-on:click.away="close()"    
     >
     <div class="md:p-8 md:pb-4 px-8">
         <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-x-12 gap-y-2 md:gap-y-0 w-fit mx-auto">
