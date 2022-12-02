@@ -1160,6 +1160,14 @@ h5 {
   right: 0.75rem;
 }
 
+.top-1 {
+  top: 0.25rem;
+}
+
+.-left-4 {
+  left: -1rem;
+}
+
 .top-\[76px\] {
   top: 76px;
 }
@@ -1198,18 +1206,6 @@ h5 {
 
 .left-1\/2 {
   left: 50%;
-}
-
-.-left-4 {
-  left: -1rem;
-}
-
-.top-2 {
-  top: 0.5rem;
-}
-
-.top-1 {
-  top: 0.25rem;
 }
 
 .z-10 {
@@ -2316,12 +2312,12 @@ h5 {
   padding: 2.25rem;
 }
 
-.p-10 {
-  padding: 2.5rem;
-}
-
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .p-2 {
