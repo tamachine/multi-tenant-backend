@@ -17,6 +17,9 @@ class LocationController extends Controller
                 'route' => route('location.create'),
                 'title' => 'Create Location'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings')
+            ]
         ];
 
         return view('admin.location.index')->with($data);
@@ -31,6 +34,10 @@ class LocationController extends Controller
                 'route' => route('location.index'),
                 'title' => 'Locations'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings'),
+                'Locations' => route('location.index')
+            ],
             'caren_location' => $caren_location,
         ];
 
@@ -50,6 +57,10 @@ class LocationController extends Controller
                 'route' => route('location.index'),
                 'title' => 'Locations'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings'),
+                'Locations' => route('location.index')
+            ],
             'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];
 

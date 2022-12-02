@@ -17,6 +17,9 @@ class VendorController extends Controller
                 'route' => route('vendor.create'),
                 'title' => 'Create Vendor'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings')
+            ]
         ];
 
         return view('admin.vendor.index')->with($data);
@@ -31,6 +34,10 @@ class VendorController extends Controller
                 'route' => route('vendor.index'),
                 'title' => 'Vendors'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings'),
+                'Vendors' => route('vendor.index')
+            ],
             'caren_vendor' => $caren_vendor,
         ];
 
@@ -50,6 +57,10 @@ class VendorController extends Controller
                 'route' => route('vendor.index'),
                 'title' => 'Vendors'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings'),
+                'Vendors' => route('vendor.index')
+            ],
             'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];
 

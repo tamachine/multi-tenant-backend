@@ -16,6 +16,9 @@ class FreeDayController extends Controller
                 'route' => route('free-day.create'),
                 'title' => 'Create Free day plan'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings')
+            ]
         ];
 
         return view('admin.free-day.index')->with($data);
@@ -30,6 +33,10 @@ class FreeDayController extends Controller
                 'route' => route('free-day.index'),
                 'title' => 'Free day plans'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings'),
+                'Free Day Plans' => route('extra.index')
+            ],
         ];
 
         return view('admin.free-day.create')->with($data);

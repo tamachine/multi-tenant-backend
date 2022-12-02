@@ -17,6 +17,9 @@ class SeasonController extends Controller
                 'route' => route('season.create'),
                 'title' => 'Create Season'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings')
+            ]
         ];
 
         return view('admin.season.index')->with($data);
@@ -31,6 +34,10 @@ class SeasonController extends Controller
                 'route' => route('season.index'),
                 'title' => 'Seasons'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings'),
+                'Seasons' => route('season.index')
+            ],
         ];
 
         return view('admin.season.create')->with($data);
@@ -49,6 +56,10 @@ class SeasonController extends Controller
                 'route' => route('season.index'),
                 'title' => 'Seasons'
             ]),
+            'crumbs' => [
+                'Settings' => route('settings'),
+                'Seasons' => route('season.index')
+            ],
         ];
 
         return view('admin.season.edit')->with($data);

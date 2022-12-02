@@ -24,4 +24,24 @@ class DashboardController extends Controller
 
         return view('admin.dashboard.settings');
     }
+
+    /**
+     *  Booking Dashboard
+     */
+    public function bookings(): View
+    {
+        $this->authorize('booking');
+
+        return view('admin.dashboard.bookings');
+    }
+
+    /**
+     *  Content Dashboard
+     */
+    public function content(): View
+    {
+        $this->authorize('content');
+
+        return view('admin.dashboard.content');
+    }
 }

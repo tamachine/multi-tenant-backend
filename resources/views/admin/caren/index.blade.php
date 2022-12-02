@@ -3,6 +3,10 @@
         {{ __('Caren Data') }}
     </x-slot>
 
+    <x-slot name="breadcrumbs">
+        <x-admin.breadcrumbs :crumbs="$crumbs" />
+    </x-slot>
+
     <div x-data="{ tab: '{{$tab}}' }"
         class="space-y-6 p-10"
     >
