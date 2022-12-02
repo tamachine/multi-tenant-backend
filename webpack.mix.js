@@ -13,8 +13,10 @@ require("laravel-mix-tailwind");
  |
  */
 
-mix.js("resources/js/app.js", "public/js/app.js")
-   .js("resources/js/admin.js", "public/js/admin.js")
+mix
+    .js("resources/js/app.js", "public/js/app.js")
+    .js("resources/js/admin.js", "public/js/admin.js")
+    .scripts('resources/js/app/*.js', 'public/js/app/scripts.js')
     .postCss('resources/css/app.css', 'public/css', [
         require('tailwindcss'),
     ])

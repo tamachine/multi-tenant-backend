@@ -133,5 +133,7 @@ class NavBarSeeder extends Seeder
                 'text' => ['en' => 'View all cars', 'es' => 'Todos los coches'],
             ]
         );  
+
+        
     }
 }

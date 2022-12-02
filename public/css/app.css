@@ -28,6 +28,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Cabin-SemiBold';
+
+  src: url('/fonts/Cabin/Cabin-SemiBold.ttf');
+
+  font-weight: 600;
+}
+
 a[href^="http://maps.google.com/maps"]{
   display:none !important
 }
@@ -1152,6 +1160,22 @@ h5 {
   right: 0.75rem;
 }
 
+.top-1 {
+  top: 0.25rem;
+}
+
+.-left-4 {
+  left: -1rem;
+}
+
+.top-\[76px\] {
+  top: 76px;
+}
+
+.right-16 {
+  right: 4rem;
+}
+
 .top-\[60px\] {
   top: 60px;
 }
@@ -1234,6 +1258,11 @@ h5 {
   margin-bottom: auto;
 }
 
+.my-6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -1299,6 +1328,18 @@ h5 {
   margin-top: 2rem;
 }
 
+.mt-12 {
+  margin-top: 3rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-7 {
+  margin-top: 1.75rem;
+}
+
 .mt-auto {
   margin-top: auto;
 }
@@ -1349,10 +1390,6 @@ h5 {
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mt-6 {
-  margin-top: 1.5rem;
 }
 
 .ml-2 {
@@ -1439,12 +1476,8 @@ h5 {
   height: 100%;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
-.h-\[calc\(100\%_-_22px\)\] {
-  height: calc(100% - 22px);
+.h-\[calc\(100vh_-_20px\)\] {
+  height: calc(100vh - 20px);
 }
 
 .h-5 {
@@ -1462,6 +1495,10 @@ h5 {
 
 .h-11 {
   height: 2.75rem;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .h-6 {
@@ -1549,13 +1586,13 @@ h5 {
   width: max-content;
 }
 
-.w-screen {
-  width: 100vw;
-}
-
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.w-screen {
+  width: 100vw;
 }
 
 .w-0 {
@@ -1751,6 +1788,10 @@ h5 {
   grid-template-columns: auto 1fr;
 }
 
+.grid-cols-\[auto_1fr_auto_auto\] {
+  grid-template-columns: auto 1fr auto auto;
+}
+
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1851,6 +1892,19 @@ h5 {
   row-gap: 2.5rem;
 }
 
+.gap-x-12 {
+  -moz-column-gap: 3rem;
+       column-gap: 3rem;
+}
+
+.gap-y-2 {
+  row-gap: 0.5rem;
+}
+
+.gap-y-5 {
+  row-gap: 1.25rem;
+}
+
 .gap-y-8 {
   row-gap: 2rem;
 }
@@ -1862,10 +1916,6 @@ h5 {
 
 .gap-y-4 {
   row-gap: 1rem;
-}
-
-.gap-y-2 {
-  row-gap: 0.5rem;
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -1969,6 +2019,11 @@ h5 {
 
 .rounded-\[10px\] {
   border-radius: 10px;
+}
+
+.rounded-b-xl {
+  border-bottom-right-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
 }
 
 .rounded-t-lg {
@@ -2257,12 +2312,12 @@ h5 {
   padding: 2.25rem;
 }
 
-.p-10 {
-  padding: 2.5rem;
-}
-
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .p-2 {
@@ -2322,6 +2377,21 @@ h5 {
   padding-right: 1.75rem;
 }
 
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
@@ -2335,11 +2405,6 @@ h5 {
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
-}
-
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
 }
 
 .py-1 {
@@ -2436,6 +2501,10 @@ h5 {
 
 .pt-2 {
   padding-top: 0.5rem;
+}
+
+.pr-2 {
+  padding-right: 0.5rem;
 }
 
 .pl-5 {
@@ -2546,6 +2615,14 @@ h5 {
   font-family: FredokaOne;
 }
 
+.font-CabinSB {
+  font-family: Cabin-SemiBold;
+}
+
+.font-sans {
+  font-family: DMSans-Regular, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
@@ -2618,12 +2695,12 @@ h5 {
   font-weight: 600;
 }
 
-.font-normal {
-  font-weight: 400;
-}
-
 .font-bold {
   font-weight: 700;
+}
+
+.font-normal {
+  font-weight: 400;
 }
 
 .uppercase {
@@ -2713,9 +2790,9 @@ h5 {
   color: rgb(231 236 243 / var(--tw-text-opacity));
 }
 
-.text-gray-tertiary {
+.text-\[\#B1B5C3\] {
   --tw-text-opacity: 1;
-  color: rgb(177 181 196 / var(--tw-text-opacity));
+  color: rgb(177 181 195 / var(--tw-text-opacity));
 }
 
 .text-amber-400 {
@@ -2865,6 +2942,12 @@ h5 {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow-t-md {
   --tw-shadow: 0px -2px 10px 1px rgba(0, 0, 0, 0.15);
   --tw-shadow-colored: 0px -2px 10px 1px var(--tw-shadow-color);
@@ -2892,12 +2975,6 @@ h5 {
 .shadow-t-xl {
   --tw-shadow: 1px 1px 54px -30px rgba(0,0,0,0.3),1px 1px 54px -30px rgba(0,0,0,0.3);
   --tw-shadow-colored: 1px 1px 54px -30px var(--tw-shadow-color), 1px 1px 54px -30px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-xl {
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -3528,6 +3605,11 @@ h5 {
     margin-right: 0px;
   }
 
+  .md\:my-0 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
   .md\:mx-6 {
     margin-left: 1.5rem;
     margin-right: 1.5rem;
@@ -3540,6 +3622,14 @@ h5 {
 
   .md\:ml-16 {
     margin-left: 4rem;
+  }
+
+  .md\:mt-12 {
+    margin-top: 3rem;
+  }
+
+  .md\:mt-2 {
+    margin-top: 0.5rem;
   }
 
   .md\:mt-0 {
@@ -3647,6 +3737,18 @@ h5 {
     grid-template-columns: 1fr auto 1fr;
   }
 
+  .md\:grid-cols-\[auto_1fr\] {
+    grid-template-columns: auto 1fr;
+  }
+
+  .md\:grid-cols-\[auto_1fr_auto_1fr_auto_1fr\] {
+    grid-template-columns: auto 1fr auto 1fr auto 1fr;
+  }
+
+  .md\:grid-cols-\[auto_1fr_auto_1fr_auto_1fr_auto_1fr\] {
+    grid-template-columns: auto 1fr auto 1fr auto 1fr auto 1fr;
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3707,6 +3809,10 @@ h5 {
     gap: 1.25rem;
   }
 
+  .md\:gap-y-0 {
+    row-gap: 0px;
+  }
+
   .md\:gap-x-14 {
     -moz-column-gap: 3.5rem;
          column-gap: 3.5rem;
@@ -3739,6 +3845,10 @@ h5 {
 
   .md\:p-3 {
     padding: 0.75rem;
+  }
+
+  .md\:p-8 {
+    padding: 2rem;
   }
 
   .md\:p-0 {
@@ -3807,6 +3917,11 @@ h5 {
     padding-right: 14px;
   }
 
+  .md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .md\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -3825,11 +3940,6 @@ h5 {
   .md\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
-  }
-
-  .md\:px-0 {
-    padding-left: 0px;
-    padding-right: 0px;
   }
 
   .md\:px-12 {
@@ -3880,6 +3990,14 @@ h5 {
 
   .md\:pb-7 {
     padding-bottom: 1.75rem;
+  }
+
+  .md\:pb-4 {
+    padding-bottom: 1rem;
+  }
+
+  .md\:pl-6 {
+    padding-left: 1.5rem;
   }
 
   .md\:pt-56 {
@@ -3949,6 +4067,11 @@ h5 {
     line-height: 1;
   }
 
+  .md\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -3957,11 +4080,6 @@ h5 {
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
-  }
-
-  .md\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
   }
 
   .md\:text-xl {

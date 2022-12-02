@@ -26,11 +26,12 @@
 
         <!-- Scripts -->
         <script src="{{ url(mix('js/app.js')) }}" defer></script>
+        <script src="{{ url(mix('js/app/scripts.js')) }}"></script>
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">   
         
-        <x-nav-bar/>
+        <x-nav-bar/>        
     </head>
 
     {{-- 
