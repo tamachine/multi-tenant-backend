@@ -20,7 +20,7 @@
 
     {{-- desktop --}}
     <div class="hidden md:flex items-center divide-x gap-10">
-        <div class="flex items-end justify-between flex-wrap gap-10 text-lg">
+        <div class="flex items-end justify-between flex-wrap gap-10 text-lg font-sans-medium">
             <a href="#" class="hover:text-pink-red">{{ __('web.navbar.cars') }}</a>
             <a href="#" class="hover:text-pink-red">{{ __('web.navbar.about') }}</a>
             <a href="#" class="hover:text-pink-red">{{ __('web.navbar.faq') }}</a>
@@ -36,7 +36,7 @@
     {{-- desktop end --}}
 
     <div 
-        class="absolute top-[76px] right-16 z-50"
+        class="md-max:hidden md:absolute top-[76px] right-16 z-50"
         x-cloak 
         x-show="visibility()"
         >
@@ -116,7 +116,7 @@
                             <div class="text-[#B1B5C3]">{!! __('web.general.languages-currency') !!}</div>
                             <div class="flex justify-center gap-2">
                                 <img class="inline" src="{{ asset('images/currencies/usd-red.svg') }}" /> 
-                                <span class="text-black-primary font-CabinSB">USD</span>
+                                <span class="text-black-primary font-cabin-semibold">USD</span>
                                 <img class="cursor-pointer" src="{{ asset('images/icons/arrow-down.svg') }}" />
                             </div>
                         </div>

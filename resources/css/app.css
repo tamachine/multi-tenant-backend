@@ -39,19 +39,19 @@ input:invalid, textarea:invalid, select:invalid {
 
 h1 {
     @apply 
-        font-fredoka text-pink-red font-semibold text-center leading-[46px] md:leading-[76px]
+        font-fredoka-semibold text-pink-red font-semibold text-center leading-[46px] md:leading-[76px]
         text-5xl md:text-7xl;
 }
 
 h2 {
     @apply 
-        font-fredoka text-pink-red font-semibold tracking-[-0.005em]
+        font-fredoka-semibold text-pink-red font-semibold tracking-[-0.005em]
         md:leading-[60px] leading-[50px]
         md:text-5xl text-[48px];
 }
 
 h3 {
-    @apply text-black-primary md:text-3xl font-medium text-center;
+    @apply text-black-primary md:text-3xl text-center font-sans-medium;
 }
 
 h4 {
@@ -63,7 +63,7 @@ h5 {
 }   
 
 .btn {
-    @apply rounded-xl text-xl px-14 py-5 font-bold;
+    @apply rounded-xl text-xl px-14 py-5 font-sans-bold;
 }
 
 .tab {
@@ -98,7 +98,7 @@ h5 {
         @apply z-0 absolute top-2 left-6;
     }    
         .search-input-group > div > div:last-of-type {
-            @apply text-gray-tertiary text-base;
+            @apply text-gray-tertiary text-base font-sans;
         }   
         
         .search-input-group.active > div > div:last-of-type {

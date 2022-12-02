@@ -1,39 +1,81 @@
 @font-face {
-  font-family: 'FredokaOne';
-
-  src: url('/fonts/FredokaOne/FredokaOne-Regular.ttf');
-
-  font-weight: 600;
-
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'DMSans-Regular';
-
-  src: url('/fonts/DMSans/DMSans-Regular.ttf');
-
-  font-weight: 400;
-
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Fredoka';
-
-  src: url('/fonts/Fredoka/Fredoka-Regular.ttf');
-
-  font-weight: 500;
-
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Cabin-SemiBold';
+  font-family: 'CabinSemiBold';
 
   src: url('/fonts/Cabin/Cabin-SemiBold.ttf');
 
   font-weight: 600;
+}
+
+@font-face {
+  font-family: 'DMSansBold';
+
+  src: url('/fonts/DMSans/DMSans-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'DMSansBoldItalic';
+
+  src: url('/fonts/DMSans/DMSans-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'DMSansItalic';
+
+  src: url('/fonts/DMSans/DMSans-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'DMSansMedium';
+
+  src: url('/fonts/DMSans/DMSans-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'DMSansMediumItalic';
+
+  src: url('/fonts/DMSans/DMSans-MediumItalic.ttf');
+}
+
+@font-face {
+  font-family: 'DMSansRegular';
+
+  src: url('/fonts/DMSans/DMSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'FredokaBold';
+
+  src: url('/fonts/Fredoka/Fredoka-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'FredokaLight';
+
+  src: url('/fonts/Fredoka/Fredoka-Light.ttf');
+}
+
+@font-face {
+  font-family: 'FredokaMedium';
+
+  src: url('/fonts/Fredoka/Fredoka-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'FredokaRegular';
+
+  src: url('/fonts/Fredoka/Fredoka-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'FredokaSemiBold';
+
+  src: url('/fonts/Fredoka/Fredoka-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'FredokaOne';
+
+  src: url('/fonts/FredokaOne/FredokaOne-Regular.ttf');
 }
 
 a[href^="http://maps.google.com/maps"]{
@@ -104,7 +146,7 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: DMSans-Regular, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: DMSansRegular, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -873,7 +915,7 @@ input:invalid, textarea:invalid, select:invalid {
 
 h1 {
   text-align: center;
-  font-family: Fredoka;
+  font-family: FredokaSemiBold;
   font-size: 3rem;
   line-height: 1;
   font-weight: 600;
@@ -891,7 +933,7 @@ h1 {
 }
 
 h2 {
-  font-family: Fredoka;
+  font-family: FredokaSemiBold;
   font-size: 48px;
   font-weight: 600;
   line-height: 50px;
@@ -910,7 +952,7 @@ h2 {
 
 h3 {
   text-align: center;
-  font-weight: 500;
+  font-family: DMSansMedium;
   --tw-text-opacity: 1;
   color: rgb(48 0 0 / var(--tw-text-opacity));
 }
@@ -938,7 +980,7 @@ h4 {
 
 h5 {
   text-align: center;
-  font-family: Fredoka;
+  font-family: FredokaRegular;
   font-size: 28px;
   font-weight: 600;
   --tw-text-opacity: 1;
@@ -951,9 +993,9 @@ h5 {
   padding-right: 3.5rem;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+  font-family: DMSansBold;
   font-size: 1.25rem;
   line-height: 1.75rem;
-  font-weight: 700;
 }
 
 .tab {
@@ -1049,6 +1091,7 @@ h5 {
 }
 
 .search-input-group > div > div:last-of-type {
+  font-family: DMSansRegular, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   line-height: 1.5rem;
   --tw-text-opacity: 1;
@@ -2608,19 +2651,23 @@ h5 {
 }
 
 .font-fredoka {
-  font-family: Fredoka;
+  font-family: FredokaRegular;
 }
 
 .font-fredokaOne {
   font-family: FredokaOne;
 }
 
-.font-CabinSB {
-  font-family: Cabin-SemiBold;
+.font-cabin-semibold {
+  font-family: CabinSemiBold;
 }
 
 .font-sans {
-  font-family: DMSans-Regular, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: DMSansRegular, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-sans-medium {
+  font-family: DMSansMedium;
 }
 
 .text-5xl {
@@ -4173,6 +4220,10 @@ h5 {
 @media (max-width: 767px) {
   .md-max\:top-\[180px\] {
     top: 180px;
+  }
+
+  .md-max\:hidden {
+    display: none;
   }
 } 
 
