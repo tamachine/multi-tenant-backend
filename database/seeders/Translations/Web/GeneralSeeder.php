@@ -153,5 +153,15 @@ class GeneralSeeder extends Seeder
                 'text' => ['en' => 'Select currency', 'es' => 'Selecciona moneda'],
             ]
         );  
+
+        LanguageLine::firstOrCreate(
+            [
+                'group' => 'web',
+                'key' => 'general.languages-apply',    
+            ],
+            [                
+                'text' => ['en' => 'Change settings', 'es' => 'Cambiar opciones'],
+            ]
+        );  
     }
 }

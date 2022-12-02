@@ -18,3 +18,10 @@
     font-weight: 500;
     font-style: normal;
 }
+
+
+@font-face {
+    font-family: 'Cabin-SemiBold';
+    src: url('/fonts/Cabin/Cabin-SemiBold.ttf');    
+    font-weight: 600;    
+}

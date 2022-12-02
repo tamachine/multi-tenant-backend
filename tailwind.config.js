@@ -41,6 +41,7 @@ module.exports = {
                 sans: ['DMSans-Regular', ...defaultTheme.fontFamily.sans],    
                 fredokaOne: ['FredokaOne'],            
                 fredoka: ['Fredoka'],    
+                CabinSB: ['Cabin-SemiBold'],    
             },
             maxWidth: {
                 '6xl': '1170px',
