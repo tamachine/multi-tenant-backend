@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\Booking;
 use App\Models\Car;
 use App\Models\Extra;
 use App\Models\Location;
 use App\Models\User;
 use App\Models\Vendor;
+use App\Observers\BookingObserver;
 use App\Observers\CarObserver;
 use App\Observers\ExtraObserver;
 use App\Observers\LocationObserver;
@@ -36,6 +38,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Booking::observe(BookingObserver::class);
         Car::observe(CarObserver::class);
         Extra::observe(ExtraObserver::class);
         Location::observe(LocationObserver::class);

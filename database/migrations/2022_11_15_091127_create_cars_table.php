@@ -19,7 +19,7 @@ return new class extends Migration
             $table->boolean('active')->default(0);
             $table->unsignedBigInteger('vendor_id')->unsigned()->index();
             $table->text('name');
-            $table->string('car_code', 4)->nullable();
+            $table->string('car_code', 4)->nullable()->index();
             $table->text('description')->nullable();
             $table->year('year')->nullable(now()->year);
 
