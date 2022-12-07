@@ -38,8 +38,8 @@
 
   <!-- Static sidebar for desktop -->
   <div class="hidden xl:flex xl:flex-shrink-0">
-    <div class="flex flex-col w-64 border-r border-gray-200 pt-5 pb-4 bg-gray-100">
-        <div class="text-center text-gray-800 font-bold">
+    <div class="flex flex-col w-64 border-r border-gray-200 pb-4 bg-gray-100">
+        <div class="md:h-20 py-7 text-center text-gray-800 font-bold bg-gray-50">
             {{ config('app.name') }}
         </div>
 

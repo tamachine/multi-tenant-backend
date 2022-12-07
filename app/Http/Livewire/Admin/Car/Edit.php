@@ -178,7 +178,7 @@ class Edit extends Component
         $this->validate([
             'online_percentage' => ['required', 'numeric', 'gte:1', 'lte:99'],
             'name' => ['required'],
-            'car_code' => ['required', 'string', 'max:4'],
+            'car_code' => ['required', 'string', 'min:4', 'max:4', 'unique:cars,car_code,' . $this->car->id],
             'year' => ['required', 'numeric', 'gte:2000', 'lte:' . now()->year],
         ]);
 

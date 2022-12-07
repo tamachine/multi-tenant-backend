@@ -15,4 +15,6 @@ return [
     'App\Models\Season' => 6,
     'App\Models\FreeDay' => 7,
     'App\Models\Extra' => 8,
+    'App\Models\Affiliate' => 9,
+    'App\Models\Booking' => 10,
 ];
