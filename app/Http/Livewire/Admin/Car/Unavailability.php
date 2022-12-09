@@ -24,12 +24,12 @@ class Unavailability extends Component
      */
     public $dates = [];
 
-     /**
+    /**
      * @var object
      */
     public $start_date;
 
-     /**
+    /**
      * @var object
      */
     public $end_date;

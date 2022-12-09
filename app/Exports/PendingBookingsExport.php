@@ -14,7 +14,7 @@ class PendingBookingsExport implements FromView
     protected $bookings;
 
     /**
-     * @param   string $type
+     * Constructor
      */
     public function __construct()
     {

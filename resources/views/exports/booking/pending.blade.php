@@ -16,8 +16,8 @@
             <tr>
                 <td>{{$booking->order_number}}</td>
                 <td>{{$booking->pickup_at->format('d-m-Y H:i')}}</td>
-                <td>{{$booking->payment_status}}</td>
-                <td>{{$booking->vendor_status}}</td>
+                <td>{{ucfirst($booking->payment_status)}}</td>
+                <td>{{ucfirst($booking->vendor_status)}}</td>
                 <td>{{$booking->car_name}}</td>
                 <td>{{$booking->created_at->format('d-m-Y H:i')}}</td>
                 <td>{{formatPrice($booking->online_payment, "ISK")}}</td>
