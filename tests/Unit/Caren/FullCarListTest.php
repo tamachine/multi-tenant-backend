@@ -20,8 +20,8 @@ class FullCarListTest extends TestCase
     public function fullCarListTest()
     {
         $api = new Api;
-        $carList = $api->fullCarList(["RentalId" => 6]);
+        $carList = $api->fullCarList(["RentalId" => 11]);
 
-        $this->assertEquals(25, count($carList['Classes']));
+        $this->assertEquals(33, count($carList['Classes']));
     }
 }

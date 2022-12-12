@@ -25,10 +25,10 @@ class VendorListTest extends TestCase
         $this->assertEquals([
             'Rentals' => [
                 [
-                    'Id' => 6,
-                    'Name' => 'Lotus Car Rental',
-                    'Logo' => '/Images/6/LOTUS_LOGO.png',
-                    'MinimumBookingHoursInAdvance' => 10,
+                    'Id' => 11,
+                    'Name' => 'Blue Car Rental',
+                    'Logo' => null,
+                    'MinimumBookingHoursInAdvance' => 0,
                 ],
             ],
         ], $vendorList);

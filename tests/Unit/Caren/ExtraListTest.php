@@ -20,9 +20,9 @@ class ExtraListTest extends TestCase
     public function extraListTest()
     {
         $api = new Api;
-        $carList = $api->extraList('extra', ["RentalId" => 6]);
+        $carList = $api->extraList('extra', ["RentalId" => 11]);
 
-        $this->assertEquals(21, count($carList['Extras']));
+        $this->assertEquals(15, count($carList['Extras']));
     }
 
     /**
@@ -38,8 +38,8 @@ class ExtraListTest extends TestCase
     public function insuranceListTest()
     {
         $api = new Api;
-        $carList = $api->extraList('insurance', ["RentalId" => 6]);
+        $carList = $api->extraList('insurance', ["RentalId" => 11]);
 
-        $this->assertEquals(14, count($carList['Insurances']));
+        $this->assertEquals(7, count($carList['Insurances']));
     }
 }
