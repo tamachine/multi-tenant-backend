@@ -33,7 +33,7 @@
                     grid 
                     gap-y-5 md:gap-y-0
                     md:grid-cols-[auto_1fr_auto_1fr_auto_1fr_auto_1fr] grid-cols-[auto_1fr_auto_auto] 
-                    font-CabinSB 
+                    font-cabin-semibold 
                     md:text-base text-lg
                     text-black-primary
                     w-full"

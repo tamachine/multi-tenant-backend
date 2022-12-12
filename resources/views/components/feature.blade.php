@@ -12,7 +12,7 @@
         <div class="md:flex-1 flex flex-col md:items-start gap-7">
             <h2 class="hidden md:block md:text-left">{!! $title !!}</h2>
             <div>
-                <x-read-more-block text="{!! $text !!}" text-align-desktop="text-left" />    
+                <x-read-more-block text="{!! $text !!}" />    
             </div>
             <button class="tab hidden md:block">{!! __('web.home.feature-more') !!}</button>
         </div>
@@ -30,7 +30,7 @@
         <div class="md:flex-1 flex flex-col md:items-end gap-7">
             <h2 class="md:text-right md:pl-16 md:pr-0 pr-28">{!! $title !!}</h2>
             <div class="md:pl-16">
-                <x-read-more-block text="{!! $text !!}" text-align-desktop="text-right" />    
+                <x-read-more-block text="{!! $text !!}" :reverse-text-align=true />    
             </div>
             <button class="tab hidden md:block">{!! __('web.home.feature-more') !!}</button>
         </div>

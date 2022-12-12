@@ -6,7 +6,7 @@
 >
     <form>
         <div class="flex flex-row gap-6">
-            <div class="flex flex-col pl-16 pb-6 mt-4 w-full">                
+            <div class="flex flex-col pl-16 pb-6 mt-4 w-full font-sans-medium">                
                 <div class="flex flex-row justify-start mb-7 border-b gap-12">
                     <a class="px-4 pb-1 hover:border-pink-red border-transparent border-b-2" 
                         href="#" @click.prevent="tab='#sameLocation'" :class="{ 'border-pink-red': tab == '#sameLocation' }">{{ __('web.car-search-bar.same') }}</a>
@@ -63,7 +63,7 @@
 {{-- desktop end --}}
 
 {{-- mobile --}}
-<div class="md:hidden block px-11 py-8">
+<div class="md:hidden block px-11 py-8 text-lg font-sans-medium">
     <form>
         <div class="flex flex-col gap-2">
             <div class="search-input-group">
