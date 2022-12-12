@@ -20,39 +20,9 @@ class LocationsTest extends TestCase
     public function pickupLocationsTest()
     {
         $api = new Api;
-        $pickupLocations = $api->pickupLocations(["RentalId" => 6]);
+        $pickupLocations = $api->pickupLocations(["RentalId" => 11]);
 
-        $this->assertEquals([
-            'Locations' => [
-                [
-                    "Id" => 8,
-                    "Name" => "Address in Reykjavik",
-                    "Description" => "",
-                    "ExtraInfo" => true,
-                    "ExtraInfoText" => "",
-                    "SelfService" => false,
-                    "Times" => []
-                ],
-                [
-                    "Id" => 9,
-                    "Name" => "Address in Keflavik",
-                    "Description" => "",
-                    "ExtraInfo" => true,
-                    "ExtraInfoText" => "",
-                    "SelfService" => false,
-                    "Times" => []
-                ],
-                [
-                    "Id" => 486,
-                    "Name" => "Keflavik International Airport",
-                    "Description" => "",
-                    "ExtraInfo" => false,
-                    "ExtraInfoText" => "",
-                    "SelfService" => false,
-                    "Times" => []
-                ],
-            ]
-        ], $pickupLocations);
+        $this->assertEquals(2, count($pickupLocations['Locations']));
     }
 
     /**
@@ -68,38 +38,8 @@ class LocationsTest extends TestCase
     public function dropoffLocationsTest()
     {
         $api = new Api;
-        $dropoffLocations = $api->dropoffLocations(["RentalId" => 6]);
+        $dropoffLocations = $api->dropoffLocations(["RentalId" => 11]);
 
-        $this->assertEquals([
-            'Locations' => [
-                [
-                    "Id" => 8,
-                    "Name" => "Address in Reykjavik",
-                    "Description" => "",
-                    "ExtraInfo" => true,
-                    "ExtraInfoText" => "",
-                    "SelfService" => false,
-                    "Times" => []
-                ],
-                [
-                    "Id" => 9,
-                    "Name" => "Address in Keflavik",
-                    "Description" => "",
-                    "ExtraInfo" => true,
-                    "ExtraInfoText" => "",
-                    "SelfService" => false,
-                    "Times" => []
-                ],
-                [
-                    "Id" => 487,
-                    "Name" => "Keflavik International Airport",
-                    "Description" => "",
-                    "ExtraInfo" => false,
-                    "ExtraInfoText" => "",
-                    "SelfService" => false,
-                    "Times" => []
-                ],
-            ]
-        ], $dropoffLocations);
+        $this->assertEquals(2, count($dropoffLocations['Locations']));
     }
 }
