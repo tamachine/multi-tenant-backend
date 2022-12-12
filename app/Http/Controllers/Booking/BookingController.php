@@ -43,11 +43,11 @@ class BookingController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('booking.dashboard'),
-                'title' => 'Bookings'
+                'route' => route('booking.history'),
+                'title' => 'Booking History'
             ]),
             'crumbs' => [
-                'Bookings' => route('booking.dashboard')
+                'Booking History' => route('booking.history')
             ],
         ];
 
