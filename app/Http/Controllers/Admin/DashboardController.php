@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Helpers\Statistics;
 use Illuminate\View\View;
 
 class DashboardController extends Controller
@@ -10,9 +11,13 @@ class DashboardController extends Controller
     /**
      *  General Dashboard
      */
-    public function index(): View
+    public function index(Statistics $statistics): View
     {
-        return view('admin.dashboard.index');
+        $data = [
+            'statistics' => $statistics->bookingStatistics(),
+        ];
+
+        return view('admin.dashboard.index')->with($data);
     }
 
     /**
@@ -23,16 +28,6 @@ class DashboardController extends Controller
         $this->authorize('admin');
 
         return view('admin.dashboard.settings');
-    }
-
-    /**
-     *  Booking Dashboard
-     */
-    public function bookings(): View
-    {
-        $this->authorize('booking');
-
-        return view('admin.dashboard.bookings');
     }
 
     /**

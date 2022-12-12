@@ -50,27 +50,61 @@ class BookingAgentTest extends TestCase
      */
     public function theBookingAgentDashboardLoads()
     {
-        $this->get(route('bookings'))
+        $this->get(route('booking.dashboard'))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('bookings'))
+            ->get(route('booking.dashboard'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('bookings'))
+            ->get(route('booking.dashboard'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('bookings'))
+            ->get(route('booking.dashboard'))
             ->assertStatus(200);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('bookings'))
+            ->get(route('booking.dashboard'))
             ->assertStatus(200);
 
         $this->actingAs($this->contentUser)
-            ->get(route('settings'))
+            ->get(route('booking.dashboard'))
+            ->assertStatus(403);
+    }
+
+    /**
+     * @test
+     * @group feature
+     * @group navigation
+     * @group navigation-booking-agent
+     *
+     * @return void
+     */
+    public function theBookingHistoryLoads()
+    {
+        $this->get(route('booking.history'))
+            ->assertRedirect('login');
+
+        $this->actingAs($this->developer)
+            ->get(route('booking.history'))
+            ->assertStatus(200);
+
+        $this->actingAs($this->superAdmin)
+            ->get(route('booking.history'))
+            ->assertStatus(200);
+
+        $this->actingAs($this->admin)
+            ->get(route('booking.history'))
+            ->assertStatus(200);
+
+        $this->actingAs($this->bookingAgent)
+            ->get(route('booking.history'))
+            ->assertStatus(200);
+
+        $this->actingAs($this->contentUser)
+            ->get(route('booking.history'))
             ->assertStatus(403);
     }
 }

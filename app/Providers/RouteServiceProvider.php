@@ -56,6 +56,13 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('developer')
                 ->as('developer.')
                 ->group(base_path('routes/developer.php'));
+
+            Route::prefix('booking')
+                ->middleware(['web', 'auth'])
+                ->namespace($this->namespace)
+                ->prefix('booking')
+                ->as('booking.')
+                ->group(base_path('routes/booking.php'));
         });
     }
 

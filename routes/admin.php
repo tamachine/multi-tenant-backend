@@ -17,7 +17,6 @@ Route::group(
         // Dashboards
         Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
         Route::get('settings', ['as' => 'settings', 'uses' => 'DashboardController@settings']);
-        Route::get('bookings', ['as' => 'bookings', 'uses' => 'DashboardController@bookings']);
         Route::get('content', ['as' => 'content', 'uses' => 'DashboardController@content']);
 
         // Caren

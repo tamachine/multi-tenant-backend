@@ -49,3 +49,35 @@ if (!function_exists('earlyBirdMonths')) {
         }
     }
 }
+
+if (!function_exists('formatPrice')) {
+    /**
+     * Format the price
+     *
+     * @param      int      $price      The price
+     * @param      string   $currency   The currency
+     * @return     string
+     */
+    function formatPrice($price, $currency)
+    {
+        switch ($currency) {
+            case 'eur':
+                $decimals = 2;
+                break;
+
+            case 'gbp':
+                $decimals = 2;
+                break;
+
+            case 'usd':
+                $decimals = 2;
+                break;
+
+            default:
+                $decimals = 0;
+                break;
+        }
+
+        return number_format($price, $decimals, '.', ',') . " " . strtoupper($currency);
+    }
+}
