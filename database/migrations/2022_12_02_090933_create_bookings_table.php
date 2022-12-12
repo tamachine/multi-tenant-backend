@@ -24,8 +24,8 @@ return new class extends Migration
 
             $table->string('pickup_name');
             $table->string('dropoff_name');
-            $table->timestamp('pickup_at');
-            $table->timestamp('dropoff_at');
+            $table->timestamp('pickup_at')->nullable();
+            $table->timestamp('dropoff_at')->nullable();
             $table->unsignedBigInteger('pickup_location')->nullable()->unsigned()->index();
             $table->unsignedBigInteger('dropoff_location')->nullable()->unsigned()->index();
 
