@@ -3,7 +3,7 @@
         <div class="bg-[#f2f2f2] p-4 rounded-lg shadow-[2px_6px_48px_rgba(66,66,66,0.13)] border border-white">
             <img class="w-5 max-w-none" src="{{ $iconPath }}" />        
         </div>    
-        <div class="md:hidden font-fredoka md:text-2xl text-xl font-medium leading-9">{!! $title !!}</div>
+        <div class="md:hidden font-fredoka-medium md:text-2xl text-xl font-medium leading-9">{!! $title !!}</div>
     </div>
     <div>
         <div class="flex flex-col md:pr-28">

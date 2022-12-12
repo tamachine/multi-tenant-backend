@@ -1031,6 +1031,8 @@ h5 {
 .btn-red {
   --tw-bg-opacity: 1;
   background-color: rgb(225 17 102 / var(--tw-bg-opacity));
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   font-weight: 700;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -1039,6 +1041,13 @@ h5 {
 .btn-red:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(244 32 119 / var(--tw-bg-opacity));
+}
+
+@media (min-width: 768px) {
+  .btn-red {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 
 .search-input-group {
@@ -2657,12 +2666,24 @@ h5 {
   vertical-align: middle;
 }
 
+.font-sans-medium {
+  font-family: DMSansMedium;
+}
+
+.font-sans {
+  font-family: DMSansRegular, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 .font-fredoka {
   font-family: FredokaRegular;
 }
 
 .font-fredoka-medium {
   font-family: FredokaMedium;
+}
+
+.font-fredoka-semibold {
+  font-family: FredokaSemiBold;
 }
 
 .font-fredokaOne {
@@ -2673,20 +2694,8 @@ h5 {
   font-family: CabinSemiBold;
 }
 
-.font-sans {
-  font-family: DMSansRegular, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
-.font-sans-medium {
-  font-family: DMSansMedium;
-}
-
 .font-fredoka-bold {
   font-family: FredokaBold;
-}
-
-.font-fredoka-semibold {
-  font-family: FredokaSemiBold;
 }
 
 .font-sans-bold {
@@ -2747,6 +2756,10 @@ h5 {
 
 .text-\[10px\] {
   font-size: 10px;
+}
+
+.text-\[42px\] {
+  font-size: 42px;
 }
 
 .font-medium {
@@ -4118,6 +4131,10 @@ h5 {
     text-align: right;
   }
 
+  .md\:font-sans {
+    font-family: DMSansRegular, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
   .md\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -4156,6 +4173,15 @@ h5 {
   .md\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .md\:text-\[22px\] {
+    font-size: 22px;
   }
 
   .md\:font-normal {

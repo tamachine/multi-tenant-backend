@@ -63,7 +63,7 @@
 {{-- desktop end --}}
 
 {{-- mobile --}}
-<div class="md:hidden block px-11 py-8">
+<div class="md:hidden block px-11 py-8 text-lg font-sans-medium">
     <form>
         <div class="flex flex-col gap-2">
             <div class="search-input-group">

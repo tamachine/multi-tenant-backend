@@ -25,7 +25,7 @@
             @endfor
         </div>
         <div class="hidden md:inline-block mt-auto"><img src="{{ $reviewInfoComponent->getIconPath() }}" /></div>
-        <div class="mt-auto md:font-normal font-medium">{{ $reviewInfoComponent->getTotalReviews() }} {{ __('web.reviews.reviews') }}</div>    
+        <div class="mt-auto md:font-normal md:font-sans font-sans-medium font-medium">{{ $reviewInfoComponent->getTotalReviews() }} {{ __('web.reviews.reviews') }}</div>    
     </div>
 </div>
 

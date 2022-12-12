@@ -23,7 +23,7 @@
             <div class="bg-[#1C1C1C] flex flex-col gap-5 md:gap-0 md:flex-row flex-between items-center text-[#8c8c8c] rounded-xl px-3 md:px-9 py-7">
                 <div class="flex-1 flex flex-col w-full">
                     <div class="font-fredoka-medium font-medium text-2xl text-white">{!! __('web.footer.newsletter-title') !!}</div>
-                    <div>{!! __('web.footer.newsletter-text') !!}</div>
+                    <div class="md:text-base text-sm">{!! __('web.footer.newsletter-text') !!}</div>
                 </div>
                 <div class="flex-1 flex w-full md:justify-end">
                     <div class="relative w-full">
