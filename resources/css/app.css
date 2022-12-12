@@ -59,7 +59,7 @@ h4 {
 }
 
 h5 {
-    @apply font-fredoka text-pink-red font-semibold text-[28px] text-center;
+    @apply font-fredoka-semibold text-pink-red font-semibold text-[28px] text-center;
 }   
 
 .btn {
@@ -71,11 +71,11 @@ h5 {
 }
 
 .tab.active {
-    @apply bg-pink-red text-white font-bold;
+    @apply bg-pink-red text-white font-sans-bold font-bold;
 }
 
 .btn-red {
-    @apply bg-pink-red text-white hover:bg-[#F42077];
+    @apply bg-pink-red text-white hover:bg-[#F42077] font-bold;
 }
 
 .search-input-group {
@@ -98,7 +98,7 @@ h5 {
         @apply z-0 absolute top-2 left-6;
     }    
         .search-input-group > div > div:last-of-type {
-            @apply text-gray-tertiary text-base font-sans;
+            @apply text-gray-tertiary text-base font-sans font-normal;
         }   
         
         .search-input-group.active > div > div:last-of-type {

@@ -1,5 +1,5 @@
 <footer class="pt-28 md:pt-36">
-    <div class="max-w-6xl mx-auto px-10 pb-5 md:pb-0 text-pink-red text-5xl md:text-8xl text-center md:text-left font-semibold leading-[50px] md:leading-[110px] font-fredoka">
+    <div class="max-w-6xl mx-auto px-10 pb-5 md:pb-0 text-pink-red text-5xl md:text-8xl text-center md:text-left font-semibold leading-[50px] md:leading-[110px] font-fredoka-semibold">
         {!! __('web.footer.title') !!}
     </div>
     <div 
@@ -22,7 +22,7 @@
             
             <div class="bg-[#1C1C1C] flex flex-col gap-5 md:gap-0 md:flex-row flex-between items-center text-[#8c8c8c] rounded-xl px-3 md:px-9 py-7">
                 <div class="flex-1 flex flex-col w-full">
-                    <div class="font-fredoka text-2xl text-white">{!! __('web.footer.newsletter-title') !!}</div>
+                    <div class="font-fredoka-medium font-medium text-2xl text-white">{!! __('web.footer.newsletter-title') !!}</div>
                     <div>{!! __('web.footer.newsletter-text') !!}</div>
                 </div>
                 <div class="flex-1 flex w-full md:justify-end">
@@ -30,7 +30,7 @@
                         <form>
                             <input class="md:absolute right-0 my-auto top-0 bottom-0 rounded-xl border border-[#8c8c8c] py-4 md:py-7 px-7 bg-transparent w-full placeholder:text-base focus:border-[#8c8c8c] focus:ring-0" type="text" placeholder="{!! __('web.footer.newsletter-input-placeholder') !!}" />
                             <div   class="absolute right-3 my-auto top-0 bottom-0 flex justify-center items-center">
-                                <button type="submit" class="btn btn-red px-7 md:px-6 py-3 md:py-2 text-sm font-medium rounded-md">{!! __('web.footer.newsletter-form-submit') !!}</button>
+                                <button type="submit" class="btn btn-red px-7 md:px-6 py-3 md:py-2 text-sm font-sans-medium font-medium rounded-md">{!! __('web.footer.newsletter-form-submit') !!}</button>
                             </div>
                         </form>
                     </div>
@@ -45,8 +45,8 @@
                 >
                 @for ($i = 1; $i <= 4; $i++)
                 <div>
-                    <div class="font-fredoka font-semibold text-xl text-white pb-6">{!! __('web.footer.col-'.$i.'-links-title') !!}</div>
-                    <ul class="flex flex-col gap-4">
+                    <div class="font-fredoka-semibold font-semibold text-xl text-white pb-6">{!! __('web.footer.col-'.$i.'-links-title') !!}</div>
+                    <ul class="font-sans-medium font-medium flex flex-col gap-4">
                     @for ($x = 1; $x <= 5; $x++)
                         <li><a href="javascript:void(0)">{!! __('web.footer.col-'.$i.'-link-'.$x) !!}</a></li>
                     @endfor

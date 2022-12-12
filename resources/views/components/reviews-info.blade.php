@@ -11,9 +11,9 @@
     </div>
     
     <div class="flex flex-col items-center ">
-        <div class="text-black-primary font-fredoka">
-            <span class="text-pink-red text-2xl md:text-3xl font-bold">{{ $reviewInfoComponent->getNote() }}</span> 
-            <span class="md:text-2xl text-lg font-normal">{{ __('web.reviews.of') }} {{ $reviewInfoComponent->getMaxNote() }}</span>
+        <div class="text-black-primary">
+            <span class="text-pink-red text-2xl md:text-3xl font-fredoka-bold">{{ $reviewInfoComponent->getNote() }}</span> 
+            <span class="md:text-2xl text-lg font-fredoka">{{ __('web.reviews.of') }} {{ $reviewInfoComponent->getMaxNote() }}</span>
         </div>
         <div class="hidden md:inline-block"> 
             @for($x=1; $x<=$reviewInfoComponent->getTotalStars(); $x++)     

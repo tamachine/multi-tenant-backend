@@ -7,7 +7,7 @@
     </div>
     <div>
         <div class="flex flex-col md:pr-28">
-            <div class="hidden md:inline-block font-fredoka md:text-2xl text-xl font-medium leading-9">{!! $title !!}</div>
+            <div class="hidden md:inline-block font-fredoka-medium md:text-2xl text-xl font-medium leading-9">{!! $title !!}</div>
             <div class="text-lg leading-7">{!! $text !!}</div>
         </div>
     </div>
