@@ -3,7 +3,7 @@
 namespace Database\Seeders\Translations\Web;
 
 use Illuminate\Database\Seeder;
-use Spatie\TranslationLoader\LanguageLine;
+use App\Models\Translation;
 
 class GeneralSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class GeneralSeeder extends Seeder
      */
     public function run()
     {                
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.brand',    
@@ -24,7 +24,7 @@ class GeneralSeeder extends Seeder
             ]
         );    
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.search',    
@@ -34,7 +34,7 @@ class GeneralSeeder extends Seeder
             ]
         );    
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.read-more',    
@@ -44,7 +44,7 @@ class GeneralSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.after-meridiem',    
@@ -54,7 +54,7 @@ class GeneralSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.post-meridiem',    
@@ -64,7 +64,7 @@ class GeneralSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.languages-en',    
@@ -74,7 +74,7 @@ class GeneralSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.languages-es',    
@@ -84,7 +84,7 @@ class GeneralSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.languages-de',    
@@ -94,7 +94,7 @@ class GeneralSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.languages-fr',    
@@ -104,7 +104,7 @@ class GeneralSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.languages-da',    
@@ -114,7 +114,7 @@ class GeneralSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.languages-it',    
@@ -124,7 +124,7 @@ class GeneralSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.languages-remember',    
@@ -134,7 +134,7 @@ class GeneralSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.languages-language',    
@@ -144,7 +144,7 @@ class GeneralSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.languages-currency',    
@@ -154,7 +154,7 @@ class GeneralSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'general.languages-apply',    

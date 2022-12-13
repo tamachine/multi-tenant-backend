@@ -157,6 +157,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'text.en' => [
+            'required' => 'The text in english is required'
+        ]
     ],
 
     /*

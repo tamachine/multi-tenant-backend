@@ -3,7 +3,7 @@
 namespace Database\Seeders\Translations\Web;
 
 use Illuminate\Database\Seeder;
-use Spatie\TranslationLoader\LanguageLine;
+use App\Models\Translation;
 
 class DealsSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class DealsSeeder extends Seeder
      */
     public function run()
     {                
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'deals.title',    
@@ -24,7 +24,7 @@ class DealsSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'deals.deal-title-1',    
@@ -34,7 +34,7 @@ class DealsSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'deals.deal-text-1',    
@@ -44,7 +44,7 @@ class DealsSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'deals.deal-title-2',    
@@ -54,7 +54,7 @@ class DealsSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'deals.deal-text-2',    
@@ -65,7 +65,7 @@ class DealsSeeder extends Seeder
         );  
 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'deals.deal-title-3',    
@@ -75,7 +75,7 @@ class DealsSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'deals.deal-text-3',    
@@ -85,7 +85,7 @@ class DealsSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'deals.deal-title-4',    
@@ -95,7 +95,7 @@ class DealsSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'deals.deal-text-4',    
@@ -105,7 +105,7 @@ class DealsSeeder extends Seeder
             ]
         );
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'deals.deal-title-5',    
@@ -115,7 +115,7 @@ class DealsSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'deals.deal-text-5',    

@@ -3,7 +3,7 @@
 namespace Database\Seeders\Translations\Web;
 
 use Illuminate\Database\Seeder;
-use Spatie\TranslationLoader\LanguageLine;
+use App\Models\Translation;
 
 class NavBarSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class NavBarSeeder extends Seeder
      */
     public function run()
     {                
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'navbar.cars',    
@@ -24,7 +24,7 @@ class NavBarSeeder extends Seeder
             ]
         );   
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'navbar.about',    
@@ -34,7 +34,7 @@ class NavBarSeeder extends Seeder
             ]
         );
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'navbar.faq',    
@@ -44,7 +44,7 @@ class NavBarSeeder extends Seeder
             ]
         );
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'navbar.blog',    
@@ -54,7 +54,7 @@ class NavBarSeeder extends Seeder
             ]
         );
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'navbar.contact',    
@@ -64,7 +64,7 @@ class NavBarSeeder extends Seeder
             ]
         );
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'navbar.en',    
@@ -74,7 +74,7 @@ class NavBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'navbar.es',    
@@ -84,7 +84,7 @@ class NavBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'navbar.close',    
@@ -94,7 +94,7 @@ class NavBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'navbar.open',    
@@ -104,7 +104,7 @@ class NavBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'navbar.email',    
@@ -114,7 +114,7 @@ class NavBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'navbar.cars-title',    
@@ -124,7 +124,7 @@ class NavBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'navbar.cars-button',    

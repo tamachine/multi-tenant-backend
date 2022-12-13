@@ -16,8 +16,8 @@ Route::group(
     function () {
         // Content main routes
         Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
-            Route::group(['prefix' => 'translations', 'as' => 'translation.'], function () {            
-            Route::get('/', ['as' => 'index', 'uses' => 'TranslationController@index']);
-        });                
+                                   
+        Route::resource('translation', TranslationController::class, ['parameters'=> ['translation' => 'translation_hashid']])->except(['create', 'store', 'destroy']);
+                            
     }
 );

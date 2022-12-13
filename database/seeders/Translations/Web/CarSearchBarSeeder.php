@@ -3,7 +3,7 @@
 namespace Database\Seeders\Translations\Web;
 
 use Illuminate\Database\Seeder;
-use Spatie\TranslationLoader\LanguageLine;
+use App\Models\Translation;
 
 class CarSearchBarSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class CarSearchBarSeeder extends Seeder
      */
     public function run()
     {                
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.same',    
@@ -24,7 +24,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         );   
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.different',    
@@ -34,7 +34,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         );   
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.first-day',    
@@ -44,7 +44,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         );   
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.last-day',    
@@ -54,7 +54,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         );   
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.pick-up-day',    
@@ -64,7 +64,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         );  
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.drop-off-day',    
@@ -74,7 +74,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.pick-up',    
@@ -84,7 +84,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.drop-off',    
@@ -94,7 +94,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.return',    
@@ -104,7 +104,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.select-location',    
@@ -114,7 +114,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.select-hours',    
@@ -124,7 +124,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.hours-pickup',    
@@ -134,7 +134,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.hours-return',    
@@ -144,7 +144,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.mobile-first-input-title',    
@@ -154,7 +154,7 @@ class CarSearchBarSeeder extends Seeder
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'car-search-bar.mobile-first-input-placeholder',    

@@ -3,7 +3,7 @@
 namespace Database\Seeders\Translations\Web;
 
 use Illuminate\Database\Seeder;
-use Spatie\TranslationLoader\LanguageLine;
+use App\Models\Translation;
 
 class HomeSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class HomeSeeder extends Seeder
      */
     public function run()
     {                
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.title',    
@@ -24,7 +24,7 @@ class HomeSeeder extends Seeder
             ]
         );   
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.subtitle',    
@@ -34,7 +34,7 @@ class HomeSeeder extends Seeder
             ]
         );   
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.box1-h2-title',    
@@ -44,7 +44,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.box1-h2-subtitle',    
@@ -54,7 +54,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-default-1-title',    
@@ -64,7 +64,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-default-1-text',    
@@ -74,7 +74,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-default-2-title',    
@@ -84,7 +84,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-default-2-text',    
@@ -94,7 +94,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-default-3-title',    
@@ -104,7 +104,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-default-3-text',    
@@ -114,7 +114,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.box2-h2-title',    
@@ -124,7 +124,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.box2-h2-subtitle',    
@@ -134,7 +134,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-elongated-1-title',    
@@ -144,7 +144,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-elongated-1-text',    
@@ -154,7 +154,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-elongated-2-title',    
@@ -164,7 +164,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-elongated-2-text',    
@@ -174,7 +174,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-elongated-3-title',    
@@ -184,7 +184,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-elongated-3-text',    
@@ -194,7 +194,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-elongated-1-time',    
@@ -204,7 +204,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-elongated-2-time',    
@@ -214,7 +214,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.card-elongated-3-time',    
@@ -224,7 +224,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.faqs-title',    
@@ -234,7 +234,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.faqs-subtitle',    
@@ -244,7 +244,7 @@ class HomeSeeder extends Seeder
             ]
         );     
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.faqs-view-all',    
@@ -254,7 +254,7 @@ class HomeSeeder extends Seeder
             ]
         );   
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.why-iceland-title',    
@@ -264,7 +264,7 @@ class HomeSeeder extends Seeder
             ]
         );   
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.why-iceland-text',    
@@ -277,7 +277,7 @@ class HomeSeeder extends Seeder
             ]
         );   
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.feature-more',    
@@ -290,7 +290,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.feature-1-title',    
@@ -303,7 +303,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.feature-1-text',    
@@ -316,7 +316,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.feature-2-title',    
@@ -329,7 +329,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.feature-2-text',    
@@ -342,7 +342,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.testimonials-title',    
@@ -355,7 +355,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.testimonials-text',    
@@ -368,7 +368,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.testimonials-all',    
@@ -381,7 +381,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.location-map-title',    
@@ -394,7 +394,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.location-map-address',    
@@ -407,7 +407,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.location-map-time',    
@@ -420,7 +420,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.location-map-phone',    
@@ -433,7 +433,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.location-map-email',    
@@ -446,7 +446,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.location-map-hours-title',    
@@ -459,7 +459,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.location-map-hours-monday',    
@@ -472,7 +472,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.location-map-hours-tuesday',    
@@ -485,7 +485,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.location-map-hours-wednesday',    
@@ -498,7 +498,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.location-map-hours-thursday',    
@@ -511,7 +511,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.location-map-hours-friday',    
@@ -524,7 +524,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.location-map-hours-saturday',    
@@ -537,7 +537,7 @@ class HomeSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'home.location-map-hours-sunday',    

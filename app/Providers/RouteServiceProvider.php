@@ -36,7 +36,28 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configureRateLimiting();
+        $this->defineRoutes();     
+        $this->bindings();   
+    }
 
+     /**
+     * Define the model bindings
+     *
+     * @return void
+     */
+    public function bindings() {
+        Route::bind('translation_hashid', function ($value) {
+            $resource = new \App\Models\Translation();
+            return $resource->where('hashid', $value)->first();
+        });
+    }
+     /**
+     * Define the routes for the application.
+     *
+     * @return void
+     */
+    public function defineRoutes()
+    {
         $this->routes(function () {
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));

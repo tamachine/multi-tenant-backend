@@ -9,7 +9,7 @@
                         <thead class="bg-gray-100">
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Name
+                                    {{ __('Name') }}
                                 </th>
                                 @foreach(config('languages') as $key => $language)
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -24,7 +24,9 @@
                                 <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">
                                     
                                     <td class="px-6 py-4 text-sm font-medium">     
-                                        {!! highlightTerm($translation->full_key, $search) !!}                                                                                                             
+                                        <a href="{{route('content.translation.edit', $translation->hashid)}}" class="text-purple-700 hover:underline">
+                                            {!! highlightTerm($translation->full_key, $search) !!}                                                                                                             
+                                        </a>
                                     </td>
 
                                     @foreach(config('languages') as $key => $language)

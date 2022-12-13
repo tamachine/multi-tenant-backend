@@ -3,7 +3,7 @@
 namespace Database\Seeders\Translations\Web;
 
 use Illuminate\Database\Seeder;
-use Spatie\TranslationLoader\LanguageLine;
+use App\Models\Translation;
 
 class FooterSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class FooterSeeder extends Seeder
      */
     public function run()
     {                
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.title',    
@@ -24,7 +24,7 @@ class FooterSeeder extends Seeder
             ]
         );    
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.text',    
@@ -34,7 +34,7 @@ class FooterSeeder extends Seeder
             ]
         );  
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.newsletter-title',    
@@ -44,7 +44,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.newsletter-text',    
@@ -54,7 +54,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.newsletter-input-placeholder',    
@@ -64,7 +64,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.newsletter-form-submit',    
@@ -74,7 +74,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-1-links-title',    
@@ -84,7 +84,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-2-links-title',    
@@ -94,7 +94,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-3-links-title',    
@@ -104,7 +104,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-4-links-title',    
@@ -114,7 +114,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-1-link-1',    
@@ -124,7 +124,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-1-link-2',    
@@ -134,7 +134,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-1-link-3',    
@@ -144,7 +144,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-1-link-4',    
@@ -154,7 +154,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-1-link-5',    
@@ -164,7 +164,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-2-link-1',    
@@ -174,7 +174,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-2-link-2',    
@@ -184,7 +184,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-2-link-3',    
@@ -194,7 +194,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-2-link-4',    
@@ -204,7 +204,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-2-link-5',    
@@ -214,7 +214,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-3-link-1',    
@@ -224,7 +224,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-3-link-2',    
@@ -234,7 +234,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-3-link-3',    
@@ -244,7 +244,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-3-link-4',    
@@ -254,7 +254,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-3-link-5',    
@@ -264,7 +264,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-4-link-1',    
@@ -274,7 +274,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-4-link-2',    
@@ -284,7 +284,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-4-link-3',    
@@ -294,7 +294,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-4-link-4',    
@@ -304,7 +304,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.col-4-link-5',    
@@ -314,7 +314,7 @@ class FooterSeeder extends Seeder
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
                 'group' => 'web',
                 'key' => 'footer.copyright',    

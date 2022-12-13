@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
+use App\Traits\HashidTrait;
 use Spatie\TranslationLoader\LanguageLine;
-use DB;
 
 class Translation extends LanguageLine
 {
+    use HashidTrait;
 
     protected $table = 'language_lines';
 
-    protected $appends = ['full_key'];
+    protected $appends = ['full_key'];    
 
     public function getFullKeyAttribute() 
     {
