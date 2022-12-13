@@ -54,23 +54,23 @@ class ContentUserTest extends TestCase
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('content'))
+            ->get(route('content.dashboard'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('content'))
+            ->get(route('content.dashboard'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('content'))
+            ->get(route('content.dashboard'))
             ->assertStatus(200);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('content'))
+            ->get(route('content.dashboard'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('content'))
+            ->get(route('content.dashboard'))
             ->assertStatus(200);
     }
 }

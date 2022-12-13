@@ -81,3 +81,18 @@ if (!function_exists('formatPrice')) {
         return number_format($price, $decimals, '.', ',') . " " . strtoupper($currency);
     }
 }
+
+
+if (!function_exists('highlightTerm')) {
+    /**
+     * highlight the term string in the text
+     *
+     * @param      string   $text   The text
+     * @param      string   $term   The term to be highlighted
+     * @return     string
+     */
+    function highlightTerm($text, $term)
+    {        
+        return str_ireplace($term, "<mark>$term</mark>", $text); 
+    }
+}

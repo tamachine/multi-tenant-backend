@@ -28,10 +28,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('developer', [DeveloperPolicy::class, 'developer']);
-        Gate::define('superAdmin', [SuperAdminPolicy::class, 'superAdmin']);
         Gate::define('admin', [AdminPolicy::class, 'admin']);
         Gate::define('booking', [BookingPolicy::class, 'booking']);
         Gate::define('content', [ContentPolicy::class, 'content']);
+        Gate::define('developer', [DeveloperPolicy::class, 'developer']);
+        Gate::define('superAdmin', [SuperAdminPolicy::class, 'superAdmin']);        
     }
 }
