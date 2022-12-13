@@ -70,6 +70,14 @@ class EditTest extends TestCase
             ]);
 
         Livewire::test(Edit::class, ['booking' => $booking->hashid])
+            ->set('total_price', 100000)
+            ->set('online_payment', 200000)
+            ->call('editBooking')
+            ->assertHasErrors([
+                'online_payment' => ['lt'],
+            ]);
+
+        Livewire::test(Edit::class, ['booking' => $booking->hashid])
             ->set('status', 'canceled')
             ->set('cancel_reason', null)
             ->call('editBooking')

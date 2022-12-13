@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Booking;
 use App\Models\Booking;
 use App\Models\Car;
 use App\Models\Location;
-use App\Models\Vendor;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -167,13 +166,13 @@ class Edit extends Component
 
         $rules = [
             'car' => ['required'],
-            'pickup_location' => ['required'],
-            'dropoff_location' => ['required'],
-            'pickup_date' => ['required', 'date'],
-            'dropoff_date' => ['required', 'date', 'after:pickup_date'],
+            'pickup_location'   => ['required'],
+            'dropoff_location'  => ['required'],
+            'pickup_date'       => ['required', 'date'],
+            'dropoff_date'      => ['required', 'date', 'after:pickup_date'],
             'total_price'       => ['required', 'numeric', 'gte:0'],
-            'online_payment'       => ['required', 'numeric', 'gte:0'],
-            'cancel_reason'       => ['required_if:status,canceled'],
+            'online_payment'    => ['required', 'numeric', 'gte:0', 'lt:total_price'],
+            'cancel_reason'     => ['required_if:status,canceled'],
         ];
 
         $this->validate($rules);
