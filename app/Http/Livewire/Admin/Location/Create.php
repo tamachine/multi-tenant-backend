@@ -74,7 +74,7 @@ class Create extends Component
 
             $location->update([
                 'caren_settings' => [
-                    'caren_pickup_location_id'  => $carenLocation->caren_dropoff_location_id,
+                    'caren_pickup_location_id'  => $carenLocation->caren_pickup_location_id,
                     'caren_dropoff_location_id' => $carenLocation->caren_dropoff_location_id,
                 ]
             ]);

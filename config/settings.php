@@ -17,4 +17,8 @@ return [
     'vendor' => [
         'multivendor' => false,
     ],
+
+    'slack' => [
+        'enabled' => env('SLACK_ENABLED', false),
+    ],
 ];

@@ -69,6 +69,7 @@ class DatabaseSeeder extends Seeder
             LanguageLineSeeder::class,
             FaqsSeeder::class,
             FreeDaySeeder::class,
+            CarsIcelandSeeder::class,
         ]);
     }
 
