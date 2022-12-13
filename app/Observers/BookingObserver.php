@@ -15,6 +15,10 @@ class BookingObserver
      */
     public function created(Booking $booking)
     {
+        if ($booking->order_number) {
+            return;
+        }
+
         // 1. Get the car code
         $carCode = $booking->car->car_code;
 

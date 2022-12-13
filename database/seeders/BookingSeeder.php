@@ -16,8 +16,6 @@ class BookingSeeder extends Seeder
      */
     public function run()
     {
-        Booking::unsetEventDispatcher();
-
         // Create 100 bookings for each car
         foreach (Car::all() as $car) {
             $carCode = $car->car_code;

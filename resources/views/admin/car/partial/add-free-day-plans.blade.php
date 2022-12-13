@@ -11,7 +11,7 @@
         <!-- Plans' dropdown -->
         <div class="px-4 mt-4 md:mt-0">
             <select id="plan" name="plan" wire:model="plan"
-                class="disable-arrow block w-full h-10 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                class="disable-arrow block w-full h-10 pt-2 px-3 text-left border-gray-300 rounded-md"
             >
                 <option value="">Select Plan</option>
                 @foreach ($availablePlans as $availablePlan)

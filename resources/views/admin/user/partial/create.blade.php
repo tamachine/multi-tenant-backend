@@ -26,7 +26,7 @@
          <div class="px-4 mt-4 md:mt-0">
             <x-admin.label for="role" value="{{ __('Role') }}" />
             <select id="role" name="role" wire:model="role"
-                class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
             >
                 <option value="">Select role</option>
                 @foreach(config('roles.intranet_roles') as $key => $value)

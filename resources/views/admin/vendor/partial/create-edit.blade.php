@@ -20,7 +20,7 @@
             <div class="px-4 mt-4 md:mt-0">
                 <x-admin.label for="caren_vendor" value="{{ __('Caren Vendor') }}" />
                 <select id="caren_vendor" name="caren_vendor" wire:model="caren_vendor"
-                    class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                 >
                     <option value="">Select Vendor</option>
                     @foreach ($caren_vendors as $id => $name)
@@ -49,7 +49,7 @@
         <div class="px-4 mt-4 md:mt-0">
             <x-admin.label for="status" value="{{ __('Status') }}" />
             <select id="status" name="status" wire:model="status"
-                class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
             >
                 <option value="active">{{ __('Active') }}</option>
                 <option value="hidden">{{ __('Hidden') }}</option>

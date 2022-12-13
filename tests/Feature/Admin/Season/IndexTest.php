@@ -30,7 +30,7 @@ class IndexTest extends TestCase
      *
      * @return void
      */
-    public function userIndexShowsSeasonsAndFilters()
+    public function seasonIndexShowsSeasonsAndFilters()
     {
         $this->actingAs($this->admin);
 

@@ -32,7 +32,7 @@
             <div class="px-4 mt-4 md:mt-0">
                 <x-admin.label for="closed" value="{{ __('Closed') }}" />
                 <select id="closed" name="closed" wire:model="closed"
-                    class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                 >
                     <option value="1">{{ __('Yes') }}</option>
                     <option value="0">{{ __('No') }}</option>
@@ -46,7 +46,7 @@
                 <div class="px-4">
                     <x-admin.label for="pickup_from" value="{{ __('Pick From') }}" />
                     <select id="pickup_from" name="pickup_from" wire:model="pickup_from"
-                        class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                        class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                     >
                         @foreach ($hours as $hour)
                             <option value="{{$hour}}">{{ $hour }}</option>
@@ -58,7 +58,7 @@
                 <div class="px-4">
                     <x-admin.label for="pickup_to" value="{{ __('Pick To') }}" />
                     <select id="pickup_to" name="pickup_to" wire:model="pickup_to"
-                        class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                        class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                     >
                         @foreach ($hours as $hour)
                             <option value="{{$hour}}">{{ $hour }}</option>
@@ -70,7 +70,7 @@
                 <div class="px-4">
                     <x-admin.label for="dropoff_from" value="{{ __('Drop From') }}" />
                     <select id="dropoff_from" name="dropoff_from" wire:model="dropoff_from"
-                        class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                        class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                     >
                         @foreach ($hours as $hour)
                             <option value="{{$hour}}">{{ $hour }}</option>
@@ -82,7 +82,7 @@
                 <div class="px-4">
                     <x-admin.label for="dropoff_to" value="{{ __('Drop To') }}" />
                     <select id="dropoff_to" name="dropoff_to" wire:model="dropoff_to"
-                        class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                        class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                     >
                         @foreach ($hours as $hour)
                             <option value="{{$hour}}">{{ $hour }}</option>

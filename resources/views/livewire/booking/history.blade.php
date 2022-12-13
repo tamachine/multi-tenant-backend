@@ -11,7 +11,7 @@
                             <x-admin.label for="records" value="{{ __('Records') }}" />
 
                             <select id="records" name="records" wire:model="records"
-                                class="disable-arrow block w-full mt-2 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md font-medium"
+                                class="disable-arrow block w-full mt-2 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md"
                             >
                                 <option value="5">5</option>
                                 <option value="10">10</option>
@@ -25,7 +25,7 @@
                             <x-admin.label for="date_format" value="{{ __('Date format') }}" />
 
                             <select id="date_format" name="date_format" wire:model="date_format"
-                                class="disable-arrow block w-full mt-2 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md font-medium"
+                                class="disable-arrow block w-full mt-2 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md"
                             >
                                 <option value="d-m-Y H:i">Europe</option>
                                 <option value="Y-m-d H:i">USA</option>
@@ -119,7 +119,7 @@
                         @foreach ($bookings as $index => $booking)
                             <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <a href="#" class="text-purple-700 hover:underline">
+                                    <a href="{{route('booking.edit', $booking->hashid)}}" class="text-purple-700 hover:underline">
                                         {{ $booking->order_number }}
                                     </a>
                                 </td>

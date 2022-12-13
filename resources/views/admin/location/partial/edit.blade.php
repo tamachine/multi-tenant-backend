@@ -24,7 +24,7 @@
                 <div class="px-4 mt-4 md:mt-0 w-1/2">
                     <x-admin.label for="pickup_show_input" value="{{ __('Show Input') }}" />
                     <select id="pickup_show_input" name="pickup_show_input" wire:model="pickup_show_input"
-                        class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                        class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                     >
                         <option value="1">{{ __('Yes') }}</option>
                         <option value="0">{{ __('No') }}</option>
@@ -36,7 +36,7 @@
                 <div class="px-4 mt-4 md:mt-0 w-1/2">
                     <x-admin.label for="pickup_input_require" value="{{ __('Filling Require') }}" />
                     <select id="pickup_input_require" name="pickup_input_require" wire:model="pickup_input_require"
-                        class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                        class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                     >
                         <option value="1">{{ __('Yes') }}</option>
                         <option value="0">{{ __('No') }}</option>
@@ -62,7 +62,7 @@
                 <div class="px-4 mt-4 md:mt-0 w-1/2">
                     <x-admin.label for="dropoff_show_input" value="{{ __('Show Input') }}" />
                     <select id="dropoff_show_input" name="dropoff_show_input" wire:model="dropoff_show_input"
-                        class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                        class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                     >
                         <option value="1">{{ __('Yes') }}</option>
                         <option value="0">{{ __('No') }}</option>
@@ -74,7 +74,7 @@
                 <div class="px-4 mt-4 md:mt-0 w-1/2">
                     <x-admin.label for="dropoff_input_require" value="{{ __('Filling Require') }}" />
                     <select id="dropoff_input_require" name="dropoff_input_require" wire:model="dropoff_input_require"
-                        class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                        class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                     >
                         <option value="1">{{ __('Yes') }}</option>
                         <option value="0">{{ __('No') }}</option>

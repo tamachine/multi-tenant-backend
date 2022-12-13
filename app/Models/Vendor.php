@@ -124,6 +124,26 @@ class Vendor extends Model
     }
 
     /**
+     * Vendor locations
+     *
+     * @return object
+     */
+    public function locations()
+    {
+        return $this->belongsToMany(Location::class, 'vendor_location');
+    }
+
+    /**
+     * Vendor cars
+     *
+     * @return object
+     */
+    public function cars()
+    {
+        return $this->hasMany(Car::class);
+    }
+
+    /**
      * Vendor holidays
      *
      * @return object
