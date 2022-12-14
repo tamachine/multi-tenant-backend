@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('group')->index();
             $table->string('key');
             $table->text('text');
+            $table->boolean('rich')->default(0);
             $table->timestamps();
         });
     }

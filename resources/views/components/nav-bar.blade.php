@@ -21,11 +21,11 @@
     {{-- desktop --}}
     <div class="hidden md:flex items-center divide-x gap-10">
         <div class="flex items-end justify-between flex-wrap gap-10 text-lg font-sans-medium">
-            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.cars') }}</a>
-            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.about') }}</a>
-            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.faq') }}</a>
-            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.blog') }}</a>
-            <a href="#" class="hover:text-pink-red">{{ __('web.navbar.contact') }}</a>
+            <a href="#" class="hover:text-pink-red">{!! __('web.navbar.cars') !!}</a>
+            <a href="#" class="hover:text-pink-red">{!! __('web.navbar.about') !!}</a>
+            <a href="#" class="hover:text-pink-red">{!! __('web.navbar.faq') !!}</a>
+            <a href="#" class="hover:text-pink-red">{!! __('web.navbar.blog') !!}</a>
+            <a href="#" class="hover:text-pink-red">{!! __('web.navbar.contact') !!}</a>
         </div>
         <div class="pl-5 text-sm font-medium flex items-center gap-1" x-on:click="toggle()">
             <img class="inline" src='{{ asset("/images/currencies/dollar.svg") }}' />

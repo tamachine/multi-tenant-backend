@@ -56,7 +56,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Translation "' . $this->full_key .'" updated');
 
-        return redirect()->route('content.translation.edit', $this->translation);        
+        $this->dispatchBrowserEvent('open-success', ['message' => 'The translations have been saved']);        
     }    
 
     public function render()

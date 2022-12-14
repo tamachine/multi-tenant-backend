@@ -274,6 +274,7 @@ class HomeSeeder extends Seeder
                     'en' => "While many travelers love to chase the sun and the hustle and bustle of major cities, there are others looking for a more relaxed vacation in a cooler climate. Iceland may be the most sparsely populated country in Europe, but it is also a place that is drawing a lot of attention from tourists looking for a new place to explore.<br><br>Some of the most spectacular natural wonders in the world can be found there, and the small population means that it never feels overcrowded. Getting around can be tough due to the lack of public transport to the remote areas, which is why a car hire in Iceland is such a good idea.", 
                     "es" => "Mientras que a muchos viajeros les encanta perseguir el sol y el ajetreo y el bullicio de las principales ciudades, hay otros que buscan unas vacaciones más relajadas en un clima más fresco. Islandia puede ser el país menos poblado de Europa, pero también es un lugar que está atrayendo mucho la atención de los turistas que buscan un nuevo lugar para explorar.<br><br>Algunas de las maravillas naturales más espectaculares del mundo se pueden encontrar allí, y la pequeña población significa que nunca se siente abarrotado. Moverse puede ser difícil debido a la falta de transporte público a las zonas remotas, por lo que alquilar un coche en Islandia es una buena idea."
                 ],
+                'rich' => true
             ]
         );   
 
@@ -313,6 +314,7 @@ class HomeSeeder extends Seeder
                     'en' => "The great thing about renting a car in Iceland is that you will often feel as though you have the road to yourself. Even in the major cities, there aren’t any issues with traffic jams, making life on the road very comfortable indeed. You should be aware that you drive on the right side of the road in Iceland, so just keep that in mind if you come from a country where traffic is on the left.<br><br>To make things easy for drivers, there is a single, two-lane ring road that runs around Iceland, and which essentially takes you anywhere you want to go. You will of course have to take off-roads to visit attractions, but these are clearly marked and easy to navigate. If you are not sure about driving in snowy.", 
                     "es" => "Lo bueno de alquilar un automóvil en Islandia es que a menudo sentirás que tienes el camino para ti solo. Incluso en las principales ciudades, no hay ningún problema con los atascos de tráfico, lo que hace que la vida en la carretera sea muy cómoda. Debe tener en cuenta que conduce por el lado derecho de la carretera en Islandia, así que tenga esto en cuenta si viene de un país donde el tráfico es por la izquierda.<br><br>Para facilitar las cosas a los conductores, hay es una carretera de circunvalación única de dos carriles que recorre Islandia y que esencialmente te lleva a donde quieras ir. Por supuesto, tendrá que salir de la carretera para visitar las atracciones, pero están claramente señalizadas y son fáciles de navegar. Si no está seguro de conducir en nieve."
                 ],
+                'rich' => true,
             ]
         ); 
 

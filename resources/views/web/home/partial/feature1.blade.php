@@ -1,4 +1,4 @@
-<div class="pt-28 md:pt-40">
+<div class="pt-28 md:pt-40 trix-content">
     <x-feature 
         title="{!! __('web.home.feature-1-title') !!}" 
         text="{!! __('web.home.feature-1-text') !!}" 

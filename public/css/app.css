@@ -1798,10 +1798,6 @@ h5 {
     cursor: default;    
 }
 
-.resize {
-    resize: both;    
-}
-
 .appearance-none {
     -webkit-appearance: none;
        -moz-appearance: none;
@@ -3086,11 +3082,6 @@ h5 {
 
 .ring-opacity-5 {
     --tw-ring-opacity: 0.05;    
-}
-
-.blur {
-    --tw-blur: blur(8px);
-    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);    
 }
 
 .filter {

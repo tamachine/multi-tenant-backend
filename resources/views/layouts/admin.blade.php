@@ -16,8 +16,7 @@
         @livewireStyles
         
         <!-- Scripts -->
-        <script src="{{ mix('js/admin.js') }}" defer></script>        
-        <script src="{{ url(mix('js/trix.js')) }}"></script>         
+        <script src="{{ mix('js/admin.js') }}" defer></script>                
     </head>
 
     <body>

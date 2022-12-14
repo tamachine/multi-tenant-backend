@@ -15,12 +15,12 @@ require("laravel-mix-tailwind");
 
 mix
     .js("resources/js/app.js", "public/js/app.js")
-    .js("resources/js/admin.js", "public/js/admin.js")        
-    .scripts("resources/vendor/trix/trix.js", "public/js/trix.js") //couldn't make it work with npm   
+    .js("resources/js/admin.js", "public/js/admin.js")            
     .scripts('resources/js/app/*.js', 'public/js/app/scripts.js')        
     .postCss('resources/css/app.css', 'public/css', [
         require('tailwindcss'),
     ])
+    .copy('node_modules/tinymce/skins', 'public/js/skins')
     .postCss('resources/css/easepick.css', 'public/css') //it is needed here to avoid overriding css classes when using easepick
     .sass('resources/sass/admin.scss', 'public/css')
     .tailwind("./tailwind.config.js")
