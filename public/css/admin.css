@@ -3695,7 +3695,7 @@ Custom styles for trix
 */
 
 .trix-button-group.trix-button-group--file-tools, .trix-button-group.trix-button-group--block-tools {
-  /*display:none;*/
+  display: none;
 }
 
 .placeholder\:text-base::-moz-placeholder{
