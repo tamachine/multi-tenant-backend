@@ -39,7 +39,7 @@ class Translation extends LanguageLine
             $query->where('text', 'like', $term)
                 ->orWhere('group', 'like', $term)
                 ->orWhere('key', 'like', $term)
-                ->orWhereRaw("CONCAT_WS('.', `group`, `key`) like ?", $term);                          
+                ->orWhereRaw("CONCAT_WS('.', `group`, `key`) like ?", $term);                                               
         }      
         
         return $query;

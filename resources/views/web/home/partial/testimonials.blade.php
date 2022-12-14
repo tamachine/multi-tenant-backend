@@ -4,8 +4,8 @@
     </div>
     <h2 class="text-center px-10 md:hidden">{!! __('web.home.testimonials-title') !!}</h2>     
     <div class="grid grid-cols-2 gap-2 pt-28 md:pt-0 justify-between relative md:flex-1">        
-        <img class="rounded-2xl w-full" src="{{ asset('images/home/testimonials-left.png') !!}" />
-        <img class="rounded-2xl w-full" src="{{ asset('images/home/testimonials-right.png') !!}" />
+        <img class="rounded-2xl w-full" src="{{ asset('images/home/testimonials-left.png') }}" />
+        <img class="rounded-2xl w-full" src="{{ asset('images/home/testimonials-right.png') }}" />
         <div class="absolute z-10 md:hidden mx-12">
             @include('web.home.partial.testimonials-slide')
         </div>
