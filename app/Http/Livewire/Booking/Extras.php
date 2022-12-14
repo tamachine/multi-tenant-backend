@@ -69,14 +69,23 @@ class Extras extends Component
 
     public function addExtras()
     {
+        $added = [];
+
         foreach($this->availableExtras as $extra) {
             if ($extra["selected"]) {
                 $this->booking->bookingExtras()->create([
                     'extra_id'  => $extra["id"],
                     'units'     => $extra["units"],
                 ]);
+
+                $added[] = $extra["name"] . " (" . $extra["units"] . ")";
             }
         }
+
+        $this->booking->logs()->create([
+            'user_id'    => auth()->user()->id,
+            'message'    => 'Extras added: ' . implode(", ", $added)
+        ]);
 
         session()->flash('status', 'success');
         session()->flash('message', 'Extras added to the booking');
@@ -87,6 +96,12 @@ class Extras extends Component
     public function deleteExtra($id)
     {
         $this->booking->bookingExtras()->where('extra_id', $id)->delete();
+        $extra = Extra::find($id);
+
+        $this->booking->logs()->create([
+            'user_id'    => auth()->user()->id,
+            'message'    => 'Extra deleted: ' . $extra->name
+        ]);
 
         session()->flash('status', 'success');
         session()->flash('message', 'Extras removed from the booking');

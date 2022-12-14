@@ -9,9 +9,9 @@
 
     <x-slot name="form">
         <div class="w-full sm:grid sm:gap-2 sm:grid-cols-3">
-            <!-- Order Number -->
+            <!-- Order number -->
             <div class="px-4 mt-4 md:mt-0">
-                <x-admin.label for="order_number" class="mb-1" value="{{ __('Order Number') }}" />
+                <x-admin.label for="order_number" class="mb-1" value="{{ __('Order number') }}" />
                 <strong>{{$order_number}}</strong>
             </div>
 
@@ -21,9 +21,9 @@
                 <strong>{{$vendor_name}}</strong>
             </div>
 
-            <!-- Bopoking Date -->
+            <!-- Bopoking date -->
             <div class="px-4 mt-4 md:mt-0">
-                <x-admin.label for="booking_date" class="mb-1"  value="{{ __('Booking Date') }}" />
+                <x-admin.label for="booking_date" class="mb-1"  value="{{ __('Booking date') }}" />
                 <strong>{{$booking_date}}</strong>
             </div>
         </div>
@@ -47,9 +47,9 @@
                     <x-admin.input-error for="car" class="mt-2" />
                 </div>
 
-                {{-- Pickup Location --}}
+                {{-- Pickup location --}}
                 <div class="mt-4 px-4">
-                    <x-admin.label for="pickup_location" value="{{ __('Pickup Location') }}" />
+                    <x-admin.label for="pickup_location" value="{{ __('Pickup location') }}" />
 
                     <select id="pickup_location" name="pickup_location" wire:model="pickup_location"
                         class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
@@ -62,9 +62,9 @@
                     <x-admin.input-error for="pickup_location" class="mt-2" />
                 </div>
 
-                {{-- Dropoff Location --}}
+                {{-- Dropoff location --}}
                 <div class="mt-4 px-4">
-                    <x-admin.label for="dropoff_location" value="{{ __('Dropoff Location') }}" />
+                    <x-admin.label for="dropoff_location" value="{{ __('Dropoff location') }}" />
 
                     <select id="dropoff_location" name="dropoff_location" wire:model="dropoff_location"
                         class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
@@ -145,16 +145,16 @@
             </div>
 
             <div class="mt-4">
-                {{-- Total Price --}}
+                {{-- Total price --}}
                 <div class="px-4">
-                    <x-admin.label for="total_price" value="{{ __('Total Price') }}" />
+                    <x-admin.label for="total_price" value="{{ __('Total price') }}" />
                     <x-admin.input id="total_price" type="number" class="w-32 h-10 mt-1 block" min="0" step="1" wire:model="total_price" />
                     <x-admin.input-error for="total_price" class="mt-2" />
                 </div>
 
                 {{-- Online Payment --}}
                 <div class="px-4 mt-4">
-                    <x-admin.label for="online_payment" value="{{ __('Online Payment') }}" />
+                    <x-admin.label for="online_payment" value="{{ __('Online payment') }}" />
                     <x-admin.input id="online_payment" type="number" class="w-32 h-10 mt-1 block" min="0" step="1" wire:model="online_payment" />
                     <x-admin.input-error for="online_payment" class="mt-2" />
                 </div>
@@ -169,9 +169,9 @@
             </div>
 
             <div class="mt-4">
-                {{-- Payment Status --}}
+                {{-- Payment status --}}
                 <div class="px-4">
-                    <x-admin.label for="payment_status" value="{{ __('Payment Status') }}" />
+                    <x-admin.label for="payment_status" value="{{ __('Payment status') }}" />
 
                     <select id="payment_status" name="payment_status" wire:model="payment_status"
                         class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
@@ -181,9 +181,9 @@
                     </select>
                 </div>
 
-                {{-- Vendor Status --}}
+                {{-- Vendor status --}}
                 <div class="mt-4 px-4">
-                    <x-admin.label for="vendor_status" value="{{ __('Vendor Status') }}" />
+                    <x-admin.label for="vendor_status" value="{{ __('Vendor status') }}" />
 
                     <select id="vendor_status" name="vendor_status" wire:model="vendor_status"
                         class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
@@ -195,7 +195,7 @@
 
                 {{-- Booking Status --}}
                 <div class="mt-4 px-4">
-                    <x-admin.label for="status" value="{{ __('Status') }}" />
+                    <x-admin.label for="status" value="{{ __('Booking status') }}" />
 
                     <select id="status" name="status" wire:model="status"
                         class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"

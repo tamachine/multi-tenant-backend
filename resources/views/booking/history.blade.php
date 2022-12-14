@@ -1,6 +1,6 @@
 <x-admin-layout>
     <x-slot name="title">
-        {{ __('Booking History') }}
+        {{ __('Booking history') }}
     </x-slot>
 
     <x-slot name="action">

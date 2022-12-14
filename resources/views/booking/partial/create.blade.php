@@ -47,13 +47,13 @@
         <div class="mt-4 w-full md:gap-2 md:grid-cols-2 {{emptyOrNull($vendor) ? 'hidden' : 'md:grid'}}">
             {{-- Pickup --}}
             <div class="px-4">
-                {{-- Pickup Location --}}
-                <x-admin.label for="pickup_location" value="{{ __('Pickup Location') }}" />
+                {{-- Pickup location --}}
+                <x-admin.label for="pickup_location" value="{{ __('Pickup location') }}" />
 
                 <select id="pickup_location" name="pickup_location" wire:model="pickup_location"
                     class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                 >
-                    <option value="">Select Pickup Location</option>
+                    <option value="">Select pickup location</option>
                     @foreach ($locations as $id => $name)
                         <option value="{{$id}}">{{ $name }}</option>
                     @endforeach
@@ -97,13 +97,13 @@
 
             {{-- Dropoff --}}
             <div class="px-4 mt-4 md:mt-0">
-                {{-- Dropoff Location --}}
-                <x-admin.label for="dropoff_location" value="{{ __('Dropoff Location') }}" />
+                {{-- Dropoff location --}}
+                <x-admin.label for="dropoff_location" value="{{ __('Dropoff location') }}" />
 
                 <select id="dropoff_location" name="dropoff_location" wire:model="dropoff_location"
                     class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                 >
-                    <option value="">Select Dropoff Location</option>
+                    <option value="">Select dropoff location</option>
                     @foreach ($locations as $id => $name)
                         <option value="{{$id}}">{{ $name }}</option>
                     @endforeach

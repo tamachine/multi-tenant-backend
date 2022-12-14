@@ -155,8 +155,9 @@
                             class="disable-arrow block w-full mt-2 pt-2 px-3 text-left border-gray-300 rounded-md"
                         >
                             <option value="">All</option>
+                            <option value="pending">Pending</option>
                             <option value="confirmed">Confirmed</option>
-                            <option value="not_confirmed">Not Confirmed</option>
+                            <option value="canceled">Canceled</option>
                         </select>
                     </div>
 

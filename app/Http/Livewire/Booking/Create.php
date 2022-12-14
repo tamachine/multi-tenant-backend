@@ -97,8 +97,8 @@ class Create extends Component
         $vendor = Vendor::find(dehash($this->vendor));
 
         if (!emptyOrNull($value)) {
-            $this->cars = $vendor->cars()->pluck('name', 'hashid');
-            $this->locations = $vendor->locations()->pluck('name', 'hashid');
+            $this->cars = $vendor->cars()->orderBy('name', 'asc')->pluck('name', 'hashid');
+            $this->locations = $vendor->locations()->orderBy('name', 'asc')->pluck('name', 'hashid');
         }
     }
 

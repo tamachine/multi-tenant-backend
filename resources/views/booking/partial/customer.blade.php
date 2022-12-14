@@ -47,9 +47,9 @@
                     <x-admin.input-error for="address" class="mt-2" />
                 </div>
 
-                <!-- Postal Code -->
+                <!-- Postal code -->
                 <div class="mt-4 px-4">
-                    <x-admin.label for="postal_code" value="{{ __('Postal Code') }}" />
+                    <x-admin.label for="postal_code" value="{{ __('Postal code') }}" />
                     <x-admin.input id="postal_code" type="text" class="w-full mt-1 block" maxlength="255" wire:model.defer="postal_code" autocomplete="postal_code" />
                     <x-admin.input-error for="postal_code" class="mt-2" />
                 </div>
@@ -133,9 +133,9 @@
                     <x-admin.input-error for="extra_driver_info4" class="mt-2" />
                 </div>
 
-                <!-- Child Seat Info -->
+                <!-- Child seat info -->
                 <div class="mt-4 px-4">
-                    <x-admin.label for="weight_info" value="{{ __('Child Seat Info') }}" />
+                    <x-admin.label for="weight_info" value="{{ __('Child seat info') }}" />
                     <textarea id="weight_info" class="mt-1 focus:ring-purple-700 focus:purple-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
                         wire:model.defer="weight_info" rows="3">
                     </textarea>
@@ -144,23 +144,23 @@
             </div>
 
             <div>
-                <!-- Number of Passengers -->
+                <!-- Number of passengers -->
                 <div class="mt-4 px-4">
-                    <x-admin.label for="number_passengers" value="{{ __('Number of Passengers') }}" />
+                    <x-admin.label for="number_passengers" value="{{ __('Number of passengers') }}" />
                     <x-admin.input id="number_passengers" type="number" class="w-20 mt-1 block" min="0" max="20" wire:model.defer="number_passengers" />
                     <x-admin.input-error for="number_passengers" class="mt-2" />
                 </div>
 
-                <!-- Pickup Info -->
+                <!-- Pickup info -->
                 <div class="mt-4 px-4">
-                    <x-admin.label for="pickup_input_info" value="{{ __('Pickup Info') }}" />
+                    <x-admin.label for="pickup_input_info" value="{{ __('Pickup info') }}" />
                     <x-admin.input id="pickup_input_info" type="text" class="w-full mt-1 block" maxlength="255" wire:model.defer="pickup_input_info" />
                     <x-admin.input-error for="pickup_input_info" class="mt-2" />
                 </div>
 
-                <!-- Dropoff Info -->
+                <!-- Dropoff info -->
                 <div class="mt-4 px-4">
-                    <x-admin.label for="dropoff_input_info" value="{{ __('Dropoff Info') }}" />
+                    <x-admin.label for="dropoff_input_info" value="{{ __('Dropoff info') }}" />
                     <x-admin.input id="dropoff_input_info" type="text" class="w-full mt-1 block" maxlength="255" wire:model.defer="dropoff_input_info" />
                     <x-admin.input-error for="dropoff_input_info" class="mt-2" />
                 </div>

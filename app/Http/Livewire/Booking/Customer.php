@@ -203,11 +203,15 @@ class Customer extends Component
             'newsletter' => $this->newsletter,
         ]);
 
-        // Save a booking log
-        $this->booking->logs()->create([
-            'user_id'    => auth()->user()->id,
-            'message'    => auth()->user()->name . ' updated the customer information'
-        ]);
+        $changes = $this->booking->getChanges();
+
+        // Save a booking log if there have been changes
+        if (count($changes)) {
+            $this->booking->logs()->create([
+                'user_id'    => auth()->user()->id,
+                'message'    => 'Customer information updated: ' . translate_log_fields($changes)
+            ]);
+        }
 
         $this->dispatchBrowserEvent('open-success', ['message' => 'The customer information have been saved']);
     }

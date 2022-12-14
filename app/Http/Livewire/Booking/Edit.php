@@ -134,10 +134,10 @@ class Edit extends Component
         $this->vendor_name = $booking->vendor->name;
         $this->booking_date = $booking->created_at->format('d-m-Y H:i');
 
-        $this->cars = $booking->vendor->cars()->pluck('name', 'hashid');
+        $this->cars = $booking->vendor->cars()->orderBy('name', 'asc')->pluck('name', 'hashid');
         $this->car = $booking->car->hashid;
 
-        $this->locations = $booking->vendor->locations()->pluck('name', 'hashid');
+        $this->locations = $booking->vendor->locations()->orderBy('name', 'asc')->pluck('name', 'hashid');
         $this->pickup_location = $booking->pickupLocation->hashid;
         $this->dropoff_location = $booking->pickupLocation->hashid;
 
@@ -186,8 +186,10 @@ class Edit extends Component
             'car_id' => $car->id,
             'car_name' => $car->name,
             'pickup_at' => Carbon::createFromFormat("d-m-Y H:i", $this->pickup_date . " " . $this->pickup_hour),
+            'pickup_location' => $pickup->id,
             'pickup_name' => $pickup->name,
             'dropoff_at' => Carbon::createFromFormat("d-m-Y H:i", $this->dropoff_date . " " . $this->dropoff_hour),
+            'dropoff_location' => $dropoff->id,
             'dropoff_name' => $dropoff->name,
             'total_price' => $this->total_price,
             'online_payment' => $this->online_payment,
@@ -197,16 +199,21 @@ class Edit extends Component
             'cancel_reason' => $this->cancel_reason,
         ]);
 
-        // Save a booking log (and another one if there is a comment)
-        $this->booking->logs()->create([
-            'user_id'    => auth()->user()->id,
-            'message'    => auth()->user()->name . ' updated the booking information'
-        ]);
+        $changes = $this->booking->getChanges();
 
+        // Save a booking log if there have been changes
+        if (count($changes)) {
+            $this->booking->logs()->create([
+                'user_id'    => auth()->user()->id,
+                'message'    => 'Booking information updated: ' . translate_log_fields($changes)
+            ]);
+        }
+
+        // Save another booking log if there is a comment
         if (!emptyOrNull($this->comment)) {
             $this->booking->logs()->create([
                 'user_id'    => auth()->user()->id,
-                'message'    => $this->comment
+                'message'    => 'Comment added: ' . $this->comment
             ]);
         }
 

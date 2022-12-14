@@ -162,11 +162,7 @@ class Booking extends Model
         }
 
         if (!empty($booking_status)) {
-            if ($booking_status == 'not_confirmed') {
-                $query->where('status', '!=', 'confirmed');
-            } else {
-                $query->where('status', $booking_status);
-            }
+            $query->where('status', $booking_status);
         }
 
         if (!empty($vehicle)) {

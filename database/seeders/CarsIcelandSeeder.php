@@ -10,6 +10,7 @@ use App\Models\CarenVendor;
 use App\Models\Car;
 use App\Models\Location;
 use App\Models\Vendor;
+use App\Models\VendorLocation;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 
@@ -59,6 +60,12 @@ class CarsIcelandSeeder extends Seeder
             'location_id'               => $location->id
         ]);
 
+        // Link the vendor to the location
+        VendorLocation::create([
+            'vendor_id' => $vendor->id,
+            'location_id' => $location->id,
+        ]);
+
         $location = Location::create([
             'name' => 'Reykjavik City Office',
             'caren_settings' => [
@@ -72,6 +79,12 @@ class CarsIcelandSeeder extends Seeder
             'caren_pickup_location_id'  => 44,
             'caren_dropoff_location_id' => 418,
             'location_id'               => $location->id
+        ]);
+
+        // Link the vendor to the location
+        VendorLocation::create([
+            'vendor_id' => $vendor->id,
+            'location_id' => $location->id,
         ]);
 
         // 3. Get the cars & extras from the Artisan Command
@@ -104,9 +117,9 @@ class CarsIcelandSeeder extends Seeder
             for ($i = 1; $i <= 30; $i++) {
                 $zeroes = strlen($i) > strlen($carCode) ? strlen($i) : strlen($carCode);
                 $params = [
-                    'status' => $i <= 99 || $car->id < 31 ? 'confirmed' : 'pending',
-                    'payment_status' => $i <= 99 || $car->id < 32 ? 'confirmed' : 'pending',
-                    'vendor_status' => $i <= 99 || $car->id < 31 ? 'confirmed' : 'pending',
+                    'status' => $i <= 29 || $car->id < 31 ? 'confirmed' : 'pending',
+                    'payment_status' => $i <= 29 || $car->id < 32 ? 'confirmed' : 'pending',
+                    'vendor_status' => $i <= 29 || $car->id < 31 ? 'confirmed' : 'pending',
                     'car_id' => $car->id,
                     'car_name' => $car->name,
                     'order_number' => $carCode . str_pad($i, $zeroes, '0', STR_PAD_LEFT)
@@ -119,14 +132,14 @@ class CarsIcelandSeeder extends Seeder
                     'message'       => 'Booking created'
                 ]);
 
-                if ($i <= 99 || $car->id < 32) {
+                if ($i <= 29 || $car->id < 32) {
                     BookingLog::create([
                         'booking_id'    => $booking->id,
                         'message'       => 'Booking paid'
                     ]);
                 }
 
-                if ($i <= 99 || $car->id < 31) {
+                if ($i <= 29 || $car->id < 31) {
                     BookingLog::create([
                         'booking_id'    => $booking->id,
                         'message'       => 'Booking confirmed by the vendor'
@@ -135,6 +148,4 @@ class CarsIcelandSeeder extends Seeder
             }
         }
     }
-
-
 }

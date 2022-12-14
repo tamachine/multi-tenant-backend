@@ -121,7 +121,7 @@
         </div>
 
         <div x-show="tab == 'log'">
-            Booking Log
+            <livewire:booking.log :booking="$booking" />
         </div>
     </div>
 </x-admin-layout>
