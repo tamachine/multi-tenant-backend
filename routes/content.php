@@ -17,7 +17,6 @@ Route::group(
         // Content main routes
         Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
                                    
-        Route::resource('translation', TranslationController::class, ['parameters'=> ['translation' => 'translation_hashid']])->except(['create', 'store', 'destroy']);
-                            
+        Route::resource('translation', TranslationController::class, ['parameters'=> ['translation' => 'translation_hashid']])->except(['create', 'store', 'destroy']);                            
     }
 );

@@ -14,9 +14,10 @@
         <link rel="stylesheet" href="{{ mix('css/admin.css') }}">
 
         @livewireStyles
-
+        
         <!-- Scripts -->
-        <script src="{{ mix('js/admin.js') }}" defer></script>
+        <script src="{{ mix('js/admin.js') }}" defer></script>        
+        <script src="{{ url(mix('js/trix.js')) }}"></script>         
     </head>
 
     <body>

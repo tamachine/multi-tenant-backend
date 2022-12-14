@@ -14,3 +14,5 @@ function goToError() {
 window.addEventListener('validationError', event => {
     setTimeout(goToError, 500);
 });
+
+
