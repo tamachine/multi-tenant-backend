@@ -113,7 +113,7 @@
         </div>
 
         <div x-show="tab == 'customer'">
-            Customer
+            <livewire:booking.customer :booking="$booking" />
         </div>
 
         <div x-show="tab == 'affiliate'">

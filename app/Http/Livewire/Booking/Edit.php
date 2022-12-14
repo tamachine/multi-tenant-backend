@@ -161,7 +161,7 @@ class Edit extends Component
         return $this->total_price - $this->online_payment;
     }
 
-    public function editBooking(Booking $booking)
+    public function editBooking()
     {
         $this->dispatchBrowserEvent('validationError');
 
