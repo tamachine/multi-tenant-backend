@@ -21,7 +21,7 @@
                     <div wire:ignore class="py-2">                        
                         @if($translation->rich)                                          
                         <textarea
-                            class="tinymce mt-1 ring-purple-700 purple-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
+                            class="tiny"
                             wire:model.debounce.60s="text.{{ $key }}"
                             wire:key="text.{{ $key }}"
                             id="text_{{ $key }}"
@@ -56,7 +56,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {      
         tinymce.init({
-            selector: '.tinymce',
+            selector: '.tiny',
             plugins: 'link',        
             menubar: false,
             toolbar: 'undo redo | bold italic underline strikethrough | link | removeformat',                       
@@ -67,7 +67,7 @@
                 editor.on('change', function (e) {                    
                     @this.set(e.target.targetElm.name, editor.getContent());
                 });
-            },            
+            }            
         });
     });
 </script>

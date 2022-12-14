@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Content;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 use App\Models\Translation;
+use Illuminate\Http\Request;
 
 class TranslationController extends Controller
 {
@@ -21,18 +22,18 @@ class TranslationController extends Controller
         return view('content.translation.index')->with($data);
     }      
     
-    public function edit(Translation $translation): View
+    public function edit(Translation $translation, Request $request): View
     {
         $this->authorize('content');  
 
         $data = [      
             'action' => collect([
-                'route' => route('content.translation.index'),
+                'route' => route('content.translation.index', ['search' => $request->query('search')]),
                 'title' => 'Translations'
             ]),                 
             'crumbs' => [
                 'Content & SEO' => route('content.dashboard'),
-                'Translations'  => route('content.translation.index')
+                'Translations'  => route('content.translation.index', ['search' => $request->query('search')])
             ],
             'translation' => $translation
         ];

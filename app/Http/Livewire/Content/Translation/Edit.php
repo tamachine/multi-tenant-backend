@@ -53,10 +53,7 @@ class Edit extends Component
             'text' => array_filter($this->text),            
         ]);
 
-        session()->flash('status', 'success');
-        session()->flash('message', 'Translation "' . $this->full_key .'" updated');
-
-        $this->dispatchBrowserEvent('open-success', ['message' => 'The translations have been saved']);        
+        $this->dispatchBrowserEvent('open-success', ['message' => 'Translation "' . $this->full_key .'" updated']);        
     }    
 
     public function render()

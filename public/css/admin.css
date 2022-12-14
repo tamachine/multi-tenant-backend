@@ -2955,11 +2955,6 @@ select{
     --tw-ring-color: rgb(252 165 165 / var(--tw-ring-opacity));
 }
 
-.ring-purple-700{
-    --tw-ring-opacity: 1;
-    --tw-ring-color: rgb(126 34 206 / var(--tw-ring-opacity));
-}
-
 .ring-opacity-5{
     --tw-ring-opacity: 0.05;
 }
