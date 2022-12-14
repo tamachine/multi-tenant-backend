@@ -129,6 +129,7 @@ class Edit extends Component
 
     public function mount(Booking $booking)
     {
+        $this->booking = $booking;
         $this->order_number = $booking->order_number;
         $this->vendor_name = $booking->vendor->name;
         $this->booking_date = $booking->created_at->format('d-m-Y H:i');

@@ -271,13 +271,23 @@ class Booking extends Model
     }
 
     /**
-     * Related booking extras
+     * Related booking extras (pivot)
      *
      * @return object
      */
-    public function bookingExtra()
+    public function bookingExtras()
     {
         return $this->hasMany(BookingExtra::class);
+    }
+
+    /**
+     * Related extras
+     *
+     * @return object
+     */
+    public function extras()
+    {
+        return $this->belongsToMany(Extra::class, 'booking_extra');
     }
 
     /**
