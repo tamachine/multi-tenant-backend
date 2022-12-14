@@ -5,7 +5,7 @@
     <div class="md:p-8 md:pb-4 px-8">
         <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-x-12 gap-y-2 md:gap-y-0 w-fit mx-auto">
             <div class="my-6 md:my-0 md:text-left text-center relative">
-                <span>{!! __('web.general.languages-language') !!}</span>
+                <span>{!! __('general.languages-language') !!}</span>
                 <div class="md:hidden absolute top-1 -left-4" x-on:click="close()">
                     <img src="{{ asset('images/icons/back.svg') }}" />
                 </div>
@@ -22,11 +22,11 @@
                         :class="selectedOption == '{{ $code }}' ? 'text-pink-red' : 'text-black-primary'"
                         x-on:click="select('{{ $code }}')"                          
                         >
-                        {!! __('web.general.languages-'.$code) !!}
+                        {!! __('general.languages-'.$code) !!}
                     </a>                    
                 @endforeach                
             </div>
-            <div class="mt-12 md:text-left text-center">{!! __('web.general.languages-currency') !!}</div>
+            <div class="mt-12 md:text-left text-center">{!! __('general.languages-currency') !!}</div>
             <div class="
                     md:mt-12 mt-6
                     md:px-0 px-12
@@ -61,13 +61,13 @@
                     text-center md:text-left
                     font-medium"
                     >
-                    {!! __('web.general.languages-remember') !!}
+                    {!! __('general.languages-remember') !!}
             </div>
             <button 
                 class="md:hidden inline-block btn btn-red mt-7 py-3 font-sans font-bold"
                 x-on:click="close()"
                 >
-                {!! __('web.general.languages-apply') !!}
+                {!! __('general.languages-apply') !!}
             </button>
         </div>
     </div>

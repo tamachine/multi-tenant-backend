@@ -60,7 +60,7 @@ class CarSearchHoursSelectableComponent extends SelectableAbstract implements Se
     }
 
     protected function getMeridiem($h) {
-        return $h > 11 ? __('web.general.post-meridiem') : __('web.general.after-meridiem');
+        return $h > 11 ? __('general.post-meridiem') : __('general.after-meridiem');
     }
 }
 

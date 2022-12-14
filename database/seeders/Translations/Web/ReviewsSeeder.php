@@ -16,8 +16,8 @@ class ReviewsSeeder extends Seeder
     {                
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'reviews.award',    
+                'group' => 'reviews',
+                'key' => 'award',    
             ],
             [                
                 'text' => ['en' => 'Award', 'es' => 'Premio'],
@@ -26,8 +26,8 @@ class ReviewsSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'reviews.24-support',    
+                'group' => 'reviews',
+                'key' => '24-support',    
             ],
             [                
                 'text' => ['en' => '24h support', 'es' => 'Soporte 24h'],
@@ -36,8 +36,8 @@ class ReviewsSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'reviews.of',    
+                'group' => 'reviews',
+                'key' => 'of',    
             ],
             [                
                 'text' => ['en' => 'of', 'es' => 'de'],
@@ -46,8 +46,8 @@ class ReviewsSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'reviews.reviews',    
+                'group' => 'reviews',
+                'key' => 'reviews',    
             ],
             [                
                 'text' => ['en' => 'Reviews', 'es' => 'Opiniones'],

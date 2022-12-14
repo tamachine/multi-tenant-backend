@@ -16,8 +16,8 @@ class GeneralSeeder extends Seeder
     {                
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.brand',    
+                'group' => 'general',
+                'key' => 'brand',    
             ],
             [                
                 'text' => ['en' => 'Reykjavik Auto', 'es' => 'Reykjavik Auto'],
@@ -26,8 +26,8 @@ class GeneralSeeder extends Seeder
         
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.search',    
+                'group' => 'general',
+                'key' => 'search',    
             ],
             [                
                 'text' => ['en' => 'Search', 'es' => 'Buscar'],
@@ -36,8 +36,8 @@ class GeneralSeeder extends Seeder
         
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.read-more',    
+                'group' => 'general',
+                'key' => 'read-more',    
             ],
             [                
                 'text' => ['en' => 'Read more', 'es' => 'Leer más'],
@@ -46,8 +46,8 @@ class GeneralSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.after-meridiem',    
+                'group' => 'general',
+                'key' => 'after-meridiem',    
             ],
             [                
                 'text' => ['en' => 'AM', 'es' => 'AM'],
@@ -56,8 +56,8 @@ class GeneralSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.post-meridiem',    
+                'group' => 'general',
+                'key' => 'post-meridiem',    
             ],
             [                
                 'text' => ['en' => 'PM', 'es' => 'PM'],
@@ -66,8 +66,8 @@ class GeneralSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-en',    
+                'group' => 'general',
+                'key' => 'languages-en',    
             ],
             [                
                 'text' => ['en' => 'English', 'es' => 'Inglés'],
@@ -76,8 +76,8 @@ class GeneralSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-es',    
+                'group' => 'general',
+                'key' => 'languages-es',    
             ],
             [                
                 'text' => ['en' => 'Spanish', 'es' => 'Español'],
@@ -86,8 +86,8 @@ class GeneralSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-de',    
+                'group' => 'general',
+                'key' => 'languages-de',    
             ],
             [                
                 'text' => ['en' => 'Deutch', 'es' => 'Alemán'],
@@ -96,8 +96,8 @@ class GeneralSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-fr',    
+                'group' => 'general',
+                'key' => 'languages-fr',    
             ],
             [                
                 'text' => ['en' => 'Français', 'es' => 'Francés'],
@@ -106,8 +106,8 @@ class GeneralSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-da',    
+                'group' => 'general',
+                'key' => 'languages-da',    
             ],
             [                
                 'text' => ['en' => 'Dansk', 'es' => 'Danés'],
@@ -116,8 +116,8 @@ class GeneralSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-it',    
+                'group' => 'general',
+                'key' => 'languages-it',    
             ],
             [                
                 'text' => ['en' => 'Italian', 'es' => 'Italiano'],
@@ -126,8 +126,8 @@ class GeneralSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-remember',    
+                'group' => 'general',
+                'key' => 'languages-remember',    
             ],
             [                
                 'text' => ['en' => 'Remember that the final transaction will be made in ISK', 'es' => 'Recuerda que la transacción final se realizará en ISK'],
@@ -136,8 +136,8 @@ class GeneralSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-language',    
+                'group' => 'general',
+                'key' => 'languages-language',    
             ],
             [                
                 'text' => ['en' => 'Select language', 'es' => 'Selecciona idioma'],
@@ -146,8 +146,8 @@ class GeneralSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-currency',    
+                'group' => 'general',
+                'key' => 'languages-currency',    
             ],
             [                
                 'text' => ['en' => 'Select currency', 'es' => 'Selecciona moneda'],
@@ -156,8 +156,8 @@ class GeneralSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-apply',    
+                'group' => 'general',
+                'key' => 'languages-apply',    
             ],
             [                
                 'text' => ['en' => 'Change settings', 'es' => 'Cambiar opciones'],

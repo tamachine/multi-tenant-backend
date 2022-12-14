@@ -13,7 +13,7 @@
     <div class="flex flex-col items-center ">
         <div class="text-black-primary">
             <span class="text-pink-red text-2xl md:text-3xl font-fredoka-bold">{{ $reviewInfoComponent->getNote() }}</span> 
-            <span class="md:text-2xl text-lg font-fredoka">{{ __('web.reviews.of') }} {{ $reviewInfoComponent->getMaxNote() }}</span>
+            <span class="md:text-2xl text-lg font-fredoka">{{ __('reviews.of') }} {{ $reviewInfoComponent->getMaxNote() }}</span>
         </div>
         <div class="hidden md:inline-block"> 
             @for($x=1; $x<=$reviewInfoComponent->getTotalStars(); $x++)     
@@ -25,7 +25,7 @@
             @endfor
         </div>
         <div class="hidden md:inline-block mt-auto"><img src="{{ $reviewInfoComponent->getIconPath() }}" /></div>
-        <div class="mt-auto md:font-normal md:font-sans font-sans-medium font-medium">{{ $reviewInfoComponent->getTotalReviews() }} {{ __('web.reviews.reviews') }}</div>    
+        <div class="mt-auto md:font-normal md:font-sans font-sans-medium font-medium">{{ $reviewInfoComponent->getTotalReviews() }} {{ __('reviews.reviews') }}</div>    
     </div>
 </div>
 

@@ -16,8 +16,8 @@ class NavBarSeeder extends Seeder
     {                
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.cars',    
+                'group' => 'navbar',
+                'key' => 'cars',    
             ],
             [                
                 'text' => ['en' => 'Cars', 'es' => 'Flota'],
@@ -26,8 +26,8 @@ class NavBarSeeder extends Seeder
         
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.about',    
+                'group' => 'navbar',
+                'key' => 'about',    
             ],
             [                
                 'text' => ['en' => 'About us', 'es' => 'Sobre nosotros'],
@@ -36,8 +36,8 @@ class NavBarSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.faq',    
+                'group' => 'navbar',
+                'key' => 'faq',    
             ],
             [                
                 'text' => ['en' => 'FAQ', 'es' => 'FAQ'],
@@ -46,8 +46,8 @@ class NavBarSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.blog',    
+                'group' => 'navbar',
+                'key' => 'blog',    
             ],
             [                
                 'text' => ['en' => 'Blog', 'es' => 'Blog'],
@@ -56,8 +56,8 @@ class NavBarSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.contact',    
+                'group' => 'navbar',
+                'key' => 'contact',    
             ],
             [                
                 'text' => ['en' => 'Contact', 'es' => 'Contacto'],
@@ -66,8 +66,8 @@ class NavBarSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.en',    
+                'group' => 'navbar',
+                'key' => 'en',    
             ],
             [                
                 'text' => ['en' => 'ENG', 'es' => 'ENG'],
@@ -76,8 +76,8 @@ class NavBarSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.es',    
+                'group' => 'navbar',
+                'key' => 'es',    
             ],
             [                
                 'text' => ['en' => 'ES', 'es' => 'ES'],
@@ -86,8 +86,8 @@ class NavBarSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.close',    
+                'group' => 'navbar',
+                'key' => 'close',    
             ],
             [                
                 'text' => ['en' => 'close', 'es' => 'cerrar'],
@@ -96,8 +96,8 @@ class NavBarSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.open',    
+                'group' => 'navbar',
+                'key' => 'open',    
             ],
             [                
                 'text' => ['en' => 'menu', 'es' => 'menu'],
@@ -106,8 +106,8 @@ class NavBarSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.email',    
+                'group' => 'navbar',
+                'key' => 'email',    
             ],
             [                
                 'text' => ['en' => 'info@reykjavikauto.com', 'es' => 'info@reykjavikauto.com'],
@@ -116,8 +116,8 @@ class NavBarSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.cars-title',    
+                'group' => 'navbar',
+                'key' => 'cars-title',    
             ],
             [                
                 'text' => ['en' => 'Pay only 15% now', 'es' => 'Paga solo el 15% ahora'],
@@ -126,8 +126,8 @@ class NavBarSeeder extends Seeder
 
         Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.cars-button',    
+                'group' => 'navbar',
+                'key' => 'cars-button',    
             ],
             [                
                 'text' => ['en' => 'View all cars', 'es' => 'Todos los coches'],

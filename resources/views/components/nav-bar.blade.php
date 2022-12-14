@@ -1,5 +1,5 @@
 <nav x-data="visibilitySelector()" @languageSelector-show="show()"   class="flex items-center justify-between flex-wrap p-3 md:px-20 md:py-5 border md:border-0 border-[#E7ECF3] bg-white relative z-50">
-    <div class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-3xl leading-9  ">{{ __('web.general.brand') }}</div>
+    <div class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-3xl leading-9  ">{{ __('general.brand') }}</div>
 
     {{-- mobile --}}
     <div 
@@ -7,12 +7,12 @@
         x-on:click="showMobileNavBar = !showMobileNavBar"
         >
         <div x-show="!showMobileNavBar">
-            <span>{!! __('web.navbar.open') !!}</span>
+            <span>{!! __('navbar.open') !!}</span>
             <img src="{{ asset('images/icons/menu.svg') }}" class="inline" />
         </div>
 
         <div x-cloak x-show="showMobileNavBar">
-            <span>{!! __('web.navbar.close') !!}</span>    
+            <span>{!! __('navbar.close') !!}</span>    
             <img src="{{ asset('images/icons/menu-close.svg') }}" class="inline" />
         </div>    
     </div>    
@@ -21,11 +21,11 @@
     {{-- desktop --}}
     <div class="hidden md:flex items-center divide-x gap-10">
         <div class="flex items-end justify-between flex-wrap gap-10 text-lg font-sans-medium">
-            <a href="#" class="hover:text-pink-red">{!! __('web.navbar.cars') !!}</a>
-            <a href="#" class="hover:text-pink-red">{!! __('web.navbar.about') !!}</a>
-            <a href="#" class="hover:text-pink-red">{!! __('web.navbar.faq') !!}</a>
-            <a href="#" class="hover:text-pink-red">{!! __('web.navbar.blog') !!}</a>
-            <a href="#" class="hover:text-pink-red">{!! __('web.navbar.contact') !!}</a>
+            <a href="#" class="hover:text-pink-red">{!! __('navbar.cars') !!}</a>
+            <a href="#" class="hover:text-pink-red">{!! __('navbar.about') !!}</a>
+            <a href="#" class="hover:text-pink-red">{!! __('navbar.faq') !!}</a>
+            <a href="#" class="hover:text-pink-red">{!! __('navbar.blog') !!}</a>
+            <a href="#" class="hover:text-pink-red">{!! __('navbar.contact') !!}</a>
         </div>
         <div class="pl-5 text-sm font-medium flex items-center gap-1" x-on:click="toggle()">
             <img class="inline" src='{{ asset("/images/currencies/dollar.svg") }}' />
@@ -87,33 +87,33 @@
                             <span>Mini vans</span>
                         </div>
                         <div>
-                            <button class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-[#E7ECF3] cursor-pointer">{!! __('web.navbar.cars-button') !!}</button>
+                            <button class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-[#E7ECF3] cursor-pointer">{!! __('navbar.cars-button') !!}</button>
                         </div>
                     </div>
                     <div class="text-center text-pink-red font-fredoka font-semibold text-[26px] py-5 h-full flex items-center justify-center">
-                        {!! __('web.navbar.cars-title') !!}
+                        {!! __('navbar.cars-title') !!}
                     </div>
                 </div>
                 <div class="p-4">
                     <div class="flex items-center justify-between flex-wrap text-xl font-fredoka font-medium">                        
-                        <a href="#">{{ __('web.navbar.about') }}</a>
-                        <a href="#">{{ __('web.navbar.faq') }}</a>
-                        <a href="#">{{ __('web.navbar.blog') }}</a>
-                        <a href="#">{{ __('web.navbar.contact') }}</a>
+                        <a href="#">{{ __('navbar.about') }}</a>
+                        <a href="#">{{ __('navbar.faq') }}</a>
+                        <a href="#">{{ __('navbar.blog') }}</a>
+                        <a href="#">{{ __('navbar.contact') }}</a>
                     </div>
                 </div>
                 <div class="font-fredoka font-semibold text-center pt-5 pb-10">
                     <div class="grid grid-cols-2 gap-10">
                         <div class="flex flex-col justify-center items-center gap-3" x-on:click="open()">
-                            <div class="text-[#B1B5C3]">{!! __('web.general.languages-language') !!}</div>
+                            <div class="text-[#B1B5C3]">{!! __('general.languages-language') !!}</div>
                             <div class="flex justify-center gap-2">
                                 <img src="{{ asset('images/flags/'.App::getLocale().'.svg') }}" /> 
-                                <span class="text-black-primary font-sans font-medium">{!! __('web.general.languages-'.App::getLocale()) !!}</span>
+                                <span class="text-black-primary font-sans font-medium">{!! __('general.languages-'.App::getLocale()) !!}</span>
                                 <img class="cursor-pointer" src="{{ asset('images/icons/arrow-down.svg') }}" />
                             </div>
                         </div>
                         <div class="flex flex-col justify-center items-center gap-3" x-on:click="open()">
-                            <div class="text-[#B1B5C3]">{!! __('web.general.languages-currency') !!}</div>
+                            <div class="text-[#B1B5C3]">{!! __('general.languages-currency') !!}</div>
                             <div class="flex justify-center gap-2">
                                 <img class="inline" src="{{ asset('images/currencies/usd-red.svg') }}" /> 
                                 <span class="text-black-primary font-cabin-semibold">USD</span>
