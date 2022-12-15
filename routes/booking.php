@@ -19,5 +19,12 @@ Route::group(
         Route::get('history', ['as' => 'history', 'uses' => 'BookingController@history']);
         Route::get('create', ['as' => 'create', 'uses' => 'BookingController@create']);
         Route::get('{booking}/edit/{tab?}', ['as' => 'edit', 'uses' => 'BookingController@edit']);
+
+        // Affiliates
+        Route::group(['prefix' => 'affiliate', 'as' => 'affiliate.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'AffiliateController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'AffiliateController@create']);
+            Route::get('{affiliate}/edit/{tab?}', ['as' => 'edit', 'uses' => 'AffiliateController@edit']);
+        });
     }
 );

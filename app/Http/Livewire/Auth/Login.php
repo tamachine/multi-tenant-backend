@@ -2,14 +2,13 @@
 
 namespace App\Http\Livewire\Auth;
 
-use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Login extends Component
 {
     /** @var string */
-    public $email = '';
+    public $username_email = '';
 
     /** @var string */
     public $password = '';
@@ -18,16 +17,27 @@ class Login extends Component
     public $remember = false;
 
     protected $rules = [
-        'email' => ['required', 'email'],
+        'username_email' => ['required'],
         'password' => ['required'],
     ];
 
     public function authenticate()
     {
-        $this->validate();
+        $this->validate(
+            $this->rules,
+            [
+                'username_email' => 'Username/Email is required',
+            ]
+        );
 
-        if (!Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
-            $this->addError('email', trans('auth.failed'));
+        if(filter_var($this->username_email, FILTER_VALIDATE_EMAIL)) {
+            $field = 'email';
+        } else {
+            $field = 'username';
+        }
+
+        if (!Auth::attempt([$field => $this->username_email, 'password' => $this->password], $this->remember)) {
+            $this->addError('username_email', trans('auth.failed'));
 
             return;
         }

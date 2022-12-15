@@ -157,37 +157,37 @@
             </ul>
         </div>
 
-        <div x-show="tab == 'basic'">
+        <div x-show="tab == 'basic'" style="display:none;">
             <livewire:admin.car.edit :car="$car" />
         </div>
 
-        <div x-show="tab == 'translations'">
+        <div x-show="tab == 'translations'" style="display:none;">
             <livewire:admin.car.translations :car="$car" />
         </div>
 
-        <div x-show="tab == 'images'">
+        <div x-show="tab == 'images'" style="display:none;">
             <livewire:admin.car.images :car="$car" />
         </div>
 
         @if(config('settings.car.seasons'))
-            <div x-show="tab == 'seasons'">
+            <div x-show="tab == 'seasons'" style="display:none;">
                 <livewire:admin.car.seasons :car="$car" />
             </div>
         @endif
 
-        <div x-show="tab == 'unavailability'">
+        <div x-show="tab == 'unavailability'" style="display:none;">
             <livewire:admin.car.unavailability :car="$car" />
         </div>
 
-        <div x-show="tab == 'free-day'">
+        <div x-show="tab == 'free-day'" style="display:none;">
             <livewire:admin.car.free-days :car="$car" />
         </div>
 
-        <div x-show="tab == 'locations'">
+        <div x-show="tab == 'locations'" style="display:none;">
             <livewire:admin.car.locations :car="$car" />
         </div>
 
-        <div x-show="tab == 'extras'">
+        <div x-show="tab == 'extras'" style="display:none;">
             <livewire:admin.car.extras :car="$car" />
         </div>
     </div>

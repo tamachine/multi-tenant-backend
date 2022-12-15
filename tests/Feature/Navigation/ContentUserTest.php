@@ -50,7 +50,7 @@ class ContentUserTest extends TestCase
      */
     public function theContentUserDashboardLoads()
     {
-        $this->get(route('content'))
+        $this->get(route('content.dashboard'))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)

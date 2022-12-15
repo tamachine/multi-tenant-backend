@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Models\Affiliate;
 use App\Models\Booking;
 use App\Models\Car;
 use App\Models\CarenCar;
@@ -30,6 +31,18 @@ trait CreatesApplication
         $app->make(Kernel::class)->bootstrap();
 
         return $app;
+    }
+
+    /**
+     * Create an affiliate
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\Affiliate
+     */
+    protected function createAffiliate($attributes = [])
+    {
+        return Affiliate::factory($attributes)->create();
     }
 
     /**

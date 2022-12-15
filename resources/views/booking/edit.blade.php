@@ -104,23 +104,23 @@
             </ul>
         </div>
 
-        <div x-show="tab == 'basic'">
+        <div x-show="tab == 'basic'" style="display:none;">
             <livewire:booking.edit :booking="$booking" />
         </div>
 
-        <div x-show="tab == 'extras'">
+        <div x-show="tab == 'extras'" style="display:none;">
             <livewire:booking.extras :booking="$booking" />
         </div>
 
-        <div x-show="tab == 'customer'">
+        <div x-show="tab == 'customer'" style="display:none;">
             <livewire:booking.customer :booking="$booking" />
         </div>
 
-        <div x-show="tab == 'affiliate'">
+        <div x-show="tab == 'affiliate'" style="display:none;">
             Affiliate
         </div>
 
-        <div x-show="tab == 'log'">
+        <div x-show="tab == 'log'" style="display:none;">
             <livewire:booking.log :booking="$booking" />
         </div>
     </div>

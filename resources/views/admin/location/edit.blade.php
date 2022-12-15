@@ -53,11 +53,11 @@
             </ul>
         </div>
 
-        <div x-show="tab == 'basic'">
+        <div x-show="tab == 'basic'" style="display:none;">
             <livewire:admin.location.edit :location="$location" />
         </div>
 
-        <div x-show="tab == 'translations'">
+        <div x-show="tab == 'translations'" style="display:none;">
             <livewire:admin.location.translations :location="$location" />
         </div>
     </div>

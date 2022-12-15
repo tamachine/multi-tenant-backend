@@ -160,37 +160,37 @@
             </ul>
         </div>
 
-        <div x-show="tab == 'basic'">
+        <div x-show="tab == 'basic'" style="display:none;">
             <livewire:admin.vendor.edit :vendor="$vendor" />
         </div>
 
-        <div x-show="tab == 'locations'">
+        <div x-show="tab == 'locations'" style="display:none;">
             <livewire:admin.vendor.locations :vendor="$vendor" />
         </div>
 
-        <div x-show="tab == 'combined'">
+        <div x-show="tab == 'combined'" style="display:none;">
             <livewire:admin.vendor.locations-combined :vendor="$vendor" />
         </div>
 
-        <div x-show="tab == 'pdf'">
+        <div x-show="tab == 'pdf'" style="display:none;">
             <livewire:admin.vendor.pdf :vendor="$vendor" />
         </div>
 
         @if (config('settings.vendor.multivendor'))
-            <div x-show="tab == 'duplications'">
+            <div x-show="tab == 'duplications'" style="display:none;">
                 Duplications
             </div>
         @endif
 
-        <div x-show="tab == 'long'">
+        <div x-show="tab == 'long'" style="display:none;">
             <livewire:admin.vendor.long-rental :vendor="$vendor" />
         </div>
 
-        <div x-show="tab == 'early'">
+        <div x-show="tab == 'early'" style="display:none;">
             <livewire:admin.vendor.early-bird :vendor="$vendor" />
         </div>
 
-        <div x-show="tab == 'holidays'">
+        <div x-show="tab == 'holidays'" style="display:none;">
             <livewire:admin.vendor.holidays :vendor="$vendor" />
         </div>
     </div>
