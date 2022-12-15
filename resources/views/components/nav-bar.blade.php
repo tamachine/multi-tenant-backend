@@ -39,8 +39,8 @@
         class="md-max:hidden md:absolute top-[76px] right-16 z-50"
         x-cloak 
         x-show="visibility()"
-        >
-        <x-language-selector />
+        >        
+        <livewire:web.language-selector />
     </div>
 </nav>
 
@@ -142,7 +142,7 @@
         x-transition:leave-start="transform translate-y-0 opacity-full"
         x-transition:leave-end="transform -translate-y-full opacity-[90%]"
         >
-        <x-language-selector />
+        <livewire:web.language-selector />
     </div>
 
 </div>
