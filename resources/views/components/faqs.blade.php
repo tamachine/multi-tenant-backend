@@ -1,8 +1,8 @@
 @if ($faqs)
     <div x-data="{ tab: '#tab1' }"  class="pb-22 pt-32 md:py-36 md:px-32">
         <x-heading-h2 
-            title="{{ __('web.home.faqs-title') }}" 
-            subtitle="{{ __('web.home.faqs-subtitle') }}" 
+            title="{{ __('home.faqs-title') }}" 
+            subtitle="{{ __('home.faqs-subtitle') }}" 
         />
 
         @if ($categories)               
@@ -27,7 +27,7 @@
             <div class="block md:hidden w-full border-t"></div>
 
             <div class="flex justify-center py-7 md:py-3">
-                <button class="tab">{{ __('web.home.faqs-view-all') }}</button>
+                <button class="tab">{{ __('home.faqs-view-all') }}</button>
             </div>          
         </div>
     </div>

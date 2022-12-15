@@ -17,8 +17,7 @@ Route::group(
         // Dashboards
         Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
         Route::get('settings', ['as' => 'settings', 'uses' => 'DashboardController@settings']);
-        Route::get('content', ['as' => 'content', 'uses' => 'DashboardController@content']);
-
+        
         // Caren
         Route::group(['prefix' => 'caren', 'as' => 'caren.'], function () {
             Route::get('/{tab?}', ['as' => 'index', 'uses' => 'CarenController@index']);

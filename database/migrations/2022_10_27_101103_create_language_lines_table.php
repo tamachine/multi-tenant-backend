@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('language_lines', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('hashid')->nullable()->index();
             $table->string('group')->index();
             $table->string('key');
             $table->text('text');
+            $table->boolean('rich')->default(0);
             $table->timestamps();
         });
     }

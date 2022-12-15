@@ -3,7 +3,7 @@
 namespace Database\Seeders\Translations\Web;
 
 use Illuminate\Database\Seeder;
-use Spatie\TranslationLoader\LanguageLine;
+use App\Models\Translation;
 
 class DealsSeeder extends Seeder
 {
@@ -14,50 +14,50 @@ class DealsSeeder extends Seeder
      */
     public function run()
     {                
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'deals.title',    
+                'group' => 'deals',
+                'key' => 'title',    
             ],
             [                
                 'text' => ['en' => "Feel the best experience with our rental deals", "es" => "Vive la mejor experiencia con nuestras ofertas de alquiler"],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'deals.deal-title-1',    
+                'group' => 'deals',
+                'key' => 'deal-title-1',    
             ],
             [                
                 'text' => ['en' => "Deals for every budget", "es" => "Ofertas para todos los presupuestos"],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'deals.deal-text-1',    
+                'group' => 'deals',
+                'key' => 'deal-text-1',    
             ],
             [                
                 'text' => ['en' => "Choose from & wide variety of car classes new high-quality vehicles teeting your neads and luxigel best", "es" => "Elija entre una amplia variedad de clases de automóviles vehículos nuevos de alta calidad Neads y Luxigel mejor"],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'deals.deal-title-2',    
+                'group' => 'deals',
+                'key' => 'deal-title-2',    
             ],
             [                
                 'text' => ['en' => "Awesome Customer Support", "es" => "Impresionante atención al cliente"],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'deals.deal-text-2',    
+                'group' => 'deals',
+                'key' => 'deal-text-2',    
             ],
             [                
                 'text' => ['en' => "Deliver faster, more personalized support with the power of co browse and live chat.", "es" => "Ofrezca un soporte más rápido y personalizado con el poder de la navegación compartida y el chat en vivo."],
@@ -65,60 +65,60 @@ class DealsSeeder extends Seeder
         );  
 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'deals.deal-title-3',    
+                'group' => 'deals',
+                'key' => 'deal-title-3',    
             ],
             [                
                 'text' => ['en' => "Free Cancellation", "es" => "Cancelación gratuita"],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'deals.deal-text-3',    
+                'group' => 'deals',
+                'key' => 'deal-text-3',    
             ],
             [                
                 'text' => ['en' => "No extra fee, you can cancel your booking anytime", "es" => "Sin cargo adicional, puede cancelar su reserva en cualquier momento"],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'deals.deal-title-4',    
+                'group' => 'deals',
+                'key' => 'deal-title-4',    
             ],
             [                
                 'text' => ['en' => "Your Best security", "es" => "Tu mejor seguridad"],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'deals.deal-text-4',    
+                'group' => 'deals',
+                'key' => 'deal-text-4',    
             ],
             [                
                 'text' => ['en' => "Every detail that is part of our service has been created with your safety in mind", "es" => "Cada detalle que forma parte de nuestro servicio tiene ha sido creado pensando en su seguridad"],
             ]
         );
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'deals.deal-title-5',    
+                'group' => 'deals',
+                'key' => 'deal-title-5',    
             ],
             [                
                 'text' => ['en' => "Quality Drivers", "es" => "Conductores de calidad"],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'deals.deal-text-5',    
+                'group' => 'deals',
+                'key' => 'deal-text-5',    
             ],
             [                
                 'text' => ['en' => "We have the most rigorous driver selection process in the market. We work only with the best.", "es" => "Contamos con el proceso de selección de conductores más riguroso del mercado. Trabajamos solo con los mejores."],

@@ -3,7 +3,7 @@
 namespace Database\Seeders\Translations\Web;
 
 use Illuminate\Database\Seeder;
-use Spatie\TranslationLoader\LanguageLine;
+use App\Models\Translation;
 
 class NavBarSeeder extends Seeder
 {
@@ -14,120 +14,120 @@ class NavBarSeeder extends Seeder
      */
     public function run()
     {                
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.cars',    
+                'group' => 'navbar',
+                'key' => 'cars',    
             ],
             [                
                 'text' => ['en' => 'Cars', 'es' => 'Flota'],
             ]
         );   
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.about',    
+                'group' => 'navbar',
+                'key' => 'about',    
             ],
             [                
                 'text' => ['en' => 'About us', 'es' => 'Sobre nosotros'],
             ]
         );
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.faq',    
+                'group' => 'navbar',
+                'key' => 'faq',    
             ],
             [                
                 'text' => ['en' => 'FAQ', 'es' => 'FAQ'],
             ]
         );
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.blog',    
+                'group' => 'navbar',
+                'key' => 'blog',    
             ],
             [                
                 'text' => ['en' => 'Blog', 'es' => 'Blog'],
             ]
         );
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.contact',    
+                'group' => 'navbar',
+                'key' => 'contact',    
             ],
             [                
                 'text' => ['en' => 'Contact', 'es' => 'Contacto'],
             ]
         );
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.en',    
+                'group' => 'navbar',
+                'key' => 'en',    
             ],
             [                
                 'text' => ['en' => 'ENG', 'es' => 'ENG'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.es',    
+                'group' => 'navbar',
+                'key' => 'es',    
             ],
             [                
                 'text' => ['en' => 'ES', 'es' => 'ES'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.close',    
+                'group' => 'navbar',
+                'key' => 'close',    
             ],
             [                
                 'text' => ['en' => 'close', 'es' => 'cerrar'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.open',    
+                'group' => 'navbar',
+                'key' => 'open',    
             ],
             [                
                 'text' => ['en' => 'menu', 'es' => 'menu'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.email',    
+                'group' => 'navbar',
+                'key' => 'email',    
             ],
             [                
                 'text' => ['en' => 'info@reykjavikauto.com', 'es' => 'info@reykjavikauto.com'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.cars-title',    
+                'group' => 'navbar',
+                'key' => 'cars-title',    
             ],
             [                
                 'text' => ['en' => 'Pay only 15% now', 'es' => 'Paga solo el 15% ahora'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'navbar.cars-button',    
+                'group' => 'navbar',
+                'key' => 'cars-button',    
             ],
             [                
                 'text' => ['en' => 'View all cars', 'es' => 'Todos los coches'],

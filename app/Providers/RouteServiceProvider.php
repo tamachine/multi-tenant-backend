@@ -36,7 +36,28 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configureRateLimiting();
+        $this->defineRoutes();     
+        $this->bindings();   
+    }
 
+     /**
+     * Define the model bindings
+     *
+     * @return void
+     */
+    public function bindings() {
+        Route::bind('translation_hashid', function ($value) {
+            $resource = new \App\Models\Translation();
+            return $resource->where('hashid', $value)->first();
+        });
+    }
+     /**
+     * Define the routes for the application.
+     *
+     * @return void
+     */
+    public function defineRoutes()
+    {
         $this->routes(function () {
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
@@ -50,19 +71,24 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
 
-            Route::prefix('developer')
-                ->middleware(['web', 'auth'])
-                ->namespace($this->namespace)
-                ->prefix('developer')
-                ->as('developer.')
-                ->group(base_path('routes/developer.php'));
-
             Route::prefix('booking')
                 ->middleware(['web', 'auth'])
-                ->namespace($this->namespace)
-                ->prefix('booking')
+                ->namespace($this->namespace)                
                 ->as('booking.')
                 ->group(base_path('routes/booking.php'));
+
+            Route::prefix('content')
+                ->middleware(['web', 'auth'])
+                ->namespace($this->namespace)                
+                ->as('content.')
+                ->group(base_path('routes/content.php'));
+
+            Route::prefix('developer')
+                ->middleware(['web', 'auth'])
+                ->namespace($this->namespace)                
+                ->as('developer.')
+                ->group(base_path('routes/developer.php'));
+            
         });
     }
 

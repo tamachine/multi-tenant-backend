@@ -3,7 +3,7 @@
 namespace Database\Seeders\Translations\Web;
 
 use Illuminate\Database\Seeder;
-use Spatie\TranslationLoader\LanguageLine;
+use App\Models\Translation;
 
 class CarSearchBarSeeder extends Seeder
 {
@@ -14,150 +14,150 @@ class CarSearchBarSeeder extends Seeder
      */
     public function run()
     {                
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.same',    
+                'group' => 'car-search-bar',
+                'key' => 'same',    
             ],
             [                
                 'text' => ['en' => 'Same location', 'es' => 'Mismo orígen'],
             ]
         );   
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.different',    
+                'group' => 'car-search-bar',
+                'key' => 'different',    
             ],
             [                
                 'text' => ['en' => 'Different location', 'es' => 'Orígenes distintos'],
             ]
         );   
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.first-day',    
+                'group' => 'car-search-bar',
+                'key' => 'first-day',    
             ],
             [                
                 'text' => ['en' => 'First day', 'es' => 'Inicio'],
             ]
         );   
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.last-day',    
+                'group' => 'car-search-bar',
+                'key' => 'last-day',    
             ],
             [                
                 'text' => ['en' => 'Last day', 'es' => 'Fin'],
             ]
         );   
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.pick-up-day',    
+                'group' => 'car-search-bar',
+                'key' => 'pick-up-day',    
             ],
             [                
                 'text' => ['en' => 'Pick up day', 'es' => 'Día de recogida'],
             ]
         );  
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.drop-off-day',    
+                'group' => 'car-search-bar',
+                'key' => 'drop-off-day',    
             ],
             [                
                 'text' => ['en' => 'Drop off day', 'es' => 'Día de entrega'],
             ]
         ); 
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.pick-up',    
+                'group' => 'car-search-bar',
+                'key' => 'pick-up',    
             ],
             [                
                 'text' => ['en' => 'Pick up', 'es' => 'Recogida'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.drop-off',    
+                'group' => 'car-search-bar',
+                'key' => 'drop-off',    
             ],
             [                
                 'text' => ['en' => 'Drop off', 'es' => 'Entrega'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.return',    
+                'group' => 'car-search-bar',
+                'key' => 'return',    
             ],
             [                
                 'text' => ['en' => 'Return', 'es' => 'Vuelta'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.select-location',    
+                'group' => 'car-search-bar',
+                'key' => 'select-location',    
             ],
             [                
                 'text' => ['en' => 'Select location', 'es' => 'Selección ubicación'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.select-hours',    
+                'group' => 'car-search-bar',
+                'key' => 'select-hours',    
             ],
             [                
                 'text' => ['en' => 'Select your pick up and return time', 'es' => 'Selecciona la hora de recogida y retorno'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.hours-pickup',    
+                'group' => 'car-search-bar',
+                'key' => 'hours-pickup',    
             ],
             [                
                 'text' => ['en' => 'Pick up', 'es' => 'Recogida'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.hours-return',    
+                'group' => 'car-search-bar',
+                'key' => 'hours-return',    
             ],
             [                
                 'text' => ['en' => 'Return', 'es' => 'Retorno'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.mobile-first-input-title',    
+                'group' => 'car-search-bar',
+                'key' => 'mobile-first-input-title',    
             ],
             [                
                 'text' => ['en' => 'Calendar', 'es' => 'Calendario'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'car-search-bar.mobile-first-input-placeholder',    
+                'group' => 'car-search-bar',
+                'key' => 'mobile-first-input-placeholder',    
             ],
             [                
                 'text' => ['en' => 'Pick up & return days', 'es' => 'Recogida y retorno'],

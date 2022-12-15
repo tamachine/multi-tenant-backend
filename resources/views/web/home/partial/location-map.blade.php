@@ -18,25 +18,25 @@
                     <div class="md:p-6 p-3 flex flex-col justify-between h-full">
                         <div class="text-white font-fredoka-medium font-medium">
                             <div class="text-base md:text-2xl">
-                            {!! __('web.home.location-map-title') !!}
+                            {!! __('home.location-map-title') !!}
                             </div>
                             <div class="text-xs md:text-lg">
-                            {!! __('web.home.location-map-address') !!}
+                            {!! __('home.location-map-address') !!}
                             </div>
                         </div>
                         <div>
                             <div class="font-sans-medium font-medium bg-white text-black-primary text-[10px] leading-4 md:leading-6 md:text-xs rounded px-3 py-1 w-fit">
-                            {!! __('web.home.location-map-time') !!}
+                            {!! __('home.location-map-time') !!}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-row justify-between items-center md:px-4 pt-3 md:text-lg text-base flex-wrap font-fredoka-medium font-medium">
                     <div>
-                        <img src="{{ asset('images/icons/phone-red.svg') }}" class="inline pr-1 md:pr-2 w-5 md:w-auto" /><span class="relative top-0 md:top-[2px]">{!! __('web.home.location-map-phone') !!}</span>
+                        <img src="{{ asset('images/icons/phone-red.svg') }}" class="inline pr-1 md:pr-2 w-5 md:w-auto" /><span class="relative top-0 md:top-[2px]">{!! __('home.location-map-phone') !!}</span>
                     </div>
                     <div class="text-xs md:text-lg">
-                        <img src="{{ asset('images/icons/envelope-red.svg') }}" class="inline pr-1 md:pr-2 w-6 md:w-auto" /><span>{!! __('web.home.location-map-email') !!}</span>
+                        <img src="{{ asset('images/icons/envelope-red.svg') }}" class="inline pr-1 md:pr-2 w-6 md:w-auto" /><span>{!! __('home.location-map-email') !!}</span>
                     </div>
                 </div>
             </div>
@@ -60,19 +60,19 @@
                 >
             </div>
             <div class="font-sans-medium font-medium">
-                <div class="text-pink-red text-xl md:text-xl pt-7 pb-5 text-center md:text-left">{!! __('web.home.location-map-hours-title') !!}</div>
+                <div class="text-pink-red text-xl md:text-xl pt-7 pb-5 text-center md:text-left">{!! __('home.location-map-hours-title') !!}</div>
                 <div 
                     class="            
                         grid md:grid-cols-4 grid-cols-1 justify-between gap-y-2
                         text-center text-sm md:text-sm text-black"
                     >
-                    <div class="md:flex md:justify-start">{!! __('web.home.location-map-hours-monday') !!}</div>
-                    <div>{!! __('web.home.location-map-hours-tuesday') !!}</div>
-                    <div>{!! __('web.home.location-map-hours-wednesday') !!}</div>
-                    <div class="md:flex md:justify-end">{!! __('web.home.location-map-hours-thursday') !!}</div>
-                    <div class="md:flex md:justify-start">{!! __('web.home.location-map-hours-friday') !!}</div>
-                    <div>{!! __('web.home.location-map-hours-saturday') !!}</div>
-                    <div>{!! __('web.home.location-map-hours-sunday') !!}</div>
+                    <div class="md:flex md:justify-start">{!! __('home.location-map-hours-monday') !!}</div>
+                    <div>{!! __('home.location-map-hours-tuesday') !!}</div>
+                    <div>{!! __('home.location-map-hours-wednesday') !!}</div>
+                    <div class="md:flex md:justify-end">{!! __('home.location-map-hours-thursday') !!}</div>
+                    <div class="md:flex md:justify-start">{!! __('home.location-map-hours-friday') !!}</div>
+                    <div>{!! __('home.location-map-hours-saturday') !!}</div>
+                    <div>{!! __('home.location-map-hours-sunday') !!}</div>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
 namespace Database\Seeders\Translations\Web;
 
 use Illuminate\Database\Seeder;
-use Spatie\TranslationLoader\LanguageLine;
+use App\Models\Translation;
 
 class ReviewsSeeder extends Seeder
 {
@@ -14,40 +14,40 @@ class ReviewsSeeder extends Seeder
      */
     public function run()
     {                
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'reviews.award',    
+                'group' => 'reviews',
+                'key' => 'award',    
             ],
             [                
                 'text' => ['en' => 'Award', 'es' => 'Premio'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'reviews.24-support',    
+                'group' => 'reviews',
+                'key' => '24-support',    
             ],
             [                
                 'text' => ['en' => '24h support', 'es' => 'Soporte 24h'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'reviews.of',    
+                'group' => 'reviews',
+                'key' => 'of',    
             ],
             [                
                 'text' => ['en' => 'of', 'es' => 'de'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'reviews.reviews',    
+                'group' => 'reviews',
+                'key' => 'reviews',    
             ],
             [                
                 'text' => ['en' => 'Reviews', 'es' => 'Opiniones'],

@@ -3,7 +3,7 @@
 namespace Database\Seeders\Translations\Web;
 
 use Illuminate\Database\Seeder;
-use Spatie\TranslationLoader\LanguageLine;
+use App\Models\Translation;
 
 class GeneralSeeder extends Seeder
 {
@@ -14,150 +14,150 @@ class GeneralSeeder extends Seeder
      */
     public function run()
     {                
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.brand',    
+                'group' => 'general',
+                'key' => 'brand',    
             ],
             [                
                 'text' => ['en' => 'Reykjavik Auto', 'es' => 'Reykjavik Auto'],
             ]
         );    
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.search',    
+                'group' => 'general',
+                'key' => 'search',    
             ],
             [                
                 'text' => ['en' => 'Search', 'es' => 'Buscar'],
             ]
         );    
         
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.read-more',    
+                'group' => 'general',
+                'key' => 'read-more',    
             ],
             [                
                 'text' => ['en' => 'Read more', 'es' => 'Leer más'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.after-meridiem',    
+                'group' => 'general',
+                'key' => 'after-meridiem',    
             ],
             [                
                 'text' => ['en' => 'AM', 'es' => 'AM'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.post-meridiem',    
+                'group' => 'general',
+                'key' => 'post-meridiem',    
             ],
             [                
                 'text' => ['en' => 'PM', 'es' => 'PM'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-en',    
+                'group' => 'general',
+                'key' => 'languages-en',    
             ],
             [                
                 'text' => ['en' => 'English', 'es' => 'Inglés'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-es',    
+                'group' => 'general',
+                'key' => 'languages-es',    
             ],
             [                
                 'text' => ['en' => 'Spanish', 'es' => 'Español'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-de',    
+                'group' => 'general',
+                'key' => 'languages-de',    
             ],
             [                
                 'text' => ['en' => 'Deutch', 'es' => 'Alemán'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-fr',    
+                'group' => 'general',
+                'key' => 'languages-fr',    
             ],
             [                
                 'text' => ['en' => 'Français', 'es' => 'Francés'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-da',    
+                'group' => 'general',
+                'key' => 'languages-da',    
             ],
             [                
                 'text' => ['en' => 'Dansk', 'es' => 'Danés'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-it',    
+                'group' => 'general',
+                'key' => 'languages-it',    
             ],
             [                
                 'text' => ['en' => 'Italian', 'es' => 'Italiano'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-remember',    
+                'group' => 'general',
+                'key' => 'languages-remember',    
             ],
             [                
                 'text' => ['en' => 'Remember that the final transaction will be made in ISK', 'es' => 'Recuerda que la transacción final se realizará en ISK'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-language',    
+                'group' => 'general',
+                'key' => 'languages-language',    
             ],
             [                
                 'text' => ['en' => 'Select language', 'es' => 'Selecciona idioma'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-currency',    
+                'group' => 'general',
+                'key' => 'languages-currency',    
             ],
             [                
                 'text' => ['en' => 'Select currency', 'es' => 'Selecciona moneda'],
             ]
         );  
 
-        LanguageLine::firstOrCreate(
+        Translation::firstOrCreate(
             [
-                'group' => 'web',
-                'key' => 'general.languages-apply',    
+                'group' => 'general',
+                'key' => 'languages-apply',    
             ],
             [                
                 'text' => ['en' => 'Change settings', 'es' => 'Cambiar opciones'],

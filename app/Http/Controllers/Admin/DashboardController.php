@@ -28,15 +28,5 @@ class DashboardController extends Controller
         $this->authorize('admin');
 
         return view('admin.dashboard.settings');
-    }
-
-    /**
-     *  Content Dashboard
-     */
-    public function content(): View
-    {
-        $this->authorize('content');
-
-        return view('admin.dashboard.content');
-    }
+    }   
 }
