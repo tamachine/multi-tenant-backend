@@ -43,7 +43,7 @@
 
                                     <td class="px-4 py-2 whitespace-nowrap">
                                         <select id="role_{{ $index }}" name="role_{{ $index }}" wire:model.defer="users.{{ $index }}.role"
-                                            class="disable-arrow block w-auto h-10 mt-1 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md font-medium"
+                                            class="disable-arrow block w-auto h-10 mt-1 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md"
                                         >
                                             @foreach(config('roles.intranet_roles') as $key => $value)
                                                 <option value="{{$key}}">{{ $value }}</option>

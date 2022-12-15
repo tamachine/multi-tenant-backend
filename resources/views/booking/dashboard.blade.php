@@ -15,7 +15,7 @@
             </div>
 
             <div class="ml-8 my-auto font-bold text-purple-700 hover:underline">
-                Booking History
+                Booking history
             </div>
         </div>
     </div>

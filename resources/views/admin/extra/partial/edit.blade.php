@@ -119,7 +119,7 @@
             <div class="px-4 mt-4">
                 <x-admin.label for="price_mode" value="{{ __('Price Mode') }}" />
                 <select id="price_mode" name="price_mode" wire:model="price_mode"
-                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                 >
                     @foreach(config('extras.price_mode') as $priceModeKey => $priceModeText)
                         <option value="{{$priceModeKey}}">{{ ucwords($priceModeText) }}</option>
@@ -131,7 +131,7 @@
             <div class="px-4 mt-4">
                 <x-admin.label for="category" value="{{ __('Category') }}" />
                 <select id="category" name="category" wire:model="category"
-                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                 >
                     @foreach(config('extras.category') as $categoryKey => $categoryText)
                         <option value="{{$categoryKey}}">{{ ucwords($categoryText) }}</option>

@@ -4,7 +4,7 @@
             <!-- Filters -->
             <div class="sm:flex sm:justify-start">
                 <select id="order" name="order" wire:model="order"
-                    class="disable-arrow block h-10 mt-4 sm:mt-0 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block h-10 mt-4 sm:mt-0 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md"
                 >
                     @foreach(config('admin.cars_order') as $statusKey => $statusOption)
                         <option value="{{$statusKey}}">{{ $statusOption }}</option>
@@ -12,7 +12,7 @@
                 </select>
 
                 <select id="status" name="status" wire:model="status"
-                    class="disable-arrow block h-10 mt-4 sm:mt-0 sm:ml-4 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block h-10 mt-4 sm:mt-0 sm:ml-4 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md"
                 >
                     @foreach(config('admin.cars_status') as $statusKey => $statusOption)
                         <option value="{{$statusKey}}">{{ $statusOption }}</option>
@@ -20,7 +20,7 @@
                 </select>
 
                 <select id="vendor" name="vendor" wire:model="vendor"
-                    class="disable-arrow block w-auto h-10 mt-4 sm:mt-0 sm:ml-4 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-auto h-10 mt-4 sm:mt-0 sm:ml-4 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md"
                 >
                     <option value="">All vendors</option>
                     @foreach ($vendors as $id => $name)

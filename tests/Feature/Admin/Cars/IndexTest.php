@@ -30,7 +30,7 @@ class IndexTest extends TestCase
      *
      * @return void
      */
-    public function userIndexShowsCarsAndFilters()
+    public function carIndexShowsCarsAndFilters()
     {
         $this->actingAs($this->admin);
 

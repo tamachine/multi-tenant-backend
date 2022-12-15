@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Models\Booking;
 use App\Models\Car;
 use App\Models\CarenCar;
 use App\Models\CarenExtra;
@@ -29,6 +30,18 @@ trait CreatesApplication
         $app->make(Kernel::class)->bootstrap();
 
         return $app;
+    }
+
+    /**
+     * Create a booking
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\Booking
+     */
+    protected function createBooking($attributes = [])
+    {
+        return Booking::factory($attributes)->create();
     }
 
     /**

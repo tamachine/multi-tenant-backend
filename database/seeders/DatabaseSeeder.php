@@ -68,11 +68,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             LanguageLineSeeder::class,
             FaqsSeeder::class,
-            LocationSeeder::class,
-            VendorSeeder::class,
-            CarSeeder::class,
             FreeDaySeeder::class,
-            ExtraSeeder::class,
+            CarsIcelandSeeder::class,
         ]);
     }
 

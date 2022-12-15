@@ -16,8 +16,6 @@ class BookingSeeder extends Seeder
      */
     public function run()
     {
-        Booking::unsetEventDispatcher();
-
         // Create 100 bookings for each car
         foreach (Car::all() as $car) {
             $carCode = $car->car_code;
@@ -25,9 +23,9 @@ class BookingSeeder extends Seeder
             for ($i = 1; $i <= 100; $i++) {
                 $zeroes = strlen($i) > strlen($carCode) ? strlen($i) : strlen($carCode);
                 $params = [
-                    'status' => $i <= 99 || $car->id < 6 ? 'confirmed' : 'pending',
-                    'payment_status' => $i <= 99 || $car->id < 7 ? 'confirmed' : 'pending',
-                    'vendor_status' => $i <= 99 || $car->id < 6 ? 'confirmed' : 'pending',
+                    'status' => $i <= 99 || $car->id < 2 ? 'confirmed' : 'pending',
+                    'payment_status' => $i <= 99 || $car->id < 3 ? 'confirmed' : 'pending',
+                    'vendor_status' => $i <= 99 || $car->id < 2 ? 'confirmed' : 'pending',
                     'car_id' => $car->id,
                     'car_name' => $car->name,
                     'order_number' => $carCode . str_pad($i, $zeroes, '0', STR_PAD_LEFT)
@@ -40,14 +38,14 @@ class BookingSeeder extends Seeder
                     'message'       => 'Booking created'
                 ]);
 
-                if ($i <= 99 || $car->id < 7) {
+                if ($i <= 99 || $car->id < 3) {
                     BookingLog::create([
                         'booking_id'    => $booking->id,
                         'message'       => 'Booking paid'
                     ]);
                 }
 
-                if ($i <= 99 || $car->id < 6) {
+                if ($i <= 99 || $car->id < 2) {
                     BookingLog::create([
                         'booking_id'    => $booking->id,
                         'message'       => 'Booking confirmed by the vendor'

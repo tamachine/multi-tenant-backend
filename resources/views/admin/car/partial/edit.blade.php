@@ -147,7 +147,7 @@
             <div class="px-4 mt-4">
                 <x-admin.label for="engine" value="{{ __('Engine') }}" />
                 <select id="engine" name="engine" wire:model="engine"
-                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                 >
                     @foreach(config('car-specs.engine') as $specEngine)
                         <option value="{{$specEngine}}">{{ ucwords($specEngine) }}</option>
@@ -159,7 +159,7 @@
             <div class="px-4 mt-4">
                 <x-admin.label for="transmission" value="{{ __('Transmission') }}" />
                 <select id="transmission" name="transmission" wire:model="transmission"
-                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                 >
                     @foreach(config('car-specs.transmission') as $specTransmission)
                         <option value="{{$specTransmission}}">{{ ucwords($specTransmission) }}</option>
@@ -171,7 +171,7 @@
             <div class="px-4 mt-4">
                 <x-admin.label for="vehicle_type" value="{{ __('Vehicle Type') }}" />
                 <select id="vehicle_type" name="vehicle_type" wire:model="vehicle_type"
-                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                 >
                     @foreach(config('car-specs.type') as $specType)
                         <option value="{{$specType}}">{{ ucwords($specType) }}</option>
@@ -183,7 +183,7 @@
             <div class="px-4 mt-4">
                 <x-admin.label for="vehicle_brand" value="{{ __('Vehicle Brand') }}" />
                 <select id="vehicle_brand" name="vehicle_brand" wire:model="vehicle_brand"
-                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                 >
                     @foreach(config('car-specs.brand') as $specBrand)
                         <option value="{{$specBrand}}">{{ ucwords($specBrand) }}</option>
@@ -195,7 +195,7 @@
             <div class="px-4 mt-4">
                 <x-admin.label for="vehicle_class" value="{{ __('Vehicle Class') }}" />
                 <select id="vehicle_class" name="vehicle_class" wire:model="vehicle_class"
-                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                 >
                     @foreach(config('car-specs.class') as $specClass)
                         <option value="{{$specClass}}">{{ ucwords($specClass) }}</option>
@@ -207,7 +207,7 @@
             <div class="px-4 mt-4">
                 <x-admin.label for="f_roads_name" value="{{ __('F-Roads Name') }}" />
                 <select id="f_roads_name" name="f_roads_name" wire:model="f_roads_name"
-                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-32 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                 >
                     @foreach(config('car-specs.road') as $specRoad)
                         <option value="{{$specRoad}}">{{ strtoupper($specRoad) }}</option>

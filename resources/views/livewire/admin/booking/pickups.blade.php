@@ -29,7 +29,7 @@
                             @foreach ($pickups as $index => $pickup)
                                 <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        <a href="#" class="text-purple-700 hover:underline">
+                                        <a href="{{$pickup->edit_url}}" class="text-purple-700 hover:underline">
                                             {{ $pickup->order_number }}
                                         </a>
                                     </td>

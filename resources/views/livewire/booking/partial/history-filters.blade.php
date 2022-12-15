@@ -126,7 +126,7 @@
                         <x-admin.label for="payment_status" value="{{ __('Payment status') }}" />
 
                         <select id="payment_status" name="payment_status" wire:model="payment_status"
-                            class="disable-arrow block w-full mt-2 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                            class="disable-arrow block w-full mt-2 pt-2 px-3 text-left border-gray-300 rounded-md"
                         >
                             <option value="">All</option>
                             <option value="confirmed">Confirmed</option>
@@ -139,7 +139,7 @@
                         <x-admin.label for="vendor_status" value="{{ __('Vendor status') }}" />
 
                         <select id="vendor_status" name="vendor_status" wire:model="vendor_status"
-                            class="disable-arrow block w-full mt-2 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                            class="disable-arrow block w-full mt-2 pt-2 px-3 text-left border-gray-300 rounded-md"
                         >
                             <option value="">All</option>
                             <option value="confirmed">Confirmed</option>
@@ -152,11 +152,12 @@
                         <x-admin.label for="booking_status" value="{{ __('Booking status') }}" />
 
                         <select id="booking_status" name="booking_status" wire:model="booking_status"
-                            class="disable-arrow block w-full mt-2 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                            class="disable-arrow block w-full mt-2 pt-2 px-3 text-left border-gray-300 rounded-md"
                         >
                             <option value="">All</option>
+                            <option value="pending">Pending</option>
                             <option value="confirmed">Confirmed</option>
-                            <option value="not_confirmed">Not Confirmed</option>
+                            <option value="canceled">Canceled</option>
                         </select>
                     </div>
 
@@ -165,7 +166,7 @@
                         <x-admin.label for="vehicle" value="{{ __('Vehicle') }}" />
 
                         <select id="vehicle" name="vehicle" wire:model="vehicle"
-                            class="disable-arrow block w-full mt-2 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                            class="disable-arrow block w-full mt-2 pt-2 px-3 text-left border-gray-300 rounded-md"
                         >
                             <option value="">All</option>
                             @foreach($vehicles as $id => $name)
@@ -179,7 +180,7 @@
                         <x-admin.label for="vendor" value="{{ __('Vendor') }}" />
 
                         <select id="vendor" name="vendor" wire:model="vendor"
-                            class="disable-arrow block w-full mt-2 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                            class="disable-arrow block w-full mt-2 pt-2 px-3 text-left border-gray-300 rounded-md"
                         >
                             <option value="">All</option>
                             @foreach($vendors as $id => $name)

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Booking;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
 use Illuminate\View\View;
 
 class BookingController extends Controller
@@ -43,14 +44,38 @@ class BookingController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('booking.dashboard'),
-                'title' => 'Bookings'
+                'route' => route('booking.history'),
+                'title' => 'Booking History'
             ]),
             'crumbs' => [
-                'Bookings' => route('booking.dashboard')
+                'Booking History' => route('booking.history')
             ],
         ];
 
         return view('booking.create')->with($data);
+    }
+
+    /**
+     *  Booking edit
+     */
+    public function edit($hashid, $tab = null): View
+    {
+        $this->authorize('booking');
+
+        $booking = Booking::where('hashid', $hashid)->firstOrFail();
+
+        $data = [
+            'booking' => $booking,
+            'action' => collect([
+                'route' => route('booking.history'),
+                'title' => 'Booking History'
+            ]),
+            'crumbs' => [
+                'Booking History' => route('booking.history')
+            ],
+            'tab' => emptyOrNull($tab) ? 'basic' : $tab,
+        ];
+
+        return view('booking.edit')->with($data);
     }
 }

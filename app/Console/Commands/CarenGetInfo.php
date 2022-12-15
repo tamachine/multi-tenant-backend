@@ -84,7 +84,9 @@ class CarenGetInfo extends Command
             $existingVendor = CarenVendor::where('caren_rental_id', $vendor['Id'])->first();
 
             if (!$existingVendor) {
-                SlackAlert::message("New Caren vendor: ". $vendor["Name"]);
+                if (config('settings.slack.enabled')) {
+                    SlackAlert::message("New Caren vendor: ". $vendor["Name"]);
+                }
 
                 CarenVendor::create([
                     'name'              => $vendor["Name"],
@@ -113,7 +115,9 @@ class CarenGetInfo extends Command
                 $existingLocation = CarenLocation::where('name', $pickupLocation['Name'])->first();
 
                 if (!$existingLocation) {
-                    SlackAlert::message("New Caren location: ". $pickupLocation["Name"]);
+                    if (config('settings.slack.enabled')) {
+                        SlackAlert::message("New Caren location: ". $pickupLocation["Name"]);
+                    }
 
                     CarenLocation::create([
                         'name'                      => $pickupLocation["Name"],
@@ -133,7 +137,9 @@ class CarenGetInfo extends Command
                         'caren_dropoff_location_id' => $dropoffLocation["Id"],
                     ]);
                 } else {
-                    SlackAlert::message("New Caren location: ". $dropoffLocation["Name"]);
+                    if (config('settings.slack.enabled')) {
+                        SlackAlert::message("New Caren location: ". $dropoffLocation["Name"]);
+                    }
 
                     CarenLocation::create([
                         'name'                      => $dropoffLocation["Name"],
@@ -161,7 +167,9 @@ class CarenGetInfo extends Command
                 $existingCar = CarenCar::where('caren_id', $car['Id'])->first();
 
                 if (!$existingCar) {
-                    SlackAlert::message("New Caren car: ". $car["Name"]);
+                    if (config('settings.slack.enabled')) {
+                        SlackAlert::message("New Caren car: ". $car["Name"]);
+                    }
 
                     unset($car['Currencies']);
 
@@ -196,7 +204,9 @@ class CarenGetInfo extends Command
                 $existingExtra = CarenExtra::where('caren_id', $extra['Id'])->first();
 
                 if (!$existingExtra) {
-                    SlackAlert::message("New Caren extra: ". $extra["Name"]);
+                    if (config('settings.slack.enabled')) {
+                        SlackAlert::message("New Caren extra: ". $extra["Name"]);
+                    }
 
                     unset($extra['Currencies']);
 

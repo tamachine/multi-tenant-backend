@@ -34,7 +34,7 @@
             <div class="px-4 mt-4 md:mt-0">
                 <x-admin.label for="caren_extra" value="{{ __('Caren Extra') }}" />
                 <select id="caren_extra" name="caren_extra" wire:model="caren_extra"
-                    class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                    class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                 >
                     <option value="">Select Extra</option>
                     @foreach ($caren_extras as $id => $name)

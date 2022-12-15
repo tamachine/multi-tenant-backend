@@ -73,7 +73,7 @@
                                 <td class="px-4 py-2 whitespace-nowrap">
                                     @if(!$holiday["closed"])
                                         <select id="pickup_from_{{ $key }}" name="pickup_from_{{ $key }}" wire:model="holidays.{{ $key }}.pickup_from"
-                                            class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                                            class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                                         >
                                             @foreach ($hours as $hour)
                                                 <option value="{{$hour}}">{{ $hour }}</option>
@@ -85,7 +85,7 @@
                                 <td class="px-4 py-2 whitespace-nowrap">
                                     @if(!$holiday["closed"])
                                         <select id="pickup_to_{{ $key }}" name="pickup_to_{{ $key }}" wire:model="holidays.{{ $key }}.pickup_to"
-                                            class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                                            class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                                         >
                                             @foreach ($hours as $hour)
                                                 <option value="{{$hour}}">{{ $hour }}</option>
@@ -97,7 +97,7 @@
                                 <td class="px-4 py-2 whitespace-nowrap">
                                     @if(!$holiday["closed"])
                                         <select id="dropoff_from_{{ $key }}" name="dropoff_from_{{ $key }}" wire:model="holidays.{{ $key }}.dropoff_from"
-                                            class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                                            class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                                         >
                                             @foreach ($hours as $hour)
                                                 <option value="{{$hour}}">{{ $hour }}</option>
@@ -109,7 +109,7 @@
                                 <td class="px-4 py-2 whitespace-nowrap">
                                     @if(!$holiday["closed"])
                                         <select id="dropoff_to_{{ $key }}" name="dropoff_to_{{ $key }}" wire:model="holidays.{{ $key }}.dropoff_to"
-                                            class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                                            class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
                                         >
                                             @foreach ($hours as $hour)
                                                 <option value="{{$hour}}">{{ $hour }}</option>

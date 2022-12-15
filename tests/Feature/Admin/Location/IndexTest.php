@@ -28,7 +28,7 @@ class IndexTest extends TestCase
      *
      * @return void
      */
-    public function userIndexShowsLocationsAndFilters()
+    public function locationIndexShowsLocationsAndFilters()
     {
         $this->actingAs($this->admin);
 

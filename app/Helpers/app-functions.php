@@ -128,7 +128,7 @@ if (!function_exists('translate_caren_fuelname')) {
     /**
      * Translate Caren fuel name into the "engine" names in config/car-specs
      *
-     * @param   string
+     * @param   string  $fuelName
      *
      * @return  string
      */
@@ -154,7 +154,7 @@ if (!function_exists('translate_caren_transmission')) {
     /**
      * Translate Caren transmission name into the "transmission" names in config/car-specs
      *
-     * @param   string
+     * @param   string  $transmission
      *
      * @return  string
      */
@@ -177,7 +177,7 @@ if (!function_exists('translate_caren_road')) {
     /**
      * Translate Caren "DriveName" into the "road" names in config/car-specs
      *
-     * @param   string
+     * @param   string $driveName
      *
      * @return  string
      */
@@ -193,5 +193,28 @@ if (!function_exists('translate_caren_road')) {
             default:
                 return '';
         }
+    }
+}
+
+if (!function_exists('translate_log_fields')) {
+    /**
+     * Translate the updated fields to be added to the booking log
+     *
+     * @param   array   $fields
+     *
+     * @return  string
+     */
+    function translate_log_fields($fields)
+    {
+        $translated = [];
+        $ignore_fields = ["updated_at", "car_id", "pickup_location", "dropoff_location"];
+
+        foreach (array_keys($fields) as $field) {
+            if (!in_array($field, $ignore_fields)) {
+                $translated[] = __('log_fields.' . $field);
+            }
+        }
+
+        return implode(", ", $translated);
     }
 }

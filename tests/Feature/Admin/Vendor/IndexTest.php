@@ -28,7 +28,7 @@ class IndexTest extends TestCase
      *
      * @return void
      */
-    public function userIndexShowsVendorsAndFilters()
+    public function vendorIndexShowsVendorsAndFilters()
     {
         $this->actingAs($this->admin);
 

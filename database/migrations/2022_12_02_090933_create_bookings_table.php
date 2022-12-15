@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('car_id')->nullable()->unsigned()->index();
             $table->unsignedBigInteger('vendor_id')->nullable()->unsigned()->index();
             $table->string('status')->default('pending')->index();
+            $table->string('cancel_reason')->nullable();
             $table->string('car_name');
             $table->string('vendor_name');
 

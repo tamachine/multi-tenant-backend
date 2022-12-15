@@ -18,5 +18,6 @@ Route::group(
         Route::get('/', ['as' => 'dashboard', 'uses' => 'BookingController@dashboard']);
         Route::get('history', ['as' => 'history', 'uses' => 'BookingController@history']);
         Route::get('create', ['as' => 'create', 'uses' => 'BookingController@create']);
+        Route::get('{booking}/edit/{tab?}', ['as' => 'edit', 'uses' => 'BookingController@edit']);
     }
 );

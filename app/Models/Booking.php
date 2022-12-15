@@ -18,7 +18,7 @@ class Booking extends Model
      * @var array
      */
     protected $fillable = [
-        'car_id', 'vendor_id', 'status', 'car_name', 'vendor_name',
+        'car_id', 'vendor_id', 'status', 'cancel_reason', 'car_name', 'vendor_name',
         'pickup_name', 'dropoff_name', 'pickup_at', 'dropoff_at', 'pickup_location', 'dropoff_location',
         'rental_price', 'exrtras_price', 'total_price', 'online_payment',
         'booking_reference', 'order_number', 'amount_paid', 'currency_paid', 'payment_method',
@@ -162,11 +162,7 @@ class Booking extends Model
         }
 
         if (!empty($booking_status)) {
-            if ($booking_status == 'not_confirmed') {
-                $query->where('status', '!=', 'confirmed');
-            } else {
-                $query->where('status', $booking_status);
-            }
+            $query->where('status', $booking_status);
         }
 
         if (!empty($vehicle)) {
@@ -271,13 +267,23 @@ class Booking extends Model
     }
 
     /**
-     * Related booking extras
+     * Related booking extras (pivot)
      *
      * @return object
      */
-    public function bookingExtra()
+    public function bookingExtras()
     {
         return $this->hasMany(BookingExtra::class);
+    }
+
+    /**
+     * Related extras
+     *
+     * @return object
+     */
+    public function extras()
+    {
+        return $this->belongsToMany(Extra::class, 'booking_extra');
     }
 
     /**

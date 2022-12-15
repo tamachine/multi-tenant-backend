@@ -28,7 +28,7 @@ class IndexTest extends TestCase
      *
      * @return void
      */
-    public function userIndexShowsFreeDaysAndFilters()
+    public function freeDayIndexShowsFreeDaysAndFilters()
     {
         $this->actingAs($this->admin);
 

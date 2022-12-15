@@ -13,7 +13,7 @@
             <x-admin.label for="open_to" value="{{ __('Location') }}" />
 
             <select id="location" name="location" wire:model="location"
-                class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
             >
                 <option value="">Select Location</option>
                 @foreach ($availableLocations as $availableLocation)
@@ -29,7 +29,7 @@
             <x-admin.label for="open_from" value="{{ __('Open From') }}" />
 
             <select id="open_from" name="open_from" wire:model="open_from"
-                class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
             >
                 @foreach ($hours as $hour)
                     <option value="{{$hour}}">{{ $hour }}</option>
@@ -42,7 +42,7 @@
             <x-admin.label for="open_to" value="{{ __('Open To') }}" />
 
             <select id="open_to" name="open_to" wire:model="open_to"
-                class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
             >
                 @foreach ($hours as $hour)
                     <option value="{{$hour}}">{{ $hour }}</option>
@@ -55,7 +55,7 @@
             <x-admin.label for="pickup_available" value="{{ __('Pickup available') }}" />
 
             <select id="pickup_available" name="pickup_available" wire:model="pickup_available"
-                class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
             >
                 <option value="1">{{ __('Yes') }}</option>
                 <option value="0">{{ __('No') }}</option>
@@ -67,7 +67,7 @@
             <x-admin.label for="dropoff_available" value="{{ __('Dropoff available') }}" />
 
             <select id="dropoff_available" name="dropoff_available" wire:model="dropoff_available"
-                class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md font-medium"
+                class="disable-arrow block w-24 h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
             >
                 <option value="1">{{ __('Yes') }}</option>
                 <option value="0">{{ __('No') }}</option>
