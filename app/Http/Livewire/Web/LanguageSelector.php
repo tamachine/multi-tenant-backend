@@ -8,7 +8,7 @@ use App;
 class LanguageSelector extends Component
 {
     public function mount() {
-        $this->route = url()->previous();        
+        $this->route = request()->route()->getName();             
     }
 
     public function changeLanguage($code)
@@ -16,8 +16,8 @@ class LanguageSelector extends Component
         if(in_array($code, array_keys(config('languages')))) {
             session(['applocale' => $code]);
         }
-        
-        return redirect($this->route);
+                
+        return redirect()->route($this->route);
     }
 
     public function render()
