@@ -156,7 +156,7 @@ class User extends Authenticatable
      */
     public function scopeSuperAdminSearch($query, $search)
     {
-        $query->where('role', '!=', 'developer')
+        $query->whereIn('role', ['superAdmin', 'admin', 'booking', 'content'])
             ->where('id', '!=', auth()->user()->id);
 
         if (!empty($search)) {

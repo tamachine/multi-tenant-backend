@@ -201,6 +201,13 @@ class Edit extends Component
 
         $changes = $this->booking->getChanges();
 
+        // If the online payment has changed and there is an affiliate, recalculate the commision
+        if (in_array('online_payment', array_keys($changes)) && $this->booking->affiliate) {
+            $this->booking->update([
+                'affiliate_commission'  => round($this->online_payment * $this->booking->affiliate->commission_percentage / 100)
+            ]);
+        }
+
         // Save a booking log if there have been changes
         if (count($changes)) {
             $this->booking->logs()->create([
