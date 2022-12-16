@@ -117,7 +117,7 @@
         </div>
 
         <div x-show="tab == 'affiliate'" style="display:none;">
-            Affiliate
+            <livewire:booking.linked-affiliate :booking="$booking" />
         </div>
 
         <div x-show="tab == 'log'" style="display:none;">

@@ -15,12 +15,11 @@ class Language
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {       
-        //dd(session('tamara'));
+    {
          if($request->session()->has('applocale')){
             App::setLocale($request->session()->get('applocale'));
          }
-        
+
         return $next($request);
     }
 }
