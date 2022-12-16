@@ -8,7 +8,7 @@
     </x-slot>
 
     <x-slot name="form">
-        @foreach(config('languages') as $key => $language)
+        @foreach(App\Helpers\Language::availableLanguages() as $key => $language)
             <!-- Name -->
             <div class="px-4 mt-4">
                 <x-admin.label for="name_{{$key}}" value="{{ __('Name') }} - {{$language}}" />

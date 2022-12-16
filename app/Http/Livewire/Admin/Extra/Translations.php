@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Extra;
 
 use App\Models\Extra;
 use Livewire\Component;
+use App\Helpers\Language;
 
 class Translations extends Component
 {
@@ -39,19 +40,19 @@ class Translations extends Component
         $this->extra = $extra;
 
         // Names
-        foreach(config('languages') as $key => $language) {
+        foreach(Language::availableLanguages() as $key => $language) {
             $this->names[$key] = $this->extra->getTranslation('name', $key);
         }
 
         // Descriptions
-        foreach(config('languages') as $key => $language) {
+        foreach(Language::availableLanguages() as $key => $language) {
             $this->descriptions[$key] = $this->extra->getTranslation('description', $key);
         }
     }
 
     public function saveTranslations()
     {
-        foreach(config('languages') as $key => $language) {
+        foreach(Language::availableLanguages() as $key => $language) {
             $this->extra
                 ->setTranslation('name', $key, $this->names[$key])
                 ->setTranslation('description', $key, $this->descriptions[$key])
