@@ -69,15 +69,15 @@
             </ul>
         </div>
 
-        <div x-show="tab == 'basic'">
+        <div x-show="tab == 'basic'" style="display:none;">
             <livewire:admin.extra.edit :extra="$extra" />
         </div>
 
-        <div x-show="tab == 'translations'">
+        <div x-show="tab == 'translations'" style="display:none;">
             <livewire:admin.extra.translations :extra="$extra" />
         </div>
 
-        <div x-show="tab == 'image'">
+        <div x-show="tab == 'image'" style="display:none;">
             <livewire:admin.extra.image :extra="$extra" />
         </div>
     </div>

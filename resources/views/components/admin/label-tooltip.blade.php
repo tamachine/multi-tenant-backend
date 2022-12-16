@@ -1,6 +1,6 @@
 @props(['value', 'tooltip'])
 
-<div class="flex">
+<div class="flex items-center">
     <label {{ $attributes->merge(['class' => 'block font-semibold text-sm text-gray-700']) }}>
         {{ $value ?? $slot }}
     </label>

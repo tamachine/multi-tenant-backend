@@ -157,6 +157,7 @@
                             <option value="">All</option>
                             <option value="pending">Pending</option>
                             <option value="confirmed">Confirmed</option>
+                            <option value="concluded">Concluded</option>
                             <option value="canceled">Canceled</option>
                         </select>
                     </div>

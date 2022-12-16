@@ -83,19 +83,19 @@
             </ul>
         </div>
 
-        <div x-show="tab == 'vendors'">
+        <div x-show="tab == 'vendors'" style="display:none;">
             <livewire:admin.caren.vendors />
         </div>
 
-        <div x-show="tab == 'locations'">
+        <div x-show="tab == 'locations'" style="display:none;">
             <livewire:admin.caren.locations />
         </div>
 
-        <div x-show="tab == 'cars'">
+        <div x-show="tab == 'cars'" style="display:none;">
             <livewire:admin.caren.cars />
         </div>
 
-        <div x-show="tab == 'extras'">
+        <div x-show="tab == 'extras'" style="display:none;">
             <livewire:admin.caren.extras />
         </div>
     </div>

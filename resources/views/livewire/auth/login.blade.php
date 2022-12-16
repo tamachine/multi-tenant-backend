@@ -24,15 +24,15 @@
             <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
                 <form wire:submit.prevent="authenticate">
                     <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
-                            Email address
+                        <label for="username_email" class="block text-sm font-medium text-gray-700 leading-5">
+                            Username / Email address
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input wire:model.lazy="email" id="email" name="email" type="email" required autofocus class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('email') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror" />
+                            <input wire:model.lazy="username_email" id="username_email" name="username_email" type="text" required autofocus class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('username_email') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror" />
                         </div>
 
-                        @error('email')
+                        @error('username_email')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                         @enderror
                     </div>

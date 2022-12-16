@@ -11,9 +11,9 @@ class DashboardController extends Controller
      *  General Dashboard
      */
     public function index(): View
-    {       
-        $this->authorize('content');  
-        
+    {
+        $this->authorize('content');
+
         return view('content.dashboard.index');
-    }      
+    }
 }

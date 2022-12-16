@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('hashid')->nullable()->index();
             $table->string('name');
+            $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('role')->default('content');
             $table->boolean('blogger')->default(0);

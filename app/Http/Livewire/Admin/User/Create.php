@@ -62,6 +62,7 @@ class Create extends Component
 
         $user = $user->create([
             'name'      => $this->name,
+            'username'  => $this->email,
             'email'     => $this->email,
             'role'      => $this->role,
             'blogger'   => $this->blogger,
