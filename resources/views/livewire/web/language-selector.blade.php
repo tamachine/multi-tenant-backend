@@ -1,7 +1,7 @@
 <div
     class="rounded-b-xl shadow-xl bg-white font-fredoka text-xl md:text-base h-full"     
     x-on:click.away="close()"    
-    >
+    >    
     <div class="md:p-8 md:pb-4 px-8">
         <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-x-12 gap-y-2 md:gap-y-0 w-fit mx-auto">
             <div class="my-6 md:my-0 md:text-left text-center relative">
@@ -13,14 +13,15 @@
             <div 
                 class="grid md:grid-cols-[auto_1fr_auto_1fr_auto_1fr] grid-cols-[auto_1fr_auto_auto] gap-y-5 md:px-0 px-6"
                 x-data="selectOption({ selectedOption: '{{ App::getLocale() }}' })" 
-                >
+                >                
                 @foreach(config('languages') as $code => $language)                    
                     <img class="md:pl-6 pr-2" src="{{ asset('images/flags/'.$code.'.svg') }}" />
                     <a 
                         href="javascript:void(0)" 
                         class="hover:text-pink-red"
                         :class="selectedOption == '{{ $code }}' ? 'text-pink-red' : 'text-black-primary'"
-                        x-on:click="select('{{ $code }}')"                          
+                        x-on:click="select('{{ $code }}')"     
+                        wire:click="changeLanguage('{{ $code }}')"                                      
                         >
                         {!! __('general.languages-'.$code) !!}
                     </a>                    

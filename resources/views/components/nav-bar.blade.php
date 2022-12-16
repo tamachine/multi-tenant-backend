@@ -3,7 +3,7 @@
 
     {{-- mobile --}}
     <div 
-        class="cursor-pointer md:hidden font-sans-medium"    
+        class="cursor-pointer md:hidden font-sans-medium menu-selector"    
         x-on:click="showMobileNavBar = !showMobileNavBar"
         >
         <div x-show="!showMobileNavBar">
@@ -30,7 +30,7 @@
         <div class="pl-5 text-sm font-medium flex items-center gap-1" x-on:click="toggle()">
             <img class="inline" src='{{ asset("/images/currencies/dollar.svg") }}' />
             <img class="inline" src='{{ asset("/images/flags/".App::currentLocale().".svg") }}' />
-            <img class="cursor-pointer" src="{{ asset('images/icons/arrow-down.svg') }}" />
+            <img class="cursor-pointer language-selector" src="{{ asset('images/icons/arrow-down.svg') }}" />
         </div>
     </div>
     {{-- desktop end --}}
@@ -39,8 +39,8 @@
         class="md-max:hidden md:absolute top-[76px] right-16 z-50"
         x-cloak 
         x-show="visibility()"
-        >
-        <x-language-selector />
+        >        
+        <livewire:web.language-selector />
     </div>
 </nav>
 
@@ -109,7 +109,7 @@
                             <div class="flex justify-center gap-2">
                                 <img src="{{ asset('images/flags/'.App::getLocale().'.svg') }}" /> 
                                 <span class="text-black-primary font-sans font-medium">{!! __('general.languages-'.App::getLocale()) !!}</span>
-                                <img class="cursor-pointer" src="{{ asset('images/icons/arrow-down.svg') }}" />
+                                <img class="cursor-pointer language-selector-mobile" src="{{ asset('images/icons/arrow-down.svg') }}" />
                             </div>
                         </div>
                         <div class="flex flex-col justify-center items-center gap-3" x-on:click="open()">
@@ -142,7 +142,7 @@
         x-transition:leave-start="transform translate-y-0 opacity-full"
         x-transition:leave-end="transform -translate-y-full opacity-[90%]"
         >
-        <x-language-selector />
+        <livewire:web.language-selector />
     </div>
 
 </div>
