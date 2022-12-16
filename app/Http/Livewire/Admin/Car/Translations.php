@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Car;
 
 use App\Models\Car;
 use Livewire\Component;
+use App\Helpers\Language;
 
 class Translations extends Component
 {
@@ -39,19 +40,19 @@ class Translations extends Component
         $this->car = $car;
 
         // Names
-        foreach(config('languages') as $key => $language) {
+        foreach(Language::availableLanguages() as $key => $language) {
             $this->names[$key] = $this->car->getTranslation('name', $key);
         }
 
         // Descriptions
-        foreach(config('languages') as $key => $language) {
+        foreach(Language::availableLanguages() as $key => $language) {
             $this->descriptions[$key] = $this->car->getTranslation('description', $key);
         }
     }
 
     public function saveTranslations()
     {
-        foreach(config('languages') as $key => $language) {
+        foreach(Language::availableLanguages() as $key => $language) {
             $this->car
                 ->setTranslation('name', $key, $this->names[$key])
                 ->setTranslation('description', $key, $this->descriptions[$key])

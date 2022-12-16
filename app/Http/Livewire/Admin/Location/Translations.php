@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Location;
 
 use App\Models\Location;
 use Livewire\Component;
+use App\Helpers\Language;
 
 class Translations extends Component
 {
@@ -44,24 +45,24 @@ class Translations extends Component
         $this->location = $location;
 
         // Names
-        foreach(config('languages') as $key => $language) {
+        foreach(Language::availableLanguages() as $key => $language) {
             $this->names[$key] = $this->location->getTranslation('name', $key);
         }
 
         // Pickup Input notes
-        foreach(config('languages') as $key => $language) {
+        foreach(Language::availableLanguages() as $key => $language) {
             $this->pickup_input_infos[$key] = $this->location->getTranslation('pickup_input_info', $key);
         }
 
         // Dropoff Input notes
-        foreach(config('languages') as $key => $language) {
+        foreach(Language::availableLanguages() as $key => $language) {
             $this->dropoff_input_infos[$key] = $this->location->getTranslation('dropoff_input_info', $key);
         }
     }
 
     public function saveTranslations()
     {
-        foreach(config('languages') as $key => $language) {
+        foreach(Language::availableLanguages() as $key => $language) {
             $this->location
                 ->setTranslation('name', $key, $this->names[$key])
                 ->setTranslation('pickup_input_info', $key, $this->pickup_input_infos[$key])
