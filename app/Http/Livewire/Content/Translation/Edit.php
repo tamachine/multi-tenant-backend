@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Content\Translation;
 
 use App\Models\Translation;
 use Livewire\Component;
+use App\Helpers\Language;
 
 class Edit extends Component
 {
@@ -26,7 +27,7 @@ class Edit extends Component
     /**
      * @var array
      */
-    public $text;
+    public $text;    
     /*
     ***************************************************************
     ** METHODS
@@ -38,7 +39,7 @@ class Edit extends Component
         $this->translation = $translation;
 
         $this->full_key = $this->translation->full_key;               
-        $this->text = $this->translation->text;    
+        $this->text = $this->translation->text;            
     }
 
     public function update()
@@ -46,8 +47,10 @@ class Edit extends Component
         $this->dispatchBrowserEvent('validationError');
 
         $this->validate([
-            'text.en' => ['required'],
+            'text.'.Language::defaultCode() => ['required'],
         ]);
+
+        $this->fillAllLanguages();
 
         $this->translation->update([
             'text' => array_filter($this->text),            
@@ -59,5 +62,13 @@ class Edit extends Component
     public function render()
     {
         return view('livewire.content.translation.edit');
+    }
+
+    protected function fillAllLanguages() {
+        foreach(Language::availableCodes() as $code) {
+            if(!isset($this->text[$code]) || empty($this->text[$code])){
+                $this->text[$code] = $this->text[Language::defaultCode()];
+            }
+        }
     }
 }

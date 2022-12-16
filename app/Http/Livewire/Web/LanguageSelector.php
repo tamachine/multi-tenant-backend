@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Web;
 
 use Livewire\Component;
 use App;
+use App\Helpers\Language;
 
 class LanguageSelector extends Component
 {
@@ -13,7 +14,7 @@ class LanguageSelector extends Component
 
     public function changeLanguage($code)
     {     
-        if(in_array($code, array_keys(config('languages')))) {
+        if(in_array($code, Language::availableCodes())) {
             session(['applocale' => $code]);
         }
                 

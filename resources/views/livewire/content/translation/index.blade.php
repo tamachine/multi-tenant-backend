@@ -11,7 +11,7 @@
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     {{ __('Name') }}
                                 </th>
-                                @foreach(config('languages') as $key => $language)
+                                @foreach(App\Helpers\Language::availableLanguages() as $key => $language)
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     {{ $language }}
                                 </th>
@@ -29,7 +29,7 @@
                                         </a>
                                     </td>
 
-                                    @foreach(config('languages') as $key => $language)
+                                    @foreach(App\Helpers\Language::availableLanguages() as $key => $language)
                                     <td class="px-6 py-4 text-sm font-medium">                                                                                 
                                         {!! highlightTerm($translation->getTranslation($key), $search) !!}                                  
                                     </td>

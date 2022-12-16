@@ -14,7 +14,7 @@
                 class="grid md:grid-cols-[auto_1fr_auto_1fr_auto_1fr] grid-cols-[auto_1fr_auto_auto] gap-y-5 md:px-0 px-6"
                 x-data="selectOption({ selectedOption: '{{ App::getLocale() }}' })" 
                 >                
-                @foreach(config('languages') as $code => $language)                    
+                @foreach(App\Helpers\Language::availableLanguages() as $code => $language)                    
                     <img class="md:pl-6 pr-2" src="{{ asset('images/flags/'.$code.'.svg') }}" />
                     <a 
                         href="javascript:void(0)" 
