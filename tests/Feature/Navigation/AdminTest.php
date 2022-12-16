@@ -14,6 +14,7 @@ class AdminTest extends TestCase
     protected $admin;
     protected $bookingAgent;
     protected $contentUser;
+    protected $affiliateUser;
 
     public function setUp(): void
     {
@@ -23,6 +24,7 @@ class AdminTest extends TestCase
         $this->admin = $this->createAdmin();
         $this->bookingAgent = $this->createBookingAgent();
         $this->contentUser = $this->createContentUser();
+        $this->affiliateUser = $this->createAffiliateUser();
     }
 
     /**
@@ -70,6 +72,10 @@ class AdminTest extends TestCase
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
+            ->get(route('settings'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
             ->get(route('settings'))
             ->assertStatus(403);
     }
@@ -155,6 +161,18 @@ class AdminTest extends TestCase
         $this->actingAs($this->contentUser)
             ->get(route('vendor.edit', $vendor->hashid))
             ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('vendor.index'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('vendor.create'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('vendor.edit', $vendor->hashid))
+            ->assertStatus(403);
     }
 
     /**
@@ -236,6 +254,18 @@ class AdminTest extends TestCase
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
+            ->get(route('location.edit', $location->hashid))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('location.index'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('location.create'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
             ->get(route('location.edit', $location->hashid))
             ->assertStatus(403);
     }
@@ -322,6 +352,18 @@ class AdminTest extends TestCase
         $this->actingAs($this->contentUser)
             ->get(route('car.edit', $car->hashid))
             ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('car.index'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('car.create'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('car.edit', $car->hashid))
+            ->assertStatus(403);
     }
 
     /**
@@ -406,6 +448,18 @@ class AdminTest extends TestCase
         $this->actingAs($this->contentUser)
             ->get(route('extra.edit', $extra->hashid))
             ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('extra.index'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('extra.create'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('extra.edit', $extra->hashid))
+            ->assertStatus(403);
     }
 
     /**
@@ -464,6 +518,14 @@ class AdminTest extends TestCase
         $this->actingAs($this->contentUser)
             ->get(route('season.create'))
             ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('season.index'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('season.create'))
+            ->assertStatus(403);
     }
 
     /**
@@ -520,6 +582,14 @@ class AdminTest extends TestCase
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
+            ->get(route('free-day.create'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('free-day.index'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
             ->get(route('free-day.create'))
             ->assertStatus(403);
     }

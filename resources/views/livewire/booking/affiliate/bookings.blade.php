@@ -101,7 +101,7 @@
                                         {{ $booking->status == 'concluded' ? 'Yes' : 'No' }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                        {{ $booking->created_at->format('Y') }}
+                                        {{ $booking->dropoff_at->format('Y') }}
                                     </td>
                                 </tr>
                             @endforeach

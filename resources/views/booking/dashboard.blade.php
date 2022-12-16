@@ -1,6 +1,6 @@
 <x-admin-layout>
     <x-slot name="title">
-        {{ __('Bookings') }}
+        {{ __('Booking settings') }}
     </x-slot>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 p-5">

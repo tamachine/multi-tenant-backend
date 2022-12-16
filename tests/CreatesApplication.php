@@ -227,6 +227,18 @@ trait CreatesApplication
     }
 
     /**
+     * Create a affiliate user
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\User
+     */
+    protected function createAffiliateUser($attributes = [])
+    {
+        return User::factory($attributes)->affiliate()->create();
+    }
+
+    /**
      * Create a user
      *
      * @param      array   $attributes

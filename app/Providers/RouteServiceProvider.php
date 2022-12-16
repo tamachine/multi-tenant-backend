@@ -36,8 +36,8 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configureRateLimiting();
-        $this->defineRoutes();     
-        $this->bindings();   
+        $this->defineRoutes();
+        $this->bindings();
     }
 
      /**
@@ -71,24 +71,29 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
 
+            Route::prefix('affiliate')
+                ->middleware(['web', 'auth'])
+                ->namespace($this->namespace)
+                ->as('affiliate.')
+                ->group(base_path('routes/affiliate.php'));
+
             Route::prefix('booking')
                 ->middleware(['web', 'auth'])
-                ->namespace($this->namespace)                
+                ->namespace($this->namespace)
                 ->as('booking.')
                 ->group(base_path('routes/booking.php'));
 
             Route::prefix('content')
                 ->middleware(['web', 'auth'])
-                ->namespace($this->namespace)                
+                ->namespace($this->namespace)
                 ->as('content.')
                 ->group(base_path('routes/content.php'));
 
             Route::prefix('developer')
                 ->middleware(['web', 'auth'])
-                ->namespace($this->namespace)                
+                ->namespace($this->namespace)
                 ->as('developer.')
                 ->group(base_path('routes/developer.php'));
-            
         });
     }
 

@@ -212,6 +212,32 @@ class Booking extends Model
         return $query;
     }
 
+    /**
+     * Scope to search the model for the affiliate search
+     *
+     * @param      object  $query               Illuminate\Database\Query\Builder
+     * @param      string  $year    int|null
+     * @param      string  $status  string
+     *
+     * @return     object  Illuminate\Database\Query\Builder
+     */
+    public function scopeAffiliateSearch($query, $year, $status)
+    {
+        if (!empty($year)) {
+            $query->whereYear('dropoff_at', $year);
+        }
+
+        if (!empty($status)) {
+            if ($status == 'concluded') {
+                $query->where('status', 'concluded');
+            } else {
+                $query->where('status', '!=', 'concluded');
+            }
+        }
+
+        return $query;
+    }
+
     /**********************************
      * Relationships
      **********************************/
