@@ -14,9 +14,7 @@ class LanguageSelector extends Component
 
     public function changeLanguage($code)
     {     
-        if(in_array($code, Language::availableCodes())) {
-            session(['applocale' => $code]);
-        }
+        Language::setLanguageInSession($code);
                 
         return redirect()->route($this->route);
     }

@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use App\Services\PreferredLanguage\ApplyPreferredLanguageToLanguageSession;
+use App\Services\PreferredLanguage\PreferredLanguage;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,7 +16,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->app->bind(ApplyPreferredLanguageToLanguageSession::class, function($app) {
+			return new ApplyPreferredLanguageToLanguageSession(new PreferredLanguage());
+		});
     }
 
     /**

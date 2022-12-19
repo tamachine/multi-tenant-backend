@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+use App\Services\PreferredLanguage\ApplyPreferredLanguageToLanguageSession;
+
 class Language
 {        
     /**
@@ -35,12 +37,40 @@ class Language
     }
 
     /**
-     * Get the falllanguage session
+     * Get the language session
      *
      * @return string
      */
-    public static function session()
-    {
+    public static function getSession()
+    {        
+        app()->make(ApplyPreferredLanguageToLanguageSession::class);
+        
+        if(request()->session()->has(self::getSessionName())){
+            return request()->session()->get(self::getSessionName());
+        }
+    }
 
+    protected static function getSessionName() {
+        return 'applocale';
+    }
+
+    /**
+     * Set the language session
+     *     
+     */
+    public static function setSession($value)
+    {
+        session([self::getSessionName() => $value]);
+    }
+
+     /**
+     * Set language in session
+     *     
+     */
+    public static function setLanguageInSession($code)
+    {
+        if(in_array($code, self::availableCodes())) {
+            self::setSession($code);            
+        }
     }
 }
