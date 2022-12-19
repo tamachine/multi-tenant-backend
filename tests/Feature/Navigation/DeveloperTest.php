@@ -14,6 +14,7 @@ class DeveloperTest extends TestCase
     protected $admin;
     protected $bookingAgent;
     protected $contentUser;
+    protected $affiliateUser;
 
     public function setUp(): void
     {
@@ -23,6 +24,7 @@ class DeveloperTest extends TestCase
         $this->admin = $this->createAdmin();
         $this->bookingAgent = $this->createBookingAgent();
         $this->contentUser = $this->createContentUser();
+        $this->affiliateUser = $this->createAffiliateUser();
     }
 
     /**
@@ -94,6 +96,14 @@ class DeveloperTest extends TestCase
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
+            ->get(route('developer.user.create'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('developer.user.index'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
             ->get(route('developer.user.create'))
             ->assertStatus(403);
     }

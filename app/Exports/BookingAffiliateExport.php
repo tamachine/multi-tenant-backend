@@ -104,26 +104,26 @@ class BookingAffiliateExport implements FromView
     public $date_format = "d-m-Y H:i";
 
     /**
-     * @param      string  $affiliate_id        int
-     * @param      string  $booking_start_date  string
-     * @param      string  $booking_end_date    string
-     * @param      string  $pickup_start_date   string
-     * @param      string  $pickup_end_date     string
-     * @param      string  $dropoff_start_date  string
-     * @param      string  $dropoff_end_date    string
-     * @param      string  $payment_status      string
-     * @param      string  $vendor_status       string
-     * @param      string  $booking_status      string
-     * @param      string  $vehicle             string
-     * @param      string  $vendor              string
-     * @param      string  $order_number        string
-     * @param      string  $email               string
-     * @param      string  $first_name          string
-     * @param      string  $last_name           string
-     * @param      string  $telephone           string
-     * @param      string  $order_column        string
-     * @param      string  $order_way           string
-     * @param      string  $date_format         string
+     * @param      string  $affiliate_id
+     * @param      string  $booking_start_date
+     * @param      string  $booking_end_date
+     * @param      string  $pickup_start_date
+     * @param      string  $pickup_end_date
+     * @param      string  $dropoff_start_date
+     * @param      string  $dropoff_end_date
+     * @param      string  $payment_status
+     * @param      string  $vendor_status
+     * @param      string  $booking_status
+     * @param      string  $vehicle
+     * @param      string  $vendor
+     * @param      string  $order_number
+     * @param      string  $email
+     * @param      string  $first_name
+     * @param      string  $last_name
+     * @param      string  $telephone
+     * @param      string  $order_column
+     * @param      string  $order_way
+     * @param      string  $date_format
      */
     public function __construct(
         $affiliate_id,

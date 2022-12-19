@@ -94,4 +94,16 @@ class UserFactory extends Factory
             'role' => 'content'
         ]);
     }
+
+    /**
+     * Affiliate User
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function affiliate()
+    {
+        return $this->state([
+            'role' => 'affiliate'
+        ]);
+    }
 }

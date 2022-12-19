@@ -14,6 +14,7 @@ class BookingAgentTest extends TestCase
     protected $admin;
     protected $bookingAgent;
     protected $contentUser;
+    protected $affiliateUser;
 
     public function setUp(): void
     {
@@ -23,6 +24,7 @@ class BookingAgentTest extends TestCase
         $this->admin = $this->createAdmin();
         $this->bookingAgent = $this->createBookingAgent();
         $this->contentUser = $this->createContentUser();
+        $this->affiliateUser = $this->createAffiliateUser();
     }
 
     /**
@@ -72,6 +74,10 @@ class BookingAgentTest extends TestCase
         $this->actingAs($this->contentUser)
             ->get(route('booking.dashboard'))
             ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('booking.dashboard'))
+            ->assertStatus(403);
     }
 
     /**
@@ -104,6 +110,10 @@ class BookingAgentTest extends TestCase
             ->assertStatus(200);
 
         $this->actingAs($this->contentUser)
+            ->get(route('booking.history'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
             ->get(route('booking.history'))
             ->assertStatus(403);
     }
@@ -166,6 +176,14 @@ class BookingAgentTest extends TestCase
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
+            ->get(route('booking.edit', $booking->hashid))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('booking.create'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
             ->get(route('booking.edit', $booking->hashid))
             ->assertStatus(403);
     }

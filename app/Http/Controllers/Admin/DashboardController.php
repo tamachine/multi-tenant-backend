@@ -13,6 +13,8 @@ class DashboardController extends Controller
      */
     public function index(Statistics $statistics): View
     {
+        $this->authorize('scandinavian');
+
         $data = [
             'statistics' => $statistics->bookingStatistics(),
         ];
@@ -28,5 +30,5 @@ class DashboardController extends Controller
         $this->authorize('admin');
 
         return view('admin.dashboard.settings');
-    }   
+    }
 }

@@ -93,6 +93,26 @@ class User extends Authenticatable
         return in_array($this->role, ['developer', 'superAdmin', 'admin', 'content']);
     }
 
+     /**
+     * Check if the user is from a Scandinavian role
+     *
+     * @return  bool
+     */
+    public function scandinavian()
+    {
+        return in_array($this->role, ['developer', 'superAdmin', 'admin', 'booking', 'content']);
+    }
+
+    /**
+     * Check if the user has the role 'affiliate'
+     *
+     * @return  bool
+     */
+    public function isAffiliate()
+    {
+        return $this->role == 'affiliate';
+    }
+
     /**********************************
      * Accessors & Mutators
      **********************************/
@@ -111,6 +131,8 @@ class User extends Authenticatable
             case 'booking':
             case 'content':
                 return route('dashboard');
+            case 'affiliate':
+                return route('affiliate.dashboard');
             default:
                 return '/';
         }
@@ -170,5 +192,19 @@ class User extends Authenticatable
         }
 
         return $query;
+    }
+
+    /**********************************
+     * Relationships
+     **********************************/
+
+    /**
+     * Related affiliate
+     *
+     * @return object
+     */
+    public function affiliate()
+    {
+        return $this->hasOne(Affiliate::class);
     }
 }

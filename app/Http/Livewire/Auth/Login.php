@@ -42,7 +42,9 @@ class Login extends Component
             return;
         }
 
-        return redirect()->intended(route('dashboard'));
+        \Log::info(auth()->user()->afterLoginRedirectTo);
+
+        return redirect()->intended(auth()->user()->afterLoginRedirectTo);
     }
 
     public function render()

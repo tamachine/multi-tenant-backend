@@ -5,7 +5,7 @@ namespace Tests\Feature\Navigation;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ContentUserTest extends TestCase
+class AffiliateUserTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -15,6 +15,7 @@ class ContentUserTest extends TestCase
     protected $bookingAgent;
     protected $contentUser;
     protected $affiliateUser;
+    protected $affiliate;
 
     public function setUp(): void
     {
@@ -25,58 +26,59 @@ class ContentUserTest extends TestCase
         $this->bookingAgent = $this->createBookingAgent();
         $this->contentUser = $this->createContentUser();
         $this->affiliateUser = $this->createAffiliateUser();
+        $this->affiliate = $this->createAffiliate(['user_id' => $this->affiliateUser->id]);
     }
 
     /**
      * @test
      * @group feature
      * @group navigation
-     * @group navigation-content-user
+     * @group navigation-affiliate-user
      *
      * @return void
      */
-    public function theGeneralDashboardLoads()
+    public function theGeneralDashboardDoesNotLoad()
     {
-        $this->actingAs($this->bookingAgent)
+        $this->actingAs($this->affiliateUser)
             ->get(route('dashboard'))
-            ->assertStatus(200);
+            ->assertStatus(403);
     }
 
     /**
      * @test
      * @group feature
      * @group navigation
-     * @group navigation-content-user
+     * @group navigation-affiliate-user
      *
      * @return void
      */
-    public function theContentUserDashboardLoads()
+    public function theAffiliateUserDashboardLoads()
     {
-        $this->get(route('content.dashboard'))
+        $this->get(route('affiliate.dashboard'))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('content.dashboard'))
-            ->assertStatus(200);
+            ->get(route('affiliate.dashboard'))
+            ->assertStatus(403);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('content.dashboard'))
-            ->assertStatus(200);
+            ->get(route('affiliate.dashboard'))
+            ->assertStatus(403);
 
         $this->actingAs($this->admin)
-            ->get(route('content.dashboard'))
-            ->assertStatus(200);
+            ->get(route('affiliate.dashboard'))
+            ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('content.dashboard'))
+            ->get(route('affiliate.dashboard'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('content.dashboard'))
-            ->assertStatus(200);
+            ->get(route('affiliate.dashboard'))
+            ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('content.dashboard'))
-            ->assertStatus(403);
+            ->get(route('affiliate.dashboard'))
+            ->assertStatus(200);
     }
 }
