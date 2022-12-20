@@ -7,10 +7,12 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class Booking extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes;
+    use HasFactory, Notifiable, HashidTrait, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -45,7 +47,17 @@ class Booking extends Model
      * Methods
      **********************************/
 
-    //
+    /**
+     * Delete any old versions of the PDF
+     *
+     * @return     void
+     */
+    public function deleteOldPdf()
+    {
+        if (Storage::disk('public')->exists('bookings/pdf/' . $this->hashid . '.pdf')) {
+            Storage::disk('public')->delete('bookings/pdf/' . $this->hashid . '.pdf');
+        }
+    }
 
     /**********************************
      * Accessors & Mutators
@@ -59,6 +71,18 @@ class Booking extends Model
     public function getEditUrlAttribute()
     {
         return route('booking.edit', $this->hashid);
+    }
+
+    /**
+     * Get the booking's PDF path
+     *
+     * @return     string
+     */
+    public function getPdfPathAttribute()
+    {
+        return Storage::disk('public')->exists('bookings/pdf/' . $this->hashid . '.pdf')
+            ? asset('storage/bookings/pdf/' . $this->hashid . '.pdf')
+            : '';
     }
 
     /**

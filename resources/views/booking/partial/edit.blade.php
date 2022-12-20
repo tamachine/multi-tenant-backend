@@ -226,7 +226,7 @@
                 wire:model.defer="comment" rows="3">
             </textarea>
             <a href="javascript:void(0);"
-                class="mt-1 text-xs text-blue-600 hover:underline"
+                class="mt-1 text-xs text-purple-700 hover:underline"
                 @click.prevent="tab='log'"
             >
                 See the booking log

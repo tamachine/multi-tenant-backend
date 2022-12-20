@@ -5,6 +5,7 @@
         <div
             x-show="filters"
             x-transition.duration.500ms
+            style="display:none;"
         >
             <div class="p-4 lg:grid lg:gap-2 lg:grid-cols-2 2xl:grid-cols-3">
                 <div class="mt-4 flex flex-col">
@@ -245,6 +246,7 @@
             class="p-2 text-center"
             x-show="!filters"
             x-transition.duration.500ms
+            style="display:none;"
         >
             <button class="inline-flex items-center px-4 py-2 bg-yellow-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-white hover:border-yellow-700 hover:text-yellow-700 active:bg-white active:border-yellow-700 active:text-yellow-700 disabled:opacity-25 transition ease-in-out duration-150"
                 type="button"
