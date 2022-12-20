@@ -21,7 +21,7 @@
     {{-- desktop --}}
     <div class="hidden md:flex items-center divide-x gap-10">
         <div class="flex items-end justify-between flex-wrap gap-10 text-lg font-sans-medium">
-            <a href="#" class="hover:text-pink-red">{!! __('navbar.cars') !!}</a>
+            <a href="{{ route('cars') }}" class="hover:text-pink-red">{!! __('navbar.cars') !!}</a>
             <a href="#" class="hover:text-pink-red">{!! __('navbar.about') !!}</a>
             <a href="#" class="hover:text-pink-red">{!! __('navbar.faq') !!}</a>
             <a href="#" class="hover:text-pink-red">{!! __('navbar.blog') !!}</a>

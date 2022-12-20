@@ -8,6 +8,7 @@ use App\Services\ReviewsInfo\GoogleReviewsInfoComponent;
 use App\Services\ReviewsInfo\FacebookReviewsInfoComponent;
 use App\Services\ReviewsInfo\TrustPilotReviewsInfoComponent;
 use App\Services\Selectable\CarSearchHoursSelectableComponent;
+use App\Services\Breadcrumbs\Breadcrumbs;
 
 abstract class BaseController extends Controller
 {    
@@ -23,6 +24,17 @@ abstract class BaseController extends Controller
         View::share('carSearchHoursSelectableComponent', new CarSearchHoursSelectableComponent());
 
         View::share('footerImagePath', $this->footerImagePath());
+    }
+
+    protected function getBreadcrumb($routes = []) {
+        $breadcrumbs = new Breadcrumbs();
+        $breadcrumb = [];
+
+        foreach($routes as $route) {
+            $breadcrumb[] = $breadcrumbs->getBreadcrumbByRoute($route);
+        }
+
+        return $breadcrumb;
     }
 
     abstract protected function footerImagePath() : string;

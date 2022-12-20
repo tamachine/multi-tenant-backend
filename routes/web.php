@@ -10,6 +10,7 @@ use App\Http\Livewire\Auth\Verify;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\CarsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ use App\Http\Controllers\Web\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/cars', [CarsController::class, 'index'])->name('cars');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
