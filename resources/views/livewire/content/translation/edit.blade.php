@@ -17,14 +17,16 @@
         </x-slot>
 
         <x-slot name="form">
-            <div class="px-4 mt-4">                
-                <label for="rich" class="inline-flex items-center">
+            <div class="px-4 mt-4">     
+                <x-admin.label value="{{ __('Rich text') }}" />             
+                <label for="rich" class="inline-flex items-center py-2">
                     <x-admin.checkbox id="rich" wire:model="rich" x-on:click="{{ $rich ? 'openConfirm = true' : '' }}" wire:click="{{ $rich ? '' : 'check' }}" />
-                    <span class="ml-3">                        
-                        {{ __('Rich text') }}
+                    <span class="ml-3 italic">                        
+                        {{ __('Check this option to transform all inputs in rich text editors or uncheck it for plain text inputs') }}
                     </span>
                 </label>
             </div>
+            <hr class="my-8 px-4">
             @foreach(App\Helpers\Language::availableLanguages() as $key => $language)
                 <!-- Text -->
                 <div class="px-4 mt-4">
