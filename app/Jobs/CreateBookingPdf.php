@@ -56,6 +56,7 @@ class CreateBookingPdf implements ShouldQueue
         $url = route('booking.pdf', $this->booking->hashid);
 
         Browsershot::url($url)
+            ->authenticate(config('browshershot.username'), config('browshershot.password'))
             ->ignoreHttpsErrors()
             ->format('A4')
             ->setIncludePath(config('browshershot.include_path'))
