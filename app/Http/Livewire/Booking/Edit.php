@@ -241,6 +241,8 @@ class Edit extends Component
 
     public function createPdf()
     {
+        $this->dispatchBrowserEvent('showOverlay');
+
         dispatch(new CreateBookingPdf($this->booking));
 
         session()->flash('status', 'success');
