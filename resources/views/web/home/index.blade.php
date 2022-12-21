@@ -4,8 +4,8 @@
     <div class="relative bg-violet-100">
         @include('web.home.partial.hero')
         
-        <div class="absolute md:-bottom-6 md-max:top-[180px]  mx-auto w-full z-30">
-            @include('web.home.partial.car-search-bar')
+        <div class="absolute md:-bottom-6 md-max:top-[180px]  mx-auto w-full z-30">            
+            <x-car-search-bar />
         </div>                
     </div>
 

@@ -9,6 +9,7 @@ use App\Services\ReviewsInfo\FacebookReviewsInfoComponent;
 use App\Services\ReviewsInfo\TrustPilotReviewsInfoComponent;
 use App\Services\Selectable\CarSearchHoursSelectableComponent;
 use App\Services\Breadcrumbs\Breadcrumbs;
+use App\Models\CarCategory;
 
 abstract class BaseController extends Controller
 {    
@@ -24,6 +25,7 @@ abstract class BaseController extends Controller
         View::share('carSearchHoursSelectableComponent', new CarSearchHoursSelectableComponent());
 
         View::share('footerImagePath', $this->footerImagePath());
+        View::share('carCategories', CarCategory::all());
     }
 
     protected function getBreadcrumb($routes = []) {
