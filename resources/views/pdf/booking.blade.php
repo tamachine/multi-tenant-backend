@@ -28,7 +28,7 @@
         </div>
 
         <div class="mt-8 text-lg font-bold">
-            Booking Reference: {{$booking->order_number}}
+            Booking Reference: {{$booking->order_id}}
         </div>
 
         {{-- Data table --}}

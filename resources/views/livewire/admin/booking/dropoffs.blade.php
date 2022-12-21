@@ -30,7 +30,7 @@
                                 <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         <a href="{{$dropoff->edit_url}}" class="text-purple-700 hover:underline">
-                                            {{ $dropoff->order_number }}
+                                            {{ $dropoff->order_id }}
                                         </a>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">

@@ -35,7 +35,6 @@ return new class extends Migration
             $table->unsignedInteger('total_price')->nullable();
             $table->unsignedInteger('online_payment')->nullable();
 
-            $table->string('booking_reference')->nullable()->index();
             $table->string('order_number')->nullable()->index();
             $table->float('amount_paid', 10, 2)->nullable();
             $table->string('currency_paid')->nullable();
@@ -69,6 +68,8 @@ return new class extends Migration
             $table->unsignedBigInteger('affiliate_id')->nullable()->unsigned()->index();
             $table->unsignedInteger('affiliate_commission')->nullable();
 
+            $table->string('caren_id')->nullable()->index();
+            $table->string('caren_guid')->nullable();
             $table->text('caren_info')->nullable();
 
             $table->timestamps();

@@ -4,9 +4,9 @@
     </div>
 
     <div class="flex mt-4">
-         <!-- Order Number -->
+         <!-- Order ID -->
         <div>
-            <x-admin.input id="order_number" type="text" class="block w-40" maxlength="255" wire:model.defer="order_number" autocomplete="order_number" placeholder="Order Number" />
+            <x-admin.input id="order_id" type="text" class="block w-40" maxlength="255" wire:model.defer="order_id" autocomplete="order_id" placeholder="Order ID" />
         </div>
 
         <!-- Search Buttonr -->

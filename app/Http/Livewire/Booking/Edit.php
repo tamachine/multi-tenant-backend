@@ -26,7 +26,7 @@ class Edit extends Component
     /**
      * @var string
      */
-    public $order_number;
+    public $order_id;
 
     /**
      * @var string
@@ -137,7 +137,7 @@ class Edit extends Component
     public function mount(Booking $booking)
     {
         $this->booking = $booking;
-        $this->order_number = $booking->order_number;
+        $this->order_id = $booking->order_id;
         $this->vendor_name = $booking->vendor->name;
         $this->booking_date = $booking->created_at->format('d-m-Y H:i');
 

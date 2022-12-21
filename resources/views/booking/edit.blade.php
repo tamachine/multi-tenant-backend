@@ -1,6 +1,6 @@
 <x-admin-layout>
     <x-slot name="title">
-        {{ $booking->order_number }}
+        {{ $booking->order_id }}
     </x-slot>
 
     <x-slot name="breadcrumbs">

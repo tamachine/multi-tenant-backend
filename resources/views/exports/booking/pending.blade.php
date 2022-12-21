@@ -14,7 +14,7 @@
     <tbody>
         @foreach($bookings as $booking)
             <tr>
-                <td>{{$booking->order_number}}</td>
+                <td>{{$booking->order_id}}</td>
                 <td>{{$booking->pickup_at->format('d-m-Y H:i')}}</td>
                 <td>{{ucfirst($booking->payment_status)}}</td>
                 <td>{{ucfirst($booking->vendor_status)}}</td>

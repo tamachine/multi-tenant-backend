@@ -23,13 +23,14 @@ class Booking extends Model
         'car_id', 'vendor_id', 'status', 'cancel_reason', 'car_name', 'vendor_name',
         'pickup_name', 'dropoff_name', 'pickup_at', 'dropoff_at', 'pickup_location', 'dropoff_location',
         'rental_price', 'exrtras_price', 'total_price', 'online_payment',
-        'booking_reference', 'order_number', 'amount_paid', 'currency_paid', 'payment_method',
+        'order_number', 'amount_paid', 'currency_paid', 'payment_method',
         'payment_status', 'vendor_status', 'pickup_input_info', 'dropoff_input_info',
         'first_name', 'last_name', 'email', 'telephone', 'number_passengers',
         'driver_name', 'driver_date_birth', 'driver_id_passport', 'driver_license_number',
         'country', 'address', 'city', 'state', 'postal_code', 'weight_info',
         'extra_driver_info1', 'extra_driver_info2', 'extra_driver_info3', 'extra_driver_info4', 'newsletter',
-        'affiliate_id', 'affiliate_commission', 'caren_info'
+        'affiliate_id', 'affiliate_commission',
+        'caren_id', 'caren_guid', 'caren_info'
     ];
 
     /**
@@ -71,6 +72,18 @@ class Booking extends Model
     public function getEditUrlAttribute()
     {
         return route('booking.edit', $this->hashid);
+    }
+
+    /**
+     * Get the order ID
+     * - If it's from Caren, return the Caren ID
+     * - If it's from "Own", return the Order Number
+     *
+     * @return     string
+     */
+    public function getOrderIdAttribute()
+    {
+        return $this->caren_id ? $this->caren_id : $this->order_number;
     }
 
     /**
@@ -126,7 +139,7 @@ class Booking extends Model
      * @param      string  $booking_status      string
      * @param      string  $vehicle             string
      * @param      string  $vendor              string
-     * @param      string  $order_number        string
+     * @param      string  $order_id        string
      * @param      string  $email               string
      * @param      string  $first_name          string
      * @param      string  $last_name           string
@@ -147,7 +160,7 @@ class Booking extends Model
         $booking_status,
         $vehicle,
         $vendor,
-        $order_number,
+        $order_id,
         $email,
         $first_name,
         $last_name,
@@ -197,10 +210,11 @@ class Booking extends Model
             $query->where('vendor_id', dehash($vendor));
         }
 
-        if (!empty($order_number)) {
-            collect(str_getcsv($order_number, ' ', '"'))->filter()->each(function ($term) use ($query) {
+        if (!empty($order_id)) {
+            collect(str_getcsv($order_id, ' ', '"'))->filter()->each(function ($term) use ($query) {
                 $term = '%' . $term . '%';
-                $query->where('order_number', 'like', $term);
+                $query->where('order_number', 'like', $term)
+                    ->orWhere('caren_id', 'like', $term);
             });
         }
 

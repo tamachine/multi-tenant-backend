@@ -193,10 +193,10 @@
                 </div>
 
                 <div class="mt-4 flex flex-col">
-                    <!-- Order Number -->
+                    <!-- Order ID -->
                     <div class="px-4">
-                        <x-admin.label for="order_number" value="{{ __('Order Number') }}" />
-                        <x-admin.input id="order_number" type="text" class="w-full mt-2 block" maxlength="255" wire:model="order_number" autocomplete="order_number" />
+                        <x-admin.label for="order_id" value="{{ __('Order ID') }}" />
+                        <x-admin.input id="order_id" type="text" class="w-full mt-2 block" maxlength="255" wire:model="order_id" autocomplete="order_id" />
                     </div>
 
                     <!-- Email -->
