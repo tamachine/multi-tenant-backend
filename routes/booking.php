@@ -26,5 +26,10 @@ Route::group(
             Route::get('create', ['as' => 'create', 'uses' => 'AffiliateController@create']);
             Route::get('{affiliate}/edit/{tab?}', ['as' => 'edit', 'uses' => 'AffiliateController@edit']);
         });
+
+        // Mailing
+        Route::group(['prefix' => 'mailing', 'as' => 'mailing.'], function () {
+            Route::get('{tab?}', ['as' => 'index', 'uses' => 'MailingController@index']);
+        });
     }
 );
