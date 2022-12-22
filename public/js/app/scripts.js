@@ -70,10 +70,13 @@ selectableFull = function(config) {
 
         allValue: config.allValue,
 
+        isSelected: false,
+
         clickItem: function(selectableFullItem) {                   
             this.value = selectableFullItem.value
             this.selectedTitle = (this.value == this.allValue) ? this.title : selectableFullItem.text            
-            this.toggleVisibility()                  
+            this.toggleVisibility()   
+            this.setIsSelected()               
         },
 
         toggleVisibility: function() {
@@ -82,7 +85,12 @@ selectableFull = function(config) {
 
         clickAway: function() {
             this.show = false
+        },
+
+        setIsSelected: function() {                        
+            this.isSelected = (this.value != this.allValue)
         }
+        
     }
 }
 selectOption = function (config) {

@@ -13,12 +13,12 @@
     <input type="text" x-model="value" class="hidden"/>
     <div class="relative group">
         <div 
-            class="flex justify-between gap-5 border-gray-secondary border p-3 group-hover:bg-pink-red-secondary"
-            :class="show ? 'rounded-t-lg' : 'rounded-lg'"
+            class="flex justify-between gap-5 border-gray-secondary border p-3 group-hover:bg-pink-red-secondary"            
+            :class="{ 'rounded-t-lg': show, 'rounded-lg': !show,'bg-pink-red-secondary': isSelected }"        
             x-on:click="toggleVisibility()"
             >
-            <div>
-                <img src="{{ $iconPath }}" class="inline mr-1" />
+            <div class="flex gap-1 justify-center items-center">
+                <img src="{{ $iconPath }}" />
                 <button x-text="selectedTitle">{!! $title !!}</button>            
             </div>
             <div>
