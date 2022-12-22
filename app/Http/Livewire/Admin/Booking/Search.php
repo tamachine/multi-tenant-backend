@@ -31,7 +31,7 @@ class Search extends Component
 
     public function searchBooking()
     {
-        $booking = Booking::where('order_number', $this->order_id)->orWhere('caren_id', $this->rorder_id)->first();
+        $booking = Booking::where('order_number', $this->order_id)->orWhere('caren_id', $this->order_id)->first();
 
         if ($booking) {
             return redirect()->route('booking.edit', $booking->hashid);

@@ -34,6 +34,26 @@
                     </a>
                 </li>
 
+                @if ($booking->is_caren)
+                    <li class="mr-2">
+                        <a href="javascript:void(0);"
+                            @click.prevent="tab='caren'"
+                            class="inline-flex p-4 rounded-t-lg border-b-2"
+                            :class="tab == 'caren' ? 'text-blue-600 border-blue-600' : 'border-transparent hover:text-gray-600 hover:border-gray-300'"
+                        >
+                            <svg aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                class="mr-2 w-5 h-5"
+                                :class="tab == ');"' ? 'text-blue-600' : 'text-gray-400'"
+                            >
+                                <path d="M5.507 4.048A3 3 0 017.785 3h8.43a3 3 0 012.278 1.048l1.722 2.008A4.533 4.533 0 0019.5 6h-15c-.243 0-.482.02-.715.056l1.722-2.008z" />
+                                <path fill-rule="evenodd" d="M1.5 10.5a3 3 0 013-3h15a3 3 0 110 6h-15a3 3 0 01-3-3zm15 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm2.25.75a.75.75 0 100-1.5.75.75 0 000 1.5zM4.5 15a3 3 0 100 6h15a3 3 0 100-6h-15zm11.25 3.75a.75.75 0 100-1.5.75.75 0 000 1.5zM19.5 18a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" clip-rule="evenodd" />
+                            </svg>
+
+                            Caren info
+                        </a>
+                    </li>
+                @endif
+
                 <li class="mr-2">
                     <a href="javascript:void(0);"
                         @click.prevent="tab='extras'"
@@ -106,6 +126,10 @@
 
         <div x-show="tab == 'basic'" style="display:none;">
             <livewire:booking.edit :booking="$booking" />
+        </div>
+
+        <div x-show="tab == 'caren'" style="display:none;">
+            <livewire:booking.caren :booking="$booking" />
         </div>
 
         <div x-show="tab == 'extras'" style="display:none;">

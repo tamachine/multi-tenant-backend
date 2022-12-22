@@ -87,6 +87,16 @@ class Booking extends Model
     }
 
     /**
+     * Check if a booking must have Caren info or not
+     *
+     * @return     string
+     */
+    public function getIsCarenAttribute()
+    {
+        return $this->caren_id || $this->vendor->caren_settings;
+    }
+
+    /**
      * Get the booking's PDF path
      *
      * @return     string

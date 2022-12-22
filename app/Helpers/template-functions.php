@@ -92,7 +92,44 @@ if (!function_exists('highlightTerm')) {
      * @return     string
      */
     function highlightTerm($text, $term)
-    {        
-        return str_ireplace($term, "<mark>$term</mark>", $text); 
+    {
+        return str_ireplace($term, "<mark>$term</mark>", $text);
+    }
+}
+
+if (!function_exists('carenName')) {
+    /**
+     * Get the field name from a Caren booking json/array
+     *
+     * @param      string   $value
+     * @return     string
+     */
+    function carenName($value)
+    {
+        if (str_contains($value, "|")) {
+            $values = explode("|", $value);
+            return $values[0] . " - " . $values[1];
+        } else {
+            return $value;
+        }
+    }
+}
+
+if (!function_exists('carenValue')) {
+    /**
+     * Get the value from a Caren booking json/array
+     *
+     * @param      array    $caren
+     * @param      string   $value
+     * @return     string
+     */
+    function carenValue($caren, $value)
+    {
+        if (str_contains($value, "|")) {
+            $values = explode("|", $value);
+            return $caren[$values[0]][$values[1]];
+        } else {
+            return $caren[$value];
+        }
     }
 }
