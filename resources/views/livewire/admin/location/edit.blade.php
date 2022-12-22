@@ -1,5 +1,5 @@
 <div>
-    @include('admin.location.partial.edit', [
+    @include('livewire.admin.location.partial.edit', [
         'formTitle'         => __('Edit Location'),
         'formDescription'   => __('Enter the location details'),
         'formButton'        => __('Save Location'),
