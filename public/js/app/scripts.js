@@ -70,15 +70,18 @@ selectableFull = function(config) {
 
         allValue: config.allValue,
 
-        clickItem: function(selectableFullItem) {                
+        clickItem: function(selectableFullItem) {                   
             this.value = selectableFullItem.value
-            this.selectedTitle = (this.value == this.allValue) ? this.title : selectableFullItem.text
-            this.toggleVisibility()
-
+            this.selectedTitle = (this.value == this.allValue) ? this.title : selectableFullItem.text            
+            this.toggleVisibility()                  
         },
 
         toggleVisibility: function() {
             this.show = !this.show
+        },
+
+        clickAway: function() {
+            this.show = false
         }
     }
 }

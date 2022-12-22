@@ -7,14 +7,15 @@
                 title: '{!! $title !!}', 
                 allValue: '{{ $allValue }}' 
             } 
-        )"
-    x-on:click="toggleVisibility()"
+        )"  
+    x-on:click.away="clickAway()"  
 >
     <input type="text" x-model="value" class="hidden"/>
-    <div class="relative">
+    <div class="relative group">
         <div 
-            class="flex justify-between gap-5 border-gray-secondary border p-3"
+            class="flex justify-between gap-5 border-gray-secondary border p-3 group-hover:bg-pink-red-secondary"
             :class="show ? 'rounded-t-lg' : 'rounded-lg'"
+            x-on:click="toggleVisibility()"
             >
             <div>
                 <img src="{{ $iconPath }}" class="inline mr-1" />
@@ -34,7 +35,10 @@
                 @foreach($items as $selectableFullItem)
                     <li 
                         x-on:click="clickItem({{ $selectableFullItem->toJson() }})"
-                        class="py-2 pl-9"
+                        class="
+                            py-2 pl-9                             
+                            transition ease-in-out hover:bg-pink-red hover:text-white duration-300
+                            "                        
                     >
                     {!! $selectableFullItem->text !!}
                     </li>
