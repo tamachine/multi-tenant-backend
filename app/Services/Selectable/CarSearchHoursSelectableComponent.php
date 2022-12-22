@@ -2,10 +2,10 @@
 
 namespace App\Services\Selectable;
 
-use App\Contracts\SelectableComponent;
+use App\Services\Selectable\SelectableComponentInterface;
 use App\Services\Selectable\SelectableAbstract;
 
-class CarSearchHoursSelectableComponent extends SelectableAbstract implements SelectableComponent 
+class CarSearchHoursSelectableComponent extends SelectableAbstract implements SelectableComponentInterface 
 {    
     protected $hours = []; //HH:MM 24h key - hh:MM12h value 
     protected $stepMinutes = 30; //time every 30 minutes

@@ -2,9 +2,9 @@
 
 namespace App\Services\ReviewsInfo;
 
-use App\Contracts\ReviewsInfoComponent;
+use App\Services\ReviewsInfo\ReviewsInfoComponentInterface;
 
-class TrustPilotReviewsInfoComponent extends ReviewsInfoAbstract implements ReviewsInfoComponent 
+class TrustPilotReviewsInfoComponent extends ReviewsInfoAbstract implements ReviewsInfoComponentInterface 
 {
     public function getNote(): float
     {

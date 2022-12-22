@@ -11,6 +11,8 @@
             @include('web.cars.partial.car-search-bar')
 
             @include('web.cars.partial.car-categories')
+
+            @include('web.cars.partial.car-selectables')            
         </div>
     </div>
 @endsection

@@ -1,0 +1,1 @@
+<x-selectable-full :selectable-full-component="$transmissionSelectableFull" />

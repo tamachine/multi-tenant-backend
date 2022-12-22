@@ -34,6 +34,46 @@ class CarsSeeder extends Seeder
                 'rich' => true,
             ]
         );   
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'filters-all',    
+            ],
+            [                
+                'text' => ['en' => 'All', 'es' => 'Todos'],                
+            ]
+        );   
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'filters-transmission',    
+            ],
+            [                
+                'text' => ['en' => 'Transmission', 'es' => 'Transmisión'],                
+            ]
+        );   
         
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key'   => 'filters-transmission-auto',    
+            ],
+            [                
+                'text' => ['en' => 'Automatic', 'es' => 'Automático'],                
+            ]
+        );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key'   => 'filters-transmission-manual',    
+            ],
+            [                
+                'text' => ['en' => 'Manual', 'es' => 'Manual'],                
+            ]
+        );  
+                       
     }
 }

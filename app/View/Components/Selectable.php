@@ -3,7 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use App\Contracts\SelectableComponent;
+use App\Services\Selectable\SelectableComponentInterface;
 
 class Selectable extends Component
 {
@@ -15,7 +15,7 @@ class Selectable extends Component
      *
      * @return void
      */
-    public function __construct(SelectableComponent $selectableComponent, $selectedValue = null)
+    public function __construct(SelectableComponentInterface $selectableComponent, $selectedValue = null)
     {
         $this->selectableComponent = $selectableComponent;
         $this->selectedValue = $selectedValue ? $selectedValue : $this->selectableComponent->getDefaultSelectedValue();
