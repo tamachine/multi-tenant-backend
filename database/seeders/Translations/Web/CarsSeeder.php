@@ -74,6 +74,97 @@ class CarsSeeder extends Seeder
                 'text' => ['en' => 'Manual', 'es' => 'Manual'],                
             ]
         );  
-                       
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'filters-road',    
+            ],
+            [                
+                'text' => ['en' => 'Type of used', 'es' => 'Tipo de uso'],                
+            ]
+        );   
+        
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key'   => 'filters-road-4wd',    
+            ],
+            [                
+                'text' => ['en' => '4wd', 'es' => '4wd'],                
+            ]
+        );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key'   => 'filters-road-fwd',    
+            ],
+            [                
+                'text' => ['en' => 'fwd', 'es' => 'fwd'],                
+            ]
+        );  
+            
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'filters-seat',    
+            ],
+            [                
+                'text' => ['en' => 'Seats', 'es' => 'Plazas'],                
+            ]
+        );   
+
+        for($x=2; $x<=12; $x++) {
+            Translation::firstOrCreate(
+                [
+                    'group' => 'cars',
+                    'key' => 'filters-seat-'.$x,    
+                ],
+                [                
+                    'text' => ['en' => $x, 'es' => $x],                
+                ]
+            );  
+        }
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'filters-engine',    
+            ],
+            [                
+                'text' => ['en' => 'Fuel type', 'es' => 'Combustible'],                
+            ]
+        );  
+        
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'filters-engine-gas',    
+            ],
+            [                
+                'text' => ['en' => 'Gas', 'es' => 'Gasolina'],                
+            ]
+        ); 
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'filters-engine-diesel',    
+            ],
+            [                
+                'text' => ['en' => 'Diesel', 'es' => 'Diésel'],                
+            ]
+        ); 
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'filters-engine-electric',    
+            ],
+            [                
+                'text' => ['en' => 'Electric', 'es' => 'Eléctrico'],                
+            ]
+        ); 
     }
 }

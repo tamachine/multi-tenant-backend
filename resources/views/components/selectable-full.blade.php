@@ -1,5 +1,5 @@
 <div
-    class="bg-white w-fit font-sans-medium text-black-secondary cursor-pointer"
+    class="bg-white w-[160px] md:w-[185px] font-sans-medium text-black-secondary cursor-pointer text-sm md:text-base"
     x-data="
         selectableFull( 
             { 
@@ -13,11 +13,11 @@
     <input type="text" x-model="value" class="hidden"/>
     <div class="relative group">
         <div 
-            class="flex justify-between gap-5 border-gray-secondary border p-3 group-hover:bg-pink-red-secondary"            
+            class="flex justify-between gap-1 md:gap-5 border-gray-secondary border p-3 group-hover:bg-pink-red-secondary"            
             :class="{ 'rounded-t-lg': show, 'rounded-lg': !show,'bg-pink-red-secondary': isSelected }"        
             x-on:click="toggleVisibility()"
             >
-            <div class="flex gap-1 justify-center items-center">
+            <div class="flex gap-2 justify-center items-center">
                 <img src="{{ $iconPath }}" />
                 <button x-text="selectedTitle">{!! $title !!}</button>            
             </div>
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div
-            class="absolute rounded-b-lg border-gray-secondary border border-t-0 w-full"
+            class="absolute rounded-b-lg border-gray-secondary border border-t-0 w-full bg-white"
             x-cloak
             x-show="show"    
         >

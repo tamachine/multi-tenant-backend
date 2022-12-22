@@ -10,7 +10,7 @@ use App\Services\SelectableFull\SelectableFullComponentInterface;
 
 abstract class SelectableFullAbstract implements SelectableFullComponentInterface 
 {    
-    protected $instance; //the name used for translations and CarFilters method
+    protected $instance; //the name used for translations, icons and CarFilters method
     protected $instancePluralized;
     protected $items = []; 
 

@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Services\SelectableFull\TransmissionSelectableFullComponent;
+use App\Services\SelectableFull\TransmissionsSelectableFullComponent;
+use App\Services\SelectableFull\RoadsSelectableFullComponent;
+use App\Services\SelectableFull\SeatsSelectableFullComponent;
+use App\Services\SelectableFull\EnginesSelectableFullComponent;
 
 class CarsController extends BaseController
 {
@@ -14,7 +17,10 @@ class CarsController extends BaseController
             'web.cars.index', 
             [
                 'breadcrumbs' => $this->getBreadcrumb(['home', 'cars']),
-                'transmissionSelectableFull' => new TransmissionSelectableFullComponent(),
+                'transmissionsSelectableFull' => new TransmissionsSelectableFullComponent(),
+                'roadsSelectableFull' => new RoadsSelectableFullComponent(),
+                'seatsSelectableFull' => new SeatsSelectableFullComponent(),
+                'enginesSelectableFull' => new EnginesSelectableFullComponent(),
             ]
         );
     }
@@ -26,3 +32,4 @@ class CarsController extends BaseController
 
    
 }
+

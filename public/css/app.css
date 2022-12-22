@@ -1022,6 +1022,10 @@ input:invalid, textarea:invalid, select:invalid {
   box-shadow: none;
 }
 
+.btn.\!active {
+  box-shadow: none !important;
+}
+
 .btn-check:checked + .btn:focus {
   box-shadow: none;
 }
@@ -1038,6 +1042,10 @@ input:invalid, textarea:invalid, select:invalid {
   box-shadow: none;
 }
 
+.btn.\!active:focus {
+  box-shadow: none !important;
+}
+
 .dropdown-menu {
   z-index: 1000;
 }
@@ -1047,6 +1055,13 @@ input:invalid, textarea:invalid, select:invalid {
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: #0d6efd;
+}
+
+.dropdown-item.\!active {
+  color: rgb(31, 41, 55) !important;
+  -webkit-text-decoration: none !important;
+  text-decoration: none !important;
+  background-color: #0d6efd !important;
 }
 
 .dropdown-item:active {
@@ -1075,6 +1090,11 @@ input:invalid, textarea:invalid, select:invalid {
   background-color: #0d6efd;
 }
 
+.dropdown-menu-dark .dropdown-item.\!active {
+  color: #fff !important;
+  background-color: #0d6efd !important;
+}
+
 .dropdown-menu-dark .dropdown-item:active {
   color: #fff;
   background-color: #0d6efd;
@@ -1099,6 +1119,11 @@ input:invalid, textarea:invalid, select:invalid {
   border-color: rgb(37, 99, 235);
 }
 
+.nav-tabs .nav-link.\!active {
+  color: rgb(37, 99, 235) !important;
+  border-color: rgb(37, 99, 235) !important;
+}
+
 .nav-tabs .nav-item.show .nav-link {
   color: rgb(37, 99, 235);
   border-color: rgb(37, 99, 235);
@@ -1119,6 +1144,12 @@ input:invalid, textarea:invalid, select:invalid {
   background: rgb(37, 99, 235);
   color: #fff;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.nav-pills .nav-link.\!active {
+  background: rgb(37, 99, 235) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
 }
 
 .nav-pills .show > .nav-link {
@@ -1144,8 +1175,18 @@ input:invalid, textarea:invalid, select:invalid {
   border-left: 0.125rem solid #1266f1;
 }
 
+.nav-pills.menu-sidebar .nav-link.\!active {
+  color: #1266f1 !important;
+  font-weight: 600 !important;
+  border-left: 0.125rem solid #1266f1 !important;
+}
+
 .tab-content > .active {
   display: block;
+}
+
+.tab-content > .\!active {
+  display: block !important;
 }
 
 .navbar-expand .navbar-nav .dropdown-menu {
@@ -1168,6 +1209,10 @@ input:invalid, textarea:invalid, select:invalid {
   color: rgba(0, 0, 0, 0.9);
 }
 
+.navbar-light .navbar-nav .nav-link.\!active {
+  color: rgba(0, 0, 0, 0.9) !important;
+}
+
 .navbar-dark .navbar-nav .nav-link.disabled {
   color: rgba(255, 255, 255, 0.25);
 }
@@ -1182,6 +1227,10 @@ input:invalid, textarea:invalid, select:invalid {
 
 .navbar-dark .navbar-nav .nav-link.active {
   color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link.\!active {
+  color: #fff !important;
 }
 
 .btn-close.disabled {
@@ -1320,17 +1369,34 @@ input:invalid, textarea:invalid, select:invalid {
   display: block;
 }
 
+.carousel-item.\!active {
+  display: block !important;
+}
+
 .active.carousel-item-end {
   transform: translateX(100%);
+}
+
+.\!active.carousel-item-end {
+  transform: translateX(100%) !important;
 }
 
 .active.carousel-item-start {
   transform: translateX(-100%);
 }
 
+.\!active.carousel-item-start {
+  transform: translateX(-100%) !important;
+}
+
 .carousel-fade .carousel-item.active {
   z-index: 1;
   opacity: 1;
+}
+
+.carousel-fade .carousel-item.\!active {
+  z-index: 1 !important;
+  opacity: 1 !important;
 }
 
 .carousel-fade .active.carousel-item-start {
@@ -1339,14 +1405,30 @@ input:invalid, textarea:invalid, select:invalid {
   transition: opacity 0s 0.6s;
 }
 
+.carousel-fade .\!active.carousel-item-start {
+  z-index: 0 !important;
+  opacity: 0 !important;
+  transition: opacity 0s 0.6s !important;
+}
+
 .carousel-fade .active.carousel-item-end {
   z-index: 0;
   opacity: 0;
   transition: opacity 0s 0.6s;
 }
 
+.carousel-fade .\!active.carousel-item-end {
+  z-index: 0 !important;
+  opacity: 0 !important;
+  transition: opacity 0s 0.6s !important;
+}
+
 .carousel-indicators .active {
   opacity: 1;
+}
+
+.carousel-indicators .\!active {
+  opacity: 1 !important;
 }
 
 .offcanvas-backdrop.show {
@@ -1368,6 +1450,11 @@ input:invalid, textarea:invalid, select:invalid {
 .ripple-wave.active {
   transform: scale(1);
   opacity: 0;
+}
+
+.ripple-wave.\!active {
+  transform: scale(1) !important;
+  opacity: 0 !important;
 }
 
 .btn .ripple-wave {
@@ -1405,8 +1492,16 @@ input:invalid, textarea:invalid, select:invalid {
   opacity: 1;
 }
 
+.timepicker-current.\!active {
+  opacity: 1 !important;
+}
+
 .timepicker-mode-wrapper.active {
   opacity: 1;
+}
+
+.timepicker-mode-wrapper.\!active {
+  opacity: 1 !important;
 }
 
 .timepicker-time-tips-minutes.active {
@@ -1415,16 +1510,34 @@ input:invalid, textarea:invalid, select:invalid {
   font-weight: 400;
 }
 
+.timepicker-time-tips-minutes.\!active {
+  color: #fff !important;
+  background-color: #2979ff !important;
+  font-weight: 400 !important;
+}
+
 .timepicker-time-tips-inner.active {
   color: #fff;
   background-color: #2979ff;
   font-weight: 400;
 }
 
+.timepicker-time-tips-inner.\!active {
+  color: #fff !important;
+  background-color: #2979ff !important;
+  font-weight: 400 !important;
+}
+
 .timepicker-time-tips-hours.active {
   color: #fff;
   background-color: #2979ff;
   font-weight: 400;
+}
+
+.timepicker-time-tips-hours.\!active {
+  color: #fff !important;
+  background-color: #2979ff !important;
+  font-weight: 400 !important;
 }
 
 .timepicker-time-tips-minutes.disabled {
@@ -1449,9 +1562,18 @@ input:invalid, textarea:invalid, select:invalid {
   color: #fff;
 }
 
+.timepicker-time-tips.\!active {
+  color: #fff !important;
+}
+
 .timepicker-hour-mode.active {
   color: #fff;
   opacity: 1;
+}
+
+.timepicker-hour-mode.\!active {
+  color: #fff !important;
+  opacity: 1 !important;
 }
 
 .timepicker-hour.active {
@@ -1459,17 +1581,35 @@ input:invalid, textarea:invalid, select:invalid {
   opacity: 1;
 }
 
+.timepicker-hour.\!active {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
 .timepicker-minute.active {
   color: #fff;
   opacity: 1;
+}
+
+.timepicker-minute.\!active {
+  color: #fff !important;
+  opacity: 1 !important;
 }
 
 .timepicker-icon-up.active {
   opacity: 1;
 }
 
+.timepicker-icon-up.\!active {
+  opacity: 1 !important;
+}
+
 .timepicker-icon-down.active {
   opacity: 1;
+}
+
+.timepicker-icon-down.\!active {
+  opacity: 1 !important;
 }
 
 .timepicker-modal .fade.show {
@@ -1558,6 +1698,36 @@ input:invalid, textarea:invalid, select:invalid {
 
   .spinner-grow {
     animation-duration: 1.5s;
+  }
+
+   {
+    transition: none !important;
+  }
+
+  .carousel-fade .\!active.carousel-item-start {
+    transition: none !important;
+  }
+
+  .carousel-fade .\!active.carousel-item-end {
+    transition: none !important;
+  }
+
+   {
+    animation-duration: 1.5s !important;
+    transition: none !important;
+  }
+
+  .carousel-fade .\!active.carousel-item-start {
+    transition: none !important;
+  }
+
+  .carousel-fade .\!active.carousel-item-end {
+    transition: none !important;
+  }
+
+   {
+    transition: none !important;
+    animation-duration: 1.5s !important;
   }
 }
 
@@ -3358,6 +3528,26 @@ h5 {
   width: 0.75rem;
 }
 
+.w-\[200px\] {
+  width: 200px;
+}
+
+.w-\[190px\] {
+  width: 190px;
+}
+
+.w-\[185px\] {
+  width: 185px;
+}
+
+.w-\[170px\] {
+  width: 170px;
+}
+
+.w-\[160px\] {
+  width: 160px;
+}
+
 .min-w-max {
   min-width: -moz-max-content;
   min-width: max-content;
@@ -3401,6 +3591,14 @@ h5 {
 
 .max-w-7xl {
   max-width: 1440px;
+}
+
+.max-w-\[180px\] {
+  max-width: 180px;
+}
+
+.max-w-\[200px\] {
+  max-width: 200px;
 }
 
 .flex-1 {
@@ -4424,6 +4622,18 @@ h5 {
 
 .pl-9 {
   padding-left: 2.25rem;
+}
+
+.pb-24 {
+  padding-bottom: 6rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
+.pb-12 {
+  padding-bottom: 3rem;
 }
 
 .text-left {
@@ -5754,6 +5964,10 @@ h5 {
     width: 500px;
   }
 
+  .md\:w-\[185px\] {
+    width: 185px;
+  }
+
   .md\:flex-1 {
     flex: 1 1 0%;
   }
@@ -5844,6 +6058,10 @@ h5 {
 
   .md\:gap-5 {
     gap: 1.25rem;
+  }
+
+  .md\:gap-10 {
+    gap: 2.5rem;
   }
 
   .md\:gap-y-0 {
@@ -6084,6 +6302,18 @@ h5 {
 
   .md\:pb-9 {
     padding-bottom: 2.25rem;
+  }
+
+  .md\:pt-24 {
+    padding-top: 6rem;
+  }
+
+  .md\:pt-10 {
+    padding-top: 2.5rem;
+  }
+
+  .md\:pb-24 {
+    padding-bottom: 6rem;
   }
 
   .md\:text-left {

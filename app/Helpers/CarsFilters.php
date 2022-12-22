@@ -16,7 +16,7 @@ class CarsFilters
     }  
     
     public static function seats() {
-        return Car::distinct()->get(['adult_passengers'])->pluck('adult_passengers')->toArray();
+        return Car::distinct()->get(['adult_passengers'])->sortBy('adult_passengers')->pluck('adult_passengers')->toArray();
     }  
 
     public static function engines() {
