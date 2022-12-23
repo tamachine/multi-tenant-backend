@@ -17,7 +17,7 @@ Route::group(
         // Dashboards
         Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
         Route::get('settings', ['as' => 'settings', 'uses' => 'DashboardController@settings']);
-        
+
         // Caren
         Route::group(['prefix' => 'caren', 'as' => 'caren.'], function () {
             Route::get('/{tab?}', ['as' => 'index', 'uses' => 'CarenController@index']);
@@ -55,6 +55,11 @@ Route::group(
             Route::get('/', ['as' => 'index', 'uses' => 'SeasonController@index']);
             Route::get('create', ['as' => 'create', 'uses' => 'SeasonController@create']);
             Route::get('{season}/edit', ['as' => 'edit', 'uses' => 'SeasonController@edit']);
+        });
+
+        // Statistics
+        Route::group(['prefix' => 'statistics', 'as' => 'statistics.'], function () {
+            Route::get('/{tab?}', ['as' => 'index', 'uses' => 'StatisticsController@index']);
         });
 
         // Users

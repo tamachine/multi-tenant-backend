@@ -4,7 +4,7 @@
     </x-slot>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 p-5">
-        <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline"
+        <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
             onclick='window.location.href="{{route("booking.history")}}"'
         >
             <div class="w-14 ml-8">
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline"
+        <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
             onclick='window.location.href="{{route("booking.affiliate.index")}}"'
         >
             <div class="w-14 ml-8">
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline"
+        <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
             onclick='window.location.href="{{route("booking.mailing.index")}}"'
         >
             <div class="w-14 ml-8">

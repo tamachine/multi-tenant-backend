@@ -286,6 +286,45 @@ class Booking extends Model
         return $query;
     }
 
+    /**
+     * Scope to search the model for the statistics section
+     *
+     * @param      object  $query               Illuminate\Database\Query\Builder
+     * @param      string  $booking_start_date  string
+     * @param      string  $booking_end_date    string
+     * @param      string  $date                int
+     * @param      string  $vendor              string
+     *
+     * @return     object  Illuminate\Database\Query\Builder
+     */
+    public function scopeStatisticsSearch($query, $booking_start_date, $booking_end_date, $date, $vendor)
+    {
+        if (!empty($booking_start_date)) {
+            $query->whereDate('bookings.created_at', '>=', Carbon::createFromFormat("d-m-Y", $booking_start_date));
+        }
+
+        if (!empty($booking_end_date)) {
+            $query->whereDate('bookings.created_at', '<=', Carbon::createFromFormat("d-m-Y", $booking_end_date));
+        }
+
+        if (!empty($date)) {
+            if (strlen($date) == 4) {
+                $from = date($date . '-01-01');
+                $to = date($date . '-12-31');
+                $query->whereBetween('bookings.created_at', [$from, $to]);
+            } else {
+                $from = date((now()->year - $date) . '-01-01');
+                $query->whereDate('bookings.created_at', '>=', $from);
+            }
+        }
+
+        if (!empty($vendor)) {
+            $query->where('bookings.vendor_id', dehash($vendor));
+        }
+
+        return $query;
+    }
+
     /**********************************
      * Relationships
      **********************************/
