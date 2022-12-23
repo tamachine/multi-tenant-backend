@@ -9,9 +9,9 @@
     <div class="bg-white rounded-md cursor-pointer group" x-data="{ active:false }" x-on:click="active = !active">
         <div class="flex flex-col items-center m-[2px]">
             <div 
-                class="bg-[#F2F2F2]  w-44 h-24 rounded-t-md flex justify-center 
+                class=" w-44 h-24 rounded-t-md flex justify-center 
                 transition ease-in-out group-hover:bg-pink-red-secondary duration-300"
-                :class="{ 'bg-pink-red-secondary' : active }"
+                :class="{ 'bg-pink-red-secondary border border-pink-red' : active, 'bg-[#F2F2F2]' : !active }"
                 >
                 <img class="py-5 " src="{{ $carCategory->imagePath }}" />
             </div>

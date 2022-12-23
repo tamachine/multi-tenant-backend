@@ -13,6 +13,8 @@
             @include('web.cars.partial.car-categories')
 
             @include('web.cars.partial.car-selectables')            
+
+            @include('web.cars.partial.car-list')   
         </div>
     </div>
 @endsection

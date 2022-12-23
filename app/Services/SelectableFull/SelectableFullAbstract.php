@@ -3,7 +3,7 @@
 namespace App\Services\SelectableFull;
 
 use App\Services\SelectableFull\SelectableFullComponentInterface;
-
+use App\Helpers\CarsFilters;
 /**
  * Class to return a selectable full component 
  */
@@ -46,14 +46,14 @@ abstract class SelectableFullAbstract implements SelectableFullComponentInterfac
      * title of the selectable
      */
     public function getTitle(): string {
-        return __('cars.filters-'. $this->instance);
+        return CarsFilters::getTranslation($this->instance);
     }   
 
     /**
      * Icon to show next to the title
      */
     public function getIconPath(): ?string {
-        return asset('images/cars/filters/'.$this->instance.'.svg');
+        return CarsFilters::getIconPath($this->instance);
     } 
 
     /**

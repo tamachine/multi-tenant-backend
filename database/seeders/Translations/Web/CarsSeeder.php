@@ -166,5 +166,45 @@ class CarsSeeder extends Seeder
                 'text' => ['en' => 'Electric', 'es' => 'Eléctrico'],                
             ]
         ); 
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'card-quick-look',    
+            ],
+            [                
+                'text' => ['en' => 'Quick look', 'es' => 'Vistazo rápido'],                
+            ]
+        );     
+        
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'card-seats',    
+            ],
+            [                
+                'text' => ['en' => 'Seats', 'es' => 'Plazas'],                
+            ]
+        );    
+        
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'card-f-road-allowed',    
+            ],
+            [                
+                'text' => ['en' => 'F-Road permitidas', 'es' => 'F-Road no permitidas'],                
+            ]
+        );   
+        
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'card-f-road-not-allowed',    
+            ],
+            [                
+                'text' => ['en' => 'F-Road not allowed', 'es' => 'F-Road no permitidas'],                
+            ]
+        );  
     }
 }

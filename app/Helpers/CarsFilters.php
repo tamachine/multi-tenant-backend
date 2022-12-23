@@ -23,5 +23,19 @@ class CarsFilters
         return Car::distinct()->get(['engine'])->pluck('engine')->toArray();
     }  
 
-    
+    /**
+     * return the icon path for the filters
+     * $instance string => transmission, road, seat, engine ...
+     */
+    public static function getIconPath($instance):string {
+        return asset('images/cars/filters/'.$instance.'.svg');
+    }
+
+    /**
+     * return the translation for the filters
+     * $instance string => transmission, road, seat, engine ...
+     */
+    public static function getTranslation($instance):string {
+        return __('cars.filters-'. $instance);        
+    }
 }
