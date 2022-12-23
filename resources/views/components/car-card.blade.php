@@ -1,4 +1,4 @@
-<div class="rounded-2lg flex flex-col max-w-xs bg-white">
+<div class="rounded-2lg flex flex-col bg-white">
     <div class="bg-[#f4f5f6] rounded-t-2lg">
         <div class="w-80 h-48 text-gray-600 group flex justify-center {{ $noImages ? 'items-end' : 'items-center' }} relative">
             @if($hasHover)

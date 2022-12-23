@@ -14,7 +14,11 @@
 
             @include('web.cars.partial.car-selectables')            
 
-            @include('web.cars.partial.car-list')   
+            @include('web.cars.partial.car-list')               
+
+            @include('web.cars.partial.car-image') 
+            
+            @include('web.cars.partial.car-faqs')   
         </div>
     </div>
 @endsection
