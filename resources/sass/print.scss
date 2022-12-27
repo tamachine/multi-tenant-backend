@@ -1,0 +1,28 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+// SOME OVERRIDES
+@page {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@media print {
+  html, body {
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+.page {
+    width: 190mm;
+    height: 277mm;
+    margin: 5mm 10mm;
+}

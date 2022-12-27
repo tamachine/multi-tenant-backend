@@ -43,38 +43,38 @@ class HistoryTest extends TestCase
         $booking3 = $this->createBooking(['car_id' => $this->car3->id, 'vendor_id' => $this->vendor2->id]);
 
         Livewire::test(History::class)
-            ->assertSee($booking1->order_number)
-            ->assertSee($booking2->order_number)
-            ->assertSee($booking3->order_number);
+            ->assertSee($booking1->order_id)
+            ->assertSee($booking2->order_id)
+            ->assertSee($booking3->order_id);
 
         Livewire::test(History::class)
-            ->set('order_number', $booking1->order_number)
-            ->assertSee($booking1->order_number)
-            ->assertDontSee($booking2->order_number)
-            ->assertDontSee($booking3->order_number);
+            ->set('order_id', $booking1->order_id)
+            ->assertSee($booking1->order_id)
+            ->assertDontSee($booking2->order_id)
+            ->assertDontSee($booking3->order_id);
 
         Livewire::test(History::class)
-            ->set('order_number', $booking2->order_number)
-            ->assertSee($booking2->order_number)
-            ->assertDontSee($booking1->order_number)
-            ->assertDontSee($booking3->order_number);
+            ->set('order_id', $booking2->order_id)
+            ->assertSee($booking2->order_id)
+            ->assertDontSee($booking1->order_id)
+            ->assertDontSee($booking3->order_id);
 
         Livewire::test(History::class)
-            ->set('order_number', $booking3->order_number)
-            ->assertSee($booking3->order_number)
-            ->assertDontSee($booking1->order_number)
-            ->assertDontSee($booking2->order_number);
+            ->set('order_id', $booking3->order_id)
+            ->assertSee($booking3->order_id)
+            ->assertDontSee($booking1->order_id)
+            ->assertDontSee($booking2->order_id);
 
         Livewire::test(History::class)
             ->set('vendor', $this->vendor1->hashid)
-            ->assertSee($booking1->order_number)
-            ->assertSee($booking2->order_number)
-            ->assertDontSee($booking3->order_number);
+            ->assertSee($booking1->order_id)
+            ->assertSee($booking2->order_id)
+            ->assertDontSee($booking3->order_id);
 
         Livewire::test(History::class)
             ->set('vendor', $this->vendor2->hashid)
-            ->assertDontSee($booking1->order_number)
-            ->assertDontSee($booking2->order_number)
-            ->assertSee($booking3->order_number);
+            ->assertDontSee($booking1->order_id)
+            ->assertDontSee($booking2->order_id)
+            ->assertSee($booking3->order_id);
     }
 }

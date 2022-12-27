@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire\Booking;
 
+use App\Jobs\CreateBookingPdf;
 use App\Models\Booking;
 use App\Models\Car;
 use App\Models\Location;
+use App\Notifications\SendBookingPdfMail;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -24,7 +26,7 @@ class Edit extends Component
     /**
      * @var string
      */
-    public $order_number;
+    public $order_id;
 
     /**
      * @var string
@@ -121,6 +123,11 @@ class Edit extends Component
      */
     public $comment;
 
+    /**
+     * @var string
+     */
+    public $pdf_path;
+
     /*
     ***************************************************************
     ** METHODS
@@ -130,7 +137,7 @@ class Edit extends Component
     public function mount(Booking $booking)
     {
         $this->booking = $booking;
-        $this->order_number = $booking->order_number;
+        $this->order_id = $booking->order_id;
         $this->vendor_name = $booking->vendor->name;
         $this->booking_date = $booking->created_at->format('d-m-Y H:i');
 
@@ -154,6 +161,8 @@ class Edit extends Component
         $this->vendor_status = $booking->vendor_status;
         $this->status = $booking->status;
         $this->cancel_reason = $booking->cancel_reason;
+
+        $this->pdf_path = $booking->pdf_path;
     }
 
     public function getRemainingBalanceProperty()
@@ -228,6 +237,29 @@ class Edit extends Component
         session()->flash('message', 'Booking Information updated.');
 
         return redirect()->route('booking.edit', $this->booking->hashid);
+    }
+
+    public function createPdf()
+    {
+        $this->dispatchBrowserEvent('showOverlay');
+
+        dispatch(new CreateBookingPdf($this->booking));
+
+        session()->flash('status', 'success');
+        session()->flash('message', 'Creating the booking PDF');
+
+        return redirect()->route('booking.edit', $this->booking->hashid);
+    }
+
+    public function viewPdf()
+    {
+        return response()->download(storage_path('app/public/bookings/pdf/' . $this->booking->hashid . '.pdf'), 'Booking.pdf');
+    }
+
+    public function sendPdf()
+    {
+        $this->booking->notify(new SendBookingPdfMail);
+        $this->dispatchBrowserEvent('open-success', ['message' => 'PDF sent to the customer']);
     }
 
     public function render()

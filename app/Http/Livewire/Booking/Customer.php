@@ -213,7 +213,10 @@ class Customer extends Component
             ]);
         }
 
-        $this->dispatchBrowserEvent('open-success', ['message' => 'The customer information have been saved']);
+        session()->flash('status', 'success');
+        session()->flash('message', 'TThe customer information has been saved');
+
+        return redirect()->route('booking.edit', ["booking" => $this->booking->hashid, "tab" => "customer"]);
     }
 
     public function render()

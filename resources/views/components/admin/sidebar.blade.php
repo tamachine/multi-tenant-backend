@@ -48,7 +48,7 @@
             <!-- User account dropdown -->
             <div x-data="{ open: false }" @keydown.escape="open = false" @click.away="open = false" class="px-3 mt-6 relative inline-block text-left">
                 <div x-description="Dropdown menu toggle, controlling the show/hide state of dropdown menu.">
-                    <button @click="open = !open" type="button" class="group w-full bg-gray-100 rounded-md px-3.5 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-purple-700" id="options-menu" aria-haspopup="true" x-bind:aria-expanded="open">
+                    <button @click="open = !open" type="button" class="group w-full bg-gray-100 rounded-md px-3.5 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-700" id="options-menu" aria-haspopup="true" x-bind:aria-expanded="open">
                     <span class="flex w-full justify-between items-center">
                         <span class="flex min-w-0 items-center justify-between space-x-3">
                         <span class="flex-1 min-w-0">

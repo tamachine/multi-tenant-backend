@@ -11,8 +11,8 @@
         <div class="w-full sm:grid sm:gap-2 sm:grid-cols-3">
             <!-- Order number -->
             <div class="px-4 mt-4 md:mt-0">
-                <x-admin.label for="order_number" class="mb-1" value="{{ __('Order number') }}" />
-                <strong>{{$order_number}}</strong>
+                <x-admin.label for="order_id" class="mb-1" value="{{ __('Order number') }}" />
+                <strong>{{$order_id}}</strong>
             </div>
 
             <!-- Vendor -->
@@ -226,7 +226,7 @@
                 wire:model.defer="comment" rows="3">
             </textarea>
             <a href="javascript:void(0);"
-                class="mt-1 text-xs text-blue-600 hover:underline"
+                class="mt-1 text-xs text-purple-700 hover:underline"
                 @click.prevent="tab='log'"
             >
                 See the booking log

@@ -1,5 +1,5 @@
 <div>
-    @include('admin.car.partial.edit', [
+    @include('livewire.admin.car.partial.edit', [
         'formTitle'         => __('Edit Car'),
         'formDescription'   => __('Enter the car details'),
         'formButton'        => __('Save Car'),

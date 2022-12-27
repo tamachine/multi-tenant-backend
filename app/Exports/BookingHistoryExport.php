@@ -71,7 +71,7 @@ class BookingHistoryExport implements FromView
     /**
      * @var string
      */
-    public $order_number = "";
+    public $order_id = "";
 
     /**
      * @var string
@@ -110,7 +110,7 @@ class BookingHistoryExport implements FromView
      * @param      string  $booking_status
      * @param      string  $vehicle
      * @param      string  $vendor
-     * @param      string  $order_number
+     * @param      string  $order_id
      * @param      string  $email
      * @param      string  $first_name
      * @param      string  $last_name
@@ -131,7 +131,7 @@ class BookingHistoryExport implements FromView
         $booking_status,
         $vehicle,
         $vendor,
-        $order_number,
+        $order_id,
         $email,
         $first_name,
         $last_name,
@@ -151,7 +151,7 @@ class BookingHistoryExport implements FromView
         $this->booking_status = $booking_status;
         $this->vehicle = $vehicle;
         $this->vendor = $vendor;
-        $this->order_number = $order_number;
+        $this->order_id = $order_id;
         $this->email = $email;
         $this->first_name = $first_name;
         $this->last_name = $last_name;
@@ -172,7 +172,7 @@ class BookingHistoryExport implements FromView
             $this->booking_status,
             $this->vehicle,
             $this->vendor,
-            $this->order_number,
+            $this->order_id,
             $this->email,
             $this->first_name,
             $this->last_name,

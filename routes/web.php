@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\CarsController;
+use App\Http\Controllers\Web\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +55,5 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', LogoutController::class)
         ->name('logout');
 });
+
+Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');

@@ -1,5 +1,5 @@
 <div>
-    @include('admin.extra.partial.edit', [
+    @include('livewire.admin.extra.partial.edit', [
         'formTitle'         => __('Edit Extra'),
         'formDescription'   => __('Edit the extra details'),
         'formButton'        => __('Save Extra'),

@@ -1,12 +1,12 @@
 <div wire:loading.class="hidden">
-    @include('admin.vendor.partial.create-edit', [
+    @include('livewire.admin.vendor.partial.create-edit', [
         'formTitle'         => __('Edit Vendor'),
         'formDescription'   => __('Update the basic details'),
         'formButton'        => __('Save Vendor'),
     ])
 
     <div class="mt-10">
-        @include('admin.vendor.partial.logo-upload', [
+        @include('livewire.admin.vendor.partial.logo-upload', [
             'formTitle'         => __('Upload logo'),
             'formDescription'   => __('Upload the vendor\'s logo'),
             'formButton'        => __('Save Logo'),

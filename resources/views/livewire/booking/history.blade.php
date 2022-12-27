@@ -10,12 +10,7 @@
                     <thead class="bg-gray-100">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
-                                <x-admin.order-table
-                                    name="Order Id"
-                                    order_column="{{$order_column}}"
-                                    order_way="{{$order_way}}"
-                                    column="order_number"
-                                />
+                                Order ID
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
                                 <x-admin.order-table
@@ -81,7 +76,7 @@
                             <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                     <a href="{{$booking->edit_url}}" class="text-purple-700 hover:underline">
-                                        {{ $booking->order_number }}
+                                        {{ $booking->order_id }}
                                     </a>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">

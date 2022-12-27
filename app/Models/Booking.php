@@ -7,10 +7,12 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 
 class Booking extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes;
+    use HasFactory, Notifiable, HashidTrait, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -21,13 +23,14 @@ class Booking extends Model
         'car_id', 'vendor_id', 'status', 'cancel_reason', 'car_name', 'vendor_name',
         'pickup_name', 'dropoff_name', 'pickup_at', 'dropoff_at', 'pickup_location', 'dropoff_location',
         'rental_price', 'exrtras_price', 'total_price', 'online_payment',
-        'booking_reference', 'order_number', 'amount_paid', 'currency_paid', 'payment_method',
+        'order_number', 'amount_paid', 'currency_paid', 'payment_method',
         'payment_status', 'vendor_status', 'pickup_input_info', 'dropoff_input_info',
         'first_name', 'last_name', 'email', 'telephone', 'number_passengers',
         'driver_name', 'driver_date_birth', 'driver_id_passport', 'driver_license_number',
         'country', 'address', 'city', 'state', 'postal_code', 'weight_info',
         'extra_driver_info1', 'extra_driver_info2', 'extra_driver_info3', 'extra_driver_info4', 'newsletter',
-        'affiliate_id', 'affiliate_commission', 'caren_info'
+        'affiliate_id', 'affiliate_commission',
+        'caren_id', 'caren_guid', 'caren_info'
     ];
 
     /**
@@ -45,7 +48,17 @@ class Booking extends Model
      * Methods
      **********************************/
 
-    //
+    /**
+     * Delete any old versions of the PDF
+     *
+     * @return     void
+     */
+    public function deleteOldPdf()
+    {
+        if (Storage::disk('public')->exists('bookings/pdf/' . $this->hashid . '.pdf')) {
+            Storage::disk('public')->delete('bookings/pdf/' . $this->hashid . '.pdf');
+        }
+    }
 
     /**********************************
      * Accessors & Mutators
@@ -59,6 +72,40 @@ class Booking extends Model
     public function getEditUrlAttribute()
     {
         return route('booking.edit', $this->hashid);
+    }
+
+    /**
+     * Get the order ID
+     * - If it's from Caren, return the Caren ID
+     * - If it's from "Own", return the Order Number
+     *
+     * @return     string
+     */
+    public function getOrderIdAttribute()
+    {
+        return $this->caren_id ? $this->caren_id : $this->order_number;
+    }
+
+    /**
+     * Check if a booking must have Caren info or not
+     *
+     * @return     string
+     */
+    public function getIsCarenAttribute()
+    {
+        return $this->caren_id || $this->vendor->caren_settings;
+    }
+
+    /**
+     * Get the booking's PDF path
+     *
+     * @return     string
+     */
+    public function getPdfPathAttribute()
+    {
+        return Storage::disk('public')->exists('bookings/pdf/' . $this->hashid . '.pdf')
+            ? asset('storage/bookings/pdf/' . $this->hashid . '.pdf')
+            : '';
     }
 
     /**
@@ -102,7 +149,7 @@ class Booking extends Model
      * @param      string  $booking_status      string
      * @param      string  $vehicle             string
      * @param      string  $vendor              string
-     * @param      string  $order_number        string
+     * @param      string  $order_id        string
      * @param      string  $email               string
      * @param      string  $first_name          string
      * @param      string  $last_name           string
@@ -123,7 +170,7 @@ class Booking extends Model
         $booking_status,
         $vehicle,
         $vendor,
-        $order_number,
+        $order_id,
         $email,
         $first_name,
         $last_name,
@@ -173,10 +220,11 @@ class Booking extends Model
             $query->where('vendor_id', dehash($vendor));
         }
 
-        if (!empty($order_number)) {
-            collect(str_getcsv($order_number, ' ', '"'))->filter()->each(function ($term) use ($query) {
+        if (!empty($order_id)) {
+            collect(str_getcsv($order_id, ' ', '"'))->filter()->each(function ($term) use ($query) {
                 $term = '%' . $term . '%';
-                $query->where('order_number', 'like', $term);
+                $query->where('order_number', 'like', $term)
+                    ->orWhere('caren_id', 'like', $term);
             });
         }
 
@@ -233,6 +281,45 @@ class Booking extends Model
             } else {
                 $query->where('status', '!=', 'concluded');
             }
+        }
+
+        return $query;
+    }
+
+    /**
+     * Scope to search the model for the statistics section
+     *
+     * @param      object  $query               Illuminate\Database\Query\Builder
+     * @param      string  $booking_start_date  string
+     * @param      string  $booking_end_date    string
+     * @param      string  $date                int
+     * @param      string  $vendor              string
+     *
+     * @return     object  Illuminate\Database\Query\Builder
+     */
+    public function scopeStatisticsSearch($query, $booking_start_date, $booking_end_date, $date, $vendor)
+    {
+        if (!empty($booking_start_date)) {
+            $query->whereDate('bookings.created_at', '>=', Carbon::createFromFormat("d-m-Y", $booking_start_date));
+        }
+
+        if (!empty($booking_end_date)) {
+            $query->whereDate('bookings.created_at', '<=', Carbon::createFromFormat("d-m-Y", $booking_end_date));
+        }
+
+        if (!empty($date)) {
+            if (strlen($date) == 4) {
+                $from = date($date . '-01-01');
+                $to = date($date . '-12-31');
+                $query->whereBetween('bookings.created_at', [$from, $to]);
+            } else {
+                $from = date((now()->year - $date) . '-01-01');
+                $query->whereDate('bookings.created_at', '>=', $from);
+            }
+        }
+
+        if (!empty($vendor)) {
+            $query->where('bookings.vendor_id', dehash($vendor));
         }
 
         return $query;

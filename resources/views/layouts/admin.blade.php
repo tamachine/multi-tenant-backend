@@ -14,12 +14,16 @@
         <link rel="stylesheet" href="{{ mix('css/admin.css') }}">
 
         @livewireStyles
-        
+
         <!-- Scripts -->
-        <script src="{{ mix('js/admin.js') }}" defer></script>                
+        <script src="{{ mix('js/admin.js') }}" defer></script>
     </head>
 
     <body>
+        <div id="overlay" class="flex justify-center items-center h-screen">
+            <img src="{{ asset('images/loading.gif') }}" />
+        </div>
+
         <x-admin.wire-response />
 
         <div class="h-screen flex overflow-hidden bg-white" x-data="{ sidebarOpen: false }" @keydown.window.escape="sidebarOpen = false">

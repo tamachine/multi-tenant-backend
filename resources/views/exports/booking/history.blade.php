@@ -19,7 +19,7 @@
     <tbody>
         @foreach($bookings as $booking)
             <tr>
-                <td>{{$booking->order_number}}</td>
+                <td>{{$booking->order_id}}</td>
                 <td>{{$booking->created_at->format($date_format)}}</td>
                 <td>{{$booking->email}}</td>
                 <td>{{$booking->vendor_name}}</td>

@@ -78,7 +78,7 @@ trait BookingHistoryTrait
     /**
      * @var string
      */
-    public $order_number = "";
+    public $order_id = "";
 
     /**
      * @var string
@@ -146,7 +146,7 @@ trait BookingHistoryTrait
         $this->booking_status = "";
         $this->vehicle = "";
         $this->vendor = "";
-        $this->order_number = "";
+        $this->order_id = "";
         $this->email = "";
         $this->first_name = "";
         $this->last_name = "";

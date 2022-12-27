@@ -1,5 +1,5 @@
 <div>
-    @include('admin.vendor.partial.pdf', [
+    @include('livewire.admin.vendor.partial.pdf', [
         'formTitle'         => __('Upload PDF'),
         'formDescription'   => __('Upload the vendor\'s PDF'),
         'formButton'        => __('Upload PDF'),

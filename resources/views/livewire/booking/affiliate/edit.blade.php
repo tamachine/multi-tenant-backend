@@ -1,5 +1,5 @@
 <div>
-    @include('booking.affiliate.partial.edit', [
+    @include('livewire.booking.affiliate.partial.edit', [
         'formTitle'         => __('Edit affiliate'),
         'formDescription'   => __('Edit the basic affiliate information and then click on "Save Info"'),
         'formButton'        => __('Save Info'),
