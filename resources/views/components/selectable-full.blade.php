@@ -27,7 +27,7 @@
             </div>
         </div>
         <div
-            class="absolute rounded-b-lg border-gray-secondary border border-t-0 w-full bg-white"
+            class="absolute rounded-b-lg border-gray-secondary border border-t-0 w-full bg-white z-10"
             x-cloak
             x-show="show"    
         >

@@ -1,5 +1,5 @@
 <nav x-data="visibilitySelector()" @languageSelector-show="show()"   class="flex items-center justify-between flex-wrap p-3 md:px-20 md:py-5 border md:border-0 border-[#E7ECF3] bg-white relative z-50">
-    <div class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-3xl leading-9  ">{{ __('general.brand') }}</div>
+    <div class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-3xl leading-9 cursor-pointer" onclick='window.location.href="{{route("home")}}"'>{{ __('general.brand') }}</div>
 
     {{-- mobile --}}
     <div 
