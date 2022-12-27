@@ -21,7 +21,8 @@ module.exports = {
                 'footer-image-pattern': 'linear-gradient(0deg, rgba(7,0,0,1) 6%, rgba(121,9,9,0) 35%, rgba(255,255,255,1) 100%)',  
                 'footer-image-pattern-mobile': 'linear-gradient(0deg, rgba(7,0,0,1) 6%, rgba(121,9,9,0) 35%, rgba(255,255,255,1) 70%)',  
                 'calendar-selected-pattern' : 'linear-gradient(to right, white 20%, #E11166 20%, #E11166 40%, #E11166 40%, #E11166 60%, #E11166 60%, #E11166 80%, white 80%, white 100%)',              
-                'cars-image-pattern': 'linear-gradient(to bottom, rgba(252,252,252,1) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,0) 100%)'
+                'cars-image-pattern': 'linear-gradient(to bottom, rgba(252,252,252,1) 0%,rgba(255,255,255,1) 20%,rgba(255,255,255,0) 100%)',
+                'cars-image-pattern-mobile': 'linear-gradient(to bottom, rgba(252,252,252,1) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,0) 100%)'
             },
             borderRadius: {
                 '2lg': '10px',

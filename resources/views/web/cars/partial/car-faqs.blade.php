@@ -1,3 +1,3 @@
-<div class="w-fill-screen bg-white">
+<div class="bg-white">
     <x-faqs />
 </div>
