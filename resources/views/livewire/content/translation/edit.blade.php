@@ -38,7 +38,7 @@
                     --}}
                     <div wire:ignore class="py-2 relative">                        
                         @if($translation->rich)                                          
-                        <textarea
+                        <textarea                            
                             class="tiny hidden"
                             wire:model.debounce.60s="text.{{ $key }}"
                             wire:key="text.{{ $key }}"

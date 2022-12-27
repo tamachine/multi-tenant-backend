@@ -1,5 +1,5 @@
 <nav x-data="visibilitySelector()" @languageSelector-show="show()"   class="flex items-center justify-between flex-wrap p-3 md:px-20 md:py-5 border md:border-0 border-[#E7ECF3] bg-white relative z-50">
-    <div class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-3xl leading-9  ">{{ __('general.brand') }}</div>
+    <div class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-3xl leading-9 cursor-pointer" onclick='window.location.href="{{route("home")}}"'>{{ __('general.brand') }}</div>
 
     {{-- mobile --}}
     <div 
@@ -21,7 +21,7 @@
     {{-- desktop --}}
     <div class="hidden md:flex items-center divide-x gap-10">
         <div class="flex items-end justify-between flex-wrap gap-10 text-lg font-sans-medium">
-            <a href="#" class="hover:text-pink-red">{!! __('navbar.cars') !!}</a>
+            <a href="{{ route('cars') }}" class="hover:text-pink-red">{!! __('navbar.cars') !!}</a>
             <a href="#" class="hover:text-pink-red">{!! __('navbar.about') !!}</a>
             <a href="#" class="hover:text-pink-red">{!! __('navbar.faq') !!}</a>
             <a href="#" class="hover:text-pink-red">{!! __('navbar.blog') !!}</a>
@@ -66,26 +66,12 @@
             <div class="flex flex-col divide-y h-full">
                 <div class="h-full p-9 pb-0 flex flex-col items-center justify-between">
                     <div class="grid grid-cols-2 justify-center items-center text-center gap-y-8 gap-x-9">
+                        @foreach($carCategories as $carCategory)
                         <div>
-                            <img src="{{ asset('images/cars/categories/small-medium.png') }}" class="mx-auto" />
-                            <span>Small - Medium</span>
+                            <img src="{{ $carCategory->imagePath }}" class="mx-auto" />
+                            <span>{{ $carCategory->text }}</span>
                         </div>
-                        <div>
-                            <img src="{{ asset('images/cars/categories/large.png') }}" class="mx-auto" />
-                            <span>Large</span>
-                        </div>
-                        <div>
-                            <img src="{{ asset('images/cars/categories/4x4.png') }}" class="mx-auto" />
-                            <span>4x4</span>
-                        </div>
-                        <div>
-                            <img src="{{ asset('images/cars/categories/premium.png') }}" class="mx-auto" />
-                            <span>Premium</span>
-                        </div>
-                        <div>
-                            <img src="{{ asset('images/cars/categories/minivans.png') }}" class="mx-auto" />
-                            <span>Mini vans</span>
-                        </div>
+                        @endforeach                                                
                         <div>
                             <button class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-[#E7ECF3] cursor-pointer">{!! __('navbar.cars-button') !!}</button>
                         </div>

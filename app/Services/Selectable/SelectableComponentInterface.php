@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Contracts;
+namespace App\Services\Selectable;
 
-interface SelectableComponent {
+interface SelectableComponentInterface {
     public function getItems(): array;    
     public function getDefaultSelectedValue(): string;
 }

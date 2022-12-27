@@ -3,7 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use App\Contracts\ReviewsInfoComponent;
+use App\Services\ReviewsInfo\ReviewsInfoComponentInterface;
 
 class ReviewsInfo extends Component
 {
@@ -15,7 +15,7 @@ class ReviewsInfo extends Component
      *
      * @return void
      */
-    public function __construct(ReviewsInfoComponent $reviewInfoComponent)
+    public function __construct(ReviewsInfoComponentInterface $reviewInfoComponent)
     {
         $this->reviewInfoComponent = $reviewInfoComponent;
     }

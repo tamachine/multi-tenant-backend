@@ -15,7 +15,7 @@
         <div class="w-auto flex flex-row items-center gap-3">
             <div>
                 <x-selectable 
-                    :selectableComponent="$carSearchHoursSelectableComponent"
+                    :SelectableComponent="$carSearchHoursSelectableComponent"
                 />
             </div>
 
@@ -27,7 +27,7 @@
         <div class="w-auto flex flex-row items-center gap-3">
             <div>
                 <x-selectable 
-			        :selectableComponent="$carSearchHoursSelectableComponent"
+			        :SelectableComponent="$carSearchHoursSelectableComponent"
 		        />
             </div>
         

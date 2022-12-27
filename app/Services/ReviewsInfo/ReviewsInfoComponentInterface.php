@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Contracts;
+namespace App\Services\ReviewsInfo;
 
-interface ReviewsInfoComponent {
+interface ReviewsInfoComponentInterface {
     public function getNote(): float;
     public function getIconPath(): string;
     public function getMobileIconPath(): string;

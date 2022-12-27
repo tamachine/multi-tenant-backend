@@ -50,4 +50,8 @@ class CarImage extends Model
     {
         return $this->belongsTo(Car::class);
     }
+
+    public function assetPath() {
+        return asset('storage/car/' . $this->car->hashid . '/' . $this->file_name);
+    }
 }
