@@ -9,7 +9,11 @@ use App\Services\SelectableFull\SelectableFullItem;
 class RoadsSelectableFullComponent extends SelectableFullAbstract
 {       
     public function getInstance(): string {
-        return "road";
+        return CarsFilters::getRoadsInstance();
     }       
+
+    public function getColumnName(): string {
+        return 'f_roads_name';
+    }
 }
 ?>

@@ -4,13 +4,14 @@ namespace App\Services\SelectableFull;
 
 use App\Services\SelectableFull\SelectableFullComponentInterface;
 use App\Helpers\CarsFilters;
+use JsonSerializable;
 /**
  * Class to return a selectable full component 
  */
 
-abstract class SelectableFullAbstract implements SelectableFullComponentInterface 
+abstract class SelectableFullAbstract implements SelectableFullComponentInterface, JsonSerializable
 {    
-    protected $instance; //the name used for translations, icons and CarFilters method
+    protected $instance; //the name used for translations, icons and CarsFilters method
     protected $instancePluralized;
     protected $items = []; 
 
@@ -39,7 +40,7 @@ abstract class SelectableFullAbstract implements SelectableFullComponentInterfac
      * selectable full Item value for the 'All items'
      */
     public function getAllItemValue() {
-        return 'all';
+        return CarsFilters::defaultAllItemValue();
     }
 
     /**
@@ -61,6 +62,16 @@ abstract class SelectableFullAbstract implements SelectableFullComponentInterfac
      */
     public function getDefaultSelectedValue(): string {
         return $this->getAllItemValue();
+    }
+
+    public function jsonSerialize () {
+        return array(
+            'instance'  => $this->instance,                     
+        );
+    }
+
+    public function toJson() {
+        return json_encode($this);
     }
 
     protected function setInstance() {

@@ -34,16 +34,18 @@
             <ul class="divide-y">
                 @foreach($items as $selectableFullItem)
                     <li 
-                        x-on:click="clickItem({{ $selectableFullItem->toJson() }})"
+                        x-on:click="clickItem({{ $selectableFullItem->toJson() }})"                                                
+                        wire:click="{{ isset($itemWireClickEvent) ? $itemWireClickEvent.'('.$selectableFullComponent->toJson().','.$selectableFullItem->toJson().')' : '' }}"                     
                         class="
                             py-2 pl-9                             
                             transition ease-in-out hover:bg-pink-red hover:text-white duration-300
                             "                        
                     >
                     {!! $selectableFullItem->text !!}
-                    </li>
+                    </li>                    
                 @endforeach
             </ul>
         </div>
     </div>
 </div>
+<input wire:model="selectables.{{ $selectableFullComponent->getInstance() }}"  type="hidden">

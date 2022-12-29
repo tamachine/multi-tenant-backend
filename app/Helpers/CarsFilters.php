@@ -24,6 +24,29 @@ class CarsFilters
     }  
 
     /**
+     * return the default value for the element 'all'
+     */
+    public static function defaultAllItemValue():string {
+        return 'all';
+    }
+
+    public static function getTransmissionsInstance():string {
+        return 'transmission';
+    }
+
+    public static function getRoadsInstance():string {
+        return 'road';
+    }
+
+    public static function getEnginesInstance():string {
+        return 'engine';
+    }
+
+    public static function getSeatsInstance():string {
+        return 'seat';
+    }
+
+    /**
      * return the icon path for the filters
      * $instance string => transmission, road, seat, engine ...
      */
