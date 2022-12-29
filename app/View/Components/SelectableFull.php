@@ -9,6 +9,7 @@ class SelectableFull extends Component
 {
     public $selectableFullComponent;
     public $selectedValue;
+    public $itemWireClickEvent;
 
     protected $items;
     protected $selectedItem;
@@ -18,10 +19,11 @@ class SelectableFull extends Component
      *
      * @return void
      */
-    public function __construct(SelectableFullComponentInterface $selectableFullComponent, $selectedValue = null)
+    public function __construct(SelectableFullComponentInterface $selectableFullComponent, $itemWireClickEvent = null, $selectedValue = null)
     {
         $this->selectableFullComponent = $selectableFullComponent;
         $this->selectedValue = $selectedValue ?? $this->selectableFullComponent->getDefaultSelectedValue();
+        $this->itemWireClickEvent = $itemWireClickEvent;
 
         $this->items = $this->selectableFullComponent->getItems();
         $this->selectedItem = $this->selectableFullComponent->getSelectedItem($this->selectedValue);

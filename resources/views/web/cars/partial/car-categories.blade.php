@@ -6,7 +6,12 @@
         md:pt-24 py-0 font-sans-medium"
     >
 @foreach($carCategories as $carCategory)
-    <div class="bg-white rounded-md cursor-pointer group" x-data="{ active:false }" x-on:click="active = !active">
+    <div 
+        class="bg-white rounded-md cursor-pointer group" 
+        x-data="{ active:false }" 
+        x-on:click="active = !active"
+        wire:click="click('{{ $carCategory->id }}')"
+        >
         <div class="flex flex-col items-center m-[2px]">
             <div 
                 class=" w-44 h-24 rounded-t-md flex justify-center 
@@ -25,5 +30,6 @@
             </div>
         </div>        
     </div>
+    <input wire:model="categories.{{ $carCategory->id }}"  type="hidden">
 @endforeach
 </div>

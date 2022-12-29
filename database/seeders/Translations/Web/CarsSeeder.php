@@ -206,5 +206,96 @@ class CarsSeeder extends Seeder
                 'text' => ['en' => 'F-Road not allowed', 'es' => 'F-Road no permitidas'],                
             ]
         );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'card-engine-gas',    
+            ],
+            [                
+                'text' => ['en' => 'Gas', 'es' => 'Gasolina'],                
+            ]
+        );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'card-engine-diesel',    
+            ],
+            [                
+                'text' => ['en' => 'Diesel', 'es' => 'Diésel'],                
+            ]
+        );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'card-engine-electric',    
+            ],
+            [                
+                'text' => ['en' => 'Electric', 'es' => 'Eléctrico'],                
+            ]
+        ); 
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key'   => 'card-transmission-auto',    
+            ],
+            [                
+                'text' => ['en' => 'Automatic', 'es' => 'Automático'],                
+            ]
+        );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key'   => 'card-transmission-manual',    
+            ],
+            [                
+                'text' => ['en' => 'Manual', 'es' => 'Manual'],                
+            ]
+        );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key'   => 'card-features',    
+            ],
+            [                
+                'text' => ['en' => 'Features', 'es' => 'Cracterísticas'],                
+            ]
+        );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key'   => 'card-perday',    
+            ],
+            [                
+                'text' => ['en' => 'Per day', 'es' => 'Al día'],                
+            ]
+        ); 
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key'   => 'card-button',    
+            ],
+            [                
+                'text' => ['en' => 'Book now', 'es' => 'Reserva'],                
+            ]
+        ); 
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key'   => 'search-not-found',    
+            ],
+            [                
+                'text' => ['en' => 'No cars were found', 'es' => 'No se encontraron coches'],                
+            ]
+        ); 
+       
     }
 }

@@ -33,13 +33,13 @@
         <div class="font-fredoka-semibold text-[28px]">{!! $car->name !!}</div>
         <div class="flex flex-col gap-5">
             <div class="flex flex-col gap-y-1">
-                <div class="text-[#B1B5C3]">Features</div>
+                <div class="text-[#B1B5C3]">{!! __('cars.card-features') !!}</div>
                 <div class="grid grid-cols-[auto_1fr_auto] gap-y-3">
-                    <div><img class="inline w-4" src="{{ App\Helpers\CarsFilters::getIconPath('seat') }}" /> <span>{!! __('cars.card-seats') !!}</span></div>
+                    <div><img class="inline w-4" src="{{ App\Helpers\CarsFilters::getIconPath('seat') }}" /> {{ $car->adult_passengers }} <span>{!! __('cars.card-seats') !!}</span></div>
                     <div></div>
-                    <div><img class="inline w-4" src="{{ App\Helpers\CarsFilters::getIconPath('transmission') }}" /> <span>{!! App\Helpers\CarsFilters::getTranslation('transmission') !!}</span></div>                                        
+                    <div><img class="inline w-4" src="{{ App\Helpers\CarsFilters::getIconPath('transmission') }}" /> <span>{!! __('cars.card-transmission-'.$car->transmission) !!}</span></div>                                        
                     
-                    <div><img class="inline w-4" src="{{ App\Helpers\CarsFilters::getIconPath('engine') }}" /> <span>{!! App\Helpers\CarsFilters::getTranslation('engine') !!}</span></div>
+                    <div><img class="inline w-4" src="{{ App\Helpers\CarsFilters::getIconPath('engine') }}" /> <span>{!! __('cars.card-engine-'.$car->engine) !!}</span></div>
                     <div></div>
                     <div><img class="inline w-4" src="{{ App\Helpers\CarsFilters::getIconPath('road') }}" /> <span>{!! $car->fRoadAllowed() ?  __('cars.card-f-road-allowed') :  __('cars.card-f-road-not-allowed') !!}</span></div>
                 </div>
@@ -47,9 +47,9 @@
             <div class="flex justify-between">
                 <div>
                     <div class="font-sans-bold text-2xl">$124</div>
-                    <div class="text-[#B1B5C3]">per day</div>
+                    <div class="text-[#B1B5C3]">{!! __('cars.card-perday') !!}</div>
                 </div>
-                <div><button class="btn btn-red text-base px-5 py-3">Book now</button></div>
+                <div><button class="btn btn-red text-base px-5 py-3">{!! __('cars.card-button') !!}</button></div>
             </div>
         </div>        
     </div>

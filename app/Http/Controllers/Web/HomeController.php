@@ -10,7 +10,7 @@ use App\Models\Faq;
 class HomeController extends BaseController
 {
     public function index() 
-    {        
+    {               
         return view('web.home.index');
     }
 

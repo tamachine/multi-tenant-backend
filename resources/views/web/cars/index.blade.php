@@ -8,11 +8,7 @@
 
             @include('web.cars.partial.title')
                         
-            @include('web.cars.partial.car-search-bar')
-
-            @include('web.cars.partial.car-categories')
-
-            @include('web.cars.partial.car-selectables')            
+            @include('web.cars.partial.car-search-bar')                      
 
             @include('web.cars.partial.car-list')               
 
