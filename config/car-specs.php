@@ -69,11 +69,11 @@ return [
         'auto'
     ],
 
-    'type' => [
-        'small',
+    'type' => [        
         'medium',
         'large',
-        'luxury',
-        'passengers',
+        '4x4',
+        'premium',
+        'minivans',
     ],
 ];
