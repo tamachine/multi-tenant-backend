@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class FaqFaqCategory extends Pivot
 {
-    use HasFactory;
+    use HasFactory;    
 }

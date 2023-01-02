@@ -50,6 +50,11 @@ class RouteServiceProvider extends ServiceProvider
             $resource = new \App\Models\Translation();
             return $resource->where('hashid', $value)->first();
         });
+
+        Route::bind('faq_category_hashid', function ($value) {
+            $resource = new \App\Models\FaqCategory();
+            return $resource->where('hashid', $value)->first();
+        });
     }
      /**
      * Define the routes for the application.

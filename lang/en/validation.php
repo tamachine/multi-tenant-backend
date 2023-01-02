@@ -159,6 +159,15 @@ return [
         ],
         'text.en' => [
             'required' => 'The text in english is required'
+        ],
+        'name.en' => [
+            'required' => 'The name in english is required',
+            
+        ],
+        'name.*' => [            
+            'max' => [
+                'string' => 'The name must not be greather than 20 characteres'
+            ]
         ]
     ],
 

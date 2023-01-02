@@ -5424,6 +5424,22 @@ h5 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-\[350px\] {
+    grid-template-columns: 350px;
+  }
+
+  .md\:grid-cols-\[324px\] {
+    grid-template-columns: 324px;
+  }
+
+  .md\:grid-cols-\[324px_324px\] {
+    grid-template-columns: 324px 324px;
+  }
+
+  .md\:grid-cols-\[324px_324px_324px\] {
+    grid-template-columns: 324px 324px 324px;
+  }
+
   .md\:grid-cols-\[repeat\(auto-fill\2c 324px\)\] {
     grid-template-columns: repeat(auto-fill,324px);
   }
@@ -5446,30 +5462,6 @@ h5 {
 
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .md\:grid-cols-1 {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-
-  .md\:grid-cols-\[324px_\2c _324px\] {
-    grid-template-columns: 324px 324px;
-  }
-
-  .md\:grid-cols-\[324px_324px\] {
-    grid-template-columns: 324px 324px;
-  }
-
-  .md\:grid-cols-\[324px\] {
-    grid-template-columns: 324px;
-  }
-
-  .md\:grid-cols-\[324px_324px_324px\] {
-    grid-template-columns: 324px 324px 324px;
-  }
-
-  .md\:grid-cols-\[350px\] {
-    grid-template-columns: 350px;
   }
 
   .md\:flex-row {
