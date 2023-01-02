@@ -9,4 +9,6 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class FaqFaqCategory extends Pivot
 {
     use HasFactory;    
+
+    protected $table = 'faq_category_faq';
 }

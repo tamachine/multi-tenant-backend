@@ -55,6 +55,11 @@ class RouteServiceProvider extends ServiceProvider
             $resource = new \App\Models\FaqCategory();
             return $resource->where('hashid', $value)->first();
         });
+
+        Route::bind('faq_hashid', function ($value) {
+            $resource = new \App\Models\Faq();
+            return $resource->where('hashid', $value)->first();
+        });    
     }
      /**
      * Define the routes for the application.

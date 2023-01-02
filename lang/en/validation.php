@@ -168,6 +168,12 @@ return [
             'max' => [
                 'string' => 'The name must not be greather than 20 characteres'
             ]
+        ],
+        'question.en' => [            
+            'required' => 'The question in english is required'
+        ],
+        'answer.en' => [            
+            'required' => 'The answer in english is required'
         ]
     ],
 
