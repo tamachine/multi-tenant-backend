@@ -1,4 +1,4 @@
-<div x-data="{ openConfirm: false }">
+<div x-data="{ openConfirm: false }" class="p-4 sm:p-10">
     <x-admin.confirm-modal 
         event="check" 
         body="{!! __('Are you sure? <br><br>If you change the inputs to plain text, all html tags from all translations will be <strong>stripped</strong>') !!}" 

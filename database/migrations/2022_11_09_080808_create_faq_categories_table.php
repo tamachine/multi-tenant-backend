@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('faq_categories', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('hashid')->nullable()->index();
             $table->string('name');
             $table->timestamps();
         });

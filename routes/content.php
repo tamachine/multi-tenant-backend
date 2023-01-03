@@ -18,5 +18,8 @@ Route::group(
         Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
                                    
         Route::resource('translation', TranslationController::class, ['parameters'=> ['translation' => 'translation_hashid']])->except(['create', 'store', 'destroy']);                            
+        Route::resource('faq', FAQController::class, ['parameters'=> ['faq' => 'faq_hashid']]);   
+        Route::resource('faq-category', FAQCategoryController::class, ['parameters'=> ['faq_category' => 'faq_category_hashid']]);                            
+        
     }
 );
