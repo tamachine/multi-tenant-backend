@@ -10,15 +10,13 @@ This project is using PHP 8.1 with TALL stack (Tailwind 3, Alpine, Livewire and 
 
 Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/8.x/installation)
 
-Alternative installation is possible without local dependencies relying on [Docker](#docker). 
-
 Clone the repository
 
-    git clone git@bitbucket.org:scandinavian/reykjavik-auto-new.git
+    git clone git@bitbucket.org:scandinavian/nave-intergalactica.git
 
 Switch to the repo folder
 
-    cd reykjavik-auto-new
+    cd nave-intergalactica
 
 Install composer dependencies
 
@@ -60,13 +58,13 @@ Translations are stored in database using https://github.com/spatie/laravel-tran
 
 The structure for the translations is always:
 
-    'group' ->  web / admin / api
+    'group' ->  web page name (home, cars, about, etc...)
 
-    'key'   -> 'key-group.key' where  'key-group' is something like 'general', 'reviews', 'home'
+    'key'   -> 'key-group.key' where  'key-group' is something like 'card', 'section1', 'hero'
 
 There is one Seeder for every 'group.key-group'. You can run LanguageLineSeeder to run all translations seeders (if you create a new one, include it in LanguageLineSeeder). You can run it as many times as you want since it uses the firstOrCreate method.
 
-Please, note that 'group.key-group.key' must be unique and that all translations can be changed by users so as far as possible, don't include parameters in the translations so the user can not modify them.
+Please, note that 'group.key-group.key' must be unique and that all translations can be changed by users so as far as possible, don't include parameters in the translations becasue the user can not modify them.
 
 ## Model Translations
 
@@ -76,6 +74,7 @@ Model translations use the package https://github.com/spatie/laravel-translatabl
 
 In order to start the Tailwind CLI build process in local environment to scan templates files or classes and build your css , run: 
 
-    npx tailwindcss -i ./resources/css/app.css -o ./public/css/app.css --watch
+    npx tailwindcss -i ./resources/css/app.css -o ./public/css/app.css --watch (for web styles - styles are css)
+    npm run watch (for admin styles - styles are scss)
 
 More information at https://tailwindcss.com/docs

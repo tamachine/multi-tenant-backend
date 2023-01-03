@@ -6,7 +6,7 @@
         />
 
         @if ($categories)               
-        <div class="pt-12 pb-3 flex justify-center gap-5 w-full">
+        <div class="pt-12 pb-3 flex justify-center gap-5 w-full {{ $categories->count() > 3 ? 'flex-wrap' : '' }}">
             @foreach($categories as $category)     
                 <button class="tab w-[136px] h-[50px] p-0" @click.prevent="tab='#tab{{ $category->id }}'" :class="{ 'active': tab == '#tab{{ $category->id }}' }">{{ $category->name }}</button>                                            
             @endforeach
