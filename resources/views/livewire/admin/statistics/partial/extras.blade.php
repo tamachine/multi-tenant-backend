@@ -1,5 +1,13 @@
 <div class="shadow overflow-hidden bg-white border-b border-gray-200 sm:rounded-lg p-10">
     <div class="text-xl text-green-700 font-bold">
+        Extras purchased in the bookings
+    </div>
+
+    <div id="extras_chart" style="height:600px;"></div>
+</div>
+
+<div class="mt-4 shadow overflow-hidden bg-white border-b border-gray-200 sm:rounded-lg p-10">
+    <div class="text-xl text-green-700 font-bold">
         Most extras/insurances purchased
     </div>
 
@@ -30,7 +38,7 @@
                     <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="w-4 h-4 rounded-full"
-                                style="background:{{$colours->get($extra->vendor_id)}}"
+                                style="background:{{$colors->get($extra->vendor_id)}}"
                             ></div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">

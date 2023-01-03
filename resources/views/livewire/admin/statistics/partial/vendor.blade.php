@@ -36,7 +36,7 @@
                     <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="w-4 h-4 rounded-full"
-                                style="background:{{$colours->get($vendorBooking->vendor_id)}}"
+                                style="background:{{$colors->get($vendorBooking->vendor_id)}}"
                             ></div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">

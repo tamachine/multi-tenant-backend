@@ -593,4 +593,42 @@ class AdminTest extends TestCase
             ->get(route('free-day.create'))
             ->assertStatus(403);
     }
+
+    /**
+     * @test
+     * @group feature
+     * @group navigation
+     * @group navigation-admin
+     *
+     * @return void
+     */
+    public function theStatisticsPageLoads()
+    {
+        $this->get(route('statistics.index'))
+            ->assertRedirect('login');
+
+        $this->actingAs($this->developer)
+            ->get(route('statistics.index'))
+            ->assertStatus(200);
+
+        $this->actingAs($this->superAdmin)
+            ->get(route('statistics.index'))
+            ->assertStatus(200);
+
+        $this->actingAs($this->admin)
+            ->get(route('statistics.index'))
+            ->assertStatus(200);
+
+        $this->actingAs($this->bookingAgent)
+            ->get(route('statistics.index'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->contentUser)
+            ->get(route('statistics.index'))
+            ->assertStatus(403);
+
+        $this->actingAs($this->affiliateUser)
+            ->get(route('statistics.index'))
+            ->assertStatus(403);
+    }
 }

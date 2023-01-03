@@ -47,6 +47,11 @@ class Index extends Component
     /**
      * @var object
      */
+    private $totalBookings;
+
+    /**
+     * @var object
+     */
     public $locationBookings;
 
     /**
@@ -67,7 +72,22 @@ class Index extends Component
     /**
      * @var object
      */
+    public $carBookingsChart;
+
+    /**
+     * @var object
+     */
+    public $customersChart;
+
+    /**
+     * @var object
+     */
     public $extras;
+
+    /**
+     * @var object
+     */
+    public $extrasChart;
 
     /*
     ***************************************************************
@@ -78,7 +98,7 @@ class Index extends Component
     public function mount(Vendor $vendor)
     {
         $this->vendors = $vendor->orderBy('name')->pluck('name', 'hashid');
-        $this->colours = $vendor->orderBy('name')->pluck('brand_color', 'id');
+        $this->colors = $vendor->orderBy('name')->pluck('brand_color', 'id');
     }
 
     public function filterStatistics()
@@ -89,11 +109,39 @@ class Index extends Component
             $this->booking_end_date = "";
         }
 
-        $this->locationBookings();
-        $this->bookingsPerMonth();
-        $this->vendorBookings();
-        $this->carBookings();
-        $this->extras();
+        $this->initiliaze();
+        $this->getTotalBookings();
+        if ($this->totalBookings->count() > 0) {
+            $this->locationBookings();
+            $this->bookingsPerMonth();
+            $this->vendorBookings();
+            $this->carBookings();
+            $this->customers();
+            $this->extras();
+        }
+    }
+
+    private function initiliaze()
+    {
+        $this->locationBookings = [];
+        $this->bookingsPerMonth = [];
+        $this->vendorBookings = [];
+        $this->carBookings = [];
+        $this->carBookingsChart = [];
+        $this->customersChart = [];
+        $this->extras = [];
+        $this->extrasChart = [];
+    }
+
+    private function getTotalBookings()
+    {
+        $this->totalBookings = Booking::statisticsSearch(
+            $this->booking_start_date,
+            $this->booking_end_date,
+            $this->date,
+            $this->vendor
+        )
+            ->whereIn('status', ['confirmed', 'concluded']);
     }
 
     private function locationBookings()
@@ -118,29 +166,14 @@ class Index extends Component
 
     private function bookingsPerMonth()
     {
-        $this->bookingsPerMonth = [];
-
-        $bookingsPerMonth = Booking::statisticsSearch(
-            $this->booking_start_date,
-            $this->booking_end_date,
-            $this->date,
-            $this->vendor
-        )
-            ->whereIn('status', ['confirmed', 'concluded']);
-
-        $queryFrom = clone $bookingsPerMonth;
-        $queryTo = clone $bookingsPerMonth;
-
-        // Check that there is at least one booking
-        if (!$queryFrom->orderBy('created_at', 'asc')->first()) {
-            return;
-        }
+        $queryFrom = clone $this->totalBookings;
+        $queryTo = clone $this->totalBookings;
 
         $dateFrom = $queryFrom->orderBy('created_at', 'asc')->first()->created_at->startOfMonth();
         $dateTo = $queryTo->orderBy('created_at', 'desc')->first()->created_at->endofMonth();
 
         while($dateFrom < $dateTo) {
-            $queryMonth = clone $bookingsPerMonth;
+            $queryMonth = clone $this->totalBookings;
             $endMonth = clone $dateFrom;
             $endMonth = $endMonth->endofMonth();
             $this->bookingsPerMonth[$dateFrom->format('M - Y')] =
@@ -194,6 +227,29 @@ class Index extends Component
             ->groupBy('car_name', 'vendor_id', 'vendor_name')
             ->orderBy('number', 'desc')
             ->get();
+
+        // Get the data for the car chart: The 10 most booked cars
+        $totalBookings = $this->carBookings->sum('number');
+        $topTen = $this->carBookings->take(10);
+
+        foreach ($topTen as $carBooking) {
+            $this->carBookingsChart[$carBooking->car_name] = round(($carBooking->number / $totalBookings) * 100, 2);
+        }
+
+        if (count($this->carBookings) > 10) {
+            $otherNumber = $totalBookings - $topTen->sum('number');
+            $this->carBookingsChart['Others'] = round(($otherNumber / $totalBookings) * 100, 2);
+        }
+    }
+
+    private function customers()
+    {
+        $queryCustomers = clone $this->totalBookings;
+        $topCustomers = $queryCustomers->selectRaw('country, count(bookings.id) as number')->groupBy('country')->orderBy('number', 'desc')->take(16)->get();
+
+        foreach ($topCustomers as $topCustomer) {
+            $this->customersChart[$topCustomer->country] = $topCustomer->number;
+        }
     }
 
     private function extras()
@@ -217,24 +273,23 @@ class Index extends Component
             ->groupBy('extras.id', 'vendor_id', 'vendor_name')
             ->orderBy('number', 'desc')
             ->get();
-    }
 
-    private function chartEncode()
-    {
-        $chart = "";
+        // Data for the extra charts
+        $queryWith = clone $this->totalBookings;
+        $queryWithout = clone $this->totalBookings;
 
-        foreach($this->bookingsPerMonth as $key => $count) {
-            $chart .= "['$key', $count],";
-        }
-
-        return $chart;
+        $this->extrasChart['Extra/insurance booked'] = round(($queryWith->whereHas('bookingExtras')->count() / $this->totalBookings->count()) * 100, 2);
+        $this->extrasChart['No Extra booked'] = round(($queryWithout->whereDoesntHave('bookingExtras')->count() / $this->totalBookings->count()) * 100, 2);
     }
 
     public function render()
     {
         $this->filterStatistics();
 
-        $this->dispatchBrowserEvent('reloadChart', $this->bookingsPerMonth);
+        $this->dispatchBrowserEvent('reloadBookingsChart', $this->bookingsPerMonth);
+        $this->dispatchBrowserEvent('reloadCarsChart', $this->carBookingsChart);
+        $this->dispatchBrowserEvent('reloadCustomersChart', $this->customersChart);
+        $this->dispatchBrowserEvent('reloadExtrasChart', $this->extrasChart);
 
         return view('livewire.admin.statistics.index');
     }
