@@ -1,4 +1,4 @@
-<div class="flex flex-col p-4 sm:p-10">
+<div id="statistics_container" class="flex flex-col p-4 sm:p-10">
     @include('livewire.admin.statistics.partial.filters')
 
     <div x-data="{ tab: 'general' }"
@@ -108,7 +108,7 @@
         </div>
 
         <div x-show="tab == 'customers'" style="display:none;">
-            Customers
+            @include('livewire.admin.statistics.partial.customers')
         </div>
 
         <div x-show="tab == 'extras'" style="display:none;">
@@ -121,55 +121,13 @@
 <div class="wire:ignore">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
-        google.charts.load('current', {packages: ['corechart', 'line']});
-        function drawBasic() {
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Month');
-            data.addColumn('number', 'Bookings');
-
-            data.addRows([
-                @foreach($bookingsPerMonth as $key => $count)
-                    ['{{$key}}', {{$count}}],
-                @endforeach
-            ]);
-
-            var options = {
-                legend: {position: 'none'}
-            };
-
-            var chart = new google.visualization.LineChart(document.getElementById('bookings_month'));
-
-            chart.draw(data, options);
-        }
-        google.charts.setOnLoadCallback(drawBasic);
+        google.charts.load('current', {packages: ['corechart', 'line', 'bar']});
+        let container = document.getElementById('statistics_container');
     </script>
 </div>
 
-<script>
-    window.addEventListener('reloadChart', event => {
-        console.log(event.detail);
-        const rows = new Array();
-
-        for (const [key, value] of Object.entries(event.detail)) {
-            console.log(key);
-            console.log(value);
-            rows.push([key, value]);
-        }
-        console.log(rows);
-
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Month');
-        data.addColumn('number', 'Bookings');
-
-        data.addRows(rows);
-
-        var options = {
-            legend: {position: 'none'}
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('bookings_month'));
-
-        chart.draw(data, options);
-    });
-</script>
+@include('livewire.admin.statistics.partial.scripts-general')
+@include('livewire.admin.statistics.partial.scripts-cars')
+@include('livewire.admin.statistics.partial.scripts-customers')
+@include('livewire.admin.statistics.partial.scripts-extras')
 @endpush
