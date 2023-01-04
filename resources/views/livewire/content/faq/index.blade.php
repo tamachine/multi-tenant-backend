@@ -8,7 +8,7 @@
                 >
                     <option value="">All FAQ Categories</option>
                     @foreach($categories as $faqCategory)
-                        <option value="{{$faqCategory->id}}">{{ $faqCategory->name }}</option>
+                        <option value="{{$faqCategory->id}}">{{ $faqCategory->name }}</a></option>
                     @endforeach
                 </select>                
             </div>
@@ -43,8 +43,8 @@
                                     <td class="px-6 py-4 text-sm font-medium">                                             
                                         {!! highlightTerm($faq->answer, $search) !!}                                                                                                                                                     
                                     </td>   
-                                    <td class="px-6 py-4 text-sm font-medium">    
-                                        @if($faq->faqCategories->count() > 0)
+                                    <td class="px-6 py-4 text-sm font-medium">                                            
+                                        @if($faq->faqCategories->count() > 0)                                            
                                             {!! implode(", ", $faq->faqCategories->pluck('name')->toArray()) !!}
                                         @else
                                             <span class="text-red-600">{{ __('No categories') }}</span>

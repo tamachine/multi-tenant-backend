@@ -26,8 +26,8 @@ class CarsFilters
     /**
      * return the default value for the element 'all'
      */
-    public static function defaultAllItemValue():string {
-        return 'all';
+    public static function defaultAllItemValue():?string {
+        return null;
     }
 
     public static function getTransmissionsInstance():string {
