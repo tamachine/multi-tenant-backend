@@ -25,8 +25,8 @@ Route::get('/tokens/create', function (Request $request) {
     echo '<b>token</b>: '.$token->plainTextToken.'<br>';
     echo '<b>get</b>: '. '/api/user<br>';
     echo '<b>headers</b>: <br>';
-    echo 'Accept: application/json: <br>';
-    echo 'Bearer '.$token->plainTextToken.'<br>';
+    echo 'Accept: application/json <br>';
+    echo 'Authorization: Basic *****, Bearer '.$token->plainTextToken.' <br>';
 
     die; 
 });
