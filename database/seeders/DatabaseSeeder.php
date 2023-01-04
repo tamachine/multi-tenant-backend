@@ -49,15 +49,18 @@ class DatabaseSeeder extends Seeder
         // Only clean database when running seeders if not on production
         $this->cleanDatabase();
         $this->call([
-            UserSeeder::class,
             LanguageLineSeeder::class,
             FaqsSeeder::class,
-            FreeDaySeeder::class,
-            CarsIcelandSeeder::class,
+            //FreeDaySeeder::class,
+            CarsIceland\UserSeeder::class,
+            CarsIceland\AffiliateSeeder::class,
+            CarsIceland\VendorLocationSeeder::class,
+            CarsIceland\CarSeeder::class,
+            CarsIceland\ExtraSeeder::class,
         ]);
     }
 
-     /**
+    /**
      * Seeding processes to run in Local
      *
      * @return     void
@@ -67,11 +70,14 @@ class DatabaseSeeder extends Seeder
         // Only clean database when running seeders if not on production
         $this->cleanDatabase();
         $this->call([
-            UserSeeder::class,
             LanguageLineSeeder::class,
             FaqsSeeder::class,
-            FreeDaySeeder::class,
-            CarsIcelandSeeder::class,
+            //FreeDaySeeder::class,
+            CarsIceland\UserSeeder::class,
+            CarsIceland\AffiliateSeeder::class,
+            CarsIceland\VendorLocationSeeder::class,
+            CarsIceland\CarSeeder::class,
+            CarsIceland\ExtraSeeder::class,
         ]);
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\CarsIceland;
 
 use App\Models\User;
 use Illuminate\Support\Str;
