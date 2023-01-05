@@ -12,53 +12,63 @@ class Dates
 {       
     const DEFAULT_RANGE_DAYS = 14;
     
-    protected $startDate;
-    protected $endDate;    
+    protected $dateFrom;
+    protected $dateTo;    
     protected $datesDefined = false;
 
-    /**
-     * @var string 'd-m-y'
-     * @var string 'd-m-y'
+    /**     
+     * @var string[]  $dates['from' => 'd-m-y H:m', 'to' => 'd-m-Y H:m']     
      */
-    public function __construct($startDate = null, $endDate = null) {
-        $this->startDate = $startDate;
-        $this->endDate   = $endDate;
-
+    public function setDates(array $dates = []) {
+        $this->dateFrom = (isset($dates['from']) ? $dates['from'] : null);     
+        $this->dateTo   = (isset($dates['to'])   ? $dates['to']   : null);     
+        
         $this->format();        
         $this->setEndDate();
-    }        
-
-    protected function format(){        
-        if($this->startDate != null){
-            $this->startDate = Carbon::parse($this->startDate);
-        }
-        if($this->endDate != null){
-            $this->endDate = Carbon::parse($this->endDate);
-        }        
-    }
-
-    protected function setEndDate() {
-        if($this->startDate == null) {
-            $this->endDate = null;
-        } elseif($this->endDate == null) {
-            $this->endDate = $this->startDate->copy();
-            $this->endDate->addDays(self::DEFAULT_RANGE_DAYS);
-
-            $this->datesDefined = true;
-        }
+        $this->setDatesDefined();
     }
 
     public function datesDefined() {
         return $this->datesDefined;
     }
 
-    public function getStartDate() {
-        return $this->startDate;
+    public function getDateFrom($formatted = true) {        
+        if ($formatted) {
+            return $this->dateFrom->format('Y-m-d');
+        } else {
+            return $this->dateFrom;
+        }
     }
     
-    public function getEndDate() {
-        return $this->endDate;
+    public function getDateTo($formatted = true) {
+        if ($formatted) {
+            return $this->dateTo->format('Y-m-d');
+        } else {
+            return $this->dateTo;
+        }        
     }
+
+    protected function format(){        
+        if($this->dateFrom != null){
+            $this->dateFrom = Carbon::parse($this->dateFrom);
+        }
+        if($this->dateTo != null){
+            $this->dateTo = Carbon::parse($this->dateTo);
+        }        
+    }
+
+    protected function setEndDate() {
+        if($this->dateFrom == null) {
+            $this->dateTo = null;
+        } elseif($this->dateTo == null) {
+            $this->dateTo = $this->dateFrom->copy();
+            $this->dateTo->addDays(self::DEFAULT_RANGE_DAYS);            
+        }
+    }
+
+    protected function setDatesDefined() {
+        $this->datesDefined = ($this->dateFrom != null);
+    }   
 }
 
 ?>

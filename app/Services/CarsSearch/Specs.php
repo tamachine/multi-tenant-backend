@@ -6,7 +6,7 @@ use App\Models\Car;
 use App\Helpers\CarsFilters;
 /**
  * 
- * This class gets the the specs for carsSearch class
+ * This class checks and gets the the specs for carsSearch class
  */
 class Specs
 {                   

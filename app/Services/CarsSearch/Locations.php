@@ -9,38 +9,41 @@ use App\Models\Location;
  */
 class Locations
 {               
-    protected $startLocation;
-    protected $endLocation;        
+    protected $pickupLocation;
+    protected $dropoffLocation;        
 
     protected $locationsDefined = false;
-    
-    public function __construct(int $startLocationId = null, int $endLocationId = null) {
-        $this->startLocation = Location::find($startLocationId);
-        $this->endLocation   = Location::find($endLocationId);     
+              
+     /**     
+     * @var string[]  $locations[pickup' => Location id, 'dropoff' => Location id]     
+     */
+    public function setLocations(array $locations = []) {
+        $this->pickupLocation  = (isset($locations['pickup'])  ? Location::find($locations['pickup'])  : null);
+        $this->dropoffLocation = (isset($locations['dropoff']) ? Location::find($locations['dropoff']) : null);
 
         $this->check();
-    }        
+    }
 
     protected function check() {
-        if($this->startLocation == null && $this->endLocation != null) {
-            $this->startLocation = $this->endLocation;            
+        if($this->pickupLocation == null && $this->dropoffLocation != null) {
+            $this->pickupLocation = $this->dropoffLocation;            
         }
 
-        if($this->endLocation == null && $this->startLocation != null) {
-            $this->endLocation = $this->startLocation;            
+        if($this->dropoffLocation == null && $this->pickupLocation != null) {
+            $this->dropoffLocation = $this->pickupLocation;            
         }       
     }
 
     public function locationsDefined() {
-        return $this->startLocation != null;
+        return $this->pickupLocation != null;
     }
 
-    public function getStartLocation() {
-        return $this->startLocation;
+    public function getPickupLocation() {
+        return $this->pickupLocation;
     }
     
-    public function getEndLocation() {
-        return $this->endLocation;
+    public function getDropoffLocation() {
+        return $this->dropoffLocation;
     }
 }
 

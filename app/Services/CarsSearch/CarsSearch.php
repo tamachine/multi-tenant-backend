@@ -5,7 +5,6 @@ namespace App\Services\CarsSearch;
 use App\Services\CarsSearch\Dates;
 use App\Services\CarsSearch\Locations;
 use App\Services\CarsSearch\Specs;
-use App\Models\Car;
 use App\Apis\Caren\Api;
 
 /**
@@ -15,38 +14,52 @@ use App\Apis\Caren\Api;
 class CarsSearch
 {       
     protected $data = [];
+    protected $carsSearchQuery;
+
     protected $dates; 
     protected $locations;     
     protected $specs; 
+    protected $vendors;
 
-    protected $query;
+    protected $carenApi;  
 
-    protected $carenApi;
-
-    
-    public function __construct(Specs $specs, Api $carenApi) {        
-        $this->carenApi = $carenApi;
+    public function __construct(Specs $specs, Locations $locations, Dates $dates, CarsSearchQuery $carsSearchQuery) {        
+        $this->carsSearchQuery = $carsSearchQuery;
         $this->specs = $specs;
+        $this->locations = $locations;
+        $this->dates = $dates;
     }    
 
     /**
      * @var array 
      * $data [
      *          'types' => array['large', 'small', 'medium', '4x4', 'premium', 'minivans', ... ], -> config car-specs.types
-     *          'specs' => array['engine', 'road', 'transmission', 'seat' -> values for each one in config car-specs.(spec)
+     *          'specs' => array['engine' => 'gas|diesel|..', 'road' => '4wd|fwd|..', 'transmission' => 'manual|automatic|..', 'seat' => '2|3|4|..' -> values for each one in config car-specs.(spec)
+     *          'dates' => array['from' => 'd-m-y H:m', 'to' => 'd-m-y H:m']
+     *          'locations'  => Location[] ['pickup' => 'locationId', 'dropoff' => 'locationId'] -> not 'caren location id' but 'location id'
+     *          'vendors' => ['vendor1','vendor2' ... ] if empty, all vendors will be included
      *       ]
      */
     public function setData($data = []) {
         $this->data = $data;
         
+        $this->setVendors();
         $this->setTypes();
-        $this->setSpecs();   
+        $this->setSpecs();           
+        $this->setDates();  
+        $this->setLocations();  
     }
 
     public function getCars() {
-        $this->setQuery();
+        $this->carsSearchQuery->handle($this->specs, $this->locations, $this->dates, $this->vendors);
 
-        return $this->query->get();
+        return $this->carsSearchQuery->get();
+    }      
+
+    protected function setVendors() {
+        if(isset($this->data['vendors'])) {
+            $this->vendors =$this->data['vendors'];
+        }            
     }
 
     protected function setTypes() {
@@ -56,48 +69,42 @@ class CarsSearch
     }
 
     protected function setSpecs() {
-        $specs = [];
+        $data = [];
+        $key = 'specs';
 
-        $this->setSpec($specs, 'transmission');
-        $this->setSpec($specs, 'road');
-        $this->setSpec($specs, 'engine');
-        $this->setSpec($specs, 'seats');
+        $this->setParam($data, $key, 'transmission');
+        $this->setParam($data, $key, 'road');
+        $this->setParam($data, $key, 'engine');
+        $this->setParam($data, $key, 'seat');
         
-        $this->specs->setSpecs($specs);
+        $this->specs->setSpecs($data);
     }
 
-    protected function setSpec(&$specs, $spec) {
-        if(isset($this->data['specs'][$spec])) {
-            $specs[$spec] = $this->data['specs'][$spec];
+    protected function setDates() {
+        $data = [];
+        $key = 'dates';
+
+        $this->setParam($data, $key, 'from');
+        $this->setParam($data, $key, 'to');
+
+        $this->dates->setDates($data);
+    }
+
+    protected function setLocations() {
+        $data = [];
+        $key = 'locations';
+
+        $this->setParam($data, $key, 'pickup');
+        $this->setParam($data, $key, 'dropoff');
+
+        $this->locations->setLocations($data);
+    }
+
+    protected function setParam(&$data, $key, $subKey) {
+        if(isset($this->data[$key][$subKey])) {
+            $data[$subKey] = $this->data[$key][$subKey];
         }
-    }
-
-    protected function setQuery() {      
-        $this->initSearch();
-        $this->searchSpecs();             
-    }
-
-    protected function initSearch() {
-        $this->query = Car::query();  
-    }
-
-    protected function searchSpecs() {
-        if($this->specs) {
-            if(count($this->specs->getTypes()) > 0) {
-                $this->query = Car::whereIn('vehicle_type', $this->specs->getTypes());
-            }  
-    
-            foreach($this->specs->getSpecsWithoutTypes() as $column => $value) {
-                if ($value) {
-                    $this->query->where($column, $value);
-                }
-            }
-        }         
-    }
-
-    protected function searchDates() {
-        
-    }
+    } 
 }
 
 ?>

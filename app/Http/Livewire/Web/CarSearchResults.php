@@ -56,7 +56,9 @@ class CarSearchResults extends Component
         $this->carsSearch->setData(
             [
                 'types' => $this->categories, 
-                'specs' => $this->selectables
+                'specs' => $this->selectables,
+                //'dates' => ['from' => '1-12-2023', 'to' => '31-12-2023'],
+                //'locations' => ['pickup' => 1, 'dropoff' => 1]
             ]
         );                      
 

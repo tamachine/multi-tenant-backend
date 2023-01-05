@@ -112,9 +112,13 @@ class CarenGetInfo extends Command
             $pickupLocations = $api->pickupLocations(["RentalId" => $carenRentalId]);
 
             foreach($pickupLocations['Locations'] as $pickupLocation) {
-                $existingLocation = CarenLocation::where('name', $pickupLocation['Name'])->first();
+                $existingLocation = CarenLocation::where('name', $pickupLocation['Name'])->first();      
 
-                if (!$existingLocation) {
+                if ($existingLocation) {
+                    $existingLocation->update([
+                        'caren_pickup_location_id' => $pickupLocation["Id"],
+                    ]);
+                } else {
                     if (config('settings.slack.enabled')) {
                         SlackAlert::message("New Caren location: ". $pickupLocation["Name"]);
                     }
