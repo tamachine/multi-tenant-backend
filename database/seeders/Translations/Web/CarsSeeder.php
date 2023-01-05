@@ -58,7 +58,7 @@ class CarsSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'cars',
-                'key'   => 'filters-transmission-auto',    
+                'key'   => 'filters-transmission-automatic',    
             ],
             [                
                 'text' => ['en' => 'Automatic', 'es' => 'Automático'],                
