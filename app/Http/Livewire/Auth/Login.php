@@ -42,8 +42,6 @@ class Login extends Component
             return;
         }
 
-        \Log::info(auth()->user()->afterLoginRedirectTo);
-
         return redirect()->intended(auth()->user()->afterLoginRedirectTo);
     }
 

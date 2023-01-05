@@ -30,7 +30,8 @@ class Booking extends Model
         'country', 'address', 'city', 'state', 'postal_code', 'weight_info',
         'extra_driver_info1', 'extra_driver_info2', 'extra_driver_info3', 'extra_driver_info4', 'newsletter',
         'affiliate_id', 'affiliate_commission',
-        'caren_id', 'caren_guid', 'caren_info'
+        'caren_id', 'caren_guid', 'caren_info',
+        'created_at'
     ];
 
     /**

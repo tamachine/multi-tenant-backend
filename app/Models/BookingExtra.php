@@ -19,7 +19,7 @@ class BookingExtra extends Model
      * @var array
      */
     protected $fillable = [
-        'booking_id', 'extra_id', 'units'
+        'booking_id', 'extra_id', 'units', 'total_price'
     ];
 
     /**********************************

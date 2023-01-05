@@ -37,7 +37,7 @@
                                         {{ $pickup->car_name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                        {{ $pickup->pickupLocation->name }}
+                                        {{ $pickup->pickup_name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                         {{ $pickup->pickup_at->format('H:i') }}

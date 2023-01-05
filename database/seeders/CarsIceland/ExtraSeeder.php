@@ -194,9 +194,9 @@ class ExtraSeeder extends Seeder
         $extraData['description'] = 'Have total peace of mind with Cars Iceland by choosing Liability Waiver. This reduces your deductible to ZERO.';
         $extraData['price'] = 3890;
         $extraData['order_appearance'] = 6;
-        $extraData['caren_id'] = 21;
+        $extraData['caren_id'] = 436;
         $extra = Extra::create($extraData);
-        CarenExtra::where('caren_id', 21)->update(['extra_id' => $extra->id]);
+        CarenExtra::where('caren_id', 436)->update(['extra_id' => $extra->id]);
 
         // 18. Liability Waiver (medium/large)
         $extraData = $defaultExtra;
@@ -204,9 +204,31 @@ class ExtraSeeder extends Seeder
         $extraData['description'] = 'Have total peace of mind with Cars Iceland by choosing Liability Waiver. This reduces your deductible to ZERO.';
         $extraData['price'] = 3290;
         $extraData['order_appearance'] = 6;
-        $extraData['caren_id'] = 22;
+        $extraData['caren_id'] = 437;
         $extra = Extra::create($extraData);
-        CarenExtra::where('caren_id', 22)->update(['extra_id' => $extra->id]);
+        CarenExtra::where('caren_id', 437)->update(['extra_id' => $extra->id]);
+
+        // 19. Babyseat 9-18 kg
+        $extraData = $defaultExtra;
+        $extraData['name'] = 'Babyseat 9-18 kg';
+        $extraData['description'] = 'We offer certified and safety approved baby seats. This baby seat is suitable for babies 9 - 18 kilograms (1 - 3 years old)';
+        $extraData['price_mode'] = 'per_rental';
+        $extraData['price'] = 4000;
+        $extraData['order_appearance'] = 13;
+        $extraData['caren_id'] = 96;
+        $extra = Extra::create($extraData);
+        CarenExtra::where('caren_id', 96)->update(['extra_id' => $extra->id]);
+
+        // 20. Childseat 15-36 kg
+        $extraData = $defaultExtra;
+        $extraData['name'] = 'Childseat 15-36 kg';
+        $extraData['description'] = 'We offer certified and safety approved child seats. This baby seat is suitable for babies 15 - 36 kilograms (4 - 8 years old)';
+        $extraData['price_mode'] = 'per_rental';
+        $extraData['price'] = 4000;
+        $extraData['order_appearance'] = 14;
+        $extraData['caren_id'] = 97;
+        $extra = Extra::create($extraData);
+        CarenExtra::where('caren_id', 97)->update(['extra_id' => $extra->id]);
 
         // Link cars to extras (car_extra table)
         DB::unprepared(file_get_contents(__DIR__ . '/car_extra.sql'));
