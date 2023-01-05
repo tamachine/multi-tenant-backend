@@ -31,7 +31,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('adult_passengers')->default(4);
             $table->unsignedTinyInteger('doors')->default(4);
             $table->unsignedTinyInteger('luggage')->default(3);
-            $table->unsignedTinyInteger('units')->default(15);
+            $table->unsignedSmallInteger('units')->default(15);
             $table->unsignedTinyInteger('online_percentage')->default(20);
             $table->unsignedTinyInteger('discount_percentage')->default(0);
             $table->unsignedTinyInteger('beds')->default(2);

@@ -103,6 +103,26 @@ class Car extends Model
         $this->update($carFields);
     }
 
+    /**
+     * Check if the car is allowed in F roads
+     *
+     * @return  bool
+     */
+    public function fRoadAllowed()
+    {
+        return $this->f_roads_name == 'fwd';
+    }
+
+    /**
+     * Get the main image
+     *
+     * @return  object
+     */
+    public function mainImage()
+    {
+        return $this->images()->where('main', 1)->first();
+    }
+
     /**********************************
      * Accessors & Mutators
      **********************************/
@@ -180,11 +200,6 @@ class Car extends Model
         return $this->hasMany(CarImage::class);
     }
 
-    public function mainImage()
-    {
-        return $this->images()->where('main', 1)->first();
-    }
-
     /**
      * Related unavailable dates
      *
@@ -223,9 +238,5 @@ class Car extends Model
     public function extras()
     {
         return $this->belongsToMany('App\Models\Extra')->withTimestamps();
-    }
-
-    public function fRoadAllowed() {
-        return $this->f_roads_name == 'fwd';
     }
 }

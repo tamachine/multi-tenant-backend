@@ -80,12 +80,12 @@ class CarenGetInfo extends Command
     {
         $vendors = $api->vendorList();
 
-        foreach($vendors['Rentals'] as $vendor) {
+        foreach ($vendors['Rentals'] as $vendor) {
             $existingVendor = CarenVendor::where('caren_rental_id', $vendor['Id'])->first();
 
             if (!$existingVendor) {
                 if (config('settings.slack.enabled')) {
-                    SlackAlert::message("New Caren vendor: ". $vendor["Name"]);
+                    SlackAlert::message("New Caren vendor: " . $vendor["Name"]);
                 }
 
                 CarenVendor::create([
@@ -120,7 +120,7 @@ class CarenGetInfo extends Command
                     ]);
                 } else {
                     if (config('settings.slack.enabled')) {
-                        SlackAlert::message("New Caren location: ". $pickupLocation["Name"]);
+                        SlackAlert::message("New Caren location: " . $pickupLocation["Name"]);
                     }
 
                     CarenLocation::create([
@@ -133,7 +133,7 @@ class CarenGetInfo extends Command
             // 2. Dropoff locations
             $dropoffLocations = $api->dropoffLocations(["RentalId" => $carenRentalId]);
 
-            foreach($dropoffLocations['Locations'] as $dropoffLocation) {
+            foreach ($dropoffLocations['Locations'] as $dropoffLocation) {
                 $existingLocation = CarenLocation::where('name', $dropoffLocation['Name'])->first();
 
                 if ($existingLocation) {
@@ -142,7 +142,7 @@ class CarenGetInfo extends Command
                     ]);
                 } else {
                     if (config('settings.slack.enabled')) {
-                        SlackAlert::message("New Caren location: ". $dropoffLocation["Name"]);
+                        SlackAlert::message("New Caren location: " . $dropoffLocation["Name"]);
                     }
 
                     CarenLocation::create([
@@ -167,12 +167,12 @@ class CarenGetInfo extends Command
             $carenRentalId = $vendor->caren_settings["rental_id"];
             $cars = $api->fullCarList(["RentalId" => $carenRentalId]);
 
-            foreach($cars['Classes'] as $car) {
+            foreach ($cars['Classes'] as $car) {
                 $existingCar = CarenCar::where('caren_id', $car['Id'])->first();
 
                 if (!$existingCar) {
                     if (config('settings.slack.enabled')) {
-                        SlackAlert::message("New Caren car: ". $car["Name"]);
+                        SlackAlert::message("New Caren car: " . $car["Name"]);
                     }
 
                     unset($car['Currencies']);
@@ -204,12 +204,12 @@ class CarenGetInfo extends Command
             $carenRentalId = $vendor->caren_settings["rental_id"];
             $extras = $api->extraList($type, ["RentalId" => $carenRentalId]);
 
-            foreach($extras[$key] as $extra) {
+            foreach ($extras[$key] as $extra) {
                 $existingExtra = CarenExtra::where('caren_id', $extra['Id'])->first();
 
                 if (!$existingExtra) {
                     if (config('settings.slack.enabled')) {
-                        SlackAlert::message("New Caren extra: ". $extra["Name"]);
+                        SlackAlert::message("New Caren extra: " . $extra["Name"]);
                     }
 
                     unset($extra['Currencies']);
@@ -222,7 +222,7 @@ class CarenGetInfo extends Command
                     ]);
 
                     $this->linkWithCarenCars($carenExtra);
-                    $this->linkWithOwnExtra($carenExtra, $type, $vendor->id);
+                    //$this->linkWithOwnExtra($carenExtra, $type, $vendor->id);
                 }
             }
         }
@@ -245,7 +245,7 @@ class CarenGetInfo extends Command
             $carenCarIds = CarenCar::all()->pluck('caren_id');
         }
 
-        foreach($carenCarIds as $carenCarId) {
+        foreach ($carenCarIds as $carenCarId) {
             $carenCar = CarenCar::where('caren_id', $carenCarId)->first();
             if ($carenCar) {
                 $carenExtra->carenCars()->attach($carenCar->id);
