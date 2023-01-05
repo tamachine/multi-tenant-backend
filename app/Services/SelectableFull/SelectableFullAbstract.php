@@ -60,7 +60,7 @@ abstract class SelectableFullAbstract implements SelectableFullComponentInterfac
     /**
      * value to be selected by default
      */
-    public function getDefaultSelectedValue(): string {
+    public function getDefaultSelectedValue(): ?string {
         return $this->getAllItemValue();
     }
 
