@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Models\Car;
 use App\Services\SelectableFull\AllSelectables;
 use App\Services\SelectableFull\SelectableFullItem;
+use App\Services\CarsSearch\CarsSearch;
+use App\Services\CarsSearch\Specs;
 
 class CarSearchResults extends Component
 {
@@ -16,9 +18,11 @@ class CarSearchResults extends Component
 
     protected $allSelectables;
     protected $query;
+    protected $carsSearch;
 
-    public function boot(AllSelectables $allSelectables) {
+    public function boot(AllSelectables $allSelectables, CarsSearch $carsSearch) {
         $this->allSelectables = $allSelectables;
+        $this->carsSearch = $carsSearch;
     }
 
     public function mount() {        
@@ -48,24 +52,17 @@ class CarSearchResults extends Component
     }    
 
     protected function carSearch()
-    {                
-        if(count($this->categories) > 0) {
-            $this->query = Car::whereIn('vehicle_type', $this->categories);
-        } else {
-            $this->query = Car::query();
-        }        
+    {             
+        $this->carsSearch->setData(
+            [
+                'types' => $this->categories, 
+                'specs' => $this->selectables,
+                //'dates' => ['from' => '1-12-2023', 'to' => '31-12-2023'],
+                //'locations' => ['pickup' => 1, 'dropoff' => 1]
+            ]
+        );                      
 
-        foreach($this->selectables as $selectableId => $value) {
-            $selectableComponent = $this->allSelectables->getInstance($selectableId);
-            
-            $currentSelectableValue = $this->selectables[$selectableId];
-
-            if($currentSelectableValue != $selectableComponent->getAllItemValue()) {
-                $this->query->where($selectableComponent->getColumnName(), $value);
-            }            
-        }
-
-        $this->cars = $this->query->get();
+        $this->cars = $this->carsSearch->getCars();
     }
 
     protected function setCategory($categoryId) {
@@ -77,8 +74,13 @@ class CarSearchResults extends Component
     }
 
     protected function setSelectable($selectableId, $value) {
-        $this->selectables[$selectableId] = $value;
-        
+        if($value){
+            $this->selectables[$selectableId] = $value;
+        } else {
+            if(isset($this->selectables[$selectableId])) {
+                unset($this->selectables[$selectableId]);
+            }
+        }            
     }
 
     protected function setSelectables() {

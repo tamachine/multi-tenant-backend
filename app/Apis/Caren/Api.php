@@ -230,4 +230,20 @@ class Api
 
         return $this->post($params);
     }
+
+    /**
+     * @param   array   $params
+     * @return  array
+     */
+    public function carsByDates($params = [])
+    {
+        $params = array_merge($params, [            
+            "sortColumn" => "Id",
+            "showPrices" => false,            
+        ]);
+
+        $this->endpoint = config('caren.endpoints.cars_by_dates');
+
+        return $this->post($params);
+    }
 }

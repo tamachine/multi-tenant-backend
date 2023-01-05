@@ -170,6 +170,56 @@ class CarsSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'cars',
+                'key' => 'filters-type-medium',    
+            ],
+            [                
+                'text' => ['en' => 'Small - Medium', 'es' => 'Pequeño - Mediano'],                
+            ]
+        );   
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'filters-type-large',    
+            ],
+            [                
+                'text' => ['en' => 'Large', 'es' => 'Large'],                
+            ]
+        );   
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'filters-type-4x4',    
+            ],
+            [                
+                'text' => ['en' => '4x4', 'es' => '4x4'],                
+            ]
+        );   
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'filters-type-premium',    
+            ],
+            [                
+                'text' => ['en' => 'Premium', 'es' => 'Premium'],                
+            ]
+        );   
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key' => 'filters-type-minivans',    
+            ],
+            [                
+                'text' => ['en' => 'Mini vans', 'es' => 'Mini vans'],                
+            ]
+        );   
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
                 'key' => 'card-quick-look',    
             ],
             [                
@@ -254,6 +304,16 @@ class CarsSeeder extends Seeder
             ],
             [                
                 'text' => ['en' => 'Manual', 'es' => 'Manual'],                
+            ]
+        );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key'   => 'card-transmission-automatic',    
+            ],
+            [                
+                'text' => ['en' => 'Automatic', 'es' => 'Automático'],                
             ]
         );  
 
