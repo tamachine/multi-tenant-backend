@@ -310,6 +310,16 @@ class CarsSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'cars',
+                'key'   => 'card-transmission-automatic',    
+            ],
+            [                
+                'text' => ['en' => 'Automatic', 'es' => 'Automático'],                
+            ]
+        );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
                 'key'   => 'card-features',    
             ],
             [                
