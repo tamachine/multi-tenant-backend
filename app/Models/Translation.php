@@ -3,20 +3,23 @@
 namespace App\Models;
 
 use App\Traits\HashidTrait;
+use App\Traits\HasApiResponse;
 use Spatie\TranslationLoader\LanguageLine;
 
 class Translation extends LanguageLine
 {
-    use HashidTrait;
+    use HashidTrait, HasApiResponse;
 
     protected $table = 'language_lines';
 
     protected $appends = ['full_key'];    
 
+    protected $apiResponse = ['hashid', 'full_key', 'text']; //HasApiResponse
+
     public function getFullKeyAttribute() 
     {
         return $this->group . "." . $this->key;
-    }
+    }    
 
     /**********************************
     * Scopes

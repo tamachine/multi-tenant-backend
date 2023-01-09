@@ -57,3 +57,16 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');
+/*
+Route::get('/tokens/create', function (Request $request) {
+    $token = App\Models\User::where('name', 'api')->first()->createToken('front-end-1');
+    
+    echo '<b>token</b>: '.$token->plainTextToken.'<br>';
+    echo '<b>get</b>: '. '/api/user<br>';
+    echo '<b>headers</b>: <br>';
+    echo 'Accept: application/json <br>';
+    echo 'Authorization: Basic *****, Bearer '.$token->plainTextToken.' <br>';
+
+    die; 
+});
+*/
