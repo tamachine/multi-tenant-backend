@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('bookings:set-finalized')->dailyAt('07:00');
         $schedule->command('caren:get-info')->dailyAt('07:30');
+        $schedule->command('test:plesk-test')->everyMinute();
     }
 
     /**
