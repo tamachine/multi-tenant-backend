@@ -53,16 +53,18 @@ class Extras extends Component
             $currentExtras[] = $bookingExtra->extra_id;
         }
 
-        // Load the available plans
-        foreach ($this->booking->car->extras()->orderBy('order_appearance')->get() as $extra) {
-            if (!in_array($extra->id, $currentExtras)) {
-                $this->availableExtras[] = [
-                    'id'        => $extra->id,
-                    'name'      => $extra->name,
-                    'selected'  => false,
-                    'units'     => 1,
-                    'max_units' => $extra->max_units
-                ];
+        // Load the available plans (if the bookins is linked to a current car)
+        if ($this->booking->car) {
+            foreach ($this->booking->car->extras()->orderBy('order_appearance')->get() as $extra) {
+                if (!in_array($extra->id, $currentExtras)) {
+                    $this->availableExtras[] = [
+                        'id'        => $extra->id,
+                        'name'      => $extra->name,
+                        'selected'  => false,
+                        'units'     => 1,
+                        'max_units' => $extra->max_units
+                    ];
+                }
             }
         }
     }

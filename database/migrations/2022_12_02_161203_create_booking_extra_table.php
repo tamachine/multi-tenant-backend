@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('booking_id')->unsigned()->index();
             $table->unsignedBigInteger('extra_id')->unsigned()->index();
             $table->integer('units')->default(1);
+            $table->unsignedInteger('total_price')->default(0);
 
             $table->timestamps();
 

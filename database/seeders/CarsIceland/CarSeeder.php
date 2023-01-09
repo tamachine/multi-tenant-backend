@@ -153,9 +153,9 @@ class CarSeeder extends Seeder
         $carData['adult_passengers'] = 2;
         $carData['engine'] = 'gas';
         $carData['fleet_position'] = 2;
-        $carData['caren_id'] = 489;
+        $carData['caren_id'] = 1408;
         $car = Car::create($carData);
-        CarenCar::where('caren_id', 489)->update(['car_id' => $car->id]);
+        CarenCar::where('caren_id', 1408)->update(['car_id' => $car->id]);
 
         // 12. Suzuki Vitara 4x4 (manual) Special offer!
         $carData = $defaultCar;
@@ -317,9 +317,9 @@ class CarSeeder extends Seeder
         $carData['transmission'] = 'automatic';
         $carData['engine'] = 'gas';
         $carData['fleet_position'] = 4;
-        $carData['caren_id'] = 488;
+        $carData['caren_id'] = 1283;
         $car = Car::create($carData);
-        CarenCar::where('caren_id', 488)->update(['car_id' => $car->id]);
+        CarenCar::where('caren_id', 1283)->update(['car_id' => $car->id]);
 
         // 28. BMW X1 4x4 (automatic) LUXURY - Special Offer!
         $carData = $defaultCar;

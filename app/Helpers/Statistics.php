@@ -14,9 +14,9 @@ class Statistics
     public function bookingStatistics()
     {
         return [
-            'lifetime' => Booking::where('status', 'confirmed')->count(),
-            'last_30' => Booking::where('status', 'confirmed')->where('created_at', '>', now()->subDays(30))->count(),
-            'last_7' => Booking::where('status', 'confirmed')->where('created_at', '>', now()->subDays(7))->count(),
+            'lifetime' => Booking::whereIn('status', ['confirmed', 'concluded'])->count(),
+            'last_30' => Booking::whereIn('status', ['confirmed', 'concluded'])->where('created_at', '>', now()->subDays(30))->count(),
+            'last_7' => Booking::whereIn('status', ['confirmed', 'concluded'])->where('created_at', '>', now()->subDays(7))->count(),
         ];
     }
 }

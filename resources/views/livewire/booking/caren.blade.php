@@ -1,18 +1,35 @@
-@if (!$booking->caren_id)
-    <div class="flex flex-col">
-        <div class="bg-white p-4 sm:p-10 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-            This booking has not been created in Caren yet.
+@if (!$booking->caren_info)
+    @if ($booking->caren_id)
+        <div class="flex flex-col">
+            <div class="bg-white p-4 sm:p-10 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                This booking was imnported from the previous app.
 
-            <br><br>
+                <br><br>
 
-            <button class="inline-flex items-center px-4 py-3 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-white hover:border-green-700 hover:text-green-700 active:bg-white active:border-green-700 active:text-green-700 disabled:opacity-25 transition ease-in-out duration-150"
-                type="button"
-                wire:click="createCarenBooking"
-            >
-                Create booking in Caren
-            </button>
+                <button class="inline-flex items-center px-4 py-3 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-white hover:border-green-700 hover:text-green-700 active:bg-white active:border-green-700 active:text-green-700 disabled:opacity-25 transition ease-in-out duration-150"
+                    type="button"
+                    wire:click="reloadCarenBooking"
+                >
+                    Reload booking data
+                </button>
+            </div>
         </div>
-    </div>
+    @else
+        <div class="flex flex-col">
+            <div class="bg-white p-4 sm:p-10 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                This booking has not been created in Caren yet.
+
+                <br><br>
+
+                <button class="inline-flex items-center px-4 py-3 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-white hover:border-green-700 hover:text-green-700 active:bg-white active:border-green-700 active:text-green-700 disabled:opacity-25 transition ease-in-out duration-150"
+                    type="button"
+                    wire:click="createCarenBooking"
+                >
+                    Create booking in Caren
+                </button>
+            </div>
+        </div>
+    @endif
 @else
     <div class="flex flex-col" x-data="{ info: '' }">
         <div class="flex justify-between bg-white p-4 sm:p-10 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">

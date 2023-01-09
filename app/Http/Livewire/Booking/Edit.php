@@ -43,6 +43,11 @@ class Edit extends Component
      */
     public $car = "";
 
+    /**
+     * @var string
+     */
+    public $car_name = "";
+
      /**
      * @var array
      */
@@ -142,7 +147,8 @@ class Edit extends Component
         $this->booking_date = $booking->created_at->format('d-m-Y H:i');
 
         $this->cars = $booking->vendor->cars()->orderBy('name', 'asc')->pluck('name', 'hashid');
-        $this->car = $booking->car->hashid;
+        $this->car = $booking->car ? $booking->car->hashid : null;
+        $this->car_name = $booking->car_name;
 
         $this->locations = $booking->vendor->locations()->orderBy('name', 'asc')->pluck('name', 'hashid');
         $this->pickup_location = $booking->pickupLocation->hashid;

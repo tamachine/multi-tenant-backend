@@ -37,7 +37,7 @@
                                         {{ $dropoff->car_name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                        {{ $dropoff->dropoffLocation->name }}
+                                        {{ $dropoff->dropoff_name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                         {{ $dropoff->dropoff_at->format('H:i') }}

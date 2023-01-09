@@ -36,15 +36,21 @@
                 <div class="px-4">
                     <x-admin.label for="car" value="{{ __('Car') }}" />
 
-                    <select id="car" name="car" wire:model="car"
-                        class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
-                    >
-                        @foreach ($cars as $id => $name)
-                            <option value="{{$id}}">{{ $name }}</option>
-                        @endforeach
-                    </select>
+                    @if ($car)
+                        <select id="car" name="car" wire:model="car"
+                            class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
+                        >
+                            @foreach ($cars as $id => $name)
+                                <option value="{{$id}}">{{ $name }}</option>
+                            @endforeach
+                        </select>
 
-                    <x-admin.input-error for="car" class="mt-2" />
+                        <x-admin.input-error for="car" class="mt-2" />
+                    @else
+                        <div class="mt-1 h-10">
+                            {{$car_name}}
+                        </div>
+                    @endif
                 </div>
 
                 {{-- Pickup location --}}
