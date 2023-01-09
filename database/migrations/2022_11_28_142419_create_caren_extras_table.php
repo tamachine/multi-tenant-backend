@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('caren_extras', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('category')->default('standard');
             $table->unsignedBigInteger('caren_id')->nullable()->unsigned()->index();
             $table->unsignedBigInteger('extra_id')->nullable()->unsigned()->index();
             $table->unsignedBigInteger('vendor_id')->nullable()->unsigned()->index();

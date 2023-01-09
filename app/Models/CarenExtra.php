@@ -16,7 +16,7 @@ class CarenExtra extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'caren_id', 'extra_id', 'vendor_id',
+        'name', 'category', 'caren_id', 'extra_id', 'vendor_id',
         'caren_data'
     ];
 
