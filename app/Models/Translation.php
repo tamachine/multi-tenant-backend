@@ -14,12 +14,12 @@ class Translation extends LanguageLine
 
     protected $appends = ['full_key'];    
 
-    protected $apiResponse = ['hashid', 'full_key', 'text'];
+    protected $apiResponse = ['hashid', 'full_key', 'text']; //HasApiResponse
 
     public function getFullKeyAttribute() 
     {
         return $this->group . "." . $this->key;
-    }
+    }    
 
     /**********************************
     * Scopes
