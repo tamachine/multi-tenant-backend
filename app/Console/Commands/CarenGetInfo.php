@@ -52,13 +52,13 @@ class CarenGetInfo extends Command
         Log::info("CarenGetInfo -  START");
 
         // 1. Vendors
-        //$this->vendors($api);
+        $this->vendors($api);
 
         // 2. Locations
-        // $this->locations($api);
+        $this->locations($api);
 
         // 3. Cars/Vehicles
-        // $this->cars($api);
+        $this->cars($api);
 
         // 4. Extras
         $this->extras($api, 'extra');
