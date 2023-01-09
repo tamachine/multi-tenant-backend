@@ -40,6 +40,10 @@ trait HasApiResponse
         return $apiResponse;
     }    
 
+    public function setApiResponse($params) {
+        $this->apiResponse = $params;
+    }
+
     protected function jsonResponse($value){
         if (str($value)->isJson()) return json_decode($value); 
         else return $value;

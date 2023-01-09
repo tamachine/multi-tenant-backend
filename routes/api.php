@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('translations', TranslationsController::class, ['parameters' => ['translations' => 'translation_hashid']])->only(['index', 'show']);                            ;
+Route::resource('translations', TranslationsController::class, ['parameters' => ['translations' => 'translation_full_key']])->only(['index', 'show']);                            ;
