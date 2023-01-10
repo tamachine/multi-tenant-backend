@@ -27,6 +27,9 @@ abstract class BaseController extends Controller
         $this->errorCode = 404;        
     }
 
+    /**
+     * maps a collection based on toApiResponse model method (HasApiResponse)
+     */
     public function mapApiResponse($collection) {
         return $collection->map(function ($item) {
             return $item->toApiResponse();

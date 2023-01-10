@@ -52,6 +52,16 @@ class RouteServiceProvider extends ServiceProvider
             return $resource->where('hashid', $value)->first();
         });
 
+        Route::bind('translation_full_key', function ($value) {
+            $resource = new \App\Models\Translation();
+            
+            $params = explode(".", $value, 2);
+
+            if (count($params) == 2) {
+                return $resource->where('group', $params[0])->where('key', $params[1])->first();
+            }            
+        });
+
         Route::bind('faq_category_hashid', function ($value) {
             $resource = new \App\Models\FaqCategory();
             return $resource->where('hashid', $value)->first();

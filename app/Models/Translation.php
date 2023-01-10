@@ -14,7 +14,7 @@ class Translation extends LanguageLine
 
     protected $appends = ['full_key'];    
 
-    protected $apiResponse = ['hashid', 'full_key', 'text']; //HasApiResponse
+    protected $apiResponse = ['full_key', 'text']; //HasApiResponse
 
     public function getFullKeyAttribute() 
     {
@@ -47,4 +47,6 @@ class Translation extends LanguageLine
         
         return $query;
     }
+
+    
 }
