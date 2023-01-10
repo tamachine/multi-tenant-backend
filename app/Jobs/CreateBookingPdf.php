@@ -14,7 +14,6 @@ use Spatie\Browsershot\Browsershot;
 
 /**
  * Queued job to generate a PDF for a booking
- *
  */
 class CreateBookingPdf implements ShouldQueue
 {

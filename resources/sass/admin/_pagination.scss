@@ -13,7 +13,8 @@
         &.active span, &.disabled span, button{
             @apply rounded-full;
             @apply h-6;
-            @apply w-6;
+            @apply py-1;
+            @apply px-2;
             @apply flex;
             @apply items-center;
             @apply justify-center;
