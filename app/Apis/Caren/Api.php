@@ -46,11 +46,16 @@ class Api
      * METHODS
      **************************************************/
 
-    public function __construct()
+    /**
+     * @param   string  $apiKey
+     * @param   string  $username
+     * @param   string  $password
+     */
+    public function __construct($apiKey = null, $username = null, $password = null)
     {
-        $this->apiKey = config('caren.apikey');
-        $this->username = config('caren.username');
-        $this->password = config('caren.password');
+        $this->apiKey = $apiKey ? $apiKey : config('caren.apikey');
+        $this->username = $username ? $username : config('caren.username');
+        $this->password = $password ? $password : config('caren.password');
 
         if (!$this->apiKey || !$this->username || !$this->password) {
             throw new Exception('Missing Caren credentials. Set them in .env.');
@@ -67,7 +72,7 @@ class Api
         $expiry = 20; // minutes
         $expiry_seconds = ($expiry * 60) - 10;
 
-        return Cache::remember('caren_session', $expiry_seconds, function () {
+        return Cache::remember('caren_session_' . $this->apiKey, $expiry_seconds, function () {
             return $this->getSessionIdFromCaren();
         });
     }
@@ -181,6 +186,10 @@ class Api
      */
     public function pickupLocations($params = [])
     {
+        $params = array_merge($params, [
+            "ShowHours" => true,
+        ]);
+
         $this->endpoint = config('caren.endpoints.pickup_locations');
 
         return $this->post($params);
@@ -192,6 +201,10 @@ class Api
      */
     public function dropoffLocations($params = [])
     {
+        $params = array_merge($params, [
+            "ShowHours" => true,
+        ]);
+
         $this->endpoint = config('caren.endpoints.dropoff_locations');
 
         return $this->post($params);
@@ -237,9 +250,9 @@ class Api
      */
     public function carsByDates($params = [])
     {
-        $params = array_merge($params, [            
+        $params = array_merge($params, [
             "sortColumn" => "Id",
-            "showPrices" => false,            
+            "showPrices" => false,
         ]);
 
         $this->endpoint = config('caren.endpoints.cars_by_dates');
