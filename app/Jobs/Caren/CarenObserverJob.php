@@ -100,7 +100,7 @@ class CarenObserverJob implements ShouldQueue
             if ($existingVendor) {
                 // Check if the name has changed
                 if ($existingVendor->name != $vendor["Name"]) {
-                    $log = "[$this->name] The vendor with id " . $vendor["Id"] . "has changed its name from '$existingVendor->name' to '" . $vendor["Name"] . "'";
+                    $log = "[$this->name] The vendor with id " . $vendor["Id"] . " has changed its name from '$existingVendor->name' to '" . $vendor["Name"] . "'";
                     Log::info($log);
 
                     if (config('settings.slack.enabled')) {
