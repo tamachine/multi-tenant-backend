@@ -5,10 +5,16 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Api\BaseController;
 use App\Models\Translation;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class TranslationsController extends BaseController
 {
-    public function index(Request $request) {
+    /**
+     * Returns all translations based on group and locale (if set)
+     * @var string group   
+     * @var string locale
+     */
+    public function index(Request $request):JsonResponse {
 
         $query = Translation::query(); 
 
@@ -31,7 +37,7 @@ class TranslationsController extends BaseController
         }        
     }
 
-    public function show(Translation $translation, Request $request) {        
+    public function show(Translation $translation):JsonResponse {        
         if($translation->exists) {  
             return $this->successResponse($translation->toApiResponse());
         } else {
