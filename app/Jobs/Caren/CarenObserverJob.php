@@ -457,7 +457,7 @@ class CarenObserverJob implements ShouldQueue
                 if ($existingExtra) {
                     // Check if the name has changed
                     if ($existingExtra->name != $extra["Name"]) {
-                        $log = "[$this->name] The $category con id " . $extra['Id'] . " has changed its name from '$existingExtra->name' to '" . $extra['Name'] . "'";
+                        $log = "[$this->name] The $category with id " . $extra['Id'] . " has changed its name from '$existingExtra->name' to '" . $extra['Name'] . "'";
                         Log::info($log);
 
                         if (config('settings.slack.enabled')) {
