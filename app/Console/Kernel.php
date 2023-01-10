@@ -25,7 +25,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('bookings:set-finalized')->dailyAt('07:00');
-        $schedule->command('caren:get-info')->dailyAt('07:30');
+        //$schedule->command('caren:get-info')->dailyAt('07:30');
+        $schedule->command('caren:observer')->dailyAt('08:00');
     }
 
     /**

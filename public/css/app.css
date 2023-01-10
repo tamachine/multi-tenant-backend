@@ -3163,10 +3163,6 @@ h5 {
     grid-auto-columns: auto;    
 }
 
-.auto-rows-auto {
-    grid-auto-rows: auto;    
-}
-
 .grid-cols-\[auto_1fr_auto\] {
     grid-template-columns: auto 1fr auto;    
 }
@@ -4109,14 +4105,6 @@ h5 {
 
 .pt-0 {
     padding-top: 0px;    
-}
-
-.pr-4 {
-    padding-right: 1rem;    
-}
-
-.pl-4 {
-    padding-left: 1rem;    
 }
 
 .text-left {

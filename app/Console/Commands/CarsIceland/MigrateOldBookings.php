@@ -32,16 +32,6 @@ class MigrateOldBookings extends Command
     protected $description = 'Migrate the old "booking" tables from Cars Iceland';
 
     /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      *
      * @return mixed
@@ -50,7 +40,7 @@ class MigrateOldBookings extends Command
     {
         Log::info("MigrateOldBookings - START");
 
-        $this->migrateBookings();
+        //$this->migrateBookings();
         $this->migrateCarenBookings();
 
         Log::info("MigrateOldBookings - END");
@@ -170,7 +160,7 @@ class MigrateOldBookings extends Command
     {
         Log::info(OldCarenBooking::count() . " records to migrate in the old 'Caren booking' table");
 
-        $oldBookings = OldCarenBooking::where('id', '<', 101)->get();
+        $oldBookings = OldCarenBooking::all();
         $extras = Extra::whereNotNull('caren_id')->pluck('id', 'caren_id');
 
         foreach($oldBookings as $oldBooking) {

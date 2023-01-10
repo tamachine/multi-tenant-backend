@@ -52,13 +52,13 @@ class CarenGetInfo extends Command
         Log::info("CarenGetInfo -  START");
 
         // 1. Vendors
-        //$this->vendors($api);
+        $this->vendors($api);
 
         // 2. Locations
-        // $this->locations($api);
+        $this->locations($api);
 
         // 3. Cars/Vehicles
-        // $this->cars($api);
+        $this->cars($api);
 
         // 4. Extras
         $this->extras($api, 'extra');
@@ -175,7 +175,7 @@ class CarenGetInfo extends Command
                         ]);
                     }
                 } else {
-                    $log = "New Caren location: '" . $pickupLocation["Name"] . "'";
+                    $log = "New location: '" . $pickupLocation["Name"] . "'";
                     Log::info($log);
 
                     if (config('settings.slack.enabled')) {
@@ -225,7 +225,7 @@ class CarenGetInfo extends Command
                         'caren_dropoff_location_id' => $dropoffLocation["Id"],
                     ]);
                 } else {
-                    $log = "New Caren location: " . $dropoffLocation["Name"];
+                    $log = "New location: '" . $dropoffLocation["Name"] . "'";
                     Log::info($log);
 
                     if (config('settings.slack.enabled')) {
@@ -247,7 +247,7 @@ class CarenGetInfo extends Command
 
         if ($missingLocations->count()) {
             foreach ($missingLocations as $missingLocation) {
-                $log = "The vendor '" . $missingLocation->name . "' (Caren pickup Id " . $missingLocation->caren_pickup_location_id .
+                $log = "The location '" . $missingLocation->name . "' (Caren pickup Id " . $missingLocation->caren_pickup_location_id .
                     ") is no longer in Caren";
                 Log::info($log);
 
@@ -262,7 +262,7 @@ class CarenGetInfo extends Command
 
         if ($missingLocations->count()) {
             foreach ($missingLocations as $missingLocation) {
-                $log = "The vendor '" . $missingLocation->name . "' (Caren dropoff Id " . $missingLocation->caren_dropoff_location_id .
+                $log = "The location '" . $missingLocation->name . "' (Caren dropoff Id " . $missingLocation->caren_dropoff_location_id .
                     ") is no longer in Caren";
                 Log::info($log);
 
@@ -369,7 +369,7 @@ class CarenGetInfo extends Command
                         }
                     }
                 } else {
-                    $log = "New extra: " . $extra["Name"];
+                    $log = "New $type: " . $extra["Name"];
                     Log::info($log);
 
                     if (config('settings.slack.enabled')) {
