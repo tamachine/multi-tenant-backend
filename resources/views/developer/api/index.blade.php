@@ -6,11 +6,20 @@
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">            
                 <div class="p-4 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg bg-white">
-                    <p>API docs are generated automatically from code using <a class="underline" href="https://github.com/rakutentech/laravel-request-docs" target="_blank"> larvel request-docs </a> package</p>
-                    <p class="pt-2">Click <a class="underline" href="{{url(config('request-docs.url'))}}" target="_blank">here</a> to access.</p>                    
+                    <div>API docs are generated automatically from code using <a class="underline" href="https://github.com/rakutentech/laravel-request-docs" target="_blank"> larvel request-docs </a> package.</div>
+                    <div class="pt-2">
+                        <span class="text-red-400">IMPORTANT!</span><br>
+                        Api requires a token for third party apps (not api docs case). For the same domain (docs case) token is not needed. <br>Please, <strong>provide a token</strong> in your third party apps in order to request endpoints.
+                        
+                        
+                    </div> 
+                    <div class="pt-2">Click <a class="underline" href="{{url(config('request-docs.url'))}}" target="_blank">here</a> to access.</div> 
+                    
                 </div>
                 
             </div>
         </div>
     </div>
+    
 </x-admin-layout>
+

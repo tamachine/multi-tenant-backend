@@ -18,7 +18,7 @@ return [
     */
     'default_request_headers' => [
         'Accept' => 'application/json',            
-        'Authorization' => 'Bearer your_token_here'         
+        'Authorization' => (env('APP_ENV') == 'staging' ? 'Basic c2NhbmRpbmF2aWFudHJhdmVsOmpiZi1leHcyZmJnOXRoZ0BaTko=, ' : '') .'Bearer your_token_here'        
     ],
 
     /*
