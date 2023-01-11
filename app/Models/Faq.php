@@ -8,6 +8,7 @@ use App\Models\FaqCategory;
 use App\Models\FaqFaqCategory;
 use Spatie\Translatable\HasTranslations;
 use App\Traits\HashidTrait;
+use App\Traits\HasApiResponse;
 
 class Faq extends Model
 {
@@ -20,6 +21,10 @@ class Faq extends Model
     public $translatable = ['question', 'answer'];
 
     protected $fillable = ['question', 'answer'];
+
+    use HasApiResponse;
+    
+    protected $apiResponse = ['hashid', 'question', 'answer'];
     
     public function faqCategories()
     {

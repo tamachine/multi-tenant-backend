@@ -27,6 +27,16 @@ class Language
     }
 
     /**
+     * Check if code is one of the available locale codes
+     * 
+     * @return boolean
+     */
+    public static function isAvailableCode($code) 
+    {
+        return in_array($code, self::availableCodes());
+    }
+
+    /**
      * Get the fallback code language
      *
      * @return string

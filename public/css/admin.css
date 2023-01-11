@@ -3024,6 +3024,10 @@ select{
     list-style-type: disc;
 }
 
+.list-decimal{
+    list-style-type: decimal;
+}
+
 .appearance-none{
     -webkit-appearance: none;
        -moz-appearance: none;
@@ -3920,6 +3924,10 @@ select{
 
 .pt-\[10px\]{
     padding-top: 10px;
+}
+
+.pl-4{
+    padding-left: 1rem;
 }
 
 .pl-3{

@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('grouptranslations', ['uses' => 'TranslationsController@groups']);
-Route::resource('translations', TranslationsController::class, ['parameters' => ['translations' => 'translation_full_key']])->only(['index', 'show']);                            ;
+Route::get('translationgroups', ['uses' => 'TranslationsController@groups']);
+Route::resource('translations', TranslationsController::class, ['parameters' => ['translations' => 'translation_full_key']])->only(['index', 'show']);     
+
+Route::get('faqcategories', ['uses' => 'FaqsController@categories']);
+Route::resource('faqs', FaqsController::class, ['parameters' => ['faqs' => 'faq_hashid']])->only(['index', 'show']);     
 
         

@@ -27,6 +27,14 @@ abstract class BaseController extends Controller
         $this->errorCode = 404;        
     }
 
+    protected function badRequestError() {        
+        $this->errorCode = 400;        
+    }
+
+    protected function castBool($string):bool {
+        return filter_var($string, FILTER_VALIDATE_BOOLEAN);
+    }
+
     /**
      * maps a collection based on toApiResponse model method (HasApiResponse)
      */
