@@ -100,7 +100,7 @@ class CarenObserverJob implements ShouldQueue
             if ($existingVendor) {
                 // Check if the name has changed
                 if ($existingVendor->name != $vendor["Name"]) {
-                    $log = "[$this->name] The vendor with id " . $vendor["Id"] . "has changed its name from '$existingVendor->name' to '" . $vendor["Name"] . "'";
+                    $log = "[$this->name] The vendor with id " . $vendor["Id"] . " has changed its name from '$existingVendor->name' to '" . $vendor["Name"] . "'";
                     Log::info($log);
 
                     if (config('settings.slack.enabled')) {
@@ -176,8 +176,7 @@ class CarenObserverJob implements ShouldQueue
                 if ($existingLocation) {
                     // Check if the name has changed
                     if ($existingLocation->name != $pickupLocation["Name"]) {
-                        $log = "[$this->name] The location with pickup id " . $pickupLocation["Id"] . " has changed its name from '$existingLocation->name'
-                            to '" . $pickupLocation["Name"] . "'";
+                        $log = "[$this->name] The location with pickup id " . $pickupLocation["Id"] . " has changed its name from '$existingLocation->name' to '" . $pickupLocation["Name"] . "'";
                         Log::info($log);
 
                         if (config('settings.slack.enabled')) {
@@ -191,8 +190,7 @@ class CarenObserverJob implements ShouldQueue
 
                     // Check if the pickup id has changed
                     if ($existingLocation->caren_pickup_location_id && $existingLocation->caren_pickup_location_id != $pickupLocation["Id"]) {
-                        $log = "[$this->name] The location '" . $pickupLocation["Name"] . "' has changed its pickup id from '$existingLocation->caren_pickup_location_id'
-                             to " . $pickupLocation["Id"];
+                        $log = "[$this->name] The location '" . $pickupLocation["Name"] . "' has changed its pickup id from '$existingLocation->caren_pickup_location_id' to " . $pickupLocation["Id"];
                         Log::info($log);
 
                         if (config('settings.slack.enabled')) {
@@ -262,8 +260,7 @@ class CarenObserverJob implements ShouldQueue
                 if ($existingLocation) {
                     // Check if the name has changed
                     if ($existingLocation->name != $dropoffLocation["Name"]) {
-                        $log = "[$this->name] The location with dropoff id " . $dropoffLocation["Id"] . " has changed its name from '" .
-                            $existingLocation->name . "' to '" . $dropoffLocation["Name"] . "'";
+                        $log = "[$this->name] The location with dropoff id " . $dropoffLocation["Id"] . " has changed its name from '$existingLocation->name' to '" . $dropoffLocation["Name"] . "'";
                         Log::info($log);
 
                         if (config('settings.slack.enabled')) {
@@ -277,8 +274,7 @@ class CarenObserverJob implements ShouldQueue
 
                     // Check if the dropoff id has changed
                     if ($existingLocation->caren_dropoff_location_id && $existingLocation->caren_dropoff_location_id != $dropoffLocation["Id"]) {
-                        $log = "[$this->name] The location '" . $dropoffLocation["Name"] . "' has changed its dropoff id from " . $existingLocation->caren_dropoff_location_id .
-                            " to " . $dropoffLocation["Id"];
+                        $log = "[$this->name] The location '" . $dropoffLocation["Name"] . "' has changed its dropoff id from $existingLocation->caren_dropoff_location_id to " . $dropoffLocation["Id"];
                         Log::info($log);
 
                         if (config('settings.slack.enabled')) {
@@ -335,8 +331,7 @@ class CarenObserverJob implements ShouldQueue
 
         if ($missingLocations->count()) {
             foreach ($missingLocations as $missingLocation) {
-                $log = "[$this->name] The location '$missingLocation->name' (Caren pickup Id $missingLocation->caren_pickup_location_id)
-                     is no longer in Caren";
+                $log = "[$this->name] The location '$missingLocation->name' (Caren pickup Id $missingLocation->caren_pickup_location_id) is no longer in Caren";
                 Log::info($log);
 
                 if (config('settings.slack.enabled')) {
@@ -352,8 +347,7 @@ class CarenObserverJob implements ShouldQueue
 
         if ($missingLocations->count()) {
             foreach ($missingLocations as $missingLocation) {
-                $log = "[$this->name] The location '$missingLocation->name' (Caren dropoff Id $missingLocation->caren_dropoff_location_id)
-                    is no longer in Caren";
+                $log = "[$this->name] The location '$missingLocation->name' (Caren dropoff Id $missingLocation->caren_dropoff_location_id) is no longer in Caren";
                 Log::info($log);
 
                 if (config('settings.slack.enabled')) {
@@ -457,7 +451,7 @@ class CarenObserverJob implements ShouldQueue
                 if ($existingExtra) {
                     // Check if the name has changed
                     if ($existingExtra->name != $extra["Name"]) {
-                        $log = "[$this->name] The $category con id " . $extra['Id'] . " has changed its name from '$existingExtra->name' to '" . $extra['Name'] . "'";
+                        $log = "[$this->name] The $type with id " . $extra['Id'] . " has changed its name from '$existingExtra->name' to '" . $extra['Name'] . "'";
                         Log::info($log);
 
                         if (config('settings.slack.enabled')) {
