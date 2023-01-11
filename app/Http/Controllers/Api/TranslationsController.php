@@ -32,11 +32,9 @@ class TranslationsController extends BaseController
             ];
             
             $query->select($selects);
-
-            return $this->successResponse($this->mapApiResponse($query->get()));
-        } else {
-            return $this->successResponse($this->mapApiResponse($query->get()));
-        }        
+        }
+         
+        return $this->successResponse($this->mapApiResponse($query->get()));                
     }
 
     /**

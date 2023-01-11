@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Faq;
 use Spatie\Translatable\HasTranslations;
 use App\Traits\HashidTrait;
+use App\Traits\HasApiResponse;
 
 class FaqCategory extends Model
 {
@@ -22,6 +23,10 @@ class FaqCategory extends Model
         'name', 
     ];
     
+    use HasApiResponse;
+
+    protected $apiResponse = ['hashid', 'name']; 
+
     public function faqs()
     {
         return $this->belongsToMany(Faq::class, 'faq_category_faq');            
