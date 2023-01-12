@@ -66,10 +66,10 @@
             <div class="flex flex-col divide-y h-full">
                 <div class="h-full p-9 pb-0 flex flex-col items-center justify-between">
                     <div class="grid grid-cols-2 justify-center items-center text-center gap-y-8 gap-x-9">
-                        @foreach($carCategories as $CarType)
+                        @foreach($carCategories as $carType)
                         <div>
-                            <img src="{{ $CarType->imagePath }}" class="mx-auto" />
-                            <span>{{ $CarType->text }}</span>
+                            <img src="{{ $carType->imagePath }}" class="mx-auto" />
+                            <span>{{ $carType->getTextTranslated() }}</span>
                         </div>
                         @endforeach                                                
                         <div>

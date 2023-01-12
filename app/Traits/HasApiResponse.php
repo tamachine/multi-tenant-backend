@@ -16,11 +16,15 @@ namespace App\Traits;
  * 
  *  ...
  */
+use ReflectionObject;
+use ReflectionProperty;
 
 trait HasApiResponse
 {
     public function toApiResponse(): array {
         
+        if (!is_subclass_of($this, 'Illuminate\Database\Eloquent\Model')) return $this->toApiResponseNotModel();
+
         $apiResponse[] = $this->toArray();
         
         if(isset($this->apiResponse)){
@@ -44,8 +48,30 @@ trait HasApiResponse
         $this->apiResponse = $params;
     }
 
+    /**
+     * same as toApiResponse but for classes that don't extend model class
+     */
+    public function toApiResponseNotModel() {
+        $apiResponse[] = array_column((new ReflectionObject($this))->getProperties(ReflectionProperty::IS_PUBLIC), 'name'); //get_object_vars($this);
+        
+        if(isset($this->apiResponse)){
+            $apiResponse = [];
+
+            foreach($this->apiResponse as $param) {
+                if (isset($this->$param)) { //its an attribute
+                    $apiResponse[$param] = $this->jsonResponse($this->$param);
+                } elseif (method_exists($this, $param)) {  //its a method
+                    $apiResponse[$param] = $this->jsonResponse($this->$param());               
+                }                
+            }            
+        }        
+
+        return $apiResponse;
+    }
+
     protected function jsonResponse($value){
-        if (str($value)->isJson()) return json_decode($value); 
+        if(is_array($value)) return $value;
+        elseif (str($value)->isJson()) return json_decode($value); 
         else return $value;
     }
 }

@@ -19,4 +19,6 @@ Route::resource('translations', TranslationsController::class, ['parameters' => 
 Route::get('faqcategories', ['uses' => 'FaqsController@categories']);
 Route::resource('faqs', FaqsController::class, ['parameters' => ['faqs' => 'faq_hashid']])->only(['index', 'show']);     
 
+Route::resource('carssearchfilters', CarsSearchFiltersController::class, ['parameters' => ['carssearchfilters' => 'car_search_filter_id']])->only(['index', 'show']);     
+
         

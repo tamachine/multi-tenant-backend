@@ -24,7 +24,9 @@ class TranslationsController extends BaseController
             $query->where('group', $request->input('group'));
         } 
 
-        if ($request->has('locale')) { //if locale is set, it returns only the locale passed
+        $this->checkLocale($request);
+
+        if ($this->locale) { //if locale is set, it returns only the locale passed
             $selects = [
                 'text->'.$request->input('locale'). ' as text',
                 'group',

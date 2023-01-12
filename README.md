@@ -52,6 +52,16 @@ Start the local development server
 
 You can now access the server at http://localhost:8000
 
+## API token
+
+There is an API to be consumed from the front-end.
+
+To create a token to access the api run:
+
+    php artisan web:create-token
+
+If your user has a developer role, you'll be able to check the API docs from the administration panel.
+
 ## Translations
 
 Translations are stored in database using https://github.com/spatie/laravel-translation-loader package. With this package, all laravel 'trans' function are available. You can mix using language files and the database. If a translation is present in both a file and the database, the database version will be returned.

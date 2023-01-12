@@ -29,22 +29,17 @@ class FaqsController extends BaseController
             });
         }
        
-        if ($request->has('locale')) { //if locale is set, it returns only the locale passed
-            if (Language::isAvailableCode($request->input('locale'))) {
+        $this->checkLocale($request);
 
-                $selects = [
-                    'question->'.$request->input('locale'). ' as question',                
-                    'answer->'.$request->input('locale'). ' as answer',                
-                    'hashid'
-                ];
-                
-                $query->select($selects);    
-            } else {
-                $this->badRequestError();
-
-                return $this->errorResponse('Locale ' . $request->input('locale') . ' does not exist');
-            }           
-        } 
+        if($this->locale) {
+            $selects = [
+                'question->'.$request->input('locale'). ' as question',                
+                'answer->'.$request->input('locale'). ' as answer',                
+                'hashid'
+            ];
+            
+            $query->select($selects);    
+        }
 
         return $this->successResponse($this->mapApiResponse($query->get()));                
     }
