@@ -53,18 +53,5 @@ class TranslationsController extends BaseController
 
             return $this->errorResponse("the translation does not exist");
         }        
-    }
-
-     /**
-     * @lrd:start
-     * ## Returns all translation groups
-     * @lrd:end     
-     */
-    public function groups():JsonResponse {
-        $groups = Translation::select('group')->groupBy('group')->pluck('group');
-
-        return $this->successResponse($groups->toArray());
-    }
-
-   
+    }    
 }

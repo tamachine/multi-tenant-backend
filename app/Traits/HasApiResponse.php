@@ -16,8 +16,8 @@ namespace App\Traits;
  * 
  *  ...
  */
-use ReflectionObject;
-use ReflectionProperty;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Helpers\Api;
 
 trait HasApiResponse
 {
@@ -35,8 +35,13 @@ trait HasApiResponse
                     $apiResponse[$param] = $this->jsonResponse($this->attributes[$param]);
                 } elseif (in_array($param, $this->appends)) { //its an append attribute
                     $apiResponse[$param] = $this->jsonResponse($this->$param);
-                } elseif (method_exists($this, $param)) {  //its a method
-                    $apiResponse[$param] = $this->jsonResponse($this->$param());               
+                } elseif (method_exists($this, $param)) {  
+                    if($this->$param() instanceof HasMany) { //its a HasMany relation
+                        $apiResponse[$param] = $this->jsonResponse($this->getHasMany($this->$param));  
+                    } else { //its a method
+                        $apiResponse[$param] = $this->jsonResponse($this->$param());               
+                    }
+                    
                 }                
             }            
         }        
@@ -52,15 +57,16 @@ trait HasApiResponse
      * same as toApiResponse but for classes that don't extend model class
      */
     public function toApiResponseNotModel() {
-        $apiResponse[] = array_column((new ReflectionObject($this))->getProperties(ReflectionProperty::IS_PUBLIC), 'name'); //get_object_vars($this);
+        $apiResponse[] = array_column(Api::getPublicPropertiesOfClass($this), 'name'); 
         
-        if(isset($this->apiResponse)){
+        if(isset($this->apiResponse)) {
             $apiResponse = [];
 
             foreach($this->apiResponse as $param) {
                 if (isset($this->$param)) { //its an attribute
                     $apiResponse[$param] = $this->jsonResponse($this->$param);
-                } elseif (method_exists($this, $param)) {  //its a method
+                }                 
+                elseif (method_exists($this, $param)) {  //its a method
                     $apiResponse[$param] = $this->jsonResponse($this->$param());               
                 }                
             }            
@@ -69,9 +75,14 @@ trait HasApiResponse
         return $apiResponse;
     }
 
-    protected function jsonResponse($value){
-        if(is_array($value)) return $value;
+    protected function jsonResponse($value) {                
+        if (is_object($value)) return $value;
+        elseif (is_array($value)) return $value;        
         elseif (str($value)->isJson()) return json_decode($value); 
         else return $value;
+    }
+
+    protected function getHasMany($collection) {
+        return Api::mapApiRepsonse($collection);
     }
 }

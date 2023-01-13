@@ -4,10 +4,13 @@ namespace App\Models;
 
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\HasApiResponse;
 
 class CarImage extends Model
 {
-    use HashidTrait;
+    use HashidTrait, HasApiResponse;
+
+    protected $apiResponse = ['hasid', 'main', 'assetPath'];
 
     /**
      * The table associated with the model.

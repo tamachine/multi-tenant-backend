@@ -7,10 +7,10 @@ use Illuminate\Http\JsonResponse;
 use App\Models\CarType;
 use App\Models\CarTransmission;
 use App\Models\CarRoad;
+use App\Models\CarSeat;
 use Illuminate\Http\Request;
-use App\Helpers\Language;
 
-class CarsSearchFiltersController extends BaseController
+class CarFiltersController extends BaseController
 {
 
      /**
@@ -25,17 +25,18 @@ class CarsSearchFiltersController extends BaseController
         $filters['types'] = $this->getTypes();
         $filters['transmissions'] = $this->getTransmissions();
         $filters['roads'] = $this->getRoads();       
+        $filters['seats'] = $this->getSeats();    
         
         return $this->successResponse($filters);        
     }
 
     /**
      * @lrd:start
-     * ## Returns a specific filter. {car_search_filter_id} can be: 'types', 'transmissions' or 'roads'z
+     * ## Returns a specific filter. {car_filter_id} can be: 'types', 'transmissions' or 'roads'z
      * @lrd:end          
      */
-    public function show($car_search_filter_id) {
-        switch($car_search_filter_id) {
+    public function show($car_filter_id) {
+        switch($car_filter_id) {
             case 'types':
                 $filters = $this->getTypes();
                 break;
@@ -45,10 +46,13 @@ class CarsSearchFiltersController extends BaseController
             case 'roads':
                 $filters = $this->getRoads(); 
                 break;
+            case 'seats':
+                $filters = $this->getSeats(); 
+                break;
             default:
                 $this->notFoundError();
 
-                return $this->errorResponse("filter '$car_search_filter_id' does not exist");
+                return $this->errorResponse("filter '$car_filter_id' does not exist");
         }
 
         return $this->successResponse($filters);        
@@ -64,5 +68,9 @@ class CarsSearchFiltersController extends BaseController
 
     protected function getRoads() {
         return $this->mapApiResponse(CarRoad::all($this->locale));
+    }
+
+    protected function getSeats() {
+        return $this->mapApiResponse(CarSeat::all());
     }
 }

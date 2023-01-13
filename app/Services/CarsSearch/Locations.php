@@ -15,11 +15,11 @@ class Locations
     protected $locationsDefined = false;
               
      /**     
-     * @var string[]  $locations[pickup' => Location id, 'dropoff' => Location id]     
+     * @var string[]  $locations[pickup' => Location hashid, 'dropoff' => hashid]     
      */
     public function setLocations(array $locations = []) {
-        $this->pickupLocation  = (isset($locations['pickup'])  ? Location::find($locations['pickup'])  : null);
-        $this->dropoffLocation = (isset($locations['dropoff']) ? Location::find($locations['dropoff']) : null);
+        $this->pickupLocation  = (isset($locations['pickup'])  ? Location::findByHashid($locations['pickup'])  : null);
+        $this->dropoffLocation = (isset($locations['dropoff']) ? Location::findByHashid($locations['dropoff']) : null);
 
         $this->check();
     }

@@ -99,8 +99,8 @@ class CarsSearchQuery
             
             if ($this->locations->locationsDefined()) {
                 $params = [
-                    'PickupLocationId'  => $this->locations->getPickupLocation(),
-                    'DropoffLocationId' => $this->locations->getDropoffLocation()
+                    'PickupLocationId'  => $this->locations->getPickupLocation()->caren_settings['caren_pickup_location_id'],
+                    'DropoffLocationId' => $this->locations->getDropoffLocation()->caren_settings['caren_dropoff_location_id'],
                 ];
             }
             

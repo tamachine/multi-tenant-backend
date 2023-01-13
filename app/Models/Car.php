@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Location;
 use App\Traits\HashidTrait;
+use App\Traits\HasApiResponse;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,7 +12,15 @@ use Spatie\Translatable\HasTranslations;
 
 class Car extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasApiResponse;
+
+    protected $apiResponse = [        
+        'hashid', 'active', 'name', 'description', 'year', 
+        'ranking', 'fleet_position', 'users_number_votes', 'adult_passengers', 
+        'doors', 'luggage', 'beds', 'kitchen', 'heater',
+        'engine', 'transmission', 'vehicle_type', 'vehicle_brand', 'f_roads_name',
+        'images',
+    ];
 
     /**
      * The attributes that are mass assignable.

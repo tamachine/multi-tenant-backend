@@ -3,11 +3,8 @@
 namespace App\Http\Livewire\Web;
 
 use Livewire\Component;
-use App\Models\Car;
 use App\Services\SelectableFull\AllSelectables;
-use App\Services\SelectableFull\SelectableFullItem;
 use App\Services\CarsSearch\CarsSearch;
-use App\Services\CarsSearch\Specs;
 
 class CarSearchResults extends Component
 {
