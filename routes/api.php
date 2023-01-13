@@ -21,3 +21,5 @@ Route::apiResource('faqs', FaqsController::class, ['parameters' => ['faqs' => 'f
 
 Route::apiResource('carfilters', CarFiltersController::class, ['parameters' => ['carfilters' => 'car_filter_id']])->only(['index', 'show']);     
 Route::apiResource('cars', CarsController::class)->only('index');
+
+Route::apiResource('locations', LocationsController::class)->only('index');
