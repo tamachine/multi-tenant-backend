@@ -5,7 +5,6 @@ namespace App\Services\CarsSearch;
 use App\Services\CarsSearch\Dates;
 use App\Services\CarsSearch\Locations;
 use App\Services\CarsSearch\Specs;
-use App\Apis\Caren\Api;
 
 /**
  * 
@@ -36,7 +35,7 @@ class CarsSearch
      *          'types' => array['large', 'small', 'medium', '4x4', 'premium', 'minivans', ... ], -> config car-specs.types
      *          'specs' => array['engine' => 'gas|diesel|..', 'road' => '4wd|fwd|..', 'transmission' => 'manual|automatic|..', 'seat' => '2|3|4|..' -> values for each one in config car-specs.(spec)
      *          'dates' => array['from' => 'd-m-y H:m', 'to' => 'd-m-y H:m']
-     *          'locations'  => Location[] ['pickup' => 'locationId', 'dropoff' => 'locationId'] -> not 'caren location id' but 'location id'
+     *          'locations'  => Location[] ['pickup' => 'locationHashId', 'dropoff' => 'locationHashId'] -> not 'caren location id' but 'location locationHashId'
      *          'vendors' => ['vendor1','vendor2' ... ] if empty, all vendors will be included
      *       ]
      */

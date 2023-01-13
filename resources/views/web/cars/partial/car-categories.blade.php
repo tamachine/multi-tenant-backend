@@ -26,7 +26,7 @@
                 transition ease-in-out group-hover:bg-pink-red group-hover:text-white duration-300"  
                 :class="{ 'bg-pink-red text-white' : active }"              
                 >
-                {{ $CarType->text }}
+                {{ $CarType->getTextTranslated() }}
             </div>
         </div>        
     </div>

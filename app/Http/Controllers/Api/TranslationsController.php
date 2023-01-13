@@ -24,7 +24,9 @@ class TranslationsController extends BaseController
             $query->where('group', $request->input('group'));
         } 
 
-        if ($request->has('locale')) { //if locale is set, it returns only the locale passed
+        $this->checkLocale($request);
+
+        if ($this->locale) { //if locale is set, it returns only the locale passed
             $selects = [
                 'text->'.$request->input('locale'). ' as text',
                 'group',
@@ -51,18 +53,5 @@ class TranslationsController extends BaseController
 
             return $this->errorResponse("the translation does not exist");
         }        
-    }
-
-     /**
-     * @lrd:start
-     * ## Returns all translation groups
-     * @lrd:end     
-     */
-    public function groups():JsonResponse {
-        $groups = Translation::select('group')->groupBy('group')->pluck('group');
-
-        return $this->successResponse($groups->toArray());
-    }
-
-   
+    }    
 }

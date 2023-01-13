@@ -17,4 +17,7 @@ return [
     'App\Models\Extra' => 8,
     'App\Models\Affiliate' => 9,
     'App\Models\Booking' => 10,
+    'App\Models\Faq' => 11,
+    'App\Models\FaqCategory' => 12,
+    'App\Models\Translation' => 13,
 ];

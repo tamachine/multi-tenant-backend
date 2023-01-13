@@ -92,4 +92,8 @@ trait HashidTrait
         // Otherwise there are no collisions and we can just move on
         return $intendedHashid;
     }
+
+    public function scopeFindByHashid($query, $hashid) {
+        return $query->where($this->getRouteKeyName(), $hashid)->first();
+    }
 }
