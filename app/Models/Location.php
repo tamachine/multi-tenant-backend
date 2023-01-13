@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HashidTrait;
+use App\Traits\HasApiResponse;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,7 +11,9 @@ use Spatie\Translatable\HasTranslations;
 
 class Location extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasApiResponse;
+
+    protected $apiResponse = ['hashid', 'name', 'pickup_show_input', 'dropoff_show_input', 'pickup_input_require', 'dropoff_input_require', 'pickup_input_info', 'dropoff_input_info'];
 
     /**
      * The attributes that are mass assignable.
