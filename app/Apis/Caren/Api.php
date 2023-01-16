@@ -259,4 +259,15 @@ class Api
 
         return $this->post($params);
     }
+
+    /**
+     * @param   array   $params
+     * @return  array
+     */
+    public function bookingInfo($params = [])
+    {
+        $this->endpoint = config('caren.endpoints.booking_info');
+
+        return $this->post($params);
+    }
 }

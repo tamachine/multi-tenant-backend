@@ -13,8 +13,9 @@ return [
         'dropoff_locations' => 'vehicleapi/location/getdropofflist',
         'full_car_list'     => 'vehicleapi/class/getlist',
         'extra_list'        => 'vehicleapi/extra/getlist',
-        'cars_by_dates' => 'vehicleapi/class/getlist',
         'insurance_list'    => 'vehicleapi/insurance/getlist',
+        'cars_by_dates'     => 'vehicleapi/class/getlist',
+        'booking_info'      => 'vehicleapi/reservation/getitem',
     ],
 
     'vendor_settings' => [
