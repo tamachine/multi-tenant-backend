@@ -20,7 +20,7 @@ class CarSeat {
         $seats = Car::distinct()->get(['adult_passengers'])->sortBy('adult_passengers')->pluck('adult_passengers')->toArray();
 
         foreach($seats as $seat) {
-            $carSeat = new CarCarSeatType();
+            $carSeat = new CarSeat();
             $carSeat->id = $seat;    
             $carSeat->value = $seat; 
                        
