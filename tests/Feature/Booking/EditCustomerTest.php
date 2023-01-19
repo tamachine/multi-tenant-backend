@@ -12,7 +12,10 @@ class EditCustomerTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected $admin;
+    protected $bookingAgent;
+    protected $vendor;
+    protected $location;
+    protected $car;
 
     public function setUp(): void
     {

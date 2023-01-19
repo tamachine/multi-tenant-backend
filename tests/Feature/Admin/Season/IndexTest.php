@@ -12,6 +12,8 @@ class IndexTest extends TestCase
     use RefreshDatabase;
 
     protected $admin;
+    protected $vendor1;
+    protected $vendor2;
 
     public function setUp(): void
     {

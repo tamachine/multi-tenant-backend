@@ -131,6 +131,70 @@ class Booking extends Model
         return $this->affiliate ? $this->affiliate->name : "";
     }
 
+    /**
+     * Get the parameters to create a booking in Caren
+     *
+     * @return     array
+     */
+    public function getCarenParametersAttribute()
+    {
+        $extras = [];
+        $insurances = [];
+
+        foreach ($this->bookingExtras as $bookingExtra) {
+            if (!$bookingExtra->extra->caren_id) {
+                continue;
+            }
+
+            if ($bookingExtra->extra->category == 'insurance') {
+                $insurances[] = [$bookingExtra->extra->caren_id, $bookingExtra->units];
+            } else {
+                $extras[] = [$bookingExtra->extra->caren_id, $bookingExtra->units];
+            }
+        }
+
+        // We send only the main driver info
+        $drivers = [
+            [
+                "", // ID (always empty)
+                $this->driver_name,
+                $this->driver_license_number,
+                $this->driver_date_birth,
+                true
+            ]
+        ];
+
+        return [
+            "RentalId" => $this->vendor->caren_settings["rental_id"],
+            "Language" => "en-GB",
+            "ClassId" => $this->car->caren_id,
+            "DateFrom" => $this->pickup_at->format('Y-m-d H:i:s'),
+            "DateTo" => $this->dropoff_at->format('Y-m-d H:i:s'),
+            "PickupLocationId" => $this->pickupLocation->caren_settings["caren_pickup_location_id"],
+            "DropoffLocationId" => $this->dropoffLocation->caren_settings["caren_dropoff_location_id"],
+            "Passengers" => $this->number_passengers,
+
+            "Customer" => [
+                "FirstName" => $this->first_name,
+                "LastName" => $this->last_name,
+                "Email" => $this->email,
+                "Mobile" => $this->telephone,
+                "Passport" => $this->driver_id_passport,
+                "Address" => $this->address,
+                "City" => $this->city,
+                "ZipCode" => $this->postal_code,
+                "CountryId" => null
+            ],
+
+            "Extras" => $extras,
+            "Insurances" => $insurances,
+            "Drivers" => $drivers,
+            "ArrivalTime" => $this->pickup_at->format('H:i'),
+            "FlightNumber" => "",
+            "Comments" => "Scandinavian Test"
+        ];
+    }
+
     /**********************************
      * Scopes
      **********************************/

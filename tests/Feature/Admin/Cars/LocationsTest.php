@@ -13,6 +13,8 @@ class LocationsTest extends TestCase
     use RefreshDatabase;
 
     protected $admin;
+    protected $vendor;
+    protected $location;
 
     public function setUp(): void
     {

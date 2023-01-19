@@ -264,6 +264,50 @@ class Api
      * @param   array   $params
      * @return  array
      */
+    public function createBooking($params = [])
+    {
+        $this->endpoint = config('caren.endpoints.create_booking');
+
+        return $this->post($params);
+    }
+
+    /**
+     * @param   array   $params
+     * @return  array
+     */
+    public function editBooking($params = [])
+    {
+        $this->endpoint = config('caren.endpoints.edit_booking');
+
+        return $this->post($params);
+    }
+
+    /**
+     * @param   array   $params
+     * @return  array
+     */
+    public function confirmBooking($params = [])
+    {
+        $this->endpoint = config('caren.endpoints.confirm_booking');
+
+        return $this->post($params);
+    }
+
+    /**
+     * @param   array   $params
+     * @return  array
+     */
+    public function cancelBooking($params = [])
+    {
+        $this->endpoint = config('caren.endpoints.cancel_booking');
+
+        return $this->post($params);
+    }
+
+    /**
+     * @param   array   $params
+     * @return  array
+     */
     public function bookingInfo($params = [])
     {
         $this->endpoint = config('caren.endpoints.booking_info');

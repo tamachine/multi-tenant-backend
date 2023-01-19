@@ -11,7 +11,13 @@ class HistoryTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected $admin;
+    protected $bookingAgent;
+    protected $vendor1;
+    protected $vendor2;
+    protected $location;
+    protected $car1;
+    protected $car2;
+    protected $car3;
 
     public function setUp(): void
     {

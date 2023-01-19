@@ -15,6 +15,10 @@ return [
         'extra_list'        => 'vehicleapi/extra/getlist',
         'insurance_list'    => 'vehicleapi/insurance/getlist',
         'cars_by_dates'     => 'vehicleapi/class/getlist',
+        'create_booking'    => 'vehicleapi/reservation/add',
+        'edit_booking'      => 'vehicleapi/reservation/edit',
+        'confirm_booking'   => 'vehicleapi/reservation/confirm',
+        'cancel_booking'    => 'vehicleapi/reservation/cancel',
         'booking_info'      => 'vehicleapi/reservation/getitem',
     ],
 
