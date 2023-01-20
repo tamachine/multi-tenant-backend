@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Translation;
 
 class LanguageLineSeeder extends Seeder
 {
@@ -23,5 +22,6 @@ class LanguageLineSeeder extends Seeder
         $this->call(Translations\Web\FooterSeeder::class);  
         $this->call(Translations\Web\BreadcrumbsSeeder::class);  
         $this->call(Translations\Web\CarsSeeder::class);  
+        $this->call(Translations\Web\InsurancesSeeder::class);  
     }
 }

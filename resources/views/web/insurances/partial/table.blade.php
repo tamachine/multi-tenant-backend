@@ -17,7 +17,7 @@
   @foreach($insuranceItems as $insuranceItem)
     <tr class="{{ ($loop->even) ? '' : 'bg-pink-red-secondary' }}">
         <td class="rounded-l-lg p-6">
-            {{ $insuranceItem->text[App::getLocale()] }}
+            {!! $insuranceItem->text[App::getLocale()] !!}
         </td>
         @foreach($insurances as $insurance)
         <td class="{{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }} {{ $loop->last ? 'rounded-r-lg' : '' }}">            
@@ -37,7 +37,7 @@
         @foreach($insurances as $insurance)
         <td class="{{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }}">
             <div class="flex justify-center mt-4">
-                <button class="rounded-xl px-5 py-3 bg-[{{ $insurance->color }}] text-white hover:opacity-75">Choose insurance</button>  
+                <button class="rounded-xl px-5 py-3 bg-[{{ $insurance->color }}] text-white hover:opacity-75">{!! __('insurances.btn-text') !!}</button>  
             </div>
         </td>
         @endforeach

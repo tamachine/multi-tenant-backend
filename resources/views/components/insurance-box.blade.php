@@ -10,7 +10,7 @@
     <div class="font-fredoka-medium text-center text-2xl">{{ $insurance->name }}</div>
     <div>
         <div class="font-fredoka-semibold text-5xl">€ 0</div>
-        <div>{{ $insurance->price_mode }}</div>
+        <div>{!! __('insurances.price_mode.'.$insurance->price_mode) !!} </div>
     </div>
     <div
         x-cloak 
@@ -20,18 +20,18 @@
         @foreach($insuranceItems as $insuranceItem)
             <div>
                 <img class="inline mr-3" src="{{ asset('images/icons/check-circle-white.svg') }}" />
-                <span>{{ $insuranceItem->text[App::getLocale()] }}</span>
+                <span>{!! $insuranceItem->text[App::getLocale()] !!}</span>
             </div>
         @endforeach
     </div>
     <div>
-        <button class="rounded-xl px-5 py-3 bg-white hover:bg-gray-100 text-black">Choose insurance</button>        
+        <button class="rounded-xl px-5 py-3 bg-white hover:bg-gray-100 text-black">{!! __('insurances.btn-text') !!}</button>        
     </div>
     <div
         x-on:click="insuranceBoxVisibility = !insuranceBoxVisibility" 
         class="md:hidden text-sm font-sans-medium cursor-pointer"
         >
-        <div x-cloak x-show="!insuranceBoxVisibility">View all details <span><img class="inline" src="{{ asset('images/icons/triangle-down.svg') }}" /></span></div>
-        <div x-cloak x-show="insuranceBoxVisibility">Hide all details <span><img class="inline" src="{{ asset('images/icons/triangle-up.svg') }}" /></span></div>
+        <div x-cloak x-show="!insuranceBoxVisibility">{!! __('insurances.view-all') !!}<span class="ml-1"><img class="inline" src="{{ asset('images/icons/triangle-down.svg') }}" /></span></div>
+        <div x-cloak x-show="insuranceBoxVisibility">{!! __('insurances.hide-all') !!}<span class="ml-1"><img class="inline" src="{{ asset('images/icons/triangle-up.svg') }}" /></span></div>
     </div>
 </div>
