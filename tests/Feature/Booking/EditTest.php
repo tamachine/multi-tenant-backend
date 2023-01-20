@@ -12,7 +12,10 @@ class EditTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected $admin;
+    protected $bookingAgent;
+    protected $vendor;
+    protected $location;
+    protected $car;
 
     public function setUp(): void
     {
@@ -74,7 +77,7 @@ class EditTest extends TestCase
             ->set('online_payment', 200000)
             ->call('editBooking')
             ->assertHasErrors([
-                'online_payment' => ['lt'],
+                'online_payment' => ['lte'],
             ]);
 
         Livewire::test(Edit::class, ['booking' => $booking->hashid])

@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Booking;
 
+use App\Apis\Caren\Api;
 use App\Jobs\CreateBookingPdf;
 use App\Models\Booking;
 use App\Models\Car;
 use App\Models\Location;
 use App\Notifications\SendBookingPdfMail;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class Edit extends Component
@@ -187,7 +189,7 @@ class Edit extends Component
             'pickup_date'       => ['required', 'date'],
             'dropoff_date'      => ['required', 'date', 'after:pickup_date'],
             'total_price'       => ['required', 'numeric', 'gte:0'],
-            'online_payment'    => ['required', 'numeric', 'gte:0', 'lt:total_price'],
+            'online_payment'    => ['required', 'numeric', 'gte:0', 'lte:total_price'],
             'cancel_reason'     => ['required_if:status,canceled'],
         ];
 
@@ -214,6 +216,8 @@ class Edit extends Component
             'cancel_reason' => $this->cancel_reason,
         ]);
 
+        $this->dispatchBrowserEvent('showOverlay');
+
         $changes = $this->booking->getChanges();
 
         // If the online payment has changed and there is an affiliate, recalculate the commision
@@ -223,12 +227,53 @@ class Edit extends Component
             ]);
         }
 
-        // Save a booking log if there have been changes
         if (count($changes)) {
+            // Save a booking log if there have been changes
             $this->booking->logs()->create([
                 'user_id'    => auth()->user()->id,
                 'message'    => 'Booking information updated: ' . translate_log_fields($changes)
             ]);
+
+            // Check if we are dealing with a Caren Booking
+            if ($this->booking->caren_info) {
+                $api = new Api();
+                $carenBooking = $api->editBooking(array_merge(["Guid" => $this->booking->caren_guid], $this->booking->carenParameters));
+
+                // When there is an error editing, "Success" is equal to false
+                if (isset($carenBooking["Success"]) && $carenBooking["Success"] == false) {
+                    Log::error("Error updating booking in Caren. Booking ID: " . $this->booking->id . ". Error: " . $carenBooking["Message"]);
+                }
+
+                // Check if the status has changed to "Confirmed"
+                // If so, confirm the booking in Caren
+                if (isset($changes['status']) && $this->status == 'confirmed') {
+                    $carenBooking = $api->confirmBooking([
+                        "RentalId" => $this->booking->vendor->caren_settings["rental_id"],
+                        "Guid" => $this->booking->caren_guid
+                    ]);
+
+                    // When there is an error confirming, "Success" is equal to false
+                    if (isset($carenBooking["Success"]) && $carenBooking["Success"] == false) {
+                        Log::error("Error confiming booking in Caren. Booking ID: " . $this->booking->id . ". Error: " . $carenBooking["Message"]);
+                    }
+                }
+
+                // Reload the booking information from Caren
+                $bookingInfo = $api->bookingInfo([
+                    "RentalId" => $this->booking->vendor->caren_settings["rental_id"],
+                    "Guid" => $this->booking->caren_guid,
+                ]);
+
+                // When "Success" is set, there has been an error (irony)
+                if (isset($bookingInfo["Success"])) {
+                    Log::error("Error reloading Caren booking. Booking ID: " . $this->booking->id . ". Error: " . $bookingInfo["Message"]);
+                    return;
+                }
+
+                $this->booking->update([
+                    'caren_info' => $bookingInfo
+                ]);
+            }
         }
 
         // Save another booking log if there is a comment

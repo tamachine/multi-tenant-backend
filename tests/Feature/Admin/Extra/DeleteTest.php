@@ -13,6 +13,7 @@ class DeleteTest extends TestCase
     use RefreshDatabase;
 
     protected $admin;
+    protected $vendor;
 
     public function setUp(): void
     {

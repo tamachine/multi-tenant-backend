@@ -13,7 +13,7 @@ class CreateTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected $admin;
+    protected $bookingAgent;
 
     public function setUp(): void
     {

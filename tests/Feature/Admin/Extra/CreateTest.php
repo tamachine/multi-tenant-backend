@@ -13,6 +13,8 @@ class CreateTest extends TestCase
     use RefreshDatabase;
 
     protected $admin;
+    protected $vendor;
+    protected $caren_extra;
 
     public function setUp(): void
     {
