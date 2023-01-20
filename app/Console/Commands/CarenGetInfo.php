@@ -89,18 +89,18 @@ class CarenGetInfo extends Command
                 if ($existingVendor->name != $vendor["Name"]) {
                     $log = "The vendor with id " . $vendor["Id"] . " has changed its name from '" . $existingVendor->name . "' to '" . $vendor["Name"] . "'";
                     Log::info($log);
-                    if (config('settings.slack.enabled')) {
-                        SlackAlert::message($log);
-                    }
+                    // if (config('settings.slack.enabled')) {
+                    //     SlackAlert::message($log);
+                    // }
                 }
             } else {
                 // Create Caren vendor
                 $log = "New vendor: '" . $vendor["Name"] . "'";
                 Log::info($log);
 
-                if (config('settings.slack.enabled')) {
-                    SlackAlert::message($log);
-                }
+                // if (config('settings.slack.enabled')) {
+                //     SlackAlert::message($log);
+                // }
 
                 CarenVendor::create([
                     'name'              => $vendor["Name"],
@@ -119,9 +119,9 @@ class CarenGetInfo extends Command
                 $log = "The vendor '" . $missingVendor->name . "' (Caren Id " . $missingVendor->caren_rental_id . ") is no longer in Caren";
                 Log::info($log);
 
-                if (config('settings.slack.enabled')) {
-                    SlackAlert::message($log);
-                }
+                // if (config('settings.slack.enabled')) {
+                //     SlackAlert::message($log);
+                // }
             }
         }
     }
@@ -155,9 +155,9 @@ class CarenGetInfo extends Command
                             $existingLocation->name . "' to '" . $pickupLocation["Name"] . "'";
                         Log::info($log);
 
-                        if (config('settings.slack.enabled')) {
-                            SlackAlert::message($log);
-                        }
+                        // if (config('settings.slack.enabled')) {
+                        //     SlackAlert::message($log);
+                        // }
                     }
 
                     // Check if the pickup id has changed
@@ -166,9 +166,9 @@ class CarenGetInfo extends Command
                             " to " . $pickupLocation["Id"];
                         Log::info($log);
 
-                        if (config('settings.slack.enabled')) {
-                            SlackAlert::message($log);
-                        }
+                        // if (config('settings.slack.enabled')) {
+                        //     SlackAlert::message($log);
+                        // }
 
                         $existingLocation->update([
                             'caren_pickup_location_id' => $pickupLocation["Id"],
@@ -178,9 +178,9 @@ class CarenGetInfo extends Command
                     $log = "New location: '" . $pickupLocation["Name"] . "'";
                     Log::info($log);
 
-                    if (config('settings.slack.enabled')) {
-                        SlackAlert::message($log);
-                    }
+                    // if (config('settings.slack.enabled')) {
+                    //     SlackAlert::message($log);
+                    // }
 
                     CarenLocation::create([
                         'name'                      => $pickupLocation["Name"],
@@ -205,9 +205,9 @@ class CarenGetInfo extends Command
                             $existingLocation->name . "' to '" . $dropoffLocation["Name"] . "'";
                         Log::info($log);
 
-                        if (config('settings.slack.enabled')) {
-                            SlackAlert::message($log);
-                        }
+                        // if (config('settings.slack.enabled')) {
+                        //     SlackAlert::message($log);
+                        // }
                     }
 
                     // Check if the dropoff id has changed
@@ -216,9 +216,9 @@ class CarenGetInfo extends Command
                             " to " . $dropoffLocation["Id"];
                         Log::info($log);
 
-                        if (config('settings.slack.enabled')) {
-                            SlackAlert::message($log);
-                        }
+                        // if (config('settings.slack.enabled')) {
+                        //     SlackAlert::message($log);
+                        // }
                     }
 
                     $existingLocation->update([
@@ -228,9 +228,9 @@ class CarenGetInfo extends Command
                     $log = "New location: '" . $dropoffLocation["Name"] . "'";
                     Log::info($log);
 
-                    if (config('settings.slack.enabled')) {
-                        SlackAlert::message();
-                    }
+                    // if (config('settings.slack.enabled')) {
+                    //     SlackAlert::message();
+                    // }
 
                     CarenLocation::create([
                         'name'                      => $dropoffLocation["Name"],
@@ -251,9 +251,9 @@ class CarenGetInfo extends Command
                     ") is no longer in Caren";
                 Log::info($log);
 
-                if (config('settings.slack.enabled')) {
-                    SlackAlert::message($log);
-                }
+                // if (config('settings.slack.enabled')) {
+                //     SlackAlert::message($log);
+                // }
             }
         }
 
@@ -266,9 +266,9 @@ class CarenGetInfo extends Command
                     ") is no longer in Caren";
                 Log::info($log);
 
-                if (config('settings.slack.enabled')) {
-                    SlackAlert::message($log);
-                }
+                // if (config('settings.slack.enabled')) {
+                //     SlackAlert::message($log);
+                // }
             }
         }
     }
@@ -296,17 +296,17 @@ class CarenGetInfo extends Command
                         $log = "The car with id " . $car["Id"] . " has changed its name from '" . $existingCar->name . "' to '" . $car["Name"] . "'";
                         Log::info($log);
 
-                        if (config('settings.slack.enabled')) {
-                            SlackAlert::message($log);
-                        }
+                        // if (config('settings.slack.enabled')) {
+                        //     SlackAlert::message($log);
+                        // }
                     }
                 } else {
                     $log = "New car: " . $car["Name"];
                     Log::info($log);
 
-                    if (config('settings.slack.enabled')) {
-                        SlackAlert::message($log);
-                    }
+                    // if (config('settings.slack.enabled')) {
+                    //     SlackAlert::message($log);
+                    // }
 
                     unset($car['Currencies']);
 
@@ -329,9 +329,9 @@ class CarenGetInfo extends Command
                     $log = "The car '" . $missingCar->name . "' (Caren Id " . $missingCar->caren_id . ") is no longer in Caren";
                     Log::info($log);
 
-                    if (config('settings.slack.enabled')) {
-                        SlackAlert::message($log);
-                    }
+                    // if (config('settings.slack.enabled')) {
+                    //     SlackAlert::message($log);
+                    // }
                 }
             }
         }
@@ -364,17 +364,17 @@ class CarenGetInfo extends Command
                         $log = "The $type with id " . $extra['Id'] . " has changed its name from '$existingExtra->name' to '" . $extra['Name'] . "'";
                         Log::info($log);
 
-                        if (config('settings.slack.enabled')) {
-                            SlackAlert::message($log);
-                        }
+                        // if (config('settings.slack.enabled')) {
+                        //     SlackAlert::message($log);
+                        // }
                     }
                 } else {
                     $log = "New $type: " . $extra["Name"];
                     Log::info($log);
 
-                    if (config('settings.slack.enabled')) {
-                        SlackAlert::message($log);
-                    }
+                    // if (config('settings.slack.enabled')) {
+                    //     SlackAlert::message($log);
+                    // }
 
                     unset($extra['Currencies']);
 
@@ -401,9 +401,9 @@ class CarenGetInfo extends Command
                     $log = "The $type '$missingExtra->name' (Caren Id $missingExtra->caren_id) is no longer in Caren";
                     Log::info($log);
 
-                    if (config('settings.slack.enabled')) {
-                        SlackAlert::message($log);
-                    }
+                    // if (config('settings.slack.enabled')) {
+                    //     SlackAlert::message($log);
+                    // }
                 }
             }
         }
