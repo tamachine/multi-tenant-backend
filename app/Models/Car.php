@@ -248,4 +248,14 @@ class Car extends Model
     {
         return $this->belongsToMany('App\Models\Extra')->withTimestamps();
     }
+
+    /**
+     * Define belongsToMany insurances
+     *
+     * @return object
+     */
+    public function insurances()
+    {
+        return $this->belongsToMany('App\Models\Insurance', 'car_extra', 'car_id', 'extra_id')->withTimestamps();
+    }
 }

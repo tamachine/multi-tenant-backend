@@ -7,7 +7,7 @@ use App\Models\FaqCategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
-class FaqsCategoriesController extends BaseController
+class FaqCategoriesController extends BaseController
 {
      /**
      * @lrd:start

@@ -28,6 +28,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected $namespace = 'App\\Http\\Controllers';
     protected $namespaceApi = 'App\\Http\\Controllers\\Api';
+    protected $namespaceWeb = 'App\\Http\\Controllers\\Web';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -70,7 +71,12 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('faq_hashid', function ($value) {
             $resource = new \App\Models\Faq();
             return $resource->where('hashid', $value)->first();
-        });    
+        });  
+        
+        Route::bind('car_hashid', function ($value) {
+            $resource = new \App\Models\Car();
+            return $resource->where('hashid', $value)->first();
+        });  
     }
      /**
      * Define the routes for the application.

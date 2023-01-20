@@ -12,6 +12,13 @@ module.exports = {
         './resources/**/*.vue',
         './resources/**/*.twig',           
     ],
+    safelist: [
+        'bg-[#AA78A6]',
+        'bg-[#F5CB5C]',
+        'bg-[#AECBEB]',
+        'bg-[#B4D6D3]',
+        'bg-[#8E9AAF]',,
+    ],    
     theme: {
         extend: {
             
