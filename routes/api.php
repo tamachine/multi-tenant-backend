@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('translationgroups', TranslationGroupsController::class)->only('index');   
 Route::apiResource('translations', TranslationsController::class, ['parameters' => ['translations' => 'translation_full_key']])->only(['index', 'show']);     
 
-Route::apiResource('faqcategories', FaqCategoriessController::class)->only('index');     
+Route::apiResource('faqcategories', FaqCategoriesController::class)->only('index');     
 Route::apiResource('faqs', FaqsController::class, ['parameters' => ['faqs' => 'faq_hashid']])->only(['index', 'show']);     
 
 Route::apiResource('carfilters', CarFiltersController::class, ['parameters' => ['carfilters' => 'car_filter_id']])->only(['index', 'show']);     

@@ -49,7 +49,12 @@
                     <div class="font-sans-bold text-2xl">$124</div>
                     <div class="text-[#B1B5C3]">{!! __('cars.card-perday') !!}</div>
                 </div>
-                <div><button class="btn btn-red text-base px-5 py-3">{!! __('cars.card-button') !!}</button></div>
+                <div>
+                    <button 
+                        class="btn btn-red text-base px-5 py-3" 
+                        onclick='window.location.href="{{ route("insurances", $car) }}"'                        
+                        >{!! __('cars.card-button') !!}</button>
+                </div>
             </div>
         </div>        
     </div>
