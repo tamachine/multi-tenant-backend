@@ -57,6 +57,7 @@ class DatabaseSeeder extends Seeder
             CarsIceland\VendorLocationSeeder::class,
             CarsIceland\CarSeeder::class,
             CarsIceland\ExtraSeeder::class,
+            InsurancesFeaturesSeeder::class,
         ]);
     }
 

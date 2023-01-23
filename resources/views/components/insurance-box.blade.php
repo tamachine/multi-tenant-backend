@@ -21,7 +21,7 @@
         @foreach($InsuranceFeatures as $InsuranceFeature)
             <div>
                 <img class="inline mr-3" src="{{ asset('images/icons/check-circle-white.svg') }}" />
-                <span>{!! $InsuranceFeature->text[App::getLocale()] !!}</span> 
+                <span>{!! $InsuranceFeature->name !!}</span> 
             </div>
         @endforeach
     </div>

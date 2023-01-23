@@ -17,7 +17,7 @@
   @foreach($InsuranceFeatures as $InsuranceFeature)
     <tr class="{{ ($loop->even) ? '' : 'bg-pink-red-secondary' }}">
         <td class="rounded-l-lg p-6">
-            {!! $InsuranceFeature->text[App::getLocale()] !!}
+            {!! $InsuranceFeature->name !!}
         </td>
         @foreach($insurances as $insurance)
         <td class="{{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }} {{ $loop->last ? 'rounded-r-lg' : '' }}">            

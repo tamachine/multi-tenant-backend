@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('insurance-features', function (Blueprint $table) {
+        Schema::create('insurance_features', function (Blueprint $table) {
             $table->id();
             $table->string('hashid')->nullable()->index();
             $table->string('name');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('insurance-features');
+        Schema::dropIfExists('insurance_features');
     }
 };

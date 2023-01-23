@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use App\Traits\HashidTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class InsuranceFeature extends Model
 {
 
-    use HasTranslations, HashidTrait;
+    use HasTranslations, HashidTrait, HasFactory;
     
     protected $fillable = [
         'name', 
