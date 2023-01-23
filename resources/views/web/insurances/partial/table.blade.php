@@ -14,10 +14,10 @@
     </tr>
   </thead>
   <tbody>    
-  @foreach($insuranceItems as $insuranceItem)
+  @foreach($InsuranceFeatures as $InsuranceFeature)
     <tr class="{{ ($loop->even) ? '' : 'bg-pink-red-secondary' }}">
         <td class="rounded-l-lg p-6">
-            {!! $insuranceItem->text[App::getLocale()] !!}
+            {!! $InsuranceFeature->text[App::getLocale()] !!}
         </td>
         @foreach($insurances as $insurance)
         <td class="{{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }} {{ $loop->last ? 'rounded-r-lg' : '' }}">            

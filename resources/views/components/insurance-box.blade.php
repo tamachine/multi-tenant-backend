@@ -4,7 +4,8 @@
     w-full
     h-full
     flex flex-col justify-between items-center gap-6    
-    rounded-xl p-5 text-white bg-[{{ $insurance->color }}]   
+    shadow-lg
+    rounded-xl p-5 text-white bg-[{{ $insurance->color }}]       
     "        
     >
     <div class="font-fredoka-medium text-center text-2xl">{{ $insurance->name }}</div>
@@ -17,10 +18,10 @@
         x-show="insuranceBoxVisibility" 
         class="md:hidden flex flex-col gap-4 my-2"              
         >
-        @foreach($insuranceItems as $insuranceItem)
+        @foreach($InsuranceFeatures as $InsuranceFeature)
             <div>
                 <img class="inline mr-3" src="{{ asset('images/icons/check-circle-white.svg') }}" />
-                <span>{!! $insuranceItem->text[App::getLocale()] !!}</span>
+                <span>{!! $InsuranceFeature->text[App::getLocale()] !!}</span> 
             </div>
         @endforeach
     </div>

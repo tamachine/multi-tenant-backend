@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Web;
 
 use App\Models\Car;
-use App\Models\InsuranceItem;
+use App\Models\InsuranceFeature;
 
 class InsurancesController extends BaseController
 {
     public function index(Car $car) 
     {        
         return view(
-            'web.insurances.index', ['car' => $car, 'insurances' => $car->insurances->take(3), 'insuranceItems' => InsuranceItem::all()]            
+            'web.insurances.index', ['car' => $car, 'insurances' => $car->insurances->take(3), 'InsuranceFeatures' => InsuranceFeature::all()]            
         );
     }
 

@@ -37,6 +37,9 @@ Route::group(
             Route::get('{extra}/edit/{tab?}', ['as' => 'edit', 'uses' => 'ExtraController@edit']);
         });
 
+        // InsuranceFeature
+        Route::resource('insurance-feature', InsuranceFeatureController::class, ['parameters' => ['insurance_feature' => 'insurance_feature_hashid']]);        
+
         // Free days
         Route::group(['prefix' => 'free-day', 'as' => 'free-day.'], function () {
             Route::get('/', ['as' => 'index', 'uses' => 'FreeDayController@index']);
