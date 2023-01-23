@@ -77,6 +77,11 @@ class RouteServiceProvider extends ServiceProvider
             $resource = new \App\Models\Car();
             return $resource->where('hashid', $value)->first();
         });  
+
+        Route::bind('insurance_feature_hashid', function ($value) {            
+            $resource = new \App\Models\InsuranceFeature();
+            return $resource->where('hashid', $value)->first();
+        });  
     }
      /**
      * Define the routes for the application.

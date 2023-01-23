@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 use App\Models\Insurance;
-use App\Models\InsuranceItem;
+use App\Models\InsuranceFeature;
 
 class InsuranceBox extends Component
 {
@@ -29,6 +29,6 @@ class InsuranceBox extends Component
      */
     public function render()
     {
-        return view('components.insurance-box', ['insuranceItems' => InsuranceItem::all()]);
+        return view('components.insurance-box', ['InsuranceFeatures' => InsuranceFeature::all()]);
     }    
 }
