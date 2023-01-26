@@ -41,7 +41,8 @@ class CarenObserverJob implements ShouldQueue
         $this->api = new Api(
             env($this->code . '_CAREN_APIKEY'),
             env($this->code . '_CAREN_USERNAME'),
-            env($this->code . '_CAREN_PASSWORD')
+            env($this->code . '_CAREN_PASSWORD'),
+            env('CAREN_OBERVER_URL')
         );
     }
 
