@@ -5,10 +5,12 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use App\Models\Insurance;
 use App\Models\InsuranceFeature;
+use App\Models\Car;
 
 class InsuranceBox extends Component
 {
     public $insurance;
+    public $car;
     
     protected $color;
 
@@ -17,9 +19,10 @@ class InsuranceBox extends Component
      *
      * @return void
      */
-    public function __construct(Insurance $insurance)
+    public function __construct(Insurance $insurance, Car $car)
     {
         $this->insurance = $insurance;
+        $this->car = $car;
     }
 
     /**

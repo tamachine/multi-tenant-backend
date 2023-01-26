@@ -1,6 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
-module.exports = {
+module.exports = {    
     content: [        
         './app/**/*.php',
         './resources/**/*.html',

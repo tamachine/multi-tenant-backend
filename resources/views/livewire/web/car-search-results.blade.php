@@ -3,8 +3,11 @@
 
     @include('web.cars.partial.car-selectables')  
 
+    <x-wire-spinner /> 
+
     @if(count($cars) > 0)
     <div 
+        wire:loading.remove
         class="
             grid 
             
@@ -24,7 +27,7 @@
         @endforeach        
     </div>
     @else
-    <div class="text-center w-full">
+    <div wire:loading.remove class="text-center w-full">
         {!! __('cars.search-not-found') !!}
     </div>
     @endif
