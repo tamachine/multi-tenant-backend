@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Models\Car;
 
-class ExtrasController extends BaseController
+class SummaryController extends BaseController
 {
     public function index(Car $car) 
     {                
@@ -15,7 +15,7 @@ class ExtrasController extends BaseController
 
     protected function footerImagePath() : string 
     {
-        return asset('images/footer/extras.png');
+        return '';
     }
 
    

@@ -4,6 +4,6 @@ extraPrice = function () {
 
         toggle: function() {
             this.selected = !this.selected
-        },            
+        },                   
     };
 }
