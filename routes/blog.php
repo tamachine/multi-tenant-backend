@@ -37,5 +37,12 @@ Route::group(
             Route::get('create', ['as' => 'create', 'uses' => 'TagController@create']);
             Route::get('{tag}/edit', ['as' => 'edit', 'uses' => 'TagController@edit']);
         });
+
+        // Posts
+        Route::group(['prefix' => 'post', 'as' => 'post.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'PostController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'PostController@create']);
+            Route::get('{post}/edit', ['as' => 'edit', 'uses' => 'PostController@edit']);
+        });
     }
 );

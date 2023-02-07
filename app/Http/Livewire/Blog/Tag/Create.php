@@ -18,6 +18,11 @@ class Create extends Component
      */
     public $name;
 
+    /**
+     * @var string
+     */
+    public $slug;
+
     /*
     ***************************************************************
     ** METHODS
@@ -41,7 +46,7 @@ class Create extends Component
 
         $tag = $tag->create([
             'name'              => $this->name,
-            'slug'              => slugify($this->name),
+            'slug'              => $this->slug ? $this->slug : slugify($this->name),
         ]);
 
         session()->flash('status', 'success');

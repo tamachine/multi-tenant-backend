@@ -1,8 +1,4 @@
 <x-admin-layout>
-    <x-slot name="headScripts">
-        @include('admin.partial.tinymce-script')
-    </x-slot>
-
     <x-slot name="title">
         {{ __('Edit Author:') }} {{$author->name}}
     </x-slot>

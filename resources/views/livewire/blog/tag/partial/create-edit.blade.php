@@ -11,8 +11,15 @@
         <!-- Name -->
         <div class="px-4">
             <x-admin.label for="name" value="{{ __('Name') }}" />
-            <x-admin.input id="name" type="text" class="mt-1 block w-full" maxlength="255" wire:model.defer="name" autocomplete="author_name" />
+            <x-admin.input id="name" type="text" class="mt-1 block w-full" maxlength="255" wire:model.defer="name" autocomplete="tag_name" />
             <x-admin.input-error for="name" class="mt-2" />
+        </div>
+
+        <!-- Slug -->
+        <div class="px-4 mt-4 md:mt-0">
+            <x-admin.label for="slug" value="{{ __('Slug/URL') }}" />
+            <x-admin.input id="slug" type="text" class="mt-1 block w-full" maxlength="255" wire:model.defer="slug" autocomplete="tag_slug" />
+            <x-admin.input-error for="slug" class="mt-2" />
         </div>
     </x-slot>
 

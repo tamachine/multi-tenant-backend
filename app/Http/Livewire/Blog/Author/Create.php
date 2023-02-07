@@ -24,6 +24,11 @@ class Create extends Component
     /**
      * @var string
      */
+    public $slug;
+
+    /**
+     * @var string
+     */
     public $bio;
 
     /**
@@ -70,7 +75,7 @@ class Create extends Component
 
         $author = $author->create([
             'name'              => $this->name,
-            'slug'              => slugify($this->name),
+            'slug'              => $this->slug ? $this->slug : slugify($this->name),
             'bio'               => $this->bio,
             'meta_title'        => $this->meta_title,
             'meta_description'  => $this->meta_description,

@@ -29,6 +29,11 @@ class Edit extends Component
     /**
      * @var string
      */
+    public $slug;
+
+    /**
+     * @var string
+     */
     public $bio;
 
     /**
@@ -61,6 +66,7 @@ class Edit extends Component
     {
         $this->author = $author;
         $this->name = $author->name;
+        $this->slug = $author->slug;
         $this->bio = $author->bio;
         $this->meta_title = $author->meta_title;
         $this->meta_description = $author->meta_description;
@@ -80,7 +86,7 @@ class Edit extends Component
 
         $this->author->update([
             'name'              => $this->name,
-            'slug'              => slugify($this->name),
+            'slug'              => $this->slug ? $this->slug : slugify($this->name),
             'bio'               => $this->bio,
             'meta_title'        => $this->meta_title,
             'meta_description'  => $this->meta_description,

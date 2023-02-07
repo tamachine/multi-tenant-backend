@@ -15,6 +15,13 @@
             <x-admin.input-error for="name" class="mt-2" />
         </div>
 
+        <!-- Slug -->
+        <div class="px-4 mt-4">
+            <x-admin.label for="slug" value="{{ __('Slug/URL') }}" />
+            <x-admin.input id="slug" type="text" class="mt-1 block w-full" maxlength="255" wire:model.defer="slug" autocomplete="author_slug" />
+            <x-admin.input-error for="slug" class="mt-2" />
+        </div>
+
         <!-- Meta title -->
         <div class="px-4 mt-4">
             <x-admin.label for="meta_title" value="{{ __('Meta title') }}" />
@@ -35,6 +42,8 @@
             <x-admin.tinymce-editor wire:model="bio" placeholder="Write a nice author bio..." />
         </div>
 
+        <hr class="my-4">
+
         <!-- Photo -->
         @if ($photo)
             <div class="m-4 sm:w-1/2">
@@ -44,7 +53,7 @@
             @if ($photo_url != '')
                 <div class="m-4 sm:w-1/2">
                     <x-admin.label for="current_photo" value="{{ __('Current Photo') }}" />
-                    <img src="{{$photo_url}}">
+                    <img src="{{$photo_url}}" class="mt-2">
                 </div>
             @endif
         @endif
@@ -59,6 +68,8 @@
 
             <x-admin.input-error for="photo" class="mt-2" />
         </div>
+
+        <hr class="my-4">
     </x-slot>
 
     <x-slot name="actions">

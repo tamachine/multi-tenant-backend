@@ -23,6 +23,11 @@ class Edit extends Component
      */
     public $name;
 
+    /**
+     * @var string
+     */
+    public $slug;
+
     /*
     ***************************************************************
     ** METHODS
@@ -33,6 +38,7 @@ class Edit extends Component
     {
         $this->tag = $tag;
         $this->name = $tag->name;
+        $this->slug = $tag->slug;
     }
 
     public function saveTag()
@@ -47,7 +53,7 @@ class Edit extends Component
 
         $this->tag->update([
             'name'              => $this->name,
-            'slug'              => slugify($this->name),
+            'slug'              => $this->slug ? $this->slug : slugify($this->name),
         ]);
 
         session()->flash('status', 'success');

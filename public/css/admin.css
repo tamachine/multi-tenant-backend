@@ -1108,6 +1108,10 @@ select{
     box-shadow: none !important;
 }
 
+.collapse:not(.show){
+    display: none;
+}
+
 .dropdown-item.active{
     color: rgb(31, 41, 55);
     -webkit-text-decoration: none;
@@ -1611,6 +1615,10 @@ select{
 
 .timepicker-modal .fade.\!show{
     opacity: 1 !important;
+}
+
+.collapse{
+    visibility: visible !important;
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -2256,6 +2264,10 @@ select{
 
 .visible{
     visibility: visible;
+}
+
+.collapse{
+    visibility: collapse;
 }
 
 .static{

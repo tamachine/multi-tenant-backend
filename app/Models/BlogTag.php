@@ -59,4 +59,18 @@ class BlogTag extends Model
 
         return $query;
     }
+
+    /**********************************
+     * Relationships
+     **********************************/
+
+    /**
+     * Related posts
+     *
+     * @return object
+     */
+    public function posts()
+    {
+        return $this->belongsToMany('App\Models\BlogPost')->withTimestamps();
+    }
 }

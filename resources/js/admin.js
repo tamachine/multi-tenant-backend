@@ -33,8 +33,14 @@ import 'tinymce/themes/silver';
 
 /* Import plugins */
 import 'tinymce/plugins/link';
-
-
-
-
-
+import 'tinymce/plugins/anchor';
+import 'tinymce/plugins/codesample';
+import 'tinymce/plugins/autolink';
+import 'tinymce/plugins/charmap';
+import 'tinymce/plugins/media';
+import 'tinymce/plugins/image';
+import 'tinymce/plugins/lists';
+import 'tinymce/plugins/visualblocks';
+import 'tinymce/plugins/searchreplace';
+import 'tinymce/plugins/wordcount';
+import 'tinymce/plugins/table';

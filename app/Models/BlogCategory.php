@@ -59,4 +59,18 @@ class BlogCategory extends Model
 
         return $query;
     }
+
+    /**********************************
+     * Relationships
+     **********************************/
+
+    /**
+     * Related posts
+     *
+     * @return object
+     */
+    public function posts()
+    {
+        return $this->hasMany(BlogPost::class);
+    }
 }

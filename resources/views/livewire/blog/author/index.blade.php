@@ -11,6 +11,14 @@
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
                                     Name
                                 </th>
+
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
+                                    Slug
+                                </th>
+
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
+                                    Posts
+                                </th>
                             </tr>
                         </thead>
 
@@ -21,6 +29,14 @@
                                         <a href="{{route('blog.author.edit', $author->hashid)}}" class="text-purple-700 hover:underline">
                                             {{ $author->name }}
                                         </a>
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        {{ $author->slug }}
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        {{ $author->posts()->count() }}
                                     </td>
                                 </tr>
                             @endforeach
