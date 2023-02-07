@@ -218,3 +218,16 @@ if (!function_exists('translate_log_fields')) {
         return implode(", ", $translated);
     }
 }
+
+if (!function_exists('slugify')) {
+    /**
+     * Slugifies a string
+     *
+     * @param  string   $title
+     * @return string
+     */
+    function slugify($title)
+    {
+        return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title)));
+    }
+}

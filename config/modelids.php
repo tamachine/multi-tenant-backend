@@ -20,4 +20,6 @@ return [
     'App\Models\Faq' => 11,
     'App\Models\FaqCategory' => 12,
     'App\Models\Translation' => 13,
+
+    'App\Models\BlogAuthor' => 14,
 ];
