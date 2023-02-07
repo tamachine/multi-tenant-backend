@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class BlogAuthor extends Model
+class BlogTag extends Model
 {
     use HasFactory, HashidTrait, SoftDeletes;
 
@@ -17,7 +17,7 @@ class BlogAuthor extends Model
      * @var array
      */
     protected $fillable = [
-        'hashid', 'name', 'slug', 'bio', 'meta_title', 'meta_description', 'photo'
+        'hashid', 'name', 'slug',
     ];
 
     /**********************************
@@ -25,25 +25,13 @@ class BlogAuthor extends Model
      **********************************/
 
     /**
-     * Get the author's edit URL
+     * Get the tag's edit URL
      *
      * @return     string
      */
     public function getEditUrlAttribute()
     {
-        return route('blog.author.edit', $this->hashid);
-    }
-
-    /**
-     * Get the author's photo URL
-     *
-     * @return     string
-     */
-    public function getPhotoUrlAttribute()
-    {
-        return $this->photo
-            ? asset('storage/authors/' . $this->photo)
-            : '';
+        return route('blog.tag.edit', $this->hashid);
     }
 
     /**********************************

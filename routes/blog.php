@@ -23,5 +23,19 @@ Route::group(
             Route::get('create', ['as' => 'create', 'uses' => 'AuthorController@create']);
             Route::get('{author}/edit', ['as' => 'edit', 'uses' => 'AuthorController@edit']);
         });
+
+        // Categories
+        Route::group(['prefix' => 'category', 'as' => 'category.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'CategoryController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'CategoryController@create']);
+            Route::get('{category}/edit', ['as' => 'edit', 'uses' => 'CategoryController@edit']);
+        });
+
+        // Tags
+        Route::group(['prefix' => 'tag', 'as' => 'tag.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'TagController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'TagController@create']);
+            Route::get('{tag}/edit', ['as' => 'edit', 'uses' => 'TagController@edit']);
+        });
     }
 );

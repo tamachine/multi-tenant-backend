@@ -22,4 +22,6 @@ return [
     'App\Models\Translation' => 13,
 
     'App\Models\BlogAuthor' => 14,
+    'App\Models\BlogCategory' => 15,
+    'App\Models\BlogTag' => 16,
 ];
