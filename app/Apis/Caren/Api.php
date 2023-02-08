@@ -29,6 +29,11 @@ class Api
     private $password = null;
 
     /**
+     * @var String
+     */
+    private $url = null;
+
+    /**
      * Endpoint to be called stored in config/caren.php
      *
      * @var String
@@ -50,12 +55,14 @@ class Api
      * @param   string  $apiKey
      * @param   string  $username
      * @param   string  $password
+     * @param   string  $url
      */
-    public function __construct($apiKey = null, $username = null, $password = null)
+    public function __construct($apiKey = null, $username = null, $password = null, $url = null)
     {
         $this->apiKey = $apiKey ? $apiKey : config('caren.apikey');
         $this->username = $username ? $username : config('caren.username');
         $this->password = $password ? $password : config('caren.password');
+        $this->url = $url ? $url : config('caren.url');
 
         if (!$this->apiKey || !$this->username || !$this->password) {
             throw new Exception('Missing Caren credentials. Set them in .env.');
@@ -91,7 +98,7 @@ class Api
         ];
 
         $response = Http::post(
-            config('caren.url') . config('caren.endpoints.login'),
+            $this->url . config('caren.endpoints.login'),
             $data
         );
 
@@ -162,7 +169,7 @@ class Api
      */
     public function getUrl()
     {
-        return config('caren.url') . $this->endpoint;
+        return $this->url . $this->endpoint;
     }
 
     /***************************************************

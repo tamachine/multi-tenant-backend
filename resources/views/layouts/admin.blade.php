@@ -15,6 +15,8 @@
 
         @livewireStyles
 
+        {{ $headScripts ?? '' }}
+
         <!-- Scripts -->
         <script src="{{ mix('js/admin.js') }}" defer></script>
     </head>

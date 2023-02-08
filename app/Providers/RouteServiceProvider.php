@@ -55,12 +55,12 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('translation_full_key', function ($value) {
             $resource = new \App\Models\Translation();
-            
+
             $params = explode(".", $value, 2);
 
             if (count($params) == 2) {
                 return $resource->where('group', $params[0])->where('key', $params[1])->first();
-            }            
+            }
         });
 
         Route::bind('faq_category_hashid', function ($value) {
@@ -71,22 +71,22 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('faq_hashid', function ($value) {
             $resource = new \App\Models\Faq();
             return $resource->where('hashid', $value)->first();
-        });  
-        
+        });
+
         Route::bind('car_hashid', function ($value) {
             $resource = new \App\Models\Car();
             return $resource->where('hashid', $value)->first();
-        });  
+        });
 
         Route::bind('extra_hashid', function ($value) {
             $resource = new \App\Models\Extra();
             return $resource->where('hashid', $value)->first();
         });  
 
-        Route::bind('insurance_feature_hashid', function ($value) {            
+        Route::bind('insurance_feature_hashid', function ($value) {
             $resource = new \App\Models\InsuranceFeature();
             return $resource->where('hashid', $value)->first();
-        });  
+        });
     }
      /**
      * Define the routes for the application.
@@ -126,6 +126,12 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->as('content.')
                 ->group(base_path('routes/content.php'));
+
+            Route::prefix('blog')
+                ->middleware(['web', 'auth'])
+                ->namespace($this->namespace)
+                ->as('blog.')
+                ->group(base_path('routes/blog.php'));
 
             Route::prefix('developer')
                 ->middleware(['web', 'auth'])

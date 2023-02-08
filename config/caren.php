@@ -1,10 +1,11 @@
 <?php
 
 return [
-    'url'       => env('CAREN_URL'),
-    'apikey'    => env('CAREN_APIKEY'),
-    'username'  => env('CAREN_USERNAME'),
-    'password'  => env('CAREN_PASSWORD'),
+    'url'           => env('CAREN_URL'),
+    'observer_url'  => env('CAREN_OBERVER_URL'),
+    'apikey'        => env('CAREN_APIKEY'),
+    'username'      => env('CAREN_USERNAME'),
+    'password'      => env('CAREN_PASSWORD'),
 
     'endpoints' => [
         'login'             => 'vehicleapi/user/login',
