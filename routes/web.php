@@ -13,6 +13,8 @@ use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\CarsController;
 use App\Http\Controllers\Web\BookingController;
 use App\Http\Controllers\Web\InsurancesController;
+use App\Http\Controllers\Web\ExtrasController;
+use App\Http\Controllers\Web\SummaryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,8 @@ use App\Http\Controllers\Web\InsurancesController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/cars', [CarsController::class, 'index'])->name('cars');
 Route::get('/{car_hashid}/insurances', [InsurancesController::class, 'index'])->name('insurances');
+Route::get('/{car_hashid}/extras', [ExtrasController::class, 'index'])->name('extras');
+Route::get('/{car_hashid}/summary', [SummaryController::class, 'index'])->name('summary');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)

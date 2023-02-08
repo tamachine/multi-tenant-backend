@@ -26,7 +26,7 @@
         @endforeach
     </div>
     <div>
-        <button class="rounded-xl px-5 py-3 bg-white hover:bg-gray-100 text-black">{!! __('insurances.btn-text') !!}</button>        
+        <button class="rounded-xl px-5 py-3 bg-white hover:bg-gray-100 text-black" onclick='window.location.href="{{route("extras", $car)}}"'>{!! __('insurances.btn-text') !!}</button>        
     </div>
     <div
         x-on:click="insuranceBoxVisibility = !insuranceBoxVisibility" 

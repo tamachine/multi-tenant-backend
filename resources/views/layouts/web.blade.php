@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html 
     lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-    x-data="{'showMobileNavBar': false}"
-    :class="showMobileNavBar ? 'overflow-hidden' : ''"
+    x-data="{'showMobileNavBar': false, 'htmlOverflowHidden': false}"
+    :class="showMobileNavBar || htmlOverflowHidden ? 'overflow-hidden' : ''"
+    x-ref="html"
     >
     <head>
         <meta charset="utf-8">

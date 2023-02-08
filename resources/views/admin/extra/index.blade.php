@@ -1,6 +1,6 @@
 <x-admin-layout>
-    <x-slot name="title">
-        {{ __('Extras') }}
+    <x-slot name="title">        
+        Extras
     </x-slot>
 
     <x-slot name="breadcrumbs">
