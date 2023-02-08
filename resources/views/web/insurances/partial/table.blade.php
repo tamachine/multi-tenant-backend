@@ -8,7 +8,7 @@
 
         @foreach($insurances as $insurance)
         <th class="pb-10 {{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }} font-normal">
-            <x-insurance-box :insurance=$insurance />
+            <x-insurance-box :insurance=$insurance :car=$car />
         </th>
         @endforeach      
     </tr>
@@ -37,7 +37,7 @@
         @foreach($insurances as $insurance)
         <td class="{{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }}">
             <div class="flex justify-center mt-4">
-                <button class="rounded-xl px-5 py-3 bg-[{{ $insurance->color }}] text-white hover:opacity-75">{!! __('insurances.btn-text') !!}</button>  
+                <button class="rounded-xl px-5 py-3 bg-[{{ $insurance->color }}] text-white hover:opacity-75" onclick='window.location.href="{{route("extras", $car)}}"'>{!! __('insurances.btn-text') !!}</button>  
             </div>
         </td>
         @endforeach
@@ -53,7 +53,7 @@
     </div>
 
     @foreach($insurances as $insurance)
-        <x-insurance-box :insurance=$insurance />
+        <x-insurance-box :insurance=$insurance :car=$car />
     @endforeach
 </div>
 {{-- mobile end --}}

@@ -1,6 +1,6 @@
 <x-admin-layout>
     <x-slot name="title">
-        {{ __('Cars') }}
+        Cars
     </x-slot>
 
     <x-slot name="breadcrumbs">

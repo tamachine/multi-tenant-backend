@@ -78,6 +78,11 @@ class RouteServiceProvider extends ServiceProvider
             return $resource->where('hashid', $value)->first();
         });
 
+        Route::bind('extra_hashid', function ($value) {
+            $resource = new \App\Models\Extra();
+            return $resource->where('hashid', $value)->first();
+        });  
+
         Route::bind('insurance_feature_hashid', function ($value) {
             $resource = new \App\Models\InsuranceFeature();
             return $resource->where('hashid', $value)->first();

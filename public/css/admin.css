@@ -2354,6 +2354,10 @@ select{
     left: 25%;
 }
 
+.top-16{
+    top: 4rem;
+}
+
 .top-1{
     top: 0.25rem;
 }
@@ -2440,6 +2444,11 @@ select{
     margin-right: auto;
 }
 
+.my-8{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 .my-2{
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -2478,11 +2487,6 @@ select{
 .my-6{
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-}
-
-.my-8{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
 }
 
 .mx-6{
@@ -2732,6 +2736,10 @@ select{
     height: 495px;
 }
 
+.h-\[18px\]{
+    height: 18px;
+}
+
 .h-4{
     height: 1rem;
 }
@@ -2778,6 +2786,10 @@ select{
 
 .max-h-80{
     max-height: 20rem;
+}
+
+.min-h-\[112px\]{
+    min-height: 112px;
 }
 
 .w-5{
@@ -2878,16 +2890,20 @@ select{
     width: 2.5rem;
 }
 
+.w-\[18px\]{
+    width: 18px;
+}
+
+.w-24{
+    width: 6rem;
+}
+
 .w-16{
     width: 4rem;
 }
 
 .w-20{
     width: 5rem;
-}
-
-.w-24{
-    width: 6rem;
 }
 
 .w-32{
@@ -2946,8 +2962,8 @@ select{
     max-width: 1440px;
 }
 
-.max-w-3xl{
-    max-width: 48rem;
+.max-w-\[780px\]{
+    max-width: 780px;
 }
 
 .flex-1{
@@ -3088,6 +3104,18 @@ select{
 
 .grid-cols-\[auto_1fr\]{
     grid-template-columns: auto 1fr;
+}
+
+.grid-cols-\[96px_1fr\]{
+    grid-template-columns: 96px 1fr;
+}
+
+.grid-cols-\[1fr_auto\]{
+    grid-template-columns: 1fr auto;
+}
+
+.grid-cols-\[1fr_auto_auto\]{
+    grid-template-columns: 1fr auto auto;
 }
 
 .grid-cols-\[repeat\(auto-fill\2c 350px\)\]{
@@ -3393,6 +3421,10 @@ select{
     border-width: 1px;
 }
 
+.border-2{
+    border-width: 2px;
+}
+
 .border-b{
     border-bottom-width: 1px;
 }
@@ -3520,6 +3552,11 @@ select{
 .bg-rose-100{
     --tw-bg-opacity: 1;
     background-color: rgb(255 228 230 / var(--tw-bg-opacity));
+}
+
+.bg-slate-200{
+    --tw-bg-opacity: 1;
+    background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#070000\]{
@@ -3761,6 +3798,10 @@ select{
     padding: 0.5rem;
 }
 
+.p-8{
+    padding: 2rem;
+}
+
 .p-11{
     padding: 2.75rem;
 }
@@ -3874,6 +3915,11 @@ select{
     padding-right: 10px;
 }
 
+.py-\[6px\]{
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
 .px-8{
     padding-left: 2rem;
     padding-right: 2rem;
@@ -3892,6 +3938,11 @@ select{
 .py-0{
     padding-top: 0px;
     padding-bottom: 0px;
+}
+
+.py-9{
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
 }
 
 .py-24{
@@ -4175,6 +4226,10 @@ select{
     font-size: 22px;
 }
 
+.text-\[40px\]{
+    font-size: 40px;
+}
+
 .text-\[26px\]{
     font-size: 26px;
 }
@@ -4185,10 +4240,6 @@ select{
 
 .text-\[10px\]{
     font-size: 10px;
-}
-
-.text-\[40px\]{
-    font-size: 40px;
 }
 
 .font-medium{
@@ -4480,6 +4531,10 @@ select{
 
 .opacity-75{
     opacity: 0.75;
+}
+
+.opacity-70{
+    opacity: 0.7;
 }
 
 .shadow{
@@ -5447,6 +5502,11 @@ input[type=number] {
         margin-right: 0px;
     }
 
+    .md\:mx-auto{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .md\:mx-6{
         margin-left: 1.5rem;
         margin-right: 1.5rem;
@@ -5460,11 +5520,6 @@ input[type=number] {
     .md\:my-0{
         margin-top: 0px;
         margin-bottom: 0px;
-    }
-
-    .md\:mx-auto{
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .md\:ml-16{
@@ -5535,6 +5590,10 @@ input[type=number] {
         height: 5rem;
     }
 
+    .md\:h-12{
+        height: 3rem;
+    }
+
     .md\:h-\[718px\]{
         height: 718px;
     }
@@ -5551,6 +5610,10 @@ input[type=number] {
         max-height: 100%;
     }
 
+    .md\:min-h-\[180px\]{
+        min-height: 180px;
+    }
+
     .md\:w-auto{
         width: auto;
     }
@@ -5561,6 +5624,10 @@ input[type=number] {
 
     .md\:w-\[185px\]{
         width: 185px;
+    }
+
+    .md\:w-44{
+        width: 11rem;
     }
 
     .md\:w-fit{
@@ -5590,6 +5657,10 @@ input[type=number] {
 
     .md\:grid-cols-2{
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .md\:grid-cols-\[170px_auto\]{
+        grid-template-columns: 170px auto;
     }
 
     .md\:grid-cols-\[350px\]{
@@ -5684,16 +5755,16 @@ input[type=number] {
         gap: 1rem;
     }
 
+    .md\:gap-10{
+        gap: 2.5rem;
+    }
+
     .md\:gap-2{
         gap: 0.5rem;
     }
 
     .md\:gap-9{
         gap: 2.25rem;
-    }
-
-    .md\:gap-10{
-        gap: 2.5rem;
     }
 
     .md\:gap-3{
@@ -5716,6 +5787,12 @@ input[type=number] {
     .md\:gap-x-6{
         -moz-column-gap: 1.5rem;
              column-gap: 1.5rem;
+    }
+
+    .md\:divide-x > :not([hidden]) ~ :not([hidden]){
+        --tw-divide-x-reverse: 0;
+        border-right-width: calc(1px * var(--tw-divide-x-reverse));
+        border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
     }
 
     .md\:overflow-auto{
@@ -5822,9 +5899,19 @@ input[type=number] {
         padding-bottom: 1.25rem;
     }
 
+    .md\:px-\[100px\]{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
     .md\:px-0{
         padding-left: 0px;
         padding-right: 0px;
+    }
+
+    .md\:py-12{
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
 
     .md\:px-10{
@@ -5965,10 +6052,6 @@ input[type=number] {
         text-align: left;
     }
 
-    .md\:text-center{
-        text-align: center;
-    }
-
     .md\:text-right{
         text-align: right;
     }
@@ -6001,9 +6084,18 @@ input[type=number] {
         line-height: 1;
     }
 
+    .md\:text-\[70px\]{
+        font-size: 70px;
+    }
+
     .md\:text-3xl{
         font-size: 1.875rem;
         line-height: 2.25rem;
+    }
+
+    .md\:text-xl{
+        font-size: 1.25rem;
+        line-height: 1.75rem;
     }
 
     .md\:text-xs{
@@ -6016,18 +6108,9 @@ input[type=number] {
         line-height: 1.75rem;
     }
 
-    .md\:text-xl{
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-    }
-
     .md\:text-sm{
         font-size: 0.875rem;
         line-height: 1.25rem;
-    }
-
-    .md\:text-\[70px\]{
-        font-size: 70px;
     }
 
     .md\:font-normal{
@@ -6036,6 +6119,10 @@ input[type=number] {
 
     .md\:leading-\[110px\]{
         line-height: 110px;
+    }
+
+    .md\:leading-8{
+        line-height: 2rem;
     }
 
     .md\:leading-\[30px\]{
@@ -6155,6 +6242,19 @@ input[type=number] {
 
     .md-max\:hidden{
         display: none;
+    }
+
+    .md-max\:h-24{
+        height: 6rem;
+    }
+
+    .md-max\:w-24{
+        width: 6rem;
+    }
+
+    .md-max\:object-cover{
+        -o-object-fit: cover;
+           object-fit: cover;
     }
 
     .md-max\:leading-9{
