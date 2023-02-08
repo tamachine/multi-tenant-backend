@@ -3294,6 +3294,10 @@ select{
     white-space: nowrap;
 }
 
+.break-all{
+    word-break: break-all;
+}
+
 .rounded-2lg{
     border-radius: 10px;
 }

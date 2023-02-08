@@ -1,5 +1,5 @@
 <div>
-    @include('livewire.blog.post.partial.create-edit', [
+    @include('livewire.blog.post.partial.edit', [
         'formTitle'         => __('Edit post'),
         'formDescription'   => __('Edit the post information and then click on "Save"'),
         'formButton'        => __('Save'),

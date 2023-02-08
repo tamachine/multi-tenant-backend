@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('slug')->index();
             $table->boolean('published')->default(0);
             $table->timestamp('published_at')->nullable();
-            $table->string('summary', 1024);
+            $table->string('summary', 1024)->nullable();
             $table->text('content')->nullable();
             $table->string('featured_image')->nullable();
             $table->unsignedBigInteger('blog_author_id')->nullable()->unsigned()->index();

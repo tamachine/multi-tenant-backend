@@ -8,6 +8,7 @@ use App\Models\BlogPost;
 use App\Models\BlogTag;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Storage;
 
 class Edit extends Component
 {
@@ -28,6 +29,11 @@ class Edit extends Component
      * @var string
      */
     public $title;
+
+     /**
+     * @var string
+     */
+    public $slug;
 
     /**
      * @var bool
@@ -70,6 +76,16 @@ class Edit extends Component
     public $content;
 
     /**
+     * @var array
+     */
+    public $images = [];
+
+     /**
+     * @var object
+     */
+    public $image;
+
+    /**
      * @var object
      */
     public $featured;
@@ -89,6 +105,7 @@ class Edit extends Component
     {
         $this->post = $post;
         $this->title = $post->title;
+        $this->slug = $post->slug;
         $this->published = $post->published;
         $this->category = $post->blog_category_id;
         $this->author = $post->blog_author_id;
@@ -96,6 +113,7 @@ class Edit extends Component
         $this->summary = $post->summary;
         $this->content = $post->content;
         $this->featured_url = $post->featured_image_url;
+        $this->reloadImages();
 
         $this->categories = BlogCategory::pluck('name', 'id');
         $this->authors = BlogAuthor::pluck('name', 'id');
@@ -124,7 +142,7 @@ class Edit extends Component
         // 1. Update the post
         $this->post->update([
             'title'             => $this->title,
-            'slug'              => slugify($this->title),
+            'slug'              => $this->slug ? $this->slug : slugify($this->title),
             'published'         => $this->published ? 1 : 0,
             'published_at'      => $published_date,
             'summary'           => $this->summary,
@@ -162,6 +180,43 @@ class Edit extends Component
         session()->flash('message', 'Post "' . $this->title . '" updated');
 
         return redirect()->route('blog.post.index');
+    }
+
+    private function reloadImages()
+    {
+        $this->images = [];
+        $images = Storage::disk('public')->files("posts/" . $this->post->hashid);
+
+        foreach ($images as $image) {
+            $this->images[] = [
+                'file' => $image,
+                'route' => 'paco',
+            ];
+        }
+    }
+
+    public function addImage()
+    {
+        $this->dispatchBrowserEvent('validationError');
+
+        $this->validate([
+            'image'      => ['mimes:jpeg,jpg,png,gif'],
+        ],
+        [
+            'image.mimes' => 'The image must be a file of type: jpeg, jpg, png, gif'
+        ]);
+
+        $extension = $this->image->getClientOriginalExtension();
+        $filename = now()->timestamp . "." . $extension;
+        $this->image->storeAs("public/posts/" . $this->post->hashid, $filename);
+
+        $this->reloadImages();
+    }
+
+    public function deleteImage($image)
+    {
+        Storage::disk('public')->delete($image);
+        $this->reloadImages();
     }
 
     public function deletePost()

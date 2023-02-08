@@ -26,6 +26,13 @@
             </div>
         </div>
 
+         <!-- Slug -->
+         <div class="px-4 mt-4">
+            <x-admin.label for="slug" value="{{ __('Slug/URL') }}" />
+            <x-admin.input id="slug" type="text" class="mt-1 block w-full" maxlength="255" wire:model.defer="slug" autocomplete="post_slug" />
+            <x-admin.input-error for="slug" class="mt-2" />
+        </div>
+
         <div class="w-full mt-4 sm:grid sm:gap-2 sm:grid-cols-2">
             {{-- Category --}}
             <div class="px-4">
@@ -76,9 +83,13 @@
 
         <!-- Content -->
         <div class="px-4 mt-4">
-            <x-admin.label for="content" value="{{ __('Content') }}" />
+            <x-admin.label for="content" value="{{ __('Content') }}" class="mb-2" />
             <x-admin.tinymce-editor wire:model="content" placeholder="Write a nice post..." />
         </div>
+
+        <hr class="my-4">
+
+        @include('livewire.blog.post.partial.images')
 
         <hr class="my-4">
 
@@ -91,13 +102,13 @@
             @if ($featured_url != '')
                 <div class="m-4 sm:w-1/2">
                     <x-admin.label for="current_photo" value="{{ __('Current featured image') }}" />
-                    <img src="{{$featured_url}}" class="mt2">
+                    <img src="{{$featured_url}}" class="mt-2">
                 </div>
             @endif
         @endif
 
         <div class="m-4">
-            <x-admin.label for="featured" value="{{ __('Upload featured image') }}" />
+            <x-admin.label for="featured" value="{{ __('Upload new featured image') }}" />
 
             <input type="file" class="mt-2"
                 name="featured" id="featured"
