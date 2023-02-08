@@ -8,7 +8,13 @@ use App\Services\CarsSearch\CarsSearch;
 
 class CarSearchResults extends Component
 {
-    public $cars; 
+    /*
+    ***************************************************************
+    ** PROPERTIES
+    ***************************************************************
+    */
+
+    public $cars;
 
     public $categories = [];
     public $selectables= [];
@@ -17,18 +23,24 @@ class CarSearchResults extends Component
     protected $query;
     protected $carsSearch;
 
+    /*
+    ***************************************************************
+    ** METHODS
+    ***************************************************************
+    */
+
     public function boot(AllSelectables $allSelectables, CarsSearch $carsSearch) {
         $this->allSelectables = $allSelectables;
         $this->carsSearch = $carsSearch;
     }
 
-    public function mount() {        
-        $this->carSearch();  
-        $this->setSelectables();      
+    public function mount() {
+        $this->carSearch();
+        $this->setSelectables();
     }
 
     public function click($categoryId)
-    {                      
+    {
         $this->setCategory($categoryId);
         $this->carSearch();
     }
@@ -43,21 +55,32 @@ class CarSearchResults extends Component
         $this->carSearch();
     }
 
-    public function render()
+    /**
+     * @param   string  $hashid
+     * @return  void
+     */
+    public function selectCar($hashid)
     {
-        return view('livewire.web.car-search-results');
-    }    
+        // Select the car
+        $sessionData = request()->session()->get('vehicle_search');
+        $sessionData['car'] = $hashid;
+        request()->session()->put('vehicle_search', $sessionData);
+
+        return redirect()->route('insurances', $hashid);
+    }
 
     protected function carSearch()
-    {             
+    {
+        $sessionData = request()->session()->get('vehicle_search');
+
         $this->carsSearch->setData(
             [
-                'types' => $this->categories, 
+                'types' => $this->categories,
                 'specs' => $this->selectables,
-                //'dates' => ['from' => '1-12-2023', 'to' => '31-12-2023'],
-                //'locations' => ['pickup' => 1, 'dropoff' => 1]
+                'dates' => ['from' => $sessionData['from'], 'to' => $sessionData['to']],
+                'locations' => ['pickup' => $sessionData['pickup'], 'dropoff' => $sessionData['dropoff']]
             ]
-        );                      
+        );
 
         $this->cars = $this->carsSearch->getCars();
     }
@@ -67,7 +90,7 @@ class CarSearchResults extends Component
             unset($this->categories[$categoryId]);
         } else {
             $this->categories[$categoryId] = $categoryId;
-        }  
+        }
     }
 
     protected function setSelectable($selectableId, $value) {
@@ -77,12 +100,17 @@ class CarSearchResults extends Component
             if(isset($this->selectables[$selectableId])) {
                 unset($this->selectables[$selectableId]);
             }
-        }            
+        }
     }
 
     protected function setSelectables() {
         foreach($this->allSelectables->getAll() as $instance => $selectable) {
             $this->setSelectable($instance, $selectable->getAllItemValue());
-        }  
+        }
+    }
+
+    public function render()
+    {
+        return view('livewire.web.car-search-results');
     }
 }

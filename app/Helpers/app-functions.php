@@ -231,3 +231,27 @@ if (!function_exists('slugify')) {
         return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $title)));
     }
 }
+
+if (!function_exists('checkSessionCar')) {
+    /**
+     * Check if we have an active search session in the car list.
+     * If not, we create one
+     *
+     * @return void
+     */
+    function checkSessionCar()
+    {
+        if(!request()->session()->has('vehicle_search')){
+            $location = \App\Models\Location::orderBy('order_appearance')->first();
+
+            $data = [
+                'from'      => now()->addDays(2)->setTimeFromTimeString('12:00:00'),
+                'to'        => now()->addDays(5)->setTimeFromTimeString('12:00:00'),
+                'pickup'    => $location->hashid,
+                'dropoff'   => $location->hashid
+            ];
+
+            request()->session()->put('vehicle_search', $data);
+        }
+    }
+}
