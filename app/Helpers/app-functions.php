@@ -301,7 +301,7 @@ if (!function_exists('checkSessionInsurances')) {
 
 if (!function_exists('checkSessionExtras')) {
     /**
-     * Extras screen: We must have dates, locations and a car selected
+     * Extras screen: We must have dates, locations, a car and an insurance selected
      *
      * @return bool
      */
@@ -318,12 +318,42 @@ if (!function_exists('checkSessionExtras')) {
             || !isset($data['pickup'])
             || !isset($data['dropoff'])
             || !isset($data['car'])
+            || !isset($data['insurances'])
         ) {
             return false;
         }
 
         unset($data['extras']);
         request()->session()->put('booking_data', $data);
+
+        return true;
+    }
+}
+
+if (!function_exists('checkSessionPayment')) {
+    /**
+     * Extras screen: We must have dates, locations, car, insurances and extras selected
+     *
+     * @return bool
+     */
+    function checkSessionPayment()
+    {
+        if(!request()->session()->has('booking_data')) {
+            return false;
+        }
+
+        $data = request()->session()->get('booking_data');
+
+        if (!isset($data['from'])
+            || !isset($data['to'])
+            || !isset($data['pickup'])
+            || !isset($data['dropoff'])
+            || !isset($data['car'])
+            || !isset($data['insurances'])
+            || !isset($data['extras'])
+        ) {
+            return false;
+        }
 
         return true;
     }

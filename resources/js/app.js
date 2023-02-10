@@ -12,9 +12,20 @@ window.RangePlugin = RangePlugin;
 window.TimePlugin = TimePlugin;
 
 import { Loader } from '@googlemaps/js-api-loader';
-window.loader = new Loader({ /* https://googlemaps.github.io/js-api-loader/interfaces/LoaderOptions.html */ 
+window.loader = new Loader({ /* https://googlemaps.github.io/js-api-loader/interfaces/LoaderOptions.html */
     apiKey: "AIzaSyDOJeKapn-5psUDAdol_nbnywoLWI6kYyw",
     version: "weekly",
-    libraries: ["places"]    
+    libraries: ["places"]
 });
 import 'tw-elements';
+
+function goToError() {
+    let errorDiv = document.getElementsByClassName('validation-error')[0];
+    if(errorDiv){
+        errorDiv.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'nearest'});
+    }
+}
+
+window.addEventListener('validationError', event => {
+    setTimeout(goToError, 500);
+});

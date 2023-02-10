@@ -183,7 +183,7 @@ class Edit extends Component
         $this->dispatchBrowserEvent('validationError');
 
         $rules = [
-            'car' => ['required'],
+            'car'               => ['required'],
             'pickup_location'   => ['required'],
             'dropoff_location'  => ['required'],
             'pickup_date'       => ['required', 'date'],

@@ -35,7 +35,7 @@
         </div>
 
         <div class="md-max:hidden">
-            @include('web.summary.index')
+            @include('web.summary.index', ['buttonText' => __('summary.continue')])
         </div>
     </div>
 

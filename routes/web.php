@@ -15,6 +15,8 @@ use App\Http\Controllers\Web\BookingController;
 use App\Http\Controllers\Web\InsurancesController;
 use App\Http\Controllers\Web\ExtrasController;
 use App\Http\Controllers\Web\SummaryController;
+use App\Http\Controllers\Web\PaymentController;
+use App\Http\Controllers\Web\SuccessController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +34,8 @@ Route::get('/cars', [CarsController::class, 'index'])->name('cars');
 Route::get('/{car_hashid}/insurances', [InsurancesController::class, 'index'])->name('insurances');
 Route::get('/{car_hashid}/extras', [ExtrasController::class, 'index'])->name('extras');
 Route::get('/{car_hashid}/summary', [SummaryController::class, 'index'])->name('summary');
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
+Route::get('/success', [SuccessController::class, 'index'])->name('success');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
@@ -66,13 +70,13 @@ Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('bo
 /*
 Route::get('/tokens/create', function (Request $request) {
     $token = App\Models\User::where('name', 'api')->first()->createToken('front-end-1');
-    
+
     echo '<b>token</b>: '.$token->plainTextToken.'<br>';
     echo '<b>get</b>: '. '/api/user<br>';
     echo '<b>headers</b>: <br>';
     echo 'Accept: application/json <br>';
     echo 'Authorization: Basic *****, Bearer '.$token->plainTextToken.' <br>';
 
-    die; 
+    die;
 });
 */

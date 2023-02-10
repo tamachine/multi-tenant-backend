@@ -2,28 +2,20 @@
 
 namespace App\Http\Livewire\Web;
 
-use App\Apis\Caren\Api;
 use App\Models\Car;
 use App\Models\Extra;
+use App\Traits\Livewire\SummaryTrait;
 use Livewire\Component;
 
 class Extras extends Component
 {
+    use SummaryTrait;
+
     /*
     ***************************************************************
     ** PROPERTIES
     ***************************************************************
     */
-
-     /**
-     * @var App\Models\Car
-     */
-    public $car;
-
-    /**
-     * @var string
-     */
-    public $mainImage;
 
      /**
      * @var object
@@ -44,46 +36,6 @@ class Extras extends Component
      * @var int
      */
     protected $take = 4;
-
-    /**
-     * @var string
-     */
-    public $pickupLocation;
-
-    /**
-     * @var string
-     */
-    public $dropoffLocation;
-
-    /**
-     * @var array
-     */
-    public $insurances;
-
-    /**
-     * @var array
-     */
-    public $chosenExtras = [];
-
-    /**
-     * @var array
-     */
-    public $includedExtras = [];
-
-    /**
-     * @var float
-     */
-    public $total = 0;
-
-    /**
-     * @var float
-     */
-    public $percentage = 0;
-
-    /**
-     * @var float
-     */
-    public $payNow = 0;
 
     /*
     ***************************************************************
@@ -158,35 +110,12 @@ class Extras extends Component
         $this->showMoreButton = ($this->extras->count() < $this->car->extras->count());
     }
 
-    protected function calculateTotal()
+    public function continue()
     {
         $sessionData = request()->session()->get('booking_data');
-        $extras = [];
+        $sessionData['extras'] = $this->chosenExtras;
+        request()->session()->put('booking_data', $sessionData);
 
-        if (count($this->chosenExtras)) {
-            foreach ($this->chosenExtras as $chosenExtra) {
-                $extras[] = [$chosenExtra['caren_id'], $chosenExtra['quantity']];
-            }
-        }
-
-        $api = new Api();
-        $params = [
-            "RentalId"          => $this->car->vendor->caren_settings["rental_id"],
-            "classId"           => $this->car->caren_id,
-            "DateFrom"          => $sessionData["from"]->format('Y-m-d H:i:s'),
-            "DateTo"            => $sessionData["to"]->format('Y-m-d H:i:s'),
-            "pickupLocationId"  => $sessionData["pickup_caren_id"],
-            "dropoffLocationId" => $sessionData["dropoff_caren_id"],
-            "extras"            => count($this->chosenExtras) ? $extras : [],
-            "insurances"        => count($sessionData["insurances"])
-                ? [array_column($sessionData["insurances"], 'caren_id')]
-                : [],
-            "currency"          => "ISK"
-        ];
-
-        $carenPrices = $api->getPrices($params);
-
-        $this->total = $carenPrices["TotalPrice"];
-        $this->payNow = round($this->total * $this->percentage / 100);
+        return redirect()->route('payment');
     }
 }

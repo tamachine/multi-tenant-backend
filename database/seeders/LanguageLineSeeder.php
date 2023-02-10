@@ -24,5 +24,8 @@ class LanguageLineSeeder extends Seeder
         $this->call(Translations\Web\CarsSeeder::class);
         $this->call(Translations\Web\InsurancesSeeder::class);
         $this->call(Translations\Web\ExtrasSeeder::class);
+        $this->call(Translations\Web\SummarySeeder::class);
+        $this->call(Translations\Web\PaymentSeeder::class);
+        $this->call(Translations\Web\SuccessSeeder::class);
     }
 }

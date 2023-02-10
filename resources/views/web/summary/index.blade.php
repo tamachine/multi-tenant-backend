@@ -6,7 +6,7 @@
     <div class="mt-8 flex justify-between">
         <div>
             <div class="text-gray-600">
-                {!! __('extras.pickup') !!}
+                {!! __('summary.pickup') !!}
             </div>
             <div class="text-black">
                 {{bookingPickupDate()}}
@@ -15,7 +15,7 @@
 
         <div>
             <div class="text-gray-600">
-                {!! __('extras.return') !!}
+                {!! __('summary.return') !!}
             </div>
             <div class="text-black">
                 {{bookingDropoffDate()}}
@@ -26,20 +26,20 @@
     <div class="mt-8">
         @if ($pickupLocation == $dropoffLocation)
             <div class="text-gray-600">
-                {!! __('extras.pickup-return-location') !!}
+                {!! __('summary.pickup-return-location') !!}
             </div>
             <div class="text-black">
                 {{$pickupLocation}}
             </div>
         @else
             <div class="text-gray-600">
-                {!! __('extras.pickup-location') !!}
+                {!! __('summary.pickup-location') !!}
             </div>
             <div class="text-black">
                 {{$pickupLocation}}
             </div>
             <div class="text-gray-600">
-                {!! __('extras.return-location') !!}
+                {!! __('summary.return-location') !!}
             </div>
             <div class="text-black">
                 {{$dropoffLocation}}
@@ -51,7 +51,7 @@
 
     @if (count($insurances))
         <div class="text-xl">
-            {!! __('extras.insurances') !!}
+            {!! __('summary.insurances') !!}
         </div>
 
         @foreach($insurances as $insurance)
@@ -70,7 +70,7 @@
     <hr class="my-4">
 
     <div class="text-xl">
-        {!! __('extras.extras') !!}
+        {!! __('summary.extras') !!}
     </div>
 
     @foreach($includedExtras as $includedExtra)
@@ -80,7 +80,7 @@
             </div>
 
             <div>
-                {!! __('extras.free') !!}
+                {!! __('summary.free') !!}
             </div>
         </div>
     @endforeach
@@ -101,17 +101,17 @@
 
     <div class="mt-2 flex justify-between">
         <div class="text-xl">
-            {!! __('extras.total') !!}
+            {!! __('summary.total') !!}
         </div>
 
         <div class="text-xl">
-            {{$total}} ISK
+            {{$totalPrice}} ISK
         </div>
     </div>
 
     <div class="mt-2 flex justify-between">
         <div class="text-xl">
-            {!! __('extras.pay-now-only') !!} {{$percentage}} %
+            {!! __('summary.pay-now-only') !!} {{$percentage}} %
         </div>
 
         <div class="text-xl">
@@ -120,12 +120,14 @@
     </div>
 
     <div class="mt-8">
-        {!! __('extras.isk-transactions') !!}
+        {!! __('summary.isk-transactions') !!}
     </div>
 
     <div class="mt-2">
-        <button class="w-full rounded-lg text-white font-sans-medium py-[6px] text-lg bg-pink-red px-4">
-            {!! __('extras.continue') !!}
+        <button class="w-full rounded-lg text-white font-sans-medium py-[6px] text-lg bg-pink-red px-4"
+            wire:click="continue"
+        >
+            {!! $buttonText !!}
         </button>
     </div>
 </div>
