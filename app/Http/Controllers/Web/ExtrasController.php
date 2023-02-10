@@ -6,18 +6,20 @@ use App\Models\Car;
 
 class ExtrasController extends BaseController
 {
-    public function index(Car $car) 
-    {                
+    public function index(Car $car)
+    {
+        if (!checkSessionExtras()) {
+            return redirect()->route('cars');
+        }
+
         return view(
-            'web.extras.index', ['car' => $car, 'extras' => $car->extras]            
+            'web.extras.index',
+            ['car' => $car]
         );
     }
 
-    protected function footerImagePath() : string 
+    protected function footerImagePath(): string
     {
         return asset('images/footer/extras.png');
     }
-
-   
 }
-

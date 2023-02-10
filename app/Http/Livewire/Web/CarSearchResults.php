@@ -62,16 +62,16 @@ class CarSearchResults extends Component
     public function selectCar($hashid)
     {
         // Select the car
-        $sessionData = request()->session()->get('vehicle_search');
+        $sessionData = request()->session()->get('booking_data');
         $sessionData['car'] = $hashid;
-        request()->session()->put('vehicle_search', $sessionData);
+        request()->session()->put('booking_data', $sessionData);
 
         return redirect()->route('insurances', $hashid);
     }
 
     protected function carSearch()
     {
-        $sessionData = request()->session()->get('vehicle_search');
+        $sessionData = request()->session()->get('booking_data');
 
         $this->carsSearch->setData(
             [

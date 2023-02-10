@@ -7,18 +7,22 @@ use App\Models\InsuranceFeature;
 
 class InsurancesController extends BaseController
 {
-    public function index(Car $car) 
-    {        
+    public function index(Car $car)
+    {
+        if (!checkSessionInsurances()) {
+            return redirect()->route('cars');
+        }
+
         return view(
-            'web.insurances.index', ['car' => $car, 'insurances' => $car->insurances->take(3), 'InsuranceFeatures' => InsuranceFeature::all()]            
+            'web.insurances.index', ['car' => $car, 'insurances' => $car->insuranceList(), 'InsuranceFeatures' => InsuranceFeature::all()]
         );
     }
 
-    protected function footerImagePath() : string 
+    protected function footerImagePath() : string
     {
         return asset('images/footer/insurances.png');
     }
 
-   
+
 }
 

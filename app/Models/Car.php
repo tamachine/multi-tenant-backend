@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Location;
 use App\Traits\HashidTrait;
 use App\Traits\HasApiResponse;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,9 +15,9 @@ class Car extends Model
 {
     use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasApiResponse;
 
-    protected $apiResponse = [        
-        'hashid', 'active', 'name', 'description', 'year', 
-        'ranking', 'fleet_position', 'users_number_votes', 'adult_passengers', 
+    protected $apiResponse = [
+        'hashid', 'active', 'name', 'description', 'year',
+        'ranking', 'fleet_position', 'users_number_votes', 'adult_passengers',
         'doors', 'luggage', 'beds', 'kitchen', 'heater',
         'engine', 'transmission', 'vehicle_type', 'vehicle_brand', 'f_roads_name',
         'images',
@@ -130,6 +131,75 @@ class Car extends Model
     public function mainImage()
     {
         return $this->images()->where('main', 1)->first();
+    }
+
+    /**
+     * Get the insurance list for a car
+     *
+     * @return  object
+     */
+    public function insuranceList()
+    {
+        $list = new Collection();
+
+        // Get the insurance prices from Caren
+        $insurancePrices = [];
+        $api = new \App\Apis\Caren\Api();
+        $carenParams = [
+            "RentalId" => $this->vendor->caren_settings["rental_id"],
+            "classId" => $this->caren_id,
+        ];
+        $carenInsurances = $api->extraList('insurace', $carenParams);
+
+        if (isset($carenInsurances['Insurances'])) {
+            foreach ($carenInsurances['Insurances'] as $carenInsurance) {
+                $insurancePrices[$carenInsurance['Id']] = $carenInsurance['Price'];
+            }
+        }
+
+        foreach($this->insurances as $insurance) {
+            $insurance->price = isset($insurancePrices[$insurance['caren_id']])
+                ? $insurancePrices[$insurance['caren_id']]
+                : 0;
+            $list->push($insurance);
+        }
+
+        return $list;
+    }
+
+    /**
+     * Get the extras list for a car
+     *
+     * @return  object
+     */
+    public function extraList()
+    {
+        $list = new Collection();
+
+        // Get the extras prices from Caren
+        $extraPrices = [];
+        $api = new \App\Apis\Caren\Api();
+        $carenParams = [
+            "RentalId" => $this->vendor->caren_settings["rental_id"],
+            "classId" => $this->caren_id,
+        ];
+        $carenExtras = $api->extraList('extra', $carenParams);
+
+        if (isset($carenExtras['Extras'])) {
+            foreach ($carenExtras['Extras'] as $carenExtra) {
+                $extraPrices[$carenExtra['Id']] = $carenExtra['Price'];
+            }
+        }
+
+        foreach($this->extras()->where('category', 'standard')->orderBy('order_appearance')->get() as $extra) {
+            $extra->price = isset($extraPrices[$extra['caren_id']])
+                ? $extraPrices[$extra['caren_id']]
+                : 0;
+
+            $list->push($extra);
+        }
+
+        return $list;
     }
 
     /**********************************

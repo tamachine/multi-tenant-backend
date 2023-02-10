@@ -10,34 +10,34 @@
         <th class="pb-10 {{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }} font-normal">
             <x-insurance-box :insurance=$insurance :car=$car />
         </th>
-        @endforeach      
+        @endforeach
     </tr>
   </thead>
-  <tbody>    
+  <tbody>
   @foreach($InsuranceFeatures as $InsuranceFeature)
     <tr class="{{ ($loop->even) ? '' : 'bg-pink-red-secondary' }}">
         <td class="rounded-l-lg p-6">
             {!! $InsuranceFeature->name !!}
         </td>
         @foreach($insurances as $insurance)
-        <td class="{{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }} {{ $loop->last ? 'rounded-r-lg' : '' }}">            
+        <td class="{{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }} {{ $loop->last ? 'rounded-r-lg' : '' }}">
             @if(
-                ($loop->last) || 
+                ($loop->last) ||
                 ($loop->first && $loop->parent->index <= 1) ||
                 ($loop->index == 1 && (($loop->parent->index <= 3) || ($loop->parent->remaining == 1)))
-                ) 
-                <img class="mx-auto" src="{{ asset('images/icons/check-circle.svg') }}" />            
-            @endif            
+                )
+                <img class="mx-auto" src="{{ asset('images/icons/check-circle.svg') }}" />
+            @endif
         </td>
-        @endforeach        
+        @endforeach
     </tr>
-  @endforeach  
+  @endforeach
     <tr>
         <td></td>
         @foreach($insurances as $insurance)
         <td class="{{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }}">
             <div class="flex justify-center mt-4">
-                <button class="rounded-xl px-5 py-3 bg-[{{ $insurance->color }}] text-white hover:opacity-75" onclick='window.location.href="{{route("extras", $car)}}"'>{!! __('insurances.btn-text') !!}</button>  
+                <livewire:web.choose-insurance buttonClass="rounded-xl px-5 py-3 bg-[{{ $insurance->color }}] text-white hover:opacity-75" :insurance="$insurance" />
             </div>
         </td>
         @endforeach

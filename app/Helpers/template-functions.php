@@ -133,3 +133,29 @@ if (!function_exists('carenValue')) {
         }
     }
 }
+
+if (!function_exists('bookingPickupDate')) {
+    /**
+     * It returns the booking pickup as "Month day, Year"
+     *
+     * @return     string
+     */
+    function bookingPickupDate()
+    {
+        $sessionData = request()->session()->get('booking_data');
+        return $sessionData['from']->isoFormat("MMMM D, Y");
+    }
+}
+
+if (!function_exists('bookingDropoffDate')) {
+    /**
+     * It returns the booking dropoff as "Month day, Year"
+     *
+     * @return     string
+     */
+    function bookingDropoffDate()
+    {
+        $sessionData = request()->session()->get('booking_data');
+        return $sessionData['to']->isoFormat("MMMM D, Y");
+    }
+}

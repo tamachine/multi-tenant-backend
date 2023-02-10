@@ -271,6 +271,17 @@ class Api
      * @param   array   $params
      * @return  array
      */
+    public function getPrices($params = [])
+    {
+        $this->endpoint = config('caren.endpoints.get_prices');
+
+        return $this->post($params);
+    }
+
+    /**
+     * @param   array   $params
+     * @return  array
+     */
     public function createBooking($params = [])
     {
         $this->endpoint = config('caren.endpoints.create_booking');

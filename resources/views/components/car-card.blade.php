@@ -62,7 +62,6 @@
                 <div>
                     <button class="btn btn-red text-base px-5 py-3"
                         wire:click="selectCar('{{ $car->hashid }}')"
-                        {{-- onclick='window.location.href="{{ route('insurances', $car) }}"' --}}
                     >
                         {!! __('cars.card-button') !!}
                     </button>
