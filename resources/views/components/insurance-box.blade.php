@@ -10,7 +10,7 @@
     >
     <div class="font-fredoka-medium text-center text-2xl">{{ $insurance->name }}</div>
     <div>
-        <div class="font-fredoka-semibold text-5xl">{{ $insurance->price }} ISK</div>
+        <div class="font-fredoka-semibold text-5xl">{{ formatPrice($insurance->price) }}</div>
         <div>{!! __('insurances.price_mode.'.$insurance->price_mode) !!} </div>
     </div>
     <div

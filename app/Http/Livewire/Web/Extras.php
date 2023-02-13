@@ -17,22 +17,22 @@ class Extras extends Component
     ***************************************************************
     */
 
-     /**
+    /**
      * @var object
      */
     public $extras;
 
-     /**
+    /**
      * @var bool
      */
     public $showMoreButton;
 
-     /**
+    /**
      * @var object
      */
     public $extraPopup;
 
-     /**
+    /**
      * @var int
      */
     protected $take = 4;

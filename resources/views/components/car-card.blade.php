@@ -55,7 +55,7 @@
             <div class="flex justify-between">
                 <div>
                     <div class="font-sans-bold text-2xl">
-                        {!! $car->daily_price !!} ISK
+                        {!! formatPrice($car->daily_price) !!}
                     </div>
                     <div class="text-[#B1B5C3]">{!! __('cars.card-perday') !!}</div>
                 </div>

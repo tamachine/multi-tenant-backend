@@ -61,7 +61,7 @@
                 </div>
 
                 <div>
-                    {{$insurance['price']}} ISK
+                    {{formatPrice($insurance['price'])}}
                 </div>
             </div>
         @endforeach
@@ -92,7 +92,7 @@
             </div>
 
             <div>
-                {{$chosenExtra['price']}} ISK
+                {{formatPrice($chosenExtra['price'])}}
             </div>
         </div>
     @endforeach
@@ -105,7 +105,7 @@
         </div>
 
         <div class="text-xl">
-            {{$totalPrice}} ISK
+            {{formatPrice($totalPrice)}}
         </div>
     </div>
 
@@ -115,7 +115,7 @@
         </div>
 
         <div class="text-xl">
-            {{$payNow}} ISK
+            {{formatPrice($payNow)}}
         </div>
     </div>
 
