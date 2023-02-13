@@ -19,6 +19,10 @@ window.addEventListener('showOverlay', event => {
     document.getElementById('overlay').style.display = 'flex';
 });
 
+window.addEventListener('hideOverlay', event => {
+    document.getElementById('overlay').style.display = 'none';
+});
+
 /* Import TinyMCE */
 import tinymce from 'tinymce'
 window.tinymce = tinymce;

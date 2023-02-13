@@ -267,6 +267,7 @@ class Edit extends Component
                 // When "Success" is set, there has been an error (irony)
                 if (isset($bookingInfo["Success"])) {
                     Log::error("Error reloading Caren booking. Booking ID: " . $this->booking->id . ". Error: " . $bookingInfo["Message"]);
+                    $this->dispatchBrowserEvent('hideOverlay');
                     return;
                 }
 

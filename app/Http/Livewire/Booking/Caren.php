@@ -46,6 +46,7 @@ class Caren extends Component
         // When "Success" is set, there has been an error (irony)
         if (isset($carenBooking["Success"])) {
             Log::error("Error creating booking in Caren. Booking ID: " . $this->booking->id . ". Error: " . $carenBooking["Message"]);
+            $this->dispatchBrowserEvent('hideOverlay');
             $this->dispatchBrowserEvent('open-error', ['message' => "Error creating booking in Caren. Error: " . $carenBooking["Message"]]);
             return;
         }
@@ -91,6 +92,7 @@ class Caren extends Component
             // When there is an error editing, "Success" is equal to false
             if (isset($carenBooking["Success"]) && $carenBooking["Success"] == false) {
                 Log::error("Error updating booking in Caren. Booking ID: " . $this->booking->id . ". Error: " . $carenBooking["Message"]);
+                $this->dispatchBrowserEvent('hideOverlay');
                 $this->dispatchBrowserEvent('open-error', ['message' => "Error updating booking in Caren. Error: " . $carenBooking["Message"]]);
                 return;
             }
@@ -104,6 +106,7 @@ class Caren extends Component
         // When "Success" is set, there has been an error (irony)
         if (isset($bookingInfo["Success"])) {
             Log::error("Error reloading Caren booking. Booking ID: " . $this->booking->id . ". Error: " . $bookingInfo["Message"]);
+            $this->dispatchBrowserEvent('hideOverlay');
             $this->dispatchBrowserEvent('open-error', ['message' => 'There was an error getting the information from Caren. If this error persists, please contact IT Support']);
             return;
         }
@@ -130,6 +133,7 @@ class Caren extends Component
         // When there is an error cancelling, "Success" is equal to false
         if (isset($carenBooking["Success"]) && $carenBooking["Success"] == false) {
             Log::error("Error cancelling booking in Caren. Booking ID: " . $this->booking->id . ". Error: " . $carenBooking["Message"]);
+            $this->dispatchBrowserEvent('hideOverlay');
             $this->dispatchBrowserEvent('open-error', ['message' => "Error cancelling booking in Caren. Error: " . $carenBooking["Message"]]);
             return;
         }
@@ -143,6 +147,7 @@ class Caren extends Component
         // When "Success" is set, there has been an error (irony)
         if (isset($bookingInfo["Success"])) {
             Log::error("Error reloading Caren booking. Booking ID: " . $this->booking->id . ". Error: " . $bookingInfo["Message"]);
+            $this->dispatchBrowserEvent('hideOverlay');
             $this->dispatchBrowserEvent('open-error', ['message' => 'There was an error getting the information from Caren. If this error persists, please contact IT Support']);
             return;
         }

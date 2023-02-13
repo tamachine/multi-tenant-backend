@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\Booking;
+use App\Notifications\SendBookingPdfMail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -19,16 +20,25 @@ class CreateBookingPdf implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    /**
+     * @var App\Models\Booking
+     */
     protected $booking;
+
+    /**
+     * @var bool
+     */
+    protected $send;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(Booking $booking)
+    public function __construct(Booking $booking, $send = false)
     {
         $this->booking = $booking;
+        $this->send = $send;
     }
 
     /**
@@ -66,5 +76,9 @@ class CreateBookingPdf implements ShouldQueue
             ->savePdf(storage_path() . '/app/public/bookings/pdf/' . $this->booking->hashid . '.pdf');
 
         Log::debug('CreateBookingPdf FINISHED for booking ' . $this->booking->hashid);
+
+        if ($this->send) {
+            $this->booking->notify(new SendBookingPdfMail);
+        }
     }
 }
