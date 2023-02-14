@@ -157,6 +157,8 @@ class CarenObserverJob implements ShouldQueue
         $carenPickupLocations = [];
         $carenDropoffLocations = [];
 
+        $multiVendor = CarenVendor::count() > 1 ? true : false;
+
         foreach (CarenVendor::all() as $vendor) {
             // 1. Pickup locations
             $pickupLocations = $this->api->pickupLocations(["RentalId" => $vendor->caren_rental_id]);
@@ -189,8 +191,8 @@ class CarenObserverJob implements ShouldQueue
                         ]);
                     }
 
-                    // Check if the pickup id has changed
-                    if ($existingLocation->caren_pickup_location_id && $existingLocation->caren_pickup_location_id != $pickupLocation["Id"]) {
+                    // Check if the pickup id has changed (not applied to multivendors)
+                    if (!$multiVendor && $existingLocation->caren_pickup_location_id && $existingLocation->caren_pickup_location_id != $pickupLocation["Id"]) {
                         $log = "[$this->name] The location '" . $pickupLocation["Name"] . "' has changed its pickup id from '$existingLocation->caren_pickup_location_id' to " . $pickupLocation["Id"];
                         Log::info($log);
 
@@ -273,8 +275,8 @@ class CarenObserverJob implements ShouldQueue
                         ]);
                     }
 
-                    // Check if the dropoff id has changed
-                    if ($existingLocation->caren_dropoff_location_id && $existingLocation->caren_dropoff_location_id != $dropoffLocation["Id"]) {
+                    // Check if the dropoff id has changed  (not applied to multivendors)
+                    if (!$multiVendor && $existingLocation->caren_dropoff_location_id && $existingLocation->caren_dropoff_location_id != $dropoffLocation["Id"]) {
                         $log = "[$this->name] The location '" . $dropoffLocation["Name"] . "' has changed its dropoff id from $existingLocation->caren_dropoff_location_id to " . $dropoffLocation["Id"];
                         Log::info($log);
 
@@ -467,7 +469,7 @@ class CarenObserverJob implements ShouldQueue
                         ]);
                     }
                 } else {
-                    $log = "[$this->name] New $category: " . $extra["Name"];
+                    $log = "[$this->name] New $type: " . $extra["Name"];
                     Log::info($log);
 
                     if (config('settings.slack.enabled')) {
@@ -493,7 +495,7 @@ class CarenObserverJob implements ShouldQueue
 
             if ($missingExtras->count()) {
                 foreach ($missingExtras as $missingExtra) {
-                    $log = "[$this->name] The $category '$missingExtra->name' (Caren Id $missingExtra->caren_id) is no longer in Caren";
+                    $log = "[$this->name] The $type '$missingExtra->name' (Caren Id $missingExtra->caren_id) is no longer in Caren";
                     Log::info($log);
 
                     if (config('settings.slack.enabled')) {
