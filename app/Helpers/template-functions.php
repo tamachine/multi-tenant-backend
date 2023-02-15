@@ -22,12 +22,17 @@
      * Format the price according to the currency in session
      *
      * @param      int      $price
-     * @param      string   $currency
+     * @param      string   $defaultCurrency
      * @return     string
      */
-    function formatPrice($price, $currency = 'USD')
+    function formatPrice($price, $defaultCurrency = null)
     {
-        $currency = session('currency') !== null ? session('currency') : $currency;
+        if ($defaultCurrency) {
+            $currency = $defaultCurrency;
+        } else {
+            $currency = session('currency') !== null ? session('currency') : config('settings.default_currency');
+        }
+
         $locale = session('applocale') !== null ? session('applocale') : 'en';
 
         // El precio puede ser un string
