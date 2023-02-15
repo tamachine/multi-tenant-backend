@@ -39,14 +39,14 @@ input:invalid, textarea:invalid, select:invalid {
  */
 
 h1 {
-    @apply 
-        font-fredoka-semibold text-pink-red font-semibold text-center leading-[46px] md:leading-[76px]
+    @apply
+        font-fredoka-semibold text-yellow-ci font-semibold text-center leading-[46px] md:leading-[76px]
         text-5xl md:text-7xl;
 }
 
 h2 {
-    @apply 
-        font-fredoka-semibold text-pink-red font-semibold tracking-[-0.005em]
+    @apply
+        font-fredoka-semibold text-yellow-ci font-semibold tracking-[-0.005em]
         md:leading-[60px] leading-[50px]
         md:text-5xl text-[48px];
 }
@@ -60,31 +60,35 @@ h4 {
 }
 
 h5 {
-    @apply font-fredoka-semibold text-pink-red font-semibold text-[28px] text-center;
-}   
+    @apply font-fredoka-semibold text-yellow-ci font-semibold text-[28px] text-center;
+}
 
 .btn {
     @apply rounded-xl text-xl px-14 py-5 font-sans-bold;
 }
 
 .tab {
-    @apply rounded-[10px] text-base py-[14px] px-6 font-normal text-black-primary border-pink-red border hover:bg-pink-red-secondary;
+    @apply rounded-[10px] text-base py-[14px] px-6 font-normal text-black-primary border-yellow-ci border hover:bg-pink-red-secondary;
 }
 
 .tab.active {
-    @apply bg-pink-red text-white font-sans-bold font-bold;
+    @apply bg-yellow-ci text-white font-sans-bold font-bold;
 }
 
-.btn-red {
-    @apply bg-pink-red text-white hover:bg-[#F42077] font-bold text-lg md:text-xl;
+.btn-yellow {
+    @apply bg-yellow-ci text-white hover:bg-[#161616] font-bold text-lg md:text-xl;
+}
+
+.btn-black {
+    @apply bg-black-ci text-white hover:bg-yellow-ci font-bold text-lg md:text-xl;
 }
 
 .search-input-group {
-    @apply relative h-[70px] flex-1 cursor-pointer hover:ring-pink-red hover:ring-2 rounded-lg bg-gray-primary border-gray-secondary border;
-}  
+    @apply relative h-[70px] flex-1 cursor-pointer hover:ring-yellow-ci hover:ring-2 rounded-lg bg-gray-primary border-gray-secondary border;
+}
 
 .search-input-group.active {
-    @apply bg-white ring-pink-red ring-2
+    @apply bg-white ring-yellow-ci ring-2
 }
 
 .search-input-group.active.stepped {
@@ -92,30 +96,30 @@ h5 {
 }
 
 .search-input-group:focus-within {
-    @apply ring-pink-red ring-2;
+    @apply ring-yellow-ci ring-2;
 }
- 
+
     .search-input-group > div {
         @apply z-0 absolute top-2 left-6;
-    }    
+    }
         .search-input-group > div > div:last-of-type {
             @apply text-gray-tertiary text-base font-sans font-normal;
-        }   
-        
+        }
+
         .search-input-group.active > div > div:last-of-type {
             @apply hidden
-        }       
-    
+        }
+
     .search-input-group input {
-        @apply 
+        @apply
             relative left-6 -bottom-3
-            z-10            
+            z-10
             cursor-pointer
             rounded-lg border-0 ring-0 focus:outline-none focus:ring-0 focus:border-transparent caret-transparent
-            bg-transparent    
-            text-black-primary 
+            bg-transparent
+            text-black-primary
             py-5
-            px-0    
+            px-0
             w-fit;
     }
 
@@ -147,6 +151,5 @@ h5 {
  */
 .w-fill-screen {
     @apply w-screen relative left-[calc(-50vw+50%)]
-} 
+}
 
- 

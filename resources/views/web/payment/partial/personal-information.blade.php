@@ -1,4 +1,4 @@
-<h3 class="text-left text-pink-red">
+<h3 class="text-left text-yellow-ci">
     {!! __('payment.personal-information') !!}
 </h3>
 

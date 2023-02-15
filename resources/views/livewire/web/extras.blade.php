@@ -26,7 +26,7 @@
                     <button
                         class="
                             md:hidden
-                            rounded-lg bg-pink-red text-white
+                            rounded-lg bg-yellow-ci text-white
                             px-3 py-4
                             ">
                         {{ __('extras.continue') }}

@@ -1,9 +1,11 @@
 <nav x-data="visibilitySelector()" @languageSelector-show="show()"   class="flex items-center justify-between flex-wrap p-3 md:px-20 md:py-5 border md:border-0 border-[#E7ECF3] bg-white relative z-50">
-    <div class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-3xl leading-9 cursor-pointer" onclick='window.location.href="{{route("home")}}"'>{{ __('general.brand') }}</div>
+    <div class="cursor-pointer" onclick='window.location.href="{{route("home")}}"'>
+        <img src="{{ asset('images/cars-iceland-logo.png') }}" alt="{{ __('general.brand') }}" />
+    </div>
 
     {{-- mobile --}}
-    <div 
-        class="cursor-pointer md:hidden font-sans-medium menu-selector"    
+    <div
+        class="cursor-pointer md:hidden font-sans-medium menu-selector"
         x-on:click="showMobileNavBar = !showMobileNavBar"
         >
         <div x-show="!showMobileNavBar">
@@ -12,20 +14,20 @@
         </div>
 
         <div x-cloak x-show="showMobileNavBar">
-            <span>{!! __('navbar.close') !!}</span>    
+            <span>{!! __('navbar.close') !!}</span>
             <img src="{{ asset('images/icons/menu-close.svg') }}" class="inline" />
-        </div>    
-    </div>    
+        </div>
+    </div>
     {{-- mobile end --}}
 
     {{-- desktop --}}
     <div class="hidden md:flex items-center divide-x gap-10">
         <div class="flex items-end justify-between flex-wrap gap-10 text-lg font-sans-medium">
-            <a href="{{ route('cars') }}" class="hover:text-pink-red">{!! __('navbar.cars') !!}</a>
-            <a href="#" class="hover:text-pink-red">{!! __('navbar.about') !!}</a>
-            <a href="#" class="hover:text-pink-red">{!! __('navbar.faq') !!}</a>
-            <a href="#" class="hover:text-pink-red">{!! __('navbar.blog') !!}</a>
-            <a href="#" class="hover:text-pink-red">{!! __('navbar.contact') !!}</a>
+            <a href="{{ route('cars') }}" class="hover:text-yellow-ci">{!! __('navbar.cars') !!}</a>
+            <a href="#" class="hover:text-yellow-ci">{!! __('navbar.about') !!}</a>
+            <a href="#" class="hover:text-yellow-ci">{!! __('navbar.faq') !!}</a>
+            <a href="#" class="hover:text-yellow-ci">{!! __('navbar.blog') !!}</a>
+            <a href="#" class="hover:text-yellow-ci">{!! __('navbar.contact') !!}</a>
         </div>
         <div class="pl-5 text-sm font-medium flex items-center gap-1" x-on:click="toggle()">
             <img class="inline" src='{{ asset("/images/currencies/dollar.svg") }}' />
@@ -35,23 +37,23 @@
     </div>
     {{-- desktop end --}}
 
-    <div 
+    <div
         class="md-max:hidden md:absolute top-[76px] right-16 z-50"
-        x-cloak 
+        x-cloak
         x-show="visibility()"
-        >        
+        >
         <livewire:web.language-selector />
     </div>
 </nav>
 
 
 {{-- mobile --}}
-<div 
-    x-cloak 
+<div
+    x-cloak
     class="
         md:hidden fixed w-screen top-[60px] left-0 h-[calc(100vh_-_20px)] {{-- the screen, minus 60px for the top position, plus 20px for every bottom line (red and black) so -60 +20 +20 = 100vh -20px --}}
         bg-white z-40 overflow-hidden"
-    x-show="showMobileNavBar"  
+    x-show="showMobileNavBar"
     x-transition:enter="transition ease-out duration-700"
     x-transition:enter-start="transform -translate-y-full opacity-[90%]"
     x-transition:enter-end="transform translate-y-0 opacity-full"
@@ -71,17 +73,17 @@
                             <img src="{{ $carType->imagePath }}" class="mx-auto" />
                             <span>{{ $carType->getTextTranslated() }}</span>
                         </div>
-                        @endforeach                                                
+                        @endforeach
                         <div>
                             <button class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-[#E7ECF3] cursor-pointer">{!! __('navbar.cars-button') !!}</button>
                         </div>
                     </div>
-                    <div class="text-center text-pink-red font-fredoka font-semibold text-[26px] py-5 h-full flex items-center justify-center">
+                    <div class="text-center text-yellow-ci font-fredoka font-semibold text-[26px] py-5 h-full flex items-center justify-center">
                         {!! __('navbar.cars-title') !!}
                     </div>
                 </div>
                 <div class="p-4">
-                    <div class="flex items-center justify-between flex-wrap text-xl font-fredoka font-medium">                        
+                    <div class="flex items-center justify-between flex-wrap text-xl font-fredoka font-medium">
                         <a href="#">{{ __('navbar.about') }}</a>
                         <a href="#">{{ __('navbar.faq') }}</a>
                         <a href="#">{{ __('navbar.blog') }}</a>
@@ -93,7 +95,7 @@
                         <div class="flex flex-col justify-center items-center gap-3" x-on:click="open()">
                             <div class="text-[#B1B5C3]">{!! __('general.languages-language') !!}</div>
                             <div class="flex justify-center gap-2">
-                                <img src="{{ asset('images/flags/'.App::getLocale().'.svg') }}" /> 
+                                <img src="{{ asset('images/flags/'.App::getLocale().'.svg') }}" />
                                 <span class="text-black-primary font-sans font-medium">{!! __('general.languages-'.App::getLocale()) !!}</span>
                                 <img class="cursor-pointer language-selector-mobile" src="{{ asset('images/icons/arrow-down.svg') }}" />
                             </div>
@@ -101,23 +103,23 @@
                         <div class="flex flex-col justify-center items-center gap-3" x-on:click="open()">
                             <div class="text-[#B1B5C3]">{!! __('general.languages-currency') !!}</div>
                             <div class="flex justify-center gap-2">
-                                <img class="inline" src="{{ asset('images/currencies/usd-red.svg') }}" /> 
+                                <img class="inline" src="{{ asset('images/currencies/usd-red.svg') }}" />
                                 <span class="text-black-primary font-cabin-semibold">USD</span>
                                 <img class="cursor-pointer" src="{{ asset('images/icons/arrow-down.svg') }}" />
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>            
+            </div>
         </div>
 
-        <div class="bg-pink-red w-full h-5"></div>
+        <div class="bg-yellow-ci w-full h-5"></div>
         <div class="bg-black-primary w-full h-5"></div>
     </div>
 
-    <div 
+    <div
         class="md:hidden fixed w-screen top-[60px] left-0 h-[calc(100vh_-_20px)]" {{-- the screen, minus 60px for the top position, plus 20px for every bottom line (red and black) so -60 +20 +20 = 100vh -20px --}}
-        x-cloak 
+        x-cloak
         x-show="visibility()"
 
         x-transition:enter="transition ease-out duration-700"

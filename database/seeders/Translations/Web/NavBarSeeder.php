@@ -13,23 +13,23 @@ class NavBarSeeder extends Seeder
      * @return void
      */
     public function run()
-    {                
+    {
         Translation::firstOrCreate(
             [
                 'group' => 'navbar',
-                'key' => 'cars',    
+                'key' => 'cars',
             ],
-            [                
+            [
                 'text' => ['en' => 'Cars', 'es' => 'Flota'],
             ]
-        );   
-        
+        );
+
         Translation::firstOrCreate(
             [
                 'group' => 'navbar',
-                'key' => 'about',    
+                'key' => 'about',
             ],
-            [                
+            [
                 'text' => ['en' => 'About us', 'es' => 'Sobre nosotros'],
             ]
         );
@@ -37,9 +37,9 @@ class NavBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'navbar',
-                'key' => 'faq',    
+                'key' => 'faq',
             ],
-            [                
+            [
                 'text' => ['en' => 'FAQ', 'es' => 'FAQ'],
             ]
         );
@@ -47,9 +47,9 @@ class NavBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'navbar',
-                'key' => 'blog',    
+                'key' => 'blog',
             ],
-            [                
+            [
                 'text' => ['en' => 'Blog', 'es' => 'Blog'],
             ]
         );
@@ -57,9 +57,9 @@ class NavBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'navbar',
-                'key' => 'contact',    
+                'key' => 'contact',
             ],
-            [                
+            [
                 'text' => ['en' => 'Contact', 'es' => 'Contacto'],
             ]
         );
@@ -67,73 +67,73 @@ class NavBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'navbar',
-                'key' => 'en',    
+                'key' => 'en',
             ],
-            [                
+            [
                 'text' => ['en' => 'ENG', 'es' => 'ENG'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'navbar',
-                'key' => 'es',    
+                'key' => 'es',
             ],
-            [                
+            [
                 'text' => ['en' => 'ES', 'es' => 'ES'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'navbar',
-                'key' => 'close',    
+                'key' => 'close',
             ],
-            [                
+            [
                 'text' => ['en' => 'close', 'es' => 'cerrar'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'navbar',
-                'key' => 'open',    
+                'key' => 'open',
             ],
-            [                
+            [
                 'text' => ['en' => 'menu', 'es' => 'menu'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'navbar',
-                'key' => 'email',    
+                'key' => 'email',
             ],
-            [                
-                'text' => ['en' => 'info@reykjavikauto.com', 'es' => 'info@reykjavikauto.com'],
+            [
+                'text' => ['en' => 'info@carsiceland.com', 'es' => 'info@carsiceland.com'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'navbar',
-                'key' => 'cars-title',    
+                'key' => 'cars-title',
             ],
-            [                
+            [
                 'text' => ['en' => 'Pay only 15% now', 'es' => 'Paga solo el 15% ahora'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'navbar',
-                'key' => 'cars-button',    
+                'key' => 'cars-button',
             ],
-            [                
+            [
                 'text' => ['en' => 'View all cars', 'es' => 'Todos los coches'],
             ]
-        );  
+        );
 
-        
+
     }
 }

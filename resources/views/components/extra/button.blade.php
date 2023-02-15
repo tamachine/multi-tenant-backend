@@ -1,7 +1,7 @@
 {{-- desktop btn --}}
 @if($extra->included)
     <div
-        class="md-max:hidden rounded-lg text-white font-sans-medium py-[6px] text-lg bg-pink-red px-4"
+        class="md-max:hidden rounded-lg text-white font-sans-medium py-[6px] text-lg bg-yellow-ci px-4"
     >
         <div class="flex items-center justify-center gap-3">
             <div>{!! __('extras.included') !!}</div>
@@ -15,7 +15,7 @@
         x-on:click="toggle"
         wire:click="toggleExtra('{{ $extra->hashid }}')"
         class="md-max:hidden rounded-lg text-white font-sans-medium py-[6px] text-lg"
-        :class="selected ? 'bg-pink-red px-4' : 'bg-black px-7'"
+        :class="selected ? 'bg-yellow-ci px-4' : 'bg-black px-7'"
     >
         <div class="flex items-center justify-center gap-3">
             <div x-text="selected ? '{!! __('extras.selected') !!}' : '{!! __('extras.select') !!}'"></div>
@@ -33,7 +33,7 @@
 {{-- mobile btn --}}
 <button
     x-on:click="toggle"
-    class="md:hidden border-2 border-pink-red w-10 h-10 rounded-full flex items-center"
+    class="md:hidden border-2 border-yellow-ci w-10 h-10 rounded-full flex items-center"
 >
     <div
         class="rounded-full"

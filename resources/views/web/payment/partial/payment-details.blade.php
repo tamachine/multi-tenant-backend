@@ -1,5 +1,5 @@
 <div class="mt-16" wire:ignore>
-    <h3 class="text-left text-pink-red">
+    <h3 class="text-left text-yellow-ci">
         {!! __('payment.payment-details') !!}
     </h3>
 

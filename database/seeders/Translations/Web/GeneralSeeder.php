@@ -13,155 +13,155 @@ class GeneralSeeder extends Seeder
      * @return void
      */
     public function run()
-    {                
+    {
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'brand',    
+                'key' => 'brand',
             ],
-            [                
-                'text' => ['en' => 'Reykjavik Auto', 'es' => 'Reykjavik Auto'],
+            [
+                'text' => ['en' => 'Cars Iceland', 'es' => 'Cars Iceland'],
             ]
-        );    
-        
+        );
+
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'search',    
+                'key' => 'search',
             ],
-            [                
+            [
                 'text' => ['en' => 'Search', 'es' => 'Buscar'],
             ]
-        );    
-        
+        );
+
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'read-more',    
+                'key' => 'read-more',
             ],
-            [                
+            [
                 'text' => ['en' => 'Read more', 'es' => 'Leer más'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'after-meridiem',    
+                'key' => 'after-meridiem',
             ],
-            [                
+            [
                 'text' => ['en' => 'AM', 'es' => 'AM'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'post-meridiem',    
+                'key' => 'post-meridiem',
             ],
-            [                
+            [
                 'text' => ['en' => 'PM', 'es' => 'PM'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'languages-en',    
+                'key' => 'languages-en',
             ],
-            [                
+            [
                 'text' => ['en' => 'English', 'es' => 'Inglés'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'languages-es',    
+                'key' => 'languages-es',
             ],
-            [                
+            [
                 'text' => ['en' => 'Spanish', 'es' => 'Español'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'languages-de',    
+                'key' => 'languages-de',
             ],
-            [                
+            [
                 'text' => ['en' => 'Deutch', 'es' => 'Alemán'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'languages-fr',    
+                'key' => 'languages-fr',
             ],
-            [                
+            [
                 'text' => ['en' => 'Français', 'es' => 'Francés'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'languages-da',    
+                'key' => 'languages-da',
             ],
-            [                
+            [
                 'text' => ['en' => 'Dansk', 'es' => 'Danés'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'languages-it',    
+                'key' => 'languages-it',
             ],
-            [                
+            [
                 'text' => ['en' => 'Italian', 'es' => 'Italiano'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'languages-remember',    
+                'key' => 'languages-remember',
             ],
-            [                
+            [
                 'text' => ['en' => 'Remember that the final transaction will be made in ISK', 'es' => 'Recuerda que la transacción final se realizará en ISK'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'languages-language',    
+                'key' => 'languages-language',
             ],
-            [                
+            [
                 'text' => ['en' => 'Select language', 'es' => 'Selecciona idioma'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'languages-currency',    
+                'key' => 'languages-currency',
             ],
-            [                
+            [
                 'text' => ['en' => 'Select currency', 'es' => 'Selecciona moneda'],
             ]
-        );  
+        );
 
         Translation::firstOrCreate(
             [
                 'group' => 'general',
-                'key' => 'languages-apply',    
+                'key' => 'languages-apply',
             ],
-            [                
+            [
                 'text' => ['en' => 'Change settings', 'es' => 'Cambiar opciones'],
             ]
-        );  
+        );
     }
 }

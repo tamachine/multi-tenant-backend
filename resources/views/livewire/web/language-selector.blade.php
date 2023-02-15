@@ -18,8 +18,8 @@
                     <img class="md:pl-6 pr-2" src="{{ asset('images/flags/'.$code.'.svg') }}" />
                     <a
                         href="javascript:void(0)"
-                        class="hover:text-pink-red"
-                        :class="selectedOption == '{{ $code }}' ? 'text-pink-red' : 'text-black-primary'"
+                        class="hover:text-yellow-ci"
+                        :class="selectedOption == '{{ $code }}' ? 'text-yellow-ci' : 'text-black-primary'"
                         x-on:click="select('{{ $code }}')"
                         wire:click="changeLanguage('{{ $code }}')"
                         >
@@ -44,7 +44,7 @@
                     <img class="md:pl-6 pr-2" src="{{ asset('images/currencies/'.$currency.'-red.svg') }}" />
                     <a
                         href="javascript:void(0)"
-                        :class="selectedOption == '{{ $currency }}' ? 'text-pink-red' : 'text-black-primary'"
+                        :class="selectedOption == '{{ $currency }}' ? 'text-yellow-ci' : 'text-black-primary'"
                         x-on:click="select('{{ $currency }}')"
                         wire:click="changeCurrency('{{ $currency }}')"
                         >
@@ -65,7 +65,7 @@
                     {!! __('general.languages-remember') !!}
             </div>
             <button
-                class="md:hidden inline-block btn btn-red mt-7 py-3 font-sans font-bold"
+                class="md:hidden inline-block btn btn-yellow mt-7 py-3 font-sans font-bold"
                 x-on:click="close()"
                 >
                 {!! __('general.languages-apply') !!}

@@ -22,7 +22,7 @@
             @endif
 
             <div
-                class="absolute bottom-5 right-5 bg-white px-2 py-1 rounded-md border border-[#E7ECF3] text-xs cursor-pointer hover:bg-black hover:text-white hover:border-pink-red group">
+                class="absolute bottom-5 right-5 bg-white px-2 py-1 rounded-md border border-[#E7ECF3] text-xs cursor-pointer hover:bg-black hover:text-white hover:border-yellow-ci group">
                 <span>{{ __('cars.card-quick-look') }}</span> <img class="inline group-hover:hidden"
                     src="{{ asset('images/icons/eye.svg') }}" /> <img class="hidden group-hover:inline"
                     src="{{ asset('images/icons/eye-white.svg') }}" />
@@ -60,7 +60,7 @@
                     <div class="text-[#B1B5C3]">{!! __('cars.card-perday') !!}</div>
                 </div>
                 <div>
-                    <button class="btn btn-red text-base px-5 py-3"
+                    <button class="btn btn-black text-base px-5 py-3"
                         wire:click="selectCar('{{ $car->hashid }}')"
                     >
                         {!! __('cars.card-button') !!}

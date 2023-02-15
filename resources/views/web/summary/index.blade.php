@@ -124,7 +124,7 @@
     </div>
 
     <div class="mt-2">
-        <button class="w-full rounded-lg text-white font-sans-medium py-[6px] text-lg bg-pink-red px-4"
+        <button class="w-full rounded-lg text-white font-sans-medium py-[6px] text-lg bg-yellow-ci px-4"
             wire:click="continue"
         >
             {!! $buttonText !!}

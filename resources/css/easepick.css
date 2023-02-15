@@ -28,7 +28,7 @@
 }
 
 .calendar>.daynames-row>.dayname {
-    @apply text-pink-red text-base leading-5;    
+    @apply text-yellow-ci text-base leading-5;
 }
 
 .calendar>.days-grid {
@@ -50,12 +50,12 @@
 }
 
 /* selected day */
-.container.range-plugin 
-.calendar>.days-grid>.day.end, 
-.container.range-plugin 
-.calendar>.days-grid>.day.start, 
+.container.range-plugin
+.calendar>.days-grid>.day.end,
+.container.range-plugin
+.calendar>.days-grid>.day.start,
 .calendar>.days-grid>.day:hover {
-    @apply bg-pink-red-secondary text-xl hover:border-none text-black-primary cursor-pointer;    
+    @apply bg-pink-red-secondary text-xl hover:border-none text-black-primary cursor-pointer;
 }
 
 .container.range-plugin .calendar>.days-grid>.day.start.end {
@@ -66,12 +66,12 @@
 .container.range-plugin .calendar>.days-grid>.day.end::after,
 .container.range-plugin .calendar>.days-grid>.day.end.flipped::after,
 .container.range-plugin .calendar>.days-grid>.day.selected.start::after {
-    @apply 
-        content-[attr(data-day)] 
+    @apply
+        content-[attr(data-day)]
         border-none rounded-md
-        bg-pink-red text-[28px] font-medium text-white
-        left-0 right-0 mx-auto w-full h-[150%] 
-        flex justify-center items-center ;   
+        bg-yellow-ci text-[28px] font-medium text-white
+        left-0 right-0 mx-auto w-full h-[150%]
+        flex justify-center items-center ;
 }
 
 .container.range-plugin .calendar>.days-grid>.day.in-range {
