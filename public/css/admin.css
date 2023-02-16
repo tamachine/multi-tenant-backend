@@ -2531,6 +2531,10 @@ select{
     margin-top: 2rem;
 }
 
+.mt-2{
+    margin-top: 0.5rem;
+}
+
 .mr-3{
     margin-right: 0.75rem;
 }
@@ -2545,10 +2549,6 @@ select{
 
 .ml-3{
     margin-left: 0.75rem;
-}
-
-.mt-2{
-    margin-top: 0.5rem;
 }
 
 .ml-4{
@@ -2988,6 +2988,10 @@ select{
 
 .max-w-\[600px\]{
     max-width: 600px;
+}
+
+.max-w-md{
+    max-width: 28rem;
 }
 
 .flex-1{
@@ -3715,6 +3719,10 @@ select{
 .bg-red-800{
     --tw-bg-opacity: 1;
     background-color: rgb(153 27 27 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#d9d9d94d\]{
+    background-color: #d9d9d94d;
 }
 
 .bg-opacity-50{
@@ -4503,6 +4511,16 @@ select{
     color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
+.text-\[\#A5A5A5\]{
+    --tw-text-opacity: 1;
+    color: rgb(165 165 165 / var(--tw-text-opacity));
+}
+
+.text-black-ci{
+    --tw-text-opacity: 1;
+    color: rgb(22 22 22 / var(--tw-text-opacity));
+}
+
 .underline{
     text-decoration-line: underline;
 }
@@ -5065,6 +5083,11 @@ input[type=number] {
     background-color: rgb(185 28 28 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-black-ci:hover{
+    --tw-bg-opacity: 1;
+    background-color: rgb(22 22 22 / var(--tw-bg-opacity));
+}
+
 .hover\:text-gray-600:hover{
     --tw-text-opacity: 1;
     color: rgb(75 85 99 / var(--tw-text-opacity));
@@ -5344,6 +5367,11 @@ input[type=number] {
 .active\:text-yellow-700:active{
     --tw-text-opacity: 1;
     color: rgb(161 98 7 / var(--tw-text-opacity));
+}
+
+.disabled\:bg-\[\#B1B5C3\]:disabled{
+    --tw-bg-opacity: 1;
+    background-color: rgb(177 181 195 / var(--tw-bg-opacity));
 }
 
 .disabled\:opacity-25:disabled{

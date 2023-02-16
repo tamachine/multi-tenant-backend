@@ -120,7 +120,7 @@ class SummarySeeder extends Seeder
                 'key' => 'isk-transactions',
             ],
             [
-                'text' => ['en' => 'Please note all transactions will be made in ISK', 'es' => 'Tenga en cuenta que todas las transacciones se realizarán en ISK'],
+                'text' => ['en' => 'Please note all transactions will be made in', 'es' => 'Tenga en cuenta que todas las transacciones se realizarán en'],
             ]
         );
 
