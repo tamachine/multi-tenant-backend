@@ -23,47 +23,57 @@ class Payment extends Component
     /**
      * @var string
      */
-    public $first_name;
+    public $first_name = "";
 
     /**
      * @var string
      */
-    public $last_name;
+    public $last_name = "";
 
     /**
      * @var string
      */
-    public $email;
+    public $email = "";
 
     /**
      * @var string
      */
-    public $email_confirmation;
+    public $email_confirmation = "";
 
     /**
      * @var string
      */
-    public $telephone;
+    public $telephone = "";
 
     /**
      * @var string
      */
-    public $address;
+    public $address = "";
 
     /**
      * @var string
      */
-    public $postal_code;
+    public $postal_code = "";
 
     /**
      * @var string
      */
-    public $city;
+    public $city = "";
 
     /**
      * @var string
      */
-    public $country;
+    public $country = "";
+
+    /**
+     * @var string
+     */
+    public $additional = "";
+
+    /**
+     * @var bool
+     */
+    public $agree = false;
 
     /*
     ***************************************************************

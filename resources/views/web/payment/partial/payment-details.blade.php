@@ -1,20 +1,24 @@
 <div class="mt-16" wire:ignore>
-    <h3 class="text-left text-yellow-ci">
+    <h3 class="hidden lg:block text-left text-yellow-ci">
         {!! __('payment.payment-details') !!}
     </h3>
 
-    <div class="mt-8 flex justify-between items-center">
-        <div class="w-[280px]">
-            <img src="{{ asset('images/sample-card.png') }}" class="w-[280px]" />
+    <h3 class="block lg:hidden text-center font-fredoka-semibold text-yellow-ci text-2xl">
+        {!! __('payment.payment-details') !!}
+    </h3>
+
+    <div class="mt-8 px-6 lg:px-0 lg:flex lg:justify-between lg:items-center">
+        <div class="mx-auto w-full md:w-[280px]">
+            <img src="{{ asset('images/sample-card.png') }}" class="w-full md:w-[280px]" />
         </div>
 
-        <div class="w-[280px]">
+        <div class="mx-auto w-full mt-4 md:w-[280px] lg:mt-0">
             <div>
-                <x-input id="card_number" type="text" class="w-[280px] h-12" placeholder="{{ __('payment.card-number') }}" />
+                <x-input id="card_number" type="text" class="w-full md:w-[280px] h-12" placeholder="{{ __('payment.card-number') }}" />
             </div>
 
             <div class="mt-6">
-                <x-input id="card_name" type="text" class="w-[280px] h-12" placeholder="{{ __('payment.card-number') }}" />
+                <x-input id="card_name" type="text" class="w-full md:w-[280px] h-12" placeholder="{{ __('payment.card-name') }}" />
             </div>
 
             <div class="mt-6 flex justify-between">

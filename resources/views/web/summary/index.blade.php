@@ -63,7 +63,11 @@
                 </div>
 
                 <div class="font-sans-medium font-medium text-xl {{$insurance['price'] > 0 ? 'text-black-ci' : 'text-yellow-ci'}}">
-                    {{formatPrice($insurance['price'])}}
+                    @if ($insurance['price'] > 0)
+                        {{formatPrice($insurance['price'])}}
+                    @else
+                        {!! __('summary.free') !!}
+                    @endif
                 </div>
             </div>
         @endforeach
@@ -93,8 +97,12 @@
                 {{$chosenExtra['name']}}
             </div>
 
-            <div class="font-sans-medium font-medium text-xl text-black-ci">
-                {{formatPrice($chosenExtra['price'])}}
+            <div class="font-sans-medium font-medium text-xl {{$chosenExtra['price'] > 0 ? 'text-black-ci' : 'text-yellow-ci'}}">
+                @if ($chosenExtra['price'] > 0)
+                    {{formatPrice($chosenExtra['price'])}}
+                @else
+                    {!! __('summary.free') !!}
+                @endif
             </div>
         </div>
     @endforeach

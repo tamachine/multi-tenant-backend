@@ -193,5 +193,45 @@ class PaymentSeeder extends Seeder
                 'text' => ['en' => 'CSV', 'es' => 'CSV'],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'payment',
+                'key' => 'additional-information',
+            ],
+            [
+                'text' => ['en' => 'Additional information', 'es' => 'Información adicional'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'payment',
+                'key' => 'add-your-message',
+            ],
+            [
+                'text' => ['en' => 'Add your message', 'es' => 'Añade un mensaje'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'payment',
+                'key' => 'i-agree',
+            ],
+            [
+                'text' => ['en' => 'I agree with this information,', 'es' => 'Estoy de acuerdo con esta información,'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'payment',
+                'key' => 't-and-c',
+            ],
+            [
+                'text' => ['en' => 'terms and conditions', 'es' => 'términos y condiciones'],
+            ]
+        );
     }
 }
