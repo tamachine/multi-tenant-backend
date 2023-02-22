@@ -5,13 +5,13 @@
     <div
         before=""
         class="relative before:content-[attr(before)] pt-28 md:pt-0 before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:z-0 md:before:bg-footer-image-pattern before:bg-footer-image-pattern-mobile w-fill-screen">
-            <img class="w-full h-[587px] md:h-auto object-cover" src="{{ $footerImagePath }}" />
+            {!! webpImage($footerImagePath, "w-full h-[587px] md:h-auto object-cover") !!}
             <div class="absolute md:top-[5%] top-0 left-0 right-0 bottom-0 z-10 text-lg">
                 <div class="max-w-6xl mx-auto p-3">
                     <div class="w-96 px-10 md:text-left text-center mx-auto md:mx-0">
                         <span>{!! __('footer.text') !!}</span>
                         <div class="flex gap-4 pt-7 md:pt-3 justify-center md:justify-start">
-                            <x-social />
+                            <x-social color="yellow"/>
                         </div>
                     </div>
                 </div>

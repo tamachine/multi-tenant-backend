@@ -17,6 +17,6 @@ class SuccessController extends BaseController
 
     protected function footerImagePath(): string
     {
-        return asset('images/footer/success.png');
+        return 'images/footer/success.png';
     }
 }

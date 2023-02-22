@@ -192,3 +192,30 @@ if (!function_exists('bookingDropoffDate')) {
         return $sessionData['to']->isoFormat("MMMM D, Y");
     }
 }
+
+if (!function_exists('webpImage')) {
+     /**
+     * It shows the WebP image (if it exists)
+     *
+     * @param      string   $image
+     * @param      string   $class
+     * @param      string   $alt
+     * @return     string
+     */
+    function webpImage($image, $class = "", $alt = "")
+    {
+        $route = explode(".", $image)[0];
+        $extension = explode(".", $image)[1];
+
+        if(file_exists($route . ".webp")) {
+            return
+                    "<picture>
+                        <source srcset='$route.webp' type='image/webp'>
+                        <source srcset='$route.$extension' type='image/jpeg'>
+                        <img src='$route.$extension' class='$class' alt='$alt'>
+                    </picture>";
+        } else {
+            return "<img src='$route.$extension' class='$class' alt='$alt' />";
+        }
+    }
+}
