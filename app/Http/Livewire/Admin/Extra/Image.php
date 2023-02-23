@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Extra;
 
 use App\Models\Extra;
 use Illuminate\Support\Facades\Storage;
+use Image as InterventionImage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -50,7 +51,10 @@ class Image extends Component
         $this->dispatchBrowserEvent('validationError');
 
         $this->validate([
-            'image'      => ['required', 'mimes:jpeg,jpg,png,gif,webp'],
+            'image'      => ['required', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
+        ],
+        [
+            'image.mimes' => 'The image must be a file of type: jpeg, jpg, png, gif'
         ]);
 
         // Delete previous image (if there is one)
@@ -59,11 +63,12 @@ class Image extends Component
         }
 
         $extension = $this->image->getClientOriginalExtension();
-        $filename = $this->extra->hashid . "." . $extension;
-        $this->image->storeAs("public/extras" , $filename);
+        $filename = $this->extra->hashid;
+        $this->image->storeAs("public/extras", $filename . "." . $extension);
+        InterventionImage::make($this->image)->encode('webp', 80)->save(storage_path() . '/app/public/extras/' . $filename . '.webp');
 
         $this->extra->update([
-            'image' => $filename,
+            'image' => $filename. "." . $extension,
         ]);
 
         session()->flash('status', 'success');

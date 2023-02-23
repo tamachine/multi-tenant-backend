@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Car;
 
 use App\Models\Car;
 use Illuminate\Support\Facades\Storage;
+use Image as InterventionImage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -68,19 +69,21 @@ class Images extends Component
         $this->dispatchBrowserEvent('validationError');
 
         $this->validate([
-            'images.*'      => ['mimes:jpeg,jpg,png,gif,webp'],
+            'images.*'      => ['mimes:jpeg,jpg,png,gif', 'max:1024'],
         ],
         [
-            'images.*.mimes' => 'The image must be a file of type: jpeg, jpg, png, gif, webp'
+            'images.*.mimes' => 'The image must be a file of type: jpeg, jpg, png, gif'
         ]);
 
         foreach ($this->images as $key => $image) {
             $extension = $image->getClientOriginalExtension();
-            $filename = $key . now()->timestamp . "." . $extension;
-            $image->storeAs("public/car/" . $this->car->hashid, $filename);
+            $filename = $key . now()->timestamp;
+            $route = "car/" . $this->car->hashid;
+            $image->storeAs("public/" . $route, $filename . "." . $extension);
+            InterventionImage::make($image)->encode('webp', 80)->save(storage_path() . '/app/public/' . $route . '/' . $filename . '.webp');
 
             $this->car->images()->create([
-                'file_name' => $filename,
+                'file_name' => $filename . "." . $extension,
                 'file_type' => $extension,
             ]);
         }
@@ -111,6 +114,10 @@ class Images extends Component
 
     public function deleteImage($key)
     {
+        $filename = explode(".", $this->current[$key]['file'])[0];
+
+        // Delete both the original image and the webp version
+        Storage::disk('public')->delete("car/" . $this->car->hashid . '/' . $filename . ".webp");
         Storage::disk('public')->delete("car/" . $this->car->hashid . '/' . $this->current[$key]['file']);
 
         $this->car->images()->where('file_name', $this->current[$key]['file'])->delete();

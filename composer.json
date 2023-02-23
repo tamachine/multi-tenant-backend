@@ -12,6 +12,7 @@
         "fakerphp/faker": "^1.20",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "^2.7",
         "laravel-frontend-presets/tall": "^5.0",
         "laravel/framework": "^9.0",
         "laravel/sanctum": "^3.1",
