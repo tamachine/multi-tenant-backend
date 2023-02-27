@@ -208,10 +208,6 @@ if (!function_exists('webpImage')) {
         $route = explode(".", $image)[0];
         $extension = explode(".", $image)[1];
 
-        \Log::info($image);
-        \Log::info($route);
-        \Log::info($extension);
-
         if(file_exists($route . ".webp")) {
             return
                     "<picture>

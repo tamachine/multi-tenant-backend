@@ -42,7 +42,7 @@ class CarenObserverJob implements ShouldQueue
             env($this->code . '_CAREN_APIKEY'),
             env($this->code . '_CAREN_USERNAME'),
             env($this->code . '_CAREN_PASSWORD'),
-            env('CAREN_OBERVER_URL')
+            env('CAREN_OBSERVER_URL')
         );
     }
 
