@@ -528,22 +528,24 @@ class CarenObserverJob implements ShouldQueue
             // Get the extras for that car
             $extras = $this->api->extraList($type, ["RentalId" => $carenCar->caren_rental_id, "ClassId" => $carenCar->caren_id]);
 
-            foreach ($extras[$key] as $extra) {
-                $carenExtra = CarenExtra::where('category', $category)->where('caren_id', $extra['Id'])->first();
+            if (isset($extras[$key])) {
+                foreach ($extras[$key] as $extra) {
+                    $carenExtra = CarenExtra::where('category', $category)->where('caren_id', $extra['Id'])->first();
 
-                // If the extra is not linked to the car, add it and create a log
-                if (!($carenCar->carenExtras->contains($carenExtra))) {
-                    $log = "[$this->name] New $type for the vehicle '$carenCar->name' (Caren Id $carenCar->caren_id): $carenExtra->name";
-                    Log::info($log);
+                    // If the extra is not linked to the car, add it and create a log
+                    if (!($carenCar->carenExtras->contains($carenExtra))) {
+                        $log = "[$this->name] New $type for the vehicle '$carenCar->name' (Caren Id $carenCar->caren_id): $carenExtra->name";
+                        Log::info($log);
 
-                    if (config('settings.slack.enabled')) {
-                        SlackAlert::message($log);
+                        if (config('settings.slack.enabled')) {
+                            SlackAlert::message($log);
+                        }
+
+                        $carenCar->carenExtras()->attach($carenExtra->id);
                     }
 
-                    $carenCar->carenExtras()->attach($carenExtra->id);
+                    $newExtras[] = $carenExtra->id;
                 }
-
-                $newExtras[] = $carenExtra->id;
             }
 
             // Check that all the extras linked to the car are still in the database. If not, remove them and create a log
