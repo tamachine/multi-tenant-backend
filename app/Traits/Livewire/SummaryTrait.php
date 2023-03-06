@@ -65,6 +65,11 @@ trait SummaryTrait
     /**
      * @var float
      */
+    public $iskPrice = 0;
+
+    /**
+     * @var float
+     */
     public $percentage = 0;
 
     /**
@@ -108,7 +113,7 @@ trait SummaryTrait
 
         $this->rentalPrice = $carenPrices["VehicleTotalPrice"];
         $this->extrasPrice = $carenPrices["ExtrasTotalPrice"] + $carenPrices["InsurancesTotalPrice"];
-        $this->totalPrice = $carenPrices["TotalPrice"];
+        $this->totalPrice = $this->iskPrice = $carenPrices["TotalPrice"];
         $this->payNow = round($this->totalPrice * $this->percentage / 100);
     }
 }

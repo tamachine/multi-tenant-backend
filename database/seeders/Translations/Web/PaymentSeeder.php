@@ -47,6 +47,16 @@ class PaymentSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'payment',
+                'key' => 'personal-info',
+            ],
+            [
+                'text' => ['en' => 'Personal info', 'es' => 'Información personal'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'payment',
                 'key' => 'first-name',
             ],
             [
@@ -61,6 +71,16 @@ class PaymentSeeder extends Seeder
             ],
             [
                 'text' => ['en' => 'Last name', 'es' => 'Apellido(s)'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'payment',
+                'key' => 'name',
+            ],
+            [
+                'text' => ['en' => 'Name', 'es' => 'Nombre'],
             ]
         );
 
@@ -98,6 +118,16 @@ class PaymentSeeder extends Seeder
             [
                 'group' => 'payment',
                 'key' => 'address',
+            ],
+            [
+                'text' => ['en' => 'Address', 'es' => 'Dirección'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'payment',
+                'key' => 'your-address',
             ],
             [
                 'text' => ['en' => 'Your address', 'es' => 'Su dirección'],
@@ -231,6 +261,16 @@ class PaymentSeeder extends Seeder
             ],
             [
                 'text' => ['en' => 'terms and conditions', 'es' => 'términos y condiciones'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'payment',
+                'key' => 'payment-info',
+            ],
+            [
+                'text' => ['en' => 'Payment info', 'es' => 'Información del pago'],
             ]
         );
     }

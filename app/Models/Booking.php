@@ -132,6 +132,16 @@ class Booking extends Model
     }
 
     /**
+     * Get the customer's full name
+     *
+     * @return     string
+     */
+    public function getNameAttribute()
+    {
+        return $this->first_name . " " . $this->last_name;
+    }
+
+    /**
      * Get the parameters to create a booking in Caren
      *
      * @return     array

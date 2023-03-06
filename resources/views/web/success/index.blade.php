@@ -6,7 +6,7 @@
             <x-heading-title title="{!! __('success.title') !!}" subtitle="{!! __('success.subtitle') !!}" />
 
             <div class="max-w-7xl py-4 md:py-12">
-                Soon
+                <livewire:web.success />
             </div>
         </div>
     </div>

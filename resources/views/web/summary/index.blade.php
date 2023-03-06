@@ -119,6 +119,18 @@
         </div>
     </div>
 
+    @if (selectedCurrency() != 'ISK')
+        <div class="flex justify-between">
+            <div class="font-sans-medium font-medium text-black-ci">
+                {!! __('summary.total-in-isk') !!}
+            </div>
+
+            <div class="font-sans-bold font-bold text-black-ci">
+                {{formatPrice($iskPrice, 'ISK')}}
+            </div>
+        </div>
+    @endif
+
     <div class="mt-2 flex justify-between bg-[#d9d9d94d] rounded-md p-4 items-center">
         <div class="font-sans-medium font-medium text-xl text-yellow-ci">
             {!! __('summary.pay-now-only') !!} {{$percentage}} %

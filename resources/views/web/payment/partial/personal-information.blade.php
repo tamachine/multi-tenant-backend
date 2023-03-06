@@ -22,7 +22,7 @@
     </div>
 
     <div class="lg:mt-2 lg:flex lg:justify-between">
-        <x-payment-input field="address" type="text" placeholder="{{ __('payment.address') }}" />
+        <x-payment-input field="address" type="text" placeholder="{{ __('payment.your-address') }}" />
         <x-payment-input field="postal_code" type="text" placeholder="{{ __('payment.postal-code') }}" />
     </div>
 

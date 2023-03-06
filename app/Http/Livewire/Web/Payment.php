@@ -163,6 +163,9 @@ class Payment extends Component
             'country' => $this->country,
         ]);
 
+        $sessionData['booking'] = $booking->hashid;
+        request()->session()->put('booking_data', $sessionData);
+
         // 2. Add the insurances
         foreach($sessionData["insurances"] as $insurance) {
             $booking->bookingExtras()->create([
@@ -210,7 +213,6 @@ class Payment extends Component
 
         // Save a booking log
         $booking->logs()->create([
-            'user_id'    => auth()->user()->id,
             'message'    => 'Booking created in Caren'
         ]);
 

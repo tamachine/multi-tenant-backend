@@ -107,6 +107,26 @@ class SummarySeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'summary',
+                'key' => 'total-in-isk',
+            ],
+            [
+                'text' => ['en' => 'Total in ISK', 'es' => 'Total en ISK'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'summary',
+                'key' => 'paid-now',
+            ],
+            [
+                'text' => ['en' => 'Paid now', 'es' => 'Pagado ahoral'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'summary',
                 'key' => 'pay-now-only',
             ],
             [
