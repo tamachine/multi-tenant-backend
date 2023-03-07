@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html 
+<html
     lang="{{ str_replace('_', '-', app()->getLocale()) }}"
     x-data="{'showMobileNavBar': false, 'htmlOverflowHidden': false}"
     :class="showMobileNavBar || htmlOverflowHidden ? 'overflow-hidden' : ''"
@@ -21,7 +21,7 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
-        <!-- Styles -->        
+        <!-- Styles -->
         <link href="/css/app.css" rel="stylesheet">
         @livewireStyles
 
@@ -30,36 +30,47 @@
         <script src="{{ url(mix('js/app/scripts.js')) }}"></script>
 
         <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">   
-        
-        <x-nav-bar/>        
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <x-nav-bar/>
     </head>
 
-    {{-- 
+    {{--
         Horizontal overflow is hidden because w-fill-screen class uses a width=100vw and some browsers include the vertical scrollbar in the full screen size so a horizontal scrollbar is shown if a verticall one is needed.
     --}}
-    
-    <body 
-        class="overflow-x-hidden relative" 
-        x-data="{'showOverlay': false}"        
-        >       
-        
-        <div 
+
+    <body
+        class="overflow-x-hidden relative"
+        x-data="{'showOverlay': false}"
+        >
+
+        <div
             id="overlay"
             class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-20"
             x-show="showOverlay"
             x-cloak
             >
-            <div id="hide-overlay" class="hidden" x-on:click="showOverlay = false"></div> {{-- this is used in the date picker range component in order to hide the overlay from an event --}}            
+            <div id="hide-overlay" class="hidden" x-on:click="showOverlay = false"></div> {{-- this is used in the date picker range component in order to hide the overlay from an event --}}
         </div>
-        
-        <div class="max-w-7xl mx-auto ">
-            @yield('body')                
+
+        @if(isset($titleClass))
+            <div class="h-screen bg-cover flex content-center {{$titleClass}}">
+                <div class="max-w-6xl m-auto">
+                    <h1 class="text-white title-shadow">
+                        {{$titleText}}
+                    </h1>
+                </div>
+            </div>
+        @endif
+
+        <div class="max-w-7xl mx-auto">
+            @yield('body')
 
             @livewireScripts
 
             <x-footer imagePath="{{ $footerImagePath }}" />
         </div>
+
         @stack('scripts')
     </body>
 </html>

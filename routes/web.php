@@ -10,6 +10,7 @@ use App\Http\Livewire\Auth\Verify;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\AboutController;
 use App\Http\Controllers\Web\CarsController;
 use App\Http\Controllers\Web\BookingController;
 use App\Http\Controllers\Web\InsurancesController;
@@ -30,6 +31,11 @@ use App\Http\Controllers\Web\SuccessController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+/* Static pages */
+Route::get('/about-us-iceland', [AboutController::class, 'index'])->name('about');
+
+/* Booking process */
 Route::get('/cars', [CarsController::class, 'index'])->name('cars');
 Route::get('/{car_hashid}/insurances', [InsurancesController::class, 'index'])->name('insurances');
 Route::get('/{car_hashid}/extras', [ExtrasController::class, 'index'])->name('extras');

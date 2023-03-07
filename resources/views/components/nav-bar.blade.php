@@ -24,7 +24,7 @@
     <div class="hidden md:flex items-center divide-x gap-10">
         <div class="flex items-end justify-between flex-wrap gap-10 text-lg font-sans-medium">
             <a href="{{ route('cars') }}" class="hover:text-yellow-ci">{!! __('navbar.cars') !!}</a>
-            <a href="#" class="hover:text-yellow-ci">{!! __('navbar.about') !!}</a>
+            <a href="{{ route('about') }}" class="hover:text-yellow-ci">{!! __('navbar.about') !!}</a>
             <a href="#" class="hover:text-yellow-ci">{!! __('navbar.faq') !!}</a>
             <a href="#" class="hover:text-yellow-ci">{!! __('navbar.blog') !!}</a>
             <a href="#" class="hover:text-yellow-ci">{!! __('navbar.contact') !!}</a>

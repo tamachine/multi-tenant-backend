@@ -2493,6 +2493,11 @@ select{
     margin-bottom: 1.5rem;
 }
 
+.mx-8{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
 .mx-6{
     margin-left: 1.5rem;
     margin-right: 1.5rem;
@@ -2628,16 +2633,16 @@ select{
     margin-bottom: 0.5rem;
 }
 
+.mt-16{
+    margin-top: 4rem;
+}
+
 .mt-36{
     margin-top: 9rem;
 }
 
 .mt-20{
     margin-top: 5rem;
-}
-
-.mt-16{
-    margin-top: 4rem;
 }
 
 .mb-10{
@@ -2943,6 +2948,10 @@ select{
     width: 2rem;
 }
 
+.w-\[256px\]{
+    width: 256px;
+}
+
 .w-44{
     width: 11rem;
 }
@@ -2959,12 +2968,12 @@ select{
     width: 85px;
 }
 
-.w-12{
-    width: 3rem;
-}
-
 .w-11\/12{
     width: 91.666667%;
+}
+
+.w-12{
+    width: 3rem;
 }
 
 .min-w-0{
@@ -3197,6 +3206,10 @@ select{
 
 .flex-nowrap{
     flex-wrap: nowrap;
+}
+
+.content-center{
+    align-content: center;
 }
 
 .items-end{
@@ -3735,6 +3748,11 @@ select{
     background-color: rgb(161 98 7 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#fdeef4\]{
+    --tw-bg-opacity: 1;
+    background-color: rgb(253 238 244 / var(--tw-bg-opacity));
+}
+
 .bg-pink-red-secondary{
     --tw-bg-opacity: 1;
     background-color: rgb(253 238 244 / var(--tw-bg-opacity));
@@ -3743,11 +3761,6 @@ select{
 .bg-\[\#F2F2F2\]{
     --tw-bg-opacity: 1;
     background-color: rgb(242 242 242 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#fdeef4\]{
-    --tw-bg-opacity: 1;
-    background-color: rgb(253 238 244 / var(--tw-bg-opacity));
 }
 
 .bg-red-800{
@@ -4298,6 +4311,11 @@ select{
 
 .text-\[32px\]{
     font-size: 32px;
+}
+
+.text-4xl{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
 }
 
 .text-\[10px\]{
@@ -5533,6 +5551,10 @@ input[type=number] {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
+    .sm\:flex-col{
+        flex-direction: column;
+    }
+
     .sm\:items-center{
         align-items: center;
     }
@@ -6269,6 +6291,11 @@ input[type=number] {
     .lg\:-mx-8{
         margin-left: -2rem;
         margin-right: -2rem;
+    }
+
+    .lg\:mx-auto{
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .lg\:mt-0{

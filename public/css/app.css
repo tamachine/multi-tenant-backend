@@ -2645,6 +2645,11 @@ h5 {
     margin-bottom: 1.5rem;    
 }
 
+.mx-8 {
+    margin-left: 2rem;
+    margin-right: 2rem;    
+}
+
 .mx-6 {
     margin-left: 1.5rem;
     margin-right: 1.5rem;    
@@ -2780,16 +2785,16 @@ h5 {
     margin-bottom: 0.5rem;    
 }
 
+.mt-16 {
+    margin-top: 4rem;    
+}
+
 .mt-36 {
     margin-top: 9rem;    
 }
 
 .mt-20 {
     margin-top: 5rem;    
-}
-
-.mt-16 {
-    margin-top: 4rem;    
 }
 
 .mb-10 {
@@ -3095,6 +3100,10 @@ h5 {
     width: 2rem;    
 }
 
+.w-\[256px\] {
+    width: 256px;    
+}
+
 .w-44 {
     width: 11rem;    
 }
@@ -3111,12 +3120,12 @@ h5 {
     width: 85px;    
 }
 
-.w-12 {
-    width: 3rem;    
-}
-
 .w-11\/12 {
     width: 91.666667%;    
+}
+
+.w-12 {
+    width: 3rem;    
 }
 
 .min-w-0 {
@@ -3349,6 +3358,10 @@ h5 {
 
 .flex-nowrap {
     flex-wrap: nowrap;    
+}
+
+.content-center {
+    align-content: center;    
 }
 
 .items-end {
@@ -3887,6 +3900,11 @@ h5 {
     background-color: rgb(161 98 7 / var(--tw-bg-opacity));    
 }
 
+.bg-\[\#fdeef4\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(253 238 244 / var(--tw-bg-opacity));    
+}
+
 .bg-pink-red-secondary {
     --tw-bg-opacity: 1;
     background-color: rgb(253 238 244 / var(--tw-bg-opacity));    
@@ -3895,11 +3913,6 @@ h5 {
 .bg-\[\#F2F2F2\] {
     --tw-bg-opacity: 1;
     background-color: rgb(242 242 242 / var(--tw-bg-opacity));    
-}
-
-.bg-\[\#fdeef4\] {
-    --tw-bg-opacity: 1;
-    background-color: rgb(253 238 244 / var(--tw-bg-opacity));    
 }
 
 .bg-red-800 {
@@ -4452,6 +4465,11 @@ h5 {
     font-size: 32px;    
 }
 
+.text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;    
+}
+
 .text-\[10px\] {
     font-size: 10px;    
 }
@@ -4923,6 +4941,20 @@ h5 {
     position: relative;
     left: calc(-50vw + 50%);
     width: 100vw;    
+}
+
+.title-shadow {
+    text-shadow: 20px 22px 12px rgba(0, 0, 0, 0.02), 11px 12px 10px rgba(0, 0, 0, 0.07), 5px 5px 7px rgba(0, 0, 0, 0.12), 1px 1px 4px rgba(0, 0, 0, 0.14), 0px 0px 0px rgba(0, 0, 0, 0.14);
+}
+
+.bg-about {
+    background-image: url('/images/about/about-top.jpg');
+}
+
+@supports (gap: 1px) {
+    .bg-about {
+        background-image: url('/images/about/about-top.webp');
+    }
 }
 
 .placeholder\:text-base::-moz-placeholder {
@@ -5504,6 +5536,10 @@ h5 {
 
     .sm\:grid-cols-3 {
         grid-template-columns: repeat(3, minmax(0, 1fr));    
+    }
+
+    .sm\:flex-col {
+        flex-direction: column;    
     }
 
     .sm\:items-center {
@@ -6244,6 +6280,11 @@ h5 {
         margin-right: -2rem;    
     }
 
+    .lg\:mx-auto {
+        margin-left: auto;
+        margin-right: auto;    
+    }
+
     .lg\:mt-0 {
         margin-top: 0px;    
     }
@@ -6408,5 +6449,4 @@ h5 {
         line-height: 2.25rem;    
     }    
 }
-
 
