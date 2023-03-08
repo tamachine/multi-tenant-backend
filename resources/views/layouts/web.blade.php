@@ -53,6 +53,8 @@
             <div id="hide-overlay" class="hidden" x-on:click="showOverlay = false"></div> {{-- this is used in the date picker range component in order to hide the overlay from an event --}}
         </div>
 
+        <x-admin.wire-response />
+
         @if(isset($titleClass))
             <div class="h-screen bg-cover flex content-center {{$titleClass}}">
                 <div class="max-w-6xl m-auto">

@@ -29,3 +29,7 @@ function goToError() {
 window.addEventListener('validationError', event => {
     setTimeout(goToError, 500);
 });
+
+window.addEventListener('goToTop', event => {
+    window.scrollTo(0, 0);
+});

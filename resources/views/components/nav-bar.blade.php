@@ -1,4 +1,4 @@
-<nav x-data="visibilitySelector()" @languageSelector-show="show()"   class="flex items-center justify-between flex-wrap p-3 md:px-20 md:py-5 border md:border-0 border-[#E7ECF3] bg-white relative z-50">
+<nav x-data="visibilitySelector()" @languageSelector-show="show()" class="max-w-7xl mx-auto flex items-center justify-between flex-wrap p-3 md:px-4 md:py-5 border md:border-0 border-[#E7ECF3] bg-white relative z-50">
     <div class="cursor-pointer" onclick='window.location.href="{{route("home")}}"'>
         <img src="{{ asset('images/cars-iceland-logo.png') }}" alt="{{ __('general.brand') }}" />
     </div>
@@ -27,7 +27,7 @@
             <a href="{{ route('about') }}" class="hover:text-yellow-ci">{!! __('navbar.about') !!}</a>
             <a href="#" class="hover:text-yellow-ci">{!! __('navbar.faq') !!}</a>
             <a href="#" class="hover:text-yellow-ci">{!! __('navbar.blog') !!}</a>
-            <a href="#" class="hover:text-yellow-ci">{!! __('navbar.contact') !!}</a>
+            <a href="{{ route('contact') }}" class="hover:text-yellow-ci">{!! __('navbar.contact') !!}</a>
         </div>
         <div class="pl-5 text-sm font-medium flex items-center gap-1" x-on:click="toggle()">
             <img class="inline" src='{{ asset("/images/currencies/dollar.svg") }}' />

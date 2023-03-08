@@ -2498,16 +2498,16 @@ h5 {
     bottom: 2.75rem;    
 }
 
-.left-2 {
-    left: 0.5rem;    
-}
-
 .top-10 {
     top: 2.5rem;    
 }
 
 .left-1\/4 {
     left: 25%;    
+}
+
+.left-2 {
+    left: 0.5rem;    
 }
 
 .top-16 {
@@ -2769,6 +2769,10 @@ h5 {
     margin-top: 2.5rem;    
 }
 
+.mt-16 {
+    margin-top: 4rem;    
+}
+
 .mt-12 {
     margin-top: 3rem;    
 }
@@ -2783,10 +2787,6 @@ h5 {
 
 .mb-2 {
     margin-bottom: 0.5rem;    
-}
-
-.mt-16 {
-    margin-top: 4rem;    
 }
 
 .mt-36 {
@@ -2918,6 +2918,10 @@ h5 {
     height: 1rem;    
 }
 
+.h-20 {
+    height: 5rem;    
+}
+
 .h-8 {
     height: 2rem;    
 }
@@ -3036,6 +3040,10 @@ h5 {
     width: auto;    
 }
 
+.w-1\/2 {
+    width: 50%;    
+}
+
 .w-0 {
     width: 0px;    
 }
@@ -3060,10 +3068,6 @@ h5 {
     width: 66.666667%;    
 }
 
-.w-1\/2 {
-    width: 50%;    
-}
-
 .w-28 {
     width: 7rem;    
 }
@@ -3082,6 +3086,10 @@ h5 {
 
 .w-24 {
     width: 6rem;    
+}
+
+.w-\[388px\] {
+    width: 388px;    
 }
 
 .w-16 {
@@ -3128,6 +3136,10 @@ h5 {
     width: 3rem;    
 }
 
+.w-60 {
+    width: 15rem;    
+}
+
 .min-w-0 {
     min-width: 0px;    
 }
@@ -3156,6 +3168,10 @@ h5 {
     max-width: 864px;    
 }
 
+.max-w-7xl {
+    max-width: 1440px;    
+}
+
 .max-w-5xl {
     max-width: 64rem;    
 }
@@ -3164,12 +3180,16 @@ h5 {
     max-width: 20rem;    
 }
 
-.max-w-7xl {
-    max-width: 1440px;    
-}
-
 .max-w-\[780px\] {
     max-width: 780px;    
+}
+
+.max-w-xl {
+    max-width: 36rem;    
+}
+
+.max-w-\[480px\] {
+    max-width: 480px;    
 }
 
 .max-w-\[600px\] {
@@ -3668,6 +3688,10 @@ h5 {
     border-right-width: 1px;    
 }
 
+.border-none {
+    border-style: none;    
+}
+
 .border-gray-200 {
     --tw-border-opacity: 1;
     border-color: rgb(229 231 235 / var(--tw-border-opacity));    
@@ -3811,6 +3835,16 @@ h5 {
     background-color: rgb(0 0 0 / var(--tw-bg-opacity));    
 }
 
+.bg-green-700 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(21 128 61 / var(--tw-bg-opacity));    
+}
+
+.bg-red-700 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(185 28 28 / var(--tw-bg-opacity));    
+}
+
 .bg-gray-200 {
     --tw-bg-opacity: 1;
     background-color: rgb(229 231 235 / var(--tw-bg-opacity));    
@@ -3836,16 +3870,6 @@ h5 {
     background-color: rgb(31 41 55 / var(--tw-bg-opacity));    
 }
 
-.bg-green-700 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(21 128 61 / var(--tw-bg-opacity));    
-}
-
-.bg-red-700 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(185 28 28 / var(--tw-bg-opacity));    
-}
-
 .bg-gray-700 {
     --tw-bg-opacity: 1;
     background-color: rgb(55 65 81 / var(--tw-bg-opacity));    
@@ -3869,6 +3893,11 @@ h5 {
 .bg-blue-700 {
     --tw-bg-opacity: 1;
     background-color: rgb(29 78 216 / var(--tw-bg-opacity));    
+}
+
+.bg-\[\#fdeef4\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(253 238 244 / var(--tw-bg-opacity));    
 }
 
 .bg-\[\#FCFCFC\] {
@@ -3898,11 +3927,6 @@ h5 {
 .bg-yellow-700 {
     --tw-bg-opacity: 1;
     background-color: rgb(161 98 7 / var(--tw-bg-opacity));    
-}
-
-.bg-\[\#fdeef4\] {
-    --tw-bg-opacity: 1;
-    background-color: rgb(253 238 244 / var(--tw-bg-opacity));    
 }
 
 .bg-pink-red-secondary {
@@ -4155,6 +4179,11 @@ h5 {
 .px-12 {
     padding-left: 3rem;
     padding-right: 3rem;    
+}
+
+.py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;    
 }
 
 .px-0 {
@@ -4690,14 +4719,14 @@ h5 {
     color: rgb(67 56 202 / var(--tw-text-opacity));    
 }
 
-.text-\[\#A5A5A5\] {
-    --tw-text-opacity: 1;
-    color: rgb(165 165 165 / var(--tw-text-opacity));    
-}
-
 .text-black-ci {
     --tw-text-opacity: 1;
     color: rgb(22 22 22 / var(--tw-text-opacity));    
+}
+
+.text-\[\#A5A5A5\] {
+    --tw-text-opacity: 1;
+    color: rgb(165 165 165 / var(--tw-text-opacity));    
 }
 
 .text-green-700 {
@@ -5884,6 +5913,10 @@ h5 {
         gap: 2.5rem;    
     }
 
+    .md\:gap-8 {
+        gap: 2rem;    
+    }
+
     .md\:gap-2 {
         gap: 0.5rem;    
     }
@@ -6014,9 +6047,9 @@ h5 {
         padding-right: 14px;    
     }
 
-    .md\:px-20 {
-        padding-left: 5rem;
-        padding-right: 5rem;    
+    .md\:px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;    
     }
 
     .md\:py-5 {
@@ -6047,11 +6080,6 @@ h5 {
     .md\:py-10 {
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;    
-    }
-
-    .md\:px-4 {
-        padding-left: 1rem;
-        padding-right: 1rem;    
     }
 
     .md\:px-12 {

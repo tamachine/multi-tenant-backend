@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\AboutController;
+use App\Http\Controllers\Web\ContactController;
+
 use App\Http\Controllers\Web\CarsController;
 use App\Http\Controllers\Web\BookingController;
 use App\Http\Controllers\Web\InsurancesController;
@@ -34,6 +36,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 /* Static pages */
 Route::get('/about-us-iceland', [AboutController::class, 'index'])->name('about');
+Route::get('/contact-cars-iceland', [ContactController::class, 'index'])->name('contact');
 
 /* Booking process */
 Route::get('/cars', [CarsController::class, 'index'])->name('cars');

@@ -23,4 +23,9 @@ return [
     'slack' => [
         'enabled' => env('SLACK_ENABLED', false),
     ],
+
+    'email' => [
+        'contact'       => env('MAIL_FROM_ADDRESS'),
+        'newsletter'    => env('MAIL_FROM_ADDRESS'),
+    ]
 ];
