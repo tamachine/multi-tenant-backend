@@ -14,11 +14,11 @@ class InsuranceFeatureController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('insurance-feature.create'),
+                'route' => route('intranet.insurance-feature.create'),
                 'title' => 'Create Insurances feature'
             ]),
             'crumbs' => [
-                'Settings' => route('settings')
+                'Settings' => route('intranet.settings')
             ]
         ];
 
@@ -31,12 +31,12 @@ class InsuranceFeatureController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('insurance-feature.index'),
+                'route' => route('intranet.insurance-feature.index'),
                 'title' => 'Insurances features'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'Insurances features' => route('insurance-feature.index')
+                'Settings' => route('intranet.settings'),
+                'Insurances features' => route('intranet.insurance-feature.index')
             ],
             'caren_extra' => $caren_extra,
         ];
@@ -51,12 +51,12 @@ class InsuranceFeatureController extends Controller
         $data = [
             'insuranceFeature' => $insuranceFeature,            
             'action' => collect([
-                'route' => route('insurance-feature.index'),
+                'route' => route('intranet.insurance-feature.index'),
                 'title' => 'InsuranceFeatures'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'InsuranceFeatures' => route('insurance-feature.index')
+                'Settings' => route('intranet.settings'),
+                'InsuranceFeatures' => route('intranet.insurance-feature.index')
             ],            
         ];
 

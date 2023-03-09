@@ -94,7 +94,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Affiliate "' . $this->name . '" updated');
 
-        return redirect()->route('booking.affiliate.edit', $this->affiliate->hashid);
+        return redirect()->route('intranet.booking.affiliate.edit', $this->affiliate->hashid);
     }
 
     public function deleteAffiliate()
@@ -105,7 +105,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', __('The affiliate has been deleted'));
 
-        return redirect()->route('booking.affiliate.index');
+        return redirect()->route('intranet.booking.affiliate.index');
     }
 
     public function render()

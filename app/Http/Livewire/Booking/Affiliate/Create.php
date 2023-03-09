@@ -83,7 +83,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Affiliate "' . $this->name . '" created');
 
-        return redirect()->route('booking.affiliate.edit', $affiliate->hashid);
+        return redirect()->route('intranet.booking.affiliate.edit', $affiliate->hashid);
     }
 
     public function render()

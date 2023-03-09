@@ -131,9 +131,9 @@ class User extends Authenticatable
             case 'admin':
             case 'booking':
             case 'content':
-                return route('dashboard');
+                return route('intranet.dashboard');
             case 'affiliate':
-                return route('affiliate.dashboard');
+                return route('intranet.affiliate.dashboard');
             default:
                 return '/';
         }

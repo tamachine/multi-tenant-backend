@@ -92,7 +92,7 @@ class Extras extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Extras added to the booking');
 
-        return redirect()->route('booking.edit', ["booking" => $this->booking->hashid, "tab" => "extras"]);
+        return redirect()->route('intranet.booking.edit', ["booking" => $this->booking->hashid, "tab" => "extras"]);
     }
 
     public function deleteExtra($id)
@@ -108,7 +108,7 @@ class Extras extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Extras removed from the booking');
 
-        return redirect()->route('booking.edit', ["booking" => $this->booking->hashid, "tab" => "extras"]);
+        return redirect()->route('intranet.booking.edit', ["booking" => $this->booking->hashid, "tab" => "extras"]);
     }
 
     public function render()

@@ -78,7 +78,7 @@ class Caren extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Booking created in Caren');
 
-        return redirect()->route('booking.edit', ["booking" => $this->booking->hashid, "tab" => "caren"]);
+        return redirect()->route('intranet.booking.edit', ["booking" => $this->booking->hashid, "tab" => "caren"]);
     }
 
     public function reloadCarenBooking(Api $api)
@@ -118,7 +118,7 @@ class Caren extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Booking info reloaded');
 
-        return redirect()->route('booking.edit', ["booking" => $this->booking->hashid, "tab" => "caren"]);
+        return redirect()->route('intranet.booking.edit', ["booking" => $this->booking->hashid, "tab" => "caren"]);
     }
 
     public function cancelCarenBooking(Api $api)
@@ -165,7 +165,7 @@ class Caren extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Booking canceled in Caren');
 
-        return redirect()->route('booking.edit', ["booking" => $this->booking->hashid, "tab" => "caren"]);
+        return redirect()->route('intranet.booking.edit', ["booking" => $this->booking->hashid, "tab" => "caren"]);
     }
 
     public function render()

@@ -59,7 +59,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Category "' . $this->name . '" updated');
 
-        return redirect()->route('blog.category.index');
+        return redirect()->route('intranet.blog.category.index');
     }
 
     public function deleteCategory()
@@ -69,7 +69,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', __('The category has been deleted'));
 
-        return redirect()->route('blog.category.index');
+        return redirect()->route('intranet.blog.category.index');
     }
 
     public function render()

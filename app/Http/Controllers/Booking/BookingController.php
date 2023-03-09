@@ -27,7 +27,7 @@ class BookingController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('booking.create'),
+                'route' => route('intranet.booking.create'),
                 'title' => 'Create Booking'
             ])
         ];
@@ -44,11 +44,11 @@ class BookingController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('booking.history'),
+                'route' => route('intranet.booking.history'),
                 'title' => 'Booking History'
             ]),
             'crumbs' => [
-                'Booking History' => route('booking.history')
+                'Booking History' => route('intranet.booking.history')
             ],
         ];
 
@@ -67,11 +67,11 @@ class BookingController extends Controller
         $data = [
             'booking' => $booking,
             'action' => collect([
-                'route' => route('booking.history'),
+                'route' => route('intranet.booking.history'),
                 'title' => 'Booking History'
             ]),
             'crumbs' => [
-                'Booking History' => route('booking.history')
+                'Booking History' => route('intranet.booking.history')
             ],
             'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];

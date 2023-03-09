@@ -13,7 +13,7 @@ class StatisticsController extends Controller
 
         $data = [
             'crumbs' => [
-                'Settings' => route('settings')
+                'Settings' => route('intranet.settings')
             ]
         ];
 

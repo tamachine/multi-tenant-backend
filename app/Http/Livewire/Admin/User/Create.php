@@ -77,7 +77,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'User "' . $this->name . '" created');
 
-        return redirect()->route('user.index');
+        return redirect()->route('intranet.user.index');
     }
 
     public function render()

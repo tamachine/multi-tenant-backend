@@ -93,7 +93,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Location "' . $this->name .'" edited');
 
-        return redirect()->route('location.edit', $this->location->hashid);
+        return redirect()->route('intranet.location.edit', $this->location->hashid);
     }
 
     public function deleteLocation()
@@ -103,7 +103,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', __('The location has been deleted'));
 
-        return redirect()->route('location.index');
+        return redirect()->route('intranet.location.index');
     }
 
     public function render()

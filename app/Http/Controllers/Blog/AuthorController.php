@@ -14,11 +14,11 @@ class AuthorController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('blog.author.create'),
+                'route' => route('intranet.blog.author.create'),
                 'title' => 'Create Author'
             ]),
             'crumbs' => [
-                'Blog' => route('blog.dashboard')
+                'Blog' => route('intranet.blog.dashboard')
             ]
         ];
 
@@ -31,12 +31,12 @@ class AuthorController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('blog.author.index'),
+                'route' => route('intranet.blog.author.index'),
                 'title' => 'Authors'
             ]),
             'crumbs' => [
-                'Blog' => route('blog.dashboard'),
-                'Authors' => route('blog.author.index')
+                'Blog' => route('intranet.blog.dashboard'),
+                'Authors' => route('intranet.blog.author.index')
             ],
         ];
 
@@ -52,12 +52,12 @@ class AuthorController extends Controller
         $data = [
             'author' => $author,
             'action' => collect([
-                'route' => route('blog.author.index'),
+                'route' => route('intranet.blog.author.index'),
                 'title' => 'Authors'
             ]),
             'crumbs' => [
-                'Blog' => route('blog.dashboard'),
-                'Authors' => route('blog.author.index')
+                'Blog' => route('intranet.blog.dashboard'),
+                'Authors' => route('intranet.blog.author.index')
             ],
         ];
 

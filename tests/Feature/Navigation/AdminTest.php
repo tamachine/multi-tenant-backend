@@ -38,7 +38,7 @@ class AdminTest extends TestCase
     public function theGeneralDashboardLoads()
     {
         $this->actingAs($this->admin)
-            ->get(route('dashboard'))
+            ->get(route('intranet.dashboard'))
             ->assertStatus(200);
     }
 
@@ -52,31 +52,31 @@ class AdminTest extends TestCase
      */
     public function theSettingsDashboardLoads()
     {
-        $this->get(route('settings'))
+        $this->get(route('intranet.settings'))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('settings'))
+            ->get(route('intranet.settings'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('settings'))
+            ->get(route('intranet.settings'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('settings'))
+            ->get(route('intranet.settings'))
             ->assertStatus(200);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('settings'))
+            ->get(route('intranet.settings'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('settings'))
+            ->get(route('intranet.settings'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('settings'))
+            ->get(route('intranet.settings'))
             ->assertStatus(403);
     }
 
@@ -93,85 +93,85 @@ class AdminTest extends TestCase
     {
         $vendor = $this->createVendor();
 
-        $this->get(route('vendor.index'))
+        $this->get(route('intranet.vendor.index'))
             ->assertRedirect('login');
 
-        $this->get(route('vendor.create'))
+        $this->get(route('intranet.vendor.create'))
             ->assertRedirect('login');
 
-        $this->get(route('vendor.edit', $vendor->hashid))
+        $this->get(route('intranet.vendor.edit', $vendor->hashid))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('vendor.index'))
+            ->get(route('intranet.vendor.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->developer)
-            ->get(route('vendor.create'))
+            ->get(route('intranet.vendor.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->developer)
-            ->get(route('vendor.edit', $vendor->hashid))
+            ->get(route('intranet.vendor.edit', $vendor->hashid))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('vendor.index'))
+            ->get(route('intranet.vendor.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('vendor.create'))
+            ->get(route('intranet.vendor.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('vendor.edit', $vendor->hashid))
+            ->get(route('intranet.vendor.edit', $vendor->hashid))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('vendor.index'))
+            ->get(route('intranet.vendor.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('vendor.create'))
+            ->get(route('intranet.vendor.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('vendor.edit', $vendor->hashid))
+            ->get(route('intranet.vendor.edit', $vendor->hashid))
             ->assertStatus(200);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('vendor.index'))
+            ->get(route('intranet.vendor.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('vendor.create'))
+            ->get(route('intranet.vendor.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('vendor.edit', $vendor->hashid))
+            ->get(route('intranet.vendor.edit', $vendor->hashid))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('vendor.index'))
+            ->get(route('intranet.vendor.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('vendor.create'))
+            ->get(route('intranet.vendor.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('vendor.edit', $vendor->hashid))
+            ->get(route('intranet.vendor.edit', $vendor->hashid))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('vendor.index'))
+            ->get(route('intranet.vendor.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('vendor.create'))
+            ->get(route('intranet.vendor.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('vendor.edit', $vendor->hashid))
+            ->get(route('intranet.vendor.edit', $vendor->hashid))
             ->assertStatus(403);
     }
 
@@ -188,85 +188,85 @@ class AdminTest extends TestCase
     {
         $location = $this->createLocation();
 
-        $this->get(route('location.index'))
+        $this->get(route('intranet.location.index'))
             ->assertRedirect('login');
 
-        $this->get(route('location.create'))
+        $this->get(route('intranet.location.create'))
             ->assertRedirect('login');
 
-        $this->get(route('location.edit', $location->hashid))
+        $this->get(route('intranet.location.edit', $location->hashid))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('location.index'))
+            ->get(route('intranet.location.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->developer)
-            ->get(route('location.create'))
+            ->get(route('intranet.location.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->developer)
-            ->get(route('location.edit', $location->hashid))
+            ->get(route('intranet.location.edit', $location->hashid))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('location.index'))
+            ->get(route('intranet.location.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('location.create'))
+            ->get(route('intranet.location.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('location.edit', $location->hashid))
+            ->get(route('intranet.location.edit', $location->hashid))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('location.index'))
+            ->get(route('intranet.location.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('location.create'))
+            ->get(route('intranet.location.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('location.edit', $location->hashid))
+            ->get(route('intranet.location.edit', $location->hashid))
             ->assertStatus(200);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('location.index'))
+            ->get(route('intranet.location.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('location.create'))
+            ->get(route('intranet.location.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('location.edit', $location->hashid))
+            ->get(route('intranet.location.edit', $location->hashid))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('location.index'))
+            ->get(route('intranet.location.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('location.create'))
+            ->get(route('intranet.location.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('location.edit', $location->hashid))
+            ->get(route('intranet.location.edit', $location->hashid))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('location.index'))
+            ->get(route('intranet.location.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('location.create'))
+            ->get(route('intranet.location.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('location.edit', $location->hashid))
+            ->get(route('intranet.location.edit', $location->hashid))
             ->assertStatus(403);
     }
 
@@ -284,85 +284,85 @@ class AdminTest extends TestCase
         $vendor = $this->createVendor();
         $car = $this->createCar();
 
-        $this->get(route('car.index'))
+        $this->get(route('intranet.car.index'))
             ->assertRedirect('login');
 
-        $this->get(route('car.create'))
+        $this->get(route('intranet.car.create'))
             ->assertRedirect('login');
 
-        $this->get(route('car.edit', $car->hashid))
+        $this->get(route('intranet.car.edit', $car->hashid))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('car.index'))
+            ->get(route('intranet.car.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->developer)
-            ->get(route('car.create'))
+            ->get(route('intranet.car.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->developer)
-            ->get(route('car.edit', $car->hashid))
+            ->get(route('intranet.car.edit', $car->hashid))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('car.index'))
+            ->get(route('intranet.car.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('car.create'))
+            ->get(route('intranet.car.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('car.edit', $car->hashid))
+            ->get(route('intranet.car.edit', $car->hashid))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('car.index'))
+            ->get(route('intranet.car.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('car.create'))
+            ->get(route('intranet.car.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('car.edit', $car->hashid))
+            ->get(route('intranet.car.edit', $car->hashid))
             ->assertStatus(200);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('car.index'))
+            ->get(route('intranet.car.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('car.create'))
+            ->get(route('intranet.car.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('car.edit', $car->hashid))
+            ->get(route('intranet.car.edit', $car->hashid))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('car.index'))
+            ->get(route('intranet.car.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('car.create'))
+            ->get(route('intranet.car.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('car.edit', $car->hashid))
+            ->get(route('intranet.car.edit', $car->hashid))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('car.index'))
+            ->get(route('intranet.car.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('car.create'))
+            ->get(route('intranet.car.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('car.edit', $car->hashid))
+            ->get(route('intranet.car.edit', $car->hashid))
             ->assertStatus(403);
     }
 
@@ -380,85 +380,85 @@ class AdminTest extends TestCase
         $vendor = $this->createVendor();
         $extra = $this->createExtra();
 
-        $this->get(route('extra.index'))
+        $this->get(route('intranet.caren.index'))
             ->assertRedirect('login');
 
-        $this->get(route('extra.create'))
+        $this->get(route('intranet.caren.create'))
             ->assertRedirect('login');
 
-        $this->get(route('extra.edit', $extra->hashid))
+        $this->get(route('intranet.caren.edit', $extra->hashid))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('extra.index'))
+            ->get(route('intranet.caren.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->developer)
-            ->get(route('extra.create'))
+            ->get(route('intranet.caren.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->developer)
-            ->get(route('extra.edit', $extra->hashid))
+            ->get(route('intranet.caren.edit', $extra->hashid))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('extra.index'))
+            ->get(route('intranet.caren.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('extra.create'))
+            ->get(route('intranet.caren.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('extra.edit', $extra->hashid))
+            ->get(route('intranet.caren.edit', $extra->hashid))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('extra.index'))
+            ->get(route('intranet.caren.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('extra.create'))
+            ->get(route('intranet.caren.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('extra.edit', $extra->hashid))
+            ->get(route('intranet.caren.edit', $extra->hashid))
             ->assertStatus(200);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('extra.index'))
+            ->get(route('intranet.caren.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('extra.create'))
+            ->get(route('intranet.caren.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('extra.edit', $extra->hashid))
+            ->get(route('intranet.caren.edit', $extra->hashid))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('extra.index'))
+            ->get(route('intranet.caren.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('extra.create'))
+            ->get(route('intranet.caren.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('extra.edit', $extra->hashid))
+            ->get(route('intranet.caren.edit', $extra->hashid))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('extra.index'))
+            ->get(route('intranet.caren.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('extra.create'))
+            ->get(route('intranet.caren.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('extra.edit', $extra->hashid))
+            ->get(route('intranet.caren.edit', $extra->hashid))
             ->assertStatus(403);
     }
 
@@ -473,58 +473,58 @@ class AdminTest extends TestCase
      */
     public function theSeasonPagesLoad()
     {
-        $this->get(route('season.index'))
+        $this->get(route('intranet.season.index'))
             ->assertRedirect('login');
 
-        $this->get(route('season.create'))
+        $this->get(route('intranet.season.create'))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('season.index'))
+            ->get(route('intranet.season.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->developer)
-            ->get(route('season.create'))
+            ->get(route('intranet.season.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('season.index'))
+            ->get(route('intranet.season.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('season.create'))
+            ->get(route('intranet.season.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('season.index'))
+            ->get(route('intranet.season.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('season.create'))
+            ->get(route('intranet.season.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('season.index'))
+            ->get(route('intranet.season.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('season.create'))
+            ->get(route('intranet.season.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('season.index'))
+            ->get(route('intranet.season.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('season.create'))
+            ->get(route('intranet.season.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('season.index'))
+            ->get(route('intranet.season.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('season.create'))
+            ->get(route('intranet.season.create'))
             ->assertStatus(403);
     }
 
@@ -539,58 +539,58 @@ class AdminTest extends TestCase
      */
     public function theFreeDayPagesLoad()
     {
-        $this->get(route('free-day.index'))
+        $this->get(route('intranet.free-day.index'))
             ->assertRedirect('login');
 
-        $this->get(route('free-day.create'))
+        $this->get(route('intranet.free-day.create'))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('free-day.index'))
+            ->get(route('intranet.free-day.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->developer)
-            ->get(route('free-day.create'))
+            ->get(route('intranet.free-day.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('free-day.index'))
+            ->get(route('intranet.free-day.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('free-day.create'))
+            ->get(route('intranet.free-day.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('free-day.index'))
+            ->get(route('intranet.free-day.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('free-day.create'))
+            ->get(route('intranet.free-day.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('free-day.index'))
+            ->get(route('intranet.free-day.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('free-day.create'))
+            ->get(route('intranet.free-day.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('free-day.index'))
+            ->get(route('intranet.free-day.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('free-day.create'))
+            ->get(route('intranet.free-day.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('free-day.index'))
+            ->get(route('intranet.free-day.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('free-day.create'))
+            ->get(route('intranet.free-day.create'))
             ->assertStatus(403);
     }
 
@@ -604,31 +604,31 @@ class AdminTest extends TestCase
      */
     public function theStatisticsPageLoads()
     {
-        $this->get(route('statistics.index'))
+        $this->get(route('intranet.statistics.index'))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('statistics.index'))
+            ->get(route('intranet.statistics.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('statistics.index'))
+            ->get(route('intranet.statistics.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('statistics.index'))
+            ->get(route('intranet.statistics.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('statistics.index'))
+            ->get(route('intranet.statistics.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('statistics.index'))
+            ->get(route('intranet.statistics.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('statistics.index'))
+            ->get(route('intranet.statistics.index'))
             ->assertStatus(403);
     }
 }

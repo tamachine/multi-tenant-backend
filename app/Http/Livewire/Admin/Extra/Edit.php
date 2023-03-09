@@ -138,7 +138,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Extra "' . $this->name . '" edited');
 
-        return redirect()->route('extra.edit', $this->extra->hashid);
+        return redirect()->route('intranet.caren.edit', $this->extra->hashid);
     }
 
     public function deleteExtra()
@@ -148,7 +148,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', __('The extra has been deleted'));
 
-        return redirect()->route('extra.index');
+        return redirect()->route('intranet.caren.index');
     }
 
     public function render()

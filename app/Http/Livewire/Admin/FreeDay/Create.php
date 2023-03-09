@@ -65,7 +65,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Free day plan "' . $this->name . '" created');
 
-        return redirect()->route('free-day.index');
+        return redirect()->route('intranet.free-day.index');
     }
 
     public function render()

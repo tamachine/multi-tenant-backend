@@ -38,7 +38,7 @@ class DeveloperTest extends TestCase
     public function theGeneralDashboardLoads()
     {
         $this->actingAs($this->developer)
-            ->get(route('dashboard'))
+            ->get(route('intranet.dashboard'))
             ->assertStatus(200);
     }
 
@@ -53,58 +53,58 @@ class DeveloperTest extends TestCase
      */
     public function theDeveloperUserPagesLoad()
     {
-        $this->get(route('developer.user.index'))
+        $this->get(route('intranet.developer.user.index'))
             ->assertRedirect('login');
 
-        $this->get(route('developer.user.create'))
+        $this->get(route('intranet.developer.user.create'))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('developer.user.index'))
+            ->get(route('intranet.developer.user.index'))
             ->assertStatus(200);
 
         $this->actingAs($this->developer)
-            ->get(route('developer.user.create'))
+            ->get(route('intranet.developer.user.create'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('developer.user.index'))
+            ->get(route('intranet.developer.user.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('developer.user.create'))
+            ->get(route('intranet.developer.user.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->admin)
-            ->get(route('developer.user.index'))
+            ->get(route('intranet.developer.user.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->admin)
-            ->get(route('developer.user.create'))
+            ->get(route('intranet.developer.user.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('developer.user.index'))
+            ->get(route('intranet.developer.user.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('developer.user.create'))
+            ->get(route('intranet.developer.user.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('developer.user.index'))
+            ->get(route('intranet.developer.user.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('developer.user.create'))
+            ->get(route('intranet.developer.user.create'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('developer.user.index'))
+            ->get(route('intranet.developer.user.index'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('developer.user.create'))
+            ->get(route('intranet.developer.user.create'))
             ->assertStatus(403);
     }
 }

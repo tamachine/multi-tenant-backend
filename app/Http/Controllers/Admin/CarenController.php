@@ -14,7 +14,7 @@ class CarenController extends Controller
         $data = [
             'tab' => emptyOrNull($tab) ? 'vendors' : $tab,
             'crumbs' => [
-                'Settings' => route('settings')
+                'Settings' => route('intranet.settings')
             ]
         ];
 

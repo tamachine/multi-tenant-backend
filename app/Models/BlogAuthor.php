@@ -31,7 +31,7 @@ class BlogAuthor extends Model
      */
     public function getEditUrlAttribute()
     {
-        return route('blog.author.edit', $this->hashid);
+        return route('intranet.blog.author.edit', $this->hashid);
     }
 
     /**

@@ -51,7 +51,7 @@
                                     </td>
 
                                     <td class="px-6 py-4 text-sm font-medium">
-                                        <a href="{{route('location.edit', $location->hashid)}}" class="text-purple-700 hover:underline">
+                                        <a href="{{route('intranet.location.edit', $location->hashid)}}" class="text-purple-700 hover:underline">
                                             {{ $location->name }}
                                         </a>
                                     </td>

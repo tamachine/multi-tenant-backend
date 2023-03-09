@@ -94,7 +94,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Author "' . $this->name . '" created');
 
-        return redirect()->route('blog.author.edit', $author->hashid);
+        return redirect()->route('intranet.blog.author.edit', $author->hashid);
     }
 
     public function render()

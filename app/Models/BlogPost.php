@@ -41,7 +41,7 @@ class BlogPost extends Model
      */
     public function getEditUrlAttribute()
     {
-        return route('blog.post.edit', $this->hashid);
+        return route('intranet.blog.post.edit', $this->hashid);
     }
 
     /**

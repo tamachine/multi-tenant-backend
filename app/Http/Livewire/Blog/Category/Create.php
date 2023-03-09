@@ -52,7 +52,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Category "' . $this->name . '" created');
 
-        return redirect()->route('blog.category.edit', $category->hashid);
+        return redirect()->route('intranet.blog.category.edit', $category->hashid);
     }
 
     public function render()

@@ -24,7 +24,7 @@ class Create extends Base
         session()->flash('status', 'success');
         session()->flash('message', 'FAQ Category "' . $faqCategory->name .'" created succesfully');
 
-        return redirect()->route('content.faq-category.edit', $faqCategory);           
+        return redirect()->route('intranet.content.faq-category.edit', $faqCategory);           
     }    
 
     public function render()

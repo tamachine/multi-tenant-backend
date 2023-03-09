@@ -43,7 +43,7 @@ class DeleteTest extends TestCase
         // Delete
         Livewire::test(Edit::class, ['affiliate' => $affiliate])
             ->call('deleteAffiliate', $affiliate->hashid)
-            ->assertRedirect(route('booking.affiliate.index'));
+            ->assertRedirect(route('intranet.booking.affiliate.index'));
 
         // We should not see the affiliate
         Livewire::test(Index::class)

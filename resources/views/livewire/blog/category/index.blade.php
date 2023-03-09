@@ -26,7 +26,7 @@
                             @foreach ($categories as $index => $category)
                                 <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        <a href="{{route('blog.category.edit', $category->hashid)}}" class="text-purple-700 hover:underline">
+                                        <a href="{{route('intranet.blog.category.edit', $category->hashid)}}" class="text-purple-700 hover:underline">
                                             {{ $category->name }}
                                         </a>
                                     </td>

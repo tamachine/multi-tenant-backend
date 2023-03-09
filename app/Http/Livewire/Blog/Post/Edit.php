@@ -179,7 +179,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Post "' . $this->title . '" updated');
 
-        return redirect()->route('blog.post.index');
+        return redirect()->route('intranet.blog.post.index');
     }
 
     private function reloadImages()
@@ -226,7 +226,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', __('The post has been deleted'));
 
-        return redirect()->route('blog.post.index');
+        return redirect()->route('intranet.blog.post.index');
     }
 
     public function render()

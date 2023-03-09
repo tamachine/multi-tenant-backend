@@ -70,7 +70,7 @@ class Create extends Component
                 session()->flash('status', 'error');
                 session()->flash('message', 'No more vendors can be created for the moment');
 
-                return redirect()->route('vendor.index');
+                return redirect()->route('intranet.vendor.index');
             }
         }
     }
@@ -113,7 +113,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Vendor "' . $this->name . '" created');
 
-        return redirect()->route('vendor.edit', $vendor->hashid);
+        return redirect()->route('intranet.vendor.edit', $vendor->hashid);
     }
 
     public function render()

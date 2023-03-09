@@ -73,7 +73,7 @@ class Extras extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Extras added to ' . $this->car->name);
 
-        return redirect()->route('car.edit', ["car" => $this->car->hashid, "tab" => "extras"]);
+        return redirect()->route('intranet.car.edit', ["car" => $this->car->hashid, "tab" => "extras"]);
     }
 
     public function deleteExtra($id)
@@ -83,7 +83,7 @@ class Extras extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Deleted extra from ' . $this->car->name);
 
-        return redirect()->route('car.edit', ["car" => $this->car->hashid, "tab" => "extras"]);
+        return redirect()->route('intranet.car.edit', ["car" => $this->car->hashid, "tab" => "extras"]);
     }
 
     public function render()

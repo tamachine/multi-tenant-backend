@@ -91,7 +91,7 @@ class Images extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Images saved successfully');
 
-        return redirect()->route('car.edit', ["car" => $this->car->hashid, "tab" => "images"]);
+        return redirect()->route('intranet.car.edit', ["car" => $this->car->hashid, "tab" => "images"]);
     }
 
     public function checkMain($checkKey)

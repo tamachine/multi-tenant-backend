@@ -48,7 +48,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                     @if (!$vendor->vendor_id)
                                         <a
-                                            href="{{route('vendor.create', $vendor->id)}}"
+                                            href="{{route('intranet.vendor.create', $vendor->id)}}"
                                             class="inline-flex items-center px-4 py-2 bg-blue-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-white hover:border-blue-700 hover:text-blue-700 active:bg-white active:border-blue-700 active:text-blue-700 disabled:opacity-25 transition ease-in-out duration-150"
                                         >
                                             Create vendor

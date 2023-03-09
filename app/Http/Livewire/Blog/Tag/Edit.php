@@ -59,7 +59,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Tag "' . $this->name . '" updated');
 
-        return redirect()->route('blog.tag.index');
+        return redirect()->route('intranet.blog.tag.index');
     }
 
     public function deleteTag()
@@ -69,7 +69,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', __('The tag has been deleted'));
 
-        return redirect()->route('blog.tag.index');
+        return redirect()->route('intranet.blog.tag.index');
     }
 
     public function render()

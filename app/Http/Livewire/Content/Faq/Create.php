@@ -24,7 +24,7 @@ class Create extends Base
         session()->flash('status', 'success');
         session()->flash('message', 'FAQ "' . $faq->question .'" created succesfully');
 
-        return redirect()->route('content.faq.edit', $faq);           
+        return redirect()->route('intranet.content.faq.edit', $faq);           
     }    
 
     public function render()

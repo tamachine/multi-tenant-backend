@@ -77,7 +77,7 @@ class Index extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'User deleted successfully');
 
-        return redirect()->route('developer.user.index');
+        return redirect()->route('intranet.developer.user.index');
     }
 
     public function render()

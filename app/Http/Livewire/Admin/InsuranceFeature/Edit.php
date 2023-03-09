@@ -48,7 +48,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', __('The Insurance feature has been deleted'));
 
-        return redirect()->route('insurance-feature.index');
+        return redirect()->route('intranet.insurance-feature.index');
         
     }
 

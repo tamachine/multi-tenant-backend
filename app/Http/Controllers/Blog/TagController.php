@@ -14,11 +14,11 @@ class TagController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('blog.tag.create'),
+                'route' => route('intranet.blog.tag.create'),
                 'title' => 'Create Tag'
             ]),
             'crumbs' => [
-                'Blog' => route('blog.dashboard')
+                'Blog' => route('intranet.blog.dashboard')
             ]
         ];
 
@@ -31,12 +31,12 @@ class TagController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('blog.tag.index'),
+                'route' => route('intranet.blog.tag.index'),
                 'title' => 'Tags'
             ]),
             'crumbs' => [
-                'Blog' => route('blog.dashboard'),
-                'Tags' => route('blog.tag.index')
+                'Blog' => route('intranet.blog.dashboard'),
+                'Tags' => route('intranet.blog.tag.index')
             ],
         ];
 
@@ -52,12 +52,12 @@ class TagController extends Controller
         $data = [
             'tag' => $tag,
             'action' => collect([
-                'route' => route('blog.tag.index'),
+                'route' => route('intranet.blog.tag.index'),
                 'title' => 'Tags'
             ]),
             'crumbs' => [
-                'Blog' => route('blog.dashboard'),
-                'Tags' => route('blog.tag.index')
+                'Blog' => route('intranet.blog.dashboard'),
+                'Tags' => route('intranet.blog.tag.index')
             ],
         ];
 

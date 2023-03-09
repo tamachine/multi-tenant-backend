@@ -72,7 +72,7 @@ class Booking extends Model
      */
     public function getEditUrlAttribute()
     {
-        return route('booking.edit', $this->hashid);
+        return route('intranet.booking.edit', $this->hashid);
     }
 
     /**

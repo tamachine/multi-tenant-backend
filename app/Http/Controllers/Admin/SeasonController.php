@@ -14,11 +14,11 @@ class SeasonController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('season.create'),
+                'route' => route('intranet.season.create'),
                 'title' => 'Create Season'
             ]),
             'crumbs' => [
-                'Settings' => route('settings')
+                'Settings' => route('intranet.settings')
             ]
         ];
 
@@ -31,12 +31,12 @@ class SeasonController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('season.index'),
+                'route' => route('intranet.season.index'),
                 'title' => 'Seasons'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'Seasons' => route('season.index')
+                'Settings' => route('intranet.settings'),
+                'Seasons' => route('intranet.season.index')
             ],
         ];
 
@@ -53,12 +53,12 @@ class SeasonController extends Controller
             'season' => $season,
             'seasonName' => $season->name,
             'action' => collect([
-                'route' => route('season.index'),
+                'route' => route('intranet.season.index'),
                 'title' => 'Seasons'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'Seasons' => route('season.index')
+                'Settings' => route('intranet.settings'),
+                'Seasons' => route('intranet.season.index')
             ],
         ];
 

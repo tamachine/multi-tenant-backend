@@ -14,11 +14,11 @@ class LocationController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('location.create'),
+                'route' => route('intranet.location.create'),
                 'title' => 'Create Location'
             ]),
             'crumbs' => [
-                'Settings' => route('settings')
+                'Settings' => route('intranet.settings')
             ]
         ];
 
@@ -31,12 +31,12 @@ class LocationController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('location.index'),
+                'route' => route('intranet.location.index'),
                 'title' => 'Locations'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'Locations' => route('location.index')
+                'Settings' => route('intranet.settings'),
+                'Locations' => route('intranet.location.index')
             ],
             'caren_location' => $caren_location,
         ];
@@ -54,12 +54,12 @@ class LocationController extends Controller
             'location' => $location,
             'locationName' => $location->name,
             'action' => collect([
-                'route' => route('location.index'),
+                'route' => route('intranet.location.index'),
                 'title' => 'Locations'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'Locations' => route('location.index')
+                'Settings' => route('intranet.settings'),
+                'Locations' => route('intranet.location.index')
             ],
             'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];

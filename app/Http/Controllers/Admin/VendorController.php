@@ -14,11 +14,11 @@ class VendorController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('vendor.create'),
+                'route' => route('intranet.vendor.create'),
                 'title' => 'Create Vendor'
             ]),
             'crumbs' => [
-                'Settings' => route('settings')
+                'Settings' => route('intranet.settings')
             ]
         ];
 
@@ -31,12 +31,12 @@ class VendorController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('vendor.index'),
+                'route' => route('intranet.vendor.index'),
                 'title' => 'Vendors'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'Vendors' => route('vendor.index')
+                'Settings' => route('intranet.settings'),
+                'Vendors' => route('intranet.vendor.index')
             ],
             'caren_vendor' => $caren_vendor,
         ];
@@ -54,12 +54,12 @@ class VendorController extends Controller
             'vendor' => $vendor,
             'vendorName' => $vendor->name,
             'action' => collect([
-                'route' => route('vendor.index'),
+                'route' => route('intranet.vendor.index'),
                 'title' => 'Vendors'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'Vendors' => route('vendor.index')
+                'Settings' => route('intranet.settings'),
+                'Vendors' => route('intranet.vendor.index')
             ],
             'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];

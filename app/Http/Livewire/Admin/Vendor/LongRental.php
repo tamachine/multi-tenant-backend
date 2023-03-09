@@ -65,7 +65,7 @@ class LongRental extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Long Rental settings updated for ' . $this->vendor->name);
 
-        return redirect()->route('vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "long"]);
+        return redirect()->route('intranet.vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "long"]);
     }
 
     public function render()

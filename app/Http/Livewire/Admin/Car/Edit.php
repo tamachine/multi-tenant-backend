@@ -211,7 +211,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Car "' . $this->name . '" edited');
 
-        return redirect()->route('car.edit', $this->car->hashid);
+        return redirect()->route('intranet.car.edit', $this->car->hashid);
     }
 
     public function deleteCar()
@@ -221,7 +221,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', __('The car has been deleted'));
 
-        return redirect()->route('car.index');
+        return redirect()->route('intranet.car.index');
     }
 
     public function render()

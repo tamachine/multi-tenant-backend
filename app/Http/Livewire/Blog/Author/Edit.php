@@ -105,7 +105,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Author "' . $this->name . '" updated');
 
-        return redirect()->route('blog.author.index');
+        return redirect()->route('intranet.blog.author.index');
     }
 
     public function deleteAuthor()
@@ -115,7 +115,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', __('The author has been deleted'));
 
-        return redirect()->route('blog.author.index');
+        return redirect()->route('intranet.blog.author.index');
     }
 
     public function render()

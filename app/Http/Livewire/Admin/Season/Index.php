@@ -70,7 +70,7 @@ class Index extends Component
         session()->flash('status', 'success');
         session()->flash('message', __('The season "' . $origin->name . '" has been duplicated'));
 
-        return redirect()->route('season.index');
+        return redirect()->route('intranet.season.index');
     }
 
     public function deleteSeason($hashid, Season $season)
@@ -80,7 +80,7 @@ class Index extends Component
         session()->flash('status', 'success');
         session()->flash('message', __('The season has been deleted'));
 
-        return redirect()->route('season.index');
+        return redirect()->route('intranet.season.index');
     }
 
     public function render()

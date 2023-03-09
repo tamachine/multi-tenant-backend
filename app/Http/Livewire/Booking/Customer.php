@@ -216,7 +216,7 @@ class Customer extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'TThe customer information has been saved');
 
-        return redirect()->route('booking.edit', ["booking" => $this->booking->hashid, "tab" => "customer"]);
+        return redirect()->route('intranet.booking.edit', ["booking" => $this->booking->hashid, "tab" => "customer"]);
     }
 
     public function render()

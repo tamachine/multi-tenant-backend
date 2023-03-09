@@ -42,7 +42,7 @@ class DeleteTest extends TestCase
         // Delete
         Livewire::test(Edit::class, ['location' => $location->hashid])
             ->call('deleteLocation', $location->hashid)
-            ->assertRedirect(route('location.index'));
+            ->assertRedirect(route('intranet.location.index'));
 
         // We should not see the location
         Livewire::test(Index::class)

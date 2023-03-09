@@ -59,7 +59,7 @@ class LinkedAffiliate extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'The affiliate has been added to the booking.');
 
-        return redirect()->route('booking.edit', ["booking" => $this->booking->hashid, "tab" => "affiliate"]);
+        return redirect()->route('intranet.booking.edit', ["booking" => $this->booking->hashid, "tab" => "affiliate"]);
     }
 
     public function deleteAffiliate($hashid)
@@ -77,7 +77,7 @@ class LinkedAffiliate extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'The affiliate has been removed from the booking.');
 
-        return redirect()->route('booking.edit', ["booking" => $this->booking->hashid, "tab" => "affiliate"]);
+        return redirect()->route('intranet.booking.edit', ["booking" => $this->booking->hashid, "tab" => "affiliate"]);
     }
 
     public function render()
