@@ -173,5 +173,25 @@ class ContactSeeder extends Seeder
                 'text' => ['en' => 'Thank you for subscribing to our newsletter', 'es' => 'Gracias por suscribirte a nuestro newsletter'],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'contact',
+                'key' => 'faq_title',
+            ],
+            [
+                'text' => ['en' => 'Can\'t find what you\'re looking for?', 'es' => '¿No encuentras lo que buscas?'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'contact',
+                'key' => 'faq_subtitle',
+            ],
+            [
+                'text' => ['en' => 'Get into touch with your question and we’ll get back to you as soon as possible.', 'es' => 'Contacta con nosotros y te contestaremos tan pronto como podamos'],
+            ]
+        );
     }
 }

@@ -3092,6 +3092,10 @@ h5 {
     width: 388px;    
 }
 
+.w-60 {
+    width: 15rem;    
+}
+
 .w-16 {
     width: 4rem;    
 }
@@ -3134,10 +3138,6 @@ h5 {
 
 .w-12 {
     width: 3rem;    
-}
-
-.w-60 {
-    width: 15rem;    
 }
 
 .min-w-0 {
