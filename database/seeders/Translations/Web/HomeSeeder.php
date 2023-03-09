@@ -440,8 +440,8 @@ class HomeSeeder extends Seeder
             ],
             [
                 'text' => [
-                    'en' => "info@carsiceland.com",
-                    "es" => "info@carsiceland.com"
+                    'en' => "info@reykjavikauto.com",
+                    "es" => "info@reykjavikauto.com"
                 ],
             ]
         );

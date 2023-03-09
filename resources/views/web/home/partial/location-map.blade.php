@@ -60,7 +60,7 @@
                 >
             </div>
             <div class="font-sans-medium font-medium">
-                <div class="text-yellow-ci text-xl md:text-xl pt-7 pb-5 text-center md:text-left">{!! __('home.location-map-hours-title') !!}</div>
+                <div class="text-pink-red text-xl md:text-xl pt-7 pb-5 text-center md:text-left">{!! __('home.location-map-hours-title') !!}</div>
                 <div
                     class="
                         grid md:grid-cols-4 grid-cols-1 justify-between gap-y-2

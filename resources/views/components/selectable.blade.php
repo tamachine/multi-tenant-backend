@@ -22,8 +22,8 @@
                             @mouseleave="focusedOptionIndex = null"
                             role="option"
                             :aria-selected="focusedOptionIndex === index"
-                            :class="{ 'text-yellow-ci': index === focusedOptionIndex, 'text-black-primary': index !== focusedOptionIndex }"
-                            class="py-2 hover:text-yellow-ci cursor-pointer"
+                            :class="{ 'text-pink-red': index === focusedOptionIndex, 'text-black-primary': index !== focusedOptionIndex }"
+                            class="py-2 hover:text-pink-red cursor-pointer"
                             x-text="Object.values(options)[index]"
                             >
                         </li>

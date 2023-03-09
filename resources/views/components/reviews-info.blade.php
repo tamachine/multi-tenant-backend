@@ -12,7 +12,7 @@
 
     <div class="flex flex-col items-center ">
         <div class="text-black-primary">
-            <span class="text-yellow-ci text-2xl md:text-3xl font-fredoka-bold">{{ $reviewInfoComponent->getNote() }}</span>
+            <span class="text-pink-red text-2xl md:text-3xl font-fredoka-bold">{{ $reviewInfoComponent->getNote() }}</span>
             <span class="md:text-2xl text-lg font-fredoka">{{ __('reviews.of') }} {{ $reviewInfoComponent->getMaxNote() }}</span>
         </div>
         <div class="hidden md:inline-block">

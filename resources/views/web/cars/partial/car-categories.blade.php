@@ -16,15 +16,15 @@
             <div
                 class=" w-44 h-24 rounded-t-md flex justify-center
                 transition ease-in-out group-hover:bg-pink-red-secondary duration-300"
-                :class="{ 'bg-pink-red-secondary border border-yellow-ci' : active, 'bg-[#F2F2F2]' : !active }"
+                :class="{ 'bg-pink-red-secondary border border-pink-red' : active, 'bg-[#F2F2F2]' : !active }"
                 >
                 <img class="py-5 " src="{{ $CarType->imagePath }}" />
             </div>
             <div
                 class="
                 py-2 w-full text-center rounded-b
-                transition ease-in-out group-hover:bg-yellow-ci group-hover:text-white duration-300"
-                :class="{ 'bg-yellow-ci text-white' : active }"
+                transition ease-in-out group-hover:bg-pink-red group-hover:text-white duration-300"
+                :class="{ 'bg-pink-red text-white' : active }"
                 >
                 {{ $CarType->getTextTranslated() }}
             </div>

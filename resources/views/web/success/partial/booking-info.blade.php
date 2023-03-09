@@ -65,7 +65,7 @@
                         {{$insurance['name']}}
                     </div>
 
-                    <div class="font-sans-medium font-medium text-xl {{$insurance['price'] > 0 ? 'text-black-ci' : 'text-yellow-ci'}}">
+                    <div class="font-sans-medium font-medium text-xl {{$insurance['price'] > 0 ? 'text-black-ci' : 'text-pink-red'}}">
                         @if ($insurance['price'] > 0)
                             {{formatPrice($insurance['price'])}}
                         @else
@@ -88,7 +88,7 @@
                     {{$includedExtra['name']}}
                 </div>
 
-                <div class="font-sans-medium font-medium text-xl text-yellow-ci">
+                <div class="font-sans-medium font-medium text-xl text-pink-red">
                     {!! __('summary.free') !!}
                 </div>
             </div>
@@ -100,7 +100,7 @@
                     {{$chosenExtra['name']}}
                 </div>
 
-                <div class="font-sans-medium font-medium text-xl {{$chosenExtra['price'] > 0 ? 'text-black-ci' : 'text-yellow-ci'}}">
+                <div class="font-sans-medium font-medium text-xl {{$chosenExtra['price'] > 0 ? 'text-black-ci' : 'text-pink-red'}}">
                     @if ($chosenExtra['price'] > 0)
                         {{formatPrice($chosenExtra['price'])}}
                     @else
@@ -135,11 +135,11 @@
         @endif
 
         <div class="mt-2 flex justify-between bg-[#d9d9d94d] rounded-md p-4 items-center">
-            <div class="font-sans-medium font-medium text-xl text-yellow-ci">
+            <div class="font-sans-medium font-medium text-xl text-pink-red">
                 {!! __('summary.paid-now') !!} ({{$percentage}} %)
             </div>
 
-            <div class="font-sans-bold font-bold text-[26px] text-yellow-ci">
+            <div class="font-sans-bold font-bold text-[26px] text-pink-red">
                 {{formatPrice($payNow)}}
             </div>
         </div>

@@ -8,11 +8,11 @@
         <div class="flex flex-row gap-6">
             <div class="flex flex-col pl-16 pb-6 mt-4 w-full font-sans-medium">
                 <div class="flex flex-row justify-start mb-7 border-b gap-12">
-                    <a class="px-4 pb-1 hover:border-yellow-ci border-transparent border-b-2"
-                        href="#" @click.prevent="tab='#sameLocation'" :class="{ 'border-yellow-ci': tab == '#sameLocation' }">{!! __('car-search-bar.same') !!}</a>
+                    <a class="px-4 pb-1 hover:border-pink-red border-transparent border-b-2"
+                        href="#" @click.prevent="tab='#sameLocation'" :class="{ 'border-pink-red': tab == '#sameLocation' }">{!! __('car-search-bar.same') !!}</a>
 
-                    <a class="px-4 pb-1 hover:border-yellow-ci border-transparent border-b-2"
-                        href="#" @click.prevent="tab='#differentLocation'" :class="{ 'border-yellow-ci': tab == '#differentLocation' }">{!! __('car-search-bar.different') !!}</a>
+                    <a class="px-4 pb-1 hover:border-pink-red border-transparent border-b-2"
+                        href="#" @click.prevent="tab='#differentLocation'" :class="{ 'border-pink-red': tab == '#differentLocation' }">{!! __('car-search-bar.different') !!}</a>
                 </div>
 
                 <div>

@@ -1,5 +1,5 @@
 <footer class="pt-28 md:pt-36">
-    <div class="max-w-6xl mx-auto px-10 pb-5 md:pb-0 text-yellow-ci text-5xl md:text-8xl text-center md:text-left font-semibold leading-[50px] md:leading-[110px] font-fredoka-semibold">
+    <div class="max-w-6xl mx-auto px-10 pb-5 md:pb-0 text-pink-red text-5xl md:text-8xl text-center md:text-left font-semibold leading-[50px] md:leading-[110px] font-fredoka-semibold">
         {!! __('footer.title') !!}
     </div>
     <div
@@ -11,7 +11,7 @@
                     <div class="w-96 px-10 md:text-left text-center mx-auto md:mx-0">
                         <span>{!! __('footer.text') !!}</span>
                         <div class="flex gap-4 pt-7 md:pt-3 justify-center md:justify-start">
-                            <x-social color="yellow"/>
+                            <x-social color="red"/>
                         </div>
                     </div>
                 </div>
@@ -60,8 +60,8 @@
                 px-3 md:px-[14px] pb-10 md:pb-7"
                 >
                 <div class="flex flex-col">
-                    <img src="{{ asset('images/cars-iceland-logo.png') }}" class="w-[120px]" alt="{{ __('general.brand') }}" />
-                    <div class="mt-2 text-sm text-[#8c8c8c] hidden md:block">{!! __('footer.copyright') !!}</div>
+                    <div class="font-fredokaOne text-3xl text-pink-red">{{ __('general.brand') }}</div>
+                    <div class="text-sm text-[#8c8c8c] hidden md:block">{!! __('footer.copyright') !!}</div>
                 </div>
                 <div class="flex gap-4 justify-end md:justify-center">
                     <x-social color="white"/>

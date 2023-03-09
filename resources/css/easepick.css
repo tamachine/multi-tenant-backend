@@ -28,7 +28,7 @@
 }
 
 .calendar>.daynames-row>.dayname {
-    @apply text-yellow-ci text-base leading-5;
+    @apply text-pink-red text-base leading-5;
 }
 
 .calendar>.days-grid {
@@ -69,7 +69,7 @@
     @apply
         content-[attr(data-day)]
         border-none rounded-md
-        bg-yellow-ci text-[28px] font-medium text-white
+        bg-pink-red text-[28px] font-medium text-white
         left-0 right-0 mx-auto w-full h-[150%]
         flex justify-center items-center ;
 }

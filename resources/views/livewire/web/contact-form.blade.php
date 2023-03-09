@@ -46,7 +46,7 @@
 
     <!-- Submit -->
     <div class="w-full px-4 mt-4">
-        <button class="w-48 rounded-lg text-white font-sans-bold py-4 text-lg bg-yellow-ci hover:bg-black-ci disabled:bg-[#B1B5C3]"
+        <button class="w-48 rounded-lg text-white font-sans-bold py-4 text-lg bg-pink-red hover:bg-black-ci disabled:bg-[#B1B5C3]"
             wire:click="send"
         >
             {{ __('contact.submit') }}

@@ -1,5 +1,5 @@
 <div x-data="{ open: false }" class="w-full text-xl">
-    <div @click.prevent="open = ! open" class="flex text-xl gap-6 items-center" :class="{ 'text-yellow-ci text-xl md:text-[22px]': open }">
+    <div @click.prevent="open = ! open" class="flex text-xl gap-6 items-center" :class="{ 'text-pink-red text-xl md:text-[22px]': open }">
         <span class="font-sans-medium font-medium">{{ $question }}</span>
         <div class="ml-auto cursor-pointer">
             <i class="fa fa-minus" x-show="open"></i>

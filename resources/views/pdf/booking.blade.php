@@ -10,13 +10,13 @@
 
             <div class="ml-4 leading-tight">
                 <span class="text-xs font-bold">
-                    Cars Iceland
+                    Reykjavik Auto
                 </span>
                 <br>
                 <span class="text-xs">
-                    +354 497 1216 - info@carsiceland.com - www.carsiceland.com
+                    +354 5390605 - info@reykjavikauto.com - www.reykjavikauto.com
                     <br>
-                    Be Local Buy Local - Keflavik Airport (Iceland) - SSN: 680513-1630
+                    Travel to Iceland ehf. - Flugvellir 6, 230 Keflavik (Iceland) - SSN: 680513-1630
                 </span>
             </div>
         </div>
@@ -24,7 +24,7 @@
         <hr class="bg-black h-0.5 my-4">
 
         <div class="text-center text-xl font-bold">
-            Thank you for booking with Cars Iceland
+            Thank you for booking with Reykjavik Auto
         </div>
 
         <div class="mt-8 text-lg font-bold">

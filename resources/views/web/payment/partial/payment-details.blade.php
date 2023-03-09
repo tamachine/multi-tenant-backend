@@ -1,9 +1,9 @@
 <div class="mt-16" wire:ignore>
-    <h3 class="hidden lg:block text-left text-yellow-ci">
+    <h3 class="hidden lg:block text-left text-pink-red">
         {!! __('payment.payment-details') !!}
     </h3>
 
-    <h3 class="block lg:hidden text-center font-fredoka-semibold text-yellow-ci text-2xl">
+    <h3 class="block lg:hidden text-center font-fredoka-semibold text-pink-red text-2xl">
         {!! __('payment.payment-details') !!}
     </h3>
 

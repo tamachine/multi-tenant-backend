@@ -14,7 +14,7 @@
             @endif
 
             <div
-                class="absolute bottom-5 right-5 bg-white px-2 py-1 rounded-md border border-[#E7ECF3] text-xs cursor-pointer hover:bg-black hover:text-white hover:border-yellow-ci group">
+                class="absolute bottom-5 right-5 bg-white px-2 py-1 rounded-md border border-[#E7ECF3] text-xs cursor-pointer hover:bg-black hover:text-white hover:border-pink-red group">
                 <span>{{ __('cars.card-quick-look') }}</span> <img class="inline group-hover:hidden"
                     src="{{ asset('images/icons/eye.svg') }}" /> <img class="hidden group-hover:inline"
                     src="{{ asset('images/icons/eye-white.svg') }}" />

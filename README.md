@@ -1,7 +1,7 @@
 # Getting started
 
 ## Description
-New Cars Iceland site (Intergalactic spaceship)
+New Reykjavik Auto site (Intergalactic spaceship)
 
 ## Pre requisites
 This project is using PHP 8.1 with TALL stack (Tailwind 3, Alpine, Livewire and Laravel 9) and Laravel mix 6

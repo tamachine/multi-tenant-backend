@@ -13,8 +13,8 @@
     <input type="text" x-model="value" class="hidden"/>
     <div class="relative group">
         <div
-            class="flex justify-between gap-1 md:gap-5 border-gray-secondary border p-3 group-hover:bg-yellow-ci-secondary"
-            :class="{ 'rounded-t-lg': show, 'rounded-lg': !show,'bg-yellow-ci-secondary': isSelected }"
+            class="flex justify-between gap-1 md:gap-5 border-gray-secondary border p-3 group-hover:bg-pink-red-secondary"
+            :class="{ 'rounded-t-lg': show, 'rounded-lg': !show,'bg-pink-red-secondary': isSelected }"
             x-on:click="toggleVisibility()"
             >
             <div class="flex gap-2 justify-center items-center">
@@ -38,7 +38,7 @@
                         wire:click="{{ isset($itemWireClickEvent) ? $itemWireClickEvent.'('.$selectableFullComponent->toJson().','.$selectableFullItem->toJson().')' : '' }}"
                         class="
                             py-2 pl-9
-                            transition ease-in-out hover:bg-yellow-ci hover:text-white duration-300
+                            transition ease-in-out hover:bg-pink-red hover:text-white duration-300
                             "
                     >
                     {!! $selectableFullItem->text !!}

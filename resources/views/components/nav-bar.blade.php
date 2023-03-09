@@ -1,6 +1,8 @@
 <nav x-data="visibilitySelector()" @languageSelector-show="show()" class="max-w-7xl mx-auto flex items-center justify-between flex-wrap p-3 md:px-4 md:py-5 border md:border-0 border-[#E7ECF3] bg-white relative z-50">
-    <div class="cursor-pointer" onclick='window.location.href="{{route("home")}}"'>
-        <img src="{{ asset('images/cars-iceland-logo.png') }}" alt="{{ __('general.brand') }}" />
+    <div class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-3xl leading-9 cursor-pointer"
+        onclick='window.location.href="{{route("home")}}"'
+    >
+        {{ __('general.brand') }}
     </div>
 
     {{-- mobile --}}
@@ -23,11 +25,11 @@
     {{-- desktop --}}
     <div class="hidden md:flex items-center divide-x gap-10">
         <div class="flex items-end justify-between flex-wrap gap-10 text-lg font-sans-medium">
-            <a href="{{ route('cars') }}" class="hover:text-yellow-ci">{!! __('navbar.cars') !!}</a>
-            <a href="{{ route('about') }}" class="hover:text-yellow-ci">{!! __('navbar.about') !!}</a>
-            <a href="{{ route('faq') }}" class="hover:text-yellow-ci">{!! __('navbar.faq') !!}</a>
-            <a href="#" class="hover:text-yellow-ci">{!! __('navbar.blog') !!}</a>
-            <a href="{{ route('contact') }}" class="hover:text-yellow-ci">{!! __('navbar.contact') !!}</a>
+            <a href="{{ route('cars') }}" class="hover:text-pink-red">{!! __('navbar.cars') !!}</a>
+            <a href="{{ route('about') }}" class="hover:text-pink-red">{!! __('navbar.about') !!}</a>
+            <a href="{{ route('faq') }}" class="hover:text-pink-red">{!! __('navbar.faq') !!}</a>
+            <a href="#" class="hover:text-pink-red">{!! __('navbar.blog') !!}</a>
+            <a href="{{ route('contact') }}" class="hover:text-pink-red">{!! __('navbar.contact') !!}</a>
         </div>
         <div class="pl-5 text-sm font-medium flex items-center gap-1" x-on:click="toggle()">
             <img class="inline" src='{{ asset("/images/currencies/dollar.svg") }}' />
@@ -78,7 +80,7 @@
                             <button class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-[#E7ECF3] cursor-pointer">{!! __('navbar.cars-button') !!}</button>
                         </div>
                     </div>
-                    <div class="text-center text-yellow-ci font-fredoka font-semibold text-[26px] py-5 h-full flex items-center justify-center">
+                    <div class="text-center text-pink-red font-fredoka font-semibold text-[26px] py-5 h-full flex items-center justify-center">
                         {!! __('navbar.cars-title') !!}
                     </div>
                 </div>
@@ -113,7 +115,7 @@
             </div>
         </div>
 
-        <div class="bg-yellow-ci w-full h-5"></div>
+        <div class="bg-pink-red w-full h-5"></div>
         <div class="bg-black-primary w-full h-5"></div>
     </div>
 

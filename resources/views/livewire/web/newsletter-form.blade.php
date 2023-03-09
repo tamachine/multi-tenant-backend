@@ -13,7 +13,7 @@
             wire:model.defer="newsletter_email" autocomplete="email" placeholder="{{ __('contact.newsletter_placeholder') }}"
         />
 
-        <button class="h-12 mt-4 px-2 rounded-lg text-white font-sans-bold text-lg bg-yellow-ci hover:bg-black-ci disabled:bg-[#B1B5C3]"
+        <button class="h-12 mt-4 px-2 rounded-lg text-white font-sans-bold text-lg bg-pink-red hover:bg-black-ci disabled:bg-[#B1B5C3]"
             wire:click="send"
         >
             {{ __('contact.newsletter_subscribe') }}

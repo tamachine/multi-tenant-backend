@@ -1,9 +1,9 @@
 <div class="mt-16 w-[280px] mx-auto lg:w-full lg:mx-0">
-    <h3 class="hidden lg:block text-left text-yellow-ci">
+    <h3 class="hidden lg:block text-left text-pink-red">
         {!! __('payment.additional-information') !!}
     </h3>
 
-    <h3 class="block lg:hidden text-center font-fredoka-semibold text-yellow-ci text-2xl">
+    <h3 class="block lg:hidden text-center font-fredoka-semibold text-pink-red text-2xl">
         {!! __('payment.additional-information') !!}
     </h3>
 
@@ -21,14 +21,14 @@
         />
         <label for="agree" class="ml-2 font-sans-bold text-base">
             {!! __('payment.i-agree') !!}
-            <a class="text-yellow-ci" href="#">
+            <a class="text-pink-red" href="#">
                 {!! __('payment.t-and-c') !!}
             </a>
         </label>
     </div>
 
     <div class="mt-8 xl:hidden">
-        <button class="w-full rounded-lg text-white font-sans-bold py-4 text-lg bg-yellow-ci hover:bg-black-ci disabled:bg-[#B1B5C3]"
+        <button class="w-full rounded-lg text-white font-sans-bold py-4 text-lg bg-pink-red hover:bg-black-ci disabled:bg-[#B1B5C3]"
             wire:click="continue"
         >
             {!! __('summary.reserve-now') !!}
