@@ -104,7 +104,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Vendor "' . $this->name .'" edited');
 
-        return redirect()->route('vendor.edit', $this->vendor->hashid);
+        return redirect()->route('intranet.vendor.edit', $this->vendor->hashid);
     }
 
     public function uploadLogo()
@@ -131,7 +131,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Logo uploaded for ' . $this->name);
 
-        return redirect()->route('vendor.edit', $this->vendor->hashid);
+        return redirect()->route('intranet.vendor.edit', $this->vendor->hashid);
     }
 
     public function deleteVendor()
@@ -146,7 +146,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', __('The vendor has been deleted'));
 
-        return redirect()->route('vendor.index');
+        return redirect()->route('intranet.vendor.index');
     }
 
     public function render()

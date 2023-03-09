@@ -40,7 +40,7 @@ class AffiliateUserTest extends TestCase
     public function theGeneralDashboardDoesNotLoad()
     {
         $this->actingAs($this->affiliateUser)
-            ->get(route('dashboard'))
+            ->get(route('intranet.dashboard'))
             ->assertStatus(403);
     }
 
@@ -54,31 +54,31 @@ class AffiliateUserTest extends TestCase
      */
     public function theAffiliateUserDashboardLoads()
     {
-        $this->get(route('affiliate.dashboard'))
+        $this->get(route('intranet.affiliate.dashboard'))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('affiliate.dashboard'))
+            ->get(route('intranet.affiliate.dashboard'))
             ->assertStatus(403);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('affiliate.dashboard'))
+            ->get(route('intranet.affiliate.dashboard'))
             ->assertStatus(403);
 
         $this->actingAs($this->admin)
-            ->get(route('affiliate.dashboard'))
+            ->get(route('intranet.affiliate.dashboard'))
             ->assertStatus(403);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('affiliate.dashboard'))
+            ->get(route('intranet.affiliate.dashboard'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('affiliate.dashboard'))
+            ->get(route('intranet.affiliate.dashboard'))
             ->assertStatus(403);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('affiliate.dashboard'))
+            ->get(route('intranet.affiliate.dashboard'))
             ->assertStatus(200);
     }
 }

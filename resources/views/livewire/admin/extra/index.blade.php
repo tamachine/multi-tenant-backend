@@ -84,7 +84,7 @@
                                     @endif
 
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        <a href="{{route('extra.edit', $extra->hashid)}}" class="text-purple-700 hover:underline">
+                                        <a href="{{route('intranet.caren.edit', $extra->hashid)}}" class="text-purple-700 hover:underline">
                                             {{ $extra->name }}
                                         </a>
                                     </td>

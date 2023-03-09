@@ -17,7 +17,7 @@
                             @foreach ($insurance_features as $index => $insurance_feature)                               
                                 <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">                                    
                                     <td class="px-6 py-4 text-sm font-medium">     
-                                        <a href="{{route('insurance-feature.edit', [ $insurance_feature, 'search' => $search ])}}" class="text-purple-700 hover:underline">
+                                        <a href="{{route('intranet.insurance-feature.edit', [ $insurance_feature, 'search' => $search ])}}" class="text-purple-700 hover:underline">
                                         {{$insurance_feature->name}}                                                                                                            
                                         </a>
                                     </td>                                                           

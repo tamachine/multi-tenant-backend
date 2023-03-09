@@ -75,7 +75,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Post "' . $this->title . '" created');
 
-        return redirect()->route('blog.post.edit', $post->hashid);
+        return redirect()->route('intranet.blog.post.edit', $post->hashid);
     }
 
     public function render()

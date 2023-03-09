@@ -15,7 +15,7 @@ class TranslationController extends Controller
         
         $data = [                       
             'crumbs' => [
-                'Content & SEO' => route('content.dashboard')
+                'Content & SEO' => route('intranet.content.dashboard')
             ]
         ];
 
@@ -28,12 +28,12 @@ class TranslationController extends Controller
 
         $data = [      
             'action' => collect([
-                'route' => route('content.translation.index', ['search' => $request->query('search')]),
+                'route' => route('intranet.content.translation.index', ['search' => $request->query('search')]),
                 'title' => 'Translations'
             ]),                 
             'crumbs' => [
-                'Content & SEO' => route('content.dashboard'),
-                'Translations'  => route('content.translation.index', ['search' => $request->query('search')])
+                'Content & SEO' => route('intranet.content.dashboard'),
+                'Translations'  => route('intranet.content.translation.index', ['search' => $request->query('search')])
             ],
             'translation' => $translation
         ];

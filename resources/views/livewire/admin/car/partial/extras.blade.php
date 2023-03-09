@@ -31,7 +31,7 @@
                                     </td>
 
                                     <td class="px-4 py-2 whitespace-nowrap">
-                                        <a href="{{route('extra.edit', $record["id"])}}" target="_blank"
+                                        <a href="{{route('intranet.caren.edit', $record["id"])}}" target="_blank"
                                             class="text-purple-700 hover:underline"
                                         >
                                             {{$record["name"]}}

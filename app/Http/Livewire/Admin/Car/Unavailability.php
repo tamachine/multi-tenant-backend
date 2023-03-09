@@ -71,7 +71,7 @@ class Unavailability extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Added unavailable dates for ' . $this->car->name);
 
-        return redirect()->route('car.edit', ["car" => $this->car->hashid, "tab" => "unavailability"]);
+        return redirect()->route('intranet.car.edit', ["car" => $this->car->hashid, "tab" => "unavailability"]);
     }
 
     public function editDate($key)
@@ -95,7 +95,7 @@ class Unavailability extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Edited unavailable dates for ' . $this->car->name);
 
-        return redirect()->route('car.edit', ["car" => $this->car->hashid, "tab" => "unavailability"]);
+        return redirect()->route('intranet.car.edit', ["car" => $this->car->hashid, "tab" => "unavailability"]);
     }
 
     public function deleteDate($key)
@@ -107,7 +107,7 @@ class Unavailability extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Deleted unavailable dates for ' . $this->car->name);
 
-        return redirect()->route('car.edit', ["car" => $this->car->hashid, "tab" => "unavailability"]);
+        return redirect()->route('intranet.car.edit', ["car" => $this->car->hashid, "tab" => "unavailability"]);
     }
 
     public function render()

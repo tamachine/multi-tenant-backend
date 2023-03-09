@@ -107,7 +107,7 @@ class Holidays extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Added holidays for ' . $this->vendor->name);
 
-        return redirect()->route('vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "holidays"]);
+        return redirect()->route('intranet.vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "holidays"]);
     }
 
     public function editHolidays($key)
@@ -126,7 +126,7 @@ class Holidays extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Edited holidays for ' . $this->vendor->name);
 
-        return redirect()->route('vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "holidays"]);
+        return redirect()->route('intranet.vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "holidays"]);
     }
 
     public function deleteHolidays($key)
@@ -138,7 +138,7 @@ class Holidays extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Deleted holidays for ' . $this->vendor->name);
 
-        return redirect()->route('vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "holidays"]);
+        return redirect()->route('intranet.vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "holidays"]);
     }
 
     public function render()

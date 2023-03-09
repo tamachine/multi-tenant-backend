@@ -13,7 +13,7 @@ class ApiController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('developer.user.create'),
+                'route' => route('intranet.developer.user.create'),
                 'title' => 'Create developer user'
             ]),
         ];

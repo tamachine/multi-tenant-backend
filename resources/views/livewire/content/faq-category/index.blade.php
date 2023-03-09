@@ -18,7 +18,7 @@
                             @foreach ($categories as $index => $category)
                                 <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">                                    
                                     <td class="px-6 py-4 text-sm font-medium">     
-                                        <a href="{{route('content.faq-category.edit', [ $category, 'search' => $search ])}}" class="text-purple-700 hover:underline">
+                                        <a href="{{route('intranet.content.faq-category.edit', [ $category, 'search' => $search ])}}" class="text-purple-700 hover:underline">
                                             {!! highlightTerm($category->name, $search) !!}                                                                                                             
                                         </a>
                                     </td>                                                           

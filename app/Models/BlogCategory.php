@@ -31,7 +31,7 @@ class BlogCategory extends Model
      */
     public function getEditUrlAttribute()
     {
-        return route('blog.category.edit', $this->hashid);
+        return route('intranet.blog.category.edit', $this->hashid);
     }
 
     /**********************************

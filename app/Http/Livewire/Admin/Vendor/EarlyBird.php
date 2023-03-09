@@ -65,7 +65,7 @@ class EarlyBird extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Early Bird settings updated for ' . $this->vendor->name);
 
-        return redirect()->route('vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "early"]);
+        return redirect()->route('intranet.vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "early"]);
     }
 
     public function render()

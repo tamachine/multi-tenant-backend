@@ -2,7 +2,7 @@
     <div class="bg-white p-4 sm:p-10 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
         @if ($booking->affiliate)
             Current affiliate:
-            <a href="{{route('booking.affiliate.edit', $booking->affiliate->hashid)}}"  target="_blank"
+            <a href="{{route('intranet.booking.affiliate.edit', $booking->affiliate->hashid)}}"  target="_blank"
                 class="text-purple-700 hover:underline"
             >
                 {{ $booking->affiliate->name }}

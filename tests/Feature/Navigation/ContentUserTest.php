@@ -38,7 +38,7 @@ class ContentUserTest extends TestCase
     public function theGeneralDashboardLoads()
     {
         $this->actingAs($this->bookingAgent)
-            ->get(route('dashboard'))
+            ->get(route('intranet.dashboard'))
             ->assertStatus(200);
     }
 
@@ -52,31 +52,31 @@ class ContentUserTest extends TestCase
      */
     public function theContentUserDashboardLoads()
     {
-        $this->get(route('content.dashboard'))
+        $this->get(route('intranet.content.dashboard'))
             ->assertRedirect('login');
 
         $this->actingAs($this->developer)
-            ->get(route('content.dashboard'))
+            ->get(route('intranet.content.dashboard'))
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
-            ->get(route('content.dashboard'))
+            ->get(route('intranet.content.dashboard'))
             ->assertStatus(200);
 
         $this->actingAs($this->admin)
-            ->get(route('content.dashboard'))
+            ->get(route('intranet.content.dashboard'))
             ->assertStatus(200);
 
         $this->actingAs($this->bookingAgent)
-            ->get(route('content.dashboard'))
+            ->get(route('intranet.content.dashboard'))
             ->assertStatus(403);
 
         $this->actingAs($this->contentUser)
-            ->get(route('content.dashboard'))
+            ->get(route('intranet.content.dashboard'))
             ->assertStatus(200);
 
         $this->actingAs($this->affiliateUser)
-            ->get(route('content.dashboard'))
+            ->get(route('intranet.content.dashboard'))
             ->assertStatus(403);
     }
 }

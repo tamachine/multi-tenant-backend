@@ -52,7 +52,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Tag "' . $this->name . '" created');
 
-        return redirect()->route('blog.tag.edit', $tag->hashid);
+        return redirect()->route('intranet.blog.tag.edit', $tag->hashid);
     }
 
     public function render()

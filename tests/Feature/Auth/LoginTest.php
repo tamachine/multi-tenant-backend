@@ -29,7 +29,7 @@ class LoginTest extends TestCase
         $this->be($user);
 
         $this->get(route('login'))
-            ->assertRedirect(route('dashboard'));
+            ->assertRedirect(route('intranet.dashboard'));
     }
 
     /** @test */
@@ -67,7 +67,7 @@ class LoginTest extends TestCase
             ->set('username_email', $user->email)
             ->set('password', 'password')
             ->call('authenticate')
-            ->assertRedirect(route('dashboard'));
+            ->assertRedirect(route('intranet.dashboard'));
     }
 
     /** @test */

@@ -13,11 +13,11 @@ class FreeDayController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('free-day.create'),
+                'route' => route('intranet.free-day.create'),
                 'title' => 'Create Free day plan'
             ]),
             'crumbs' => [
-                'Settings' => route('settings')
+                'Settings' => route('intranet.settings')
             ]
         ];
 
@@ -30,12 +30,12 @@ class FreeDayController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('free-day.index'),
+                'route' => route('intranet.free-day.index'),
                 'title' => 'Free day plans'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'Free Day Plans' => route('extra.index')
+                'Settings' => route('intranet.settings'),
+                'Free Day Plans' => route('intranet.caren.index')
             ],
         ];
 

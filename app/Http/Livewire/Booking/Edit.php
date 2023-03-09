@@ -288,7 +288,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Booking Information updated.');
 
-        return redirect()->route('booking.edit', $this->booking->hashid);
+        return redirect()->route('intranet.booking.edit', $this->booking->hashid);
     }
 
     public function createPdf()
@@ -300,7 +300,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Creating the booking PDF');
 
-        return redirect()->route('booking.edit', $this->booking->hashid);
+        return redirect()->route('intranet.booking.edit', $this->booking->hashid);
     }
 
     public function viewPdf()

@@ -14,11 +14,11 @@ class CarController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('car.create'),
+                'route' => route('intranet.car.create'),
                 'title' => 'Create Car'
             ]),
             'crumbs' => [
-                'Settings' => route('settings')
+                'Settings' => route('intranet.settings')
             ]
         ];
 
@@ -31,12 +31,12 @@ class CarController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('car.index'),
+                'route' => route('intranet.car.index'),
                 'title' => 'Cars'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'Cars' => route('car.index')
+                'Settings' => route('intranet.settings'),
+                'Cars' => route('intranet.car.index')
             ],
             'caren_car' => $caren_car,
         ];
@@ -54,12 +54,12 @@ class CarController extends Controller
             'car' => $car,
             'carName' => $car->name . " (" . $car->vendor->name . ")",
             'action' => collect([
-                'route' => route('car.index'),
+                'route' => route('intranet.car.index'),
                 'title' => 'Cars'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'Cars' => route('car.index')
+                'Settings' => route('intranet.settings'),
+                'Cars' => route('intranet.car.index')
             ],
             'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];

@@ -104,41 +104,54 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespaceApi)
                 ->group(base_path('routes/api.php'));
 
-            Route::prefix('admin')
-                ->middleware(['web', 'auth'])
-                ->namespace($this->namespace)
-                ->group(base_path('routes/admin.php'));
-
-            Route::prefix('affiliate')
-                ->middleware(['web', 'auth'])
-                ->namespace($this->namespace)
-                ->as('affiliate.')
-                ->group(base_path('routes/affiliate.php'));
-
-            Route::prefix('booking')
-                ->middleware(['web', 'auth'])
-                ->namespace($this->namespace)
-                ->as('booking.')
-                ->group(base_path('routes/booking.php'));
-
-            Route::prefix('content')
-                ->middleware(['web', 'auth'])
-                ->namespace($this->namespace)
-                ->as('content.')
-                ->group(base_path('routes/content.php'));
-
-            Route::prefix('blog')
-                ->middleware(['web', 'auth'])
-                ->namespace($this->namespace)
-                ->as('blog.')
-                ->group(base_path('routes/blog.php'));
-
-            Route::prefix('developer')
-                ->middleware(['web', 'auth'])
-                ->namespace($this->namespace)
-                ->as('developer.')
-                ->group(base_path('routes/developer.php'));
+            $this->intranetRoutes();
         });
+    }
+
+    protected function intranetRoutes() {
+        Route::group(
+            [
+                'prefix' => 'intranet',
+                'as'     => 'intranet.',
+            ],
+
+            function () {
+                Route::prefix('admin')
+                    ->middleware(['web', 'auth'])
+                    ->namespace($this->namespace)
+                    ->group(base_path('routes/admin.php'));
+                    
+                Route::prefix('affiliate')
+                    ->middleware(['web', 'auth'])
+                    ->namespace($this->namespace)
+                    ->as('affiliate.')
+                    ->group(base_path('routes/affiliate.php'));
+
+                Route::prefix('booking')
+                    ->middleware(['web', 'auth'])
+                    ->namespace($this->namespace)
+                    ->as('booking.')
+                    ->group(base_path('routes/booking.php'));
+
+                Route::prefix('content')
+                    ->middleware(['web', 'auth'])
+                    ->namespace($this->namespace)
+                    ->as('content.')
+                    ->group(base_path('routes/content.php'));
+
+                Route::prefix('developer')
+                    ->middleware(['web', 'auth'])
+                    ->namespace($this->namespace)
+                    ->as('developer.')
+                    ->group(base_path('routes/developer.php'));
+
+                Route::prefix('blog')
+                    ->middleware(['web', 'auth'])
+                    ->namespace($this->namespace)
+                    ->as('blog.')
+                    ->group(base_path('routes/blog.php'));
+            }
+        );
     }
 
     /**

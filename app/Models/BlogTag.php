@@ -31,7 +31,7 @@ class BlogTag extends Model
      */
     public function getEditUrlAttribute()
     {
-        return route('blog.tag.edit', $this->hashid);
+        return route('intranet.blog.tag.edit', $this->hashid);
     }
 
     /**********************************

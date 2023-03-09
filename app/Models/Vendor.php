@@ -45,7 +45,7 @@ class Vendor extends Model
      */
     public function getEditUrlAttribute()
     {
-        return route('vendor.edit', $this->hashid);
+        return route('intranet.vendor.edit', $this->hashid);
     }
 
     /**

@@ -44,7 +44,7 @@ class DeleteTest extends TestCase
         // Delete
         Livewire::test(Edit::class, ['extra' => $extra->hashid])
             ->call('deleteExtra', $extra->hashid)
-            ->assertRedirect(route('extra.index'));
+            ->assertRedirect(route('intranet.caren.index'));
 
         // We should not see the extra
         Livewire::test(Index::class)

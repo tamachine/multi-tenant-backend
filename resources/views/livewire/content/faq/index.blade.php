@@ -36,7 +36,7 @@
                             @foreach ($faqs as $index => $faq)
                                 <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">                                    
                                     <td class="px-6 py-4 text-sm font-medium">     
-                                        <a href="{{route('content.faq.edit', [ $faq, 'search' => $search ])}}" class="text-purple-700 hover:underline">
+                                        <a href="{{route('intranet.content.faq.edit', [ $faq, 'search' => $search ])}}" class="text-purple-700 hover:underline">
                                             {!! highlightTerm($faq->question, $search) !!}                                                                                                             
                                         </a>
                                     </td>   

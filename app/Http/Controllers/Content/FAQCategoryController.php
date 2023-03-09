@@ -15,11 +15,11 @@ class FAQCategoryController extends Controller
         
         $data = [       
             'action' => collect([
-                'route' => route('content.faq-category.create'),
+                'route' => route('intranet.content.faq-category.create'),
                 'title' => 'Create FAQ Category'
             ]),                
             'crumbs' => [
-                'Content & SEO' => route('content.dashboard')
+                'Content & SEO' => route('intranet.content.dashboard')
             ]
         ];
 
@@ -32,12 +32,12 @@ class FAQCategoryController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('content.faq-category.index'),
+                'route' => route('intranet.content.faq-category.index'),
                 'title' => 'FAQ Categories'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'FAQ Categories' => route('content.faq-category.index')
+                'Settings' => route('intranet.settings'),
+                'FAQ Categories' => route('intranet.content.faq-category.index')
             ],
         ];
         
@@ -50,12 +50,12 @@ class FAQCategoryController extends Controller
 
         $data = [      
             'action' => collect([
-                'route' => route('content.faq-category.index', ['search' => $request->query('search')]),
+                'route' => route('intranet.content.faq-category.index', ['search' => $request->query('search')]),
                 'title' => 'FAQ Categories'
             ]),                 
             'crumbs' => [
-                'Content & SEO' => route('content.dashboard'),
-                'FAQ Categories'  => route('content.faq-category.index', ['search' => $request->query('search')])
+                'Content & SEO' => route('intranet.content.dashboard'),
+                'FAQ Categories'  => route('intranet.content.faq-category.index', ['search' => $request->query('search')])
             ],
             'faqCategory' => $faq_category
         ];

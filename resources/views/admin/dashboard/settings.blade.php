@@ -5,7 +5,7 @@
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 p-5">
         <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("vendor.index")}}"'
+            onclick='window.location.href="{{route("intranet.vendor.index")}}"'
         >
             <div class="w-14 ml-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14 text-purple-700">
@@ -20,7 +20,7 @@
         </div>
 
         <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("location.index")}}"'
+            onclick='window.location.href="{{route("intranet.location.index")}}"'
         >
             <div class="w-14 ml-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14 text-purple-700">
@@ -34,7 +34,7 @@
         </div>
 
         <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("car.index")}}"'
+            onclick='window.location.href="{{route("intranet.car.index")}}"'
         >
             <div class="w-14 ml-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14 text-purple-700">
@@ -48,7 +48,7 @@
         </div>
 
         <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("extra.index")}}"'
+            onclick='window.location.href="{{route("intranet.caren.index")}}"'
         >
             <div class="w-14 ml-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14 text-purple-700">
@@ -62,7 +62,7 @@
         </div>
 
         <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("season.index")}}"'
+            onclick='window.location.href="{{route("intranet.season.index")}}"'
         >
             <div class="w-14 ml-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14 text-purple-700">
@@ -77,7 +77,7 @@
         </div>
 
         <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("free-day.index")}}"'
+            onclick='window.location.href="{{route("intranet.free-day.index")}}"'
         >
             <div class="w-14 ml-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14 text-purple-700">
@@ -91,7 +91,7 @@
         </div>
 
         <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("caren.index")}}"'
+            onclick='window.location.href="{{route("intranet.caren.index")}}"'
         >
             <div class="w-14 ml-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14 text-purple-700">
@@ -106,7 +106,7 @@
         </div>
 
         <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("statistics.index")}}"'
+            onclick='window.location.href="{{route("intranet.statistics.index")}}"'
         >
             <div class="w-14 ml-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14 text-purple-700">
@@ -120,7 +120,7 @@
         </div>
 
         <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("insurance-feature.index")}}"'
+            onclick='window.location.href="{{route("intranet.insurance-feature.index")}}"'
         >
             <div class="w-14 ml-8">                
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 h-14 text-purple-700">

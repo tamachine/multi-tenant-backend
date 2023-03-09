@@ -60,7 +60,7 @@ class Edit extends Base
         session()->flash('status', 'success');
         session()->flash('message', __('The FAQ has been deleted'));
 
-        return redirect()->route('content.faq.index');
+        return redirect()->route('intranet.content.faq.index');
     }
 
     public function render()

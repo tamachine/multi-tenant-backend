@@ -31,7 +31,7 @@ class Affiliate extends Model
      */
     public function getEditUrlAttribute()
     {
-        return route('booking.affiliate.edit', $this->hashid);
+        return route('intranet.booking.affiliate.edit', $this->hashid);
     }
 
     /**********************************

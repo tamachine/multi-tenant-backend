@@ -27,7 +27,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Insurance feature "' . $insuranceFeature->name .'" created succesfully');
 
-        return redirect()->route('insurance-feature.edit', $insuranceFeature);           
+        return redirect()->route('intranet.insurance-feature.edit', $insuranceFeature);           
     }    
 
     public function render()

@@ -42,7 +42,7 @@ class DeleteTest extends TestCase
         // Delete
         Livewire::test(Index::class, ['season' => $season->hashid])
             ->call('deleteSeason', $season->hashid)
-            ->assertRedirect(route('season.index'));
+            ->assertRedirect(route('intranet.season.index'));
 
         // We should not see the season
         Livewire::test(Index::class)

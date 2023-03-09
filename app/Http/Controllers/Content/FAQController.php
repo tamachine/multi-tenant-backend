@@ -15,11 +15,11 @@ class FAQController extends Controller
         
         $data = [       
             'action' => collect([
-                'route' => route('content.faq.create'),
+                'route' => route('intranet.content.faq.create'),
                 'title' => 'Create FAQ'
             ]),                
             'crumbs' => [
-                'Content & SEO' => route('content.dashboard')
+                'Content & SEO' => route('intranet.content.dashboard')
             ]
         ];
 
@@ -28,16 +28,16 @@ class FAQController extends Controller
     
     public function create(): View
     {
-        $this->authorize('admin');
+        $this->authorize('content');
 
         $data = [
             'action' => collect([
-                'route' => route('content.faq.index'),
+                'route' => route('intranet.content.faq.index'),
                 'title' => "FAQ's"
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                "FAQ's" => route('content.faq.index')
+                'Settings' => route('intranet.settings'),
+                "FAQ's" => route('intranet.content.faq.index')
             ],
         ];
         
@@ -50,12 +50,12 @@ class FAQController extends Controller
 
         $data = [      
             'action' => collect([
-                'route' => route('content.faq.index', ['search' => $request->query('search')]),
+                'route' => route('intranet.content.faq.index', ['search' => $request->query('search')]),
                 'title' => "FAQ's"
             ]),                 
             'crumbs' => [
-                'Content & SEO' => route('content.dashboard'),
-                "FAQ's"  => route('content.faq.index', ['search' => $request->query('search')])
+                'Content & SEO' => route('intranet.content.dashboard'),
+                "FAQ's"  => route('intranet.content.faq.index', ['search' => $request->query('search')])
             ],
             'faq' => $faq
         ];

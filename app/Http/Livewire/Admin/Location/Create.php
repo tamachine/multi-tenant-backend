@@ -45,7 +45,7 @@ class Create extends Component
                 session()->flash('status', 'error');
                 session()->flash('message', 'No more locations can be created for the moment');
 
-                return redirect()->route('location.index');
+                return redirect()->route('intranet.location.index');
             }
         }
     }
@@ -83,7 +83,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Location "' . $this->name .'" created');
 
-        return redirect()->route('location.edit', $location->hashid);
+        return redirect()->route('intranet.location.edit', $location->hashid);
     }
 
     public function render()

@@ -14,11 +14,11 @@ class PostController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('blog.post.create'),
+                'route' => route('intranet.blog.post.create'),
                 'title' => 'Create Post'
             ]),
             'crumbs' => [
-                'Blog' => route('blog.dashboard')
+                'Blog' => route('intranet.blog.dashboard')
             ]
         ];
 
@@ -31,12 +31,12 @@ class PostController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('blog.post.index'),
+                'route' => route('intranet.blog.post.index'),
                 'title' => 'Posts'
             ]),
             'crumbs' => [
-                'Blog' => route('blog.dashboard'),
-                'Posts' => route('blog.post.index')
+                'Blog' => route('intranet.blog.dashboard'),
+                'Posts' => route('intranet.blog.post.index')
             ],
         ];
 
@@ -52,12 +52,12 @@ class PostController extends Controller
         $data = [
             'post' => $post,
             'action' => collect([
-                'route' => route('blog.post.index'),
+                'route' => route('intranet.blog.post.index'),
                 'title' => 'Posts'
             ]),
             'crumbs' => [
-                'Blog' => route('blog.dashboard'),
-                'Posts' => route('blog.post.index')
+                'Blog' => route('intranet.blog.dashboard'),
+                'Posts' => route('intranet.blog.post.index')
             ],
         ];
 

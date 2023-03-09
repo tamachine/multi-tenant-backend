@@ -14,11 +14,11 @@ class CategoryController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('blog.category.create'),
+                'route' => route('intranet.blog.category.create'),
                 'title' => 'Create Category'
             ]),
             'crumbs' => [
-                'Blog' => route('blog.dashboard')
+                'Blog' => route('intranet.blog.dashboard')
             ]
         ];
 
@@ -31,12 +31,12 @@ class CategoryController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('blog.category.index'),
+                'route' => route('intranet.blog.category.index'),
                 'title' => 'Categories'
             ]),
             'crumbs' => [
-                'Blog' => route('blog.dashboard'),
-                'Categories' => route('blog.category.index')
+                'Blog' => route('intranet.blog.dashboard'),
+                'Categories' => route('intranet.blog.category.index')
             ],
         ];
 
@@ -52,12 +52,12 @@ class CategoryController extends Controller
         $data = [
             'category' => $category,
             'action' => collect([
-                'route' => route('blog.category.index'),
+                'route' => route('intranet.blog.category.index'),
                 'title' => 'Categories'
             ]),
             'crumbs' => [
-                'Blog' => route('blog.dashboard'),
-                'Categories' => route('blog.category.index')
+                'Blog' => route('intranet.blog.dashboard'),
+                'Categories' => route('intranet.blog.category.index')
             ],
         ];
 

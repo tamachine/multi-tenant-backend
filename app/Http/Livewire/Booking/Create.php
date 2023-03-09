@@ -144,7 +144,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Booking created. Please edit the booking data');
 
-        return redirect()->route('booking.edit', $booking->hashid);
+        return redirect()->route('intranet.booking.edit', $booking->hashid);
     }
 
     public function render()

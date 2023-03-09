@@ -34,7 +34,7 @@ class Search extends Component
         $booking = Booking::where('order_number', $this->order_id)->orWhere('caren_id', $this->order_id)->first();
 
         if ($booking) {
-            return redirect()->route('booking.edit', $booking->hashid);
+            return redirect()->route('intranet.booking.edit', $booking->hashid);
         } else {
             $this->dispatchBrowserEvent('open-error', ['message' => 'There is no booking with the Order ID "' . $this->order_id . '"']);
         }

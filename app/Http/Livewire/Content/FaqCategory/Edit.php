@@ -45,12 +45,12 @@ class Edit extends Base
             session()->flash('status', 'success');
             session()->flash('message', __('The FAQCategory has been deleted'));
 
-            return redirect()->route('content.faq-category.index');
+            return redirect()->route('intranet.content.faq-category.index');
         } else {
             session()->flash('status', 'danger');
             session()->flash('message', 'FAQ Category could not be deleted because only this one is left');
 
-            return redirect()->route('content.faq-category.edit', $this->faqCategory);
+            return redirect()->route('intranet.content.faq-category.edit', $this->faqCategory);
         }
     }
 

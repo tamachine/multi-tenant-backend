@@ -6,7 +6,7 @@
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 p-5">
         <div
             class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("blog.author.index")}}"'
+            onclick='window.location.href="{{route("intranet.blog.author.index")}}"'
         >
             <div class="w-14 ml-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14 text-purple-700">
@@ -21,7 +21,7 @@
 
         <div
             class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("blog.category.index")}}"'
+            onclick='window.location.href="{{route("intranet.blog.category.index")}}"'
         >
             <div class="w-14 ml-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14 text-purple-700">
@@ -36,7 +36,7 @@
 
         <div
             class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("blog.tag.index")}}"'
+            onclick='window.location.href="{{route("intranet.blog.tag.index")}}"'
         >
             <div class="w-14 ml-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14 text-purple-700">
@@ -51,7 +51,7 @@
 
         <div
             class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("blog.post.index")}}"'
+            onclick='window.location.href="{{route("intranet.blog.post.index")}}"'
         >
             <div class="w-14 ml-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14 text-purple-700">

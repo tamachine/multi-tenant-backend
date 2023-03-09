@@ -56,7 +56,7 @@
                                     </td>
 
                                     <td class="px-6 py-4 text-sm font-medium">
-                                        <a href="{{route('season.edit', $season->hashid)}}" class="text-purple-700 hover:underline">
+                                        <a href="{{route('intranet.season.edit', $season->hashid)}}" class="text-purple-700 hover:underline">
                                             {{ $season->name }}
                                         </a>
                                     </td>

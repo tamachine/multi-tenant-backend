@@ -58,7 +58,7 @@ class Create extends Component
                 session()->flash('status', 'error');
                 session()->flash('message', 'No more cars can be created for the moment');
 
-                return redirect()->route('car.index');
+                return redirect()->route('intranet.car.index');
             }
         }
     }
@@ -97,7 +97,7 @@ class Create extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Car "' . $this->name . '" created');
 
-        return redirect()->route('car.edit', $car->hashid);
+        return redirect()->route('intranet.car.edit', $car->hashid);
     }
 
     public function render()

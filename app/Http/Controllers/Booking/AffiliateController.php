@@ -14,11 +14,11 @@ class AffiliateController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('booking.affiliate.create'),
+                'route' => route('intranet.booking.affiliate.create'),
                 'title' => 'Create Affiliate'
             ]),
             'crumbs' => [
-                'Booking settings' => route('booking.dashboard')
+                'Booking settings' => route('intranet.booking.dashboard')
             ]
         ];
 
@@ -31,12 +31,12 @@ class AffiliateController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('booking.affiliate.index'),
+                'route' => route('intranet.booking.affiliate.index'),
                 'title' => 'Affiliates'
             ]),
             'crumbs' => [
-                'Booking settings' => route('booking.dashboard'),
-                'Affiliates' => route('booking.affiliate.index')
+                'Booking settings' => route('intranet.booking.dashboard'),
+                'Affiliates' => route('intranet.booking.affiliate.index')
             ],
         ];
 
@@ -52,12 +52,12 @@ class AffiliateController extends Controller
         $data = [
             'affiliate' => $affiliate,
             'action' => collect([
-                'route' => route('booking.affiliate.index'),
+                'route' => route('intranet.booking.affiliate.index'),
                 'title' => 'Affiliates'
             ]),
             'crumbs' => [
-                'Booking settings' => route('booking.dashboard'),
-                'Affiliates' => route('booking.affiliate.index')
+                'Booking settings' => route('intranet.booking.dashboard'),
+                'Affiliates' => route('intranet.booking.affiliate.index')
             ],
             'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];

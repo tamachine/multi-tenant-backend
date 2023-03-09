@@ -29,7 +29,7 @@
                                         ></div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        <a href="{{route('vendor.edit', $vendor->hashid)}}" class="text-purple-700 hover:underline">
+                                        <a href="{{route('intranet.vendor.edit', $vendor->hashid)}}" class="text-purple-700 hover:underline">
                                             {{ $vendor->name }}
                                         </a>
                                     </td>

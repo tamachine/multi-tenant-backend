@@ -11,7 +11,7 @@
         <!-- Vendor -->
         <div class="px-4 mt-4 md:mt-0">
             <x-admin.label for="vendor" value="{{ __('Vendor') }}" />
-            <a href="{{route('vendor.edit', $vendor_id)}}" target="_blank"
+            <a href="{{route('intranet.vendor.edit', $vendor_id)}}" target="_blank"
                 class="text-purple-700 hover:underline"
             >
                 {{$vendor_name}}

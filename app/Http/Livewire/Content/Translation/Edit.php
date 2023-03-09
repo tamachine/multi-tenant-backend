@@ -61,7 +61,7 @@ class Edit extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'rich text updated');
 
-        return redirect()->route('content.translation.edit', $this->translation);
+        return redirect()->route('intranet.content.translation.edit', $this->translation);
     }
 
     public function update() {        

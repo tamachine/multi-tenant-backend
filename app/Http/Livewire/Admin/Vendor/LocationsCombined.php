@@ -92,7 +92,7 @@ class LocationsCombined extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Locations combined updated for ' . $this->vendor->name);
 
-        return redirect()->route('vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "combined"]);
+        return redirect()->route('intranet.vendor.edit', ["vendor" => $this->vendor->hashid, "tab" => "combined"]);
     }
 
     public function render()

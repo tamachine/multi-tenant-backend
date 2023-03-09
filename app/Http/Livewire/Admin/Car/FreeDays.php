@@ -83,7 +83,7 @@ class FreeDays extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Free day plan added for ' . $this->car->name);
 
-        return redirect()->route('car.edit', ["car" => $this->car->hashid, "tab" => "free-day"]);
+        return redirect()->route('intranet.car.edit', ["car" => $this->car->hashid, "tab" => "free-day"]);
     }
 
     public function addPlans()
@@ -97,7 +97,7 @@ class FreeDays extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Free day plans added for ' . $this->car->name);
 
-        return redirect()->route('car.edit', ["car" => $this->car->hashid, "tab" => "free-day"]);
+        return redirect()->route('intranet.car.edit', ["car" => $this->car->hashid, "tab" => "free-day"]);
     }
 
     public function deletePlan($id)
@@ -107,7 +107,7 @@ class FreeDays extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Deleted free day plan for ' . $this->car->name);
 
-        return redirect()->route('car.edit', ["car" => $this->car->hashid, "tab" => "free-day"]);
+        return redirect()->route('intranet.car.edit', ["car" => $this->car->hashid, "tab" => "free-day"]);
     }
 
     public function render()

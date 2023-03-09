@@ -53,7 +53,7 @@ class Location extends Model
      */
     public function getEditUrlAttribute()
     {
-        return route('location.edit', $this->hashid);
+        return route('intranet.location.edit', $this->hashid);
     }
 
     /**********************************

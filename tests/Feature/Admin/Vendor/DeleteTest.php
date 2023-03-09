@@ -42,7 +42,7 @@ class DeleteTest extends TestCase
         // Delete
         Livewire::test(Edit::class, ['vendor' => $vendor->hashid])
             ->call('deleteVendor', $vendor->hashid)
-            ->assertRedirect(route('vendor.index'));
+            ->assertRedirect(route('intranet.vendor.index'));
 
         // We should not see the vendor
         Livewire::test(Index::class)

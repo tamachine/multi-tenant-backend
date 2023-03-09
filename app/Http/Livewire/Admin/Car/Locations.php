@@ -117,7 +117,7 @@ class Locations extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Location added to ' . $this->car->name);
 
-        return redirect()->route('car.edit', ["car" => $this->car->hashid, "tab" => "locations"]);
+        return redirect()->route('intranet.car.edit', ["car" => $this->car->hashid, "tab" => "locations"]);
     }
 
     public function editLocation($key)
@@ -134,7 +134,7 @@ class Locations extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Edited location for ' . $this->car->name);
 
-        return redirect()->route('car.edit', ["car" => $this->car->hashid, "tab" => "locations"]);
+        return redirect()->route('intranet.car.edit', ["car" => $this->car->hashid, "tab" => "locations"]);
     }
 
     public function deleteLocation($id)
@@ -144,7 +144,7 @@ class Locations extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Deleted location for ' . $this->car->name);
 
-        return redirect()->route('car.edit', ["car" => $this->car->hashid, "tab" => "locations"]);
+        return redirect()->route('intranet.car.edit', ["car" => $this->car->hashid, "tab" => "locations"]);
     }
 
     public function render()

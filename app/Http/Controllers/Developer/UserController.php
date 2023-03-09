@@ -13,7 +13,7 @@ class UserController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('developer.user.create'),
+                'route' => route('intranet.developer.user.create'),
                 'title' => 'Create developer user'
             ]),
         ];
@@ -27,11 +27,11 @@ class UserController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('developer.user.index'),
+                'route' => route('intranet.developer.user.index'),
                 'title' => 'Developer users'
             ]),
             'crumbs' => [
-                'Developer users' => route('user.index')
+                'Developer users' => route('intranet.user.index')
             ],
         ];
 

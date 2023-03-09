@@ -14,11 +14,11 @@ class ExtraController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('extra.create'),
+                'route' => route('intranet.caren.create'),
                 'title' => 'Create Extra'
             ]),
             'crumbs' => [
-                'Settings' => route('settings')
+                'Settings' => route('intranet.settings')
             ]
         ];
 
@@ -31,12 +31,12 @@ class ExtraController extends Controller
 
         $data = [
             'action' => collect([
-                'route' => route('extra.index'),
+                'route' => route('intranet.caren.index'),
                 'title' => 'Extras'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'Extras' => route('extra.index')
+                'Settings' => route('intranet.settings'),
+                'Extras' => route('intranet.caren.index')
             ],
             'caren_extra' => $caren_extra,
         ];
@@ -54,12 +54,12 @@ class ExtraController extends Controller
             'extra' => $extra,
             'extraName' => $extra->name,
             'action' => collect([
-                'route' => route('extra.index'),
+                'route' => route('intranet.caren.index'),
                 'title' => 'Extras'
             ]),
             'crumbs' => [
-                'Settings' => route('settings'),
-                'Extras' => route('extra.index')
+                'Settings' => route('intranet.settings'),
+                'Extras' => route('intranet.caren.index')
             ],
             'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];

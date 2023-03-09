@@ -50,7 +50,7 @@
                             @foreach ($affiliates as $index => $affiliate)
                                 <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        <a href="{{route('booking.affiliate.edit', $affiliate->hashid)}}" class="text-purple-700 hover:underline">
+                                        <a href="{{route('intranet.booking.affiliate.edit', $affiliate->hashid)}}" class="text-purple-700 hover:underline">
                                             {{ $affiliate->name }}
                                         </a>
                                     </td>
