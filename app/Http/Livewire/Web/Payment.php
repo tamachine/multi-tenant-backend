@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Web;
 
 use App\Apis\Caren\Api;
 use App\Jobs\CreateBookingPdf;
+use App\Models\Affiliate;
 use App\Models\Booking;
 use App\Models\Car;
 use App\Traits\Livewire\SummaryTrait;
@@ -135,6 +136,13 @@ class Payment extends Component
     {
         $sessionData = request()->session()->get('booking_data');
 
+        // Check if we have an affiliate in session
+        $affiliate = null;
+
+        if (request()->session()->has('affiliate')) {
+            $affiliate = Affiliate::find(dehash(request()->session()->get('affiliate')));
+        }
+
         // 1. Create the booking
         $booking = Booking::create([
             'car_id' => $this->car->id,
@@ -161,6 +169,11 @@ class Payment extends Component
             'postal_code' => $this->postal_code,
             'city' => $this->city,
             'country' => $this->country,
+
+            'affiliate_id' => $affiliate ? $affiliate->id : null,
+            'affiliate_commission' => $affiliate
+                ? round($this->payNow * $affiliate->commission_percentage / 100)
+                : null,
         ]);
 
         $sessionData['booking'] = $booking->hashid;
