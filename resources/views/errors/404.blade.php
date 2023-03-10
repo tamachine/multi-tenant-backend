@@ -1,7 +1,7 @@
 @extends('layouts.web')
 
 @section('intro')
-    <div class="bg-not-found">
+    <div class="bg-errors bg-404">
         <div class="hidden lg:flex max-w-6xl mx-auto px-10">
             <div class="text-[220px] text-white font-fredoka-semibold">
                 404

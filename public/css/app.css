@@ -2725,6 +2725,10 @@ h5 {
     margin-top: 1.5rem;    
 }
 
+.mb-12 {
+    margin-bottom: 3rem;    
+}
+
 .ml-3 {
     margin-left: 0.75rem;    
 }
@@ -2807,10 +2811,6 @@ h5 {
 
 .mb-10 {
     margin-bottom: 2.5rem;    
-}
-
-.mb-12 {
-    margin-bottom: 3rem;    
 }
 
 .block {
@@ -3052,16 +3052,20 @@ h5 {
     width: 50%;    
 }
 
+.w-48 {
+    width: 12rem;    
+}
+
+.w-4\/5 {
+    width: 80%;    
+}
+
 .w-0 {
     width: 0px;    
 }
 
 .w-6 {
     width: 1.5rem;    
-}
-
-.w-48 {
-    width: 12rem;    
 }
 
 .w-40 {
@@ -3146,10 +3150,6 @@ h5 {
 
 .w-12 {
     width: 3rem;    
-}
-
-.w-4\/5 {
-    width: 80%;    
 }
 
 .min-w-0 {
@@ -4510,6 +4510,10 @@ h5 {
     font-size: 220px;    
 }
 
+.text-\[120px\] {
+    font-size: 120px;    
+}
+
 .text-\[32px\] {
     font-size: 32px;    
 }
@@ -4521,10 +4525,6 @@ h5 {
 
 .text-\[10px\] {
     font-size: 10px;    
-}
-
-.text-\[120px\] {
-    font-size: 120px;    
 }
 
 .font-medium {
@@ -5004,10 +5004,23 @@ h5 {
     background-image: url('/images/about/about-top.jpg');
 }
 
-.bg-not-found {
+.bg-errors {
     height: calc(100vh - 76px);
-    background-image: url('/images/404.jpg');
     background-size: 100vw 100vh;
+}
+
+.bg-404 {
+    background-image: url('/images/404.jpg');
+}
+
+.bg-403 {
+    background-image: url('/images/403.jpg');
+}
+
+@media (max-width: 767px) {
+    .bg-errors {
+        height: calc(100vh - 62px);
+    }
 }
 
 @supports (gap: 1px) {
@@ -5015,8 +5028,12 @@ h5 {
         background-image: url('/images/about/about-top.webp');
     }
 
-    .bg-not-found {
+    .bg-404 {
         background-image: url('/images/404.webp');
+    }
+
+    .bg-not-found {
+        background-image: url('/images/403.webp');
     }
 }
 
@@ -6423,6 +6440,11 @@ h5 {
     .lg\:px-0 {
         padding-left: 0px;
         padding-right: 0px;    
+    }
+
+    .lg\:text-3xl {
+        font-size: 1.875rem;
+        line-height: 2.25rem;    
     }    
 }
 

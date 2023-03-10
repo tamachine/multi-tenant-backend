@@ -161,10 +161,23 @@ h5 {
     background-image: url('/images/about/about-top.jpg');
 }
 
-.bg-not-found {
+.bg-errors {
     height: calc(100vh - 76px);
-    background-image: url('/images/404.jpg');
     background-size: 100vw 100vh;
+}
+
+.bg-404 {
+    background-image: url('/images/404.jpg');
+}
+
+.bg-403 {
+    background-image: url('/images/403.jpg');
+}
+
+@media (max-width: 767px) {
+    .bg-errors {
+        height: calc(100vh - 62px);
+    }
 }
 
 @supports (gap: 1px) {
@@ -172,7 +185,11 @@ h5 {
         background-image: url('/images/about/about-top.webp');
     }
 
-    .bg-not-found {
+    .bg-404 {
         background-image: url('/images/404.webp');
+    }
+
+    .bg-not-found {
+        background-image: url('/images/403.webp');
     }
 }
