@@ -30,7 +30,7 @@
                         <form>
                             <input class="md:absolute right-0 my-auto top-0 bottom-0 rounded-xl border border-[#8c8c8c] py-4 md:py-7 px-7 bg-transparent w-full placeholder:text-base focus:border-[#8c8c8c] focus:ring-0" type="text" placeholder="{!! __('footer.newsletter-input-placeholder') !!}" />
                             <div   class="absolute right-3 my-auto top-0 bottom-0 flex justify-center items-center">
-                                <button type="submit" class="btn btn-yellow px-7 md:px-6 py-3 md:py-2 text-sm font-sans-medium font-medium rounded-md">{!! __('footer.newsletter-form-submit') !!}</button>
+                                <button type="submit" class="btn btn-red px-7 md:px-6 py-3 md:py-2 text-sm font-sans-medium font-medium rounded-md">{!! __('footer.newsletter-form-submit') !!}</button>
                             </div>
                         </form>
                     </div>

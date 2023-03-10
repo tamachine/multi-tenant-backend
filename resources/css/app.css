@@ -75,8 +75,8 @@ h5 {
     @apply bg-pink-red text-white font-sans-bold font-bold;
 }
 
-.btn-yellow {
-    @apply bg-pink-red text-white hover:bg-[#161616] font-bold text-lg md:text-xl;
+.btn-red {
+    @apply bg-pink-red text-white hover:bg-[#F42077] font-bold text-lg md:text-xl;
 }
 
 .btn-black {
@@ -161,8 +161,18 @@ h5 {
     background-image: url('/images/about/about-top.jpg');
 }
 
+.bg-not-found {
+    height: calc(100vh - 76px);
+    background-image: url('/images/404.jpg');
+    background-size: 100vw 100vh;
+}
+
 @supports (gap: 1px) {
     .bg-about {
         background-image: url('/images/about/about-top.webp');
+    }
+
+    .bg-not-found {
+        background-image: url('/images/404.webp');
     }
 }

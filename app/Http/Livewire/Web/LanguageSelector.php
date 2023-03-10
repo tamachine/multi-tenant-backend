@@ -26,7 +26,7 @@ class LanguageSelector extends Component
     */
 
     public function mount() {
-        $this->route = request()->route()->getName();
+        $this->route = request()->route() ? request()->route()->getName() : null;
     }
 
     public function changeLanguage($code)

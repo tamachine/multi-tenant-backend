@@ -55,22 +55,16 @@
 
         <x-admin.wire-response />
 
-        @if(isset($titleClass))
-            <div class="h-screen bg-cover flex content-center {{$titleClass}}">
-                <div class="max-w-6xl m-auto">
-                    <h1 class="text-white title-shadow">
-                        {{$titleText}}
-                    </h1>
-                </div>
-            </div>
-        @endif
+        @yield('intro')
 
         <div class="max-w-7xl mx-auto">
             @yield('body')
 
             @livewireScripts
 
-            <x-footer imagePath="{{ $footerImagePath }}" />
+            @if (isset($footerImagePath))
+                <x-footer imagePath="{{ $footerImagePath }}" />
+            @endif
         </div>
 
         @stack('scripts')
