@@ -2,11 +2,14 @@
 
 namespace Tests\Unit\OpenExchangeRates;
 
-use Tests\TestCase;
 use App\Apis\OpenExchangeRates\Api;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class GetRatesTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * @test
      * @group unit
@@ -16,7 +19,7 @@ class GetRatesTest extends TestCase
      *
      * @return void
      */
-    public function getSessionIdTest()
+    public function getRatesTest()
     {
         $api = new Api;
         $rates = $api->getRates();
