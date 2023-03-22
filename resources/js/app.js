@@ -33,3 +33,4 @@ window.addEventListener('validationError', event => {
 window.addEventListener('goToTop', event => {
     window.scrollTo(0, 0);
 });
+

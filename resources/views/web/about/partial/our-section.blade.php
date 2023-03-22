@@ -1,5 +1,5 @@
 <div class="mt-16 max-w-5xl mx-8 lg:mx-auto md:flex md:gap-4">
-    <div class="bg-[#fdeef4] rounded-xl p-10 flex-1 md:overflow-auto md:max-h-full tiny-content">
+    <div class="bg-pink-red-secondary rounded-xl p-10 flex-1 md:overflow-auto md:max-h-full tiny-content">
         <h2 class="text-4xl">{!! __('about.our-past') !!}</h2>
         <h2 class="text-4xl">{!! __('about.our-present') !!}</h2>
         <h2 class="text-4xl">{!! __('about.our-future') !!}</h2>

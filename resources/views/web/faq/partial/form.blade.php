@@ -1,4 +1,4 @@
-<div class="max-w-5xl mt-16 bg-[#fdeef4] rounded-xl py-16 px-10 mx-auto">
+<div class="max-w-5xl mt-16 bg-pink-red-secondary rounded-xl py-16 px-10 mx-auto">
     <h2 class="text-[40px] text-center">
         {{ __('contact.faq_title') }}
     </h2>

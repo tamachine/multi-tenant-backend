@@ -6,10 +6,25 @@ use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\BlogCategoryColor;
 
 class BlogCategory extends Model
 {
     use HasFactory, HashidTrait, SoftDeletes;
+
+    public static function boot() {
+        parent::boot();
+    
+        static::creating(function (BlogCategory $item) { 
+            $color = new BlogCategoryColor(); 
+            $item->color_id = $color->getColorId();
+        });
+    }
+
+    public function getColorAttribute() {
+        $color = new BlogCategoryColor();
+        return $color->getBlogCategoryColor($this->color_id);
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -72,5 +87,15 @@ class BlogCategory extends Model
     public function posts()
     {
         return $this->hasMany(BlogPost::class);
+    }
+
+    /**
+     * Related published posts
+     *
+     * @return object
+     */
+    public function postsPublished()
+    {
+        return $this->hasMany(BlogPost::class)->published();
     }
 }

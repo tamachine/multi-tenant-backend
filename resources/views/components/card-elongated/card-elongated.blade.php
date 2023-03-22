@@ -14,11 +14,8 @@
 
     <div class="absolute top-0 left-0 z-10 md:mx-6 mx-4 h-[495px]">
         <div class="flex flex-col h-full">
-            <div class="flex-grow">
-                <div class="my-4 md:my-8 bg-white rounded-2xl py-1 px-[10px] w-fit">
-                    <img class="inline" src="{{ asset('images/icons/clock-red.svg') }}" /> 
-                    <span class="text-sm font-sans-medium font-medium text-black-primary pl-1">{{ $time }}</span>
-                </div>
+            <div class="flex-grow my-4 md:my-8">
+                <x-reading-time-icon time="{{ $time }}" />
             </div>
             
             <div class="font-fredoka-semibold text-[32px] font-semibold leading-[34px]">{{ $title }}</div>

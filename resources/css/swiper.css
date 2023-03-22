@@ -1,0 +1,13 @@
+.hero-blog-bullet  {
+    @apply 
+        p-4 w-7 h-7 
+        rounded-full
+        font-sans-medium  
+        bg-black text-white 
+        flex justify-center items-center 
+        cursor-pointer;
+}
+
+.hero-blog-bullet-active  {
+    @apply !bg-white !text-pink-red;
+}

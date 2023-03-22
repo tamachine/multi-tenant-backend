@@ -51,9 +51,15 @@ class BlogPost extends Model
      */
     public function getFeaturedImageUrlAttribute()
     {
-        return $this->featured_image
-            ? asset('storage/posts/' . $this->featured_image)
-            : '';
+        if (filter_var($this->featured_image, FILTER_VALIDATE_URL)) { 
+            return $this->featured_image;
+        } else {
+            return 
+                $this->featured_image
+                ? asset('storage/posts/' . $this->featured_image)
+                : '';
+        }
+        
     }
 
     /**
@@ -97,6 +103,11 @@ class BlogPost extends Model
         }
 
         return $query;
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('published', 1);
     }
 
     /**********************************
