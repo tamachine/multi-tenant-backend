@@ -1,1 +1,3 @@
-<livewire:web.newsletter-form />
+<div class="mt-16">
+    <livewire:web.newsletter-form />
+</div>

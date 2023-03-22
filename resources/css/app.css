@@ -1,6 +1,7 @@
 @import 'fonts.css';
 @import 'maps.css';
 @import 'tinymce.css';
+@import 'swiper.css';
 
 /**
  * This injects Tailwind's base styles, which is a combination of

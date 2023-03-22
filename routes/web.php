@@ -21,6 +21,7 @@ use App\Http\Controllers\Web\ExtrasController;
 use App\Http\Controllers\Web\SummaryController;
 use App\Http\Controllers\Web\PaymentController;
 use App\Http\Controllers\Web\SuccessController;
+use App\Http\Controllers\Web\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
+
+/* Blog */
+Route::get('/blog', [BlogController::class, 'index'])->name('blog'); 
 
 /* Booking process */
 Route::get('/cars', [CarsController::class, 'index'])->name('cars');

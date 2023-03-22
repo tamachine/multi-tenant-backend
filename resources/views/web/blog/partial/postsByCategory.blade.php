@@ -1,0 +1,1 @@
+<livewire:web.posts-by-category />

@@ -1,4 +1,4 @@
-<div class="mt-16 bg-[#fdeef4] rounded-xl py-16 px-10 mx-4 text-center">
+<div class="bg-pink-red-secondary rounded-xl py-16 px-10 mx-4 text-center">
     <h2 class="max-w-2xl mx-auto">
         {{ __('contact.newsletter_title') }}
     </h2>

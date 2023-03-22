@@ -17,7 +17,14 @@ module.exports = {
         'bg-[#F5CB5C]',
         'bg-[#AECBEB]',
         'bg-[#B4D6D3]',
-        'bg-[#8E9AAF]',,
+        'bg-[#8E9AAF]',
+
+        'bg-[#EEF8FD]', 'hover:bg-[#d1ecfa]',
+        'bg-[#EEFDF0]', 'hover:bg-[#d1fad7]',
+        'bg-[#FDEEF4]', 'hover:bg-[#fad1e1]',
+        'bg-[#F9EEFD]', 'hover:bg-[#efd1fa]',
+        'bg-[#EEFDFD]', 'hover:bg-[#d1fafa]',
+        'bg-[#FDFCEE]', 'hover:bg-[#faf7d1]',
     ],
     theme: {
         extend: {

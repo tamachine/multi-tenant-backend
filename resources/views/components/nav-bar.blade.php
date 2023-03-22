@@ -28,7 +28,7 @@
             <a href="{{ route('cars') }}" class="hover:text-pink-red">{!! __('navbar.cars') !!}</a>
             <a href="{{ route('about') }}" class="hover:text-pink-red">{!! __('navbar.about') !!}</a>
             <a href="{{ route('faq') }}" class="hover:text-pink-red">{!! __('navbar.faq') !!}</a>
-            <a href="#" class="hover:text-pink-red">{!! __('navbar.blog') !!}</a>
+            <a href="{{ route('blog') }}" class="hover:text-pink-red">{!! __('navbar.blog') !!}</a>
             <a href="{{ route('contact') }}" class="hover:text-pink-red">{!! __('navbar.contact') !!}</a>
         </div>
         <div class="pl-5 text-sm font-medium flex items-center gap-1" x-on:click="toggle()">
@@ -86,10 +86,10 @@
                 </div>
                 <div class="p-4">
                     <div class="flex items-center justify-between flex-wrap text-xl font-fredoka font-medium">
-                        <a href="#">{{ __('navbar.about') }}</a>
-                        <a href="#">{{ __('navbar.faq') }}</a>
-                        <a href="#">{{ __('navbar.blog') }}</a>
-                        <a href="#">{{ __('navbar.contact') }}</a>
+                        <a href="{{ route('about') }}">{{ __('navbar.about') }}</a>
+                        <a href="{{ route('faq') }}">{{ __('navbar.faq') }}</a>
+                        <a href="{{ route('blog') }}">{{ __('navbar.blog') }}</a>
+                        <a href="{{ route('contact') }}">{{ __('navbar.contact') }}</a>
                     </div>
                 </div>
                 <div class="font-fredoka font-semibold text-center pt-5 pb-10">

@@ -27,6 +27,7 @@
 
         <!-- Scripts -->
         <script src="{{ url(mix('js/app.js')) }}" defer></script>
+        <script src="{{ url(mix('js/swiper.js')) }}"></script>
         <script src="{{ url(mix('js/app/scripts.js')) }}"></script>
 
         <!-- CSRF Token -->

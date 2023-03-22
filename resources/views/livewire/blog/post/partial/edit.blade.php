@@ -75,7 +75,7 @@
 
         <!-- Summary -->
         <div class="px-4 mt-4">
-            <x-admin.label for="summary" value="{{ __('Summary') }}" />
+            <x-admin.label for="summary" value="Summary" />
             <textarea id="summary" class="mt-1 focus:ring-purple-700 focus:purple-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
                 wire:model.defer="summary" rows="3" autocomplete="blog_summary">
             </textarea>

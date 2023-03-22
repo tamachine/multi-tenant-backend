@@ -47,6 +47,12 @@ class Breadcrumbs
         $breadcrumb->setTranslationFullKey('navbar.cars');
         
         $this->addBreadcrumb($breadcrumb);
+
+        $breadcrumb = new Breadcrumb();
+        $breadcrumb->setRoute('blog');
+        $breadcrumb->setTranslationFullKey('breadcrumbs.blog');
+        
+        $this->addBreadcrumb($breadcrumb);
     }
 
     protected function addBreadcrumb(Breadcrumb $breadcrumb) {

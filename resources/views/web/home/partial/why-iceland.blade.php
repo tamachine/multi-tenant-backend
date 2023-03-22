@@ -6,7 +6,7 @@
             <img class="object-cover rounded-xl w-full" src="{{ asset('images/home/why-iceland-3.png') }}" />
         </div>
     </div>
-    <div class="bg-[#fdeef4] rounded-xl px-7 py-12 md:px-12 md:py-24 flex-1 md:overflow-auto md:max-h-full tiny-content">
+    <div class="bg-pink-red-secondary rounded-xl px-7 py-12 md:px-12 md:py-24 flex-1 md:overflow-auto md:max-h-full tiny-content">
         <h2 class="pb-6 md:pb-9 md:pr-0 pr-28" > {!! __('home.why-iceland-title') !!}</h2>        
         <x-read-more-block text="{!! __('home.why-iceland-text') !!}" />
     </div>    

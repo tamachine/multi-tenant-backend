@@ -1,0 +1,1 @@
+<x-posts-summary :blog-posts="$latest" title="Latest articles" :enable-view-all="false" />
