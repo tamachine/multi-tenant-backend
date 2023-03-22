@@ -37,7 +37,7 @@ class BlogSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'blog',
-                'key' => 'view-by-category',
+                'key' => 'view-by-category'
             ],
             [
                 'text' => ['en' => 'View by category', 'es' => 'Ver por categoría'],

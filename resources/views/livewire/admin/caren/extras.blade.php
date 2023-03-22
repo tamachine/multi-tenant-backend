@@ -48,7 +48,7 @@
                                 <td class="px-6 py-2 whitespace-nowrap text-sm font-medium">
                                     @if (!$extra->extra)
                                         <a
-                                            href="{{route('intranet.caren.create', $extra->id)}}"
+                                            href="{{route('intranet.extra.create', $extra->id)}}"
                                             class="inline-flex items-center px-4 py-2 bg-blue-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-white hover:border-blue-700 hover:text-blue-700 active:bg-white active:border-blue-700 active:text-blue-700 disabled:opacity-25 transition ease-in-out duration-150"
                                         >
                                             Create extra

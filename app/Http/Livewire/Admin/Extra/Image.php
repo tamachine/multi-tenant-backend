@@ -74,7 +74,7 @@ class Image extends Component
         session()->flash('status', 'success');
         session()->flash('message', 'Image uploaded for ' . $this->extra->name);
 
-        return redirect()->route('intranet.caren.edit', ["extra" => $this->extra->hashid, "tab" => "image"]);
+        return redirect()->route('intranet.extra.edit', ["extra" => $this->extra->hashid, "tab" => "image"]);
     }
 
     public function render()

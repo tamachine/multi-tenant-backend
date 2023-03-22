@@ -42,7 +42,7 @@ class Extra extends Model
      */
     public function getEditUrlAttribute()
     {
-        return route('intranet.caren.edit', $this->hashid);
+        return route('intranet.extra.edit', $this->hashid);
     }
 
      /**
