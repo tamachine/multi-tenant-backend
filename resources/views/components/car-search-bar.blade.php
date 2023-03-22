@@ -55,7 +55,7 @@
             </div>
 
             <div class="pr-16 flex items-end pb-6">
-                <button class="btn btn-yellow">{!! __('general.search') !!}</button>
+                <button class="btn btn-red">{!! __('general.search') !!}</button>
             </div>
         </div>
     </form>
@@ -73,7 +73,7 @@
                 </div>
                 <input type="text" class="search-input" />
             </div>
-            <button class="btn btn-yellow">{!! __('general.search') !!}</button>
+            <button class="btn btn-red">{!! __('general.search') !!}</button>
         </div>
     </form>
 </div>

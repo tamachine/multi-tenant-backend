@@ -30,6 +30,13 @@ Route::group(
             Route::get('{car}/edit/{tab?}', ['as' => 'edit', 'uses' => 'CarController@edit']);
         });
 
+        // Exchange Rates
+        Route::group(['prefix' => 'rate', 'as' => 'rate.'], function () {
+            Route::get('/', ['as' => 'index', 'uses' => 'RateController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'RateController@create']);
+            Route::get('{rate}/edit', ['as' => 'edit', 'uses' => 'RateController@edit']);
+        });
+
         // Extras
         Route::group(['prefix' => 'extra', 'as' => 'extra.'], function () {
             Route::get('/', ['as' => 'index', 'uses' => 'ExtraController@index']);
@@ -38,7 +45,7 @@ Route::group(
         });
 
         // InsuranceFeature
-        Route::resource('insurance-feature', InsuranceFeatureController::class, ['parameters' => ['insurance_feature' => 'insurance_feature_hashid']]);        
+        Route::resource('insurance-feature', InsuranceFeatureController::class, ['parameters' => ['insurance_feature' => 'insurance_feature_hashid']]);
 
         // Free days
         Route::group(['prefix' => 'free-day', 'as' => 'free-day.'], function () {

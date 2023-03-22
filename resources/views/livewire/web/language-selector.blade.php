@@ -65,7 +65,7 @@
                     {!! __('general.languages-remember') !!}
             </div>
             <button
-                class="md:hidden inline-block btn btn-yellow mt-7 py-3 font-sans font-bold"
+                class="md:hidden inline-block btn btn-red mt-7 py-3 font-sans font-bold"
                 x-on:click="close()"
                 >
                 {!! __('general.languages-apply') !!}

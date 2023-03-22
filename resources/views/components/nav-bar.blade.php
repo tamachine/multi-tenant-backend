@@ -1,5 +1,5 @@
 <nav x-data="visibilitySelector()" @languageSelector-show="show()" class="max-w-7xl mx-auto flex items-center justify-between flex-wrap p-3 md:px-4 md:py-5 border md:border-0 border-[#E7ECF3] bg-white relative z-50">
-    <div class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-3xl leading-9 cursor-pointer"
+    <div class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-2xl lg:text-3xl leading-9 cursor-pointer"
         onclick='window.location.href="{{route("home")}}"'
     >
         {{ __('general.brand') }}
@@ -70,12 +70,15 @@
             <div class="flex flex-col divide-y h-full">
                 <div class="h-full p-9 pb-0 flex flex-col items-center justify-between">
                     <div class="grid grid-cols-2 justify-center items-center text-center gap-y-8 gap-x-9">
-                        @foreach($carCategories as $carType)
-                        <div>
-                            <img src="{{ $carType->imagePath }}" class="mx-auto" />
-                            <span>{{ $carType->getTextTranslated() }}</span>
-                        </div>
-                        @endforeach
+                        @if (isset($carCategories))
+                            @foreach($carCategories as $carType)
+                            <div>
+                                <img src="{{ $carType->imagePath }}" class="mx-auto" />
+                                <span>{{ $carType->getTextTranslated() }}</span>
+                            </div>
+                            @endforeach
+                        @endif
+
                         <div>
                             <button class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-[#E7ECF3] cursor-pointer">{!! __('navbar.cars-button') !!}</button>
                         </div>

@@ -1,9 +1,6 @@
-<x-admin-layout>
-    <x-slot name="title">
-        {{ __('Forbidden') }}
-    </x-slot>
+@extends('layouts.web')
 
-    <div class="p-5 bg-black">
-        <img src="{{ asset('images/admin/errors/403.jpg') }}" class="mx-auto" />
+@section('intro')
+    <div class="bg-errors bg-403">
     </div>
-</x-admin-layout>
+@endsection

@@ -12,6 +12,7 @@ use App\Models\CarenVendor;
 use App\Models\Extra;
 use App\Models\FreeDay;
 use App\Models\Location;
+use App\Models\Rate;
 use App\Models\Season;
 use App\Models\User;
 use App\Models\Vendor;
@@ -154,7 +155,19 @@ trait CreatesApplication
         return Location::factory($attributes)->create();
     }
 
-     /**
+    /**
+     * Create an exchange rate
+     *
+     * @param      array   $attributes
+     *
+     * @return     object  \App\Models\Season
+     */
+    protected function createRate($attributes = [])
+    {
+        return Rate::factory($attributes)->create();
+    }
+
+    /**
      * Create a season
      *
      * @param      array   $attributes

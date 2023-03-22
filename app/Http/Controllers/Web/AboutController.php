@@ -8,11 +8,6 @@ class AboutController extends BaseController
     {
         return view(
             'web.about.index',
-            [
-                'breadcrumbs'   => $this->getBreadcrumb(['home', 'about']),
-                'titleClass'    => 'bg-about',
-                'titleText'     => __('about.title')
-            ]
         );
     }
 
