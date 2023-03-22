@@ -35,7 +35,7 @@ class FreeDayController extends Controller
             ]),
             'crumbs' => [
                 'Settings' => route('intranet.settings'),
-                'Free Day Plans' => route('intranet.caren.index')
+                'Free Day Plans' => route('intranet.extra.index')
             ],
         ];
 

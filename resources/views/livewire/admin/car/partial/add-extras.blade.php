@@ -14,7 +14,7 @@
                 <label for="availableExtras_{{ $key }}" class="inline-flex items-center">
                     <x-admin.checkbox id="availableExtras_{{ $key }}" wire:model="availableExtras.{{ $key }}.selected" />
                     <span class="ml-3">
-                        <a href="{{route('intranet.caren.edit', $availableExtra["id"])}}" target="_blank"
+                        <a href="{{route('intranet.extra.edit', $availableExtra["id"])}}" target="_blank"
                             class="text-purple-700 hover:underline"
                         >
                             {{$availableExtra["name"]}}

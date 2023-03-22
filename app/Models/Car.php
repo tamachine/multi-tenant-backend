@@ -55,7 +55,7 @@ class Car extends Model
      */
     public function getEditUrlAttribute()
     {
-        return route('car.edit', $this->hashid);
+        return route('intranet.car.edit', $this->hashid);
     }
 
     /**********************************

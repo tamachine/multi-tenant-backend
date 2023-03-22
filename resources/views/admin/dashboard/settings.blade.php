@@ -48,7 +48,7 @@
         </div>
 
         <div class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("intranet.caren.index")}}"'
+            onclick='window.location.href="{{route("intranet.extra.index")}}"'
         >
             <div class="w-14 ml-8">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-14 h-14 text-purple-700">
