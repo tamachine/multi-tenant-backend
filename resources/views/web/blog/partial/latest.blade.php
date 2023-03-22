@@ -1,1 +1,1 @@
-<x-posts-summary :blog-posts="$latest" title="Latest articles" :enable-view-all="false" />
+<x-posts-summary :blog-posts="$latest" :title="__('blog.latest')" :enable-view-all="false" />

@@ -23,6 +23,16 @@ class BreadcrumbsSeeder extends Seeder
                 'text' => ['en' => 'Home', 'es' => 'Home'],
             ]
         );   
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'breadcrumbs',
+                'key' => 'blog',    
+            ],
+            [                
+                'text' => ['en' => 'Blog', 'es' => 'Blog'],
+            ]
+        );   
         
     }
 }

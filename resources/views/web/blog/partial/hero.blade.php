@@ -8,7 +8,7 @@
                     </div>
                     <div class="hidden md:block">
                         <div class="text-right py-7 text-sm">
-                            By <a href="#" id="hero-blog-author" class="transition ease-in-out duration-200"> {!! $featured->first()?->author->name !!} </a>
+                            {!! __('blog.by') !!} <a href="#" id="hero-blog-author" class="transition ease-in-out duration-200"> {!! $featured->first()?->author->name !!} </a>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                                         {!! $featurePost->summary !!}
                                     </div>
                                     <div>
-                                        <button class="rounded-lg bg-white  font-sans-medium text-pink-red px-7 py-2">Read more</button>
+                                        <button class="rounded-lg bg-white  font-sans-medium text-pink-red px-7 py-2">{!! __('blog.read-more') !!}</button>
                                     </div>
                                 </div>
                             </div>
