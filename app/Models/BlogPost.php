@@ -18,7 +18,7 @@ class BlogPost extends Model
      */
     protected $fillable = [
         'hashid', 'title', 'slug', 'published', 'published_at', 'summary', 'content', 'featured_image',
-        'blog_author_id', 'blog_category_id'
+        'blog_author_id', 'blog_category_id', 'hero'
     ];
 
     /**
@@ -108,6 +108,11 @@ class BlogPost extends Model
     public function scopePublished($query)
     {
         return $query->where('published', 1);
+    }
+
+    public function scopeHero($query)
+    {
+        return $query->where('hero', 1);
     }
 
     /**********************************

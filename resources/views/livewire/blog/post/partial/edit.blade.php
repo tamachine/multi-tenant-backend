@@ -16,14 +16,28 @@
                 <x-admin.input-error for="title" class="mt-2" />
             </div>
 
-            <!-- Published -->
-            <div class="px-4 mt-4 sm:mt-0">
-                <x-admin.label for="published" value="{{ __('Published') }}" />
+            
+            <div class="px-4 mt-4 sm:mt-0 flex gap-3 divide-x">
+                <!-- Published -->
+                <section>
+                    <x-admin.label for="published" value="{{ __('Published') }}" />
 
-                <label for="published" class="inline-flex items-center">
-                    <x-admin.checkbox id="published" wire:model="published" class="w-10 h-10 mt-1" />
-                </label>
+                    <label for="published" class="inline-flex items-center">
+                        <x-admin.checkbox id="published" wire:model="published" class="w-10 h-10 mt-1" />
+                    </label>
+                </section>
+                
+                <!-- Hero -->
+                <section class="pl-3">
+                    <x-admin.label for="hero" value="{{ __('Hero') }}" />
+
+                    <label for="hero" class="inline-flex items-center">
+                        <x-admin.checkbox id="hero" wire:model="hero" class="w-10 h-10 mt-1" />
+                    </label>
+                </section>
             </div>
+
+            
         </div>
 
          <!-- Slug -->

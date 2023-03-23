@@ -25,15 +25,19 @@ class BlogPostFactory extends Factory
     public function definition()
     {
         $title =  $this->faker->text(30);
+        $published = rand(0,1);
+
         return [
             'title' => $title,
             'slug' => Str::slug($title),
-            'published' => rand(0,1),
+            'published' => $published,
+            'published_at' => $published ? now() : null,
             'summary' => $this->faker->text(200),
             'content' => $this->faker->text(1000),
             'blog_author_id' => BlogAuthor::inRandomOrder()->first(),
             'blog_category_id' => BlogCategory::inRandomOrder()->first(),
-            'featured_image' => 'https://picsum.photos/id/'. rand(0,200). '/1436/960'
+            'featured_image' => 'https://picsum.photos/id/'. rand(0,200). '/1436/960',
+            'hero' => rand(0,1)
         ];
     }
 }

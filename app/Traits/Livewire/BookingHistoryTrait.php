@@ -2,8 +2,12 @@
 
 namespace App\Traits\Livewire;
 
+use App\Traits\Livewire\OrderTableTrait;
+
 trait BookingHistoryTrait
 {
+    use OrderTableTrait;
+
     /*
     ***************************************************************
     ** PROPERTIES
@@ -111,16 +115,6 @@ trait BookingHistoryTrait
     public $date_format = "d-m-Y H:i";
 
     /**
-     * @var string
-     */
-    public $order_column = "created_at";
-
-    /**
-     * @var string
-     */
-    public $order_way = "desc";
-
-    /**
      * @var array
      */
     protected $updatesQueryString = [
@@ -151,15 +145,5 @@ trait BookingHistoryTrait
         $this->first_name = "";
         $this->last_name = "";
         $this->telephone = "";
-    }
-
-    public function changeOrder($column)
-    {
-        if ($this->order_column != $column) {
-            $this->order_column = $column;
-            $this->order_way = "desc";
-        } else {
-            $this->order_way = $this->order_way == "desc" ? "asc" : "desc";
-        }
     }
 }

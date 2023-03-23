@@ -50,7 +50,7 @@ class Index extends Component
         $this->fill(request()->only('search', 'page'));
     }
 
-    public function editUser($key)
+    public function saveUser($key)
     {
         $this->dispatchBrowserEvent('validationError');
 

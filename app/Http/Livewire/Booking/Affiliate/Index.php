@@ -5,10 +5,12 @@ namespace App\Http\Livewire\Booking\Affiliate;
 use App\Models\Affiliate;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Traits\Livewire\OrderTableTrait;
 
 class Index extends Component
 {
     use WithPagination;
+    use OrdertableTrait;
 
     /*
     ***************************************************************
@@ -20,16 +22,6 @@ class Index extends Component
      * @var string
      */
     public $search;
-
-    /**
-     * @var string
-     */
-    public $order_column = "name";
-
-    /**
-     * @var string
-     */
-    public $order_way = "asc";
 
      /**
      * @var array
@@ -47,17 +39,8 @@ class Index extends Component
 
     public function mount()
     {
-        //
-    }
-
-    public function changeOrder($column)
-    {
-        if ($this->order_column != $column) {
-            $this->order_column = $column;
-            $this->order_way = "desc";
-        } else {
-            $this->order_way = $this->order_way == "desc" ? "asc" : "desc";
-        }
+        $this->order_column = 'name';
+        $this->order_way = 'asc';
     }
 
     public function render()

@@ -13,7 +13,7 @@ class MailingController extends Controller
 
         $data = [
             'crumbs' => [
-                'Booking settings' => route('booking.dashboard')
+                'Booking settings' => route('intranet.booking.dashboard')
             ],
             'tab' => emptyOrNull($tab) ? 'customer' : $tab,
         ];

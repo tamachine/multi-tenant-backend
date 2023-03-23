@@ -40,6 +40,11 @@ class Edit extends Component
      */
     public $published;
 
+     /**
+     * @var bool
+     */
+    public $hero;
+
     /**
      * @var string
      */
@@ -107,6 +112,7 @@ class Edit extends Component
         $this->title = $post->title;
         $this->slug = $post->slug;
         $this->published = $post->published;
+        $this->hero = $post->hero;
         $this->category = $post->blog_category_id;
         $this->author = $post->blog_author_id;
         $this->tags = $post->tags_string;
@@ -144,6 +150,7 @@ class Edit extends Component
             'title'             => $this->title,
             'slug'              => $this->slug ? $this->slug : slugify($this->title),
             'published'         => $this->published ? 1 : 0,
+            'hero'              => $this->hero ? 1 : 0,
             'published_at'      => $published_date,
             'summary'           => $this->summary,
             'content'           => $this->content,
