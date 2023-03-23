@@ -15,7 +15,7 @@ class BlogController extends BaseController
             [
                 'categories' => $this->getCategories(),
                 'latest' => BlogPost::published()->get(),
-                'hero' => BlogPost::hero()->get(), 
+                'hero' => BlogPost::hero()->published()->get(), 
                 'breadcrumbs' => $this->getBreadcrumb(['home', 'blog']),
                 'categoriesWithPosts' => BlogCategory::has('postsPublished')->paginate(1)
             ]
