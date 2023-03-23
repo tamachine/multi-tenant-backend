@@ -17,7 +17,21 @@
                                 </th>
 
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
-                                    Published
+                                    <x-admin.order-table
+                                        name="Hero"
+                                        order_column="{{$order_column}}"
+                                        order_way="{{$order_way}}"
+                                        column="hero"
+                                    />
+                                </th>
+
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
+                                    <x-admin.order-table
+                                        name="Published"
+                                        order_column="{{$order_column}}"
+                                        order_way="{{$order_way}}"
+                                        column="published_at"
+                                    />
                                 </th>
                             </tr>
                         </thead>
@@ -36,7 +50,11 @@
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        {{ $post->published_at ? $post->published_at->format('d-m-Y') : 'No' }}
+                                        {{ $post->hero ? 'Yes' : 'No' }}
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        {{ $post->published ? $post->published_at->format('d-m-Y') : '-' }}
                                     </td>
                                 </tr>
                             @endforeach
