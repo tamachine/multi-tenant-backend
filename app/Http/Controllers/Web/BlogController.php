@@ -13,9 +13,10 @@ class BlogController extends BaseController
         return view(
             'web.blog.index',
             [
-                'categories' => $this->getCategories(),
-                'latest' => BlogPost::published()->get(),
+                'categories' => BlogCategory::has('postsPublished')->get(),
+                'latest' => BlogPost::published()->orderBy('published_at', 'desc')->take(3)->get(),
                 'hero' => BlogPost::hero()->published()->get(), 
+                'top' => BlogPost::top()->published()->get(),
                 'breadcrumbs' => $this->getBreadcrumb(['home', 'blog']),
                 'categoriesWithPosts' => BlogCategory::has('postsPublished')->paginate(1)
             ]
@@ -26,21 +27,4 @@ class BlogController extends BaseController
     {
         return 'images/footer/blog.png';
     }
-
-    protected function getCategories() {
-        $categories = BlogCategory::all();
-        $colors   = ['#EEF8FD', '#EEFDF0', '#FDEEF4', '#F9EEFD', '#EEFDFD', '#FDFCEE']; //if adding colors here, you must add them as well to tailwind.config.js file in safelist array
-        $bgColors = ['#d1ecfa', '#d1fad7', '#fad1e1', '#efd1fa', '#d1fafa', '#faf7d1']; //if adding colors here, you must add them as well to tailwind.config.js file in safelist array
-        $i = 0;
-
-        foreach($categories as $category) {
-            $category->color    = $colors[$i];
-            $category->bgColor  = $bgColors[$i];
-            if($i == count($colors) -1) $i = 0;
-            else $i++;
-        }
-
-        return $categories;
-    }
-    
 }

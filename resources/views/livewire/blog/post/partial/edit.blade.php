@@ -35,6 +35,15 @@
                         <x-admin.checkbox id="hero" wire:model="hero" class="w-10 h-10 mt-1" />
                     </label>
                 </section>
+
+                 <!-- Top -->
+                 <section class="pl-3">
+                    <x-admin.label for="top" value="{{ __('Top 10') }}" />
+
+                    <label for="top" class="inline-flex items-center">
+                        <x-admin.checkbox id="top" wire:model="top" class="w-10 h-10 mt-1" />
+                    </label>
+                </section>
             </div>
 
             
