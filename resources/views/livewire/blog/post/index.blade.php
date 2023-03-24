@@ -27,6 +27,15 @@
 
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
                                     <x-admin.order-table
+                                        name="Top 10"
+                                        order_column="{{$order_column}}"
+                                        order_way="{{$order_way}}"
+                                        column="top"
+                                    />
+                                </th>
+
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
+                                    <x-admin.order-table
                                         name="Published"
                                         order_column="{{$order_column}}"
                                         order_way="{{$order_way}}"
@@ -50,7 +59,11 @@
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        {{ $post->hero ? 'Yes' : 'No' }}
+                                        {{ $post->hero ? 'Yes' : '-' }}
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        {{ $post->top ? 'Yes' : '-' }}
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
