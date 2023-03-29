@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
     {
         // Seed these users in all environments
         $users = [
+            ['username' => 'drinconada@scandinavianehf.com', 'email' => 'drinconada@scandinavianehf.com', 'name' => 'Damián', 'role' => 'developer', 'blogger' => 1],
             ['username' => 'carlospcarmona@gmail.com', 'email' => 'carlospcarmona@gmail.com', 'name' => 'Carlos', 'role' => 'developer', 'blogger' => 1],
             ['username' => 'fran@scandinavianehf.com', 'email' => 'fran@scandinavianehf.com', 'name' => 'Fran', 'role' => 'developer', 'blogger' => 1],
             ['username' => 'pablo.santamaria@scandinavianehf.com', 'email' => 'pablo.santamaria@scandinavianehf.com', 'name' => 'Pablo', 'role' => 'developer', 'blogger' => 1],
@@ -37,7 +38,7 @@ class UserSeeder extends Seeder
             ['username' => 'fernanda@scandinavianehf.com', 'email' => 'fernanda@scandinavianehf.com', 'name' => 'Fernanda', 'role' => 'booking'],
             ['username' => 'claudia@scandinavianehf.com', 'email' => 'claudia@scandinavianehf.com', 'name' => 'Claudia', 'role' => 'booking'],
             ['username' => 'angel@scandinavianehf.com', 'email' => 'angel@scandinavianehf.com', 'name' => 'Ángel', 'role' => 'content', 'blogger' => 1],
-            ['username' => 'marcos@scandinavianehf.com', 'email' => 'marcos@scandinavianehf.com', 'name' => 'Marcos', 'role' => 'content', 'blogger' => 1],            
+            ['username' => 'marcos@scandinavianehf.com', 'email' => 'marcos@scandinavianehf.com', 'name' => 'Marcos', 'role' => 'content', 'blogger' => 1],
         ];
 
         foreach ($users as $user) {
