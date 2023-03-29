@@ -204,6 +204,7 @@ if (!function_exists('webpImage')) {
      */
     function webpImage($imageUrl, $class = "", $alt = "")
     {   
+        $imageUrl  = 'https://practical-neumann.62-151-178-253.plesk.page/images/footer/home.png';
         $imageUrlExploded           = explode(".", $imageUrl);
         $ImageUrlExtension          = $imageUrlExploded[count($imageUrlExploded)-1];
         $imageUrlWithoutExtension   = substr($imageUrl, 0, strlen($imageUrl) - (strlen($ImageUrlExtension) + 1));        
@@ -212,9 +213,15 @@ if (!function_exists('webpImage')) {
         $webpExist = false;
 
         try {
-            if(Http::get($imageUrlWithWebpExtension)->successful()) {
-                $webpExist = true;
-            } 
+            if (App::environment('staging')) {
+                if(Http::withBasicAuth(env('SERVER_AUTH_USER'), env('SERVER_AUTH_PASS'))->get($imageUrlWithWebpExtension)->successful()) {
+                    $webpExist = true;
+                }
+            } else {
+                if(Http::get($imageUrlWithWebpExtension)->successful()) {
+                    $webpExist = true;
+                }
+            }             
         } catch (\Exception $ex) {
               
         }
