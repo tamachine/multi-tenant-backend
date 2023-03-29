@@ -20,6 +20,6 @@ class ExtrasController extends BaseController
 
     protected function footerImagePath(): string
     {
-        return '/images/footer/extras.png';
+        return asset('/images/footer/extras.png');
     }
 }
