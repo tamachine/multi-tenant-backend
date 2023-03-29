@@ -26,7 +26,7 @@ class Breadcrumb
     public function setTranslationFullKey($value) {
         $this->translation_full_key = $value;
         $this->setText(__($this->translation_full_key));
-    }
+    }    
 
     public function getTranslationFullKey() {
         return $this->translation_full_key;

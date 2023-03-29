@@ -36,22 +36,6 @@ use App\Http\Controllers\Web\BlogController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-/* Static pages */
-Route::get('/about-us', [AboutController::class, 'index'])->name('about');
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::get('/faq', [FaqController::class, 'index'])->name('faq');
-
-/* Blog */
-Route::get('/blog', [BlogController::class, 'index'])->name('blog'); 
-
-/* Booking process */
-Route::get('/cars', [CarsController::class, 'index'])->name('cars');
-Route::get('/{car_hashid}/insurances', [InsurancesController::class, 'index'])->name('insurances');
-Route::get('/{car_hashid}/extras', [ExtrasController::class, 'index'])->name('extras');
-Route::get('/{car_hashid}/summary', [SummaryController::class, 'index'])->name('summary');
-Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
-Route::get('/success', [SuccessController::class, 'index'])->name('success');
-
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
         ->name('login');
@@ -82,16 +66,21 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');
-/*
-Route::get('/tokens/create', function (Request $request) {
-    $token = App\Models\User::where('name', 'api')->first()->createToken('front-end-1');
 
-    echo '<b>token</b>: '.$token->plainTextToken.'<br>';
-    echo '<b>get</b>: '. '/api/user<br>';
-    echo '<b>headers</b>: <br>';
-    echo 'Accept: application/json <br>';
-    echo 'Authorization: Basic *****, Bearer '.$token->plainTextToken.' <br>';
+/* Static pages */
+Route::get('/about-us', [AboutController::class, 'index'])->name('about');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 
-    die;
-});
-*/
+/* Blog */
+Route::get('/blog', [BlogController::class, 'index'])->name('blog'); 
+Route::get('/blog/preview/{post_slug}', [BlogController::class, 'preview'])->name('blog.preview'); 
+Route::get('/blog/{post_slug}', [BlogController::class, 'show'])->name('blog.show'); 
+
+/* Booking process */
+Route::get('/cars', [CarsController::class, 'index'])->name('cars');
+Route::get('/{car_hashid}/insurances', [InsurancesController::class, 'index'])->name('insurances');
+Route::get('/{car_hashid}/extras', [ExtrasController::class, 'index'])->name('extras');
+Route::get('/{car_hashid}/summary', [SummaryController::class, 'index'])->name('summary');
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
+Route::get('/success', [SuccessController::class, 'index'])->name('success');

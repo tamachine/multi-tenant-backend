@@ -11,6 +11,6 @@ class HomeController extends BaseController
 
     protected function footerImagePath() : string
     {
-        return 'images/footer/home.png';
+        return '/images/footer/home.png';
     }
 }

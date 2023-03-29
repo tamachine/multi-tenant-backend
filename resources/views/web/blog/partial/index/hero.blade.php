@@ -17,9 +17,12 @@
     </div>
 
     <div class="absolute bottom-0 left-0 z-10 w-full">
-        <div class="max-w-7xl mx-auto">
-            <div class="px-3 md:px-0 max-w-6xl mx-auto flex justify-end gap-2 py-10 md:py-[75px] hero-blog-pagination">
-                
+        <div class="max-w-7xl mx-auto">            
+            <div class="px-3 md:px-0 max-w-6xl mx-auto flex flex-row items-center">
+                <div class="basis-1/2">
+                    <button id="hero-blog-link" class="rounded-lg bg-white font-sans-medium text-pink-red px-7 py-2 cursor-pointer" onclick="window.location.href='{!! $hero->first()?->url !!}'">{!! __('blog.read-more') !!}</button>
+                </div>
+                <div class="basis-1/2 flex justify-end gap-2 py-10 md:py-[75px] hero-blog-pagination"></div>
             </div>
         </div>
     </div>
@@ -31,11 +34,12 @@
     @foreach($hero as $post)
         <swiper-slide
             data-author="{!! $post->author->name !!}"
+            data-url="{{ $post->url }}"
         >
             <div class="hidden md:block absolute top-0 left-0 w-full z-20">
                 <div class="max-w-7xl mx-auto">
                     <div class="max-w-6xl mx-auto text-right py-7 text-sm swiper-no-swiping">
-                        By <a href="#"> {!! $post->author->name !!} </a>
+                        {{ __('blog.by') }} <a href="#"> {!! $post->author->name !!} </a>
                     </div>
                 </div>
             </div>
@@ -47,7 +51,7 @@
                 >
                     <div class="bg-black/50 h-full w-full">
                         <div class="max-w-7xl mx-auto h-full">
-                            <div class="px-3 md:px-0 max-w-6xl mx-auto h-full">
+                            <div class="px-3 md:px-0 max-w-6xl mx-auto h-full pb-[50px]">
                                 <div class="flex flex-col justify-end h-full py-10 md:py-[75px] gap-2 md:gap-5 md:max-w-[710px]">
 
                                     <div class="font-fredoka-semibold text-[40px] md:text-[64px] text-left swiper-no-swiping">
@@ -55,14 +59,14 @@
                                     </div>
 
                                     <div class="font-sans text-xs md:hidden swiper-no-swiping">
-                                        By <a href="#"> {!! $post->author->name !!} </a>
+                                        {{ __('blog.by') }} <a href="#"> {!! $post->author->name !!} </a>
                                     </div>
 
                                     <div class="font-sans-medium swiper-no-swiping">
                                         {!! $post->summary !!}
                                     </div>
                                     <div>
-                                        <button class="rounded-lg bg-white  font-sans-medium text-pink-red px-7 py-2">{!! __('blog.read-more') !!}</button>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -101,9 +105,11 @@
                 on: {
                     slideChange() {
                         let author = this.slides[this.realIndex].dataset.author;
-                        const heroBlogAuthorEl = document.querySelector('#hero-blog-author');
+                        let url = this.slides[this.realIndex].dataset.url;
                         
-                        heroBlogAuthorEl.innerHTML = author;
+                        document.querySelector('#hero-blog-author').innerHTML = author;
+                        document.querySelector('#hero-blog-link').onclick = function() { window.location.href=url; }
+                       
                     },
                 },
             }

@@ -5,13 +5,13 @@
         </div>
 
         <div class="text-xs md:text-base">
-            By <a href="#"> {!! $blogPost->author->name !!} </a>
+            {{ __('blog.by') }} <a href="#"> {!! $blogPost->author->name !!} </a>
         </div>
     </div>
     <div class="font-sans-medium">
         {!! $blogPost->summary !!}
     </div>
     <div>
-        <button class="rounded-lg bg-white md:bg-black font-sans-medium text-pink-red md:text-white px-7 py-2">Read more</button>
+        <button class="rounded-lg bg-white md:bg-black font-sans-medium text-pink-red md:text-white px-7 py-2" onclick="window.location.href='{{ $blogPost->url }}'">{{ __('blog.read-more') }}</button>
     </div>
 </div>
