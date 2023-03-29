@@ -16,7 +16,7 @@ class TermsAndConditionsController extends BaseController
 
     protected function footerImagePath() : string
     {
-        return 'images/footer/terms.jpg';
+        return asset('/images/footer/terms.jpg');
     }
 }
 
