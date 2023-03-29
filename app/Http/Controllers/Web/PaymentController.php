@@ -17,6 +17,6 @@ class PaymentController extends BaseController
 
     protected function footerImagePath(): string
     {
-        return 'images/footer/payment.png';
+        return '/images/footer/payment.png';
     }
 }

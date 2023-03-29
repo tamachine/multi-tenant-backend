@@ -67,7 +67,7 @@
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        {{ $post->published ? $post->published_at->format('d-m-Y') : '-' }}
+                                        {{ $post->published ? $post->published_at->format('d-m-Y H:i:s') : '-' }}
                                     </td>
                                 </tr>
                             @endforeach

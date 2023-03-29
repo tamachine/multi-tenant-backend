@@ -73,5 +73,55 @@ class BlogSeeder extends Seeder
                 'text' => ['en' => 'View all', 'es' => 'Ver todos'],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'blog',
+                'key' => 'time',
+            ],
+            [
+                'text' => ['en' => '2 Minutes', 'es' => '2 Minutos'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'blog',
+                'key' => 'latest-articles-title',
+            ],
+            [
+                'text' => ['en' => 'Explore our latest articles', 'es' => 'Explora nuestros últimos artículos'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'blog',
+                'key' => 'related-posts-title',
+            ],
+            [
+                'text' => ['en' => 'You may also like', 'es' => 'Te puede interesar'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'blog',
+                'key' => 'related-posts-subtitle',
+            ],
+            [
+                'text' => ['en' => 'Blog articles related by tags and category', 'es' => 'Artículos relaciones por tags y categorís'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'blog',
+                'key' => 'pagination-btn',
+            ],
+            [
+                'text' => ['en' => 'Go to article', 'es' => 'Ir al artículo'],
+            ]
+        );
     }
 }
