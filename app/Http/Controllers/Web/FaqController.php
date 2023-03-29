@@ -16,7 +16,7 @@ class FaqController extends BaseController
 
     protected function footerImagePath() : string
     {
-        return '/images/footer/faq.jpg';
+        return asset('/images/footer/faq.jpg');
     }
 }
 

@@ -18,7 +18,7 @@ class CarsController extends BaseController
 
     protected function footerImagePath() : string
     {
-        return '/images/footer/cars.png';
+        return asset('/images/footer/cars.png');
     }
 }
 

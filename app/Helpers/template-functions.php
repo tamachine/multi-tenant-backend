@@ -194,7 +194,7 @@ if (!function_exists('bookingDropoffDate')) {
 }
 
 if (!function_exists('webpImage')) {
-     /**
+    /**
      * It shows the WebP image (if it exists)
      *
      * @param      string   $image
@@ -202,21 +202,32 @@ if (!function_exists('webpImage')) {
      * @param      string   $alt
      * @return     string
      */
-    function webpImage($image, $class = "", $alt = "")
-    {
-        $image = str_replace(config('app.url'), '', $image);
-        $route = explode(".", $image)[0];
-        $extension = explode(".", $image)[1];
+    function webpImage($imageUrl, $class = "", $alt = "")
+    {   
+        $imageUrlExploded           = explode(".", $imageUrl);
+        $ImageUrlExtension          = $imageUrlExploded[count($imageUrlExploded)-1];
+        $imageUrlWithoutExtension   = substr($imageUrl, 0, strlen($imageUrl) - (strlen($ImageUrlExtension) + 1));        
+        $imageUrlWithWebpExtension  = $imageUrlWithoutExtension.'.webp';
 
-        if(file_exists($route . ".webp")) {
+        $webpExist = false;
+
+        try {
+            if(Http::get($imageUrlWithWebpExtension)->successful()) {
+                $webpExist = true;
+            } 
+        } catch (\Exception $ex) {
+              
+        }
+
+        if($webpExist) {
             return
                     "<picture>
-                        <source srcset='$route.webp' type='image/webp'>
-                        <source srcset='$route.$extension' type='image/jpeg'>
-                        <img src='$route.$extension' class='$class' alt='$alt'>
+                        <source srcset='$imageUrlWithWebpExtension' type='image/webp'>
+                        <source srcset='$imageUrl' type='image/jpeg'>
+                        <img src='$imageUrl' class='$class' alt='$alt'>
                     </picture>";
         } else {
-            return "<img src='$route.$extension' class='$class' alt='$alt' />";
+            return "<img src='$imageUrl' class='$class' alt='$alt' />";
         }
     }
 }
