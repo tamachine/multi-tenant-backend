@@ -7,10 +7,7 @@ class TermsAndConditionsController extends BaseController
     public function index()
     {
         return view(
-            'web.terms.index',
-            [
-                'breadcrumbs'   => $this->getBreadcrumb(['home', 'terms']),
-            ]
+            'web.terms.index'           
         );
     }
 
