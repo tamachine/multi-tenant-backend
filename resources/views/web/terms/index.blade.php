@@ -1,13 +1,12 @@
 @extends('layouts.web')
 
 @section('body')
-    <div class="bg-white w-fill-screen">
-        <div class="mx-auto px-3 md:px-9 max-w-6xl">
-            <h2 class="text-pink-red mt-6">
-                {!! __('terms.title') !!}
-            </h2>
+    <div class="px-3 md:px-0 max-w-6xl mx-auto">
+        <h2 class="text-pink-red font-fredoka-semibold py-12">
+            {!! __('terms.title') !!}
+        </h2>
 
-            <span class="mt-6 text-justify text-gray-600 leading-5 space-y-2 text-sm">{!! __('terms.content') !!}</span>
-        </div>
+        <span class="text-justify text-[#84878B] leading-5">{!! __('terms.content') !!}</span>
+       
     </div>
 @endsection
