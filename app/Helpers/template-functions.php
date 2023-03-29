@@ -203,8 +203,7 @@ if (!function_exists('webpImage')) {
      * @return     string
      */
     function webpImage($imageUrl, $class = "", $alt = "")
-    {   
-        $imageUrl  = 'https://practical-neumann.62-151-178-253.plesk.page/images/footer/home.png';
+    {          
         $imageUrlExploded           = explode(".", $imageUrl);
         $ImageUrlExtension          = $imageUrlExploded[count($imageUrlExploded)-1];
         $imageUrlWithoutExtension   = substr($imageUrl, 0, strlen($imageUrl) - (strlen($ImageUrlExtension) + 1));        
