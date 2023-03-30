@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Spatie\Translatable\HasTranslations;
 
 class BlogPost extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +22,13 @@ class BlogPost extends Model
         'hashid', 'title', 'slug', 'published', 'published_at', 'summary', 'content', 'featured_image',
         'blog_author_id', 'blog_category_id', 'hero', 'top'
     ];
+
+    /**
+     * The attributes that are translatable.
+     *
+     * @var array
+     */
+    public $translatable = ['title', 'slug', 'summary', 'content'];
 
     protected $append = ['url','preview_url', 'next_post', 'prev_post', 'related_posts'];
 
@@ -54,15 +62,15 @@ class BlogPost extends Model
      */
     public function getFeaturedImageUrlAttribute()
     {
-        if (filter_var($this->featured_image, FILTER_VALIDATE_URL)) { 
+        if (filter_var($this->featured_image, FILTER_VALIDATE_URL)) {
             return $this->featured_image;
         } else {
-            return 
+            return
                 $this->featured_image
                 ? asset('storage/posts/' . $this->featured_image)
                 : '';
         }
-        
+
     }
 
     /**
@@ -93,12 +101,12 @@ class BlogPost extends Model
 
     public function getNextPostAttribute()
     {
-        return BlogPost::published()->where('published_at','<', $this->published_at)->orderBy('published_at', 'desc')->first();               
+        return BlogPost::published()->where('published_at','<', $this->published_at)->orderBy('published_at', 'desc')->first();
     }
-    
+
     public function getPrevPostAttribute()
     {
-        return BlogPost::published()->where('published_at','>', $this->published_at)->orderBy('published_at', 'asc')->first();         
+        return BlogPost::published()->where('published_at','>', $this->published_at)->orderBy('published_at', 'asc')->first();
     }
 
     public function getRelatedPostsAttribute()
@@ -109,7 +117,7 @@ class BlogPost extends Model
 
             $query->where('id', $this->blog_category_id);
 
-        } )->where('id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts)->get();               
+        } )->where('id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts)->get();
 
         if($byCategories->count() < $numOfPosts) {
 
@@ -117,13 +125,13 @@ class BlogPost extends Model
 
                 $query->whereIn('id', $this->tags->pluck('id'));
 
-            } )->where('id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $byCategories->count())->get();  
+            } )->where('id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $byCategories->count())->get();
 
             $categoriesAndTags = $byCategories->merge($byTags);
 
             if($categoriesAndTags->count() < $numOfPosts) {
 
-                $notRelated = BlogPost::published()->where('id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $categoriesAndTags->count())->get(); 
+                $notRelated = BlogPost::published()->where('id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $categoriesAndTags->count())->get();
 
                 return $categoriesAndTags->merge($notRelated);
 
@@ -135,7 +143,7 @@ class BlogPost extends Model
         } else {
 
             return $byCategories;
-            
+
         }
 
     }
