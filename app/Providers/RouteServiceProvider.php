@@ -81,7 +81,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('extra_hashid', function ($value) {
             $resource = new \App\Models\Extra();
             return $resource->where('hashid', $value)->first();
-        });  
+        });
 
         Route::bind('insurance_feature_hashid', function ($value) {
             $resource = new \App\Models\InsuranceFeature();
@@ -94,8 +94,9 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::bind('post_slug', function ($value) {
-            $resource = new \App\Models\BlogPost();
-            return $resource->where('slug', $value)->first();
+            $resource = \App\Models\BlogPost::where('slug', 'LIKE', '%' . $value . '%')->first();
+
+            return $resource;
         });
     }
      /**
@@ -130,7 +131,7 @@ class RouteServiceProvider extends ServiceProvider
                     ->middleware(['web', 'auth'])
                     ->namespace($this->namespace)
                     ->group(base_path('routes/admin.php'));
-                    
+
                 Route::prefix('affiliate')
                     ->middleware(['web', 'auth'])
                     ->namespace($this->namespace)
