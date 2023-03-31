@@ -91,10 +91,14 @@
         <!-- Tags -->
         <div class="px-4 mt-4">
             <x-admin.label for="tags" value="{{ __('Tags') }}" />
-            <x-admin.input id="tags" type="text" class="mt-1 block w-full" maxlength="255" wire:model.defer="tags" autocomplete="post_tags" />
-            <x-admin.input-help value="{{ __('(Separated by comma)') }}" />
+            <select id="tags" class="te-select" multiple data-te-select-init data-te-select-filter="true" wire:model.defer="tags">
+                @foreach ($tags as $id => $name)
+                    <option value="{{ $id }}" {{ in_array($id, $post->tags->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $name }}</option>
+                @endforeach
+            </select>
             <x-admin.input-error for="tags" class="mt-2" />
         </div>
+
 
         <!-- Summary -->
         <div class="px-4 mt-4">

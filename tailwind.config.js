@@ -11,6 +11,8 @@ module.exports = {
         './resources/**/*.php',
         './resources/**/*.vue',
         './resources/**/*.twig',
+        "./src/**/*.{html,js}",
+        "./node_modules/tw-elements/dist/js/**/*.js",
     ],
     safelist: [
         'bg-[#AA78A6]',

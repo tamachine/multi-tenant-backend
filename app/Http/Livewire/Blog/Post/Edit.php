@@ -71,7 +71,7 @@ class Edit extends Component
     public $authors;
 
     /**
-     * @var string
+     * @var array
      */
     public $tags;
 
@@ -121,7 +121,6 @@ class Edit extends Component
         $this->top = $post->top;
         $this->category = $post->blog_category_id;
         $this->author = $post->blog_author_id;
-        $this->tags = $post->tags_string;
         $this->summary = $post->summary;
         $this->content = $post->content;
         $this->featured_url = $post->featured_image_url;
@@ -129,6 +128,7 @@ class Edit extends Component
 
         $this->categories = BlogCategory::pluck('name', 'id');
         $this->authors = BlogAuthor::pluck('name', 'id');
+        $this->tags = BlogTag::pluck('name', 'id');
     }
 
     public function savePost()
@@ -177,18 +177,13 @@ class Edit extends Component
         }
 
         // 3. Update the tags
-        $this->post->tags()->detach();
-        if (!emptyOrNull($this->tags)) {
-            $tags = explode(',', $this->tags);
-
-            foreach($tags as $tag) {
-                $currentTag = BlogTag::firstOrCreate([
-                    'name'  => trim($tag),
-                    'slug'  => slugify(trim($tag)),
-                ]);
-                $this->post->tags()->attach($currentTag->id);
-            }
+        if ($this->tags) {
+            $this->post->tags()->sync($this->tags);
+        } else {
+            $this->post->tags()->sync([]);
         }
+
+
 
         session()->flash('status', 'success');
         session()->flash('message', 'Post "' . $this->title . '" updated');
