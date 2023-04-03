@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Models\BlogCategory;
+use App\Models\BlogTag;
 use App\Models\BlogPost;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,12 +15,12 @@ class BlogController extends BaseController
         return view(
             'web.blog.index',
             [
-                'categories' => BlogCategory::has('postsPublished')->get(),
-                'latest' => BlogPost::published()->orderBy('published_at', 'desc')->take(4)->get(),
-                'hero' => BlogPost::hero()->published()->orderBy('published_at', 'desc')->take(3)->get(), 
-                'top' => BlogPost::top()->published()->get(),
-                'breadcrumbs' => $this->getBreadcrumb(['home', 'blog']),
-                'categoriesWithPosts' => BlogCategory::has('postsPublished')->paginate(1)
+                'tags'                  => BlogTag::has('postsPublished')->get(),
+                'latest'                => BlogPost::published()->orderBy('published_at', 'desc')->take(4)->get(),
+                'hero'                  => BlogPost::hero()->published()->orderBy('published_at', 'desc')->take(3)->get(), 
+                'top'                   => BlogPost::top()->published()->get(),
+                'categoriesWithPosts'   => BlogCategory::has('postsPublished')->paginate(1),
+                'breadcrumbs'           => getBreadcrumb(['home', 'blog']),                
             ]
         );
     }
@@ -52,7 +53,7 @@ class BlogController extends BaseController
             'web.blog.show',
             [
                 'post' => $blogPost,
-                'breadcrumbs' => $this->getBreadcrumb(['home', 'blog', $blogPost->title]),    
+                'breadcrumbs' => getBreadcrumb(['home', 'blog', $blogPost->title]),    
                 'related' => $blogPost->related_posts                         
             ]
         );

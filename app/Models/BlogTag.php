@@ -6,10 +6,25 @@ use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\BlogTagColor;
 
 class BlogTag extends Model
 {
     use HasFactory, HashidTrait, SoftDeletes;
+
+    public static function boot() {
+        parent::boot();
+    
+        static::creating(function (BlogTag $item) { 
+            $color = new BlogTagColor(); 
+            $item->color_id = $color->getColorId();
+        });
+    }
+
+    public function getColorAttribute() {
+        $color = new BlogTagColor();
+        return $color->getBlogTagColor($this->color_id);
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -23,7 +38,6 @@ class BlogTag extends Model
     /**********************************
      * Accessors & Mutators
      **********************************/
-
     /**
      * Get the tag's edit URL
      *
@@ -72,5 +86,15 @@ class BlogTag extends Model
     public function posts()
     {
         return $this->belongsToMany('App\Models\BlogPost')->withTimestamps();
+    }
+
+    /**
+     * Related published posts
+     *
+     * @return object
+     */
+    public function postsPublished()
+    {
+        return $this->belongsToMany(BlogPost::class)->published();
     }
 }

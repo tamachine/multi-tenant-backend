@@ -27,6 +27,16 @@ class BlogSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'blog',
+                'key' => 'in',
+            ],
+            [
+                'text' => ['en' => 'in', 'es' => 'en'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'blog',
                 'key' => 'read-more',
             ],
             [
@@ -37,10 +47,10 @@ class BlogSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'blog',
-                'key' => 'view-by-category'
+                'key' => 'view-by-tag'
             ],
             [
-                'text' => ['en' => 'View by category', 'es' => 'Ver por categoría'],
+                'text' => ['en' => 'View by tag', 'es' => 'Ver por tag'],
             ]
         );
 

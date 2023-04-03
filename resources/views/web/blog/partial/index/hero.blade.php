@@ -8,7 +8,7 @@
                     </div>
                     <div class="hidden md:block">
                         <div class="text-right py-7 text-sm">
-                            {!! __('blog.by') !!} <a href="#" id="hero-blog-author" class="transition ease-in-out duration-200"> {!! $hero->first()?->author->name !!} </a>
+                            {!! __('blog.by') !!} <a href="{!! $hero->first()?->author->url !!}" id="hero-blog-author" class="transition ease-in-out duration-200"> {!! $hero->first()?->author->name !!} </a> {!! __('blog.in') !!} <a id="hero-blog-category" href="{{ $hero->first()?->category->url }}"> {!! $hero->first()?->category->name !!} </a>
                         </div>
                     </div>
                 </div>
@@ -34,16 +34,11 @@
     @foreach($hero as $post)
         <swiper-slide
             data-author="{!! $post->author->name !!}"
+            data-category="{{ $post->category->name }}"
             data-url="{{ $post->url }}"
+            data-category-url="{{ $post->category->url }}"
+            data-author-url="{{ $post->author->url }}"
         >
-            <div class="hidden md:block absolute top-0 left-0 w-full z-20">
-                <div class="max-w-7xl mx-auto">
-                    <div class="max-w-6xl mx-auto text-right py-7 text-sm swiper-no-swiping">
-                        {{ __('blog.by') }} <a href="#"> {!! $post->author->name !!} </a>
-                    </div>
-                </div>
-            </div>
-
             <div class="flex flex-col gap-4 h-[540px] md:h-[670px]">
                 <div
                     class="w-full h-full bg-cover"
@@ -58,8 +53,8 @@
                                         {!! $post->title !!}
                                     </div>
 
-                                    <div class="font-sans text-xs md:hidden swiper-no-swiping">
-                                        {{ __('blog.by') }} <a href="#"> {!! $post->author->name !!} </a>
+                                    <div class="font-sans text-xs md:hidden swiper-no-swiping">                                       
+                                        <x-blog-post-by :blogPost="$post" />
                                     </div>
 
                                     <div class="font-sans-medium swiper-no-swiping">
@@ -104,11 +99,13 @@
                 mousewheelForceToAxis: true,
                 on: {
                     slideChange() {
-                        let author = this.slides[this.realIndex].dataset.author;
-                        let url = this.slides[this.realIndex].dataset.url;
-                        
-                        document.querySelector('#hero-blog-author').innerHTML = author;
-                        document.querySelector('#hero-blog-link').onclick = function() { window.location.href=url; }
+                        let dataset = this.slides[this.realIndex].dataset;
+
+                        document.querySelector('#hero-blog-author').innerHTML   = dataset.author;
+                        document.querySelector('#hero-blog-author').href        = dataset.authorUrl;
+                        document.querySelector('#hero-blog-category').innerHTML = dataset.category;
+                        document.querySelector('#hero-blog-category').href      = dataset.categoryUrl;
+                        document.querySelector('#hero-blog-link').onclick       = function() { window.location.href = dataset.url; }
                        
                     },
                 },
