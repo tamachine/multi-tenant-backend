@@ -16,11 +16,17 @@ class BlogSearchString extends Component
         getSubtitle as protected getSubtitleFromBlogSearchTrait;
     }
 
-    protected $queryString = ['search'];
+    protected $queryString = ['search', 'tag'];
+
+    public $tag;
 
     public function mount(Request $request) {
         $this->search = $request->input('search');                                                      
-        $this->tagHashid = $request->input('tag');  
+        
+        if($request->input('tag')) {
+            $this->tag = $request->input('tag');
+            $this->tagHashid = BlogTag::where('slug', 'like', '%'. $this->tag .'%')->first()?->hashid;
+        }
     }      
 
     /**
