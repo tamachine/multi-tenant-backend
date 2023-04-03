@@ -6,6 +6,7 @@ use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Builder;
 
 class BlogPost extends Model
 {
@@ -20,6 +21,8 @@ class BlogPost extends Model
         'hashid', 'title', 'slug', 'published', 'published_at', 'summary', 'content', 'featured_image',
         'blog_author_id', 'blog_category_id', 'hero', 'top'
     ];
+
+    protected $append = ['url','preview_url', 'next_post', 'prev_post', 'related_posts'];
 
     /**
      * The attributes that should be cast to native types.
@@ -78,6 +81,65 @@ class BlogPost extends Model
         return implode(", ", $tags);
     }
 
+    public function getUrlAttribute()
+    {
+        return route('blog.show', $this->slug);
+    }
+
+    public function getPreviewUrlAttribute()
+    {
+        return route('blog.preview', $this->slug);
+    }
+
+    public function getNextPostAttribute()
+    {
+        return BlogPost::published()->where('published_at','<', $this->published_at)->orderBy('published_at', 'desc')->first();               
+    }
+    
+    public function getPrevPostAttribute()
+    {
+        return BlogPost::published()->where('published_at','>', $this->published_at)->orderBy('published_at', 'asc')->first();         
+    }
+
+    public function getRelatedPostsAttribute()
+    {
+        $numOfPosts = 3;
+
+        $byCategories = BlogPost::published()->whereHas('category', function(Builder $query) {
+
+            $query->where('id', $this->blog_category_id);
+
+        } )->where('id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts)->get();               
+
+        if($byCategories->count() < $numOfPosts) {
+
+            $byTags = BlogPost::published()->whereHas('tags', function(Builder $query) {
+
+                $query->whereIn('id', $this->tags->pluck('id'));
+
+            } )->where('id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $byCategories->count())->get();  
+
+            $categoriesAndTags = $byCategories->merge($byTags);
+
+            if($categoriesAndTags->count() < $numOfPosts) {
+
+                $notRelated = BlogPost::published()->where('id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $categoriesAndTags->count())->get(); 
+
+                return $categoriesAndTags->merge($notRelated);
+
+            } else {
+
+                return $categoriesAndTags;
+            }
+
+        } else {
+
+            return $byCategories;
+            
+        }
+
+    }
+
     /**********************************
      * Scopes
      **********************************/
@@ -97,7 +159,7 @@ class BlogPost extends Model
             //into a single query
             collect(str_getcsv($search, ' ', '"'))->filter()->each(function ($term) use ($query) {
                 $term = '%' . $term . '%';
-                $query->where('name', 'like', $term)
+                $query->where('title', 'like', $term)
                     ->orWhere('summary', 'like', $term);
             });
         }

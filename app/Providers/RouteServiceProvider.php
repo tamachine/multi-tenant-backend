@@ -87,6 +87,31 @@ class RouteServiceProvider extends ServiceProvider
             $resource = new \App\Models\InsuranceFeature();
             return $resource->where('hashid', $value)->first();
         });
+
+        Route::bind('blog_post_hashid', function ($value) {
+            $resource = new \App\Models\BlogPost();
+            return $resource->where('hashid', $value)->first();
+        });
+
+        Route::bind('blog_post_slug', function ($value) {
+            $resource = new \App\Models\BlogPost();
+            return $resource->where('slug', $value)->first();
+        });
+
+        Route::bind('blog_category_slug', function ($value) {
+            $resource = new \App\Models\BlogCategory();
+            return $resource->where('slug', $value)->first();
+        });
+
+        Route::bind('blog_tag_slug', function ($value) {
+            $resource = new \App\Models\BlogTag();
+            return $resource->where('slug', $value)->first();
+        });
+
+        Route::bind('blog_author_slug', function ($value) {
+            $resource = new \App\Models\BlogAuthor();
+            return $resource->where('slug', $value)->first();
+        });
     }
      /**
      * Define the routes for the application.

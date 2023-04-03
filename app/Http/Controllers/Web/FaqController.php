@@ -9,14 +9,14 @@ class FaqController extends BaseController
         return view(
             'web.faq.index',
             [
-                'breadcrumbs'   => $this->getBreadcrumb(['home', 'faq']),
+                'breadcrumbs'   => getBreadcrumb(['home', 'faq']),
             ]
         );
     }
 
     protected function footerImagePath() : string
     {
-        return 'images/footer/faq.jpg';
+        return asset('/images/footer/faq.jpg');
     }
 }
 

@@ -13,7 +13,7 @@ class AboutController extends BaseController
 
     protected function footerImagePath() : string
     {
-        return 'images/footer/about.jpg';
+        return asset('/images/footer/about.jpg');
     }
 }
 

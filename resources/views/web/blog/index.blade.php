@@ -2,19 +2,21 @@
 
 @section('body')        
     <div class="px-3 md:px-0 max-w-6xl mx-auto">
-        @include('web.blog.partial.hero')
 
-        @include('web.blog.partial.filters')
+    
+        @include('web.blog.partial.index.hero')
 
-        @include('web.blog.partial.latest')
+        @include('web.blog.partial.index.filters')
 
-        @include('web.blog.partial.top10')
+        @include('web.blog.partial.index.latest')
 
-        @include('web.blog.partial.image')
+        @include('web.blog.partial.index.top10')
 
-        @include('web.blog.partial.postsByCategory')
+        @include('web.blog.partial.index.image')
 
-        @include('web.blog.partial.newsletter')
+        @include('web.blog.partial.index.postsByCategory')
+
+        @include('web.blog.partial.index.newsletter')
         
     </div>
 @endsection

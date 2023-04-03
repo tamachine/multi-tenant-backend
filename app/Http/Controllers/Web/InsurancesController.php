@@ -20,7 +20,7 @@ class InsurancesController extends BaseController
 
     protected function footerImagePath() : string
     {
-        return '/images/footer/insurances.png';
+        return asset('/images/footer/insurances.png');
     }
 }
 

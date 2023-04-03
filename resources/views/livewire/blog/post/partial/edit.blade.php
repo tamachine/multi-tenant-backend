@@ -44,6 +44,11 @@
                         <x-admin.checkbox id="top" wire:model="top" class="w-10 h-10 mt-1" />
                     </label>
                 </section>
+
+                <!-- Preview -->
+                <section class="ml-auto">                                        
+                    <x-admin.button onclick="window.open('{{ $post->preview_url }}','_blank');">Preview</x-admin.button>                
+                </section>
             </div>
 
 

@@ -63,4 +63,16 @@ class PostController extends Controller
 
         return view('blog.post.edit')->with($data);
     }
+
+    public function preview(BlogPost $blogPost): View
+    {
+        $this->authorize('blog');
+        
+        return view(
+            'web.blog.show',
+            [
+                'post' => $blogPost                
+            ]
+        );
+    }
 }

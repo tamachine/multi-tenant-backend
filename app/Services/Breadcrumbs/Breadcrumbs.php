@@ -24,7 +24,7 @@ class Breadcrumbs
             if($breadcrumb->getRoute() == $routeName) {
                 return $breadcrumb;
             }
-        }
+        }        
     }
 
     public function getBreadcrumbByTranslationFullKey($fullKey) {
@@ -50,7 +50,7 @@ class Breadcrumbs
 
         $breadcrumb = new Breadcrumb();
         $breadcrumb->setRoute('blog');
-        $breadcrumb->setTranslationFullKey('breadcrumbs.blog');
+        $breadcrumb->setTranslationFullKey('breadcrumbs.blog');        
         
         $this->addBreadcrumb($breadcrumb);
     }

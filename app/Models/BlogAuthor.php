@@ -17,12 +17,26 @@ class BlogAuthor extends Model
      * @var array
      */
     protected $fillable = [
-        'hashid', 'name', 'slug', 'bio', 'meta_title', 'meta_description', 'photo'
+        'hashid', 'name', 'slug', 'bio', 'short_bio', 'meta_title', 'meta_description', 'photo'
+    ];
+
+    protected $append = [
+        'url'
     ];
 
     /**********************************
      * Accessors & Mutators
      **********************************/
+
+        /**
+     * Get the category's edit URL
+     *
+     * @return     string
+     */
+    public function getUrlAttribute()
+    {
+        return route('blog.search.author', $this->slug);
+    }
 
     /**
      * Get the author's edit URL

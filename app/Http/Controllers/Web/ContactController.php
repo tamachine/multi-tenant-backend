@@ -9,14 +9,14 @@ class ContactController extends BaseController
         return view(
             'web.contact.index',
             [
-                'breadcrumbs'   => $this->getBreadcrumb(['home', 'contact']),
+                'breadcrumbs'   => getBreadcrumb(['home', 'contact']),
             ]
         );
     }
 
     protected function footerImagePath() : string
     {
-        return 'images/footer/contact.jpg';
+        return asset('/images/footer/contact.jpg');
     }
 }
 

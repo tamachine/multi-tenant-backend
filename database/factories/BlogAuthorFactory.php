@@ -26,6 +26,8 @@ class BlogAuthorFactory extends Factory
         return [
             'name' => $name,
             'slug' => Str::slug($name),
+            'bio' => $this->faker->text(300),
+            'short_bio' => $this->faker->text(100),
         ];
     }
 }

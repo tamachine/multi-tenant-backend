@@ -6,25 +6,10 @@ use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\BlogCategoryColor;
 
 class BlogCategory extends Model
 {
     use HasFactory, HashidTrait, SoftDeletes;
-
-    public static function boot() {
-        parent::boot();
-    
-        static::creating(function (BlogCategory $item) { 
-            $color = new BlogCategoryColor(); 
-            $item->color_id = $color->getColorId();
-        });
-    }
-
-    public function getColorAttribute() {
-        $color = new BlogCategoryColor();
-        return $color->getBlogCategoryColor($this->color_id);
-    }
 
     /**
      * The attributes that are mass assignable.
@@ -35,10 +20,22 @@ class BlogCategory extends Model
         'hashid', 'name', 'slug',
     ];
 
+    protected $append = ['url'];
+
     /**********************************
      * Accessors & Mutators
      **********************************/
 
+       /**
+     * Get the category's edit URL
+     *
+     * @return     string
+     */
+    public function getUrlAttribute()
+    {
+        return route('blog.search.category', $this->slug);
+    }
+     
     /**
      * Get the category's edit URL
      *

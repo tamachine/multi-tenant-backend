@@ -10,6 +10,7 @@ use App\Services\ReviewsInfo\TrustPilotReviewsInfoComponent;
 use App\Services\Selectable\CarSearchHoursSelectableComponent;
 use App\Services\Breadcrumbs\Breadcrumbs;
 use App\Models\CarType;
+use App\Services\Breadcrumbs\Breadcrumb;
 
 abstract class BaseController extends Controller
 {    
@@ -26,18 +27,7 @@ abstract class BaseController extends Controller
 
         View::share('footerImagePath', $this->footerImagePath());
         View::share('carCategories', CarType::all());
-    }
-
-    protected function getBreadcrumb($routes = []) {
-        $breadcrumbs = new Breadcrumbs();
-        $breadcrumb = [];
-
-        foreach($routes as $route) {
-            $breadcrumb[] = $breadcrumbs->getBreadcrumbByRoute($route);
-        }
-
-        return $breadcrumb;
-    }
+    }    
 
     abstract protected function footerImagePath() : string;
 }

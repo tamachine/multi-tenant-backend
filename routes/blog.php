@@ -42,7 +42,7 @@ Route::group(
         Route::group(['prefix' => 'post', 'as' => 'post.'], function () {
             Route::get('/', ['as' => 'index', 'uses' => 'PostController@index']);
             Route::get('create', ['as' => 'create', 'uses' => 'PostController@create']);
-            Route::get('{post}/edit', ['as' => 'edit', 'uses' => 'PostController@edit']);
+            Route::get('{post}/edit', ['as' => 'edit', 'uses' => 'PostController@edit']);            
         });
     }
 );

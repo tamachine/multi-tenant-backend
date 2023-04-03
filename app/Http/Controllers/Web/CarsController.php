@@ -11,14 +11,14 @@ class CarsController extends BaseController
         return view(
             'web.cars.index',
             [
-                'breadcrumbs' => $this->getBreadcrumb(['home', 'cars']),
+                'breadcrumbs' => getBreadcrumb(['home', 'cars']),
             ]
         );
     }
 
     protected function footerImagePath() : string
     {
-        return 'images/footer/cars.png';
+        return asset('/images/footer/cars.png');
     }
 }
 

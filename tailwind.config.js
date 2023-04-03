@@ -84,6 +84,7 @@ module.exports = {
             },
             screens: {
                 'md-max': {'max': '767px'}, // => @media (max-width: 767px) { ... }
+                '7xl': '1440px'
             },
             width: {
                 '6xl': '1170px',
