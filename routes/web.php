@@ -22,6 +22,10 @@ use App\Http\Controllers\Web\SummaryController;
 use App\Http\Controllers\Web\PaymentController;
 use App\Http\Controllers\Web\SuccessController;
 use App\Http\Controllers\Web\BlogController;
+use App\Http\Controllers\Web\BlogSearchStringController;
+use App\Http\Controllers\Web\BlogSearchCategoryController;
+use App\Http\Controllers\Web\BlogSearchTagController;
+use App\Http\Controllers\Web\BlogSearchAuthorController;
 use App\Http\Controllers\Web\TermsAndConditionsController;
 
 /*
@@ -77,7 +81,12 @@ Route::get('/terms-and-conditions', [TermsAndConditionsController::class, 'index
 /* Blog */
 Route::get('/blog', [BlogController::class, 'index'])->name('blog'); 
 Route::get('/blog/preview/{post_slug}', [BlogController::class, 'preview'])->name('blog.preview'); 
-Route::get('/blog/{post_slug}', [BlogController::class, 'show'])->name('blog.show'); 
+Route::get('/blog/search', [BlogSearchStringController::class, 'index'])->name('blog.search.string');
+Route::get('/blog/category/{blog_category_slug}', [BlogSearchCategoryController::class, 'index'])->name('blog.search.category');
+Route::get('/blog/tag/{blog_tag_slug}', [BlogSearchTagController::class, 'index'])->name('blog.search.tag');
+Route::get('/blog/author/{blog_author_slug}', [BlogSearchAuthorController::class, 'index'])->name('blog.search.author');
+Route::get('/blog/post/{blog_post_slug}', [BlogController::class, 'show'])->name('blog.show'); 
+
 
 /* Booking process */
 Route::get('/cars', [CarsController::class, 'index'])->name('cars');

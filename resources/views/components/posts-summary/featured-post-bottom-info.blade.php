@@ -4,8 +4,8 @@
             {!! $blogPost->title !!}
         </div>
 
-        <div class="text-xs md:text-base">
-            {{ __('blog.by') }} <a href="#"> {!! $blogPost->author->name !!} </a>
+        <div class="text-xs md:text-base">            
+            <x-blog-post-by :blogPost="$blogPost" />
         </div>
     </div>
     <div class="font-sans-medium">

@@ -11,7 +11,7 @@ class CarsController extends BaseController
         return view(
             'web.cars.index',
             [
-                'breadcrumbs' => $this->getBreadcrumb(['home', 'cars']),
+                'breadcrumbs' => getBreadcrumb(['home', 'cars']),
             ]
         );
     }

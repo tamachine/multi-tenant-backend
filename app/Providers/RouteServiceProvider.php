@@ -93,8 +93,23 @@ class RouteServiceProvider extends ServiceProvider
             return $resource->where('hashid', $value)->first();
         });
 
-        Route::bind('post_slug', function ($value) {
+        Route::bind('blog_post_slug', function ($value) {
             $resource = new \App\Models\BlogPost();
+            return $resource->where('slug', $value)->first();
+        });
+
+        Route::bind('blog_category_slug', function ($value) {
+            $resource = new \App\Models\BlogCategory();
+            return $resource->where('slug', $value)->first();
+        });
+
+        Route::bind('blog_tag_slug', function ($value) {
+            $resource = new \App\Models\BlogTag();
+            return $resource->where('slug', $value)->first();
+        });
+
+        Route::bind('blog_author_slug', function ($value) {
+            $resource = new \App\Models\BlogAuthor();
             return $resource->where('slug', $value)->first();
         });
     }
