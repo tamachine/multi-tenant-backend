@@ -7,8 +7,8 @@
             @endif 
         </div>
         <div class="flex flex-col gap-7 md:gap-6">
-            @if($blogPosts->first())
-                @include('components.posts-summary.featured-post', ['blogPost' => $blogPosts->first()])
+            @if($blogPosts->first())               
+                <x-posts-summary.featured-post :blogPost="$blogPosts->first()"/>
             @endif
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-4 justify-start">

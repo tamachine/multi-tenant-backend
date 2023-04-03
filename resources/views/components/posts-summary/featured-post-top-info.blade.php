@@ -4,6 +4,8 @@
         <x-reading-time-icon time="{{ __('blog.time') }}" />
     </div>
     <div>
-        <x-blog-category :blog-category="$blogPost->category" />
+        @foreach($blogPost->tags as $tag)            
+            <x-blog-tag :blog-tag="$tag" />
+        @endforeach
     </div>
 </div>

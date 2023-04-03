@@ -27,26 +27,7 @@ abstract class BaseController extends Controller
 
         View::share('footerImagePath', $this->footerImagePath());
         View::share('carCategories', CarType::all());
-    }
-
-    protected function getBreadcrumb($routes = []) {
-        $breadcrumbs = new Breadcrumbs();
-        $breadcrumb = [];
-
-        foreach($routes as $route) {            
-            $currentBreadcrumb = $breadcrumbs->getBreadcrumbByRoute($route);
-            
-            if (!$currentBreadcrumb) {
-                $currentBreadcrumb = new Breadcrumb();
-                $currentBreadcrumb->setText($route);
-                $currentBreadcrumb->setLink('#');
-            }
-
-            $breadcrumb[] = $currentBreadcrumb;
-        }
-
-        return $breadcrumb;
-    }
+    }    
 
     abstract protected function footerImagePath() : string;
 }

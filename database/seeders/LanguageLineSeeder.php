@@ -31,6 +31,7 @@ class LanguageLineSeeder extends Seeder
         $this->call(Translations\Web\ContactSeeder::class);
         $this->call(Translations\Web\NotFoundSeeder::class);
         $this->call(Translations\Web\BlogSeeder::class);
+        $this->call(Translations\Web\BlogSearchSeeder::class);
         $this->call(Translations\Web\TermsAndConditionSeeder::class);
     }
 }

@@ -9,7 +9,7 @@ class ContactController extends BaseController
         return view(
             'web.contact.index',
             [
-                'breadcrumbs'   => $this->getBreadcrumb(['home', 'contact']),
+                'breadcrumbs'   => getBreadcrumb(['home', 'contact']),
             ]
         );
     }

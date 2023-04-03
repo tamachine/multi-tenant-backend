@@ -19,7 +19,9 @@
             {{ __('blog.by') }} <a href="#" class="text-black"> {!! $blogPost->author->name !!} </a>
         </div>
         <div>
-            <x-blog-category :blog-category="$blogPost->category" />
+            @foreach($blogPost->tags as $tag)
+                <x-blog-tag :blog-tag="$tag" />
+            @endforeach
         </div>
     </div>
 </div>

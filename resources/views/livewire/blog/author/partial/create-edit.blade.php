@@ -36,6 +36,14 @@
             <x-admin.input-error for="meta_description" class="mt-2" />
         </div>
 
+        <!-- Short Bio -->
+        <div class="px-4 mt-4">
+            <x-admin.label for="short_bio" value="Short Bio" />
+            <textarea id="short_bio" class="mt-1 focus:ring-purple-700 focus:purple-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
+                wire:model.defer="short_bio" rows="3" autocomplete="short_bio">
+            </textarea>
+        </div>
+
         <!-- Bio -->
         <div class="px-4 mt-4">
             <x-admin.label for="bio" value="{{ __('Bio') }}" />
