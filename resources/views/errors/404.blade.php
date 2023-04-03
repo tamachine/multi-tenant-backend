@@ -1,47 +1,25 @@
 @extends('layouts.web')
 
-@section('intro')
-    <div class="bg-errors bg-404">
-        <div class="hidden lg:flex max-w-6xl mx-auto px-10">
-            <div class="text-[220px] text-white font-fredoka-semibold">
-                404
-            </div>
-
-            <div class="mt-28 ml-10 max-w-md">
-                <div class="text-lg text-white title-shadow">
-                    {!! __('not-found.title') !!}
-                </div>
-
-                <div class="mt-6">
-                    <div class="btn btn-red w-48 text-white font-sans-bold py-2 px-2 text-lg text-center cursor-pointer"
-                        href="{{route("home")}}"
-                        onclick='window.location.href="{{route("home")}}"'
-                    >
-                        {!! __('not-found.button') !!}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="h-full flex flex-col justify-between lg:hidden">
-            <div class="text-center">
-                <div class="text-[120px] text-white font-fredoka-semibold">
-                    404
-                </div>
-
-                <div class="w-4/5 mx-auto text-lg text-white title-shadow">
+@section('body')
+    <div class="bg-cover bg-404 h-[calc(100vh_-_62px)] md:h-[calc(100vh_-_76px)] bg-center w-fill-screen text-white">
+        <div class="flex md:flex-row flex-col justify-between md:justify-center mx-auto w-full md:h-auto h-full gap-1 md:gap-6 items-center md:text-left text-center md:p-0 pb-10">
+            <div class="text-[128px] md:text-[220px] font-fredoka-semibold flex flex-col">
+                <div>404</div>
+                <div class="max-w-[240px] md:max-w-md flex md:hidden text-lg title-shadow font-fredoka-medium">
                     {!! __('not-found.title') !!}
                 </div>
             </div>
 
-            <div class="mx-auto mb-12">
-                <div class="btn btn-red w-48 text-white font-sans-bold py-2 px-2 text-lg text-center cursor-pointer"
-                    href="{{route("home")}}"
-                    onclick='window.location.href="{{route("home")}}"'
-                >
-                    {!! __('not-found.button') !!}
+            <div class="max-w-[240px] md:max-w-md">
+                <div class="hidden md:flex text-lg title-shadow font-fredoka-medium">
+                    {!! __('not-found.title') !!}
+                </div>
+
+                <div class="mt-6 font-sans-bold">
+                    <button class="btn btn-red font-sans-bold py-3 px-10" onclick='window.location.href="{{route("home")}}"'>    {!! __('not-found.button') !!}</button>
                 </div>
             </div>
-        </div>
+        </div>        
     </div>
 @endsection
+
