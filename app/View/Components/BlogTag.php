@@ -46,7 +46,7 @@ class BlogTag extends Component
 
     protected function onClick() {
         if(Route::currentRouteName() == 'blog') {            
-            return "window.location.href='". route('blog.search.string') ."?tag=".$this->blogTag->hashid."'";            
+            return "window.location.href='". route('blog.search.string') ."?tag=".$this->blogTag->slug."'";            
         } else {
             return "javascript:boud(0)";
         }

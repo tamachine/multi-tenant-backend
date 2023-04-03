@@ -39,7 +39,8 @@ trait BlogSearchTrait
         if($this->tagHashid == $hashid) {
             $this->tagHashid = null;
         } else {
-            $this->tagHashid = $hashid;            
+            $this->tagHashid = $hashid;       
+            $this->tag = BlogTag::where('hashid',  $this->tagHashid)->first()?->slug;     
         }        
     }  
 
