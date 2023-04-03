@@ -76,6 +76,11 @@ class Edit extends Component
     public $tags;
 
     /**
+     * @var array
+     */
+    public $allTags;
+
+    /**
      * @var string
      */
     public $summary;
@@ -128,7 +133,8 @@ class Edit extends Component
 
         $this->categories = BlogCategory::pluck('name', 'id');
         $this->authors = BlogAuthor::pluck('name', 'id');
-        $this->tags = BlogTag::pluck('name', 'id');
+        $this->allTags = BlogTag::pluck('name', 'id');
+        $this->tags = $post->tags->pluck('id')->toArray();
     }
 
     public function savePost()
@@ -177,11 +183,7 @@ class Edit extends Component
         }
 
         // 3. Update the tags
-        if ($this->tags) {
-            $this->post->tags()->sync($this->tags);
-        } else {
-            $this->post->tags()->sync([]);
-        }
+        $this->post->tags()->sync($this->tags ?: null);
 
 
 
