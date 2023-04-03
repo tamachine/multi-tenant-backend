@@ -7,16 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\BlogCategoryColor;
+use Spatie\Translatable\HasTranslations;
 
 class BlogCategory extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
 
     public static function boot() {
         parent::boot();
-    
-        static::creating(function (BlogCategory $item) { 
-            $color = new BlogCategoryColor(); 
+
+        static::creating(function (BlogCategory $item) {
+            $color = new BlogCategoryColor();
             $item->color_id = $color->getColorId();
         });
     }
@@ -34,6 +35,13 @@ class BlogCategory extends Model
     protected $fillable = [
         'hashid', 'name', 'slug',
     ];
+
+    /**
+     * The attributes that are translatable.
+     *
+     * @var array
+     */
+    public $translatable = ['name', 'slug'];
 
     /**********************************
      * Accessors & Mutators
