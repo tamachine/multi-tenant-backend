@@ -93,12 +93,12 @@ class BlogPost extends Model
 
     public function getNextPostAttribute()
     {
-        return BlogPost::published()->where('published_at','<', $this->published_at)->orderBy('published_at', 'desc')->first();               
+        return BlogPost::published()->where('published_at','<', $this->published_at)->whereNotIn('id', [$this->id])->orderBy('published_at', 'desc')->first();               
     }
     
     public function getPrevPostAttribute()
     {
-        return BlogPost::published()->where('published_at','>', $this->published_at)->orderBy('published_at', 'asc')->first();         
+        return BlogPost::published()->where('published_at','>', $this->published_at)->whereNotIn('id', [$this->id])->orderBy('published_at', 'asc')->first();         
     }
 
     public function getRelatedPostsAttribute()
@@ -109,21 +109,21 @@ class BlogPost extends Model
 
             $query->where('id', $this->blog_category_id);
 
-        } )->where('id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts)->get();               
+        } )->where('blog_posts.id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts)->get();               
 
         if($byCategories->count() < $numOfPosts) {
 
             $byTags = BlogPost::published()->whereHas('tags', function(Builder $query) {
 
-                $query->whereIn('id', $this->tags->pluck('id'));
+                $query->whereIn('blog_tags.id', $this->tags->pluck('id'));
 
-            } )->where('id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $byCategories->count())->get();  
+            } )->where('blog_posts.id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $byCategories->count())->get();  
 
             $categoriesAndTags = $byCategories->merge($byTags);
 
             if($categoriesAndTags->count() < $numOfPosts) {
 
-                $notRelated = BlogPost::published()->where('id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $categoriesAndTags->count())->get(); 
+                $notRelated = BlogPost::published()->where('blog_posts.id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $categoriesAndTags->count())->get(); 
 
                 return $categoriesAndTags->merge($notRelated);
 

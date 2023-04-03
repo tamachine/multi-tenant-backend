@@ -48,3 +48,4 @@ import 'tinymce/plugins/visualblocks';
 import 'tinymce/plugins/searchreplace';
 import 'tinymce/plugins/wordcount';
 import 'tinymce/plugins/table';
+import * as te from 'tw-elements';

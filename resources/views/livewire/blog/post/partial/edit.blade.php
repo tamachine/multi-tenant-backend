@@ -16,7 +16,7 @@
                 <x-admin.input-error for="title" class="mt-2" />
             </div>
 
-            
+
             <div class="px-4 mt-4 sm:mt-0 flex gap-3 divide-x">
                 <!-- Published -->
                 <section>
@@ -26,7 +26,7 @@
                         <x-admin.checkbox id="published" wire:model="published" class="w-10 h-10 mt-1" />
                     </label>
                 </section>
-                
+
                 <!-- Hero -->
                 <section class="pl-3">
                     <x-admin.label for="hero" value="{{ __('Hero') }}" />
@@ -51,7 +51,7 @@
                 </section>
             </div>
 
-            
+
         </div>
 
          <!-- Slug -->
@@ -96,10 +96,14 @@
         <!-- Tags -->
         <div class="px-4 mt-4">
             <x-admin.label for="tags" value="{{ __('Tags') }}" />
-            <x-admin.input id="tags" type="text" class="mt-1 block w-full" maxlength="255" wire:model.defer="tags" autocomplete="post_tags" />
-            <x-admin.input-help value="{{ __('(Separated by comma)') }}" />
+            <select id="tags" class="te-select" multiple data-te-select-init data-te-select-filter="true" data-te-select-placeholder="Selecciona los tags" wire:model.defer="tags">
+                @foreach ($allTags as $id => $name)
+                    <option value="{{ $id }}" {{ in_array($id, $post->tags->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $name }}</option>
+                @endforeach
+            </select>
             <x-admin.input-error for="tags" class="mt-2" />
         </div>
+
 
         <!-- Summary -->
         <div class="px-4 mt-4">
