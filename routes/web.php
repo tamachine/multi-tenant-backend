@@ -80,7 +80,7 @@ Route::get('/terms-and-conditions', [TermsAndConditionsController::class, 'index
 
 /* Blog */
 Route::get('/blog', [BlogController::class, 'index'])->name('blog'); 
-Route::get('/blog/preview/{post_slug}', [BlogController::class, 'preview'])->name('blog.preview'); 
+Route::get('/blog/preview/{blog_post_slug}', [BlogController::class, 'preview'])->name('blog.preview'); 
 Route::get('/blog/search', [BlogSearchStringController::class, 'index'])->name('blog.search.string');
 Route::get('/blog/category/{blog_category_slug}', [BlogSearchCategoryController::class, 'index'])->name('blog.search.category');
 Route::get('/blog/tag/{blog_tag_slug}', [BlogSearchTagController::class, 'index'])->name('blog.search.tag');
