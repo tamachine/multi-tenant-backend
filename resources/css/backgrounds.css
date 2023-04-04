@@ -1,0 +1,37 @@
+.bg-about {    
+    background-image: linear-gradient(180deg, #FFFFFF 15%, rgba(255, 255, 255, 0) 70%), url('/images/about/about-top.jpg');
+}
+
+@media (min-width: 768px) {
+    .bg-about {    
+        background-image: linear-gradient(180deg, #FFFFFF 10%, rgba(255, 255, 255, 0) 40%), url('/images/about/about-top.jpg');
+    } 
+}
+
+.bg-404 {
+    background-image: url('/images/404.jpg');
+}
+
+.bg-403 {
+    background-image: url('/images/403.jpg');
+}
+
+@supports (gap: 1px) {
+    .bg-about {    
+        background-image: linear-gradient(180deg, #FFFFFF 12%, rgba(255, 255, 255, 0) 70%), url('/images/about/about-top.webp');
+    }  
+
+    @media (min-width: 768px) {
+        .bg-about {        
+            background-image: linear-gradient(180deg, #FFFFFF 10%, rgba(255, 255, 255, 0) 40%), url('/images/about/about-top.webp');
+        }
+    }
+
+    .bg-404 {
+        background-image: url('/images/404.webp');
+    }
+
+    .bg-not-found {
+        background-image: url('/images/403.webp');
+    }
+}
