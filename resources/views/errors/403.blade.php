@@ -1,6 +1,6 @@
 @extends('layouts.web')
 
-@section('intro')
+@section('body')
     <div class="bg-errors bg-403">
     </div>
 @endsection
