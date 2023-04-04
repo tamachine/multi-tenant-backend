@@ -73,6 +73,15 @@ class Translations extends Component
 
     public function saveTranslations()
     {
+        $this->dispatchBrowserEvent('validationError');
+
+        $rules = [
+            'summaries.*' => ['max:1023'],
+        ];
+
+        $this->validate($rules);
+
+
         foreach(Language::availableLanguages() as $key => $language) {
             $this->post
                 ->setTranslation('title', $key, $this->titles[$key])

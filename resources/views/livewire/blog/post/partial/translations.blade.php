@@ -27,14 +27,13 @@
                 <textarea id="summary_{{$key}}" class="mt-1 focus:ring-purple-700 focus:purple-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
                     wire:model.defer="summaries.{{ $key }}" rows="3" autocomplete="post_summary">
                 </textarea>
+                <x-admin.input-error for="summaries.{{ $key }}" class="mt-2" />
             </div>
 
             <!-- Content -->
             <div class="px-4 mt-4">
-                <x-admin.label for="content_{{$key}}" value="{{ 'Content' }} - {{$language}}" />
-                <textarea id="content_{{$key}}" class="mt-1 focus:ring-purple-700 focus:purple-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
-                          wire:model.defer="contents.{{ $key }}" rows="3" autocomplete="post_content">
-                </textarea>
+                <x-admin.label for="content_{{$key}}" value="{{ __('Content') }} - {{$language}}" />
+                <x-admin.tinymce-editor id="content_{{$key}}" wire:model.defer="contents.{{ $key }}" rows="3" autocomplete="post_content" />
             </div>
 
             <hr class="my-8 px-4">
