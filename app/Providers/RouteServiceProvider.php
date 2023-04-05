@@ -101,7 +101,7 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('blog_category_slug', function ($value) {
             $resource = new \App\Models\BlogCategory();
-            return $resource->where('slug', $value)->first();
+            return $resource->where('slug', 'LIKE', '%' . $value . '%')->first();
         });
 
         Route::bind('blog_tag_slug', function ($value) {
