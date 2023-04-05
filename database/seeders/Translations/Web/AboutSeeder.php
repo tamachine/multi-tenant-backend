@@ -96,5 +96,45 @@ class AboutSeeder extends Seeder
                 ],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'about',
+                'key' => 'likes-title',
+            ],
+            [
+                'text' => ['en' => 'What customers have liked about us in the past', 'es' => 'Lo que a los clientes les ha gustado de nosotros en el pasado'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'about',
+                'key' => 'likes-text-1',
+            ],
+            [
+                'text' => ['en' => 'New cars. Superior vehicle maintenance. 24 Hour Road Assistance Program.', 'es' => 'Vehículos nuevos. Mantenimiento superior del vehículo. Programa de Asistencia en Carretera 24 Horas.'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'about',
+                'key' => 'likes-text-2',
+            ],
+            [
+                'text' => ['en' => '24/7 Customer Service Center staffed with locals to answer any questions or concerns.', 'es' => 'Centro de atención al cliente las 24 horas, los 7 días de la semana, con personal local para responder cualquier pregunta o inquietud.'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'about',
+                'key' => 'likes-text-3',
+            ],
+            [
+                'text' => ['en' => 'Working closely with customers to coordinate pick up and drop-off to better suit their needs.', 'es' => 'Trabajando en estrecha colaboración con los clientes para coordinar la recogida y devolución para satisfacer mejor sus necesidades.'],
+            ]
+        );
     }
 }
