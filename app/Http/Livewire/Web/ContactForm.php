@@ -39,6 +39,10 @@ class ContactForm extends Component
      */
     public $message;
 
+    public $sent = false;
+
+    protected $listeners = ['emailSent' => 'emailSent'];
+
     /*
     ***************************************************************
     ** METHODS
@@ -82,7 +86,11 @@ class ContactForm extends Component
         $this->type = "general";
         $this->message = "";
 
-        $this->dispatchBrowserEvent('goToTop');
-        $this->dispatchBrowserEvent('open-success', ['message' => __('contact.message_sent')]);
+        $this->sent = true;
+    }
+
+    public function emailSent()
+    {
+        $this->sent = false;
     }
 }
