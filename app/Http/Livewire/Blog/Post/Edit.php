@@ -110,6 +110,17 @@ class Edit extends Component
      */
     public $featured_url = '';
 
+    /**
+     * @var object
+     */
+    public $featured_hover;
+
+    /**
+     * @var string
+     */
+    public $featured_hover_url = '';
+
+
     /*
     ***************************************************************
     ** METHODS
@@ -129,6 +140,7 @@ class Edit extends Component
         $this->summary = $post->summary;
         $this->content = $post->content;
         $this->featured_url = $post->featured_image_url;
+        $this->featured_hover_url = $post->featured_image_url_hover;
         $this->reloadImages();
 
         $this->categories = BlogCategory::pluck('name', 'id');
@@ -146,6 +158,7 @@ class Edit extends Component
             'category'  => ['required'],
             'author'    => ['required'],
             'featured'  => ['nullable', 'mimes:jpeg,jpg,png,gif'],
+            'featured_hover'  => ['nullable', 'mimes:jpeg,jpg,png,gif'],
         ];
 
         $this->validate($rules);
@@ -173,16 +186,15 @@ class Edit extends Component
 
         // 2. Update the featured image
         if ($this->featured) {
-            $extension = $this->featured->getClientOriginalExtension();
-            $filename = $this->post->hashid . "." . $extension;
-            $this->featured->storeAs("public/posts" , $filename);
-
-            $this->post->update([
-                'featured_image' => $filename,
-            ]);
+            $this->saveImage($this->featured);
         }
 
-        // 3. Update the tags
+        // 3. Update the featured image hover
+        if ($this->featured_hover) {
+            $this->saveImage($this->featured_hover, true);
+        }
+
+        // 4. Update the tags
         $this->post->tags()->sync($this->tags ?: null);
 
 
@@ -192,6 +204,23 @@ class Edit extends Component
 
         return redirect()->route('intranet.blog.post.index');
     }
+
+    /**
+     * @param $image
+     * @param $hover
+     * @return void
+     */
+    private function saveImage($image, $hover = false)
+    {
+        $extension = $image->getClientOriginalExtension();
+        $filename = ($hover) ? $this->post->hashid . "_hover." . $extension : $this->post->hashid . $extension;
+        $image->storeAs("public/posts" , $filename);
+
+        $this->post->update([
+            $hover ? 'featured_image_hover' : 'featured_image' => $filename,
+        ]);
+    }
+
 
     private function reloadImages()
     {

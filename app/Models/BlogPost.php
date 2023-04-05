@@ -18,7 +18,7 @@ class BlogPost extends Model
      * @var array
      */
     protected $fillable = [
-        'hashid', 'title', 'slug', 'published', 'published_at', 'summary', 'content', 'featured_image',
+        'hashid', 'title', 'slug', 'published', 'published_at', 'summary', 'content', 'featured_image', 'featured_image_hover',
         'blog_author_id', 'blog_category_id', 'hero', 'top'
     ];
 
@@ -54,16 +54,35 @@ class BlogPost extends Model
      */
     public function getFeaturedImageUrlAttribute()
     {
-        if (filter_var($this->featured_image, FILTER_VALIDATE_URL)) { 
+        if (filter_var($this->featured_image, FILTER_VALIDATE_URL)) {
             return $this->featured_image;
         } else {
-            return 
+            return
                 $this->featured_image
                 ? asset('storage/posts/' . $this->featured_image)
                 : '';
         }
-        
+
     }
+
+    /**
+     * Get the post's featured image Hover URL
+     *
+     * @return     string
+     */
+    public function getFeaturedImageHoverUrlAttribute()
+    {
+        if (filter_var($this->featured_image_hover, FILTER_VALIDATE_URL)) {
+            return $this->featured_image_hover;
+        } else {
+            return
+                $this->featured_image
+                    ? asset('storage/posts/' . $this->featured_image_hover)
+                    : '';
+        }
+
+    }
+
 
     /**
      * Get the post's tags in a single string
@@ -93,12 +112,12 @@ class BlogPost extends Model
 
     public function getNextPostAttribute()
     {
-        return BlogPost::published()->where('published_at','<', $this->published_at)->whereNotIn('id', [$this->id])->orderBy('published_at', 'desc')->first();               
+        return BlogPost::published()->where('published_at','<', $this->published_at)->whereNotIn('id', [$this->id])->orderBy('published_at', 'desc')->first();
     }
-    
+
     public function getPrevPostAttribute()
     {
-        return BlogPost::published()->where('published_at','>', $this->published_at)->whereNotIn('id', [$this->id])->orderBy('published_at', 'asc')->first();         
+        return BlogPost::published()->where('published_at','>', $this->published_at)->whereNotIn('id', [$this->id])->orderBy('published_at', 'asc')->first();
     }
 
     public function getRelatedPostsAttribute()
@@ -109,7 +128,7 @@ class BlogPost extends Model
 
             $query->where('id', $this->blog_category_id);
 
-        } )->where('blog_posts.id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts)->get();               
+        } )->where('blog_posts.id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts)->get();
 
         if($byCategories->count() < $numOfPosts) {
 
@@ -117,13 +136,13 @@ class BlogPost extends Model
 
                 $query->whereIn('blog_tags.id', $this->tags->pluck('id'));
 
-            } )->where('blog_posts.id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $byCategories->count())->get();  
+            } )->where('blog_posts.id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $byCategories->count())->get();
 
             $categoriesAndTags = $byCategories->merge($byTags);
 
             if($categoriesAndTags->count() < $numOfPosts) {
 
-                $notRelated = BlogPost::published()->where('blog_posts.id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $categoriesAndTags->count())->get(); 
+                $notRelated = BlogPost::published()->where('blog_posts.id', '!=', $this->id)->orderBy('published_at', 'desc')->take($numOfPosts - $categoriesAndTags->count())->get();
 
                 return $categoriesAndTags->merge($notRelated);
 
@@ -135,7 +154,7 @@ class BlogPost extends Model
         } else {
 
             return $byCategories;
-            
+
         }
 
     }

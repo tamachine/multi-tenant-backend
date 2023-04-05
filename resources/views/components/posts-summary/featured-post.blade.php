@@ -1,6 +1,8 @@
 <div
     class="h-[530px] md:h-[560px] w-full rounded-lg bg-cover"
     style="background-image: url('{{ $blogPost->featured_image_url }}')"
+    onmouseover="this.style.backgroundImage='url({{ $blogPost->featured_image_hover_url }})'"
+    onmouseout="this.style.backgroundImage='url({{ $blogPost->featured_image_url }})'"
 >
     <div class="bg-black/50 h-full w-full p-3 md:p-10 rounded-lg">
         <div class="flex flex-col justify-between h-full">
