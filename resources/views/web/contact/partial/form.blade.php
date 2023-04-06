@@ -1,10 +1,8 @@
-<div class="mt-16 px-4 md:flex md:gap-8">
-    <div class="w-[388px] mx-auto">
-        {!! webpImage("images/contact/contact-top.jpg", "w-full") !!}
+<div class="flex flex-col md:flex-row mt-8 md:mt-28 gap-8 md:gap-11">
+    <div class="px-12 md:px-0 w-80">
+        {!! webpImage("images/contact/contact-top.jpg", 'object-cover h-full rounded-xl') !!}
     </div>
-
-    <div class="w-full">
-        <livewire:web.contact-form />
+    <div class="flex-grow">
+        <livewire:web.contact-form  :submitButtonCentered="false" />
     </div>
 </div>
-

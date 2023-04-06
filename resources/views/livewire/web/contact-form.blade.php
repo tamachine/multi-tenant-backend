@@ -73,7 +73,7 @@
         </div>
 
         <!-- Submit -->
-        <div class="flex justify-center md:col-span-2 ">
+        <div class="flex {{ $submitButtonCentered ? 'justify-center' : 'justify-start' }}  md:col-span-2 ">
             <button class="w-full md:w-48 rounded-lg text-white font-sans-bold py-4 text-lg bg-pink-red hover:bg-black-ci disabled:bg-[#B1B5C3]"
                 wire:click="send"
             >

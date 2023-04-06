@@ -43,15 +43,21 @@ class ContactForm extends Component
 
     protected $listeners = ['emailSent' => 'emailSent'];
 
+     /**
+     * @var bool
+     */
+    public $submitButtonCentered;
+
     /*
     ***************************************************************
     ** METHODS
     ***************************************************************
     */
 
-    public function mount()
+    public function mount(bool $submitButtonCentered = true)
     {
         $this->type = 'general';
+        $this->submitButtonCentered = $submitButtonCentered;
     }
 
     public function render()
