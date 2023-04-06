@@ -23,6 +23,9 @@ class CarSearchResults extends Component
     protected $query;
     protected $carsSearch;
 
+    public $showFilters;    
+    public $showImageIfLittleResults;
+
     /*
     ***************************************************************
     ** METHODS
@@ -34,7 +37,11 @@ class CarSearchResults extends Component
         $this->carsSearch = $carsSearch;
     }
 
-    public function mount() {
+    public function mount(bool $showFilters = true, bool $showImageIfLittleResults = false, array $categories = []) {
+        $this->showFilters = $showFilters;
+        $this->showImageIfLittleResults = $showImageIfLittleResults;
+        $this->categories = $categories;
+
         $this->carSearch();
         $this->setSelectables();
     }
