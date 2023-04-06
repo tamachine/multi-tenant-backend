@@ -56,8 +56,8 @@ class CarsSearchQuery
         $results = $this->query->get();
 
         foreach ($results as $result) {
-            $result['daily_price'] = $this->carenPrices[$result['caren_id']]['daily_price'];
-            $result['total_price'] = $this->carenPrices[$result['caren_id']]['total_price'];
+            $result['daily_price'] = $this->carenPrices[$result->caren_id]['daily_price'];
+            $result['total_price'] = $this->carenPrices[$result->caren_id]['total_price'];
         }
 
         return $results;

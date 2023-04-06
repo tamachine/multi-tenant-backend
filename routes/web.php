@@ -27,6 +27,7 @@ use App\Http\Controllers\Web\BlogSearchCategoryController;
 use App\Http\Controllers\Web\BlogSearchTagController;
 use App\Http\Controllers\Web\BlogSearchAuthorController;
 use App\Http\Controllers\Web\TermsAndConditionsController;
+use App\Http\Controllers\Web\LandingCarsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,7 @@ use App\Http\Controllers\Web\TermsAndConditionsController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+/* Auth */
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
         ->name('login');
@@ -70,7 +72,6 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 });
 
-Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');
 
 /* Static pages */
 Route::get('/about-us', [AboutController::class, 'index'])->name('about');
@@ -87,11 +88,16 @@ Route::get('/blog/tag/{blog_tag_slug}', [BlogSearchTagController::class, 'index'
 Route::get('/blog/author/{blog_author_slug}', [BlogSearchAuthorController::class, 'index'])->name('blog.search.author');
 Route::get('/blog/post/{blog_post_slug}', [BlogController::class, 'show'])->name('blog.show'); 
 
-
 /* Booking process */
+Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');
 Route::get('/cars', [CarsController::class, 'index'])->name('cars');
 Route::get('/{car_hashid}/insurances', [InsurancesController::class, 'index'])->name('insurances');
 Route::get('/{car_hashid}/extras', [ExtrasController::class, 'index'])->name('extras');
 Route::get('/{car_hashid}/summary', [SummaryController::class, 'index'])->name('summary');
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
 Route::get('/success', [SuccessController::class, 'index'])->name('success');
+
+/* landings */
+Route::get('/cars/small-medium', [LandingCarsController::class, 'small'])->name('cars.small');
+Route::get('/cars/large', [LandingCarsController::class, 'large'])->name('cars.large');
+Route::get('/cars/premium', [LandingCarsController::class, 'premium'])->name('cars.premium');
