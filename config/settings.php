@@ -25,7 +25,7 @@ return [
     ],
 
     'email' => [
-        'contact'       => env('MAIL_FROM_ADDRESS'),
-        'newsletter'    => env('MAIL_FROM_ADDRESS'),
+        'contact'       => env('MAIL_CONTACT_ADDRESS'),
+        'newsletter'    => env('MAIL_CONTACT_ADDRESS'),
     ]
 ];
