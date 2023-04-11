@@ -1,3 +1,3 @@
-<div class="mt-16">
+<div class="mt-20 md:mt-28">
     <livewire:web.newsletter-form />
 </div>

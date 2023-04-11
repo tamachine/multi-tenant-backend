@@ -1,10 +1,12 @@
 <div>
-    @include('web.cars.partial.car-categories')
+    @if($showFilters)
+        @include('web.cars.partial.car-categories')
 
-    @include('web.cars.partial.car-selectables')  
+        @include('web.cars.partial.car-selectables')  
 
-    <x-wire-spinner /> 
-
+        <x-wire-spinner /> 
+    @endif
+    
     @if(count($cars) > 0)
     <div 
         wire:loading.remove

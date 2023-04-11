@@ -32,6 +32,11 @@ class FaqCategory extends Model
         return $this->belongsToMany(Faq::class, 'faq_category_faq');            
     }   
 
+    public function takeFaqs($num = null)
+    {
+        return is_null($num) ? $this->faqs : $this->faqs->take($num);            
+    }   
+
     public static function boot()
     {
         parent::boot();

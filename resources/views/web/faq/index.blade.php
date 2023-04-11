@@ -1,8 +1,10 @@
 @extends('layouts.web')
 
 @section('body')
-    <div class="bg-white w-fill-screen">
-        <x-faqs title="h1" class="mt-16 mx-4 md:mx-0" />
+    <div class="max-w-6xl mx-auto p-3">
+        @include('web.faq.partial.breadcrumbs')
+        
+        @include('web.faq.partial.faqs')
 
         @include('web.faq.partial.form')
     </div>

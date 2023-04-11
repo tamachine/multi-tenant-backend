@@ -69,5 +69,5 @@ class Faq extends Model
         }       
 
         return $query;
-    }
+    }    
 }

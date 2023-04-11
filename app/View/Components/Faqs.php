@@ -8,14 +8,25 @@ use App\Models\FaqCategory;
 
 class Faqs extends Component
 {
+
+    const NUM_FAQS = 5; //num of max faqs per category when view all button is shown
+
+    /**
+     * If true, all faqs without the View all button wil be shown.
+     * If false, only 5 responses by category will be shown
+     *
+     * @var string
+     */
+    public $allFaqs;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(bool $allFaqs = false)
     {
-        //
+        $this->allFaqs = $allFaqs;
     }
 
     /**
@@ -30,7 +41,10 @@ class Faqs extends Component
             [
                 'faqs' => Faq::all(),
                 'categories' => FaqCategory::has('faqs')->get(),
+                'showViewAllButton' => !$this->allFaqs,
+                'take' => $this->allFaqs ? null : self::NUM_FAQS,
             ]
         );
     }
+        
 }
