@@ -1627,6 +1627,11 @@ h5 {
   margin-bottom: 1.5rem;
 }
 
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .mx-6 {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -1655,6 +1660,11 @@ h5 {
 .my-\[5px\] {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.-mx-3 {
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
 }
 
 .-mb-px {
@@ -1773,10 +1783,6 @@ h5 {
   margin-left: -1px;
 }
 
-.mt-16 {
-  margin-top: 4rem;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -1791,6 +1797,10 @@ h5 {
 
 .mt-36 {
   margin-top: 9rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
 }
 
 .mb-10 {
@@ -2288,16 +2298,20 @@ h5 {
   width: 6rem;
 }
 
+.w-32 {
+  width: 8rem;
+}
+
 .w-60 {
   width: 15rem;
 }
 
-.w-20 {
-  width: 5rem;
+.w-36 {
+  width: 9rem;
 }
 
-.w-32 {
-  width: 8rem;
+.w-20 {
+  width: 5rem;
 }
 
 .w-8 {
@@ -2306,10 +2320,6 @@ h5 {
 
 .w-44 {
   width: 11rem;
-}
-
-.w-\[388px\] {
-  width: 388px;
 }
 
 .w-\[280px\] {
@@ -2394,6 +2404,10 @@ h5 {
 
 .w-1 {
   width: 0.25rem;
+}
+
+.w-\[480px\] {
+  width: 480px;
 }
 
 .min-w-0 {
@@ -3160,6 +3174,14 @@ h5 {
   border-radius: 9999px;
 }
 
+.rounded-\[60px\] {
+  border-radius: 60px;
+}
+
+.rounded-\[27px\] {
+  border-radius: 27px;
+}
+
 .rounded-\[10px\] {
   border-radius: 10px;
 }
@@ -3186,6 +3208,10 @@ h5 {
 
 .rounded-\[16px\] {
   border-radius: 16px;
+}
+
+.rounded-none {
+  border-radius: 0px;
 }
 
 .rounded-t-lg {
@@ -3617,11 +3643,6 @@ h5 {
   background-color: rgb(252 252 252 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#E7ECF3\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(231 236 243 / var(--tw-bg-opacity));
-}
-
 .bg-violet-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(237 233 254 / var(--tw-bg-opacity));
@@ -3824,11 +3845,6 @@ h5 {
      object-fit: cover;
 }
 
-.object-fill {
-  -o-object-fit: fill;
-     object-fit: fill;
-}
-
 .object-center {
   -o-object-position: center;
      object-position: center;
@@ -3892,6 +3908,10 @@ h5 {
 
 .p-\[5px\] {
   padding: 5px;
+}
+
+.p-14 {
+  padding: 3.5rem;
 }
 
 .px-5 {
@@ -4109,6 +4129,11 @@ h5 {
   padding-bottom: 5px;
 }
 
+.py-14 {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -4227,6 +4252,14 @@ h5 {
 
 .pr-2 {
   padding-right: 0.5rem;
+}
+
+.pt-16 {
+  padding-top: 4rem;
+}
+
+.pb-8 {
+  padding-bottom: 2rem;
 }
 
 .pt-22 {
@@ -4910,6 +4943,10 @@ h5 {
 .\!text-white {
   --tw-text-opacity: 1 !important;
   color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+}
+
+.text-opacity-60 {
+  --tw-text-opacity: 0.6;
 }
 
 .underline {
@@ -5861,6 +5898,11 @@ h5 {
 .focus\:bg-\[\#eee\]:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(238 238 238 / var(--tw-bg-opacity));
+}
+
+.focus\:bg-white:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .focus\:text-primary:focus {
@@ -7130,6 +7172,10 @@ h5 {
     width: 66.666667%;
   }
 
+  .md\:w-\[480px\] {
+    width: 480px;
+  }
+
   .md\:max-w-\[376px\] {
     max-width: 376px;
   }
@@ -7140,6 +7186,10 @@ h5 {
 
   .md\:max-w-\[710px\] {
     max-width: 710px;
+  }
+
+  .md\:max-w-\[480px\] {
+    max-width: 480px;
   }
 
   .md\:flex-1 {
@@ -7282,16 +7332,16 @@ h5 {
     gap: 2.25rem;
   }
 
-  .md\:gap-8 {
-    gap: 2rem;
+  .md\:gap-11 {
+    gap: 2.75rem;
   }
 
   .md\:gap-3 {
     gap: 0.75rem;
   }
 
-  .md\:gap-11 {
-    gap: 2.75rem;
+  .md\:gap-8 {
+    gap: 2rem;
   }
 
   .md\:gap-y-10 {
@@ -7328,6 +7378,14 @@ h5 {
 
   .md\:rounded-xl {
     border-radius: 0.75rem;
+  }
+
+  .md\:rounded-\[60px\] {
+    border-radius: 60px;
+  }
+
+  .md\:rounded-3xl {
+    border-radius: 1.5rem;
   }
 
   .md\:border-0 {
@@ -7494,6 +7552,11 @@ h5 {
     padding-bottom: 75px;
   }
 
+  .md\:px-7 {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+
   .md\:pt-9 {
     padding-top: 2.25rem;
   }
@@ -7566,6 +7629,10 @@ h5 {
     padding-bottom: 6rem;
   }
 
+  .md\:pt-12 {
+    padding-top: 3rem;
+  }
+
   .md\:pb-11 {
     padding-bottom: 2.75rem;
   }
@@ -7604,10 +7671,6 @@ h5 {
 
   .md\:pb-16 {
     padding-bottom: 4rem;
-  }
-
-  .md\:pt-12 {
-    padding-top: 3rem;
   }
 
   .md\:text-left {
@@ -7736,6 +7799,10 @@ h5 {
 
   .md\:leading-\[80px\] {
     line-height: 80px;
+  }
+
+  .md\:leading-\[60px\] {
+    line-height: 60px;
   }
 
   .md\:text-white {
