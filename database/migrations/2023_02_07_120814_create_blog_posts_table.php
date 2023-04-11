@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('blog_posts', function (Blueprint $table) {
             $table->id();
             $table->string('hashid')->nullable();
-            $table->string('title');
-            $table->string('slug')->index();
+            $table->text('title');
+            $table->string('slug', 1024)->index();
             $table->boolean('published')->default(0);
             $table->timestamp('published_at')->nullable();
-            $table->string('summary', 1024)->nullable();
+            $table->text('summary', 1024)->nullable();
             $table->text('content')->nullable();
             $table->string('featured_image')->nullable();
             $table->unsignedBigInteger('blog_author_id')->nullable()->unsigned()->index();

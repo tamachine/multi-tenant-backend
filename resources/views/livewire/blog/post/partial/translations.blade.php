@@ -33,7 +33,7 @@
             <!-- Content -->
             <div class="px-4 mt-4">
                 <x-admin.label for="content_{{$key}}" value="{{ __('Content') }} - {{$language}}" />
-                <x-admin.tinymce-editor id="content_{{$key}}" wire:model.defer="contents.{{ $key }}" rows="3" autocomplete="post_content" />
+                <x-admin.tinymce-editor id="content_{{$key}}" wire:model.defer="contents.{{ $key }}" rows="3" autocomplete="post_content" height="400px" />
             </div>
 
             <hr class="my-8 px-4">

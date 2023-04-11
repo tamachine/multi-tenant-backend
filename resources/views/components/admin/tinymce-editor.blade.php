@@ -1,7 +1,7 @@
 <div x-data="{ value: @entangle($attributes->wire('model')) }" x-init="tinymce.init({
     target: $refs.tinymce,
     themes: 'modern',
-    height: 400,
+    height: '{{ $height ?? "200px" }}',
     menubar: false,
     plugins: 'anchor autolink charmap codesample image link lists media searchreplace table visualblocks wordcount',
     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
