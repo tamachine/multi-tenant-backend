@@ -146,6 +146,7 @@ class Edit extends Component
             'category'  => ['required'],
             'author'    => ['required'],
             'featured'  => ['nullable', 'mimes:jpeg,jpg,png,gif'],
+            'summary'   => ['max:1023'],
         ];
 
         $this->validate($rules);

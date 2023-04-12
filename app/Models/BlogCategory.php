@@ -6,10 +6,11 @@ use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Translatable\HasTranslations;
 
 class BlogCategory extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +21,16 @@ class BlogCategory extends Model
         'hashid', 'name', 'slug',
     ];
 
+
+    /**
+     * The attributes that are translatable.
+     *
+     * @var array
+     */
+    public $translatable = ['name', 'slug'];
+
     protected $append = ['url'];
+
 
     /**********************************
      * Accessors & Mutators
