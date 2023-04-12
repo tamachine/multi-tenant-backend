@@ -110,14 +110,24 @@ class ContactSeeder extends Seeder
                 'key' => 'submit',
             ],
             [
-                'text' => ['en' => 'Submit', 'es' => 'Enviar'],
+                'text' => ['en' => 'Send', 'es' => 'Enviar'],
             ]
         );
 
         Translation::firstOrCreate(
             [
                 'group' => 'contact',
-                'key' => 'message_sent',
+                'key' => 'message_sent-title',
+            ],
+            [
+                'text' => ['en' => 'Message received!', 'es' => 'Mensaje recibido!'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'contact',
+                'key' => 'message_sent-text',
             ],
             [
                 'text' => ['en' => 'Thank you, your message has been sent', 'es' => 'Gracias, tu mensaje se ha enviado'],

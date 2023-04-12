@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Spatie\Translatable\HasTranslations;
 
 class BlogPost extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +22,13 @@ class BlogPost extends Model
         'hashid', 'title', 'slug', 'published', 'published_at', 'summary', 'content', 'featured_image', 'featured_image_hover',
         'blog_author_id', 'blog_category_id', 'hero', 'top'
     ];
+
+    /**
+     * The attributes that are translatable.
+     *
+     * @var array
+     */
+    public $translatable = ['title', 'slug', 'summary', 'content'];
 
     protected $append = ['url','preview_url', 'next_post', 'prev_post', 'related_posts'];
 

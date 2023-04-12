@@ -22,9 +22,9 @@
         @include('web.home.partial.cards-elongated')
 
         @include('web.home.partial.deals')
-
-        <x-faqs class="pb-22 pt-32 md:py-36 md:px-32" />
-
+        
+        @include('web.home.partial.faqs')
+        
         <div class="md:px-10">
 
             @include('web.home.partial.why-iceland')

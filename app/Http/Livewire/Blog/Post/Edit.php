@@ -159,6 +159,7 @@ class Edit extends Component
             'author'    => ['required'],
             'featured'  => ['nullable', 'mimes:jpeg,jpg,png,gif'],
             'featured_hover'  => ['nullable', 'mimes:jpeg,jpg,png,gif'],
+            'summary'   => ['max:1023'],
         ];
 
         $this->validate($rules);

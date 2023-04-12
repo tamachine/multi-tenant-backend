@@ -43,7 +43,7 @@ class CategoryController extends Controller
         return view('blog.category.create')->with($data);
     }
 
-    public function edit($hashid): View
+    public function edit($hashid, $tab = null): View
     {
         $this->authorize('blog');
 
@@ -59,6 +59,7 @@ class CategoryController extends Controller
                 'Blog' => route('intranet.blog.dashboard'),
                 'Categories' => route('intranet.blog.category.index')
             ],
+            'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];
 
         return view('blog.category.edit')->with($data);
