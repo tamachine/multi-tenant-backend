@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('hashid')->nullable();
             $table->text('title');
-            $table->string('slug', 1024)->index();
+            $table->string('slug', 191)->index();
             $table->boolean('published')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->text('summary', 1024)->nullable();
