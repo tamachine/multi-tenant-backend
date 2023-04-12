@@ -51,7 +51,7 @@ class Image extends Component
         $this->dispatchBrowserEvent('validationError');
 
         $this->validate([
-            'image'      => ['required', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
+            'image'      => ['required', 'mimes:jpeg,jpg,png,gif', 'max:2048'],
         ],
         [
             'image.mimes' => 'The image must be a file of type: jpeg, jpg, png, gif'
