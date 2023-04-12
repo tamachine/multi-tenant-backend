@@ -1,9 +1,8 @@
 @extends('layouts.web')
 
-@section('body')        
+@section('body')    
     <div class="px-3 md:px-0 max-w-6xl mx-auto">
 
-    
         @include('web.blog.partial.index.hero')
 
         @include('web.blog.partial.index.filters')

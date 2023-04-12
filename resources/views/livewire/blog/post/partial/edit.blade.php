@@ -46,8 +46,8 @@
                 </section>
 
                 <!-- Preview -->
-                <section class="ml-auto">                                        
-                    <x-admin.button onclick="window.open('{{ $post->preview_url }}','_blank');">Preview</x-admin.button>                
+                <section class="ml-auto">
+                    <x-admin.button onclick="window.open('{{ $post->preview_url }}','_blank');">Preview</x-admin.button>
                 </section>
             </div>
 
@@ -111,12 +111,13 @@
             <textarea id="summary" class="mt-1 focus:ring-purple-700 focus:purple-700 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md placeholder-gray-400"
                 wire:model.defer="summary" rows="3" autocomplete="blog_summary">
             </textarea>
+            <x-admin.input-error for="summary" class="mt-2" />
         </div>
 
         <!-- Content -->
         <div class="px-4 mt-4">
             <x-admin.label for="content" value="{{ __('Content') }}" class="mb-2" />
-            <x-admin.tinymce-editor wire:model="content" placeholder="Write a nice post..." />
+            <x-admin.tinymce-editor wire:model="content" placeholder="Write a nice post..." height="400px" />
         </div>
 
         <hr class="my-4">
