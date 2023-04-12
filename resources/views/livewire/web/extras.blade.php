@@ -1,7 +1,7 @@
 <div
     x-data="extraPopup()"
     >
-    <div class="flex justify-between">
+    <div class="flex justify-center gap-[60px]">
         <div class="w-full flex flex-col gap-3 max-w-[780px]">
             @foreach($extras as $extra)
                 <x-extra.extra :extra=$extra />

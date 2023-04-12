@@ -14,8 +14,7 @@ extraPopup = function () {
         },
 
         setHtmlOverflowHIdden: function() {
-            this.htmlOverflowHidden = this.show;
-            
+            this.htmlOverflowHidden = this.show;            
         },
 
         moveToTheTop: function() {
