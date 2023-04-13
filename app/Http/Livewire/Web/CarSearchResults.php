@@ -18,6 +18,8 @@ class CarSearchResults extends Component
 
     public $categories = [];
     public $selectables= [];
+    public $dates = [];
+    public $locations = [];
 
     protected $allSelectables;
     protected $query;
@@ -37,10 +39,12 @@ class CarSearchResults extends Component
         $this->carsSearch = $carsSearch;
     }
 
-    public function mount(bool $showFilters = true, bool $showImageIfLittleResults = false, array $categories = []) {
-        $this->showFilters = $showFilters;
+    public function mount(bool $showFilters = true, bool $showImageIfLittleResults = false, array $categories = [], array $dates = [], array $locations = []) {        
+        $this->showFilters              = $showFilters;
         $this->showImageIfLittleResults = $showImageIfLittleResults;
-        $this->categories = $categories;
+        $this->categories               = $categories;
+        $this->dates                    = $dates;
+        $this->locations                = $locations;
 
         $this->carSearch();
         $this->setSelectables();
@@ -71,6 +75,7 @@ class CarSearchResults extends Component
         // Select the car
         $sessionData = request()->session()->get('booking_data');
         $sessionData['car'] = $hashid;
+
         request()->session()->put('booking_data', $sessionData);
 
         return redirect()->route('insurances', $hashid);
@@ -78,14 +83,14 @@ class CarSearchResults extends Component
 
     protected function carSearch()
     {
-        $sessionData = request()->session()->get('booking_data');
+        //$sessionData = request()->session()->get('booking_data');
 
         $this->carsSearch->setData(
             [
                 'types' => $this->categories,
                 'specs' => $this->selectables,
-                'dates' => ['from' => $sessionData['from'], 'to' => $sessionData['to']],
-                'locations' => ['pickup' => $sessionData['pickup'], 'dropoff' => $sessionData['dropoff']]
+                'dates' => $this->dates, //['from' => $sessionData['from'], 'to' => $sessionData['to']],
+                'locations' => $this->locations,// ['pickup' => $sessionData['pickup'], 'dropoff' => $sessionData['dropoff']]
             ]
         );
 

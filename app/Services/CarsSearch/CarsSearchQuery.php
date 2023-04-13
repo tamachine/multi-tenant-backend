@@ -83,9 +83,9 @@ class CarsSearchQuery
     protected function initSearch()
     {
         if ($this->vendors->count() == 0) {
-            $this->query = Car::query();
+            $this->query = Car::fromCaren();
         } else {
-            $this->query = Car::whereIn('vendor_id', $this->vendors->pluck('id')->toArray());
+            $this->query = Car::fromCaren()->whereIn('vendor_id', $this->vendors->pluck('id')->toArray());
         }
     }
 
@@ -93,7 +93,7 @@ class CarsSearchQuery
     {
         if ($this->specs) {
             if (count($this->specs->getTypes()) > 0) {
-                $this->query = Car::whereIn('vehicle_type', $this->specs->getTypes());
+                $this->query = Car::fromCaren()->whereIn('vehicle_type', $this->specs->getTypes());
             }
 
             foreach ($this->specs->getSpecsWithoutTypes() as $column => $value) {

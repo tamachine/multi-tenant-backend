@@ -11,6 +11,7 @@ use Carbon\Carbon;
 class Dates
 {       
     const DEFAULT_RANGE_DAYS = 14;
+    const FORMAT = 'Y-m-d';
     
     protected $dateFrom;
     protected $dateTo;    
@@ -22,10 +23,12 @@ class Dates
     public function setDates(array $dates = []) {
         $this->dateFrom = (isset($dates['from']) ? $dates['from'] : null);     
         $this->dateTo   = (isset($dates['to'])   ? $dates['to']   : null);     
+
+        $this->setDefaultDates();
         
         $this->format();        
         $this->setEndDate();
-        $this->setDatesDefined();
+        $this->setDatesDefined();        
     }
 
     public function datesDefined() {
@@ -34,7 +37,7 @@ class Dates
 
     public function getDateFrom($formatted = true) {        
         if ($formatted) {
-            return $this->dateFrom->format('Y-m-d');
+            return $this->dateFrom->format(self::FORMAT);
         } else {
             return $this->dateFrom;
         }
@@ -42,10 +45,16 @@ class Dates
     
     public function getDateTo($formatted = true) {
         if ($formatted) {
-            return $this->dateTo->format('Y-m-d');
+            return $this->dateTo->format(self::FORMAT);
         } else {
             return $this->dateTo;
         }        
+    }
+
+    protected function setDefaultDates() {
+        if($this->dateFrom == null && $this->dateTo == null) {
+            $this->dateFrom = Carbon::tomorrow()->format(self::FORMAT);            
+        }
     }
 
     protected function format(){        
