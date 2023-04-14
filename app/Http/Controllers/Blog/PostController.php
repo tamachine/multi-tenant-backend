@@ -43,7 +43,7 @@ class PostController extends Controller
         return view('blog.post.create')->with($data);
     }
 
-    public function edit($hashid): View
+    public function edit($hashid, $tab = null): View
     {
         $this->authorize('blog');
 
@@ -59,6 +59,7 @@ class PostController extends Controller
                 'Blog' => route('intranet.blog.dashboard'),
                 'Posts' => route('intranet.blog.post.index')
             ],
+            'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];
 
         return view('blog.post.edit')->with($data);
@@ -67,11 +68,11 @@ class PostController extends Controller
     public function preview(BlogPost $blogPost): View
     {
         $this->authorize('blog');
-        
+
         return view(
             'web.blog.show',
             [
-                'post' => $blogPost                
+                'post' => $blogPost
             ]
         );
     }
