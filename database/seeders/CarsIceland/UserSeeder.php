@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         $users = [
             ['username' => 'carlospcarmona@gmail.com', 'email' => 'carlospcarmona@gmail.com', 'name' => 'Carlos', 'role' => 'developer', 'blogger' => 1],
             ['username' => 'fran@scandinavianehf.com', 'email' => 'fran@scandinavianehf.com', 'name' => 'Fran', 'role' => 'developer', 'blogger' => 1],
-            ['username' => 'pablo.santamaria@scandinavianehf.com', 'email' => 'pablo.santamaria@scandinavianehf.com', 'name' => 'Pablo', 'role' => 'developer', 'blogger' => 1],
+            ['username' => 'damian@scandinavianehf.com', 'email' => 'damian@scandinavianehf.com', 'name' => 'Damián', 'role' => 'developer', 'blogger' => 1],
             ['username' => 'tamara.rios@scandinavianehf.com', 'email' => 'tamara.rios@scandinavianehf.com', 'name' => 'Tamara', 'role' => 'developer', 'blogger' => 1],
             ['username' => 'Alberto', 'email' => 'marketing@scandinavianehf.com', 'name' => 'Alberto', 'role' => 'superAdmin', 'blogger' => 1],
             ['username' => 'Scandinavian', 'email' => 'sales@scandinavianehf.com', 'name' => 'Miguel', 'role' => 'superAdmin', 'blogger' => 1],
