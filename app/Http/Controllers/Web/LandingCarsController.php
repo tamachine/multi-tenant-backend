@@ -7,12 +7,15 @@ class LandingCarsController extends BaseController
 
     protected $categories;
 
+    protected $type;
+
     public function index()
     {
         return view(
             'web.landing-cars.index',
             [
-                'categories' => $this->categories
+                'categories' => $this->categories,
+                'type' => $this->type
             ]
         );
     }
@@ -20,6 +23,7 @@ class LandingCarsController extends BaseController
     public function small()
     {
         $this->categories = ['small', 'medium'];
+        $this->type = 'small';
 
         return $this->index();
     }
@@ -27,6 +31,7 @@ class LandingCarsController extends BaseController
     public function large()
     {
         $this->categories = ['large'];
+        $this->type = 'large';
 
         return $this->index();
     }
@@ -34,13 +39,14 @@ class LandingCarsController extends BaseController
     public function premium()
     {
         $this->categories = ['premium'];
+        $this->type = 'premium';
 
         return $this->index();
     }
     
     protected function footerImagePath() : string
     {
-        return asset('/images/footer/terms.jpg');
+        return asset('/images/footer/terms.png');
     }
 }
 
