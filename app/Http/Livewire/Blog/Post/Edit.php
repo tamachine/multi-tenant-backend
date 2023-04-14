@@ -214,7 +214,7 @@ class Edit extends Component
     private function saveImage($image, $hover = false)
     {
         $extension = $image->getClientOriginalExtension();
-        $filename = ($hover) ? $this->post->hashid . "_hover." . $extension : $this->post->hashid . $extension;
+        $filename = ($hover) ? $this->post->hashid . "_hover." . $extension : $this->post->hashid . "." . $extension;
         $image->storeAs("public/posts" , $filename);
 
         $this->post->update([

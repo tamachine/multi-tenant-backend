@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('blog_posts', function (Blueprint $table) {
             $table->id();
-            $table->string('hashid')->nullable();
+            $table->string('hashid')->nullable()->index();
             $table->text('title');
-            $table->string('slug', 191)->index();
+            $table->text('slug');
             $table->boolean('published')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->text('summary', 1024)->nullable();
