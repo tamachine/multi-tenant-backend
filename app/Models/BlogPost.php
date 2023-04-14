@@ -84,7 +84,7 @@ class BlogPost extends Model
             return $this->featured_image_hover;
         } else {
             return
-                $this->featured_image
+                $this->featured_image_hover
                     ? asset('storage/posts/' . $this->featured_image_hover)
                     : '';
         }
