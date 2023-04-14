@@ -7,10 +7,10 @@
     class="flex flex-col bg-cover rounded-2xl text-white justify-between relative h-[495px]" 
     x-on:mouseenter="image= '{{ $hover }}'"
     x-on:mouseleave="image= '{{ $image }}'"      
->    
-    @include('components.card-elongated.background', ['image' => $image])
-    
-    @include('components.card-elongated.background', ['image' => $hover])    
+>
+    <x-background-hover-transition :image="$image" class="h-[495px] w-full bg-cover rounded-2xl"/>
+
+    <x-background-hover-transition :image="$hover" class="h-[495px] w-full bg-cover rounded-2xl" />   
 
     <div class="absolute top-0 left-0 z-10 md:mx-6 mx-4 h-[495px]">
         <div class="flex flex-col h-full">
