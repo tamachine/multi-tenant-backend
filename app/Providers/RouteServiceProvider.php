@@ -88,6 +88,11 @@ class RouteServiceProvider extends ServiceProvider
             return $resource->where('hashid', $value)->first();
         });
 
+        Route::bind('newsletter_user_hashid', function ($value) {
+            $resource = new \App\Models\NewsletterUser();
+            return $resource->where('hashid', $value)->first();
+        });
+
         Route::bind('blog_post_hashid', function ($value) {
             $resource = new \App\Models\BlogPost();
             return $resource->where('hashid', $value)->first();

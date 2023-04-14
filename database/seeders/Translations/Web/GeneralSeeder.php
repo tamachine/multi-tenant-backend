@@ -163,5 +163,15 @@ class GeneralSeeder extends Seeder
                 'text' => ['en' => 'Change settings', 'es' => 'Cambiar opciones'],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'general',
+                'key' => 'modal-ok',
+            ],
+            [
+                'text' => ['en' => 'Ok', 'es' => 'De acuerdo'],
+            ]
+        );
     }
 }
