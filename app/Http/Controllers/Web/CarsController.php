@@ -8,10 +8,14 @@ class CarsController extends BaseController
     {
         checkSessionCar();
 
+        $sessionData = request()->session()->get('booking_data');
+
         return view(
             'web.cars.index',
             [
-                'breadcrumbs' => getBreadcrumb(['home', 'cars']),
+                'breadcrumbs'   => getBreadcrumb(['home', 'cars']),
+                'dates'         => ['from'   => $sessionData['from'],   'to'      => $sessionData['to']],
+                'locations'     => ['pickup' => $sessionData['pickup'], 'dropoff' => $sessionData['dropoff']]
             ]
         );
     }

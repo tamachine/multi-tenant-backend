@@ -1,5 +1,5 @@
-{{-- desktop btn --}}
 @if($extra->included)
+    {{-- desktop btn --}}
     <div
         class="md-max:hidden rounded-lg text-white font-sans-medium py-[6px] text-lg bg-pink-red px-4"
     >
@@ -10,7 +10,19 @@
             </div>
         </div>
     </div>
+
+    {{-- mobile btn --}}
+    <button
+        class="md:hidden border-2 border-pink-red bg-pink-red w-10 h-10 rounded-full flex items-center justify-center"        
+    >
+        <div
+            class="rounded-full"            
+        >
+            <img class="rounded-full w-6 h-6" src="{{ asset('images/icons/check-white.svg') }}" />
+        </div>
+    </button>
 @else
+    {{-- desktop btn --}}
     <button
         x-on:click="toggle"
         wire:click="toggleExtra('{{ $extra->hashid }}')"
@@ -28,18 +40,22 @@
             </div>
         </div>
     </button>
+
+    {{-- mobile btn --}}
+    <button
+        x-on:click="toggle"
+        wire:click="toggleExtra('{{ $extra->hashid }}')"
+        class="md:hidden border-2 border-pink-red w-10 h-10 rounded-full flex items-center justify-center"
+        :class="{ 'bg-pink-red': selected }"
+    >
+        <div
+            class="rounded-full"
+            x-cloak
+            x-show="selected"       
+        >
+            <img class="rounded-full w-6 h-6" src="{{ asset('images/icons/check-white.svg') }}" />
+        </div>
+    </button>
 @endif
 
-{{-- mobile btn --}}
-<button
-    x-on:click="toggle"
-    class="md:hidden border-2 border-pink-red w-10 h-10 rounded-full flex items-center"
->
-    <div
-        class="rounded-full"
-        x-cloak
-        x-show="selected"
-    >
-        <img class="rounded-full w-10 h-10" src="{{ asset('images/icons/check-circle.svg') }}" />
-    </div>
-</button>
+

@@ -1,1 +1,1 @@
-<livewire:web.car-search-results /> 
+<livewire:web.car-search-results :dates="$dates" :locations="$locations"/> 

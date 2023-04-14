@@ -3,6 +3,7 @@
 namespace App\Services\CarsSearch;
 
 use App\Models\Location;
+use App\Models\CarenLocation;
 /**
  *
  * This class gets the the locations for carsSearch class
@@ -21,7 +22,15 @@ class Locations
         $this->pickupLocation  = (isset($locations['pickup'])  ? Location::find(dehash($locations['pickup']))  : null);
         $this->dropoffLocation = (isset($locations['dropoff']) ? Location::find(dehash($locations['dropoff'])) : null);
 
+        $this->setDefaultLocations();
+
         $this->check();
+    }
+
+    protected function setDefaultLocations() {
+        if($this->pickupLocation == null && $this->dropoffLocation == null) {
+            $this->pickupLocation = CarenLocation::whereNotNull('caren_pickup_location_id')->first()->location;            
+        }
     }
 
     protected function check() {

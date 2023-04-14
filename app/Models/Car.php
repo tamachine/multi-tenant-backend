@@ -255,6 +255,17 @@ class Car extends Model
         return $query;
     }
 
+    /**
+     * Scope to get cars from caren
+     *
+     * @param      object  $query   Illuminate\Database\Query\Builder
+     *
+     * @return     object  Illuminate\Database\Query\Builder
+     */
+    public function scopeFromCaren($query) {
+        return $query->whereNotNull('caren_id');
+    }
+
     /**********************************
      * Relationships
      **********************************/
