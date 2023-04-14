@@ -140,7 +140,7 @@ class Edit extends Component
         $this->summary = $post->summary;
         $this->content = $post->content;
         $this->featured_url = $post->featured_image_url;
-        $this->featured_hover_url = $post->featured_image_url_hover;
+        $this->featured_hover_url = $post->featured_image_hover_url;
         $this->reloadImages();
 
         $this->categories = BlogCategory::pluck('name', 'id');
