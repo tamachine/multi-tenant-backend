@@ -1373,6 +1373,11 @@ select{
     margin-bottom: 1.5rem;
 }
 
+.-mx-3{
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+
 .mx-6{
     margin-left: 1.5rem;
     margin-right: 1.5rem;
@@ -1740,6 +1745,10 @@ select{
     height: 18px;
 }
 
+.h-\[560px\]{
+    height: 560px;
+}
+
 .h-\[530px\]{
     height: 530px;
 }
@@ -2042,8 +2051,8 @@ select{
     width: 6rem;
 }
 
-.w-60{
-    width: 15rem;
+.w-36{
+    width: 9rem;
 }
 
 .w-20{
@@ -2212,10 +2221,6 @@ select{
 
 .max-w-xl{
     max-width: 36rem;
-}
-
-.max-w-\[480px\]{
-    max-width: 480px;
 }
 
 .max-w-\[600px\]{
@@ -3785,9 +3790,9 @@ select{
     padding-right: 3rem;
 }
 
-.py-16{
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+.py-14{
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
 }
 
 .py-6{
@@ -5776,6 +5781,11 @@ input[type=number] {
     border-color: rgb(37 99 235 / var(--tw-border-opacity));
 }
 
+.focus\:bg-white:focus{
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .focus\:bg-neutral-200:focus{
     --tw-bg-opacity: 1;
     background-color: rgb(229 229 229 / var(--tw-bg-opacity));
@@ -7073,6 +7083,10 @@ input[type=number] {
         max-width: 28rem;
     }
 
+    .md\:max-w-\[480px\]{
+        max-width: 480px;
+    }
+
     .md\:max-w-\[710px\]{
         max-width: 710px;
     }
@@ -7259,6 +7273,14 @@ input[type=number] {
 
     .md\:rounded-2xl{
         border-radius: 1rem;
+    }
+
+    .md\:rounded-\[60px\]{
+        border-radius: 60px;
+    }
+
+    .md\:rounded-3xl{
+        border-radius: 1.5rem;
     }
 
     .md\:rounded-xl{
@@ -7663,6 +7685,10 @@ input[type=number] {
 
     .md\:leading-6{
         line-height: 1.5rem;
+    }
+
+    .md\:leading-\[60px\]{
+        line-height: 60px;
     }
 
     .md\:leading-\[76px\]{

@@ -4,7 +4,7 @@
 --}}
 
 <div 
-    class="absolute top-0 left-0 bottom-0 z-0 h-[495px] w-full bg-cover rounded-2xl"
+    {!! $attributes->merge(['class' => 'absolute top-0 left-0 bottom-0 z-0']) !!}    
     style="background-image: linear-gradient(30.78deg, rgb(255, 10, 84, 0.3) -37.85%, rgba(0, 0, 0, 0) 68.21%), url('{{ $image }}')"
 
     x-show="image == '{{ $image }}'" 

@@ -152,7 +152,36 @@
         </div>
 
         <hr class="my-4">
+
+
+        <!-- Featured image hover -->
+        @if ($featured_hover)
+            <div class="m-4 sm:w-1/2">
+                <img src="{{$featured_hover->temporaryUrl()}}">
+            </div>
+        @else
+            @if ($featured_hover_url != '')
+                <div class="m-4 sm:w-1/2">
+                    <x-admin.label for="current_photo_hover" value="{{ __('Current featured image hover') }}" />
+                    <img src="{{$featured_hover_url}}" class="mt-2">
+                </div>
+            @endif
+        @endif
+
+        <div class="m-4">
+            <x-admin.label for="featured_hover" value="{{ __('Upload new featured image hover') }}" />
+
+            <input type="file" class="mt-2"
+                   name="featured_hover" id="featured_hover"
+                   wire:model="featured_hover"
+            >
+
+            <x-admin.input-error for="featured_hover" class="mt-2" />
+        </div>
+
+        <hr class="my-4">
     </x-slot>
+
 
     <x-slot name="actions">
         <x-admin.button wire:loading.attr="disabled">
