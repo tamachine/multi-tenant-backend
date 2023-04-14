@@ -5,9 +5,12 @@ namespace App\Http\Livewire\Web;
 use App\Mail\ContactFormSubmitted;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
+use App\Traits\Livewire\ModalTrait;
 
 class ContactForm extends Component
 {
+    use ModalTrait;
+    
     /*
     ***************************************************************
     ** PROPERTIES
@@ -37,11 +40,7 @@ class ContactForm extends Component
     /**
      * @var string
      */
-    public $message;
-
-    public $sent = false;
-
-    protected $listeners = ['emailSent' => 'emailSent'];
+    public $message;    
 
      /**
      * @var bool
@@ -92,11 +91,6 @@ class ContactForm extends Component
         $this->type = "general";
         $this->message = "";
 
-        $this->sent = true;
-    }
-
-    public function emailSent()
-    {
-        $this->sent = false;
+        $this->showModal = true;
     }
 }

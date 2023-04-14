@@ -2,21 +2,8 @@
     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <x-wire-spinner /> 
     </div>
-    @if($sent)
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full" x-data="visibilitySelector()" x-show="!visibility()"
-        x-cloak>        
-        <div 
-        
-        
-        class="w-1/2 z-20 bg-white shadow-2xl rounded-2xl p-10 mx-auto flex flex-col justify-center items-center gap-8">
-            <h4 class="text-pink-red">{!! __('contact.message_sent-title') !!}</h4>
-            <div>
-                {!! __('contact.message_sent-text') !!}
-            </div>
-            
-            <button wire:click="$emitSelf('emailSent')" x-on:click="toggle()" class="btn btn-red py-3 px-6 text-lg">Ok</button>
-        </div>                
-    </div>
+    @if($showModal)
+        <x-modal :title="__('contact.message_sent-title')" :text="__('contact.message_sent-text')"/>    
     @endif
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">        
         @foreach(['name', 'email', 'subject'] as $input)
