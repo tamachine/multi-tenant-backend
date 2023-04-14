@@ -1,4 +1,8 @@
-<div class="flex flex-col gap-4">
+<div x-data="{
+    featuredImageUrl: '{{ $blogPost->featured_image_url }}',
+    featuredImageHoverUrl: '{{ $blogPost->featured_image_hover_url }}',
+    showHoveredImage: false
+}">
     <div
         x-data="{ image: '{{ $blogPost->featured_image_url }}' }"
         x-on:mouseenter="image= '{{ $blogPost->featured_image_hover_url != '' ? $blogPost->featured_image_hover_url : $blogPost->featured_image_url }}'"
@@ -22,14 +26,15 @@
        
     </div>
 
-    <div class="font-fredoka-semibold text-[22px] md:text-2xl text-left">
-        <a href="{{ $blogPost->url }}">{!! $blogPost->title !!}</a>
-    </div>
-
     <div class="flex flex-col gap-2">
+        <div class="font-fredoka-semibold text-[22px] md:text-2xl text-left">
+            <a href="{{ $blogPost->url }}">{!! $blogPost->title !!}</a>
+        </div>
+
         <div class="text-sm md:text-base text-gray-400">
             {{ __('blog.by') }} <a href="#" class="text-black"> {!! $blogPost->author->name !!} </a>
         </div>
+
         <div>
             @foreach($blogPost->tags as $tag)
                 <x-blog-tag :blog-tag="$tag" />
