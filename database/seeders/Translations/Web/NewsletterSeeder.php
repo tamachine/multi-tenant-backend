@@ -52,17 +52,7 @@ class NewsletterSeeder extends Seeder
             [
                 'text' => ['en' => 'Subscribe', 'es' => 'Suscribir'],
             ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'newsletter',
-                'key' => 'subscribed',
-            ],
-            [
-                'text' => ['en' => 'Thank you for subscribing to our newsletter', 'es' => 'Gracias por suscribirte a nuestro newsletter'],
-            ]
-        );
+        );        
 
         Translation::firstOrCreate(
             [
@@ -80,7 +70,7 @@ class NewsletterSeeder extends Seeder
                 'key' => 'email_sent-text',
             ],
             [
-                'text' => ['en' => 'Thank you, your message has been sent', 'es' => 'Gracias, tu mensaje se ha enviado'],
+                'text' => ['en' => 'Thank you for subscribing to our newsletter', 'es' => 'Gracias por suscribirte a nuestro newsletter'],
             ]
         );       
 
