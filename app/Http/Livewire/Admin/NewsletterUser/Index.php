@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Admin\NewsletterUser;
 use App\Models\NewsletterUser;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Excel;
+use App\Exports\NewsletterExport;
 
 class Index extends Component
 {
@@ -57,6 +59,10 @@ class Index extends Component
         $this->users = $newsletterUsers->get()->toArray();
 
         return view('livewire.admin.newsletter-user.index', ['newsletterUsers' => $newsletterUsers->paginate(perPage())]);
+    }
+
+    public function export() {
+        return Excel::download(new NewsletterExport(), 'Newsletter-users.xlsx');    
     }
 
     public function saveNewsletterUser($key) {
