@@ -7,6 +7,7 @@ use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Carbon\Carbon; 
 
 class BlogPostFactory extends Factory
 {
@@ -29,9 +30,8 @@ class BlogPostFactory extends Factory
 
         return [
             'title' => $title,
-            'slug' => Str::slug($title),
-            'published' => $published,
-            'published_at' => $published ? now() : null,
+            'slug' => Str::slug($title),            
+            'published_at' => rand(0,1) ? Carbon::today()->subDays(rand(0, 180)) : Carbon::today()->addDays(rand(1, 180)),
             'summary' => $this->faker->text(200),
             'content' => $this->faker->text(1000),
             'blog_author_id' => BlogAuthor::inRandomOrder()->first(),
