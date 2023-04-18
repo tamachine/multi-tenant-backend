@@ -195,18 +195,16 @@ class Edit extends Component
 
         // 2. Update the featured image
         if ($this->featured) {
-            $this->saveImage($this->featured);
+            $this->post->uploadFeaturedImageDefault($this->featured);
         }
 
         // 3. Update the featured image hover
         if ($this->featured_hover) {
-            $this->saveImage($this->featured_hover, true);
+            $this->post->uploadFeaturedImageHover($this->featured_hover);
         }
 
         // 4. Update the tags
         $this->post->tags()->sync($this->tags ?: null);
-
-
 
         session()->flash('status', 'success');
         session()->flash('message', 'Post "' . $this->title . '" updated');
@@ -214,27 +212,11 @@ class Edit extends Component
         return redirect()->route('intranet.blog.post.index');
     }
 
-    /**
-     * @param $image
-     * @param $hover
-     * @return void
-     */
-    private function saveImage($image, $hover = false)
-    {
-        $extension = $image->getClientOriginalExtension();
-        $filename = ($hover) ? $this->post->hashid . "_hover." . $extension : $this->post->hashid . "." . $extension;
-        $image->storeAs("public/posts" , $filename);
-
-        $this->post->update([
-            $hover ? 'featured_image_hover' : 'featured_image' => $filename,
-        ]);
-    }
-
-
     private function reloadImages()
     {
         $this->images = [];
-        $images = Storage::disk('public')->files("posts/" . $this->post->hashid);
+
+        $images = $this->post->getImages();
 
         foreach ($images as $image) {
             $this->images[] = [
@@ -255,16 +237,15 @@ class Edit extends Component
             'image.mimes' => 'The image must be a file of type: jpeg, jpg, png, gif'
         ]);
 
-        $extension = $this->image->getClientOriginalExtension();
-        $filename = now()->timestamp . "." . $extension;
-        $this->image->storeAs("public/posts/" . $this->post->hashid, $filename);
+        $this->post->uploadImage($this->image);
 
-        $this->reloadImages();
+        $this->reloadImages();        
     }
 
     public function deleteImage($image)
     {
-        Storage::disk('public')->delete($image);
+        $this->post->deleteImage($image);
+        
         $this->reloadImages();
     }
 

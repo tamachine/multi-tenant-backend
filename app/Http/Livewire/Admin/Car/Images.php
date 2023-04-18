@@ -80,6 +80,7 @@ class Images extends Component
             $filename = $key . now()->timestamp;
             $route = "car/" . $this->car->hashid;
             $image->storeAs("public/" . $route, $filename . "." . $extension);
+            
             InterventionImage::make($image)->encode('webp', 80)->save(storage_path() . '/app/public/' . $route . '/' . $filename . '.webp');
 
             $this->car->images()->create([
