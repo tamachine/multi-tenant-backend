@@ -11,17 +11,22 @@ use Illuminate\Support\Facades\Storage;
  * These columns MUST exists in model's database table:
  * featured_image
  * featured_image_hover
+ * 
+ * or you can define then in your model:
+ * 
+ * $featured_image_default_attribute -> featured_image column
+ * $featured_image_hover_attribute   -> featured_image_hover column
  */
 trait HasFeaturedImages
 {        
     use HasImages;
 
-    public function uploadFeaturedImageDefault($input, $fileName = null) {              
-        $this->uploadFeaturedImage($input, $fileName);
+    public function uploadFeaturedImageDefault($input, $fileName = null) {            
+        $this->uploadFeaturedImage($input, $fileName, $this->featuredImageDefaultAttribute());
     }
 
-    public function uploadFeaturedImageHover($input, $fileName = null) {              
-        $this->uploadFeaturedImage($input, $fileName, 'featured_image_hover');
+    public function uploadFeaturedImageHover($input, $fileName = null) {                   
+        $this->uploadFeaturedImage($input, $fileName, $this->featuredImageHoverAttribute());
     }
 
     /**
@@ -31,7 +36,7 @@ trait HasFeaturedImages
      */
     public function getFeaturedImageUrlAttribute()
     {
-        return $this->getFeaturedImageUrl($this->featured_image);
+        return $this->getFeaturedImageUrl($this->featuredImageDefaultAttribute());
     }
 
     /**
@@ -41,13 +46,23 @@ trait HasFeaturedImages
      */
     public function getFeaturedImageHoverUrlAttribute()
     {
-        return $this->getFeaturedImageUrl($this->featured_image_hover);
+        return $this->getFeaturedImageUrl($this->featuredImageHoverAttribute());
+    }
+
+    protected function featuredImageDefaultAttribute() {
+        return $this->featured_image_default_attribute ?? 'featured_image';
     }
     
+    protected function featuredImageHoverAttribute() {
+        return $this->featured_image_hover_attribute ?? 'featured_image_hover';
+    }
+
     /**
      * uploads the image and save the path in the database
      */
-    protected function uploadFeaturedImage($input, $fileName, $attribute = 'featured_image') {
+    protected function uploadFeaturedImage($input, $fileName, $attribute) {
+        $this->deleteImage($this->$attribute);  
+
         $path = $this->uploadImage($input, $fileName);
         
         $this->$attribute = $path;
@@ -58,11 +73,11 @@ trait HasFeaturedImages
     /**
      * returns the url of the image
      */
-    protected function getFeaturedImageUrl($image) {
-        if (filter_var($image, FILTER_VALIDATE_URL)) { //check if the path is already a url
-            return $image;
+    protected function getFeaturedImageUrl($attribute) {
+        if (filter_var($this->$attribute, FILTER_VALIDATE_URL)) { //check if the path is already a url
+            return $this->$attribute;
         } else {
-            return $image ? Storage::url($image) : '';
+            return $this->$attribute ? Storage::url($this->$attribute) : '';
         }
     }
 }

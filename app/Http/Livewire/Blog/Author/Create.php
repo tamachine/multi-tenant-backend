@@ -82,13 +82,7 @@ class Create extends Component
         ]);
 
         if ($this->photo) {
-            $extension = $this->photo->getClientOriginalExtension();
-            $filename = $author->hashid . "." . $extension;
-            $this->photo->storeAs("public/authors" , $filename);
-
-            $author->update([
-                'photo' => $filename,
-            ]);
+            $this->author->uploadFeaturedImageDefault($this->photo);            
         }
 
         session()->flash('status', 'success');

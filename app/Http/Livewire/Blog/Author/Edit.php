@@ -100,13 +100,7 @@ class Edit extends Component
         ]);
 
         if ($this->photo) {
-            $extension = $this->photo->getClientOriginalExtension();
-            $filename = $this->author->hashid . "." . $extension;
-            $this->photo->storeAs("public/authors" , $filename);
-
-            $this->author->update([
-                'photo' => $filename,
-            ]);
+            $this->author->uploadFeaturedImageDefault($this->photo);            
         }
 
         session()->flash('status', 'success');

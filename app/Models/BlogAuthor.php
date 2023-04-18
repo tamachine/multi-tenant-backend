@@ -6,10 +6,14 @@ use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Traits\HasFeaturedImages;
 
 class BlogAuthor extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes;
+    use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImages;
+
+    //for HasFeaturedImages
+    protected $featured_image_default_attribute = 'photo';
 
     /**
      * The attributes that are mass assignable.
@@ -55,9 +59,7 @@ class BlogAuthor extends Model
      */
     public function getPhotoUrlAttribute()
     {
-        return $this->photo
-            ? asset('storage/authors/' . $this->photo)
-            : '';
+        return $this->getFeaturedImageUrlAttribute();
     }
 
     /**********************************
