@@ -46,7 +46,7 @@ class LandingCarsController extends BaseController
     
     protected function footerImagePath() : string
     {
-        return asset('/images/footer/terms.png');
+        return asset('/images/footer/landing-cars.jpg');
     }
 }
 
