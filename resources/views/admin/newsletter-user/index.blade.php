@@ -1,14 +1,11 @@
 <x-admin-layout>
     <x-slot name="title">
-        {{ __('Mailing') }}
+        Newsletter Users
     </x-slot>
 
     <x-slot name="breadcrumbs">
         <x-admin.breadcrumbs :crumbs="$crumbs" />
-    </x-slot>
+    </x-slot>    
 
-    <div class="p-4 sm:p-10">
-        <livewire:booking.mailing.customers />
-    </div>
+    <livewire:admin.newsletter-user.index />
 </x-admin-layout>
-

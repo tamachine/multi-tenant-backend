@@ -36,7 +36,7 @@
 
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
                                     <x-admin.order-table
-                                        name="Published"
+                                        name="Published at"
                                         order_column="{{$order_column}}"
                                         order_way="{{$order_way}}"
                                         column="published_at"
@@ -66,8 +66,8 @@
                                         {{ $post->top ? 'Yes' : '-' }}
                                     </td>
 
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        {{ $post->published ? $post->published_at->format('d-m-Y H:i:s') : '-' }}
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium {{ $post->published ? 'text-gray-400' : '' }}">
+                                        {{ $post->published_at?->format('d-m-Y H:i') }}
                                     </td>
                                 </tr>
                             @endforeach

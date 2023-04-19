@@ -9,6 +9,7 @@ use App\Models\BlogTag;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Storage;
+use Carbon\Carbon;
 
 class Edit extends Component
 {
@@ -35,10 +36,15 @@ class Edit extends Component
      */
     public $slug;
 
-    /**
-     * @var bool
+     /**
+     * @var string
      */
-    public $published;
+    public $published_at;
+
+      /**
+     * @var string
+     */
+    public $published_at_hour;
 
      /**
      * @var bool
@@ -120,6 +126,10 @@ class Edit extends Component
      */
     public $featured_hover_url = '';
 
+    /**
+     * @var array
+     */
+    public $hours = [];
 
     /*
     ***************************************************************
@@ -132,7 +142,8 @@ class Edit extends Component
         $this->post = $post;
         $this->title = $post->title;
         $this->slug = $post->slug;
-        $this->published = $post->published;
+        $this->published_at = $post->published_at?->format('d-m-Y');
+        $this->published_at_hour = $post->published_at ? roundUpToMinuteInterval($post->published_at)->format('H:i') : '12:00';
         $this->hero = $post->hero;
         $this->top = $post->top;
         $this->category = $post->blog_category_id;
@@ -141,12 +152,15 @@ class Edit extends Component
         $this->content = $post->content;
         $this->featured_url = $post->featured_image_url;
         $this->featured_hover_url = $post->featured_image_hover_url;
+
         $this->reloadImages();
 
         $this->categories = BlogCategory::pluck('name', 'id');
         $this->authors = BlogAuthor::pluck('name', 'id');
         $this->allTags = BlogTag::pluck('name', 'id');
         $this->tags = $post->tags->pluck('id')->toArray();
+
+        $this->hours = hours_dropdown();
     }
 
     public function savePost()
@@ -154,31 +168,25 @@ class Edit extends Component
         $this->dispatchBrowserEvent('validationError');
 
         $rules = [
-            'title'     => ['required'],
-            'category'  => ['required'],
-            'author'    => ['required'],
-            'featured'  => ['nullable', 'mimes:jpeg,jpg,png,gif'],
-            'featured_hover'  => ['nullable', 'mimes:jpeg,jpg,png,gif'],
-            'summary'   => ['max:1023'],
+            'title'             => ['required'],
+            'category'          => ['required'],
+            'author'            => ['required'],
+            'featured'          => ['nullable', 'mimes:jpeg,jpg,png,gif'],
+            'featured_hover'    => ['nullable', 'mimes:jpeg,jpg,png,gif'],
+            'summary'           => ['max:1023'],
+            'published_at'      => ['date_format:d-m-Y'],
+            'published_at_hour' => ['date_format:H:i'],
         ];
 
-        $this->validate($rules);
-
-        // Check if we need to update the 'published_at' date
-        if (!$this->post->published && $this->published) {
-            $published_date = now();
-        } else {
-            $published_date = $this->post->published_at;
-        }
+        $this->validate($rules);       
 
         // 1. Update the post
         $this->post->update([
             'title'             => $this->title,
-            'slug'              => $this->slug ? $this->slug : slugify($this->title),
-            'published'         => $this->published ? 1 : 0,
+            'slug'              => $this->slug ? $this->slug : slugify($this->title),           
             'hero'              => $this->hero ? 1 : 0,
             'top'               => $this->top ? 1 : 0,
-            'published_at'      => $published_date,
+            'published_at'      => Carbon::createFromFormat("d-m-Y H:i", $this->published_at . " " . $this->published_at_hour),
             'summary'           => $this->summary,
             'content'           => $this->content,
             'blog_category_id'  => $this->category,
