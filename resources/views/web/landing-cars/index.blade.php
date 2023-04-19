@@ -3,17 +3,16 @@
 @section('body')        
     <div class="w-fill-screen">
         <main class="max-w-7xl mx-auto px-3 md:px-11">
-
             <section id="intro">
-                <div class="relative">    
-                    <div class="rounded-3xl overflow-hidden">
+                <div class="relative min-h-[125vw] md:min-h-[650px]">    
+                    <div class="absolute w-full top-0 bottom-0 left-0 rounded-2xl image-wrapper">
                         <picture>
                             <source srcset="{{ asset('/images/landing-cars/' . $type . '-cars_dk.jpg') }}" media="(min-width: 767px)">
                             <source srcset="{{ asset('/images/landing-cars/' . $type . '-cars_mb.jpg') }}">
                             <img src="{{ asset('/images/landing-cars/' . $type . '-cars_dk.jpg') }}" alt="">
                         </picture>
                     </div>
-                    <div class="absolute top-0 left-0 bottom-0 w-full px-5 py-10 md:p-20 flex">
+                    <div class="relative px-5 py-10 md:p-20">
                         <h1 class="max-w-4xl text-white mx-auto">{!! __('landing-cars.'. $type . '-title') !!}</h1>
                     </div>
                 </div>
@@ -32,7 +31,7 @@
                         </div>
                         <div class="testimonials__content 
                                 relative flex flex-col gap-5 bg-pink-red-secondary rounded-2xl
-                                w-fill-screen md:w-1/2
+                                w-fill-screen md:w-1/2 md:left-0
                                 px-6 pt-20 pb-8 md:p-12
                                 mt-[-45px] ml-auto md:mt-32 md:mb-32">
                             <h3 class="uppercase text-pink-red font-bold text-left text-lg">{!! __('landing-cars.testimonials-title') !!}</h3>
@@ -60,29 +59,8 @@
                     <img src="{{ asset('/images/landing-cars/about-car-renting.jpg') }}" alt="">
                 </div>
                 <div class="about__content md:w-[56%] my-5">
-                    {{-- <p class="max-h-44 md:max-h-full overflow-hidden">
-                        {!! __('landing-cars.about-text') !!}
-                    </p>
-                    <button class="w-full md:hidden flex items-center gap-2 mt-5">
-                        <span>Read more</span>
-                        <img src="{{ asset('/images/icons/arrow-down-solid.svg') }}" alt="">
-                    </button> --}}
-                    <div x-data="{ open:false }">
-                        <p>
-                            {!! __('landing-cars.about-text') !!}
-                        </p>
-                        <p x-show="open" class="md:block">
-                            {!! __('landing-cars.about-text-extra') !!}
-                        </p>
-                        <button class="w-full md:hidden flex items-center gap-2 mt-5" 
-                            x-on:click="open = ! open;"
-                            x-bind:class="{'open': open}" >
-                            <span x-text="open ? 'Read less' : 'Read more'"></span>
-
-                            <img 
-                                x-bind:src="open ? '{{ asset('/images/icons/arrow-up-solid.svg') }}' : '{{ asset('/images/icons/arrow-down-solid.svg') }}'" alt="">
-                        </button>
-                    </div>
+                    <x-read-more-block text="{!! __('landing-cars.about-text') !!}" image-path="/images/icons/arrow-up-solid.svg"/>
+                    
                     <a class="btn-border" href="">{{ __('landing-cars.about-button') }}</a>
                 </div>
                 
@@ -124,7 +102,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 w-100 gap-6">
                     @foreach (range(0, 2) as $category)
                         <article class="category relative flex flex-col justify-end min-h-[600px] md:min-h-[400px]">
-                            <div class="category__image absolute top-0 bottom-0 left-0 rounded-2xl image-wrapper gradient-pink">
+                            <div class="category__image absolute w-full top-0 bottom-0 left-0 rounded-2xl image-wrapper gradient-pink">
                                 <img class="" src="{{ asset('/images/landing-cars/image-'. $category .'.jpg') }}" alt="">
                             </div>
                             <div class="relative category__content  px-5 py-7">
@@ -156,11 +134,11 @@
                 spaceBetween: 60,
             
                 navigation: {
-                    el: '.testimonials__navigation',
-                    nextEl: 'testimonials__arrow-right',
-                    prevEl: 'testimonials__arrow-left',
+                    nextEl: '.next',
+                    prevEl: '.prev',
                 },
             },
         );
+
     </script>
 @endpush

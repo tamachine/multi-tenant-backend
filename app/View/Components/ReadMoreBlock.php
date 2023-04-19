@@ -21,14 +21,23 @@ class ReadMoreBlock extends Component
     public $reverseTextAlign;
 
     /**
+     * The image path
+     *
+     * @var string
+     */
+    public $imagePath;
+    
+
+    /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($text, $reverseTextAlign = false)
+    public function __construct($text, $reverseTextAlign = false, $imagePath = 'images/icons/read-more.svg')
     {
         $this->text = $text;
-        $this->reverseTextAlign = $reverseTextAlign;        
+        $this->reverseTextAlign = $reverseTextAlign;   
+        $this->imagePath = $imagePath;     
     }
 
     /**

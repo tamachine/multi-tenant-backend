@@ -112,16 +112,7 @@ class LandingCarsSeeder extends Seeder
                 'key' => 'about-text',
             ],
             [
-                'text' => ['en' => 'We strongly recommend you add extended coverage to reduce your liability. Take into consideration that Iceland is prone to extreme weather conditions and gravel road which can cause damage to your hire car. Without insurance, you would have to pay for this damage out of your own pocket.', 'es' => 'We strongly recommend you add extended coverage to reduce your liability. Take into consideration that Iceland is prone to extreme weather conditions and gravel road which can cause damage to your hire car. Without insurance, you would have to pay for this damage out of your own pocket.'],
-            ]
-        );
-        Translation::firstOrCreate(
-            [
-                'group' => 'landing-cars',
-                'key' => 'about-text-extra',
-            ],
-            [
-                'text' => ['en' => 'If you are insured through a third party insurance provider, such as a credit card or insurance company, you will first pay Lotus car rental for any damage and then get reimbursed through your insurance provider. Adding the insurance below will lower your deductible to 65.000 ISK (Gold Package) or 0 ISK (Platinum Package).<br><br>If you are not prepared to make this decision now, you can always.', 'es' => 'If you are insured through a third party insurance provider, such as a credit card or insurance company, you will first pay Lotus car rental for any damage and then get reimbursed through your insurance provider. Adding the insurance below will lower your deductible to 65.000 ISK (Gold Package) or 0 ISK (Platinum Package).<br><br>If you are not prepared to make this decision now, you can always.'],
+                'text' => ['en' => 'We strongly recommend you add extended coverage to reduce your liability. Take into consideration that Iceland is prone to extreme weather conditions and gravel road which can cause damage to your hire car. Without insurance, you would have to pay for this damage out of your own pocket.<br><br>If you are insured through a third party insurance provider, such as a credit card or insurance company, you will first pay Lotus car rental for any damage and then get reimbursed through your insurance provider. Adding the insurance below will lower your deductible to 65.000 ISK (Gold Package) or 0 ISK (Platinum Package).<br><br>If you are not prepared to make this decision now, you can always.', 'es' => 'We strongly recommend you add extended coverage to reduce your liability. Take into consideration that Iceland is prone to extreme weather conditions and gravel road which can cause damage to your hire car. Without insurance, you would have to pay for this damage out of your own pocket.<br><br>If you are insured through a third party insurance provider, such as a credit card or insurance company, you will first pay Lotus car rental for any damage and then get reimbursed through your insurance provider. Adding the insurance below will lower your deductible to 65.000 ISK (Gold Package) or 0 ISK (Platinum Package).<br><br>If you are not prepared to make this decision now, you can always.'],
             ]
         );
 

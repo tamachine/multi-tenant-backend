@@ -4485,11 +4485,6 @@ textarea.form-control.is-invalid{
     margin-bottom: 1.25rem;
 }
 
-.my-20{
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-}
-
 .mx-6{
     margin-left: 1.5rem;
     margin-right: 1.5rem;
@@ -4498,6 +4493,11 @@ textarea.form-control.is-invalid{
 .my-16{
     margin-top: 4rem;
     margin-bottom: 4rem;
+}
+
+.my-20{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 .-mb-px{
@@ -4624,8 +4624,20 @@ textarea.form-control.is-invalid{
     margin-top: -45px;
 }
 
+.mb-10{
+    margin-bottom: 2.5rem;
+}
+
 .mb-5{
     margin-bottom: 1.25rem;
+}
+
+.mt-28{
+    margin-top: 7rem;
+}
+
+.mb-3{
+    margin-bottom: 0.75rem;
 }
 
 .mb-2{
@@ -4644,24 +4656,12 @@ textarea.form-control.is-invalid{
     margin-top: 9rem;
 }
 
-.mb-3{
-    margin-bottom: 0.75rem;
-}
-
 .mt-16{
     margin-top: 4rem;
 }
 
-.mb-10{
-    margin-bottom: 2.5rem;
-}
-
 .mt-14{
     margin-top: 3.5rem;
-}
-
-.mt-28{
-    margin-top: 7rem;
 }
 
 .block{
@@ -4881,16 +4881,12 @@ textarea.form-control.is-invalid{
     max-height: 20rem;
 }
 
-.max-h-10{
-    max-height: 2.5rem;
-}
-
-.max-h-44{
-    max-height: 11rem;
-}
-
 .min-h-\[112px\]{
     min-height: 112px;
+}
+
+.min-h-\[125vw\]{
+    min-height: 125vw;
 }
 
 .min-h-\[600px\]{
@@ -6000,28 +5996,13 @@ textarea.form-control.is-invalid{
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-indigo-500{
-    --tw-gradient-from: #6366f1;
-    --tw-gradient-to: rgb(99 102 241 / 0);
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
 .via-white{
     --tw-gradient-to: rgb(255 255 255 / 0);
     --tw-gradient-stops: var(--tw-gradient-from), #fff, var(--tw-gradient-to);
 }
 
-.via-sky-500{
-    --tw-gradient-to: rgb(14 165 233 / 0);
-    --tw-gradient-stops: var(--tw-gradient-from), #0ea5e9, var(--tw-gradient-to);
-}
-
 .to-white{
     --tw-gradient-to: #fff;
-}
-
-.to-emerald-500{
-    --tw-gradient-to: #10b981;
 }
 
 .bg-cover{
@@ -6048,11 +6029,6 @@ textarea.form-control.is-invalid{
     stroke: currentColor;
 }
 
-.object-contain{
-    -o-object-fit: contain;
-       object-fit: contain;
-}
-
 .object-cover{
     -o-object-fit: cover;
        object-fit: cover;
@@ -6063,24 +6039,9 @@ textarea.form-control.is-invalid{
        object-position: center;
 }
 
-.object-\[80_50\]{
-    -o-object-position: 80 50;
-       object-position: 80 50;
-}
-
-.object-\[80\%_50\%\]{
-    -o-object-position: 80% 50%;
-       object-position: 80% 50%;
-}
-
 .object-\[80\%-50\%\]{
     -o-object-position: 80%-50%;
        object-position: 80%-50%;
-}
-
-.object-\[80p-50p\]{
-    -o-object-position: 80p-50p;
-       object-position: 80p-50p;
 }
 
 .p-10{
@@ -6492,10 +6453,6 @@ textarea.form-control.is-invalid{
 
 .align-middle{
     vertical-align: middle;
-}
-
-.align-bottom{
-    vertical-align: bottom;
 }
 
 .font-sans-medium{
@@ -6935,10 +6892,6 @@ textarea.form-control.is-invalid{
     opacity: 0.75;
 }
 
-.opacity-30{
-    opacity: 0.3;
-}
-
 .shadow{
     --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -7364,29 +7317,9 @@ input[type=number] {
     margin-right: 0.5rem;
 }
 
-.before\:inline-block::before{
-    content: var(--tw-content);
-    display: inline-block;
-}
-
 .before\:bg-footer-image-pattern-mobile::before{
     content: var(--tw-content);
     background-image: linear-gradient(0deg, rgba(7,0,0,1) 6%, rgba(121,9,9,0) 35%, rgba(255,255,255,1) 70%);
-}
-
-.before\:pt-\[100\%\]::before{
-    content: var(--tw-content);
-    padding-top: 100%;
-}
-
-.before\:pt-\[90\%\]::before{
-    content: var(--tw-content);
-    padding-top: 90%;
-}
-
-.before\:pt-\[130\%\]::before{
-    content: var(--tw-content);
-    padding-top: 130%;
 }
 
 .before\:content-\[attr\(before\)\]::before{
@@ -7396,76 +7329,6 @@ input[type=number] {
 
 .before\:content-\[\'-\'\]::before{
     --tw-content: '-';
-    content: var(--tw-content);
-}
-
-.before\:content-\[\'\'\]::before{
-    --tw-content: '';
-    content: var(--tw-content);
-}
-
-.after\:absolute::after{
-    content: var(--tw-content);
-    position: absolute;
-}
-
-.after\:h-full::after{
-    content: var(--tw-content);
-    height: 100%;
-}
-
-.after\:w-full::after{
-    content: var(--tw-content);
-    width: 100%;
-}
-
-.after\:bg-gradient-to-t::after{
-    content: var(--tw-content);
-    background-image: linear-gradient(to top, var(--tw-gradient-stops));
-}
-
-.after\:from-pink-red::after{
-    content: var(--tw-content);
-    --tw-gradient-from: #E11166;
-    --tw-gradient-to: rgb(225 17 102 / 0);
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.after\:from-indigo-500::after{
-    content: var(--tw-content);
-    --tw-gradient-from: #6366f1;
-    --tw-gradient-to: rgb(99 102 241 / 0);
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.after\:via-sky-500::after{
-    content: var(--tw-content);
-    --tw-gradient-to: rgb(14 165 233 / 0);
-    --tw-gradient-stops: var(--tw-gradient-from), #0ea5e9, var(--tw-gradient-to);
-}
-
-.after\:to-transparent::after{
-    content: var(--tw-content);
-    --tw-gradient-to: transparent;
-}
-
-.after\:to-emerald-500::after{
-    content: var(--tw-content);
-    --tw-gradient-to: #10b981;
-}
-
-.after\:opacity-30::after{
-    content: var(--tw-content);
-    opacity: 0.3;
-}
-
-.after\:opacity-70::after{
-    content: var(--tw-content);
-    opacity: 0.7;
-}
-
-.after\:content-\[\'\'\]::after{
-    --tw-content: '';
     content: var(--tw-content);
 }
 
@@ -8229,6 +8092,14 @@ input[type=number] {
         margin-bottom: 8rem;
     }
 
+    .md\:mb-0{
+        margin-bottom: 0px;
+    }
+
+    .md\:mt-36{
+        margin-top: 9rem;
+    }
+
     .md\:mt-28{
         margin-top: 7rem;
     }
@@ -8247,14 +8118,6 @@ input[type=number] {
 
     .md\:mt-20{
         margin-top: 5rem;
-    }
-
-    .md\:mt-36{
-        margin-top: 9rem;
-    }
-
-    .md\:mb-0{
-        margin-bottom: 0px;
     }
 
     .md\:block{
@@ -8340,6 +8203,10 @@ input[type=number] {
 
     .md\:min-h-\[180px\]{
         min-height: 180px;
+    }
+
+    .md\:min-h-\[650px\]{
+        min-height: 650px;
     }
 
     .md\:min-h-\[400px\]{
@@ -9052,11 +8919,6 @@ input[type=number] {
     .md\:before\:bg-footer-image-pattern::before{
         content: var(--tw-content);
         background-image: linear-gradient(0deg, rgba(7,0,0,1) 6%, rgba(121,9,9,0) 35%, rgba(255,255,255,1) 100%);
-    }
-
-    .md\:before\:pt-\[90\%\]::before{
-        content: var(--tw-content);
-        padding-top: 90%;
     }
 }
 
