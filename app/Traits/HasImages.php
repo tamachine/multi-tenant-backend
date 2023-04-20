@@ -15,6 +15,9 @@ trait HasImages
 
     protected $disk = 'public';
 
+    /**
+     * Uploads an image
+     */
     public function uploadImage($input, $fileName = null) {              
         $fileName = $fileName ?? now()->timestamp;
         $fileNameWithExtension = $fileName . '.' . $input->getClientOriginalExtension();
@@ -26,19 +29,32 @@ trait HasImages
         return $path;
     }
 
+    /**
+     * Gets all the images of the instance except the ones with webp extension
+     */
     public function getImages() {
-        $allImages = Storage::disk($this->disk)->files($this->getFolderPath());
+        $allImages = Storage::disk($this->disk)->files($this->getFolderPath()); //all images
 
-        return array_filter($allImages, function($image) {
+        return array_filter($allImages, function($image) { //except webp
             return (pathinfo($image, PATHINFO_EXTENSION) != Manipulations::FORMAT_WEBP);
         });
     }        
 
+    /**
+     * Deletes the image and its corresponding webp
+     */
     public function deleteImage($fileName) {
-        Storage::disk($this->disk)->delete($fileName);
-
-        Storage::disk($this->disk)->delete($this->getWebpFullImagePath($fileName));
-    }    
+       if ($fileName != null) {            
+            $this->deleteIfExists($fileName);
+            $this->deleteIfExists($this->getWebpFullImagePath($fileName));    
+        }        
+    }   
+    
+    protected function deleteIfExists($image) {
+        if (Storage::disk($this->disk)->exists($image)) {
+            Storage::disk($this->disk)->delete($image);
+        }
+    }
 
     /**
      * The folder to store the image
@@ -50,7 +66,7 @@ trait HasImages
     }
 
     /**
-     * The name of the mode for the folder
+     * The name of the model for the folder
      * 
      * @return string 'blogpost, extra, car  ...'
      */
@@ -65,7 +81,5 @@ trait HasImages
      */
     protected function getInstanceFolder() {
         return $this->hashid;
-    }    
-
-    
+    }     
 }

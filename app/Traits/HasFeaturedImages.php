@@ -21,10 +21,16 @@ trait HasFeaturedImages
 {        
     use HasImages;
 
+    /**
+     * Uploads a featured image and save the image in the database
+     */
     public function uploadFeaturedImageDefault($input, $fileName = null) {            
         $this->uploadFeaturedImage($input, $fileName, $this->featuredImageDefaultAttribute());
     }
 
+    /**
+     * Uploads a featured image hover and save the image in the database
+     */
     public function uploadFeaturedImageHover($input, $fileName = null) {                   
         $this->uploadFeaturedImage($input, $fileName, $this->featuredImageHoverAttribute());
     }
@@ -32,10 +38,9 @@ trait HasFeaturedImages
     /**
      * Get the featured image URL
      *
-     * @return     string
+     * @return string
      */
-    public function getFeaturedImageUrlAttribute()
-    {
+    public function getFeaturedImageUrlAttribute() {
         return $this->getFeaturedImageUrl($this->featuredImageDefaultAttribute());
     }
 
@@ -44,15 +49,25 @@ trait HasFeaturedImages
      *
      * @return string
      */
-    public function getFeaturedImageHoverUrlAttribute()
-    {
+    public function getFeaturedImageHoverUrlAttribute() {
         return $this->getFeaturedImageUrl($this->featuredImageHoverAttribute());
     }
 
+    /**
+     * PROTECTED METHODS
+     */
+
+     /**
+      * column in database for the featured image. It can be overrided defining a featured_image_default_attribute in the model
+      */
     protected function featuredImageDefaultAttribute() {
         return $this->featured_image_default_attribute ?? 'featured_image';
     }
     
+    
+     /**
+      * column in database for the featured image hover. It can be overrided defining a featured_image_default_attribute in the model
+      */
     protected function featuredImageHoverAttribute() {
         return $this->featured_image_hover_attribute ?? 'featured_image_hover';
     }
@@ -63,12 +78,10 @@ trait HasFeaturedImages
     protected function uploadFeaturedImage($input, $fileName, $attribute) {
         $this->deleteImage($this->$attribute);  
 
-        $path = $this->uploadImage($input, $fileName);
-        
-        $this->$attribute = $path;
+        $this->$attribute = $this->uploadImage($input, $fileName);         
 
         $this->save();
-    }
+    } 
 
     /**
      * returns the url of the image
