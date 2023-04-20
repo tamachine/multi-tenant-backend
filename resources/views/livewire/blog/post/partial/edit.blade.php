@@ -17,71 +17,41 @@
             </div>
 
 
-            <div class="px-4 mt-4 sm:mt-0 flex gap-3 ">
+            <div class="px-4 mt-4 sm:mt-0 flex gap-3 divide-x">
                 <!-- Published -->
-                <section>                    
-                    {{-- Published Date --}}
-                    <div class="pl-3">
-                        <x-admin.label for="published_at" value="Published date" />
+                <section>
+                    <x-admin.label for="published" value="{{ __('Published') }}" />
 
-                        <div class="flex justify-start mt-1">
-                            <div>
-                                <x-admin.date-picker
-                                    name="published_at"
-                                    placeholder="Click to select date"
-                                    :yearRange="[
-                                        now()->format('Y'),
-                                        now()->addYears(2)->format('Y')
-                                    ]"
-                                    autocomplete="off"
-                                    is-wire="true"
-                                    variable="published_at"
-                                />
-
-                                <x-admin.input-error for="published_at" class="mt-2" />
-                            </div>
-
-                            <div class="ml-4">
-                                <select id="published_at_hour" name="published_at_hour" wire:model="published_at_hour"
-                                    class="disable-arrow block w-24 h-10 pt-2 px-3 text-left border-gray-300 rounded-md"
-                                >
-                                    @foreach ($hours as $hour)
-                                        <option value="{{$hour}}">{{ $hour }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <x-admin.input-error for="published_at" class="mt-2" />
-                        <x-admin.input-error for="published_at_hour" class="mt-2" />
-                    </div>
+                    <label for="published" class="inline-flex items-center">
+                        <x-admin.checkbox id="published" wire:model="published" class="w-10 h-10 mt-1" />
+                    </label>
                 </section>
 
                 <!-- Hero -->
-                <div class="ml-auto pl-3 flex divide-x gap-3">
-                    <section>
-                        <x-admin.label for="hero" value="{{ __('Hero') }}" />
+                <section class="pl-3">
+                    <x-admin.label for="hero" value="{{ __('Hero') }}" />
 
-                        <label for="hero" class="inline-flex items-center">
-                            <x-admin.checkbox id="hero" wire:model="hero" class="w-10 h-10 mt-1" />
-                        </label>
-                    </section>
+                    <label for="hero" class="inline-flex items-center">
+                        <x-admin.checkbox id="hero" wire:model="hero" class="w-10 h-10 mt-1" />
+                    </label>
+                </section>
 
-                    <!-- Top -->
-                    <section class="pl-3">
-                        <x-admin.label for="top" value="{{ __('Top 10') }}" />
+                 <!-- Top -->
+                 <section class="pl-3">
+                    <x-admin.label for="top" value="{{ __('Top 10') }}" />
 
-                        <label for="top" class="inline-flex items-center">
-                            <x-admin.checkbox id="top" wire:model="top" class="w-10 h-10 mt-1" />
-                        </label>
-                    </section>
-                </div>
+                    <label for="top" class="inline-flex items-center">
+                        <x-admin.checkbox id="top" wire:model="top" class="w-10 h-10 mt-1" />
+                    </label>
+                </section>
 
                 <!-- Preview -->
                 <section class="ml-auto">
                     <x-admin.button onclick="window.open('{{ $post->preview_url }}','_blank');">Preview</x-admin.button>
                 </section>
             </div>
+
+
         </div>
 
          <!-- Slug -->

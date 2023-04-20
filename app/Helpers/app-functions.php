@@ -410,21 +410,3 @@ if (!function_exists('bookingInsurances')) {
         return $sessionData['insurances'];
     }
 }
-
-if (!function_exists('roundUpToMinuteInterval')) {
-    /**
-     * Round up minutes to the nearest upper interval of a DateTime object.
-     * 
-     * @param \DateTime $dateTime
-     * @param int $minuteInterval
-     * @return \DateTime
-     */
-    function roundUpToMinuteInterval(\DateTime $dateTime, $minuteInterval = 30)
-    {
-        return $dateTime->setTime(
-            $dateTime->format('H'),
-            ceil($dateTime->format('i') / $minuteInterval) * $minuteInterval,
-            0
-        );
-    }
-}
