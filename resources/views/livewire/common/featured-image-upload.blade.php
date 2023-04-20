@@ -9,7 +9,7 @@
     </div>
 
     @if($featured_image_url)
-        <div class="border-blue-100 border w-fit mb-4 max-w-md" x-data="{ openConfirm: false }" wire:loading.remove wire:target="image" >
+        <div class="border-gray-300 rounded-md border w-fit mb-4 max-w-md" x-data="{ openConfirm: false }" wire:loading.remove wire:target="image" >
             <!-- image -->
             <div class="m-4">
                 <img src="{{$featured_image_url}}">
@@ -31,9 +31,11 @@
     @endif
 
     <!-- label, input and error message -->
-    <x-admin.label for="image" value="{{ $text }}" class="mb-2" />
+    <div>    
+        <x-admin.label for="image" value="{{ $text }}" class="mb-2" />
 
-    <input type="file" name="image" wire:model="image">
+        <input type="file" name="image" wire:model="image">
 
-    <x-admin.input-error for="image" class="mt-2" />
+        <x-admin.input-error for="image" class="mt-2" />
+    </div>
 </div>

@@ -32,13 +32,27 @@ trait HasImages
     /**
      * Gets all the images of the instance except the ones with webp extension
      */
-    public function getImages() {
-        $allImages = Storage::disk($this->disk)->files($this->getFolderPath()); //all images
-
+    public function getImages($exceptWebp = true) {
+        $allImages = $this->getAllImages();
+        
         return array_filter($allImages, function($image) { //except webp
             return (pathinfo($image, PATHINFO_EXTENSION) != Manipulations::FORMAT_WEBP);
-        });
-    }        
+        });        
+    }       
+
+    /**
+     * Gets all the images of the instance included the ones with webp extension
+     */
+    public function getAllImages() {
+        return Storage::disk($this->disk)->files($this->getFolderPath()); //all images             
+    }       
+    
+    /**
+     * Deletes all the existing images of the model.
+     */
+    public function deleteImages() {
+        Storage::disk($this->disk)->deleteDirectory($this->getFolderPath());
+    }     
 
     /**
      * Deletes the image and its corresponding webp
@@ -54,6 +68,20 @@ trait HasImages
         if (Storage::disk($this->disk)->exists($image)) {
             Storage::disk($this->disk)->delete($image);
         }
+    }
+
+     /**
+     * When any model is deleted we need to delete all the images     
+     *
+     * @return void
+     */
+    public static function bootHasImages()
+    {
+        static::deleting(
+            function ($model) {
+                $model->deleteImages();
+            }
+        );
     }
 
     /**

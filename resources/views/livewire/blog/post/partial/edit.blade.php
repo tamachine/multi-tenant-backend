@@ -155,61 +155,21 @@
         @include('livewire.blog.post.partial.images')
 
         <hr class="my-4">
-
-        <!-- Featured image -->
-        @if ($featured)
-            <div class="m-4 sm:w-1/2">
-                <img src="{{$featured->temporaryUrl()}}">
-            </div>
-        @else
-            @if ($featured_url != '')
-                <div class="m-4 sm:w-1/2">
-                    <x-admin.label for="current_photo" value="{{ __('Current featured image') }}" />
-                    <img src="{{$featured_url}}" class="mt-2">
-                </div>
-            @endif
-        @endif
-
-        <div class="m-4">
-            <x-admin.label for="featured" value="{{ __('Upload new featured image') }}" />
-
-            <input type="file" class="mt-2"
-                name="featured" id="featured"
-                wire:model="featured"
-            >
-
-            <x-admin.input-error for="featured" class="mt-2" />
+        
+        <!-- featured image -->
+        <div class="px-4 mt-4">            
+            <x-admin.label for="image" value="Featured image" class="mb-2" />
+            <livewire:common.featured-image-upload text="Upload featured image" :model="$post" :wire:key="$post->hashid" />
+        
         </div>
 
         <hr class="my-4">
-
-
-        <!-- Featured image hover -->
-        @if ($featured_hover)
-            <div class="m-4 sm:w-1/2">
-                <img src="{{$featured_hover->temporaryUrl()}}">
-            </div>
-        @else
-            @if ($featured_hover_url != '')
-                <div class="m-4 sm:w-1/2">
-                    <x-admin.label for="current_photo_hover" value="{{ __('Current featured image hover') }}" />
-                    <img src="{{$featured_hover_url}}" class="mt-2">
-                </div>
-            @endif
-        @endif
-
-        <div class="m-4">
-            <x-admin.label for="featured_hover" value="{{ __('Upload new featured image hover') }}" />
-
-            <input type="file" class="mt-2"
-                   name="featured_hover" id="featured_hover"
-                   wire:model="featured_hover"
-            >
-
-            <x-admin.input-error for="featured_hover" class="mt-2" />
+        
+        <div class="px-4 mt-4">            
+            <x-admin.label for="image" value="Featured image hover" class="mb-2" />
+            <livewire:common.featured-image-upload text="Upload featured image hover" :model="$post" :wire:key="$post->id" :is-hover="true"/>
         </div>
 
-        <hr class="my-4">
     </x-slot>
 
 
