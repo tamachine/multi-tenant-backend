@@ -2,10 +2,6 @@
 
 <div>
     
-    image: <livewire:common.image-upload :model="$author" :wire:key="$author->hashid"/>
-
-    featured: <livewire:common.featured-image-upload :model="$author" :wire:key="$author->hashid"/>
-    
     @include('livewire.blog.author.partial.create-edit', [
         'formTitle'         => __('Edit author'),
         'formDescription'   => __('Edit the author information and then click on "Save"'),

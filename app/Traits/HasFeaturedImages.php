@@ -22,21 +22,43 @@ trait HasFeaturedImages
     use HasImages;
 
     /**
-     * Uploads a featured image and save the image in the database
+     * PUBLIC METHODS 
+     */
+
+    /**
+     * Uploads a featured image and saves the image in the database
      */
     public function uploadFeaturedImageDefault($input, $fileName = null) {            
         $this->uploadFeaturedImage($input, $fileName, $this->featuredImageDefaultAttribute());
     }
 
     /**
-     * Uploads a featured image hover and save the image in the database
+     * Uploads a featured image hover and saves the image in the database
      */
     public function uploadFeaturedImageHover($input, $fileName = null) {                   
         $this->uploadFeaturedImage($input, $fileName, $this->featuredImageHoverAttribute());
     }
 
     /**
-     * Get the featured image URL
+     * Deletes a featured image and removes the image in the database
+     */
+    public function deleteFeaturedImageDefault() {            
+        $this->deleteFeaturedImage($this->featuredImageDefaultAttribute());
+    }
+
+    /**
+     * Deletes a featured image hover and removes the image in the database
+     */
+    public function deleteFeaturedImageHover() {                           
+        $this->deleteFeaturedImage($this->featuredImageHoverAttribute());
+    }
+
+    /**
+     * PUBLIC ATTRIBUTES
+     */
+
+    /**
+     * Get the featured image URL $this->featured_image_url
      *
      * @return string
      */
@@ -45,12 +67,30 @@ trait HasFeaturedImages
     }
 
     /**
-     * Get the featured image Hover URL
+     * Get the featured image Hover URL $this->featured_image_hover_url
      *
      * @return string
      */
     public function getFeaturedImageHoverUrlAttribute() {
         return $this->getFeaturedImageUrl($this->featuredImageHoverAttribute());
+    }
+
+    /**
+     * Get the featured image PATH $this->featured_image_path
+     *
+     * @return string
+     */
+    public function getFeaturedImagePathAttribute() {
+        return $this->getFeaturedImagePath($this->featuredImageDefaultAttribute());
+    }
+
+    /**
+     * Get the featured image Hover PATH $this->featured_image_hover_path
+     *
+     * @return string
+     */
+    public function getFeaturedImageHoverPathAttribute() {
+        return $this->getFeaturedImagePath($this->featuredImageHoverAttribute());
     }
 
     /**
@@ -73,12 +113,23 @@ trait HasFeaturedImages
     }
 
     /**
-     * uploads the image and save the path in the database
+     * uploads the image and saves the path in the database
      */
     protected function uploadFeaturedImage($input, $fileName, $attribute) {
         $this->deleteImage($this->$attribute);  
 
         $this->$attribute = $this->uploadImage($input, $fileName);         
+
+        $this->save();
+    } 
+
+    /**
+     * deletes the image and removes the path in the database
+     */
+    protected function deleteFeaturedImage($attribute) {
+        $this->deleteImage($this->$attribute);  
+
+        $this->$attribute = null;         
 
         $this->save();
     } 
@@ -92,5 +143,12 @@ trait HasFeaturedImages
         } else {
             return $this->$attribute ? Storage::url($this->$attribute) : '';
         }
+    }
+
+    /**
+     * returns the url of the image
+     */
+    protected function getFeaturedImagePath($attribute) {        
+        return $this->$attribute;
     }
 }

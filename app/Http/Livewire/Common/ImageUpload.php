@@ -23,7 +23,7 @@ class ImageUpload extends Component
      */
     public $model;    
     
-    public function save()
+    public function updatedImage()
     {       
         $this->model->uploadImage($this->image);         
     }

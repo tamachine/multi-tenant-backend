@@ -50,34 +50,11 @@
             <x-admin.tinymce-editor wire:model="bio" placeholder="Write a nice author bio..." />
         </div>
 
-        <hr class="my-4">
-
-        <!-- Photo -->
-        @if ($photo)
-            <div class="m-4 sm:w-1/2">
-                <img src="{{$photo->temporaryUrl()}}">
-            </div>
-        @else
-            @if ($photo_url != '')
-                <div class="m-4 sm:w-1/2">
-                    <x-admin.label for="current_photo" value="{{ __('Current Photo') }}" />
-                    <img src="{{$photo_url}}" class="mt-2">
-                </div>
-            @endif
-        @endif
+        <hr class="my-4">       
 
         <div class="m-4">
-            <x-admin.label for="photo" value="{{ __('Upload Photo') }}" />
-
-            <input type="file" class="mt-2"
-                name="photo" id="photo"
-                wire:model="photo"
-            >
-
-            <x-admin.input-error for="photo" class="mt-2" />
-        </div>
-
-        <hr class="my-4">
+            <livewire:common.featured-image-upload text="Upload photo" :model="$author" :wire:key="$author->hashid" />
+        </div>        
     </x-slot>
 
     <x-slot name="actions">
