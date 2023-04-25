@@ -5,6 +5,9 @@ namespace App\Models;
 use App\Models\Location;
 use App\Traits\HashidTrait;
 use App\Traits\HasApiResponse;
+use App\Traits\HasFeaturedImage;
+use App\Traits\HasFeaturedImageHover;
+use App\Traits\HasImages;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -13,14 +16,13 @@ use Spatie\Translatable\HasTranslations;
 
 class Car extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasApiResponse;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasApiResponse, HasImages, HasFeaturedImage, HasFeaturedImageHover;
 
     protected $apiResponse = [
         'hashid', 'active', 'name', 'description', 'year',
         'ranking', 'fleet_position', 'users_number_votes', 'adult_passengers',
         'doors', 'luggage', 'beds', 'kitchen', 'heater',
-        'engine', 'transmission', 'vehicle_type', 'vehicle_brand', 'f_roads_name',
-        'images',
+        'engine', 'transmission', 'vehicle_type', 'vehicle_brand', 'f_roads_name',        
     ];
 
     /**
@@ -121,16 +123,6 @@ class Car extends Model
     public function fRoadAllowed()
     {
         return $this->f_roads_name == 'fwd';
-    }
-
-    /**
-     * Get the main image
-     *
-     * @return  object
-     */
-    public function mainImage()
-    {
-        return $this->images()->where('main', 1)->first();
     }
 
     /**
@@ -278,17 +270,7 @@ class Car extends Model
     public function vendor()
     {
         return $this->belongsTo(Vendor::class);
-    }
-
-    /**
-     * Related images
-     *
-     * @return object
-     */
-    public function images()
-    {
-        return $this->hasMany(CarImage::class);
-    }
+    }    
 
     /**
      * Related unavailable dates

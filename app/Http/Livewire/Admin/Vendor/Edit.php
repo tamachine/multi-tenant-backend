@@ -52,17 +52,7 @@ class Edit extends Component
      * @var string
      */
     public $brand_color;
-
-    /**
-     * @var object
-     */
-    public $logo;
-
-     /**
-     * @var string
-     */
-    public $logo_url;
-
+    
     /*
     ***************************************************************
     ** METHODS
@@ -77,8 +67,7 @@ class Edit extends Component
         $this->vendor_code = $this->vendor->vendor_code;
         $this->service_fee = $this->vendor->service_fee;
         $this->status = $this->vendor->status;
-        $this->brand_color = $this->vendor->brand_color;
-        $this->logo_url = $this->vendor->logo_url;
+        $this->brand_color = $this->vendor->brand_color;        
     }
 
     public function saveVendor()
@@ -105,34 +94,7 @@ class Edit extends Component
         session()->flash('message', 'Vendor "' . $this->name .'" edited');
 
         return redirect()->route('intranet.vendor.edit', $this->vendor->hashid);
-    }
-
-    public function uploadLogo()
-    {
-        $this->dispatchBrowserEvent('validationError');
-
-        $this->validate([
-            'logo'      => ['required', 'mimes:jpeg,jpg,png,gif,webp'],
-        ]);
-
-        // Delete previous logo (if there is one)
-        if (!emptyOrNull($this->vendor->logo)) {
-            Storage::disk('public')->delete("vendors/" . $this->vendor->logo);
-        }
-
-        $extension = $this->logo->getClientOriginalExtension();
-        $filename = $this->vendor->hashid . "." . $extension;
-        $this->logo->storeAs("public/vendors" , $filename);
-
-        $this->vendor->update([
-            'logo' => $filename,
-        ]);
-
-        session()->flash('status', 'success');
-        session()->flash('message', 'Logo uploaded for ' . $this->name);
-
-        return redirect()->route('intranet.vendor.edit', $this->vendor->hashid);
-    }
+    }    
 
     public function deleteVendor()
     {
