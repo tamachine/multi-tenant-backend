@@ -46,7 +46,7 @@ trait HasImages
     /**
      * Gets all the images of the instance except the ones with webp extension
      */
-    public function getImages($exceptWebp = true) {
+    public function getImages() {
         $allImages = $this->getAllImages();
         
         return array_filter($allImages, function($image) { //except webp

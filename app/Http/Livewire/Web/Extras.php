@@ -50,12 +50,10 @@ class Extras extends Component
         $this->setShowMoreButton();
         $this->extraPopup = $this->extras->first();
 
-        if($this->car->mainImage()) {
-            $this->mainImage = $this->car->mainImage()->assetPath();
-        } elseif (count($this->car->images) > 0) {
-            $this->mainImage = $this->car->images->first()->assetPath();
-        } else {
-            $this->mainImage = asset('images/cars/default-car.svg');
+        if($this->car->featured_image) {
+            $this->mainImage = $this->car->featured_image_url;
+        } elseif (count($this->car->getImages()) > 0) {            
+            $this->mainImage = $this->car->getImageUrl($this->car->getImages()[0]);
         }
 
         $this->pickupLocation = bookingPickupLocation();

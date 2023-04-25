@@ -48,27 +48,19 @@ class CarCard extends Component
     }    
 
     protected function hasImages() {
-        return count($this->car->images) > 0;
+        return ($this->mainImage != null);
     }    
-
-    protected function firstNoMainImage() {
-        return $this->car->images()?->where('main', 0)->first();
-    }
 
     protected function hasHover() {
         return ($this->secondaryImage != null);
     }   
 
     protected function setImages() {
-        if($this->car->mainImage()) {
-            $this->mainImage = $this->car->mainImage()->assetPath();
-            if($this->hasMoreThanOneImage()) {
-                $this->secondaryImage = $this->firstNoMainImage()->assetPath();
-            }
-        } elseif ($this->hasImages()){
-            $this->mainImage = $this->car->images->first()->assetPath();
-            if($this->hasMoreThanOneImage()) {
-                $this->secondaryImage = $this->car->images->take(1)->first()->assetPath();
+        if($this->car->featured_image) {
+            $this->mainImage = asset($this->car->featured_image_url);
+
+            if($this->car->featured_image_hover) {
+                $this->secondaryImage = asset($this->car->featured_image_hover_url);    
             }
         } else {
             $this->mainImage = asset('images/cars/default-car.svg');
