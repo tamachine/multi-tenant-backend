@@ -15,6 +15,20 @@ trait HasImages
 
     protected $disk = 'public';
 
+     /**
+     * When any model is deleted we need to delete all the images     
+     *
+     * @return void
+     */
+    public static function bootHasImages()
+    {
+        static::deleting(
+            function ($model) {
+                $model->deleteImages();
+            }
+        );
+    }
+
     /**
      * Uploads an image
      */
@@ -63,26 +77,23 @@ trait HasImages
             $this->deleteIfExists($this->getWebpFullImagePath($fileName));    
         }        
     }   
+
+    /**
+     * Returns the url of the image
+     */
+    public function getImageUrl($image) {
+        if (filter_var($image, FILTER_VALIDATE_URL)) { //check if the path is already a url
+            return $image;
+        } else {
+            return $image ? Storage::url($image) : '';
+        }
+    }
     
     protected function deleteIfExists($image) {
         if (Storage::disk($this->disk)->exists($image)) {
             Storage::disk($this->disk)->delete($image);
         }
-    }
-
-     /**
-     * When any model is deleted we need to delete all the images     
-     *
-     * @return void
-     */
-    public static function bootHasImages()
-    {
-        static::deleting(
-            function ($model) {
-                $model->deleteImages();
-            }
-        );
-    }
+    }    
 
     /**
      * The folder to store the image

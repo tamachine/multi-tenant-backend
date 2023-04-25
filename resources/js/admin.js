@@ -1,5 +1,7 @@
 import Alpine from 'alpinejs';
+import Clipboard from "@ryangjchandler/alpine-clipboard"
 window.Alpine = Alpine;
+Alpine.plugin(Clipboard)
 Alpine.start();
 
 window.Pikaday = require('pikaday');
@@ -49,3 +51,4 @@ import 'tinymce/plugins/searchreplace';
 import 'tinymce/plugins/wordcount';
 import 'tinymce/plugins/table';
 import * as te from 'tw-elements';
+

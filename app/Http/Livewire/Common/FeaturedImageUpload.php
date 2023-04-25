@@ -6,12 +6,7 @@ namespace App\Http\Livewire\Common;
  * This component uploads a featured image or a featured image hover in a model. The model MUST use the HasFeaturedImages trait
  */
 class FeaturedImageUpload extends ImageUpload
-{    
-
-    /** if the featured image is the default or the hover one
-     * @var bool
-     */
-    public $isHover;
+{       
 
      /** The text for the input
      * @var string
@@ -23,39 +18,49 @@ class FeaturedImageUpload extends ImageUpload
      */
     public $featured_image_url;
 
-    public function mount($text, $isHover = false)
+    public function mount($text)
     {
-        $this->text     = $text;
-        $this->isHover  = $isHover;      
+        $this->text = $text;        
         
         $this->setFeaturedImageUrl();
     }
 
     public function updatedImage()
-    {      
-        if($this->isHover) {
-            $this->model->uploadFeaturedImageHover($this->image);  
-        } else {
-            $this->model->uploadFeaturedImageDefault($this->image);  
-        }                  
+    {                        
+        $this->uploadImage();                      
 
-        $this->setFeaturedImageUrl();
+        $this->setFeaturedImageUrl();    
+        
+        $this->emit('imageUploaded');
     }  
+
+    public function uploadImage()
+    {
+        $this->model->uploadFeaturedImageDefault($this->image);   
+    }
     
     public function deleteImage()
-    {        
-        if($this->isHover) {
-            $this->model->deleteFeaturedImageHover();
-        } else {
-            $this->model->deleteFeaturedImageDefault();
-        }        
+    {               
+        $this->deleteFeaturedImage();
 
+        $this->resetAttributes();
+
+        $this->emit('imageUploaded');
+    }
+
+    protected function deleteFeaturedImage()
+    {
+        $this->model->deleteFeaturedImageDefault();
+    }
+
+    protected function resetAttributes()
+    {
         $this->image = null;
         $this->featured_image_url = null;
     }
 
     protected function setFeaturedImageUrl() {
-        $this->featured_image_url = $this->isHover ? $this->model->featured_image_hover_url : $this->model->featured_image_url;
+        $this->featured_image_url = $this->model->featured_image_url;
     }
 
     public function render()

@@ -8,26 +8,8 @@
         <span class="sr-only">Loading...</span>
     </div>
 
-    @if($featured_image_url)
-        <div class="border-gray-300 rounded-md border w-fit mb-4 max-w-md" x-data="{ openConfirm: false }" wire:loading.remove wire:target="image" >
-            <!-- image -->
-            <div class="m-4">
-                <img src="{{$featured_image_url}}">
-            </div>
-            
-            <!-- delete button -->
-            <x-admin.button type="button" class="m-4 mt-0 bg-red-700" x-on:click="openConfirm = true">
-                Delete
-            </x-admin.button>
-
-            <!-- delete modal -->
-            <x-admin.confirm-modal     
-                event="check"            
-                body="Are you sure that you want to delete the photo?" 
-                title="Delete photo" 
-                wire-confirm-action="deleteImage"               
-            />
-        </div>
+    @if($featured_image_url)    
+        <x-admin.image-card :image-url="$featured_image_url" wire-action="deleteImage"/>
     @endif
 
     <!-- label, input and error message -->

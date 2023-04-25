@@ -151,23 +151,32 @@
         </div>
 
         <hr class="my-4">
+        
+        <!-- images -->
+        <div class="px-4 mt-4">            
+            <x-admin.label for="images" value="Images" class="mb-2" />
+            <livewire:common.image-gallery :model="$post" :wire:key="$post->id" />
+        </div>
 
-        @include('livewire.blog.post.partial.images')
+        <div class="px-4 mt-4">            
+            <x-admin.label for="image" value="Upload images" class="mb-2" />
+            <livewire:common.image-upload text="Upload images" :model="$post" :wire:key="$post->hashid" />
+        </div>
 
         <hr class="my-4">
         
         <!-- featured image -->
         <div class="px-4 mt-4">            
             <x-admin.label for="image" value="Featured image" class="mb-2" />
-            <livewire:common.featured-image-upload text="Upload featured image" :model="$post" :wire:key="$post->hashid" />
-        
+            <livewire:common.featured-image-upload text="Upload featured image" :model="$post" :wire:key="$post->hashid . 'featured'" />        
         </div>
 
         <hr class="my-4">
         
+         <!-- featured image hover -->
         <div class="px-4 mt-4">            
             <x-admin.label for="image" value="Featured image hover" class="mb-2" />
-            <livewire:common.featured-image-upload text="Upload featured image hover" :model="$post" :wire:key="$post->id" :is-hover="true"/>
+            <livewire:common.featured-image-hover-upload text="Upload featured image hover" :model="$post" :wire:key="$post->id . 'featured_hover'" />
         </div>
 
     </x-slot>

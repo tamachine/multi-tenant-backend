@@ -6,13 +6,13 @@ use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Traits\HasFeaturedImages;
+use App\Traits\HasFeaturedImage;
 
 class BlogAuthor extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImages;
+    use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImage;
 
-    //for HasFeaturedImages
+    //for HasFeaturedImage
     protected $featured_image_default_attribute = 'photo';
 
     /**

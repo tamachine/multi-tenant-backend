@@ -9,11 +9,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\Translatable\HasTranslations;
 use App\Traits\HasImages;
-use App\Traits\HasFeaturedImages;
+use App\Traits\HasFeaturedImage;
+use App\Traits\HasFeaturedImageHover;
 
 class BlogPost extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasImages, HasFeaturedImages;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasImages, HasFeaturedImage, HasFeaturedImageHover;
 
     /**
      * The attributes that are mass assignable.

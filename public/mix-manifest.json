@@ -7,6 +7,7 @@
     "/css/print.css": "/css/print.css",
     "/css/admin.css": "/css/admin.css",
     "/js/app/scripts.js": "/js/app/scripts.js",
+    "/js/admin/scripts.js": "/js/admin/scripts.js",
     "/js/skins/content/dark/content.css": "/js/skins/content/dark/content.css",
     "/js/skins/content/dark/content.min.css": "/js/skins/content/dark/content.min.css",
     "/js/skins/content/default/content.css": "/js/skins/content/default/content.css",

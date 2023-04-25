@@ -17,8 +17,9 @@
 
         {{ $headScripts ?? '' }}
 
-        <!-- Scripts -->
+        <!-- Scripts -->        
         <script src="{{ mix('js/admin.js') }}" defer></script>
+        <script src="{{ url(mix('js/admin/scripts.js')) }}"></script>
     </head>
 
     <body>

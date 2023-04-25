@@ -25,7 +25,9 @@ class ImageUpload extends Component
     
     public function updatedImage()
     {       
-        $this->model->uploadImage($this->image);         
+        $this->model->uploadImage($this->image);     
+        
+        $this->emit('imageUploaded');
     }
 
     public function render()
