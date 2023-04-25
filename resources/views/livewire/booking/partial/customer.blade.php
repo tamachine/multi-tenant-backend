@@ -163,7 +163,16 @@
                     <x-admin.label for="dropoff_input_info" value="{{ __('Dropoff info') }}" />
                     <x-admin.input id="dropoff_input_info" type="text" class="w-full mt-1 block" maxlength="255" wire:model.defer="dropoff_input_info" />
                     <x-admin.input-error for="dropoff_input_info" class="mt-2" />
-                </div>                
+                </div>
+
+                <!-- Newsletter -->
+                <div class="px-4 mt-4">
+                    <x-admin.label for="newsletter" value="{{ __('Newsletter') }}" />
+
+                    <label for="newsletter" class="inline-flex items-center">
+                        <x-admin.checkbox id="newsletter" wire:model="newsletter" class="w-10 h-10 mt-1" />
+                    </label>
+                </div>
             </div>
         </div>
     </x-slot>

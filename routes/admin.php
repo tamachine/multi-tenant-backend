@@ -60,9 +60,6 @@ Route::group(
             Route::get('{location}/edit/{tab?}', ['as' => 'edit', 'uses' => 'LocationController@edit']);
         });
 
-         // Newsletter Users
-        Route::resource('newsletter-users', NewsletterUserController::class, ['parameters' => ['newsletter_user' => 'newsletter_user_hashid']]);
-
         // Seasons
         Route::group(['prefix' => 'season', 'as' => 'season.'], function () {
             Route::get('/', ['as' => 'index', 'uses' => 'SeasonController@index']);

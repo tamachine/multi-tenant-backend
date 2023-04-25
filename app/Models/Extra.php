@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasFeaturedImage;
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,8 +11,9 @@ use Spatie\Translatable\HasTranslations;
 
 class Extra extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasFeaturedImage;
 
+    protected $featured_image_default_attribute = "image";
     /**
      * The attributes that are mass assignable.
      *
@@ -43,19 +45,7 @@ class Extra extends Model
     public function getEditUrlAttribute()
     {
         return route('intranet.extra.edit', $this->hashid);
-    }
-
-     /**
-     * Get the extra's image URL
-     *
-     * @return     string
-     */
-    public function getImageUrlAttribute()
-    {
-        return $this->image
-            ? asset('storage/extras/' . $this->image)
-            : '';
-    }
+    }    
 
     /**********************************
      * Scopes

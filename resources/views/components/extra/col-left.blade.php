@@ -1,7 +1,7 @@
 <div class="grid grid-cols-[96px_1fr] md:grid-cols-[170px_auto] gap-3 md:gap-10 p-3 md:p-8">
     <div class="md-max:h-24 relative">        
-        @if(!empty($extra->image_url))        
-            {!! webpImage($extra->image_url, "rounded-xl md-max:w-24 md-max:h-24 md-max:object-cover") !!}    
+        @if(!empty($extra->featured_image_url))        
+            {!! webpImage(asset($extra->featured_image_url), "rounded-xl md-max:w-24 md-max:h-24 md-max:object-cover") !!}    
         @endif
         <div
             class="absolute top-3 left-3 block md:hidden bg-black rounded-full cursor-pointer"

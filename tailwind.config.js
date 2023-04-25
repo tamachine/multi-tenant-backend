@@ -79,8 +79,14 @@ module.exports = {
                 '6xl': '1170px',
                 '7xl': '1440px',
             },
+            lineHeight: {
+                'extra-loose': '1.8',
+            },
             padding: {
                 '22' : "84px",
+            },
+            borderRadius: {
+                '3xl' : "20px",
             },
             screens: {
                 'md-max': {'max': '767px'}, // => @media (max-width: 767px) { ... }

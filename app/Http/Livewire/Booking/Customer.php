@@ -123,6 +123,11 @@ class Customer extends Component
      */
     public $dropoff_input_info;
 
+    /**
+     * @var bool
+     */
+    public $newsletter;
+
     /*
     ***************************************************************
     ** METHODS
@@ -156,6 +161,7 @@ class Customer extends Component
         $this->number_passengers = $booking->number_passengers;
         $this->pickup_input_info = $booking->pickup_input_info;
         $this->dropoff_input_info = $booking->dropoff_input_info;
+        $this->newsletter = $booking->newsletter;
     }
 
     public function saveCustomer()
@@ -193,7 +199,8 @@ class Customer extends Component
 
             'number_passengers' => $this->number_passengers,
             'pickup_input_info' => $this->pickup_input_info,
-            'dropoff_input_info' => $this->dropoff_input_info,            
+            'dropoff_input_info' => $this->dropoff_input_info,
+            'newsletter' => $this->newsletter,
         ]);
 
         $changes = $this->booking->getChanges();

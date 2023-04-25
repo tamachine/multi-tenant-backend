@@ -43,14 +43,14 @@ input:invalid, textarea:invalid, select:invalid {
 h1 {
     @apply
         font-fredoka-semibold text-pink-red font-semibold text-center leading-[46px] md:leading-[76px]
-        text-5xl md:text-7xl;
+        text-4xl md:text-7xl;
 }
 
 h2 {
     @apply
         font-fredoka-semibold text-pink-red font-semibold tracking-[-0.005em]
-        md:leading-[60px] leading-[50px]
-        md:text-5xl text-[48px];
+        leading-[1.05em]
+        text-[40px] md:text-5xl;
 }
 
 h3 {
@@ -79,6 +79,10 @@ h5 {
 
 .btn-red {
     @apply bg-pink-red text-white hover:bg-[#F42077] font-bold text-lg md:text-xl;
+}
+
+.btn-border {
+    @apply inline-block rounded-[10px] text-base py-[14px] px-6 mt-10 font-normal text-black-primary border-pink-red border hover:bg-pink-red-secondary;
 }
 
 .btn-black {
@@ -168,3 +172,44 @@ h5 {
 .title-shadow {
     text-shadow: 20px 22px 12px rgba(0, 0, 0, 0.02), 11px 12px 10px rgba(0, 0, 0, 0.07), 5px 5px 7px rgba(0, 0, 0, 0.12), 1px 1px 4px rgba(0, 0, 0, 0.14), 0px 0px 0px rgba(0, 0, 0, 0.14);
 }
+
+.gradient-pink:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(30deg, rgba(225, 17, 102) -20%, rgba(0,0,0, 0.2) 45%, rgba(0,0,0, 0) 70%);
+}
+
+picture img {
+    width: 100%;
+}
+
+.image-wrapper {
+    overflow: hidden;
+}
+
+    .image-wrapper > img {
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 0
+    }
+
+    .image-wrapper picture {
+        display: inline-block;
+        width: 100%;
+        height: 100%
+    }
+
+    .image-wrapper picture img {
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 0
+    }
+
