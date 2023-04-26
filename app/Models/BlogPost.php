@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\Translatable\HasTranslations;
-use App\Traits\HasImages;
+use App\Traits\HasUploadImages;
 use App\Traits\HasFeaturedImage;
 use App\Traits\HasFeaturedImageHover;
+use App\Traits\HasModelImages;
 
 class BlogPost extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasImages, HasFeaturedImage, HasFeaturedImageHover;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasUploadImages, HasFeaturedImage, HasFeaturedImageHover;
 
     /**
      * The attributes that are mass assignable.

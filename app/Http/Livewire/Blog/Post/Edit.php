@@ -117,8 +117,7 @@ class Edit extends Component
         $this->authors = BlogAuthor::pluck('name', 'id');
         $this->allTags = BlogTag::pluck('name', 'id');
         $this->tags = $post->tags->pluck('id')->toArray();
-        $this->hours = hours_dropdown();
-        $this->images = $this->post->getImages();
+        $this->hours = hours_dropdown();       
     }
 
     public function savePost()

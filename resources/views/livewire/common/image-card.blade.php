@@ -6,17 +6,22 @@
         </div>
 
         <!-- name -->  
-        <div class="m-4">            
-            <x-admin.label value="Image name" />
-            <x-admin.input type="text" name="imageName" value="{{ $imageName }}" wire:model="imageName"/>
-
-            <x-admin.input-error for="imageName" class="mt-2"/>
-            
-            <x-admin.button type="text" class="m-4 mt-0 bg-green-700" wire:click.prevent="changeName">
-                Change name
-            </x-admin.button>            
-        </div>
         
+        <div class="m-4">            
+            @if($modelImage->is_external_url)
+                <span>This image cannot be updated because is an external file.</span>
+            @else
+                <x-admin.label value="Image name" />
+                <x-admin.input type="text" name="imageName" value="{{ $imageName }}" wire:model="imageName"/>
+
+                <x-admin.input-error for="imageName" class="mt-2"/>
+                
+                <x-admin.button type="text" class="m-4 mt-0 bg-green-700" wire:click.prevent="changeName">
+                    Change name
+                </x-admin.button>            
+            @endif
+        </div>
+                
         <div class="flex justify-between" x-data="copyToClipboard()">
             <!-- url -->            
             <x-admin.button type="button" class="m-4 mt-0 bg-green-700" x-clipboard.raw="{{ asset($imageUrl) }}" x-on:click="click()">

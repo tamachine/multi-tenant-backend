@@ -2,6 +2,8 @@
 
 namespace App\Traits;
 
+use App\Models\ModelImage;
+
 /**
  * This trait uploads the featured image hover and updates the column in the database
  * 
@@ -35,6 +37,12 @@ trait HasFeaturedImageHover
         $this->deleteFeaturedImage($this->featuredImageHoverAttribute());
     }
 
+    public function getFeaturedImagaHoverModelImageInstance() {
+        $attribute = $this->featuredImageHoverAttribute();
+        
+        return ModelImage::find($this->$attribute);
+    }
+
     /**
      * PUBLIC ATTRIBUTES
      */
@@ -45,7 +53,7 @@ trait HasFeaturedImageHover
      * @return string
      */
     public function getFeaturedImageHoverUrlAttribute() {
-        return $this->getFeaturedImageUrl($this->featuredImageHoverAttribute());
+        return $this->getFeaturedImagaHoverModelImageInstance()?->url;
     }
 
     /**

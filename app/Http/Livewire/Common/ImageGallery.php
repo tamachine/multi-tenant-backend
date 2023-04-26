@@ -13,7 +13,7 @@ class ImageGallery extends Component
     public $images = [];
 
     /** Model where the image have to be uploaded. 
-     *  The model MUST use the HasImages trait
+     *  The model MUST use the HasUploadImages trait
      * @var object
      */
     public $model; 
@@ -24,13 +24,11 @@ class ImageGallery extends Component
         'deleteGalleryImage' => 'deleteImage',        
     ];
 
-    public function deleteImage($key)
-    {        
-        if(isset($this->images[$key])) {
-            $this->model->deleteImage($this->images[$key]);    
-           
-            unset($this->images[$key]);        
-        }
+    public function deleteImage($id)
+    {                
+        $this->model->deleteImage($id);    
+        
+        $this->setImages();               
     }
 
     public function refreshGallery() {        
@@ -52,23 +50,6 @@ class ImageGallery extends Component
     protected function setImages() {
         $this->images = [];
 
-        $images = $this->model->getImages();        
-
-        $usesFeaturedImage = $this->modelUsesHasFeaturedImage();
-        $usesFeaturedImageHover = $this->modelUsesHasFeaturedImageHover();
-
-        foreach($images as $image) {
-            if(($usesFeaturedImage && $image != $this->model->featured_image_path) && ($usesFeaturedImageHover && $image != $this->model->featured_image_hover_path)) {
-                $this->images[] = $this->model->getImageModelInstance($image);
-            }            
-        }
-    }
-
-    protected function modelUsesHasFeaturedImage() {
-        return in_array('App\Traits\HasFeaturedImage', class_uses($this->model));
-    }
-
-    protected function modelUsesHasFeaturedImageHover() {
-        return in_array('App\Traits\HasFeaturedImageHover', class_uses($this->model));
+        $this->images = $this->model->getImages();                
     }
 }

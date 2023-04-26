@@ -6,7 +6,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 
 /**
- * This component uploads an image in a model. The model MUST use the HasImages trait
+ * This component uploads an image in a model. The model MUST use the HasUploadImages trait
  */
 class ImageUpload extends Component
 {
@@ -18,7 +18,7 @@ class ImageUpload extends Component
     public $image;
 
     /** Model where the image have to be uploaded. 
-     *  The model MUST use the HasImages trait
+     *  The model MUST use the HasUploadImages trait
      * @var object
      */
     public $model;        

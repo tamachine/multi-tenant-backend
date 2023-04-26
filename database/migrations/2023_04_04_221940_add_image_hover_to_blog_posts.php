@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('blog_posts', function (Blueprint $table) {
-            $table->string('featured_image_hover')->nullable()->after('featured_image');
+            $table->unsignedBigInteger('featured_image_hover')->nullable()->after('featured_image');
         });
     }
 

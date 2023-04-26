@@ -27,7 +27,7 @@ class FeaturedImageHoverUpload extends FeaturedImageUpload
 
     protected function setFeaturedImagePath() {        
         if($this->model->featured_image_hover_path) {
-            $this->modelImage = $this->model->getImageModelInstance($this->model->featured_image_hover_path);
+            $this->modelImage = $this->model->getFeaturedImagaHoverModelImageInstance();
         }        
-    }   
+    }      
 }

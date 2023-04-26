@@ -6,7 +6,7 @@ use Livewire\Component;
 use App\Models\ModelImage;
 
 /**
- * This component uploads an image in a model. The model MUST use the HasImages trait
+ * This component uploads an image in a model. The model MUST use the HasUploadImages trait
  */
 class ImageCard extends Component
 {   

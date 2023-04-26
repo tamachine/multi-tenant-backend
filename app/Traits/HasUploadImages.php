@@ -4,15 +4,14 @@ namespace App\Traits;
 
 use Illuminate\Support\Facades\Storage;
 use App\Traits\HasWebp;
-use App\Traits\HasImagesInDatabase;
-use Spatie\Image\Manipulations;
+use App\Traits\HasModelImages;
 
 /**
  * This trait uploads and deletes images in the storage public folder
  */
-trait HasImages
+trait HasUploadImages
 {        
-    use HasWebp, HasImagesInDatabase;
+    use HasWebp, HasModelImages;
 
     protected $disk = 'public';
 
@@ -21,7 +20,7 @@ trait HasImages
      *
      * @return void
      */
-    public static function bootHasImages()
+    public static function bootHasUploadImages()
     {
         static::deleting(
             function ($model) {
@@ -41,28 +40,10 @@ trait HasImages
         
         $this->createWebp($path);
 
-        $this->storeInDatabase($path, $alt, $this->getModelFolder());
+        $id = $this->storeImageInDatabase($path, $alt, $this->getModelFolder());
 
-        return $path;
-    }
-
-    /**
-     * Gets all the images of the instance except the ones with webp extension
-     */
-    public function getImages() {
-        $allImages = $this->getAllImages();
-        
-        return array_filter($allImages, function($image) { //except webp
-            return (pathinfo($image, PATHINFO_EXTENSION) != Manipulations::FORMAT_WEBP);
-        });        
-    }       
-
-    /**
-     * Gets all the images of the instance included the ones with webp extension
-     */
-    public function getAllImages() {
-        return Storage::disk($this->disk)->files($this->getFolderPath()); //all images             
-    }       
+        return $id;
+    }    
     
     /**
      * Deletes all the existing images of the model.
@@ -74,25 +55,14 @@ trait HasImages
     /**
      * Deletes the image and its corresponding webp
      */
-    public function deleteImage($fileName) {
-       if ($fileName != null) {            
-            $this->deleteIfExists($fileName); //the image
-            $this->deleteIfExists($this->getWebpFullImagePath($fileName));  //its corresponding webp
+    public function deleteImage($id) {
+        $path = $this->deleteFromDatabase($id);
 
-            $this->deleteFromDatabase($fileName);
+        if ($path != null) {            
+            $this->deleteIfExists($path); //the image
+            $this->deleteIfExists($this->getWebpFullImagePath($path));  //its corresponding webp            
         }        
-    }   
-
-    /**
-     * Returns the url of the image
-     */
-    public function getImageUrl($image) {
-        if (filter_var($image, FILTER_VALIDATE_URL)) { //check if the path is already a url
-            return $image;
-        } else {
-            return $image ? Storage::url($image) : '';
-        }
-    }    
+    }       
     
     protected function deleteIfExists($image) {
         if (Storage::disk($this->disk)->exists($image)) {

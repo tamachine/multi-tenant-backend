@@ -410,3 +410,4 @@ if (!function_exists('bookingInsurances')) {
         return $sessionData['insurances'];
     }
 }
+

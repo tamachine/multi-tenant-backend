@@ -2,7 +2,8 @@
 
 namespace App\Traits;
 
-use App\Traits\HasImages;
+use App\Traits\HasUploadImages;
+use App\Models\ModelImage;
 
 /**
  * This trait uploads the featured image and updates the column in the database
@@ -15,7 +16,7 @@ use App\Traits\HasImages;
  */
 trait HasFeaturedImage
 {        
-    use HasImages;
+    use HasUploadImages;
 
     protected $default_attribute = 'featured_image'; //default column name in database otherwise it is overrided in the model with $featured_image_default_attribute
 
@@ -37,6 +38,12 @@ trait HasFeaturedImage
         $this->deleteFeaturedImage($this->featuredImageDefaultAttribute());
     }
 
+    public function getFeaturedImageModelImageInstance() {
+        $attribute = $this->featuredImageDefaultAttribute();
+
+        return ModelImage::find($this->$attribute);
+    }
+
     /**
      * PUBLIC ATTRIBUTES
      */
@@ -47,7 +54,7 @@ trait HasFeaturedImage
      * @return string
      */
     public function getFeaturedImageUrlAttribute() {
-        return $this->getFeaturedImageUrl($this->featuredImageDefaultAttribute());
+        return $this->getFeaturedImageModelImageInstance()?->url;
     }  
 
     /**
@@ -91,14 +98,7 @@ trait HasFeaturedImage
 
         $this->save();
     } 
-
-    /**
-     * returns the url of the image
-     */
-    protected function getFeaturedImageUrl($attribute) {
-       return $this->getImageUrl($this->$attribute);
-    }
-
+ 
     /**
      * returns the url of the image
      */

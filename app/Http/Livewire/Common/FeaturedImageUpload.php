@@ -67,7 +67,7 @@ class FeaturedImageUpload extends ImageUpload
 
     protected function setFeaturedImagePath() {
         if($this->model->featured_image_path) {
-            $this->modelImage = $this->model->getImageModelInstance($this->model->featured_image_path);
+            $this->modelImage = $this->model->getFeaturedImageModelImageInstance();
         }        
     }
 
