@@ -1,8 +1,20 @@
-<div class="border-gray-300 rounded-md border w-fit mb-4 max-w-md hover:bg-blue-300" x-data="{ openConfirm: false }" wire:loading.remove wire:target="image" >
+<div class="border-gray-300 rounded-md border w-fit mb-4 max-w-md hover:bg-blue-300" x-data="{ openConfirm: false }">
     <!-- image -->
     <div class="flex flex-col justify-between h-full">
         <div class="m-4">
             <img src="{{ $imageUrl }}">
+        </div>
+
+        <!-- name -->  
+        <div class="m-4">            
+            <x-admin.label value="Image name" />
+            <x-admin.input type="text" name="imageName" value="{{ $imageName }}" wire:model="imageName"/>
+
+            <x-admin.input-error for="imageName" class="mt-2"/>
+            
+            <x-admin.button type="text" class="m-4 mt-0 bg-green-700" wire:click.prevent="changeName">
+                Change name
+            </x-admin.button>            
         </div>
         
         <div class="flex justify-between" x-data="copyToClipboard()">
@@ -23,6 +35,6 @@
         event="check"            
         body="Are you sure that you want to delete the photo?" 
         title="Delete photo" 
-        wire-confirm-action="{{ $wireAction }}"               
+        wire-confirm-action="deleteImage()"               
     />
 </div>

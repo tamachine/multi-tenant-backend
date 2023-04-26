@@ -21,8 +21,8 @@ class ImageUpload extends Component
      *  The model MUST use the HasImages trait
      * @var object
      */
-    public $model;    
-    
+    public $model;        
+
     public function updatedImage()
     {       
         $this->model->uploadImage($this->image);     

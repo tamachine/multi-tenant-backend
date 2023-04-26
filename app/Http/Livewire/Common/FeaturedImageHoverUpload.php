@@ -7,17 +7,27 @@ namespace App\Http\Livewire\Common;
  */
 class FeaturedImageHoverUpload extends FeaturedImageUpload
 {       
+    protected $listeners = [
+        'deleteFeaturedImageHover' => 'deleteImage',        
+    ];
+
     public function uploadImage()
     {
         $this->model->uploadFeaturedImageHover($this->image);   
     }
     
+    protected function getDeleteListener() {
+        return 'deleteFeaturedImageHover';
+    }
+
     protected function deleteFeaturedImage()
     {
         $this->model->deleteFeaturedImageHover();
     }
 
-    protected function setFeaturedImageUrl() {
-        $this->featured_image_url = $this->model->featured_image_hover_url;
+    protected function setFeaturedImagePath() {        
+        if($this->model->featured_image_hover_path) {
+            $this->modelImage = $this->model->getImageModelInstance($this->model->featured_image_hover_path);
+        }        
     }   
 }

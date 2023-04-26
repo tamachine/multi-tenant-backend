@@ -8,8 +8,10 @@
         <span class="sr-only">Loading...</span>
     </div>
 
-    @if($featured_image_url)    
-        <x-admin.image-card :image-url="$featured_image_url" wire-action="deleteImage"/>
+    @if($modelImage)    
+        <div wire:loading.remove>
+            <livewire:common.image-card :model-image="$modelImage" :delete-listener="$deleteListener" :wire:key="time().'featured-image-upload-image-card'" />
+        </div>
     @endif
 
     <!-- label, input and error message -->

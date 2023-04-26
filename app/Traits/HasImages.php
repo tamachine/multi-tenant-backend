@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use Illuminate\Support\Facades\Storage;
 use App\Traits\HasWebp;
+use App\Traits\HasImagesInDatabase;
 use Spatie\Image\Manipulations;
 
 /**
@@ -11,7 +12,7 @@ use Spatie\Image\Manipulations;
  */
 trait HasImages
 {        
-    use HasWebp;
+    use HasWebp, HasImagesInDatabase;
 
     protected $disk = 'public';
 
@@ -32,13 +33,15 @@ trait HasImages
     /**
      * Uploads an image
      */
-    public function uploadImage($input, $fileName = null) {              
+    public function uploadImage($input, $fileName = null, $alt = null) {              
         $fileName = $fileName ?? now()->timestamp;
         $fileNameWithExtension = $fileName . '.' . $input->getClientOriginalExtension();
         
         $path = $input->storeAs($this->getFolderPath(), $fileNameWithExtension , $this->disk);       
         
         $this->createWebp($path);
+
+        $this->storeInDatabase($path, $alt, $this->getModelFolder());
 
         return $path;
     }
@@ -73,8 +76,10 @@ trait HasImages
      */
     public function deleteImage($fileName) {
        if ($fileName != null) {            
-            $this->deleteIfExists($fileName);
-            $this->deleteIfExists($this->getWebpFullImagePath($fileName));    
+            $this->deleteIfExists($fileName); //the image
+            $this->deleteIfExists($this->getWebpFullImagePath($fileName));  //its corresponding webp
+
+            $this->deleteFromDatabase($fileName);
         }        
     }   
 
@@ -87,7 +92,7 @@ trait HasImages
         } else {
             return $image ? Storage::url($image) : '';
         }
-    }
+    }    
     
     protected function deleteIfExists($image) {
         if (Storage::disk($this->disk)->exists($image)) {

@@ -14,24 +14,26 @@ class FeaturedImageUpload extends ImageUpload
     protected $text;
 
     /**
-     * The url of the featured image
+     * The modelImage of the image
      */
-    public $featured_image_url;
+    public $modelImage;
+
+    protected $listeners = [
+        'deleteFeaturedImage' => 'deleteImage',        
+    ];
 
     public function mount($text)
     {
         $this->text = $text;        
         
-        $this->setFeaturedImageUrl();
+        $this->setFeaturedImagePath();
     }
 
     public function updatedImage()
     {                        
         $this->uploadImage();                      
 
-        $this->setFeaturedImageUrl();    
-        
-        $this->emit('imageUploaded');
+        $this->setFeaturedImagePath();                    
     }  
 
     public function uploadImage()
@@ -45,7 +47,11 @@ class FeaturedImageUpload extends ImageUpload
 
         $this->resetAttributes();
 
-        $this->emit('imageUploaded');
+        $this->emit('imageDeleted');
+    }
+
+    protected function getDeleteListener() {
+        return 'deleteFeaturedImage';
     }
 
     protected function deleteFeaturedImage()
@@ -56,15 +62,17 @@ class FeaturedImageUpload extends ImageUpload
     protected function resetAttributes()
     {
         $this->image = null;
-        $this->featured_image_url = null;
+        $this->modelImage = null;
     }
 
-    protected function setFeaturedImageUrl() {
-        $this->featured_image_url = $this->model->featured_image_url;
+    protected function setFeaturedImagePath() {
+        if($this->model->featured_image_path) {
+            $this->modelImage = $this->model->getImageModelInstance($this->model->featured_image_path);
+        }        
     }
 
     public function render()
     {
-        return view('livewire.common.featured-image-upload', ['text' => $this->text]);
+        return view('livewire.common.featured-image-upload', ['text' => $this->text, 'deleteListener' =>  $this->getDeleteListener()]);
     }
 }

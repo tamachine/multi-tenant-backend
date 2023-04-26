@@ -1,5 +1,5 @@
-<div class="grid grid-cols-3 gap-2">
-    @foreach($images as $key => $image)        
-        <x-admin.image-card :image-url="$model->getImageUrl($image)" wire-action="deleteImage({{$key}})" />
+<div class="grid grid-cols-3 gap-2">    
+    @foreach($images as $key => $image)               
+        <livewire:common.image-card :model-image="$image" delete-listener="deleteGalleryImage" :delete-listener-param="$key" :wire:key="$key.now()" />
     @endforeach
 </div>
