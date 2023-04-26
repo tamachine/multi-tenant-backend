@@ -185,18 +185,32 @@ class Car extends Model
         ];
         $carenExtras = $api->extraList('extra', $carenParams);
 
+        // Add caren_id / extra prices to the list
         if (isset($carenExtras['Extras'])) {
             foreach ($carenExtras['Extras'] as $carenExtra) {
                 $extraPrices[$carenExtra['Id']] = $carenExtra['Price'];
             }
         }
 
-        foreach($this->extras()->where('category', 'standard')->orderBy('order_appearance')->get() as $extra) {
-            $extra->price = isset($extraPrices[$extra['caren_id']])
-                ? $extraPrices[$extra['caren_id']]
-                : 0;
 
-            $list->push($extra);
+        // BBDD extras
+        $bbddExtras = $this->extras()
+            ->where('category', 'standard')
+            ->orderBy('order_appearance')
+            ->get();
+
+        // Add new prices to the list.
+        // If caren_id is null, the price is 0 and the extra is included to the list
+        // If there are a caren_id in ddbb but not in caren, the extra is not included to the list
+        foreach ($bbddExtras as $extra) {
+            $price = isset($extraPrices[$extra['caren_id']])
+                ? $extraPrices[$extra['caren_id']]
+                : (is_null($extra['caren_id']) ? 0 : null);
+
+            if ($price !== null) {
+                $extra->price = $price;
+                $list->push($extra);
+            }
         }
 
         return $list;

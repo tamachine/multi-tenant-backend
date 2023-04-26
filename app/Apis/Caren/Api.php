@@ -5,6 +5,8 @@ namespace App\Apis\Caren;
 use Exception;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Client\ConnectionException;
+use App\Exceptions\CarenTimeoutException;
 use Illuminate\Support\Facades\Log;
 
 class Api
@@ -116,28 +118,43 @@ class Api
     }
 
     /**
-     * @param   array   $params
-     * @return  array
+     * @param $params
+     * @return array|string
+     * @throws Exception
      */
     public function post($params)
     {
-        $params = array_merge($params, ["Session" => $this->getSessionId()]);
-        $request = Http::withoutVerifying();
-        $response = $request->post($this->getUrl(), $params);
+        try {
+            $params = array_merge($params, ["Session" => $this->getSessionId()]);
+            $request = Http::withoutVerifying()->timeout(15);
+            $response = $request->post($this->getUrl(), $params);
 
+        } catch (ConnectionException $e) {
+            Log::error('Caren Error. ' . $e->getMessage());
+            Log::error('Se ha superado el tiempo de espera de la petición a Caren');
+            return [];
+        }
         return $this->processResponse($response, $params);
+
     }
 
     /**
-     * @param   array   $params
-     * @return  array
+     * @param $params
+     * @return array|string
+     * @throws Exception
      */
     public function get($params)
     {
-        $params = array_merge($params, ["Session" => $this->getSessionId()]);
-        $request = Http::withoutVerifying();
-        $response = $request->get($this->getUrl(), $params);
+        try {
+            $params = array_merge($params, ["Session" => $this->getSessionId()]);
+            $request = Http::withoutVerifying()->timeout(15);
+            $response = $request->get($this->getUrl(), $params);
 
+        } catch (ConnectionException $e) {
+            Log::error('Caren Error. ' . $e->getMessage());
+            Log::error('Se ha superado el tiempo de espera de la petición a Caren');
+            return [];
+        }
         return $this->processResponse($response, $params);
     }
 
