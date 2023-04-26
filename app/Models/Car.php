@@ -203,9 +203,7 @@ class Car extends Model
         // If caren_id is null, the price is 0 and the extra is included to the list
         // If there are a caren_id in ddbb but not in caren, the extra is not included to the list
         foreach ($bbddExtras as $extra) {
-            $price = isset($extraPrices[$extra['caren_id']])
-                ? $extraPrices[$extra['caren_id']]
-                : (is_null($extra['caren_id']) ? 0 : null);
+            $price = $extraPrices[$extra['caren_id']] ?? ($extra['caren_id'] === null ? 0 : null);
 
             if ($price !== null) {
                 $extra->price = $price;
