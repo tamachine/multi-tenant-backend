@@ -4,6 +4,9 @@ namespace App\Http\Livewire\Common;
 
 use Livewire\Component;
 
+/**
+ * This component shows a gallery for all the images of a model
+ */
 class ImageGallery extends Component
 {
 
@@ -12,7 +15,7 @@ class ImageGallery extends Component
      */
     public $images = [];
 
-    /** Model where the image have to be uploaded. 
+    /** Model where the image have to be shown from. 
      *  The model MUST use the HasUploadImages trait
      * @var object
      */
@@ -24,15 +27,30 @@ class ImageGallery extends Component
         'deleteGalleryImage' => 'deleteImage',        
     ];
 
+    /**
+     * Deletes an image from the gallery. Removes it from storage and database
+     */
     public function deleteImage($id)
     {                
-        $this->model->deleteImage($id);    
+        $this->model->deleteUploadedImage($id);    
         
         $this->setImages();               
     }
 
+    /**
+     * Refreshes the gallery
+     */
     public function refreshGallery() {        
         $this->setImages();
+    }
+
+    /**
+     * set images (no webp and no featured ones)
+     */
+    protected function setImages() {
+        $this->images = [];
+
+        $this->images = $this->model->getImages();                
     }
 
     public function mount() {
@@ -44,12 +62,5 @@ class ImageGallery extends Component
         return view('livewire.common.image-gallery');
     }
 
-    /**
-     * set images (no webp and no featured ones)
-     */
-    protected function setImages() {
-        $this->images = [];
-
-        $this->images = $this->model->getImages();                
-    }
+    
 }

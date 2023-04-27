@@ -11,7 +11,7 @@ use Spatie\Translatable\HasTranslations;
 use App\Traits\HasUploadImages;
 use App\Traits\HasFeaturedImage;
 use App\Traits\HasFeaturedImageHover;
-use App\Traits\HasModelImages;
+use App\Traits\HasImages;
 
 class BlogPost extends Model
 {

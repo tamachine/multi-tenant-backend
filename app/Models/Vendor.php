@@ -13,7 +13,7 @@ class Vendor extends Model
 {
     use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImage;
 
-    protected $featured_image_default_attribute = 'logo';
+    protected $featured_image_attribute = 'logo';
 
     /**
      * The attributes that are mass assignable.

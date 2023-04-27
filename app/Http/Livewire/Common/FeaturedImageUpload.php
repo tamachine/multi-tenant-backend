@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Common;
 
 /**
- * This component uploads a featured image or a featured image hover in a model. The model MUST use the HasFeaturedImages trait
+ * This component uploads a featured image in a model. The model MUST use the HasFeaturedImage trait
  */
 class FeaturedImageUpload extends ImageUpload
 {       
@@ -13,66 +13,89 @@ class FeaturedImageUpload extends ImageUpload
      */
     protected $text;
 
+    protected $deleteImageListener = 'deleteFeaturedImage';
+
     /**
      * The modelImage of the image
      */
     public $modelImage;
 
-    protected $listeners = [
-        'deleteFeaturedImage' => 'deleteImage',        
-    ];
+    protected function getListeners()
+    {
+        return [$this->deleteImageListener => 'deleteImage'];  // this is used in the ImageCard component because the delete button is in there
+    }
 
     public function mount($text)
     {
         $this->text = $text;        
         
-        $this->setFeaturedImagePath();
+        $this->setModelImage();
     }
 
+    /**
+     * Uploads the featured image
+     */
     public function updatedImage()
     {                        
         $this->uploadImage();                      
 
-        $this->setFeaturedImagePath();                    
+        $this->setModelImage();          
+        
+        //we don't call any listener here (we do it only in the parent - ImageUpload) because there is no need to refresh the fallery because the gallery does not show featured images
     }  
 
-    public function uploadImage()
-    {
-        $this->model->uploadFeaturedImageDefault($this->image);   
-    }
-    
+    /**
+    * Deletes the featured image
+    */
     public function deleteImage()
     {               
         $this->deleteFeaturedImage();
 
-        $this->resetAttributes();
+        $this->resetAttributes();        
 
-        $this->emit('imageDeleted');
+        //we don't call any listener here (we do it only in the parent - ImageUpload) because there is no need to refresh the fallery because the gallery does not show featured images
     }
 
-    protected function getDeleteListener() {
-        return 'deleteFeaturedImage';
-    }
+    /**
+     * PROTECTED METHODS
+     */
 
+     /**
+      * Uploads the featured image
+      */
+    protected function uploadImage()
+    {
+        $this->model->uploadFeaturedImage($this->image);   
+    }    
+
+    /**
+     * Deletes the featured image
+     */
     protected function deleteFeaturedImage()
     {
-        $this->model->deleteFeaturedImageDefault();
+        $this->model->deleteFeaturedImage();
     }
 
+    /**
+     * Resets the atributes
+     */
     protected function resetAttributes()
     {
         $this->image = null;
         $this->modelImage = null;
     }
 
-    protected function setFeaturedImagePath() {
-        if($this->model->featured_image_path) {
+    /**
+     * Sets the ImageModel corresponding to the featured image
+     */
+    protected function setModelImage() {
+        if($this->model->getFeaturedImageAttributeValue()) {
             $this->modelImage = $this->model->getFeaturedImageModelImageInstance();
         }        
     }
 
     public function render()
     {
-        return view('livewire.common.featured-image-upload', ['text' => $this->text, 'deleteListener' =>  $this->getDeleteListener()]);
+        return view('livewire.common.featured-image-upload', ['text' => $this->text, 'deleteListener' =>  $this->deleteImageListener]);
     }
 }

@@ -13,7 +13,7 @@ class Extra extends Model
 {
     use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasFeaturedImage;
 
-    protected $featured_image_default_attribute = "image";
+    protected $featured_image_attribute = "image";
     /**
      * The attributes that are mass assignable.
      *

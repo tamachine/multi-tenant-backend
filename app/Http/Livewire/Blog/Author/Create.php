@@ -81,9 +81,7 @@ class Create extends Component
             'meta_description'  => $this->meta_description,
         ]);
 
-        if ($this->photo) {
-            $this->author->uploadFeaturedImageDefault($this->photo);            
-        }
+       
 
         session()->flash('status', 'success');
         session()->flash('message', 'Author "' . $this->name . '" created');

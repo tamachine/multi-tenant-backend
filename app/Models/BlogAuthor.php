@@ -13,7 +13,7 @@ class BlogAuthor extends Model
     use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImage;
 
     //for HasFeaturedImage
-    protected $featured_image_default_attribute = 'photo';
+    protected $featured_image_attribute = 'photo';
 
     /**
      * The attributes that are mass assignable.

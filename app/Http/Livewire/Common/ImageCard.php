@@ -6,14 +6,10 @@ use Livewire\Component;
 use App\Models\ModelImage;
 
 /**
- * This component uploads an image in a model. The model MUST use the HasUploadImages trait
+ * This component shows an image card (image, delete button, copy button, etc..) for a ModelImage instance 
  */
 class ImageCard extends Component
-{   
-    protected $listeners = [
-        'refreshImageCard' => '$refresh',        
-    ];
-
+{       
     /** The image path
      * @var string
      */
@@ -39,6 +35,9 @@ class ImageCard extends Component
      */
     public $imageName = '';
         
+    /**
+     * The ModelImage instance
+     */
     public ModelImage $modelImage;    
 
     public function mount() {                        
@@ -46,14 +45,15 @@ class ImageCard extends Component
         $this->imageName = $this->modelImage->image_name;
     }
 
+    /**
+     * When deleting, we have to call the corresponding livewire component (featured image, featerd image hover or image gallery)
+     */
     public function deleteImage() {        
         $this->emit($this->deleteListener, $this->deleteListenerParam);                
     }
 
     public function changeName() {
         $this->validate(['imageName' => 'regex:/^[a-zA-Z0-9]+$/']);
-
-
     }
 
     public function render()

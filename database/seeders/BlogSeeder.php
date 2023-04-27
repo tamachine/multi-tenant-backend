@@ -42,7 +42,7 @@ class BlogSeeder extends Seeder
 
             $post->tags()->attach(BlogTag::inRandomOrder()->take(3)->pluck('id')->toArray());
 
-            $post->storeImageInDatabase('https://picsum.photos/id/'. rand(0,200). '/1436/960', '');
+            $post->addImage('https://picsum.photos/id/'. rand(0,200). '/1436/960', '');
         }
     }
 }
