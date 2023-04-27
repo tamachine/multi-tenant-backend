@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Common;
 
 use Livewire\Component;
 use App\Models\ModelImage;
+use App\Helpers\Language;
 
 /**
  * This component shows an image card (image, delete button, copy button, etc..) for a ModelImage instance 
@@ -34,6 +35,11 @@ class ImageCard extends Component
      * @var string
      */
     public $imageName = '';
+
+    /**
+     * @var array
+     */
+    public $alt;   
         
     /**
      * The ModelImage instance
@@ -66,6 +72,22 @@ class ImageCard extends Component
         $this->dispatchBrowserEvent('open-success', ['message' => 'File name changed correctly']); 
     }
 
+    public function saveAlt() {
+        $this->updateAlts();
+
+        $this->dispatchBrowserEvent('open-success', ['message' => 'Alt updated correctly']); 
+        
+        $this->dispatchBrowserEvent('close-modal');   
+    }
+
+    protected function updateAlts() {
+        $this->fillAllAlt();        
+        
+        $this->modelImage->update([
+            'alt' => $this->alt,            
+        ]);
+    }
+
     public function render()
     {
         return view('livewire.common.image-card');
@@ -73,6 +95,15 @@ class ImageCard extends Component
     
     protected function setAttributes() {
         $this->imageUrl  = $this->modelImage->url;        
-        $this->imageName = $this->modelImage->image_name;
+        $this->imageName = $this->modelImage->image_name;        
+        $this->alt = $this->modelImage->getTranslations('alt');  
+    }
+
+    protected function fillAllAlt() {
+        foreach(Language::availableCodes() as $code) {
+            if(!isset($this->alt[$code]) || empty($this->alt[$code])){
+                $this->alt[$code] = $this->alt[Language::defaultCode()];
+            }
+        }
     }
 }

@@ -10,17 +10,61 @@
         <div class="m-4">            
             @if($modelImage->is_external_url)
                 <span>This image cannot be updated because is an external file.</span>
-            @else
-                <div class="flex flex-row justify-between items-end">
-                    <div>
-                        <x-admin.label value="Image name" />
-                        <x-admin.input type="text" name="imageName" value="{{ $imageName }}" wire:model="imageName"/>
-                    </div>                
-                    <x-admin.button type="text" class="bg-green-700" wire:click.prevent="changeName">
-                        Change name
-                    </x-admin.button>            
+            @else                
+                <div>
+                    <div class="flex flex-row justify-start items-end gap-2">
+                        <div>
+                            <x-admin.label value="Image name" />
+                            <x-admin.input type="text" name="imageName" value="{{ $imageName }}" wire:model="imageName"/>
+                        </div>                
+                        <x-admin.button type="text" class="bg-green-700" wire:click.prevent="changeName">
+                            Change name
+                        </x-admin.button>            
+                    </div>
+                    <x-admin.input-error for="imageName" class="mt-2"/>
+                </div>    
+                <div class="mt-4"
+                    x-data="{altModal: false}"
+                    x-on:close-modal.window="altModal = false"
+                    >
+                    <x-admin.button type="text" class="bg-green-700" x-on:click.prevent="altModal = true">
+                        Manage alt
+                    </x-admin.button>
+                    <div
+                        x-show="altModal"                        
+                        x-cloak                        
+                        >
+                        <div class="modal"  >
+                            <div class="modal-overlay"></div>
+                            <div class="modal-container">
+                                <div class="modal-content" x-on:click.outside="altModal = false">
+                                    <div class="modal-heading">                                        
+                                        <h1>Manage Alternative texts</h1>
+                                
+                                        <div class="modal-close cursor-pointer z-50 block" x-on:click="altModal = false">
+                                            <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                            <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+                                            </svg>
+                                        </div>
+                                    </div>                                    
+                                    <div class="modal-body">                                                        
+                                        @foreach(App\Helpers\Language::availableLanguages() as $key => $language)                                    
+                                            <div class="px-4 mt-4">
+                                                <x-admin.label for="alt_{{$key}}" value="Alt - {{$language}}" />
+                                                <x-admin.input id="alt_{{$key}}" type="text" class="w-full mt-1 block" maxlength="255" wire:model.defer="alt.{{ $key }}"/>
+                                            </div>
+                                        @endforeach    
+                                        <div class="m-4 flex justify-center">
+                                            <x-admin.button type="text" class="bg-green-700" wire:click.prevent="saveAlt">
+                                                Save alts
+                                            </x-admin.button>
+                                        </div>
+                                    </div>                                                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <x-admin.input-error for="imageName" class="mt-2"/>
             @endif
         </div>
                 

@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use App\Traits\HasWebp;
+use Spatie\Translatable\HasTranslations;
 
 class ModelImage extends Model
-{
-  //  use HasTranslations;
-    use HasWebp;
+{  
+    use HasWebp, HasTranslations;
 
     /**
      * The attributes that are translatable.
      *
      * @var array
      */
-    //public $translatable = ['alt'];
+    public $translatable = ['alt'];
 
     protected $fillable = ['image_path', 'model', 'alt', 'instance_hashid'];
 
