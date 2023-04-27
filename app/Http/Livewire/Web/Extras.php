@@ -52,9 +52,7 @@ class Extras extends Component
 
         if($this->car->featured_image) {
             $this->mainImage = $this->car->featured_image_url;
-        } elseif (count($this->car->getImages()) > 0) {            
-            $this->mainImage = $this->car->getImageUrl($this->car->getImages()[0]);
-        }
+        } 
 
         $this->pickupLocation = bookingPickupLocation();
         $this->dropoffLocation = bookingDropoffLocation();

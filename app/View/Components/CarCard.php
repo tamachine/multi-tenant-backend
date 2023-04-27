@@ -41,11 +41,7 @@ class CarCard extends Component
                 'noImages' => !$this->hasImages(),                
             ]
         );
-    }
-
-    protected function hasMoreThanOneImage() {
-        return count($this->car->images) > 1;
-    }    
+    }       
 
     protected function hasImages() {
         return ($this->mainImage != null);
@@ -57,10 +53,10 @@ class CarCard extends Component
 
     protected function setImages() {
         if($this->car->featured_image) {
-            $this->mainImage = asset($this->car->featured_image_url);
+            $this->mainImage = $this->car->featured_image_url;
 
             if($this->car->featured_image_hover) {
-                $this->secondaryImage = asset($this->car->featured_image_hover_url);    
+                $this->secondaryImage = $this->car->featured_image_hover_url;    
             }
         } else {
             $this->mainImage = asset('images/cars/default-car.svg');

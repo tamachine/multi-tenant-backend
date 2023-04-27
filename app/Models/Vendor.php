@@ -58,9 +58,7 @@ class Vendor extends Model
      */
     public function getLogoUrlAttribute()
     {
-        return $this->logo
-            ? asset('storage/vendors/' . $this->logo)
-            : '';
+        return $this->featured_image_url;            
     }
 
     /**
