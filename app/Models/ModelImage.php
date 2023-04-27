@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use App\Traits\HasWebp;
 
 class ModelImage extends Model
 {
   //  use HasTranslations;
+    use HasWebp;
 
     /**
      * The attributes that are translatable.
@@ -18,7 +20,7 @@ class ModelImage extends Model
 
     protected $fillable = ['image_path', 'model', 'alt', 'instance_hashid'];
 
-    protected $append = ['instance', 'url', 'image_name', 'is_external_url'];
+    protected $append = ['instance', 'url', 'image_name', 'is_external_url', 'has_webp'];
 
     /**
      * SCOPES ------------
@@ -62,14 +64,40 @@ class ModelImage extends Model
         return filter_var($this->image_path, FILTER_VALIDATE_URL);   
     }
 
+     /** Returns true if the image has its corresponding webp
+     * @return boolean
+     */
+    public function getHasWebpAttribute() {
+        if(!$this->is_external_url) {
+            return $this->hasWebp($this->image_path);
+        }
+        
+        return false;
+    }
+
     /**
      * METHODS ------------
-     */
+     */     
 
     /** Returns the name of the image without extension
      * @return string 
      */
     public function getImageNameAttribute() {
         return pathinfo($this->image_path, PATHINFO_FILENAME);
+    }
+
+    /**
+     * Changes the file name
+     */
+    public function changeFileName($newFileName) {
+        $newImagePath = str_replace_last(
+                            $this->getImageNameAttribute(), 
+                            $newFileName, 
+                            $this->image_path
+                        );
+
+        $this->image_path = $newImagePath;
+
+        $this->save();
     }
 }

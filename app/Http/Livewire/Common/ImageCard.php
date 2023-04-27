@@ -41,8 +41,7 @@ class ImageCard extends Component
     public ModelImage $modelImage;    
 
     public function mount() {                        
-        $this->imageUrl = $this->modelImage->url;        
-        $this->imageName = $this->modelImage->image_name;
+        $this->setAttributes();
     }
 
     /**
@@ -52,12 +51,28 @@ class ImageCard extends Component
         $this->emit($this->deleteListener, $this->deleteListenerParam);                
     }
 
+    /**
+     * Change the name of the image
+     */
     public function changeName() {
-        $this->validate(['imageName' => 'regex:/^[a-zA-Z0-9]+$/']);
+        $this->validate(['imageName' => 'required|regex:/^[a-zA-Z0-9]+$/']);
+
+        $this->modelImage->instance->changeUploadedFileName($this->modelImage->image_path, $this->imageName);
+
+        $this->modelImage->refresh();
+
+        $this->setAttributes();
+
+        $this->dispatchBrowserEvent('open-success', ['message' => 'File name changed correctly']); 
     }
 
     public function render()
     {
         return view('livewire.common.image-card');
-    }    
+    }  
+    
+    protected function setAttributes() {
+        $this->imageUrl  = $this->modelImage->url;        
+        $this->imageName = $this->modelImage->image_name;
+    }
 }

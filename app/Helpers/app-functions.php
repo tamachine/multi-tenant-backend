@@ -83,6 +83,23 @@ if (!function_exists('dehash')) {
         return !empty($hashidArray) ? $hashidArray[0] : null;
     }
 }
+if (!function_exists('str_replace_last')) {
+    /**
+     * Replaces the last ocurrence of a string in a string
+     *
+     * @param  string $search The string that has to be replaced
+     * @param  string $replace The string that replaces the search
+     * @param  string $str The string where we have to replace strings
+     * @return string   
+     */
+    function str_replace_last( $search , $replace , $str ) {
+        if( ( $pos = strrpos( $str , $search ) ) !== false ) {
+            $search_length = strlen( $search );
+            $str = substr_replace( $str , $replace , $pos , $search_length );
+        }
+        return $str;
+    }
+}
 
 if (!function_exists('collectConfig')) {
     /**

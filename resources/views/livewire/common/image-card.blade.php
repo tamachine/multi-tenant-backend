@@ -11,14 +11,16 @@
             @if($modelImage->is_external_url)
                 <span>This image cannot be updated because is an external file.</span>
             @else
-                <x-admin.label value="Image name" />
-                <x-admin.input type="text" name="imageName" value="{{ $imageName }}" wire:model="imageName"/>
-
+                <div class="flex flex-row justify-between items-end">
+                    <div>
+                        <x-admin.label value="Image name" />
+                        <x-admin.input type="text" name="imageName" value="{{ $imageName }}" wire:model="imageName"/>
+                    </div>                
+                    <x-admin.button type="text" class="bg-green-700" wire:click.prevent="changeName">
+                        Change name
+                    </x-admin.button>            
+                </div>
                 <x-admin.input-error for="imageName" class="mt-2"/>
-                
-                <x-admin.button type="text" class="m-4 mt-0 bg-green-700" wire:click.prevent="changeName">
-                    Change name
-                </x-admin.button>            
             @endif
         </div>
                 

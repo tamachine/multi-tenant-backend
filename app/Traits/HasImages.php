@@ -50,6 +50,11 @@ trait HasImages
 
         return $modelImage->id;
     }    
+
+    public function changeModelImageFileName($path, $newFileName) {
+        $modelImage = ModelImage::findByPath($path);
+        $modelImage->changeFileName($newFileName);
+    }
     
     /**
      * Delete an image from the model

@@ -68,6 +68,28 @@ trait HasUploadImages
             $this->deleteIfExists($this->getWebpFullImagePath($path));  //its corresponding webp            
         }        
     }       
+
+    /**
+     * renames the file, its corresponding webp file and the record in the database
+     * @var string $currentPath The current image path
+     * @var string $newName The new name
+     */
+    public function changeUploadedFileName($currentPath, $newName) {
+        
+        $this->changeModelImageFileName($currentPath, $newName); //change the name in the database
+
+        if (Storage::disk($this->disk)->exists($currentPath)) {
+            
+            if($this->hasWebp($currentPath)) {
+                 
+                $webpFullImagePath = $this->getWebpFullImagePath($currentPath);
+
+                $this->changeFileName($webpFullImagePath, $newName); //change the corresponding webp image name
+            }
+
+            $this->changeFileName($currentPath, $newName); //change the image name           
+        }
+    }
     
     /**
      * Returns the base name of the image
@@ -117,4 +139,28 @@ trait HasUploadImages
     protected function getInstanceFolder() {
         return $this->hashid;
     }     
+
+    /**
+     * Checks if the corresopnding webp image for the path exists in the storage
+     */
+    protected function hasWebp($path) {         
+        $webpFullImagePath  = $this->getWebpFullImagePath($path);
+
+        return Storage::disk($this->disk)->exists($webpFullImagePath);
+    }    
+
+    /**
+     * Changes the name of an image
+     * @var string $currentPath The current image path
+     * @var string $newName The new name
+     */
+    protected function changeFileName($currentPath, $newName) {
+        $newPath = str_replace_last(
+            pathinfo($currentPath, PATHINFO_FILENAME), //the current image name  
+            $newName, 
+            $currentPath
+        );
+
+        Storage::disk($this->disk)->move($currentPath, $newPath);
+    }
 }
