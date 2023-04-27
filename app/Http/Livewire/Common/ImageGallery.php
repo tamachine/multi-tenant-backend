@@ -21,6 +21,11 @@ class ImageGallery extends Component
      */
     public $model; 
 
+    /** If true, it will hide the manage alts buttons in Image Card component
+     * @var boolean
+     */
+    public $hiddeImageCardAlts = false;
+
     protected $listeners = [
         'imageUploaded' => 'refreshGallery',
         'imageDeleted'  => 'refreshGallery',
@@ -53,7 +58,7 @@ class ImageGallery extends Component
         $this->images = $this->model->getImages();                
     }
 
-    public function mount() {
+    public function mount() {       
         $this->setImages();
     }
 

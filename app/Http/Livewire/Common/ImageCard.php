@@ -46,7 +46,12 @@ class ImageCard extends Component
      */
     public ModelImage $modelImage;    
 
-    public function mount() {                        
+    /** If true, it will hide the manage alts button
+     * @var boolean
+     */
+    public $hiddeAlts = false;
+
+    public function mount() {                      
         $this->setAttributes();
     }
 

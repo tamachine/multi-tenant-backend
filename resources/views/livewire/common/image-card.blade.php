@@ -23,6 +23,7 @@
                     </div>
                     <x-admin.input-error for="imageName" class="mt-2"/>
                 </div>    
+                @if(!$hiddeAlts)
                 <div class="mt-4"
                     x-data="{altModal: false}"
                     x-on:close-modal.window="altModal = false"
@@ -65,6 +66,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             @endif
         </div>
                 

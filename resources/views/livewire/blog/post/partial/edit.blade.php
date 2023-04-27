@@ -125,7 +125,7 @@
         <!-- images -->
         <div class="px-4 mt-4">            
             <x-admin.label for="images" value="Images" class="mb-2" />
-            <livewire:common.image-gallery :model="$post" :wire:key="$post->id" />
+            <livewire:common.image-gallery :model="$post" :wire:key="$post->id" :hidde-image-card-alts="true"/>
         </div>
 
         <div class="px-4 mt-4">            
