@@ -167,17 +167,40 @@ class Car extends Model
         return $list;
     }
 
+
     /**
-     * Get the extras list for a car
+     * Get extra list for a car updated
      *
-     * @return  object
+     * @return mixed
      */
     public function extraList()
     {
-        $list = new Collection();
-
         // Get the extras prices from Caren
-        $extraPrices = [];
+        $extraPrices = $this->getCarenExtrasPrices();
+
+        // Get BBDD extras and use filter to remove extras if not match with Caren
+        $list = $this->extras()
+            ->where('category', 'standard')
+            ->orderBy('order_appearance')
+            ->get()
+            ->filter(function ($extra) use ($extraPrices) {
+                return (!$extra->caren_id || $extraPrices->has($extra->caren_id));
+            })
+            ->map(function ($extra) use ($extraPrices) {
+                $extra->price = $extraPrices->get($extra->caren_id, $extra->price);
+                return $extra;
+            });
+
+        return $list;
+    }
+
+    /**
+     * Get extra list for a car from Caren and update prices
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    protected function getCarenExtrasPrices()
+    {
         $api = new \App\Apis\Caren\Api();
         $carenParams = [
             "RentalId" => $this->vendor->caren_settings["rental_id"],
@@ -185,34 +208,17 @@ class Car extends Model
         ];
         $carenExtras = $api->extraList('extra', $carenParams);
 
-        // Add caren_id / extra prices to the list
+        // Update pirices
+        $extraPrices = collect();
         if (isset($carenExtras['Extras'])) {
             foreach ($carenExtras['Extras'] as $carenExtra) {
-                $extraPrices[$carenExtra['Id']] = $carenExtra['Price'];
+                $extraPrices->put($carenExtra['Id'], $carenExtra['Price']);
             }
         }
-
-
-        // BBDD extras
-        $bbddExtras = $this->extras()
-            ->where('category', 'standard')
-            ->orderBy('order_appearance')
-            ->get();
-
-        // Add new prices to the list.
-        // If caren_id is null, the price is 0 and the extra is included to the list
-        // If there are a caren_id in ddbb but not in caren, the extra is not included to the list
-        foreach ($bbddExtras as $extra) {
-            $price = $extraPrices[$extra['caren_id']] ?? ($extra['caren_id'] === null ? 0 : null);
-
-            if ($price !== null) {
-                $extra->price = $price;
-                $list->push($extra);
-            }
-        }
-
-        return $list;
+        return $extraPrices;
     }
+
+
 
     /**********************************
      * Accessors & Mutators
