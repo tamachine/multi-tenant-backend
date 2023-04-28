@@ -70,7 +70,7 @@ class FaqsSeeder extends Seeder
         Faq::create([
             'question' => [
                 'en' => "So, what's included in the rental price?",
-                'es' => "¿Qué incluye el precio?"
+                'es' => "Â¿QuÃ© incluye el precio?"
             ],
             'answer' => [
                 'en' => 'EN Vitae congue eu consequat ac felis placerat vestibulum lectus mauris ultrices. Cursus sit amet dictum sit amet justo donec enim diam porttitor lacus luctus accumsan tortor posuere.',
@@ -81,7 +81,7 @@ class FaqsSeeder extends Seeder
         Faq::create([
             'question' => [
                 'en' => "Where do I retrieve my rental? ",
-                'es' => "¿Dónde encuentro mi reserva?"
+                'es' => "Â¿DÃ³nde encuentro mi reserva?"
             ],
             'answer' => [
                 'en' => 'EN Vitae congue eu consequat ac felis placerat vestibulum lectus mauris ultrices. Cursus sit amet dictum sit amet justo donec enim diam porttitor lacus luctus accumsan tortor posuere.',
@@ -92,7 +92,7 @@ class FaqsSeeder extends Seeder
         Faq::create([
             'question' => [
                 'en' => "Just landed! Walk me through what I need to do now?",
-                'es' => "¡Acabo de aterrizar! ¿Dime qué debo hacer ahora?"
+                'es' => "Â¡Acabo de aterrizar! Â¿Dime quÃ© debo hacer ahora?"
             ],
             'answer' => [
                 'en' => 'EN Vitae congue eu consequat ac felis placerat vestibulum lectus mauris ultrices. Cursus sit amet dictum sit amet justo donec enim diam porttitor lacus luctus accumsan tortor posuere.',
@@ -103,7 +103,7 @@ class FaqsSeeder extends Seeder
         Faq::create([
             'question' => [
                 'en' => "Will the vehicle I choose online be available at pick up?",
-                'es' => "¿El vehículo que elijo en línea estará disponible en el momento de la recogida?"
+                'es' => "Â¿El vehÃ­culo que elijo en lÃ­nea estarÃ¡ disponible en el momento de la recogida?"
             ],
             'answer' => [
                 'en' => 'EN Vitae congue eu consequat ac felis placerat vestibulum lectus mauris ultrices. Cursus sit amet dictum sit amet justo donec enim diam porttitor lacus luctus accumsan tortor posuere.',
@@ -114,7 +114,7 @@ class FaqsSeeder extends Seeder
         Faq::create([
             'question' => [
                 'en' => "How about my Driver's License? Is it valid in Iceland?",
-                'es' => "¿Qué tal mi Licencia de Conducir? ¿Es válido en Islandia?"
+                'es' => "Â¿QuÃ© tal mi Licencia de Conducir? Â¿Es vÃ¡lido en Islandia?"
             ],
             'answer' => [
                 'en' => 'EN Vitae congue eu consequat ac felis placerat vestibulum lectus mauris ultrices. Cursus sit amet dictum sit amet justo donec enim diam porttitor lacus luctus accumsan tortor posuere.',

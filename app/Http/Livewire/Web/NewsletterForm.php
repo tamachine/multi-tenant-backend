@@ -5,9 +5,13 @@ namespace App\Http\Livewire\Web;
 use App\Mail\ContactNewsletterSubmitted;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
+use App\Models\NewsletterUser;
+use App\Traits\Livewire\ModalTrait;
 
 class NewsletterForm extends Component
 {
+    use ModalTrait;
+
     /*
     ***************************************************************
     ** PROPERTIES
@@ -17,7 +21,7 @@ class NewsletterForm extends Component
     /**
      * @var string
      */
-    public $newsletter_email;
+    public $newsletter_email;    
 
     /*
     ***************************************************************
@@ -48,9 +52,15 @@ class NewsletterForm extends Component
 
         Mail::to(config('settings.email.newsletter'))->send(new ContactNewsletterSubmitted($request));
 
-        $this->newsletter_email = "";
+        $newsletter_user = NewsletterUser::updateOrCreate(
+            ['email'  => $this->newsletter_email],            
+            ['active' => 1]
+        );
 
-        $this->dispatchBrowserEvent('goToTop');
-        $this->dispatchBrowserEvent('open-success', ['message' => __('contact.newsletter_subscribed')]);
+        $newsletter_user->save();
+
+        $this->reset();
+        
+        $this->showModal = true;
     }
 }

@@ -167,7 +167,7 @@
 
                 <!-- Newsletter -->
                 <div class="px-4 mt-4">
-                    <x-admin.label for="newsletter" value="{{ __('Newsletter') }}" />
+                    <x-admin.label for="newsletter" value="Newsletter" />
 
                     <label for="newsletter" class="inline-flex items-center">
                         <x-admin.checkbox id="newsletter" wire:model="newsletter" class="w-10 h-10 mt-1" />
