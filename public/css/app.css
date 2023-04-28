@@ -7383,6 +7383,46 @@ picture img {
         margin-bottom: 0
     }
 
+.selection\:bg-pink-red *::-moz-selection {
+    --tw-bg-opacity: 1;
+    background-color: rgb(225 17 102 / var(--tw-bg-opacity));    
+}
+
+.selection\:bg-pink-red *::selection {
+    --tw-bg-opacity: 1;
+    background-color: rgb(225 17 102 / var(--tw-bg-opacity));    
+}
+
+.selection\:text-white *::-moz-selection {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));    
+}
+
+.selection\:text-white *::selection {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));    
+}
+
+.selection\:bg-pink-red::-moz-selection {
+    --tw-bg-opacity: 1;
+    background-color: rgb(225 17 102 / var(--tw-bg-opacity));    
+}
+
+.selection\:bg-pink-red::selection {
+    --tw-bg-opacity: 1;
+    background-color: rgb(225 17 102 / var(--tw-bg-opacity));    
+}
+
+.selection\:text-white::-moz-selection {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));    
+}
+
+.selection\:text-white::selection {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));    
+}
+
 .placeholder\:text-base::-moz-placeholder {
     font-size: 1rem;
     line-height: 1.5rem;    
