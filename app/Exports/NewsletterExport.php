@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Booking;
+use App\Models\NewsletterUser;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 
@@ -11,18 +11,15 @@ class NewsletterExport implements FromView
     /**
      * @var object
      */
-    protected $bookings;
+    protected $users;
 
     public function __construct()
     {
-        $this->bookings = Booking::where('newsletter', 1)
-            ->select('email', 'first_name', 'last_name')
-            ->orderBy('email', 'asc')
-            ->get();
+        $this->users = NewsletterUser::subscribers()->get();
     }
 
     public function view(): View
     {
-        return view('exports.booking.mailing', ['bookings' => $this->bookings]);
+        return view('exports.newsletter', ['users' => $this->users]);
     }
 }
