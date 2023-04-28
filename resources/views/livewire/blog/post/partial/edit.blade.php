@@ -79,7 +79,7 @@
 
                 <!-- Preview -->
                 <section class="ml-auto">
-                    <x-admin.button x-on:click.prevent="window.open('{{ $post->preview_url }};','_blank');">Preview</x-admin.button>
+                    <x-admin.button x-on:click.prevent="window.open('{{ $post->preview_url }}','_blank');">Preview</x-admin.button>
                 </section>
             </div>
         </div>
