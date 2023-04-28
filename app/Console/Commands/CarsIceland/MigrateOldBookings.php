@@ -123,8 +123,7 @@ class MigrateOldBookings extends Command
 
                 'number_passengers' => $oldBooking->number_passengers > 10 ? 1 : $oldBooking->number_passengers,
                 'pickup_input_info' => $oldBooking->pickup_input_info,
-                'dropoff_input_info' => $oldBooking->dropoff_input_info,
-                'newsletter' => 0,
+                'dropoff_input_info' => $oldBooking->dropoff_input_info,                
 
                 'affiliate_id' => $oldBooking->affiliate_id ? $oldBooking->affiliate_id - 9 : null,
                 'affiliate_commission' => $oldBooking->affiliate_commission ? $oldBooking->affiliate_commission : null,
@@ -257,8 +256,7 @@ class MigrateOldBookings extends Command
                 'driver_license_number' => $oldBooking->driver_license_number,
 
                 'number_passengers' => $oldBooking->passangers > 10 ? 1 : $oldBooking->passangers,
-                'pickup_input_info' => $oldBooking->flightnumber,
-                'newsletter' => 0,
+                'pickup_input_info' => $oldBooking->flightnumber,                
 
                 'affiliate_id' => $oldBooking->affiliate_id >= 10 && $oldBooking->affiliate_id <= 13 ? $oldBooking->affiliate_id - 9 : null,
                 'affiliate_commission' => $oldBooking->affiliate_commission ? $oldBooking->affiliate_commission : null,

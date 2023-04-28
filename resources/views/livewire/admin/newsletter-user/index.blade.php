@@ -3,7 +3,10 @@
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             
             @if ($newsletterUsers->count())
-                <div class="mt-4 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+
+                @include('livewire.admin.newsletter-user.partial.options')
+
+                <div class="shadow overflow-hidden border-b border-gray-200">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-100">
                             <tr>                               
@@ -17,7 +20,10 @@
                                     Updated
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Active
+                                    Subscribed
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    # Bookings
                                 </th>
                                 <th scope="col" class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
 
@@ -47,6 +53,10 @@
                                         <label for="active_{{ $index }}" class="inline-flex items-center">
                                             <x-admin.checkbox id="active_{{ $index }}" wire:model.defer="users.{{ $index }}.active" />
                                         </label>                                                                                                                                             
+                                    </td>  
+
+                                    <td class="px-6 py-4 text-sm font-medium">                                                                                           
+                                        {{ $newsletter_user->bookings()->count() }}                                                                                                                                            
                                     </td>  
                                     
                                     <td class="px-4 py-2 whitespace-nowrap text-sm font-medium">

@@ -9,11 +9,19 @@ class NewsletterUser extends Model
 {
     use HashidTrait;
 
-    protected $fillable = ['email','active'];
+    protected $fillable = ['email','active'];    
+
+    public function bookings() {
+        return $this->hasMany(Booking::class, 'email', 'email');
+    }
 
     /**********************************
      * Scopes
      **********************************/
+
+    public function scopeSubscribers($query) {
+        return $query->where('active', 1);
+    }
 
     /**
      * Scope to search the model
