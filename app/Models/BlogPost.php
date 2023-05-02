@@ -23,7 +23,7 @@ class BlogPost extends Model
      * @var array
      */
     protected $fillable = [
-        'hashid', 'title', 'slug', 'published', 'published_at', 'summary', 'content', 'featured_image', 'featured_image_hover',
+        'hashid', 'title', 'slug', 'published_at', 'summary', 'content', 'featured_image', 'featured_image_hover',
         'blog_author_id', 'blog_category_id', 'hero', 'top'
     ];
 
@@ -34,7 +34,7 @@ class BlogPost extends Model
      */
     public $translatable = ['title', 'slug', 'summary', 'content'];
 
-    protected $append = ['url','preview_url', 'next_post', 'prev_post', 'related_posts'];
+    protected $append = ['url','preview_url', 'next_post', 'prev_post', 'related_posts', 'published'];
 
     /**
      * The attributes that should be cast to native types.
@@ -48,6 +48,14 @@ class BlogPost extends Model
     /**********************************
      * Accessors & Mutators
      **********************************/
+
+     public function getPublishedAttribute() {
+        if ($this->published_at != null) {
+            return $this->published_at <= now();
+        } else {
+            return false;
+        }
+     }
 
     /**
      * Get the post's edit URL

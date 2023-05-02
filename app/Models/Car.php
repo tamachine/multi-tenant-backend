@@ -159,58 +159,43 @@ class Car extends Model
         return $list;
     }
 
-
     /**
-     * Get extra list for a car updated
+     * Get extra list for a car including caren and own
      *
      * @return mixed
      */
     public function extraList()
-    {
-        // Get the extras prices from Caren
-        $extraPrices = $this->getCarenExtrasPrices();
+    {        
+        $carenExtras = $this->getCarenExtras();
 
-        // Get BBDD extras and use filter to remove extras if not match with Caren
+        // Get extras and use filter to remove extras that does not have price
         $list = $this->extras()
             ->where('category', 'standard')
             ->orderBy('order_appearance')
             ->get()
-            ->filter(function ($extra) use ($extraPrices) {
-                return (!$extra->caren_id || $extraPrices->has($extra->caren_id));
-            })
-            ->map(function ($extra) use ($extraPrices) {
-                $extra->price = $extraPrices->get($extra->caren_id, $extra->price);
-                return $extra;
-            });
+            ->filter(function ($extra) use ($carenExtras) {
+                return $extra->getPriceFromCarenExtras($carenExtras) !== null;                
+            });            
 
         return $list;
     }
 
     /**
-     * Get extra list for a car from Caren and update prices
+     * Get extra list from Caren
      *
-     * @return \Illuminate\Support\Collection
+     * @return array
      */
-    protected function getCarenExtrasPrices()
+    public function getCarenExtras()
     {
         $api = new \App\Apis\Caren\Api();
         $carenParams = [
             "RentalId" => $this->vendor->caren_settings["rental_id"],
-            "classId" => $this->caren_id,
+            "classId"  => $this->caren_id,
         ];
-        $carenExtras = $api->extraList('extra', $carenParams);
-
-        // Update pirices
-        $extraPrices = collect();
-        if (isset($carenExtras['Extras'])) {
-            foreach ($carenExtras['Extras'] as $carenExtra) {
-                $extraPrices->put($carenExtra['Id'], $carenExtra['Price']);
-            }
-        }
-        return $extraPrices;
+        $carenExtras = $api->extraList('extra', $carenParams);        
+       
+        return $carenExtras;
     }
-
-
 
     /**********************************
      * Accessors & Mutators

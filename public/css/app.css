@@ -4513,6 +4513,14 @@ h5 {
     right: 0.75rem;    
 }
 
+.top-1\/2 {
+    top: 50%;    
+}
+
+.left-1\/2 {
+    left: 50%;    
+}
+
 .top-\[76px\] {
     top: 76px;    
 }
@@ -4537,10 +4545,6 @@ h5 {
     top: 158px;    
 }
 
-.left-1\/2 {
-    left: 50%;    
-}
-
 .top-10 {
     top: 2.5rem;    
 }
@@ -4563,10 +4567,6 @@ h5 {
 
 .top-16 {
     top: 4rem;    
-}
-
-.top-1\/2 {
-    top: 50%;    
 }
 
 .top-1 {
@@ -4605,6 +4605,10 @@ h5 {
     z-index: 10;    
 }
 
+.z-20 {
+    z-index: 20;    
+}
+
 .z-50 {
     z-index: 50;    
 }
@@ -4615,10 +4619,6 @@ h5 {
 
 .z-30 {
     z-index: 30;    
-}
-
-.z-20 {
-    z-index: 20;    
 }
 
 .order-1 {
@@ -5169,6 +5169,10 @@ h5 {
     width: max-content;    
 }
 
+.w-1\/2 {
+    width: 50%;    
+}
+
 .w-screen {
     width: 100vw;    
 }
@@ -5196,10 +5200,6 @@ h5 {
 
 .w-auto {
     width: auto;    
-}
-
-.w-1\/2 {
-    width: 50%;    
 }
 
 .w-0 {
@@ -5390,6 +5390,16 @@ h5 {
     transform-origin: top;    
 }
 
+.-translate-x-1\/2 {
+    --tw-translate-x: -50%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));    
+}
+
+.-translate-y-1\/2 {
+    --tw-translate-y: -50%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));    
+}
+
 .-translate-y-full {
     --tw-translate-y: -100%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));    
@@ -5397,11 +5407,6 @@ h5 {
 
 .translate-y-0 {
     --tw-translate-y: 0px;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));    
-}
-
-.-translate-x-1\/2 {
-    --tw-translate-x: -50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));    
 }
 
@@ -5422,11 +5427,6 @@ h5 {
 
 .translate-x-0 {
     --tw-translate-x: 0px;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));    
-}
-
-.-translate-y-1\/2 {
-    --tw-translate-y: -50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));    
 }
 
@@ -5639,16 +5639,16 @@ h5 {
     gap: 2.5rem;    
 }
 
+.gap-8 {
+    gap: 2rem;    
+}
+
 .gap-1 {
     gap: 0.25rem;    
 }
 
 .gap-14 {
     gap: 3.5rem;    
-}
-
-.gap-8 {
-    gap: 2rem;    
 }
 
 .gap-\[60px\] {
@@ -6411,6 +6411,11 @@ h5 {
     padding-right: 5rem;    
 }
 
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;    
+}
+
 .py-5 {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;    
@@ -6419,11 +6424,6 @@ h5 {
 .px-\[10px\] {
     padding-left: 10px;
     padding-right: 10px;    
-}
-
-.px-6 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;    
 }
 
 .px-3\.5 {
@@ -7376,6 +7376,46 @@ picture img {
         height: 100%;
         margin-bottom: 0
     }
+
+.selection\:bg-pink-red *::-moz-selection {
+    --tw-bg-opacity: 1;
+    background-color: rgb(225 17 102 / var(--tw-bg-opacity));    
+}
+
+.selection\:bg-pink-red *::selection {
+    --tw-bg-opacity: 1;
+    background-color: rgb(225 17 102 / var(--tw-bg-opacity));    
+}
+
+.selection\:text-white *::-moz-selection {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));    
+}
+
+.selection\:text-white *::selection {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));    
+}
+
+.selection\:bg-pink-red::-moz-selection {
+    --tw-bg-opacity: 1;
+    background-color: rgb(225 17 102 / var(--tw-bg-opacity));    
+}
+
+.selection\:bg-pink-red::selection {
+    --tw-bg-opacity: 1;
+    background-color: rgb(225 17 102 / var(--tw-bg-opacity));    
+}
+
+.selection\:text-white::-moz-selection {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));    
+}
+
+.selection\:text-white::selection {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));    
+}
 
 .placeholder\:text-base::-moz-placeholder {
     font-size: 1rem;
