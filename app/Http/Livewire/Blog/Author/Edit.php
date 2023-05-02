@@ -51,16 +51,6 @@ class Edit extends Component
      */
     public $meta_description;
 
-    /**
-     * @var object
-     */
-    public $photo;
-
-    /**
-     * @var string
-     */
-    public $photo_url = '';
-
     /*
     ***************************************************************
     ** METHODS
@@ -75,8 +65,7 @@ class Edit extends Component
         $this->bio = $author->bio;
         $this->short_bio = $author->short_bio;
         $this->meta_title = $author->meta_title;
-        $this->meta_description = $author->meta_description;
-        $this->photo_url = $author->photo_url;
+        $this->meta_description = $author->meta_description;        
     }
 
     public function saveAuthor()
@@ -84,8 +73,7 @@ class Edit extends Component
         $this->dispatchBrowserEvent('validationError');
 
         $rules = [
-            'name' => ['required'],
-            'photo' => ['nullable', 'mimes:jpeg,jpg,png,gif'],
+            'name' => ['required'],            
         ];
 
         $this->validate($rules);
@@ -97,17 +85,7 @@ class Edit extends Component
             'short_bio'         => $this->short_bio,
             'meta_title'        => $this->meta_title,
             'meta_description'  => $this->meta_description,
-        ]);
-
-        if ($this->photo) {
-            $extension = $this->photo->getClientOriginalExtension();
-            $filename = $this->author->hashid . "." . $extension;
-            $this->photo->storeAs("public/authors" , $filename);
-
-            $this->author->update([
-                'photo' => $filename,
-            ]);
-        }
+        ]);       
 
         session()->flash('status', 'success');
         session()->flash('message', 'Author "' . $this->name . '" updated');

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('bio')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
-            $table->string('photo')->nullable();
+            $table->unsignedBigInteger('photo')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

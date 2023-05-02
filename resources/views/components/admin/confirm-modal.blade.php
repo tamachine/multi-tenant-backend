@@ -31,22 +31,24 @@
                     @if (isset($footer))
                         {!! $footer !!}
                     @else
-                        <button
-                            type="button"
-                            class="inline-flex items-center px-4 py-2 bg-red-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-white hover:border-red-700 hover:text-red-700 active:bg-white active:border-red-700 active:text-red-700 disabled:opacity-25 transition ease-in-out duration-150"                        
-                            wire:click="{{ isset($wireConfirmAction) ? $wireConfirmAction : '' }}"
-                            wire:loading.attr="disabled"
-                            x-on:click="openConfirm = false"
-                        >Confirm</button>
+                        <div>
+                            <button
+                                type="button"
+                                class="inline-flex items-center px-4 py-2 bg-red-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-white hover:border-red-700 hover:text-red-700 active:bg-white active:border-red-700 active:text-red-700 disabled:opacity-25 transition ease-in-out duration-150"                        
+                                wire:click="{{ isset($wireConfirmAction) ? $wireConfirmAction : '' }}"
+                                wire:loading.attr="disabled"
+                                x-on:click="openConfirm = false"
+                            >Confirm</button>
 
-                        <button
-                            type="button"
-                            class="ml-3 inline-flex items-center px-4 py-2 bg-gray-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-white hover:border-gray-700 hover:text-gray-700 active:bg-white active:border-gray-700 active:text-gray-700 disabled:opacity-25 transition ease-in-out duration-150"
-                            x-on:click="openConfirm = false"
-                            wire:click="{{ isset($wireCancelAction) ? $wireCancelAction : '' }}"
-                            >
-                            Cancel
-                        </button>
+                            <button
+                                type="button"
+                                class="ml-3 inline-flex items-center px-4 py-2 bg-gray-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-white hover:border-gray-700 hover:text-gray-700 active:bg-white active:border-gray-700 active:text-gray-700 disabled:opacity-25 transition ease-in-out duration-150"
+                                x-on:click="openConfirm = false"
+                                wire:click="{{ isset($wireCancelAction) ? $wireCancelAction : '' }}"
+                                >
+                                Cancel
+                            </button>
+                        </div>
                     @endif
                 </div>
             </div>

@@ -35,8 +35,7 @@ class BlogPostFactory extends Factory
             'summary' => $this->faker->text(200),
             'content' => $this->faker->text(1000),
             'blog_author_id' => BlogAuthor::inRandomOrder()->first(),
-            'blog_category_id' => BlogCategory::inRandomOrder()->first(),
-            'featured_image' => 'https://picsum.photos/id/'. rand(0,200). '/1436/960',
+            'blog_category_id' => BlogCategory::inRandomOrder()->first(),            
             'hero' => rand(0,1),
             'top' => rand(0,1)
         ];

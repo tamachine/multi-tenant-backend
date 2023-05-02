@@ -99,37 +99,7 @@ class Edit extends Component
     /**
      * @var array
      */
-    public $images = [];
-
-     /**
-     * @var object
-     */
-    public $image;
-
-    /**
-     * @var object
-     */
-    public $featured;
-
-    /**
-     * @var string
-     */
-    public $featured_url = '';
-
-    /**
-     * @var object
-     */
-    public $featured_hover;
-
-    /**
-     * @var string
-     */
-    public $featured_hover_url = '';
-
-    /**
-     * @var array
-     */
-    public $hours = [];
+    public $hours = [];    
 
     /*
     ***************************************************************
@@ -150,16 +120,10 @@ class Edit extends Component
         $this->author = $post->blog_author_id;
         $this->summary = $post->summary;
         $this->content = $post->content;
-        $this->featured_url = $post->featured_image_url;
-        $this->featured_hover_url = $post->featured_image_hover_url;
-
-        $this->reloadImages();
-
         $this->categories = BlogCategory::pluck('name', 'id');
         $this->authors = BlogAuthor::pluck('name', 'id');
         $this->allTags = BlogTag::pluck('name', 'id');
         $this->tags = $post->tags->pluck('id')->toArray();
-
         $this->hours = hours_dropdown();
     }
 
@@ -170,9 +134,7 @@ class Edit extends Component
         $rules = [
             'title'             => ['required'],
             'category'          => ['required'],
-            'author'            => ['required'],
-            'featured'          => ['nullable', 'mimes:jpeg,jpg,png,gif'],
-            'featured_hover'    => ['nullable', 'mimes:jpeg,jpg,png,gif'],
+            'author'            => ['required'],            
             'summary'           => ['max:1023'],
             'published_at'      => ['date_format:d-m-Y'],
             'published_at_hour' => ['date_format:H:i'],
@@ -180,7 +142,6 @@ class Edit extends Component
 
         $this->validate($rules);       
 
-        // 1. Update the post
         $this->post->update([
             'title'             => $this->title,
             'slug'              => $this->slug ? $this->slug : slugify($this->title),           
@@ -193,80 +154,13 @@ class Edit extends Component
             'blog_author_id'    => $this->author,
         ]);
 
-        // 2. Update the featured image
-        if ($this->featured) {
-            $this->saveImage($this->featured);
-        }
-
-        // 3. Update the featured image hover
-        if ($this->featured_hover) {
-            $this->saveImage($this->featured_hover, true);
-        }
-
-        // 4. Update the tags
         $this->post->tags()->sync($this->tags ?: null);
-
-
 
         session()->flash('status', 'success');
         session()->flash('message', 'Post "' . $this->title . '" updated');
 
         return redirect()->route('intranet.blog.post.index');
-    }
-
-    /**
-     * @param $image
-     * @param $hover
-     * @return void
-     */
-    private function saveImage($image, $hover = false)
-    {
-        $extension = $image->getClientOriginalExtension();
-        $filename = ($hover) ? $this->post->hashid . "_hover." . $extension : $this->post->hashid . "." . $extension;
-        $image->storeAs("public/posts" , $filename);
-
-        $this->post->update([
-            $hover ? 'featured_image_hover' : 'featured_image' => $filename,
-        ]);
-    }
-
-
-    private function reloadImages()
-    {
-        $this->images = [];
-        $images = Storage::disk('public')->files("posts/" . $this->post->hashid);
-
-        foreach ($images as $image) {
-            $this->images[] = [
-                'file' => $image,
-                'route' => 'paco',
-            ];
-        }
-    }
-
-    public function addImage()
-    {
-        $this->dispatchBrowserEvent('validationError');
-
-        $this->validate([
-            'image'      => ['mimes:jpeg,jpg,png,gif'],
-        ],
-        [
-            'image.mimes' => 'The image must be a file of type: jpeg, jpg, png, gif'
-        ]);
-
-        $extension = $this->image->getClientOriginalExtension();
-        $filename = now()->timestamp . "." . $extension;
-        $this->image->storeAs("public/posts/" . $this->post->hashid, $filename);
-
-        $this->reloadImages();
-    }
-
-    public function deleteImage($image)
-    {
-        Storage::disk('public')->delete($image);
-        $this->reloadImages();
-    }
+    }  
 
     public function deletePost()
     {
@@ -281,5 +175,5 @@ class Edit extends Component
     public function render()
     {
         return view('livewire.blog.post.edit');
-    }
+    }   
 }

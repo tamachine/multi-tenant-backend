@@ -15,7 +15,7 @@
         wire:loading.remove       
         >
         <div class="font-fredoka-semibold text-2xl mb-5">{{ $extraPopup->name }}</div>
-        <img class="rounded-xl mb-3" src="{{ $extraPopup->image_url }}" />
+        <img class="rounded-xl mb-3" src="{{ $extraPopup->featured_image_url }}" />
         <div class="font-sans-medium mb-8">{{ $extraPopup->description }}</div>
 
         <div        

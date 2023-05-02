@@ -166,7 +166,7 @@
         </div>
 
         <div x-show="tab == 'images'" style="display:none;">
-            <livewire:admin.car.images :car="$car" />
+            @include('admin.car.images')
         </div>
 
         @if(config('settings.car.seasons'))

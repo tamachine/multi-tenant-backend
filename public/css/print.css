@@ -3705,11 +3705,11 @@ textarea.form-control.is-invalid {
 .m-auto {
   margin: auto;
 }
-.m-\[2px\] {
-  margin: 2px;
-}
 .m-4 {
   margin: 1rem;
+}
+.m-\[2px\] {
+  margin: 2px;
 }
 .my-auto {
   margin-top: auto;
@@ -3861,6 +3861,12 @@ textarea.form-control.is-invalid {
 .mt-10 {
   margin-top: 2.5rem;
 }
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mt-0 {
+  margin-top: 0px;
+}
 .mt-12 {
   margin-top: 3rem;
 }
@@ -3887,9 +3893,6 @@ textarea.form-control.is-invalid {
 }
 .mb-3 {
   margin-bottom: 0.75rem;
-}
-.mb-2 {
-  margin-bottom: 0.5rem;
 }
 .mt-20 {
   margin-top: 5rem;
@@ -4009,6 +4012,9 @@ textarea.form-control.is-invalid {
 .h-4 {
   height: 1rem;
 }
+.h-8 {
+  height: 2rem;
+}
 .h-\[60px\] {
   height: 60px;
 }
@@ -4017,9 +4023,6 @@ textarea.form-control.is-invalid {
 }
 .h-\[600px\] {
   height: 600px;
-}
-.h-8 {
-  height: 2rem;
 }
 .h-24 {
   height: 6rem;
@@ -4161,6 +4164,9 @@ textarea.form-control.is-invalid {
 .w-24 {
   width: 6rem;
 }
+.w-8 {
+  width: 2rem;
+}
 .w-36 {
   width: 9rem;
 }
@@ -4178,9 +4184,6 @@ textarea.form-control.is-invalid {
 }
 .w-32 {
   width: 8rem;
-}
-.w-8 {
-  width: 2rem;
 }
 .w-44 {
   width: 11rem;
@@ -4233,6 +4236,9 @@ textarea.form-control.is-invalid {
 .max-w-xs {
   max-width: 20rem;
 }
+.max-w-md {
+  max-width: 28rem;
+}
 .max-w-\[780px\] {
   max-width: 780px;
 }
@@ -4241,9 +4247,6 @@ textarea.form-control.is-invalid {
 }
 .max-w-\[600px\] {
   max-width: 600px;
-}
-.max-w-md {
-  max-width: 28rem;
 }
 .max-w-\[960px\] {
   max-width: 960px;
@@ -4899,10 +4902,6 @@ textarea.form-control.is-invalid {
 .bg-black\/70 {
   background-color: rgb(0 0 0 / 0.7);
 }
-.bg-red-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(153 27 27 / var(--tw-bg-opacity));
-}
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -5546,6 +5545,10 @@ textarea.form-control.is-invalid {
   --tw-text-opacity: 1;
   color: rgb(67 56 202 / var(--tw-text-opacity));
 }
+.text-gray-200 {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
+}
 .text-\[\#bcbcbc\] {
   --tw-text-opacity: 1;
   color: rgb(188 188 188 / var(--tw-text-opacity));
@@ -5577,10 +5580,6 @@ textarea.form-control.is-invalid {
 .text-green-800 {
   --tw-text-opacity: 1;
   color: rgb(22 101 52 / var(--tw-text-opacity));
-}
-.text-gray-200 {
-  --tw-text-opacity: 1;
-  color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 .text-\[\#9b9b9b\] {
   --tw-text-opacity: 1;
@@ -5676,10 +5675,6 @@ textarea.form-control.is-invalid {
 .ring-black {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(0 0 0 / var(--tw-ring-opacity));
-}
-.ring-red-300 {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(252 165 165 / var(--tw-ring-opacity));
 }
 .ring-opacity-5 {
   --tw-ring-opacity: 0.05;
@@ -5974,13 +5969,13 @@ html, body {
   --tw-bg-opacity: 1;
   background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
+.hover\:bg-blue-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
+}
 .hover\:bg-black-ci:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(22 22 22 / var(--tw-bg-opacity));
-}
-.hover\:bg-red-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
 }
 .hover\:text-gray-600:hover {
   --tw-text-opacity: 1;
@@ -6085,10 +6080,6 @@ html, body {
 .focus\:border-pink-red:focus {
   --tw-border-opacity: 1;
   border-color: rgb(225 17 102 / var(--tw-border-opacity));
-}
-.focus\:border-red-900:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(127 29 29 / var(--tw-border-opacity));
 }
 .focus\:bg-white:focus {
   --tw-bg-opacity: 1;
@@ -6197,10 +6188,6 @@ html, body {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
-.active\:bg-red-900:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
-}
 .active\:text-green-700:active {
   --tw-text-opacity: 1;
   color: rgb(21 128 61 / var(--tw-text-opacity));
@@ -6283,11 +6270,6 @@ html, body {
     margin-right: auto;
   }
 
-  .sm\:mx-4 {
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
-
   .sm\:mt-0 {
     margin-top: 0px;
   }
@@ -6318,10 +6300,6 @@ html, body {
 
   .sm\:w-full {
     width: 100%;
-  }
-
-  .sm\:w-1\/3 {
-    width: 33.333333%;
   }
 
   .sm\:w-1\/2 {
@@ -7383,12 +7361,12 @@ html, body {
     display: none;
   }
 
-  .lg\:w-3\/4 {
-    width: 75%;
-  }
-
   .lg\:w-1\/4 {
     width: 25%;
+  }
+
+  .lg\:w-3\/4 {
+    width: 75%;
   }
 
   .lg\:w-1\/2 {

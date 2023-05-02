@@ -88,10 +88,8 @@ class Payment extends Component
 
         $this->car = Car::find(dehash($sessionData['car']));
 
-        if($this->car->mainImage()) {
-            $this->mainImage = $this->car->mainImage()->assetPath();
-        } elseif (count($this->car->images) > 0) {
-            $this->mainImage = $this->car->images->first()->assetPath();
+        if($this->car->featured_image) {
+            $this->mainImage = $this->car->featured_image_url;
         } else {
             $this->mainImage = asset('images/cars/default-car.svg');
         }

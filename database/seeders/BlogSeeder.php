@@ -41,6 +41,8 @@ class BlogSeeder extends Seeder
             sleep(1); //for published at time
 
             $post->tags()->attach(BlogTag::inRandomOrder()->take(3)->pluck('id')->toArray());
+
+            $post->addImage('https://picsum.photos/id/'. rand(0,200). '/1436/960', '');
         }
     }
 }

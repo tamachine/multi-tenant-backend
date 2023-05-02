@@ -244,8 +244,8 @@
         </div>
 
         <div class="mt-2">
-            @if ($booking->vendor->logo_url)
-                <img src="{{$booking->vendor->logo_url}}" class="w-40">
+            @if ($booking->vendor->featured_image_url)
+                <img src="{{$booking->vendor->featured_image_url}}" class="w-40">
             @else
                 {{$booking->vendor->name}}
             @endif

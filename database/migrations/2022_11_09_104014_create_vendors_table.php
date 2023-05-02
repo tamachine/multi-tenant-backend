@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('vendor_code', 11);
             $table->string('status', 10)->default('active');
             $table->string('brand_color', 9)->default('#249e8f');
-            $table->string('logo')->nullable();
+            $table->unsignedBigInteger('logo')->nullable();
             $table->text('caren_settings')->nullable();
 
             $table->text('long_rental')->nullable();

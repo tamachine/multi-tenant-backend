@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasFeaturedImage;
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,7 +11,9 @@ use Illuminate\Support\Facades\Storage;
 
 class Vendor extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes;
+    use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImage;
+
+    protected $featured_image_attribute = 'logo';
 
     /**
      * The attributes that are mass assignable.
@@ -55,9 +58,7 @@ class Vendor extends Model
      */
     public function getLogoUrlAttribute()
     {
-        return $this->logo
-            ? asset('storage/vendors/' . $this->logo)
-            : '';
+        return $this->featured_image_url;            
     }
 
     /**

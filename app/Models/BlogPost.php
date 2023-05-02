@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\Translatable\HasTranslations;
+use App\Traits\HasUploadImages;
+use App\Traits\HasFeaturedImage;
+use App\Traits\HasFeaturedImageHover;
+use App\Traits\HasImages;
 
 class BlogPost extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasUploadImages, HasFeaturedImage, HasFeaturedImageHover;
 
     /**
      * The attributes that are mass assignable.
@@ -61,44 +65,7 @@ class BlogPost extends Model
     public function getEditUrlAttribute()
     {
         return route('intranet.blog.post.edit', $this->hashid);
-    }
-
-    /**
-     * Get the post's featured image URL
-     *
-     * @return     string
-     */
-    public function getFeaturedImageUrlAttribute()
-    {
-        if (filter_var($this->featured_image, FILTER_VALIDATE_URL)) {
-            return $this->featured_image;
-        } else {
-            return
-                $this->featured_image
-                ? asset('storage/posts/' . $this->featured_image)
-                : '';
-        }
-
-    }
-
-    /**
-     * Get the post's featured image Hover URL
-     *
-     * @return     string
-     */
-    public function getFeaturedImageHoverUrlAttribute()
-    {
-        if (filter_var($this->featured_image_hover, FILTER_VALIDATE_URL)) {
-            return $this->featured_image_hover;
-        } else {
-            return
-                $this->featured_image_hover
-                    ? asset('storage/posts/' . $this->featured_image_hover)
-                    : '';
-        }
-
-    }
-
+    }   
 
     /**
      * Get the post's tags in a single string

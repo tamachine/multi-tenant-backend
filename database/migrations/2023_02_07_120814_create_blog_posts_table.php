@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamp('published_at')->nullable();
             $table->text('summary', 1024)->nullable();
             $table->text('content')->nullable();
-            $table->string('featured_image')->nullable();
+            $table->unsignedBigInteger('featured_image')->nullable();
             $table->unsignedBigInteger('blog_author_id')->nullable()->unsigned()->index();
             $table->unsignedBigInteger('blog_category_id')->nullable()->unsigned()->index();
 

@@ -81,15 +81,7 @@ class Create extends Component
             'meta_description'  => $this->meta_description,
         ]);
 
-        if ($this->photo) {
-            $extension = $this->photo->getClientOriginalExtension();
-            $filename = $author->hashid . "." . $extension;
-            $this->photo->storeAs("public/authors" , $filename);
-
-            $author->update([
-                'photo' => $filename,
-            ]);
-        }
+       
 
         session()->flash('status', 'success');
         session()->flash('message', 'Author "' . $this->name . '" created');
