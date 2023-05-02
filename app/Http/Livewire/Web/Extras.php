@@ -22,6 +22,11 @@ class Extras extends Component
      */
     public $extras;
 
+     /**
+     * @var object
+     */
+    public $allExtras;
+
     /**
      * @var bool
      */
@@ -46,7 +51,8 @@ class Extras extends Component
     public function mount(Car $car)
     {
         $this->car = $car;
-        $this->extras = $this->car->extraList()->take($this->take);
+        $this->allExtras = $this->car->extraList();
+        $this->extras = $this->allExtras->take($this->take);
         $this->setShowMoreButton();
         $this->extraPopup = $this->extras->first();
 
@@ -97,8 +103,7 @@ class Extras extends Component
     public function more()
     {
         $this->extras = $this->car->extraList();
-        $this->setShowMoreButton();
-        $this->showMoreButton = false;
+        $this->setShowMoreButton();       
     }
 
     public function info(Extra $extra)
@@ -108,7 +113,7 @@ class Extras extends Component
 
     protected function setShowMoreButton()
     {
-        $this->showMoreButton = ($this->extras->count() < $this->car->extras->count());
+        $this->showMoreButton = ($this->extras->count() < $this->allExtras->count());
     }
 
     public function continue()
