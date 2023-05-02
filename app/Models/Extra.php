@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Translatable\HasTranslations;
+use App\Apis\Caren\Api;
 
 class Extra extends Model
 {
@@ -34,6 +35,46 @@ class Extra extends Model
     /**********************************
      * Accessors & Mutators
      **********************************/
+
+     /**
+      * Returns the extra price for a car
+      * IMPORTANT! Use this method only if only one extra price must be returned
+      * This method calls caren api for each instance so if a fast data loading is needed, it is better to use $this->getPriceFromCarenExtras
+      * @return double
+      */
+     public function getPriceForCar(Car $car) {
+        if($this->caren_id) {                    
+            $carenExtras = $car->getCarenExtras(); //calls caren in every instance. use getPriceFromCarenExtras better if multiple calls to extra prices
+            
+            return $this->getPriceFromCarenExtras($carenExtras);
+        } else {
+            return $this->price;
+        }        
+     }
+
+     /**
+      * Returns the extra price based on an already caren api call
+      * This method is fastest than getPriceForCar as this one does not call caren api at all
+      * @var array $carenExtras The result of a Api->extraList call
+      * @return double|null
+      */
+     public function getPriceFromCarenExtras(array $carenExtras) {
+        if(!empty($this->caren_id)) { 
+
+            if (isset($carenExtras['Extras'])) {
+                $carenIdKeys = array_column($carenExtras['Extras'],'Id');
+                $carenIdKey  = array_search($this->caren_id, $carenIdKeys);
+
+                if ($carenIdKey !== false) {
+                    return $carenExtras['Extras'][$carenIdKey]; // price found in caren
+                }
+            }
+
+            return null; // if no price found in carenExtra, the price is null
+        } else {
+            return $this->price; // if the extra is not a caren extra, the current price must be returned
+        }        
+     }
 
      /**
      * Get the extra's edit URL
