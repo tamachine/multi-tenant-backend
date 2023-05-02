@@ -102,7 +102,7 @@ class Extras extends Component
 
     public function more()
     {
-        $this->extras = $this->car->extraList();
+        $this->extras = $this->allExtras;
         $this->setShowMoreButton();       
     }
 
