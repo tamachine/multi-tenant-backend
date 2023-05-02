@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('image_path')->unique();
             $table->string('model')->nullable();
-            $table->string('instance_hashid')->nullable();
+            $table->string('instance_id')->nullable();
             $table->string('alt')->nullable();            
             $table->timestamps();
         });

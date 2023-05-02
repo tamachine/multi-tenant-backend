@@ -18,7 +18,7 @@ class ModelImage extends Model
      */
     public $translatable = ['alt'];
 
-    protected $fillable = ['image_path', 'model', 'alt', 'instance_hashid'];
+    protected $fillable = ['image_path', 'model', 'alt', 'instance_id'];
 
     protected $append = ['instance', 'url', 'image_name', 'is_external_url', 'has_webp'];
 
@@ -43,7 +43,7 @@ class ModelImage extends Model
      * @return Model returns the model instance to which the image corresponds
      */
     public function getInstanceAttribute() {
-        return $this->model::findByHashid($this->instance_hashid);
+        return $this->model::find($this->instance_id);
     }
 
     /**

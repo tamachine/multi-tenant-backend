@@ -55,7 +55,7 @@ class ImageGallery extends Component
     protected function setImages() {
         $this->images = [];
 
-        $this->images = $this->model->getImages();                
+        $this->images = $this->model->images()->get();                
     }
 
     public function mount() {       
