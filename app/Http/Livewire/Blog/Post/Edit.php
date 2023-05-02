@@ -120,24 +120,11 @@ class Edit extends Component
         $this->author = $post->blog_author_id;
         $this->summary = $post->summary;
         $this->content = $post->content;
-<<<<<<< HEAD
-=======
-        $this->featured_url = $post->featured_image_url;
-        $this->featured_hover_url = $post->featured_image_hover_url;
-
-        $this->reloadImages();
-
->>>>>>> aaf332279504b156266e994b2f294b0ff1dd2c3b
         $this->categories = BlogCategory::pluck('name', 'id');
         $this->authors = BlogAuthor::pluck('name', 'id');
         $this->allTags = BlogTag::pluck('name', 'id');
         $this->tags = $post->tags->pluck('id')->toArray();
-<<<<<<< HEAD
-        $this->hours = hours_dropdown();       
-=======
-
         $this->hours = hours_dropdown();
->>>>>>> aaf332279504b156266e994b2f294b0ff1dd2c3b
     }
 
     public function savePost()
@@ -145,18 +132,9 @@ class Edit extends Component
         $this->dispatchBrowserEvent('validationError');
 
         $rules = [
-<<<<<<< HEAD
-
             'title'             => ['required'],
             'category'          => ['required'],
             'author'            => ['required'],            
-=======
-            'title'             => ['required'],
-            'category'          => ['required'],
-            'author'            => ['required'],
-            'featured'          => ['nullable', 'mimes:jpeg,jpg,png,gif'],
-            'featured_hover'    => ['nullable', 'mimes:jpeg,jpg,png,gif'],
->>>>>>> aaf332279504b156266e994b2f294b0ff1dd2c3b
             'summary'           => ['max:1023'],
             'published_at'      => ['date_format:d-m-Y'],
             'published_at_hour' => ['date_format:H:i'],
