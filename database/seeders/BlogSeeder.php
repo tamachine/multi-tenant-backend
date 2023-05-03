@@ -35,14 +35,16 @@ class BlogSeeder extends Seeder
 
         //Create 20 posts
         for ($i = 1; $i <= 20; $i++) {
-            $post = BlogPost::factory()            
-            ->create();  
+            $post = BlogPost::factory()->create();  
             
-            sleep(1); //for published at time
+            sleep(1); //for published_at time
 
             $post->tags()->attach(BlogTag::inRandomOrder()->take(3)->pluck('id')->toArray());
 
-            $post->addImage('https://picsum.photos/id/'. rand(0,200). '/1436/960', '');
+            $post->featured_image = $post->addImage('https://picsum.photos/id/'. rand(0,200). '/1436/960', '');
+
+            $post->save();
+            
         }
     }
 }
