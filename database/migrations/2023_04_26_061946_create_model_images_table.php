@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('model_images', function (Blueprint $table) {
             $table->id();
             $table->string('image_path')->unique();
-            $table->string('model')->nullable();
+            $table->string('instance_type')->nullable();
             $table->string('instance_id')->nullable();
             $table->string('alt')->nullable();            
             $table->timestamps();
