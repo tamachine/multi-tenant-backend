@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\HasImages;
+use App\Traits\HasUploadImages;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use App\Traits\HasWebp;
@@ -10,7 +10,7 @@ use Spatie\Translatable\HasTranslations;
 
 class ModelImage extends Model
 {  
-    use HasWebp, HasTranslations, HasImages;
+    use HasWebp, HasTranslations, HasUploadImages;
 
     /**
      * The attributes that are translatable.
@@ -21,7 +21,7 @@ class ModelImage extends Model
 
     protected $fillable = ['image_path', 'instance_type', 'instance_id', 'alt'];
 
-    protected $append = ['url', 'image_name', 'is_external_url', 'has_webp'];
+    protected $append = ['url', 'image_name', 'is_external_url', 'has_webp', 'webp_url'];
 
     /**
      * SCOPES ------------
@@ -75,6 +75,17 @@ class ModelImage extends Model
         }
         
         return false;
+    }
+
+     /** Returns the url for the webpImage
+     * @return string
+     */
+    public function getWebpUrlAttribute() {
+        if($this->has_webp) {
+            return $this->getWebpFullImagePath($this->url);
+        }
+        
+        return null;
     }
 
     /**
