@@ -1,15 +1,15 @@
 <div class="rounded-2lg flex flex-col git push bg-white">
     <div class="bg-[#f4f5f6] rounded-t-2lg">
         <div
-            class="w-80 h-48 text-gray-600 group flex justify-center {{ $noImages ? 'items-end' : 'items-center' }} relative">
+            class="w-80 h-48 text-gray-600 group flex justify-center items-center relative">
             @if ($hasHover)
                 <x-image :modelImage="$mainImageModelImage" :path="$mainImagePath" class="absolute rounded-t-2lgl w-80 max-h-48 object-cover object-center transition ease-in-out opacity-100 group-hover:opacity-0 duration-300" />
                 <x-image :modelImage="$secondaryImage" class="absolute rounded-t-2lg w-80 max-h-48 object-cover object-center transition ease-in-out opacity-0 group-hover:opacity-100 duration-300" />                
             @else
-                @if ($noImages)                
-                    <x-image :modelImage="$mainImageModelImage" :path="$mainImagePath" class="rounded-t-2lg p-7" />                    
+                @if ($mainImagePath)                
+                    <x-image :path="$mainImagePath" class="rounded-t-2lg p-7" />                    
                 @else
-                    <x-image :modelImage="$mainImageModelImage" :path="$mainImagePath" class="rounded-t-2lg w-80 max-h-48 object-cover object-center" />                    
+                    <x-image :modelImage="$mainImageModelImage" class="rounded-t-2lg w-80 max-h-48 object-cover object-center" />                    
                 @endif
             @endif
 

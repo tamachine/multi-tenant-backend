@@ -10,7 +10,6 @@ class CarCard extends Component
 {
     public $car;
 
-    protected $mainImage;
     protected $secondaryImage;
     protected $mainImageModelImage = null;    
     protected $mainImagePath = null;    
@@ -40,31 +39,24 @@ class CarCard extends Component
                 'hasHover' => $this->hasHover(),
                 'mainImageModelImage' => $this->mainImageModelImage,
                 'mainImagePath' => $this->mainImagePath,
-                'secondaryImage' => $this->secondaryImage,
-                'noImages' => !$this->hasImages(),                
+                'secondaryImage' => $this->secondaryImage,            
             ]
         );
     }       
-
-    protected function hasImages() {
-        return ($this->mainImage != null);
-    }    
 
     protected function hasHover() {
         return ($this->secondaryImage != null);
     }   
 
     protected function setImages() {
-        if($this->car->featured_image) {
-            $this->mainImage = $this->car->getFeaturedImageModelImageInstance(); 
-            $this->mainImageModelImage = $this->mainImage;
+        if($this->car->featured_image) {           
+            $this->mainImageModelImage = $this->car->getFeaturedImageModelImageInstance(); 
 
             if($this->car->featured_image_hover) {
                 $this->secondaryImage = $this->car->getFeaturedImagaHoverModelImageInstance(); 
             }
-        } else {
-            $this->mainImage = 'images/cars/default-car.svg';
-            $this->mainImagePath = $this->mainImage;
+        } else {            
+            $this->mainImagePath = 'images/cars/default-car.svg';
         }
     }    
 }
