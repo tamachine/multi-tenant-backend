@@ -104,7 +104,7 @@ class Image extends Component
      * Sets the ModelImage instance for a fullKey or a path
      */
     protected function setImage() {
-        if(!$this->image){
+        if($this->image !== null){
             if($this->fullKey) {
                 $this->setImageForWebImage();
              } elseif ($this->path) {

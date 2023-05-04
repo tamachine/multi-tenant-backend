@@ -61,6 +61,6 @@ class BlogController extends BaseController
 
     protected function footerImagePath(): string
     {
-        return asset('/images/footer/blog.png');
+        return '/images/footer/blog.png';
     }
 }
