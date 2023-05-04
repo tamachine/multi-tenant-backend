@@ -12,6 +12,8 @@ class CarCard extends Component
 
     protected $mainImage;
     protected $secondaryImage;
+    protected $mainImageModelImage = null;    
+    protected $mainImagePath = null;    
 
     /**
      * Create a new component instance.
@@ -36,7 +38,8 @@ class CarCard extends Component
             'components.car-card',
             [
                 'hasHover' => $this->hasHover(),
-                'mainImage' => $this->mainImage,
+                'mainImageModelImage' => $this->mainImageModelImage,
+                'mainImagePath' => $this->mainImagePath,
                 'secondaryImage' => $this->secondaryImage,
                 'noImages' => !$this->hasImages(),                
             ]
@@ -53,13 +56,15 @@ class CarCard extends Component
 
     protected function setImages() {
         if($this->car->featured_image) {
-            $this->mainImage = $this->car->featured_image_url;
+            $this->mainImage = $this->car->getFeaturedImageModelImageInstance(); 
+            $this->mainImageModelImage = $this->mainImage;
 
             if($this->car->featured_image_hover) {
-                $this->secondaryImage = $this->car->featured_image_hover_url;    
+                $this->secondaryImage = $this->car->getFeaturedImagaHoverModelImageInstance(); 
             }
         } else {
-            $this->mainImage = asset('images/cars/default-car.svg');
+            $this->mainImage = 'images/cars/default-car.svg';
+            $this->mainImagePath = $this->mainImage;
         }
     }    
 }

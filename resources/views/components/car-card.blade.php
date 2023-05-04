@@ -3,13 +3,13 @@
         <div
             class="w-80 h-48 text-gray-600 group flex justify-center {{ $noImages ? 'items-end' : 'items-center' }} relative">
             @if ($hasHover)
-                {!! webpImage($mainImage, "absolute rounded-t-2lgl transition ease-in-out opacity-100 group-hover:opacity-0 duration-300") !!}
-                {!! webpImage($secondaryImage, "absolute rounded-t-2lg w-80 max-h-48 object-cover object-center transition ease-in-out opacity-0 group-hover:opacity-100 duration-300") !!}
+                <x-image :modelImage="$mainImageModelImage" :path="$mainImagePath" class="absolute rounded-t-2lgl w-80 max-h-48 object-cover object-center transition ease-in-out opacity-100 group-hover:opacity-0 duration-300" />
+                <x-image :modelImage="$secondaryImage" class="absolute rounded-t-2lg w-80 max-h-48 object-cover object-center transition ease-in-out opacity-0 group-hover:opacity-100 duration-300" />                
             @else
                 @if ($noImages)
-                    {!! webpImage($mainImage, "rounded-t-2lg p-7") !!}
+                    <x-image :modelImage="$mainImageModelImage" :path="$mainImagePath" class="rounded-t-2lg p-7" />                    
                 @else
-                    {!! webpImage($mainImage, "rounded-t-2lg w-80 max-h-48 object-cover object-center") !!}
+                    <x-image :modelImage="$mainImageModelImage" :path="$mainImagePath" class="rounded-t-2lg w-80 max-h-48 object-cover object-center" />                    
                 @endif
             @endif
 
