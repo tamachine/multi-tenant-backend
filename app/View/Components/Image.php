@@ -55,15 +55,16 @@ class Image extends Component
     protected $image;
     
     /**
-     * It is mandatory to receive a fullKey (WebImage) or a path (path for an asset or external url)
+     * It is mandatory to receive a modelImage object, or afullKey (WebImage) or a path (path for an asset or external url)
      * @var string $fullKey The full key for the db stored image (WebImage model)
      * @var string $path The path for the asset. Note: not the 'asset($path)' but only the '$path'
      * @var array  $altForPath The translated alt for the image in case we are receiving a $path param
      *
      * @return void
      */
-    public function __construct($fullKey = null, $path = null, $altForPath = [])
+    public function __construct(ModelImage $modelImage = null, $fullKey = null, $path = null, $altForPath = [])
     {        
+        $this->image   = $modelImage;
         $this->fullKey = $fullKey;
         $this->path    = $path;
         $this->altForPath = $altForPath;
@@ -92,22 +93,24 @@ class Image extends Component
     }
 
     /**
-     * This component needs either a fullKey or a path
+     * This component needs either a modelImage or afullKey or a path
      * @return boolean
      */
     protected function checkParams() {        
-        return ($this->fullKey || $this->path);
+        return ($this->fullKey || $this->path || $this->image);
     }
 
     /**
      * Sets the ModelImage instance for a fullKey or a path
      */
     protected function setImage() {
-        if($this->fullKey) {
-           $this->setImageForWebImage();
-        } elseif ($this->path) {
-            $this->setImageForPath();
-        }
+        if(!$this->image){
+            if($this->fullKey) {
+                $this->setImageForWebImage();
+             } elseif ($this->path) {
+                 $this->setImageForPath();
+             }
+        }        
     }
 
     /**
