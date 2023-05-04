@@ -7,7 +7,11 @@
     
     {!! $text !!}
     </p>
-    <div x-on:click="showReadMore= false" x-show="showReadMore" class="md:hidden pt-6 cursor-pointer font-sans-medium font-medium">
-        {!! __('general.read-more') !!} <img class="inline" src="{{ asset($imagePath) }}" />
+    <div x-on:click="showReadMore = !showReadMore" class="md:hidden pt-6 cursor-pointer font-sans-medium font-medium">
+        <p x-show="showReadMore" class="inline">{!! __('general.read-more') !!} </p>
+        <img x-show="showReadMore" class="inline" src="{{ asset($arrowOpen) }}" />
+
+        <p x-show="!showReadMore" class="inline">{!! __('general.read-less') !!} </p>
+        <img x-show="!showReadMore" class="inline" src="{{ asset($arrowClose) }}" />
     </div>
 </div>
