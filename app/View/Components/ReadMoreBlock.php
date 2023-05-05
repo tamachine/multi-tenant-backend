@@ -21,11 +21,19 @@ class ReadMoreBlock extends Component
     public $reverseTextAlign;
 
     /**
-     * The image path
+     * Read more arrow
      *
      * @var string
      */
-    public $imagePath;
+    public $arrowOpen;
+
+
+    /**
+     * Read less arrow
+     *
+     * @var string
+     */
+    public $arrowClose;
     
 
     /**
@@ -33,11 +41,12 @@ class ReadMoreBlock extends Component
      *
      * @return void
      */
-    public function __construct($text, $reverseTextAlign = false, $imagePath = 'images/icons/read-more.svg')
+    public function __construct($text, $reverseTextAlign = false, $arrowOpen = 'images/icons/read-more.svg', $arrowClose = 'images/icons/read-less.svg')
     {
         $this->text = $text;
         $this->reverseTextAlign = $reverseTextAlign;   
-        $this->imagePath = $imagePath;     
+        $this->arrowOpen = $arrowOpen;     
+        $this->arrowClose = $arrowClose;     
     }
 
     /**

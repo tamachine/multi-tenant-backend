@@ -47,6 +47,16 @@ class GeneralSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'general',
+                'key' => 'read-less',
+            ],
+            [
+                'text' => ['en' => 'Read less', 'es' => 'Leer menos'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'general',
                 'key' => 'after-meridiem',
             ],
             [
