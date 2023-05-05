@@ -11,12 +11,12 @@ use Spatie\Translatable\HasTranslations;
 use App\Traits\HasUploadImages;
 use App\Traits\HasFeaturedImage;
 use App\Traits\HasFeaturedImageHover;
-use App\Traits\HasImages;
+use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
-class BlogPost extends Model
+class BlogPost extends Model implements LocalizedUrlRoutable
 {
     use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasUploadImages, HasFeaturedImage, HasFeaturedImageHover;
-
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -44,6 +44,17 @@ class BlogPost extends Model
     protected $casts = [
         'published_at'    => 'datetime',
     ];
+
+    /**
+     * Returns for a given locale the translated slug
+     * It is used for translatable routes in mcnamara localization package. 
+     * This method has to be defined when implementing LocalizedUrlRoutable
+     * @return string
+     */
+    public function getLocalizedRouteKey($locale)
+    {
+        return $this->getTranslation('slug', $locale);
+    }
 
     /**********************************
      * Accessors & Mutators

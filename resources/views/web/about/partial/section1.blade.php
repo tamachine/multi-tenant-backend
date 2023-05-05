@@ -11,12 +11,12 @@
 
     <div class="flex flex-col w-full h-full gap-3">
         <div>
-            {!! webpImage("images/about/about-our-1.png", "object-cover rounded-xl w-full") !!}
+            {!! webpImage("/images/about/about-our-1.png", "object-cover rounded-xl w-full") !!}
         </div>
         <div>
             <div class="grid grid-cols-2 w-full gap-4 justify-between">                
-                {!! webpImage("images/about/about-our-2.png", "object-cover rounded-xl w-full") !!}
-                {!! webpImage("images/about/about-our-3.png", "object-cover rounded-xl w-full") !!}                
+                {!! webpImage("/images/about/about-our-2.png", "object-cover rounded-xl w-full") !!}
+                {!! webpImage("/images/about/about-our-3.png", "object-cover rounded-xl w-full") !!}                
             </div>
         </div>
     </div>

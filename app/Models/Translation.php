@@ -21,6 +21,10 @@ class Translation extends LanguageLine
         return $this->group . "." . $this->key;
     }    
 
+    public function scopeFindByFullKey($query, $fullKey) {        
+        return $query->whereRaw("CONCAT(`group`, '.', `key`) = ?", ["{$fullKey}"])->first();
+    }
+
     /**********************************
     * Scopes
     **********************************/

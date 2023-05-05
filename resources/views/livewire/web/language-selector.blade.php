@@ -21,7 +21,7 @@
                         class="hover:text-pink-red"
                         :class="selectedOption == '{{ $code }}' ? 'text-pink-red' : 'text-black-primary'"
                         x-on:click="select('{{ $code }}')"
-                        wire:click="changeLanguage('{{ $code }}')"
+                        wire:click="changeLanguage('{{ $code }}', '{{ LaravelLocalization::getLocalizedURL($code) }}')"
                         >
                         {!! __('general.languages-'.$code) !!}
                     </a>

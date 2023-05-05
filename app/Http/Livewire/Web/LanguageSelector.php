@@ -29,11 +29,11 @@ class LanguageSelector extends Component
         $this->route = request()->route() ? request()->route()->getName() : null;
     }
 
-    public function changeLanguage($code)
+    public function changeLanguage($code, $urlToRedirect)
     {
         Language::setLanguageInSession($code);
-
-        return redirect()->route($this->route);
+        
+        return redirect($urlToRedirect);
     }
 
     public function changeCurrency($code)
