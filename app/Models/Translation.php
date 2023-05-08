@@ -29,6 +29,10 @@ class Translation extends LanguageLine
     * Scopes
     **********************************/
 
+    public function scopeWithoutRoutes($query) {
+        return $query->where('group', '!=', 'routes');
+    }
+
     /**
      * Scope to search the model
      *
@@ -38,7 +42,7 @@ class Translation extends LanguageLine
      * @return     object  Illuminate\Database\Query\Builder
      */
     public function scopeLivewireSearch($query, $search)
-    {
+    {        
         if (!empty($search)) {
             
             $term = '%'.$search.'%';
@@ -46,10 +50,10 @@ class Translation extends LanguageLine
             $query->where('text', 'like', $term)
                 ->orWhere('group', 'like', $term)
                 ->orWhere('key', 'like', $term)
-                ->orWhereRaw("CONCAT_WS('.', `group`, `key`) like ?", $term);                                               
+                ->orWhereRaw("CONCAT_WS('.', `group`, `key`) like ?", $term);                                          
         }      
         
-        return $query;
+        return $query->withoutRoutes();
     }
 
     
