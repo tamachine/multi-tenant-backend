@@ -102,9 +102,9 @@ Route::group(
     /* Booking process */
     Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');
     Route::get(LaravelLocalization::transRoute('routes.cars'), [CarsController::class, 'index'])->name('cars');
-    Route::get('/{car_hashid}/insurances', [InsurancesController::class, 'index'])->name('insurances');
-    Route::get('/{car_hashid}/extras', [ExtrasController::class, 'index'])->name('extras');
-    Route::get('/{car_hashid}/summary', [SummaryController::class, 'index'])->name('summary');
+    Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/insurances'), [InsurancesController::class, 'index'])->name('insurances');
+    Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/extras'), [ExtrasController::class, 'index'])->name('extras');
+    Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/summary'), [SummaryController::class, 'index'])->name('summary');
     Route::get(LaravelLocalization::transRoute('routes.payment'), [PaymentController::class, 'index'])->name('payment');
     Route::get(LaravelLocalization::transRoute('routes.success'), [SuccessController::class, 'index'])->name('success');
 

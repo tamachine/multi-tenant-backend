@@ -154,6 +154,36 @@ class UrlsSeeder extends Seeder
                 'text' => ['en' => 'success', 'es' => 'confirmacion'],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => '{car_hashid}/insurances',
+            ],
+            [
+                'text' => ['en' => '{car_hashid}/insurances', 'es' => '{car_hashid}/seguros'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => '{car_hashid}/extras',
+            ],
+            [
+                'text' => ['en' => '{car_hashid}/extras', 'es' => '{car_hashid}/extras'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => '{car_hashid}/summary',
+            ],
+            [
+                'text' => ['en' => '{car_hashid}/summary', 'es' => '{car_hashid}/sumario'],
+            ]
+        );
        
     }
 }
