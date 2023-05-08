@@ -80,6 +80,9 @@ Route::group(
             ->name('logout');
     });
 
+    /** 
+     * URLs are defined in UrlsSeeder class because they are stored in database
+     * **/
 
     /* Static pages */
     Route::get(LaravelLocalization::transRoute('routes.about'), [AboutController::class, 'index'])->name('about');
@@ -89,13 +92,12 @@ Route::group(
 
     /* Blog */
     Route::get(LaravelLocalization::transRoute('routes.blog'), [BlogController::class, 'index'])->name('blog'); 
-    Route::get(LaravelLocalization::transRoute('routes.blog-preview-{blog_post_slug}'), [BlogController::class, 'preview'])->name('blog.preview'); 
-    Route::get(LaravelLocalization::transRoute('routes.blog-search'), [BlogSearchStringController::class, 'index'])->name('blog.search.string');
+    Route::get(LaravelLocalization::transRoute('routes.blog/preview/{blog_post_slug}'), [BlogController::class, 'preview'])->name('blog.preview'); 
+    Route::get(LaravelLocalization::transRoute('routes.blog/search'), [BlogSearchStringController::class, 'index'])->name('blog.search.string');
     Route::get(LaravelLocalization::transRoute('routes.blog/category/{blog_category_slug}'), [BlogSearchCategoryController::class, 'index'])->name('blog.search.category');
-    Route::get('/blog/tag/{blog_tag_slug}', [BlogSearchTagController::class, 'index'])->name('blog.search.tag');
-    Route::get('/blog/author/{blog_author_slug}', [BlogSearchAuthorController::class, 'index'])->name('blog.search.author');    
-    Route::get(LaravelLocalization::transRoute('routes.blog-post-{blog_post_slug}'), [BlogController::class, 'show'])->name('blog.show'); 
-    
+    Route::get(LaravelLocalization::transRoute('routes.blog/tag/{blog_tag_slug}'), [BlogSearchTagController::class, 'index'])->name('blog.search.tag');
+    Route::get(LaravelLocalization::transRoute('routes.blog/author/{blog_author_slug}'), [BlogSearchAuthorController::class, 'index'])->name('blog.search.author');    
+    Route::get(LaravelLocalization::transRoute('routes.blog/post/{blog_post_slug}'), [BlogController::class, 'show'])->name('blog.show');     
 
     /* Booking process */
     Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');

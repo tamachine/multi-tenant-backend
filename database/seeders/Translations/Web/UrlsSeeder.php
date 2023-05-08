@@ -57,7 +57,7 @@ class UrlsSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'routes',
-                'key' => 'blog-post-{blog_post_slug}',
+                'key' => 'blog/post/{blog_post_slug}',
             ],
             [
                 'text' => ['en' => 'blog/post/{blog_post_slug}', 'es' => 'blog/post/{blog_post_slug}'],
@@ -67,7 +67,7 @@ class UrlsSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'routes',
-                'key' => 'blog-preview-{blog_post_slug}',
+                'key' => 'blog/preview/{blog_post_slug}',
             ],
             [
                 'text' => ['en' => 'blog/preview/{blog_post_slug}', 'es' => 'blog/previsualización/{blog_post_slug}'],
@@ -77,7 +77,7 @@ class UrlsSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'routes',
-                'key' => 'blog-search',
+                'key' => 'blog/search',
             ],
             [
                 'text' => ['en' => 'blog/search', 'es' => 'blog/busqueda'],
@@ -93,6 +93,27 @@ class UrlsSeeder extends Seeder
                 'text' => ['en' => 'blog/category/{blog_category_slug}', 'es' => 'blog/categoria/{blog_category_slug}'],
             ]
         );        
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'blog/tag/{blog_tag_slug}',
+            ],
+            [
+                'text' => ['en' => 'blog/tag/{blog_tag_slug}', 'es' => 'blog/tag/{blog_tag_slug}'],
+            ]
+        );     
+
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'blog/author/{blog_author_slug}',
+            ],
+            [
+                'text' => ['en' => 'blog/author/{blog_author_slug}', 'es' => 'blog/autor/{blog_author_slug}'],
+            ]
+        );   
 
         Translation::firstOrCreate(
             [
