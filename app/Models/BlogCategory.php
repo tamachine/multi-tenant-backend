@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Translatable\HasTranslations;
+use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
-class BlogCategory extends Model
+class BlogCategory extends Model implements LocalizedUrlRoutable
 {
     use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
 
@@ -31,6 +32,16 @@ class BlogCategory extends Model
 
     protected $append = ['url'];
 
+     /**
+     * Returns for a given locale the translated slug
+     * It is used for translatable routes in mcnamara localization package. 
+     * This method has to be defined when implementing LocalizedUrlRoutable
+     * @return string
+     */
+    public function getLocalizedRouteKey($locale)
+    {
+        return $this->getTranslation('slug', $locale);
+    }
 
     /**********************************
      * Accessors & Mutators

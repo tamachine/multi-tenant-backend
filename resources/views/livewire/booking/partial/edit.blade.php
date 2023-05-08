@@ -210,6 +210,7 @@
                         <option value="confirmed">Confirmed</option>
                         <option value="concluded">Concluded</option>
                         <option value="canceled">Canceled</option>
+                        <option value="noshow">No Show</option>
                     </select>
                 </div>
 

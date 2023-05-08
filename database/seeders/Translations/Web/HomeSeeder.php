@@ -16,6 +16,16 @@ class HomeSeeder extends Seeder
     {
         Translation::firstOrCreate(
             [
+                'group' => 'url',
+                'key' => 'tamara',
+            ],
+            [
+                'text' => ['en' => 'tamara-en', 'es' => 'tamara-es'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
                 'group' => 'home',
                 'key' => 'title',
             ],

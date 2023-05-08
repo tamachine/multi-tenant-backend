@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('model_images', function (Blueprint $table) {
-            $table->id();
-            $table->string('image_path')->unique();
-            $table->string('instance_type')->nullable();
-            $table->string('instance_id')->nullable();
-            $table->string('alt')->nullable();            
+        Schema::create('web_images', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('hashid')->nullable()->index();
+            $table->string('group')->index();
+            $table->string('key');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('model_images');
+        Schema::dropIfExists('web_images');
     }
 };
