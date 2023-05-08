@@ -16,7 +16,7 @@ class ContactController extends BaseController
 
     protected function footerImagePath() : string
     {
-        return asset('/images/footer/contact.jpg');
+        return '/images/footer/contact.jpg';
     }
 }
 
