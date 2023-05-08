@@ -22,7 +22,10 @@ class ApplyPreferredLanguageToLanguageSession
     /**
      * Apply the prefrred language to the locale session
      */
-    protected function apply() {                      
+    protected function apply() {  
+        
+        $this->checkIfAccessingWithPrefix();
+
         if($this->firstRequest()) {                                      
             Language::setSession($this->preferredLanguage);            
             $this->notFirstRequestAnyMore();            
@@ -36,6 +39,15 @@ class ApplyPreferredLanguageToLanguageSession
     protected function notFirstRequestAnyMore() {
         session([$this->firstRequestSessionName => time()]);        
     }        
+
+    /**
+     * If we access with a prefix, we don't have to check for the user's preferred language
+     */
+    protected function checkIfAccessingWithPrefix() {
+        if(Language::accessingWithPrefixCode()) {               
+            $this->notFirstRequestAnyMore();  
+        } 
+    }
 }
 
 ?>

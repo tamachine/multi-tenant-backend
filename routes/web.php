@@ -29,6 +29,7 @@ use App\Http\Controllers\Web\BlogSearchAuthorController;
 use App\Http\Controllers\Web\TermsAndConditionsController;
 use App\Http\Controllers\Web\LandingCarsController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,64 +41,82 @@ use App\Http\Controllers\Web\LandingCarsController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(), 
+        'middleware' => [ 'localize' ]
+    ],  function()
+{
 
-/* Auth */
-Route::middleware('guest')->group(function () {
-    Route::get('login', Login::class)
-        ->name('login');
+    /**
+     * Fix for the issue:
+     * When a Livewire component makes a request after the page has been loaded, it changes the current locale to a different locale.
+     */
+    Route::post('livewire/message/{name}', '\Livewire\Controllers\HttpConnectionHandler');
+    
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+
+    /* Auth */
+    Route::middleware('guest')->group(function () {
+        Route::get('login', Login::class)
+            ->name('login');
+    });
+
+    Route::get('password/reset', Email::class)
+        ->name('password.request');
+
+    Route::get('password/reset/{token}', Reset::class)
+        ->name('password.reset');
+
+    Route::middleware('auth')->group(function () {
+        Route::get('email/verify', Verify::class)
+            ->middleware('throttle:6,1')
+            ->name('verification.notice');
+
+        Route::get('password/confirm', Confirm::class)
+            ->name('password.confirm');
+    });
+
+    Route::middleware('auth')->group(function () {
+        Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
+            ->middleware('signed')
+            ->name('verification.verify');
+
+        Route::post('logout', LogoutController::class)
+            ->name('logout');
+    });
+
+    /** 
+     * URLs are defined in UrlsSeeder class because they are stored in database
+     * **/
+
+    /* Static pages */
+    Route::get(LaravelLocalization::transRoute('routes.about'), [AboutController::class, 'index'])->name('about');
+    Route::get(LaravelLocalization::transRoute('routes.contact'), [ContactController::class, 'index'])->name('contact');
+    Route::get(LaravelLocalization::transRoute('routes.faq'), [FaqController::class, 'index'])->name('faq');
+    Route::get(LaravelLocalization::transRoute('routes.terms-and-conditions'), [TermsAndConditionsController::class, 'index'])->name('terms');
+
+    /* Blog */
+    Route::get(LaravelLocalization::transRoute('routes.blog'), [BlogController::class, 'index'])->name('blog'); 
+    Route::get(LaravelLocalization::transRoute('routes.blog/preview/{blog_post_slug}'), [BlogController::class, 'preview'])->name('blog.preview'); 
+    Route::get(LaravelLocalization::transRoute('routes.blog/search'), [BlogSearchStringController::class, 'index'])->name('blog.search.string');
+    Route::get(LaravelLocalization::transRoute('routes.blog/category/{blog_category_slug}'), [BlogSearchCategoryController::class, 'index'])->name('blog.search.category');
+    Route::get(LaravelLocalization::transRoute('routes.blog/tag/{blog_tag_slug}'), [BlogSearchTagController::class, 'index'])->name('blog.search.tag');
+    Route::get(LaravelLocalization::transRoute('routes.blog/author/{blog_author_slug}'), [BlogSearchAuthorController::class, 'index'])->name('blog.search.author');    
+    Route::get(LaravelLocalization::transRoute('routes.blog/post/{blog_post_slug}'), [BlogController::class, 'show'])->name('blog.show');     
+
+    /* Booking process */
+    Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');
+    Route::get(LaravelLocalization::transRoute('routes.cars'), [CarsController::class, 'index'])->name('cars');
+    Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/insurances'), [InsurancesController::class, 'index'])->name('insurances');
+    Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/extras'), [ExtrasController::class, 'index'])->name('extras');
+    Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/summary'), [SummaryController::class, 'index'])->name('summary');
+    Route::get(LaravelLocalization::transRoute('routes.payment'), [PaymentController::class, 'index'])->name('payment');
+    Route::get(LaravelLocalization::transRoute('routes.success'), [SuccessController::class, 'index'])->name('success');
+
+    /* landings */
+    Route::get(LaravelLocalization::transRoute('routes.cars/small-medium'), [LandingCarsController::class, 'small'])->name('cars.small');
+    Route::get(LaravelLocalization::transRoute('routes.cars/large'), [LandingCarsController::class, 'large'])->name('cars.large');
+    Route::get(LaravelLocalization::transRoute('routes.cars/premium'), [LandingCarsController::class, 'premium'])->name('cars.premium');
+
 });
-
-Route::get('password/reset', Email::class)
-    ->name('password.request');
-
-Route::get('password/reset/{token}', Reset::class)
-    ->name('password.reset');
-
-Route::middleware('auth')->group(function () {
-    Route::get('email/verify', Verify::class)
-        ->middleware('throttle:6,1')
-        ->name('verification.notice');
-
-    Route::get('password/confirm', Confirm::class)
-        ->name('password.confirm');
-});
-
-Route::middleware('auth')->group(function () {
-    Route::get('email/verify/{id}/{hash}', EmailVerificationController::class)
-        ->middleware('signed')
-        ->name('verification.verify');
-
-    Route::post('logout', LogoutController::class)
-        ->name('logout');
-});
-
-
-/* Static pages */
-Route::get('/about-us', [AboutController::class, 'index'])->name('about');
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::get('/faq', [FaqController::class, 'index'])->name('faq');
-Route::get('/terms-and-conditions', [TermsAndConditionsController::class, 'index'])->name('terms');
-
-/* Blog */
-Route::get('/blog', [BlogController::class, 'index'])->name('blog'); 
-Route::get('/blog/preview/{blog_post_slug}', [BlogController::class, 'preview'])->name('blog.preview'); 
-Route::get('/blog/search', [BlogSearchStringController::class, 'index'])->name('blog.search.string');
-Route::get('/blog/category/{blog_category_slug}', [BlogSearchCategoryController::class, 'index'])->name('blog.search.category');
-Route::get('/blog/tag/{blog_tag_slug}', [BlogSearchTagController::class, 'index'])->name('blog.search.tag');
-Route::get('/blog/author/{blog_author_slug}', [BlogSearchAuthorController::class, 'index'])->name('blog.search.author');
-Route::get('/blog/post/{blog_post_slug}', [BlogController::class, 'show'])->name('blog.show'); 
-
-/* Booking process */
-Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');
-Route::get('/cars', [CarsController::class, 'index'])->name('cars');
-Route::get('/{car_hashid}/insurances', [InsurancesController::class, 'index'])->name('insurances');
-Route::get('/{car_hashid}/extras', [ExtrasController::class, 'index'])->name('extras');
-Route::get('/{car_hashid}/summary', [SummaryController::class, 'index'])->name('summary');
-Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
-Route::get('/success', [SuccessController::class, 'index'])->name('success');
-
-/* landings */
-Route::get('/cars/small-medium', [LandingCarsController::class, 'small'])->name('cars.small');
-Route::get('/cars/large', [LandingCarsController::class, 'large'])->name('cars.large');
-Route::get('/cars/premium', [LandingCarsController::class, 'premium'])->name('cars.premium');

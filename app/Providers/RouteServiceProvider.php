@@ -7,6 +7,8 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use App\Helpers\Language;
+use App;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -126,17 +128,22 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function defineRoutes()
     {
-        $this->routes(function () {
-            Route::middleware('web')
-                ->group(base_path('routes/web.php'));
-
-            Route::prefix('api')
-                ->middleware(['api', 'auth:sanctum'])
-                ->namespace($this->namespaceApi)
-                ->group(base_path('routes/api.php'));
-
+        $this->routes(function () {            
+            $this->webRoutes();
+            $this->apiRoutes();
             $this->intranetRoutes();
         });
+    }
+
+    protected function webRoutes() {                  
+        Route::middleware('web')->group(base_path('routes/web.php')); 
+    }
+
+    protected function apiRoutes() {
+        Route::prefix('api')
+        ->middleware(['api', 'auth:sanctum'])
+        ->namespace($this->namespaceApi)
+        ->group(base_path('routes/api.php'));
     }
 
     protected function intranetRoutes() {

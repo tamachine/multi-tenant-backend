@@ -60,6 +60,10 @@
             @yield('body')
 
             @livewireScripts
+            {{-- The livewire_app_url var is a fix for the issue: When a Livewire component makes a request after the page has been loaded, it changes the current locale to a different locale. --}}
+            <script>
+                window.livewire_app_url = "{{ \Illuminate\Support\Facades\Request::getSchemeAndHttpHost() }}/{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getCurrentLocale() }}"
+            </script>
 
             @if (isset($footerImagePath))
                 <x-footer imagePath="{{ $footerImagePath }}" />
