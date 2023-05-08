@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Translatable\HasTranslations;
 use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
-class BlogCategory extends Model
+class BlogCategory extends Model implements LocalizedUrlRoutable
 {
     use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
 
@@ -42,7 +42,7 @@ class BlogCategory extends Model
     {
         return $this->getTranslation('slug', $locale);
     }
-    
+
     /**********************************
      * Accessors & Mutators
      **********************************/
