@@ -47,6 +47,12 @@ Route::group(
         'middleware' => [ 'localize' ]
     ],  function()
 {
+
+    /**
+     * Fix for the issue:
+     * When a Livewire component makes a request after the page has been loaded, it changes the current locale to a different locale.
+     */
+    Route::post('livewire/message/{name}', '\Livewire\Controllers\HttpConnectionHandler');
     
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
