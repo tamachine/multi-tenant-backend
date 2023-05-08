@@ -29,5 +29,10 @@ abstract class BaseController extends Controller
         View::share('carCategories', CarType::all());
     }    
 
+    /**
+     * This method has to return the asset path for the footer image.
+     * Notice only the 'path' not the 'asset('path')
+     * @return string
+     */
     abstract protected function footerImagePath() : string;
 }

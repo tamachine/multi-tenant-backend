@@ -16,8 +16,8 @@ trait HasImages
      * @var boolean $includeFeaturedImage  True if featured_image has to be included
      * @var boolean $includeFeaturedImageHover True if featured_image_hover has to be included
      */
-    public function images($includeFeaturedImage  = false, $includeFeaturedImageHover = false) {        
-        $allImages = $this->hasMany(ModelImage::class, 'instance_id', 'id');    
+    public function images($includeFeaturedImage = false, $includeFeaturedImageHover = false) {                    
+        $allImages = $this->morphMany(ModelImage::class, 'instance'); 
         
         if(in_array('App\Traits\HasFeaturedImage', class_uses($this)) && !$includeFeaturedImage) {
             $attribute = $this->getFeaturedImageAttributeName();
@@ -30,7 +30,7 @@ trait HasImages
         }
 
         return $allImages;
-    }         
+    }       
      
     /**
      * Adds an image to the model
@@ -43,7 +43,7 @@ trait HasImages
             ],
             [                              
                 'alt' => $alt, 
-                'model' => $this->getModelName(),     
+                'instance_type' => $this->getModelName(),     
                 'instance_id' => $this->id,            
             ]
         );

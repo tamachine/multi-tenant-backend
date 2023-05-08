@@ -193,50 +193,6 @@ if (!function_exists('bookingDropoffDate')) {
     }
 }
 
-if (!function_exists('webpImage')) {
-    /**
-     * It shows the WebP image (if it exists)
-     *
-     * @param      string   $image
-     * @param      string   $class
-     * @param      string   $alt
-     * @return     string
-     */
-    function webpImage($imageUrl, $class = "", $alt = "")
-    {          
-        $imageUrlExploded           = explode(".", $imageUrl);
-        $ImageUrlExtension          = $imageUrlExploded[count($imageUrlExploded)-1];
-        $imageUrlWithoutExtension   = substr($imageUrl, 0, strlen($imageUrl) - (strlen($ImageUrlExtension) + 1));        
-        $imageUrlWithWebpExtension  = $imageUrlWithoutExtension.'.webp';
-
-        $webpExist = false;
-
-        try {
-            if (App::environment('staging')) {
-                if(Http::withBasicAuth(env('SERVER_AUTH_USER'), env('SERVER_AUTH_PASS'))->get($imageUrlWithWebpExtension)->successful()) {
-                    $webpExist = true;
-                }
-            } else {
-                if(Http::get($imageUrlWithWebpExtension)->successful()) {
-                    $webpExist = true;
-                }
-            }             
-        } catch (\Exception $ex) {
-              
-        }
-
-        if($webpExist) {
-            return
-                    "<picture>
-                        <source srcset='$imageUrlWithWebpExtension' type='image/webp'>
-                        <source srcset='$imageUrl' type='image/jpeg'>
-                        <img src='$imageUrl' class='$class' alt='$alt'>
-                    </picture>";
-        } else {
-            return "<img src='$imageUrl' class='$class' alt='$alt' />";
-        }
-    }
-}
 if (!function_exists('getBreadcrumb')) {
 
     function getBreadcrumb($routes = []) {
