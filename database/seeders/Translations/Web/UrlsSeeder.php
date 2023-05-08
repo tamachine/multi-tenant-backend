@@ -184,6 +184,36 @@ class UrlsSeeder extends Seeder
                 'text' => ['en' => '{car_hashid}/summary', 'es' => '{car_hashid}/sumario'],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'cars/small-medium',
+            ],
+            [
+                'text' => ['en' => 'cars/small-medium', 'es' => 'flota/medianos'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'cars/large',
+            ],
+            [
+                'text' => ['en' => 'cars/large', 'es' => 'flota/large'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'cars/premium',
+            ],
+            [
+                'text' => ['en' => 'cars/premium', 'es' => 'flota/premium'],
+            ]
+        );
        
     }
 }

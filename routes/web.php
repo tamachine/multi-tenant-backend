@@ -47,7 +47,7 @@ Route::group(
         'middleware' => [ 'localize' ]
     ],  function()
 {
-
+    
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
     /* Auth */
@@ -109,8 +109,8 @@ Route::group(
     Route::get(LaravelLocalization::transRoute('routes.success'), [SuccessController::class, 'index'])->name('success');
 
     /* landings */
-    Route::get('/cars/small-medium', [LandingCarsController::class, 'small'])->name('cars.small');
-    Route::get('/cars/large', [LandingCarsController::class, 'large'])->name('cars.large');
-    Route::get('/cars/premium', [LandingCarsController::class, 'premium'])->name('cars.premium');
+    Route::get(LaravelLocalization::transRoute('routes.cars/small-medium'), [LandingCarsController::class, 'small'])->name('cars.small');
+    Route::get(LaravelLocalization::transRoute('routes.cars/large'), [LandingCarsController::class, 'large'])->name('cars.large');
+    Route::get(LaravelLocalization::transRoute('routes.cars/premium'), [LandingCarsController::class, 'premium'])->name('cars.premium');
 
 });
