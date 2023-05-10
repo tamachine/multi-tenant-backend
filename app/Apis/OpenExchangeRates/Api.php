@@ -5,6 +5,7 @@ namespace App\Apis\OpenExchangeRates;
 use App\Models\Rate;
 use Exception;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 
 class Api
 {
@@ -58,5 +59,24 @@ class Api
                 return Rate::all()->pluck('rate', 'code')->toArray();
             }
         });
+    }
+
+    /**
+     * Sync rates table with open exchange api
+     */
+    public function syncRates():void
+    {
+
+        $rates = $this->getRates();
+
+        foreach(Rate::all() as $rate) {
+            $code = $rate->code;
+
+            if(isset($rates[$code])) {
+                $rate->update(['rate' => $rates[$rate->code]]);
+            }
+            Log::info('Rates table updated: code: '.$code . ' to '.$rates[$code]);
+        }
+
     }
 }

@@ -88,3 +88,15 @@ In order to start the Tailwind CLI build process in local environment to scan te
     npm run watch (for admin styles - styles are scss)
 
 More information at https://tailwindcss.com/docs
+
+## Cron
+
+There are few scheduled commands.
+
+For local environment use: https://laravel.com/docs/9.x/scheduling#running-the-scheduler-locally
+
+    php artisan schedule:work
+
+For not local environment use: https://laravel.com/docs/9.x/scheduling#running-the-scheduler
+
+    cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
