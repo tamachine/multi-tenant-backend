@@ -7,7 +7,7 @@
         
         <p class="text-black mt-1">
             @if ($post->updated_at > $post->published_at)
-                {{ $post->updated_at?->format('d / m / Y') }} <br>
+                {{ $post->updated_at?->format('d / m / Y') }}
             @else
                 {{ $post->published_at?->format('d / m / Y') }}
             @endif
