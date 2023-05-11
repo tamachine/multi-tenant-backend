@@ -4,6 +4,13 @@
         <p>
             {{ __('blog.by') }} <a href="#" class="text-black"> {!! $post->author->name !!}</a>  {{ __('blog.in') }} <a href="#" class="text-black"> {!! $post->category->name !!} </a>
         </p>
-        <p class="text-black mt-1">{{ $post->published_at?->format('d / m / Y') }}</p>
+        
+        <p class="text-black mt-1">
+            @if ($post->updated_at > $post->published_at)
+                {{ $post->updated_at?->format('d / m / Y') }} <br>
+            @else
+                {{ $post->published_at?->format('d / m / Y') }}
+            @endif
+        </p>
     </div>
 </div>
