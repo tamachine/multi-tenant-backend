@@ -133,5 +133,15 @@ class BlogSeeder extends Seeder
                 'text' => ['en' => 'Go to article', 'es' => 'Ir al artículo'],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'blog',
+                'key' => 'updated',
+            ],
+            [
+                'text' => ['en' => 'Updated', 'es' => 'Actualizado'],
+            ]
+        );
     }
 }
