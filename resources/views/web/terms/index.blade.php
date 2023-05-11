@@ -2,9 +2,9 @@
 
 @section('body')
     <div class="px-3 md:px-0 max-w-6xl mx-auto">
-        <h2 class="text-pink-red font-fredoka-semibold py-12">
+        <h1 class="text-left text-3xl md:text-4xl lg:text-5xl leading-tight my-12">
             {!! __('terms.title') !!}
-        </h2>
+        </h1>
 
         <span class="text-justify text-[#84878B] leading-5">{!! __('terms.content') !!}</span>
        
