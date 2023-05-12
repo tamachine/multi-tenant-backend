@@ -261,6 +261,7 @@ picture img {
         @apply scale-110
     }
 
+
 .searchbar-popover {
     @apply overflow-hidden transition-[height] duration-300 ease-in-out;
 }
