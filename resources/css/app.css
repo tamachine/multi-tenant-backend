@@ -40,17 +40,21 @@ input:invalid, textarea:invalid, select:invalid {
  * .form-input { ... }
  */
 
+html {
+    scroll-behavior: smooth;
+}
+
 h1 {
     @apply
-        font-fredoka-semibold text-pink-red font-semibold text-center leading-[46px] md:leading-[76px]
-        text-4xl md:text-7xl;
+        font-fredoka-semibold text-pink-red font-semibold text-center 
+        text-4xl sm:text-5xl lg:text-7xl leading-[1.2em];
 }
 
 h2 {
     @apply
         font-fredoka-semibold text-pink-red font-semibold tracking-[-0.005em]
         leading-[1.05em]
-        text-[40px] md:text-5xl;
+        text-4xl lg:text-5xl;
 }
 
 h3 {

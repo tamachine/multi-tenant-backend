@@ -53,7 +53,7 @@
                 "
             style="background: linear-gradient(180deg, #FFFFFF 20%, rgba(255, 255, 255, 0) 98.16%);"
             ></div>
-        <div class="md:rounded-2xl rounded-[10px] p-3 md:p-5 pb-7 border-[#E7ECF3] border">
+        <div class="md:rounded-2xl rounded-[10px] p-3 md:p-5 pb-7 border-gray-secondary border">
             <div
                 id="location-map"
                 class="h-[335px] md:h-[500px] w-full md:rounded-2xl rounded-[10px] "
@@ -93,7 +93,7 @@
                     const map = new google.maps.Map(locationMapElement, {
                         zoom: 13,
                         center: reykjavikAuto,
-                        mapId: '307e19008875bc83', {{-- https://console.cloud.google.com/google/maps-apis/studio/maps?authuser=3&project=website-368713 --}}
+                        mapId: '307e19008875bc83', /* https://console.cloud.google.com/google/maps-apis/studio/maps?authuser=3&project=website-368713 */
                         disableDefaultUI: true,
                         gestureHandling: "greedy"
                     });

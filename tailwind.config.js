@@ -52,7 +52,7 @@ module.exports = {
                 'black-secondary': '#3B3E44',
                 'black-not-deep': '#14272C',
                 'gray-primary' : '#F4F5F7',
-                'gray-secondary' : '#E7E8EA',
+                'gray-secondary' : '#E7ECF3',
                 'gray-tertiary' : '#B1B5C4',
                 'gray-light' : '#AAAAAA',
                 'pink-red':'#E11166',
