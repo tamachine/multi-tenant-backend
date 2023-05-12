@@ -57,6 +57,7 @@ module.exports = {
                 'gray-light' : '#AAAAAA',
                 'pink-red':'#E11166',
                 'pink-red-secondary' : '#FDEEF4',
+                'pink-red-medium' : '#D31060',
                 'yellow-ci': '#F6BD00',
                 'black-ci' : '#161616',
             },
