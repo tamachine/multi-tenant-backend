@@ -37,7 +37,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'first-day',    
+                'key' => 'pick-up-day',    
             ],
             [                
                 'text' => ['en' => 'First day', 'es' => 'Inicio'],
@@ -47,7 +47,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'last-day',    
+                'key' => 'return-day',    
             ],
             [                
                 'text' => ['en' => 'Last day', 'es' => 'Fin'],
@@ -57,7 +57,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'pick-up-day',    
+                'key' => 'pick-up-day-placeholder',    
             ],
             [                
                 'text' => ['en' => 'Pick up day', 'es' => 'Día de recogida'],
@@ -67,17 +67,47 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'drop-off-day',    
+                'key' => 'return-day-placeholder',    
             ],
             [                
-                'text' => ['en' => 'Drop off day', 'es' => 'Día de entrega'],
+                'text' => ['en' => 'Return day', 'es' => 'Día de entrega'],
             ]
         ); 
 
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'pick-up',    
+                'key' => 'time',    
+            ],
+            [                
+                'text' => ['en' => 'Time', 'es' => 'Hora'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'pick-up-time',    
+            ],
+            [                
+                'text' => ['en' => 'Pick up Time', 'es' => 'Recogida'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'return-time',    
+            ],
+            [                
+                'text' => ['en' => 'Return Time', 'es' => 'Entrega'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'pick-up-location',    
             ],
             [                
                 'text' => ['en' => 'Pick up', 'es' => 'Recogida'],
@@ -87,47 +117,27 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'drop-off',    
+                'key' => 'return-location',    
             ],
             [                
-                'text' => ['en' => 'Drop off', 'es' => 'Entrega'],
+                'text' => ['en' => 'Return', 'es' => 'Entrega'],
             ]
         );  
 
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'return',    
+                'key' => 'title-location',    
             ],
             [                
-                'text' => ['en' => 'Return', 'es' => 'Vuelta'],
+                'text' => ['en' => 'Pick up & Return Location', 'es' => 'Lugar de Recogida & Entrega'],
             ]
-        );  
+        ); 
 
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'select-location',    
-            ],
-            [                
-                'text' => ['en' => 'Select location', 'es' => 'Selección ubicación'],
-            ]
-        );  
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'car-search-bar',
-                'key' => 'select-hours',    
-            ],
-            [                
-                'text' => ['en' => 'Select your pick up and return time', 'es' => 'Selecciona la hora de recogida y retorno'],
-            ]
-        );  
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'car-search-bar',
-                'key' => 'hours-pickup',    
+                'key' => 'pick-up-location-title',    
             ],
             [                
                 'text' => ['en' => 'Pick up', 'es' => 'Recogida'],
@@ -137,12 +147,34 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'hours-return',    
+                'key' => 'return-location-title',    
             ],
             [                
-                'text' => ['en' => 'Return', 'es' => 'Retorno'],
+                'text' => ['en' => 'Return', 'es' => 'Entrega'],
             ]
         );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'same-location',    
+            ],
+            [                
+                'text' => ['en' => 'Same location', 'es' => 'Mismo lugar'],
+            ]
+        ); 
+        
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'different-location',    
+            ],
+            [                
+                'text' => ['en' => 'Different location', 'es' => 'Lugares diferentes'],
+            ]
+        ); 
+
+        
 
         Translation::firstOrCreate(
             [
