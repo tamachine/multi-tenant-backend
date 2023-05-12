@@ -4057,9 +4057,6 @@ textarea.form-control.is-invalid {
 .h-\[450px\] {
   height: 450px;
 }
-.h-\[400px\] {
-  height: 400px;
-}
 .h-\[180px\] {
   height: 180px;
 }
@@ -5004,9 +5001,6 @@ textarea.form-control.is-invalid {
 }
 .bg-cars-image-pattern-mobile {
   background-image: linear-gradient(to bottom, rgba(252,252,252,1) 0%,rgba(255,255,255,1) 10%,rgba(255,255,255,0) 100%);
-}
-.bg-home-hero-mobile {
-  background-image: linear-gradient(180deg, #FFFFFF 8.65%, rgba(255, 255, 255, 0) 30%), url('/images/home/hero.png');
 }
 .from-white {
   --tw-gradient-from: #fff;
@@ -7081,10 +7075,6 @@ html, body {
   .md\:bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  }
-
-  .md\:bg-home-hero {
-    background-image: url('/images/home/hero.png');
   }
 
   .md\:bg-cover {
