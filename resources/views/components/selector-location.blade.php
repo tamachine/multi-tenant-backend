@@ -58,15 +58,8 @@
                 <input type="radio" id="{{$moment}}--{{ $key }}" name="location--{{$moment}}" value="{{ $location->name }}" class="hidden">
                 <label for="{{$moment}}--{{ $key }}" class="location cursor-pointer">
 
-                    <div class="location__image image-wrapper rounded-t-md overflow-hidden">
-                        
-                        {{-- IMPORTANTE: Revisar esto --}}
-                        
-                        @if ($location->getFeaturedImageModelImageInstance())
-                            <x-image :model-image="$location->getFeaturedImageModelImageInstance()" class="w-full scale-105 transition-transform duration-700"/>
-                        @else
-                            {{-- <img class="w-full scale-105 transition-transform duration-700" src="{{ asset('images/locations/' . $item['image'] .'')}}" alt=""> --}}
-                        @endif
+                    <div class="location__image image-wrapper rounded-t-md overflow-hidden">                        
+                        <x-image :model-image="$location->getFeaturedImageModelImageInstance()" class="w-full scale-105 transition-transform duration-700"/>
                     </div>
                     
                     <div class="location__text bg-white px-5 py-4 rounded-b-md shadow-[0_1.5px_6px_0_rgba(0,0,0,0.1)] transition-[background] duration-700">
