@@ -100,3 +100,8 @@ For local environment use: https://laravel.com/docs/9.x/scheduling#running-the-s
 For not local environment use: https://laravel.com/docs/9.x/scheduling#running-the-scheduler
 
     cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
+
+## Slack
+
+    #caren-observer
+    #nave-intergalactica
