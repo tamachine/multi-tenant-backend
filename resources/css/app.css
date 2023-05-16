@@ -45,6 +45,8 @@ html {
     scroll-behavior: smooth;
 }
 
+* {-webkit-tap-highlight-color: transparent;}
+
 h1 {
     @apply
         font-fredoka-semibold font-normal text-pink-red text-center leading-[46px] md:leading-[76px]
@@ -263,7 +265,7 @@ picture img {
 }
 
 .searchbar-popover.hidden  {
-    @apply inline-block !h-0;
+    @apply !h-0;
 }
 
 .searchbar-popover.position-top {
@@ -274,13 +276,32 @@ picture img {
     @apply bottom-full
 }
 
+.searchbar-popover .searchbar-popover__layer {
+    @apply 
+        bg-white mx-auto pointer-events-auto
+        rounded-t-[20px] rounded-b-none md:rounded-none
+        fixed top-[72px] w-full md:relative md:top-0 
+        z-[99];
+}
+
 .searchbar-popover.position-top .searchbar-popover__layer {
-    @apply rounded-b-[20px];
+    @apply md:rounded-b-[20px];
 }
 
 .searchbar-popover.position-bottom .searchbar-popover__layer {
-    @apply rounded-t-[20px];
+    @apply md:rounded-t-[20px];
 }
+
+    @media (max-width: 767px) {
+        .searchbar-popover .searchbar-popover__layer {
+            box-shadow: 0 -5px 9px 0 rgba(0,0,0,0.1);
+            height: calc((var(--vh, 1vh) * 100) - 72px);
+        }
+
+        .searchbar-popover .easepick-wrapper {
+            overflow: auto;
+        }
+    }
 
 .toggle-selector {
     @apply relative text-gray-light text-xs py-2 px-4;
@@ -328,4 +349,8 @@ select:-webkit-autofill:focus {
   border: 0px solid white;
   -webkit-text-fill-color: #AAAAAA;
   -webkit-box-shadow: 0 0 0px 100px rgba(0,0,0,0) inset;
+}
+
+button {
+    @apply disabled:opacity-50 disabled:cursor-not-allowed
 }

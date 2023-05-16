@@ -1,19 +1,22 @@
-{{-- desktop --}}
 <div x-data="carSearchBar()" class="relative">
     <div x-show="showOverlay" x-on:click="closePopOver()" class="fixed h-screen w-screen top-0 left-0 bg-black bg-opacity-50 backdrop-blur-sm" x-cloak></div>
 
-
     @foreach($locations as $key => $location)
     @endforeach
-    <form :class="showCalendar ? 'shadow-t-xl' : 'shadow-xl'"
-          id="search-bar" class="relative hidden md:block bg-white rounded-3xl max-w-6xl font-medium text-black-secondary border-[3px] border-pink-red mx-3 xl:mx-auto" 
+    <form :class="openCalendar ? 'md:shadow-t-xl' : 'md:shadow-xl'"
+          id="search-bar" class="relative 
+          
+          bg-white rounded-3xl max-w-6xl font-medium text-black-secondary 
+          md:border-[3px] md:border-pink-red mx-3 xl:mx-auto" 
           autocomplete="off">
 
           {{-- Este input hay que ponerlo para deshabilitar la opción de autocompletado --}}
-          <input autocomplete="false" name="hidden" type="text" style="display:none;">
+          <input autocomplete="false" name="hidden" type="text" class="hidden">
 
-        <div class="flex flex-row gap-4 lg:gap-6 items-stretch p-3 lg:p-5">
-            <div class="flex gap-5 lg:gap-8 grow">
+        <div class="flex gap-4 flex-col md:flex-row lg:gap-6 items-stretch p-3 lg:p-5">
+
+            {{-- DESKTOP --}}
+            <div class="hidden md:flex gap-5 lg:gap-8 grow">
                 <div id="set-dates" class="search-input-group flex gap-2 basis-[32%] lg:basis-[30%]" x-on:click="openCalendarClick()">
                     <div class="search-input-set">
                         <div class="search-input-label">
@@ -58,27 +61,52 @@
                 </div>
             </div>
 
+            {{-- MOBILE --}}
+            <div class="md:hidden w-full">
+                <div class="search-input-set bg-gray-primary border-2 rounded-lg px-5" x-on:click="openCalendarClick()">
+                    <div class="search-input-label text-left">
+                        <label >{!! __('car-search-bar.mobile-first-input-title') !!}</label>
+                    </div>
+                    <input type="text" class="search-input text-left p-0" placeholder="{!! __('car-search-bar.mobile-first-input-placeholder') !!}" readonly="readonly"/>
+                </div>
+            </div>
+
+            {{-- BUTTON --}}
             <div class="flex items-stretch">
                 <button disabled 
                     id="search__button"
                     class="
-                        bg-pink-red hover:bg-pink-red-medium rounded-xl p-3 lg:px-10
-                        font-sans-bold text-white text-lg lg:text-xl
-                        disabled:opacity-50 disabled:bg-pink-red disabled:cursor-not-allowed" >
+                        w-full md:w-auto
+                        bg-pink-red hover:bg-pink-red-medium rounded-lg md:rounded-xl p-3 lg:px-10
+                        font-sans-bold text-white text-lg lg:text-xl" >
                         {!! __('general.search') !!}
                 </button>
             </div>
         </div>
+        
     </form>
-    <div id="calendar" class="searchbar-popover absolute w-full pointer-events-none" :class="showCalendar ? '' : 'hidden'" x-cloak>
-        <div id="calendar__layer" class="searchbar-popover__layer w-[90%] max-w-5xl mx-auto bg-white py-[4%] py-10 pointer-events-auto">
+
+    <div id="calendar" class="searchbar-popover absolute w-full pointer-events-none" :class="openCalendar ? '' : 'hidden'" x-cloak>
+        <div 
+        id="calendar__layer" 
+        class="searchbar-popover__layer max-w-5xl md:w-[90%] pt-8 pb-4 md:pb-10">
+            {{-- Mobile: go back --}}
+            <x-back-popover click="backShowDate()"/>
+            {{-- Mobile: close button --}}
+            <x-close-popover />
+            {{-- Calendar and Time picker: Mobile and desktop --}}
             <x-datepicker-range />
             <x-timepicker-range />
         </div>
     </div>
 
     <div id="locations" class="searchbar-popover absolute w-full pointer-events-none" :class="showLocations ? 'show' : 'hidden'" x-cloak>
-        <div id="locations__layer" class="searchbar-popover__layer w-[85%] max-w-4xl mx-auto bg-white px-[4%] pt-10 pb-6 pointer-events-auto">
+        <div id="locations__layer" class="searchbar-popover__layer w-[85%] max-w-4xl px-[4%] pt-10 pb-6 ">
+            {{-- Mobile: go back --}}
+            <x-back-popover click="backShowTime()"/>
+            {{-- Mobile: close button --}}
+            <x-close-popover />
+            {{-- Location: Mobile and desktop --}}
             <x-selector-location :locations="$locations"/>
         </div>
     </div>
@@ -88,26 +116,45 @@
 <script>
     function carSearchBar() {
         return {
-            showCalendar: false,
+            openCalendar: false,
+            showDate:false,
+            showTime:false,
             showLocations: false,
             differentLocation: false,
 
             openCalendarClick() {
-                this.showOverlay = true
-                this.showCalendar = true
+                this.openCalendar = true
+                this.showDate = true
                 this.$refs.startDateButton.click()
                 this.showLocations = false
+
+                if(vWidth > 767) {
+                    this.showOverlay = true
+                    this.showTime = true
+                }
             },
             
             openLocationsClick() {
                 this.showLocations = true
-                this.showOverlay = true
-                this.showCalendar = false
-                startLocation()
+                this.openCalendar = false
+                if(vWidth > 767) {
+                    this.showOverlay = true
+                }
+                setSameLocationToggle()
+            },
+
+            openOverlay(){
+                if(vWidth > 767) {
+                    this.showOverlay = true
+                } else {
+                    this.showOverlay = false
+                }
             },
 
             closePopOver() {
-                this.showCalendar = false
+                this.openCalendar = false
+                this.showDate = false
+                this.showTime = false
                 this.showLocations = false
                 this.showOverlay = false
             },
@@ -115,7 +162,30 @@
             toggleLocation() {
                 this.differentLocation = !this.differentLocation,
                 toggleLocation()
-            }
+            },
+
+            continueShowTime() {
+                this.showDate = false
+                this.showTime = true
+            },
+
+            continueShowLocation() {
+                this.showLocations = true
+                this.openCalendar = false
+                this.differentLocation = true
+            },
+
+            backShowDate() {
+                this.showDate = true
+                this.showTime = false
+            },
+
+            backShowTime() {
+                this.openCalendar = true
+                this.showDate = false
+                this.showTime = true
+                this.showLocations = false
+            },
         }
     }
     

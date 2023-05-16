@@ -1,5 +1,10 @@
-<div id="calendar-picker" x-on:click="openCalendarClick()" x-ref="startDateButton" class="hidden"></div>
-
+<div :class="showDate ? '' : 'hidden'" class="flex flex-col h-full">
+    <div id="calendar-picker" x-on:click="openCalendarClick()" x-ref="startDateButton" class="hidden"></div>
+    <div class="md:hidden w-full text-center">
+        <button x-on:click="continueShowTime()" disabled id="continue-date__button" class="btn btn-red px-16 py-3">{!! __('car-search-bar.mobile-continue-button') !!}</button>
+    </div>
+</div>
+    
 
 @push('scripts')
 <script>
@@ -41,6 +46,41 @@
     }	
 
 
+    /********************
+        STRUCTURE CALENDAR MOBILE
+    ********************/
+    let vWidth;
+    let vHeight;
+
+    const getSizeScreen = () => {
+        vWidth = window.innerWidth;
+        vHeight = window.innerHeight;
+    }
+
+    const numberCalendar = () => {
+        getSizeScreen();
+
+        if (vWidth <= 767) {
+            return 24;
+        } else {
+            return 2;
+        }
+    }
+
+    const structureCalendar = () => {
+        getSizeScreen();
+
+        if (vWidth <= 767) {
+            return 1;
+        } else {
+            return 2;
+        }
+    }
+
+    window.addEventListener('load', numberCalendar, structureCalendar)
+    window.addEventListener('resize',  numberCalendar, structureCalendar)
+
+
     
 	/********************
         CALENDAR
@@ -53,8 +93,8 @@
                 'css/easepick.css',
             ],
             plugins: [RangePlugin],
-            calendars: 2, //Number of visible months.
-            grid: 2, //Number of calendar columns.	
+            calendars: numberCalendar(), //Number of visible months.
+            grid: structureCalendar(), //Number of calendar columns.	
             firstDay: 7,
             autoApply: false,
             documentClick:false,
@@ -88,13 +128,16 @@
 
                     // if inputs are filled, show set as 'active' and enable button
                     const searchButton = document.getElementById('search__button')
+                    const continueButton = document.getElementById('continue-date__button')
 
                     if(startInput.value !== '' && endInput.value !== '') {
                         document.getElementById('set-dates').classList.add('active')
                         searchButton.removeAttribute('disabled')
+                        continueButton.removeAttribute('disabled')
                     } else {
                         document.getElementById('set-dates').classList.remove('active')
                         searchButton.setAttribute('disabled')
+                        continueButton.setAttribute('disabled')
                     }
 
                 }),					

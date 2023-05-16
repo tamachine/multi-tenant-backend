@@ -7,27 +7,28 @@
     @apply relative font-sans text-lg leading-8 !left-0 transition-none px-[3%];
 }
 
-.container.inline {
-    @apply absolute -top-96;
-}
-
-.container.show {
-    @apply shadow-none !left-0 !top-0 w-full;
+.container.range-plugin.show {
+    @apply !relative shadow-none !left-0 !top-0 w-full;
 }
 
 .calendars {
-    @apply gap-[4%] lg:gap-[5%];
+    @apply grid-cols-none md:!grid-cols-2 gap-3 md:gap-[4%] lg:gap-[5%];
 }
 
 .calendar {
     @apply p-0;
 }
+
+.calendars .calendar:nth-child(n+2) {
+    @apply inline-block
+}
+
 .calendar>.header {
     @apply py-0;
 }
 .calendar>.header .month-name,
 .calendar>.header .month-name>span {
-    @apply font-fredoka-semibold font-normal text-xl lg:text-2xl leading-8 text-black-not-deep capitalize;
+    @apply font-fredoka-semibold font-normal text-xl lg:text-2xl leading-8 text-center text-black-not-deep capitalize;
 }
 
 .calendar>.header button>img, .calendar>.header button>svg {
@@ -36,11 +37,11 @@
 
 .calendar>.header button.previous-button,
 .calendar>.header button.next-button {
-    @apply hover:bg-white
+    @apply hover:bg-white hidden md:flex
 }
 
 .calendar>.daynames-row {
-    @apply gap-x-3 lg:gap-x-5 gap-y-4 mt-9 mx-2 lg:mx-3;
+    @apply gap-x-3 lg:gap-x-5 gap-y-4 mt-5 md:mt-9 mx-2 lg:mx-3;
 }
 
 .calendar>.daynames-row>.dayname {
@@ -48,16 +49,15 @@
 }
 
 .calendar>.days-grid {
-    @apply w-full text-lg gap-y-3 my-5;
+    @apply w-full text-lg gap-y-3 mt-3 mb-5 md:mt-5;
 }
 
 .calendar>.days-grid .offset {
     width: auto;
 }
 
-
 .calendar>.days-grid>.day  {
-    @apply font-sans-medium font-normal border-none text-base lg:text-lg w-full max-w-none cursor-pointer;
+    @apply font-sans-medium font-normal border-none text-base lg:text-lg leading-5 w-full max-w-none cursor-pointer;
 }
 
 .calendar>.days-grid>.day.disabled  {
@@ -77,7 +77,7 @@
 }
 
 .calendar>.days-grid>.day:hover {
-    @apply text-xl border-none text-black-primary;
+    @apply text-xl leading-5 border-none text-black-primary;
 }
 
 .calendar>.days-grid>.day:not(.in-range):hover:before {
@@ -92,6 +92,12 @@
 .container.range-plugin .calendar>.days-grid>.day.start.end {
     @apply rounded-md ;
 }
+
+.container.range-plugin .calendar>.days-grid>.day.end, 
+.container.range-plugin .calendar>.days-grid>.day.start{
+    @apply leading-5;
+}
+
 
 .container.range-plugin .calendar>.days-grid>.day.start::after,
 .container.range-plugin .calendar>.days-grid>.day.end::after,
@@ -131,3 +137,18 @@ footer {
    @apply hidden
 }
 
+@media (max-width: 767px) {
+    .container.range-plugin.show {
+        @apply p-0 h-full
+    }
+
+    .container.range-plugin.show main {
+        @apply h-full overflow-auto 
+        before:content-[''] before:absolute before:top-[-1px] before:left-0 before:w-full before:h-[20px] before:bg-gradient-to-b before:from-white before:to-transparent before:z-10 before:pointer-events-none
+        after:content-[''] after:absolute after:bottom-[-1px] after:left-0 after:w-full after:h-[20px] after:bg-gradient-to-b after:from-transparent after:to-white after:z-10 after:pointer-events-none
+    }
+
+    .container.range-plugin.show .calendars {
+        @apply max-w-lg md:max-w-none mx-auto pt-5 md:pt-0
+    }
+}
