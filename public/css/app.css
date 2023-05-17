@@ -5453,10 +5453,6 @@ h5 {
     width: 100vw;    
 }
 
-.w-\[85\%\] {
-    width: 85%;    
-}
-
 .w-\[1px\] {
     width: 1px;    
 }
@@ -7788,7 +7784,6 @@ picture img {
     z-index: 99;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 0px;
@@ -8912,6 +8907,10 @@ button:disabled {
 
     .md\:w-\[90\%\] {
         width: 90%;    
+    }
+
+    .md\:w-\[85\%\] {
+        width: 85%;    
     }
 
     .md\:w-full {

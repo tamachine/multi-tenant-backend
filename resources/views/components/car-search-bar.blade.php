@@ -89,9 +89,9 @@
     <div id="calendar" class="searchbar-popover absolute w-full pointer-events-none" :class="openCalendar ? '' : 'hidden'" x-cloak>
         <div 
         id="calendar__layer" 
-        class="searchbar-popover__layer max-w-5xl md:w-[90%] pt-8 pb-4 md:pb-10">
+        class="searchbar-popover__layer max-w-5xl w-full md:w-[90%] pt-8 pb-4 md:pb-10">
             {{-- Mobile: go back --}}
-            <x-back-popover click="backShowDate()"/>
+            <x-back-popover click="backShowDate()" />
             {{-- Mobile: close button --}}
             <x-close-popover />
             {{-- Calendar and Time picker: Mobile and desktop --}}
@@ -101,7 +101,7 @@
     </div>
 
     <div id="locations" class="searchbar-popover absolute w-full pointer-events-none" :class="showLocations ? 'show' : 'hidden'" x-cloak>
-        <div id="locations__layer" class="searchbar-popover__layer w-[85%] max-w-4xl px-[4%] pt-10 pb-6 ">
+        <div id="locations__layer" class="searchbar-popover__layer w-full md:w-[85%] max-w-4xl px-[4%] pt-10 pb-6 ">
             {{-- Mobile: go back --}}
             <x-back-popover click="backShowTime()"/>
             {{-- Mobile: close button --}}
@@ -121,12 +121,14 @@
             showTime:false,
             showLocations: false,
             differentLocation: false,
+            showBack: false,
 
             openCalendarClick() {
                 this.openCalendar = true
                 this.showDate = true
                 this.$refs.startDateButton.click()
                 this.showLocations = false
+                this.showBack = false
 
                 if(vWidth > 767) {
                     this.showOverlay = true
@@ -137,8 +139,10 @@
             openLocationsClick() {
                 this.showLocations = true
                 this.openCalendar = false
+                this.showBack = true
                 if(vWidth > 767) {
                     this.showOverlay = true
+                    this.showBack = false
                 }
                 setSameLocationToggle()
             },
@@ -157,6 +161,7 @@
                 this.showTime = false
                 this.showLocations = false
                 this.showOverlay = false
+                this.showBack = false
             },
 
             toggleLocation() {
@@ -167,17 +172,20 @@
             continueShowTime() {
                 this.showDate = false
                 this.showTime = true
+                this.showBack = true
             },
 
             continueShowLocation() {
                 this.showLocations = true
                 this.openCalendar = false
                 this.differentLocation = true
+                this.showBack = true
             },
 
             backShowDate() {
                 this.showDate = true
                 this.showTime = false
+                this.showBack = false
             },
 
             backShowTime() {
@@ -185,6 +193,7 @@
                 this.showDate = false
                 this.showTime = true
                 this.showLocations = false
+                this.showBack = true
             },
         }
     }

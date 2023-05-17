@@ -4946,10 +4946,6 @@ textarea.form-control.is-invalid{
     width: 100vw;
 }
 
-.w-\[85\%\]{
-    width: 85%;
-}
-
 .w-\[1px\]{
     width: 1px;
 }
@@ -8396,6 +8392,10 @@ input[type=number] {
 
     .md\:w-\[90\%\]{
         width: 90%;
+    }
+
+    .md\:w-\[85\%\]{
+        width: 85%;
     }
 
     .md\:w-full{
