@@ -4845,10 +4845,6 @@ textarea.form-control.is-invalid{
     height: 450px;
 }
 
-.h-\[400px\]{
-    height: 400px;
-}
-
 .h-\[180px\]{
     height: 180px;
 }
@@ -4955,10 +4951,6 @@ textarea.form-control.is-invalid{
 
 .w-\[136px\]{
     width: 136px;
-}
-
-.w-96{
-    width: 24rem;
 }
 
 .w-max{
@@ -6054,10 +6046,6 @@ textarea.form-control.is-invalid{
 
 .bg-gradient-to-t{
     background-image: linear-gradient(to top, var(--tw-gradient-stops));
-}
-
-.bg-home-hero-mobile{
-    background-image: linear-gradient(180deg, #FFFFFF 8.65%, rgba(255, 255, 255, 0) 30%), url('/images/home/hero.png');
 }
 
 .from-white{
@@ -8747,10 +8735,6 @@ input[type=number] {
     .md\:bg-white{
         --tw-bg-opacity: 1;
         background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-    }
-
-    .md\:bg-home-hero{
-        background-image: url('/images/home/hero.png');
     }
 
     .md\:p-3{
