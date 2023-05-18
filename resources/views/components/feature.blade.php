@@ -1,8 +1,7 @@
 @if ($reversed) 
     <div class="flex flex-col md:flex-row-reverse md:text-left gap-5">    
-        <div 
-            class="hidden md:block md:flex-1 md:rounded-2xl md:bg-cover md:ml-16" 
-            style="background-image: url('{{ $imagePath }}')">        
+        <div class="image-wrapper hidden md:block md:flex-1 md:rounded-2xl md:ml-16">      
+            <img src="{{ $imagePath }}" alt="">  
         </div>
         <h2 class="md:hidden block md:text-left">{!! $title !!}</h2>
         <div class="md:hidden md:ml-16 md:pb-5">        
@@ -19,9 +18,8 @@
     </div>
 @else
     <div class="flex flex-col md:flex-row md:text-right">    
-        <div 
-            class="hidden md:block md:flex-1 md:rounded-2xl md:bg-cover" 
-            style="background-image: url('{{ $imagePath }}')">        
+        <div class="image-wrapper hidden md:block md:flex-1 md:rounded-2xl">  
+            <img src="{{ $imagePath }}" alt="">        
         </div>
         <div class="md:hidden pb-5">        
             <img class="rounded-2xl bg-cover w-full" src="{{ $imagePath }}" />
