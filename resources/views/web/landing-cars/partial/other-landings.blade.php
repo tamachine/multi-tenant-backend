@@ -13,7 +13,7 @@
                     class="category relative flex flex-col justify-end min-h-[430px] md:min-h-[400px] @if( $key == 2 ) lg:!flex @endif"
                     >
                     <div class="absolute w-full top-0 bottom-0 left-0 rounded-2xl image-wrapper gradient-pink">
-                        <x-image path="$landing['image']" class="object-bottom" />
+                        <x-image path="{{ $landing['image'] }}" class="object-bottom" />
                     </div>
                     <div class="relative px-5 py-7">
                         <h5 class="font-fredoka-semibold text-3xl text-white text-left font-semibold mb-3">{!! __('landing-cars.otherlandings-'. $landing['type'] .'-name') !!}</h5>
