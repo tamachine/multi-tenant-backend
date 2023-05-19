@@ -12,21 +12,21 @@
         <x-payment-input field="last_name" type="text" placeholder="{{ __('payment.last-name') }}" />
     </div>
 
-    <div class="lg:mt-2 lg:flex lg:justify-between">
+    <div class="lg:mt-5 lg:flex lg:justify-between">
         <x-payment-input field="email" type="email" placeholder="{{ __('payment.email') }}" />
         <x-payment-input field="email_confirmation" type="email" placeholder="{{ __('payment.email-confirmation') }}" />
     </div>
 
-    <div class="lg:mt-2">
+    <div class="lg:mt-5">
         <x-payment-input field="telephone" type="text" placeholder="{{ __('payment.telephone') }}" />
     </div>
 
-    <div class="lg:mt-2 lg:flex lg:justify-between">
+    <div class="lg:mt-5 lg:flex lg:justify-between">
         <x-payment-input field="address" type="text" placeholder="{{ __('payment.your-address') }}" />
         <x-payment-input field="postal_code" type="text" placeholder="{{ __('payment.postal-code') }}" />
     </div>
 
-    <div class="lg:mt-2 lg:flex lg:justify-between">
+    <div class="lg:mt-5 lg:flex lg:justify-between">
         <x-payment-input field="city" type="text" placeholder="{{ __('payment.city') }}" />
         <x-payment-input field="country" type="text" placeholder="{{ __('payment.country') }}" />
     </div>
