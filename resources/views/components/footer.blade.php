@@ -22,21 +22,15 @@
     <div class="bg-[#070000] w-fill-screen">
         <div class="max-w-6xl mx-auto md:p-3 px-1">
 
-            <div class="bg-[#1C1C1C] flex flex-col gap-5 md:gap-0 md:flex-row flex-between items-center text-[#8c8c8c] rounded-xl px-3 md:px-9 py-7">
+            <div class="bg-[#1C1C1C] flex flex-col gap-5 md:gap-3 md:flex-row flex-between items-center rounded-xl px-3 md:px-9 py-7">
                 <div class="flex-1 flex flex-col w-full">
                     <div class="font-fredoka-medium font-medium text-2xl text-white">{!! __('footer.newsletter-title') !!}</div>
-                    <div class="md:text-base text-sm">{!! __('footer.newsletter-text') !!}</div>
+                    <div class="text-[#8c8c8c] md:text-base text-sm">{!! __('footer.newsletter-text') !!}</div>
                 </div>
-                <div class="flex-1 flex w-full md:justify-end">
-                    <div class="relative w-full">
-                        <form>
-                            <input class="md:absolute right-0 my-auto top-0 bottom-0 rounded-xl border border-[#8c8c8c] py-4 md:py-7 px-7 bg-transparent w-full placeholder:text-base focus:border-[#8c8c8c] focus:ring-0" type="text" placeholder="{!! __('footer.newsletter-input-placeholder') !!}" />
-                            <div   class="absolute right-3 my-auto top-0 bottom-0 flex justify-center items-center">
-                                <button type="submit" class="btn btn-red px-7 md:px-6 py-3 md:py-2 text-sm font-sans-medium font-medium rounded-md">{!! __('footer.newsletter-form-submit') !!}</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                <form class="flex-1 w-full flex rounded-[10px] border border-gray-secondary/50 px-3 py-1.5">
+                    <input class="text-white bg-transparent w-full p-0 border-none placeholder:text-[#7E838F] placeholder:text-base focus:border-none focus:ring-0" type="text" placeholder="{!! __('footer.newsletter-input-placeholder') !!}" />
+                    <button type="submit" class="btn btn-red px-7 md:px-6 py-3 md:py-3 text-sm font-sans-medium font-medium rounded-md">{!! __('footer.newsletter-form-submit') !!}</button>
+                </form>
             </div>
 
             <div class="
