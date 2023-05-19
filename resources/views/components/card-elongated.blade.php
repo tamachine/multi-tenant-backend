@@ -18,7 +18,7 @@
                 <x-reading-time-icon time="{{ $time }}" />
             </div>
             
-            <div class="font-fredoka-semibold text-[32px] font-semibold leading-[34px]">{{ $title }}</div>
+            <div class="font-fredoka-semibold text-[32px] leading-[34px]">{{ $title }}</div>
             <div class="pb-9 pt-[10px] md:text-base text-lg font-sans-medium font-medium">{{ $text }}</div>
         </div>
     </div>

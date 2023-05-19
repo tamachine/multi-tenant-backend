@@ -42,13 +42,13 @@ input:invalid, textarea:invalid, select:invalid {
 
 h1 {
     @apply
-        font-fredoka-semibold text-pink-red font-semibold text-center leading-[46px] md:leading-[76px]
+        font-fredoka-semibold text-pink-red text-center leading-[46px] md:leading-[76px]
         text-4xl md:text-7xl;
 }
 
 h2 {
     @apply
-        font-fredoka-semibold text-pink-red font-semibold tracking-[-0.005em]
+        font-fredoka-semibold text-pink-red tracking-[-0.005em]
         leading-[1.05em]
         text-[40px] md:text-5xl;
 }
@@ -62,7 +62,7 @@ h4 {
 }
 
 h5 {
-    @apply font-fredoka-semibold text-pink-red font-semibold text-[28px] text-center;
+    @apply font-fredoka-semibold text-pink-red text-[28px] text-center;
 }
 
 .btn {

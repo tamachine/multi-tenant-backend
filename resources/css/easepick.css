@@ -20,7 +20,7 @@
 }
 .calendar>.header .month-name,
 .calendar>.header .month-name>span {
-    @apply font-fredoka font-semibold text-2xl leading-8 text-black-not-deep;
+    @apply font-fredoka-semibold text-2xl leading-8 text-black-not-deep;
 }
 
 .calendar>.header button>img, .calendar>.header button>svg {

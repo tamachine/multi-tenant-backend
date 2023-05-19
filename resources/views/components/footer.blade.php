@@ -1,5 +1,5 @@
 <footer class="pt-28 md:pt-36">
-    <div class="max-w-6xl mx-auto px-10 pb-5 md:pb-0 text-pink-red text-5xl md:text-8xl text-center md:text-left font-semibold leading-[50px] md:leading-[110px] font-fredoka-semibold">
+    <div class="max-w-6xl mx-auto px-10 pb-5 md:pb-0 text-pink-red text-5xl md:text-8xl text-center md:text-left leading-[50px] md:leading-[110px] font-fredoka-semibold">
         {!! __('footer.title') !!}
     </div>
     <div
@@ -47,7 +47,7 @@
                 >
                 @for ($i = 1; $i <= 4; $i++)
                 <div>
-                    <div class="font-fredoka-semibold font-semibold text-xl text-white pb-6">{!! __('footer.col-'.$i.'-links-title') !!}</div>
+                    <div class="font-fredoka-semibold text-xl text-white pb-6">{!! __('footer.col-'.$i.'-links-title') !!}</div>
                     <ul class="font-sans-medium font-medium flex flex-col gap-4">
                     @for ($x = 1; $x <= 5; $x++)
                         <li><a href="javascript:void(0)">{!! __('footer.col-'.$i.'-link-'.$x) !!}</a></li>

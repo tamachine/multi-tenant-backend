@@ -106,7 +106,7 @@
                                 <img class="" src="{{ asset('/images/landing-cars/image-'. $category .'.jpg') }}" alt="">
                             </div>
                             <div class="relative category__content  px-5 py-7">
-                                <h5 class="font-fredoka-semibold text-3xl text-white text-left font-semibold mb-3">Premium vehicles</h5>
+                                <h5 class="font-fredoka-semibold text-3xl text-white text-left mb-3">Premium vehicles</h5>
                                 <p class="text-white">Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all.</p>
                             </div>
                         </article>

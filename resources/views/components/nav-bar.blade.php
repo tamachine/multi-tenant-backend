@@ -83,7 +83,7 @@
                             <button class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-[#E7ECF3] cursor-pointer">{!! __('navbar.cars-button') !!}</button>
                         </div>
                     </div>
-                    <div class="text-center text-pink-red font-fredoka font-semibold text-[26px] py-5 h-full flex items-center justify-center">
+                    <div class="text-center text-pink-red font-fredoka-semibold text-[26px] py-5 h-full flex items-center justify-center">
                         {!! __('navbar.cars-title') !!}
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                         <a href="{{ route('contact') }}">{{ __('navbar.contact') }}</a>
                     </div>
                 </div>
-                <div class="font-fredoka font-semibold text-center pt-5 pb-10">
+                <div class="font-fredoka-semibold text-center pt-5 pb-10">
                     <div class="grid grid-cols-2 gap-10">
                         <div class="flex flex-col justify-center items-center gap-3" x-on:click="open()">
                             <div class="text-[#B1B5C3]">{!! __('general.languages-language') !!}</div>
