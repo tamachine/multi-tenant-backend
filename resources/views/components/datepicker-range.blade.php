@@ -81,6 +81,7 @@
     window.addEventListener('resize',  numberCalendar, structureCalendar)
 
 
+    let scrollTopPosition;
     
 	/********************
         CALENDAR
@@ -114,6 +115,9 @@
                 picker.on('preselect', (e) => { //Event is called on select days (before submit selection). When autoApply option is false.
                     const { start, end } = e.detail;
                     
+                    scrollTopPosition = e.target.querySelector('main').scrollTop;
+                    console.log(scrollTopPosition)
+                    
                     const startInput = document.getElementById('start-date')
                     const endInput = document.getElementById('end-date')
                     
@@ -144,6 +148,12 @@
                 picker.on('view', (e) => {
                     const { view, date, target } = e.detail;
                     
+                    if (view === 'Footer') {
+                        if (scrollTopPosition !== 'undefined'){
+                            e.target.querySelector('main').scrollTop = scrollTopPosition;
+                        }
+                    }
+
                     if (view === 'CalendarDay') {							
                         target.dataset.day = date.getDate(); //add the data-day attribute to the days in order to use it as a 'content' in the css ::after selector
                         
