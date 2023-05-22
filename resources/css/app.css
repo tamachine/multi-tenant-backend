@@ -40,6 +40,10 @@ input:invalid, textarea:invalid, select:invalid {
  * .form-input { ... }
  */
 
+* {
+    @apply selection:bg-pink-red selection:text-white;
+}
+
 h1 {
     @apply
         font-fredoka-semibold text-pink-red text-center leading-[46px] md:leading-[76px]
