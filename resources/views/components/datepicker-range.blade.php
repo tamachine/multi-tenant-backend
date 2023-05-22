@@ -120,6 +120,8 @@
                     
                     const startInput = document.getElementById('start-date')
                     const endInput = document.getElementById('end-date')
+                    const startInputMobile = document.getElementById('mobile-start-date')
+                    const endInputMobile = document.getElementById('mobile-end-date')
                     
                     //set dates in order to show them selected when calendar hides/shows
                     picker.setStartDate(start);
@@ -128,20 +130,39 @@
                     //format date and inputs
                     formatInput(start, startInput)
                     formatInput(end, endInput)
+                    formatInput(start, startInputMobile)
+                    formatInput(end, endInputMobile)
 
 
-                    // if inputs are filled, show set as 'active' and enable button
+                    // If date inputs are filled:
+                    // - Show set as 'active' 
+                    // - Enable button
+                    // - Mobile: show input dates
                     const searchButton = document.getElementById('search__button')
                     const continueButton = document.getElementById('continue-date__button')
+                    const emptyInputMobile = document.getElementById('mobile-empty-dates')
+                    const datesMobile = document.getElementById('mobile-dates')
 
                     if(startInput.value !== '' && endInput.value !== '') {
                         document.getElementById('set-dates').classList.add('active')
                         searchButton.removeAttribute('disabled')
                         continueButton.removeAttribute('disabled')
+
+                        // mobile
+                        if (vWidth <= 767) {
+                            emptyInputMobile.classList.add('hidden');
+                            datesMobile.classList.remove('hidden');
+                        }
                     } else {
                         document.getElementById('set-dates').classList.remove('active')
                         searchButton.setAttribute('disabled')
                         continueButton.setAttribute('disabled')
+
+                        // mobile
+                        if (vWidth <= 767) {
+                            emptyInputMobile.classList.remove('hidden');
+                            datesMobile.classList.add('hidden');
+                        }
                     }
 
                 }),					

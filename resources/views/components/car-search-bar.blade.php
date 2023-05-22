@@ -62,12 +62,26 @@
             </div>
 
             {{-- MOBILE --}}
-            <div class="md:hidden w-full">
-                <div class="search-input-set bg-gray-primary border-2 rounded-lg px-5" x-on:click="openCalendarClick()">
+            <div class="md:hidden w-full" x-on:click="openCalendarClick()">
+                <div id="mobile-empty-dates" class="search-input-set bg-gray-primary border-2 rounded-lg px-5" >
                     <div class="search-input-label text-left">
                         <label >{!! __('car-search-bar.mobile-first-input-title') !!}</label>
                     </div>
                     <input type="text" class="search-input text-left p-0" placeholder="{!! __('car-search-bar.mobile-first-input-placeholder') !!}" readonly="readonly"/>
+                </div>
+                <div id="mobile-dates" class="hidden search-input-group flex gap-2 basis-[32%] lg:basis-[30%] border-black bg-white">
+                    <div class="search-input-set">
+                        <div class="search-input-label">
+                            <label for="mobile-start-date">{!! __('car-search-bar.pick-up-day') !!}</label>
+                        </div>
+                        <input type="text" class="search-input" id="mobile-start-date" placeholder="{!! __('car-search-bar.pick-up-day-placeholder') !!}" readonly="readonly"/>
+                    </div>
+                    <div class="search-input-set">
+                        <div class="search-input-label">
+                            <label for="mobile-end-date">{!! __('car-search-bar.return-day') !!}</label>
+                        </div>
+                        <input type="text" class="search-input" id="mobile-end-date" placeholder="{!! __('car-search-bar.return-day-placeholder') !!}" readonly="readonly"/>
+                    </div>
                 </div>
             </div>
 

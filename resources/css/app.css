@@ -104,7 +104,7 @@ h5 {
 }
 
     .search-input-group:not(:first-child) {
-        @apply before:content-[''] before:w-[14px] before:h-[14px] before:absolute before:top-[50%] before:left-[-18px] lg:before:left-[-24px] before:translate-y-[-50%] before:bg-[url('/images/icons/arrow-right-gray.svg')] before:bg-no-repeat before:bg-center before:bg-contain;
+        @apply md:before:content-[''] md:before:w-[14px] md:before:h-[14px] md:before:absolute md:before:top-[50%] md:before:left-[-18px] lg:before:left-[-24px] before:translate-y-[-50%] before:bg-[url('/images/icons/arrow-right-gray.svg')] before:bg-no-repeat before:bg-center before:bg-contain;
     }
 
     .search-input-group.active {
