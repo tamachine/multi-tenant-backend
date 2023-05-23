@@ -29,3 +29,5 @@ Homestead.json
 package-lock.json
 
 .vscode
+
+config.yaml
