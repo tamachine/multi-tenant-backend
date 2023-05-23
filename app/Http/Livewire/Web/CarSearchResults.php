@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Web;
 use Livewire\Component;
 use App\Services\SelectableFull\AllSelectables;
 use App\Services\CarsSearch\CarsSearch;
+use App\Models\CarType;
 
 class CarSearchResults extends Component
 {
@@ -123,6 +124,6 @@ class CarSearchResults extends Component
 
     public function render()
     {
-        return view('livewire.web.car-search-results');
+        return view('livewire.web.car-search-results', ['carCategories' => CarType::all()]);
     }
 }
