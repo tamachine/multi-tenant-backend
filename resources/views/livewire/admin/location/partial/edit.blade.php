@@ -90,6 +90,12 @@
                 <x-admin.input-error for="dropoff_input_info" class="mt-2" />
             </div>
         </div>
+
+        {{-- Featured image --}}
+        <h3 class="font-xl font-bold mt-10 mx-4 border-b border-gray-500">Image</h3>
+        <div class="m-4 w-full md:flex md:space-between">            
+            <livewire:common.featured-image-upload :model="$location" text="" />
+        </div>
     </x-slot>
 
     <x-slot name="actions">

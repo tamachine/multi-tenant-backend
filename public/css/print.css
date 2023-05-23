@@ -3771,6 +3771,10 @@ textarea.form-control.is-invalid {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 .mx-6 {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -3806,6 +3810,12 @@ textarea.form-control.is-invalid {
 }
 .mt-8 {
   margin-top: 2rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 .mr-3 {
   margin-right: 0.75rem;
@@ -3852,9 +3862,6 @@ textarea.form-control.is-invalid {
 .mb-8 {
   margin-bottom: 2rem;
 }
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -3881,9 +3888,6 @@ textarea.form-control.is-invalid {
 }
 .mt-\[-45px\] {
   margin-top: -45px;
-}
-.mb-10 {
-  margin-bottom: 2.5rem;
 }
 .mb-5 {
   margin-bottom: 1.25rem;
@@ -4215,6 +4219,9 @@ textarea.form-control.is-invalid {
 .max-w-none {
   max-width: none;
 }
+.max-w-5xl {
+  max-width: 64rem;
+}
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -4224,11 +4231,11 @@ textarea.form-control.is-invalid {
 .max-w-\[864px\] {
   max-width: 864px;
 }
+.max-w-\[50rem\] {
+  max-width: 50rem;
+}
 .max-w-7xl {
   max-width: 1440px;
-}
-.max-w-5xl {
-  max-width: 64rem;
 }
 .max-w-\[240px\] {
   max-width: 240px;
@@ -4902,6 +4909,10 @@ textarea.form-control.is-invalid {
 .bg-black\/70 {
   background-color: rgb(0 0 0 / 0.7);
 }
+.bg-slate-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
+}
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -5148,12 +5159,6 @@ textarea.form-control.is-invalid {
 .pt-\[10px\] {
   padding-top: 10px;
 }
-.pt-12 {
-  padding-top: 3rem;
-}
-.pb-3 {
-  padding-bottom: 0.75rem;
-}
 .pb-5 {
   padding-bottom: 1.25rem;
 }
@@ -5367,6 +5372,9 @@ textarea.form-control.is-invalid {
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
+.text-\[34px\] {
+  font-size: 34px;
+}
 .text-\[10px\] {
   font-size: 10px;
 }
@@ -5388,6 +5396,9 @@ textarea.form-control.is-invalid {
 .uppercase {
   text-transform: uppercase;
 }
+.capitalize {
+  text-transform: capitalize;
+}
 .italic {
   font-style: italic;
 }
@@ -5399,6 +5410,9 @@ textarea.form-control.is-invalid {
 }
 .leading-7 {
   line-height: 1.75rem;
+}
+.leading-snug {
+  line-height: 1.375;
 }
 .leading-\[50px\] {
   line-height: 50px;
@@ -5424,8 +5438,14 @@ textarea.form-control.is-invalid {
 .leading-loose {
   line-height: 2;
 }
+.\!leading-tight {
+  line-height: 1.25 !important;
+}
 .leading-4 {
   line-height: 1rem;
+}
+.leading-\[1\.1em\] {
+  line-height: 1.1em;
 }
 .tracking-widest {
   letter-spacing: 0.1em;
@@ -6456,6 +6476,14 @@ html, body {
     margin-bottom: 8rem;
   }
 
+  .md\:mb-24 {
+    margin-bottom: 6rem;
+  }
+
+  .md\:mb-16 {
+    margin-bottom: 4rem;
+  }
+
   .md\:ml-16 {
     margin-left: 4rem;
   }
@@ -7251,18 +7279,13 @@ html, body {
     line-height: 1.75rem;
   }
 
-  .md\:text-6xl {
-    font-size: 3.75rem;
-    line-height: 1;
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .md\:text-\[32px\] {
     font-size: 32px;
-  }
-
-  .md\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
   }
 
   .md\:text-sm {
@@ -7272,11 +7295,6 @@ html, body {
 
   .md\:text-\[64px\] {
     font-size: 64px;
-  }
-
-  .md\:text-7xl {
-    font-size: 4.5rem;
-    line-height: 1;
   }
 
   .md\:font-normal {
@@ -7301,10 +7319,6 @@ html, body {
 
   .md\:leading-\[60px\] {
     line-height: 60px;
-  }
-
-  .md\:leading-\[76px\] {
-    line-height: 76px;
   }
 
   .md\:leading-\[80px\] {
@@ -7418,6 +7432,16 @@ html, body {
   .lg\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .lg\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
   }
 }
 @media (min-width: 1280px) {
