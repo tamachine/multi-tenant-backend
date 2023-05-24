@@ -1,5 +1,5 @@
 <div class="w-11/12 xl:w-1/2 max-w-[600px] mx-auto rounded-xl bg-white border">
-    <img class="mx-auto rounded-t-xl w-full max-h-48 object-cover object-center" src="{{ $mainImage }}">
+    <img class="mx-auto rounded-t-xl w-full overflow-hidden" src="{{ $mainImage }}">
 
     <div class="p-8">
         <div class="mt-8">

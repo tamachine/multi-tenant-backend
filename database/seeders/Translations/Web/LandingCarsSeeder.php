@@ -22,7 +22,7 @@ class LandingCarsSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'landing-cars',
-                'key' => 'medium-title',
+                'key' => 'small-title',
             ],
             [
                 'text' => ['en' => 'Small and medium cars for your adventure', 'es' => 'Coches pequeños y medianos para tus aventuras'],
@@ -32,7 +32,7 @@ class LandingCarsSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'landing-cars',
-                'key' => 'medium-text',
+                'key' => 'small-text',
             ],
             [
                 'text' => ['en' => 'While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!', 'es' => 'While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!'],
@@ -194,7 +194,7 @@ class LandingCarsSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'landing-cars',
-                'key' => 'otherlandings-medium-name',
+                'key' => 'otherlandings-small-name',
             ],
             [
                 'text' => ['en' => "Small vehicles", 'es' => "Coches pequeños"],
@@ -203,7 +203,7 @@ class LandingCarsSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'landing-cars',
-                'key' => 'otherlandings-medium-text',
+                'key' => 'otherlandings-small-text',
             ],
             [
                 'text' => ['en' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all.", 'es' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all."],

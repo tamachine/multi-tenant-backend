@@ -26,7 +26,7 @@ class LandingCarsController extends BaseController
     public function small()
     {
         $this->categories = ['small', 'medium'];
-        $this->type = 'medium';
+        $this->type = 'small';
         $this->otherlandings = [
             [
                 'type' => 'large',
@@ -49,7 +49,7 @@ class LandingCarsController extends BaseController
         $this->type = 'large';
         $this->otherlandings = [
             [
-                'type' => 'medium',
+                'type' => 'small',
                 'route' => route('cars.small'),
                 'image' => 'images/landing-cars/small-cars_mb.jpg'
             ],
@@ -69,7 +69,7 @@ class LandingCarsController extends BaseController
         $this->type = 'premium';
         $this->otherlandings = [
             [
-                'type' => 'medium',
+                'type' => 'small',
                 'route' => route('cars.small'),
                 'image' => 'images/landing-cars/small-cars_mb.jpg'
             ],

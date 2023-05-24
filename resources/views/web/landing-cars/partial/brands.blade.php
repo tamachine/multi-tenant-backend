@@ -28,7 +28,7 @@
         @endphp
         <div class="brands__logos md:w-1/2 grid grid-cols-3 gap-5 md:gap-x-14 md:gap-y-10 justify-items-center">
             @foreach($brands as $brand)
-                <img src="/images/logos/'. $brand .'.svg" alt="">
+                <img src="/images/logos/{{ $brand }}.svg" alt="">
             @endforeach
         </div>
     </div>

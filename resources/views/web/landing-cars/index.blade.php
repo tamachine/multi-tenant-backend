@@ -6,7 +6,11 @@
             
             @include('web.landing-cars.partial.hero')
 
-            <livewire:web.car-search-results :showFilters="false" : showImageIfLittleResults="true" :categories="$categories" />
+            <livewire:web.car-search-results 
+                :showFilters="false" 
+                :showImageIfLittleResults="true" 
+                :categories="$categories" 
+                />
 
             @include('web.landing-cars.partial.testimonials')
 

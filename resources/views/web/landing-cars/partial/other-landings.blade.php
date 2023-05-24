@@ -7,7 +7,7 @@
         <h2 class="mb-8">{!! __('landing-cars.otherlandings-title') !!}</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-100 gap-6">
             @foreach ($otherlandings as $key => $landing)
-                <a href="" 
+                <a href="{{ $landing['route'] }}" 
                     @if( $key == 1 ) id="view-more-link" @endif
                     @if( $key > 1 ) x-show="viewMore" @endif
                     class="category relative flex flex-col justify-end min-h-[430px] md:min-h-[400px] @if( $key == 2 ) lg:!flex @endif"

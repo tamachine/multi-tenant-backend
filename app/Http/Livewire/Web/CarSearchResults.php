@@ -28,6 +28,7 @@ class CarSearchResults extends Component
 
     public $showFilters;    
     public $showImageIfLittleResults;
+    public $widthFillScreen;
 
     /*
     ***************************************************************
@@ -40,9 +41,10 @@ class CarSearchResults extends Component
         $this->carsSearch = $carsSearch;
     }
 
-    public function mount(bool $showFilters = true, bool $showImageIfLittleResults = false, array $categories = [], array $dates = [], array $locations = []) {        
+    public function mount(bool $showFilters = true, bool $showImageIfLittleResults = false, bool $widthFillScreen = false, array $categories = [], array $dates = [], array $locations = []) {        
         $this->showFilters              = $showFilters;
         $this->showImageIfLittleResults = $showImageIfLittleResults;
+        $this->widthFillScreen          = $widthFillScreen;
         $this->categories               = $categories;
         $this->dates                    = $dates;
         $this->locations                = $locations;
