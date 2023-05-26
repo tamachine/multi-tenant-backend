@@ -11,11 +11,12 @@ use Spatie\Translatable\HasTranslations;
 use App\Traits\HasUploadImages;
 use App\Traits\HasFeaturedImage;
 use App\Traits\HasFeaturedImageHover;
+use App\Traits\HasSEOConfigurations;
 use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
 class BlogPost extends Model implements LocalizedUrlRoutable
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasUploadImages, HasFeaturedImage, HasFeaturedImageHover;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasUploadImages, HasFeaturedImage, HasFeaturedImageHover, HasSEOConfigurations;    
     
     /**
      * The attributes that are mass assignable.

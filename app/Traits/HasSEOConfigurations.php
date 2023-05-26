@@ -20,6 +20,7 @@ trait HasSEOConfigurations
             return $this->hashid;
         }
     }
+    
     /**
      * Get the SEO Configuration.
      */
