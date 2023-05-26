@@ -17,14 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('hashid')->nullable()->index();
             $table->string('route_name');
-            $table->string('uri');
+            $table->string('uri_fullkey');
             $table->string('controller');
             $table->string('method');
             $table->string('description')->nullable();
             
             $table->timestamps();       
             
-            $table->unique(['route_name', 'uri']);
+            $table->unique(['route_name', 'uri_fullkey']);
         });
     }
 

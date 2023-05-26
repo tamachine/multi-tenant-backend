@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Content\SeoConfiguration;
+namespace App\Http\Livewire\Content\Page;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -48,10 +48,10 @@ class Index extends Component
 
     public function render()
     {        
-        $pages = Page::byRouteName()->livewireSearch($this->search)->paginate(perPage());
+        $pages = Page::livewireSearch($this->search)->paginate(perPage());
 
         $this->count = $pages->count();
 
-        return view('livewire.content.seo-configuration.index', ['pages' => $pages, 'search' => $this->search]);
+        return view('livewire.content.page.index', ['pages' => $pages, 'search' => $this->search]);
     }
 }

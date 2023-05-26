@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\HashidTrait;
+use App\Traits\HasSEOConfigurations;
 
 class Page extends Model
 {  
 
-    use HashidTrait;
+    use HashidTrait, HasSEOConfigurations;     
 
     /**
      * The attributes that are translatable.
@@ -16,19 +17,7 @@ class Page extends Model
      * @var array
      */
 
-    protected $fillable  = ['route_name', 'uri', 'description', 'controller', 'method'];    
-
-    
-     /**
-     * Scope to return the pages without its corresponding translations
-     *
-     * @param      object  $query    Illuminate\Database\Query\Builder
-     *
-     * @return     object  Illuminate\Database\Query\Builder
-     */
-    public function scopeByRouteName($query) {
-        $query->groupBy('route_name')->selectRaw('route_name, ANY_VALUE(description) as description');
-    }
+    protected $fillable  = ['route_name', 'uri_fullkey', 'description', 'controller', 'method'];        
 
       /**
      * Scope to search the model

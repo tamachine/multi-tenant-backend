@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Content;
 
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
-use App\Models\SeoConfiguration;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
-class SEOConfigurationController extends Controller
+class PageController extends Controller
 {
     public function index(): View
     {
@@ -19,25 +19,25 @@ class SEOConfigurationController extends Controller
             ]
         ];
 
-        return view('content.seo-configuration.index')->with($data);
+        return view('content.page.index')->with($data);
     }         
 
-    public function edit(SeoConfiguration $SEOconfiguration, Request $request): View
+    public function edit(Page $page, Request $request): View
     {
         $this->authorize('content');  
 
         $data = [      
             'action' => collect([
-                'route' => route('intranet.content.seo-configuration.index', ['search' => $request->query('search')]),
-                'title' => 'SEO Configurations'
+                'route' => route('intranet.content.page.index', ['search' => $request->query('search')]),
+                'title' => 'Page configurations'
             ]),                 
             'crumbs' => [
                 'Content & SEO' => route('intranet.content.dashboard'),
-                'SEO Configurations'  => route('intranet.content.seo-configuration.index', ['search' => $request->query('search')])
+                'Page configurations'  => route('intranet.content.page.index', ['search' => $request->query('search')])
             ],
-            'SEOconfiguration' => $SEOconfiguration
+            'page' => $page,            
         ];
 
-        return view('content.seo-configuration.edit')->with($data);
+        return view('content.page.edit')->with($data);
     }
 }

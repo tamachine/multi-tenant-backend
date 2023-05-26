@@ -5758,6 +5758,11 @@ h5 {
     border-color: rgb(229 231 235 / var(--tw-divide-opacity));    
 }
 
+.divide-blue-200 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-opacity: 1;
+    border-color: rgb(191 219 254 / var(--tw-divide-opacity));    
+}
+
 .overflow-auto {
     overflow: auto;    
 }
@@ -5975,6 +5980,11 @@ h5 {
 .border-red-300 {
     --tw-border-opacity: 1;
     border-color: rgb(252 165 165 / var(--tw-border-opacity));    
+}
+
+.border-red-500 {
+    --tw-border-opacity: 1;
+    border-color: rgb(239 68 68 / var(--tw-border-opacity));    
 }
 
 .border-gray-500 {
@@ -6673,6 +6683,10 @@ h5 {
 
 .pb-\[50px\] {
     padding-bottom: 50px;    
+}
+
+.pt-1 {
+    padding-top: 0.25rem;    
 }
 
 .text-left {

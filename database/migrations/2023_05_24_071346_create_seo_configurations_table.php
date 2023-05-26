@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('meta_description')->nullable();
             $table->boolean('noindex')->default(false);
             $table->boolean('nofollow')->default(false);
-            $table->string('canonicals')->nullable();
+            $table->string('canonical')->nullable();
             $table->string('lang')->nullable();
             $table->string('instance_type');
             $table->string('instance_id');

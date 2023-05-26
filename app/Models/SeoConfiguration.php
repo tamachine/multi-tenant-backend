@@ -14,9 +14,9 @@ class SeoConfiguration extends Model
      *
      * @var array
      */
-    public $translatable = ['meta_title', 'meta_description', 'noindex', 'nofollow', 'lang', 'canonicals'];
+    public $translatable = ['meta_title', 'meta_description', 'lang', 'canonical'];
 
-    protected $fillable  = ['meta_title', 'meta_description', 'noindex', 'nofollow', 'lang', 'canonicals'];
+    protected $fillable  = ['meta_title', 'meta_description', 'noindex', 'nofollow', 'lang', 'canonical', 'instance_type', 'instance_id'];
 
      /**
      * Get the parent instance model

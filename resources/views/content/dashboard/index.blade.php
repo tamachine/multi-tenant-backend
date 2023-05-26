@@ -21,7 +21,7 @@
 
         <div
             class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
-            onclick='window.location.href="{{route("intranet.content.seo-configuration.index")}}"'
+            onclick='window.location.href="{{route("intranet.content.page.index")}}"'
             >
             <div class="w-14 ml-8">                                    
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"  class="w-14 h-14 text-purple-700">
@@ -31,7 +31,7 @@
             </div>
 
             <div class="ml-8 my-auto font-bold text-purple-700 hover:underline">
-                {{ __("SEO configurations") }}
+                {{ __("Page configurations") }}
             </div>
         </div>
 

@@ -1,11 +1,11 @@
 <x-admin-layout>
     <x-slot name="title">
-        {{ __('SEO Configurations') }}
+        {{ __('Page configurations') }}
     </x-slot>
 
     <x-slot name="breadcrumbs">
         <x-admin.breadcrumbs :crumbs="$crumbs" />
     </x-slot>    
 
-    <livewire:content.seo-configuration.index />
+    <livewire:content.page.index />
 </x-admin-layout>

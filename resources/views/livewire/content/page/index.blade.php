@@ -23,9 +23,9 @@
                         <tbody>
                             @foreach ($pages as $index => $page)
                                 <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">                                    
-                                    <td class="px-6 py-4 text-sm font-medium">     
-                                        <a href="#" class="text-purple-700 hover:underline">
-                                            {!! highlightTerm($page->route_name, $search) !!}                                                                                                             
+                                    <td class="px-6 py-4 text-sm font-medium">                                                                                     
+                                        <a href="{{route('intranet.content.page.edit', [ $page, 'search' => $search ])}}" class="text-purple-700 hover:underline">
+                                            {!! highlightTerm($page->route_name, $search) !!}                                                                                                          
                                         </a>
                                     </td>                                      
                                     <td class="px-6 py-4 text-sm font-medium">     

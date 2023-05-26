@@ -5,6 +5,7 @@ namespace App\Services\RoutesForPages;
 use App\Models\Page;
 use Illuminate\Support\Facades\Route;
 use \Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Schema;
 
 /**
  * Class to store and register routes that need SEO Configuration
@@ -22,9 +23,11 @@ class RoutesForPages {
      * Register the routes that are stored in Pages table
      */
     public function registerRoutes() {
-        foreach($this->pages as $page) {
-            Route::get($page->uri, [$page->controller, $page->method])->name($page->route_name);
-        }
+        if(Schema::hasTable('pages')) { //this class is call from routes/web.php file and web.php is called before migrations so in order to not fire an error we check for the existence of the table
+            foreach($this->pages as $page) {
+                Route::get(LaravelLocalization::transRoute($page->uri_fullkey), [$page->controller, $page->method])->name($page->route_name);
+            }
+        }        
     }
 
     /**
@@ -42,24 +45,24 @@ class RoutesForPages {
 
         /* Static pages */
         $this->storeRoute('home', '/', \App\Http\Controllers\Web\HomeController::class, 'Home page');
-        $this->storeRoute('about', LaravelLocalization::transRoute('routes.about'), \App\Http\Controllers\Web\AboutController::class, 'About us page');           
-        $this->storeRoute('contact', LaravelLocalization::transRoute('routes.contact'), \App\Http\Controllers\Web\ContactController::class, 'Contact page'); 
-        $this->storeRoute('faq', LaravelLocalization::transRoute('routes.faq'), \App\Http\Controllers\Web\FaqController::class, 'FAQs page'); 
-        $this->storeRoute('terms', LaravelLocalization::transRoute('routes.terms-and-conditions'), \App\Http\Controllers\Web\TermsAndConditionsController::class, 'Terms and conditions page'); 
+        $this->storeRoute('about', 'routes.about', \App\Http\Controllers\Web\AboutController::class, 'About us page');           
+        $this->storeRoute('contact', 'routes.contact', \App\Http\Controllers\Web\ContactController::class, 'Contact page'); 
+        $this->storeRoute('faq', 'routes.faq', \App\Http\Controllers\Web\FaqController::class, 'FAQs page'); 
+        $this->storeRoute('terms', 'routes.terms-and-conditions', \App\Http\Controllers\Web\TermsAndConditionsController::class, 'Terms and conditions page'); 
 
         /* Blog */
-        $this->storeRoute('blog', LaravelLocalization::transRoute('routes.blog'), \App\Http\Controllers\Web\BlogController::class, 'Blog list page'); 
-        $this->storeRoute('blog.search.string', LaravelLocalization::transRoute('routes.blog/search'), \App\Http\Controllers\Web\BlogSearchStringController::class, 'Search results for blog when searching in the input'); 
+        $this->storeRoute('blog', 'routes.blog', \App\Http\Controllers\Web\BlogController::class, 'Blog list page'); 
+        $this->storeRoute('blog.search.string', 'routes.blog/search', \App\Http\Controllers\Web\BlogSearchStringController::class, 'Search results for blog when searching in the input'); 
 
         /* Booking process */        
-        $this->storeRoute('cars', LaravelLocalization::transRoute('routes.cars'), \App\Http\Controllers\Web\CarsController::class, "Car's page");
-        $this->storeRoute('payment', LaravelLocalization::transRoute('routes.payment'), \App\Http\Controllers\Web\PaymentController::class, "Personal details page (just before valitor payment)"); 
-        $this->storeRoute('success', LaravelLocalization::transRoute('routes.success'), \App\Http\Controllers\Web\SuccessController::class, "Confirmation page (just after valitor payment)"); 
+        $this->storeRoute('cars', 'routes.cars', \App\Http\Controllers\Web\CarsController::class, "Car's page");
+        $this->storeRoute('payment', 'routes.payment', \App\Http\Controllers\Web\PaymentController::class, "Personal details page (just before valitor payment)"); 
+        $this->storeRoute('success', 'routes.success', \App\Http\Controllers\Web\SuccessController::class, "Confirmation page (just after valitor payment)"); 
 
          /* Landings */         
-         $this->storeRoute('cars', LaravelLocalization::transRoute('routes.small-medium'), \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for small-medium cars', 'small');
-         $this->storeRoute('cars', LaravelLocalization::transRoute('routes.large'), \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for large cars', 'large');
-         $this->storeRoute('cars', LaravelLocalization::transRoute('routes.premium'), \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for medium cars', 'medium');
+         $this->storeRoute('cars.small', 'routes.cars/small-medium', \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for small-medium cars', 'small');
+         $this->storeRoute('cars.large', 'routes.cars/large', \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for large cars', 'large');
+         $this->storeRoute('cars.medium', 'routes.cars/premium', \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for medium cars', 'medium');
         
     }
 
@@ -72,11 +75,11 @@ class RoutesForPages {
      * @param $descrption A description of the route
      * @param $method Method of the route
      */
-    protected function storeRoute($route_name, $uri, $controller, $description, $method = 'index') {
+    protected function storeRoute($route_name, $uri_fullkey, $controller, $description, $method = 'index') {
         Page::firstOrCreate(
             [
                 'route_name'  => $route_name,
-                'uri'         => $uri,
+                'uri_fullkey' => $uri_fullkey,
             ], 
             [                 
                 'controller'  => $controller, 
