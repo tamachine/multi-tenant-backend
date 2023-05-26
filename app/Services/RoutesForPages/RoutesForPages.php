@@ -36,7 +36,7 @@ class RoutesForPages {
 
     /**
      * Stores all the routes that need SEO Configuration
-     * Routes that have instance dependency, don't have to be included in here
+     * Routes that have instance dependency, don't have to be included in here as their SEO configurations will be managed throught they correponding CRUD
      */
     protected function storeRoutes() {
 
@@ -56,11 +56,7 @@ class RoutesForPages {
         $this->storeRoute('payment', LaravelLocalization::transRoute('routes.payment'), \App\Http\Controllers\Web\PaymentController::class, "Personal details page (just before valitor payment)"); 
         $this->storeRoute('success', LaravelLocalization::transRoute('routes.success'), \App\Http\Controllers\Web\SuccessController::class, "Confirmation page (just after valitor payment)"); 
 
-         /* Landings */
-         Route::get(LaravelLocalization::transRoute('routes.cars/small-medium'), [LandingCarsController::class, 'small'])->name('cars.small');
-         Route::get(LaravelLocalization::transRoute('routes.cars/large'), [LandingCarsController::class, 'large'])->name('cars.large');
-         Route::get(LaravelLocalization::transRoute('routes.cars/premium'), [LandingCarsController::class, 'premium'])->name('cars.premium');
-
+         /* Landings */         
          $this->storeRoute('cars', LaravelLocalization::transRoute('routes.small-medium'), \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for small-medium cars', 'small');
          $this->storeRoute('cars', LaravelLocalization::transRoute('routes.large'), \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for large cars', 'large');
          $this->storeRoute('cars', LaravelLocalization::transRoute('routes.premium'), \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for medium cars', 'medium');
