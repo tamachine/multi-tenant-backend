@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Services\PreferredLanguage\ApplyPreferredLanguageToLanguageSession;
 use App\Services\PreferredLanguage\PreferredLanguage;
+use App\Services\RoutesForPages\RoutesForPages;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,7 +19,11 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(ApplyPreferredLanguageToLanguageSession::class, function($app) {
 			return new ApplyPreferredLanguageToLanguageSession(new PreferredLanguage());
-		});
+		});       
+
+        $this->app->bind('RoutesForPages',function(){
+            return new RoutesForPages();
+        });
     }
 
     /**
