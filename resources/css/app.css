@@ -149,28 +149,27 @@ h5 {
     @apply top-[41px]
  }
 
-    /* Active */
+/* Active */
 
-    .search-input-set.active .search-input-label {
-        @apply top-[7px];
-    }
-    .search-input-set.active .search-input-label label {
-        @apply text-pink-red text-sm;
-    }
+.search-input-set.active .search-input-label {
+    @apply top-[7px];
+}
+.search-input-set.active .search-input-label label {
+    @apply text-pink-red text-sm;
+}
 
-    .search-input-set.active .search-input {
-        @apply top-[36px] text-base lg:text-lg font-sans-medium;
-    }
+.search-input-set.active .search-input {
+    @apply top-[36px] text-base lg:text-lg font-sans-medium;
+}
 
-    #set-dates .search-input-set.active .search-input {
-        @apply top-[36px] text-lg lg:text-[22px] font-sans-bold;
-    }
+#set-dates .search-input-set.active .search-input {
+    @apply top-[36px] text-lg lg:text-[22px] font-sans-bold;
+}
 
-    .easepick-wrapper {
-        position: unset !important;
-        @apply inline-block w-full;
-    }
-
+.easepick-wrapper {
+    position: unset !important;
+    @apply inline-block w-full;
+}
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
@@ -254,13 +253,13 @@ picture img {
         @apply opacity-100
     }
 
+
 .hover-no-image img:not(.image-hover) {
     @apply scale-100 transition-all duration-300
 }
     .hover-no-image:hover img:not(.image-hover) {
         @apply scale-110
     }
-
 
 .searchbar-popover {
     @apply overflow-hidden transition-[height] duration-300 ease-in-out;
@@ -333,3 +332,4 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: #AAAAAA;
   -webkit-box-shadow: 0 0 0px 100px rgba(0,0,0,0) inset;
 }
+

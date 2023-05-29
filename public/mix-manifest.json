@@ -3,7 +3,6 @@
     "/js/admin.js": "/js/admin.js",
     "/js/swiper.js": "/js/swiper.js",
     "/css/easepick.css": "/css/easepick.css",
-    "/css/app.css": "/css/app.css",
     "/css/print.css": "/css/print.css",
     "/css/admin.css": "/css/admin.css",
     "/js/app/scripts.js": "/js/app/scripts.js",
@@ -72,5 +71,6 @@
     "/fonts/Fredoka/Fredoka-Regular.ttf": "/fonts/Fredoka/Fredoka-Regular.ttf",
     "/fonts/Fredoka/Fredoka-SemiBold.ttf": "/fonts/Fredoka/Fredoka-SemiBold.ttf",
     "/fonts/FredokaOne/FredokaOne-Regular.ttf": "/fonts/FredokaOne/FredokaOne-Regular.ttf",
-    "/fonts/FredokaOne-Regular.ttf": "/fonts/FredokaOne-Regular.ttf"
+    "/fonts/FredokaOne-Regular.ttf": "/fonts/FredokaOne-Regular.ttf",
+    "/css/app.css": "/css/app.css"
 }
