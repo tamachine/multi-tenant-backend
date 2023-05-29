@@ -89,34 +89,34 @@ Route::group(
     /** 
      * URLs are defined in UrlsSeeder class because they are stored in database
      * **/
+    if (!App::runningInConsole()) { //to fix migrations to fail. Routes are loading before migrations but they are database dependant.
+        /* Static pages */
+        Route::get(LaravelLocalization::transRoute('routes.about'), [AboutController::class, 'index'])->name('about');
+        Route::get(LaravelLocalization::transRoute('routes.contact'), [ContactController::class, 'index'])->name('contact');
+        Route::get(LaravelLocalization::transRoute('routes.faq'), [FaqController::class, 'index'])->name('faq');
+        Route::get(LaravelLocalization::transRoute('routes.terms-and-conditions'), [TermsAndConditionsController::class, 'index'])->name('terms');
 
-    /* Static pages */
-    Route::get(LaravelLocalization::transRoute('routes.about'), [AboutController::class, 'index'])->name('about');
-    Route::get(LaravelLocalization::transRoute('routes.contact'), [ContactController::class, 'index'])->name('contact');
-    Route::get(LaravelLocalization::transRoute('routes.faq'), [FaqController::class, 'index'])->name('faq');
-    Route::get(LaravelLocalization::transRoute('routes.terms-and-conditions'), [TermsAndConditionsController::class, 'index'])->name('terms');
+        /* Blog */
+        Route::get(LaravelLocalization::transRoute('routes.blog'), [BlogController::class, 'index'])->name('blog'); 
+        Route::get(LaravelLocalization::transRoute('routes.blog/preview/{blog_post_slug}'), [BlogController::class, 'preview'])->name('blog.preview'); 
+        Route::get(LaravelLocalization::transRoute('routes.blog/search'), [BlogSearchStringController::class, 'index'])->name('blog.search.string');
+        Route::get(LaravelLocalization::transRoute('routes.blog/category/{blog_category_slug}'), [BlogSearchCategoryController::class, 'index'])->name('blog.search.category');
+        Route::get(LaravelLocalization::transRoute('routes.blog/tag/{blog_tag_slug}'), [BlogSearchTagController::class, 'index'])->name('blog.search.tag');
+        Route::get(LaravelLocalization::transRoute('routes.blog/author/{blog_author_slug}'), [BlogSearchAuthorController::class, 'index'])->name('blog.search.author');    
+        Route::get(LaravelLocalization::transRoute('routes.blog/post/{blog_post_slug}'), [BlogController::class, 'show'])->name('blog.show');     
 
-    /* Blog */
-    Route::get(LaravelLocalization::transRoute('routes.blog'), [BlogController::class, 'index'])->name('blog'); 
-    Route::get(LaravelLocalization::transRoute('routes.blog/preview/{blog_post_slug}'), [BlogController::class, 'preview'])->name('blog.preview'); 
-    Route::get(LaravelLocalization::transRoute('routes.blog/search'), [BlogSearchStringController::class, 'index'])->name('blog.search.string');
-    Route::get(LaravelLocalization::transRoute('routes.blog/category/{blog_category_slug}'), [BlogSearchCategoryController::class, 'index'])->name('blog.search.category');
-    Route::get(LaravelLocalization::transRoute('routes.blog/tag/{blog_tag_slug}'), [BlogSearchTagController::class, 'index'])->name('blog.search.tag');
-    Route::get(LaravelLocalization::transRoute('routes.blog/author/{blog_author_slug}'), [BlogSearchAuthorController::class, 'index'])->name('blog.search.author');    
-    Route::get(LaravelLocalization::transRoute('routes.blog/post/{blog_post_slug}'), [BlogController::class, 'show'])->name('blog.show');     
+        /* Booking process */
+        Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');
+        Route::get(LaravelLocalization::transRoute('routes.cars'), [CarsController::class, 'index'])->name('cars');
+        Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/insurances'), [InsurancesController::class, 'index'])->name('insurances');
+        Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/extras'), [ExtrasController::class, 'index'])->name('extras');
+        Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/summary'), [SummaryController::class, 'index'])->name('summary');
+        Route::get(LaravelLocalization::transRoute('routes.payment'), [PaymentController::class, 'index'])->name('payment');
+        Route::get(LaravelLocalization::transRoute('routes.success'), [SuccessController::class, 'index'])->name('success');
 
-    /* Booking process */
-    Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');
-    Route::get(LaravelLocalization::transRoute('routes.cars'), [CarsController::class, 'index'])->name('cars');
-    Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/insurances'), [InsurancesController::class, 'index'])->name('insurances');
-    Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/extras'), [ExtrasController::class, 'index'])->name('extras');
-    Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/summary'), [SummaryController::class, 'index'])->name('summary');
-    Route::get(LaravelLocalization::transRoute('routes.payment'), [PaymentController::class, 'index'])->name('payment');
-    Route::get(LaravelLocalization::transRoute('routes.success'), [SuccessController::class, 'index'])->name('success');
-
-    /* landings */
-    Route::get(LaravelLocalization::transRoute('routes.cars/small-medium'), [LandingCarsController::class, 'small'])->name('cars.small');
-    Route::get(LaravelLocalization::transRoute('routes.cars/large'), [LandingCarsController::class, 'large'])->name('cars.large');
-    Route::get(LaravelLocalization::transRoute('routes.cars/premium'), [LandingCarsController::class, 'premium'])->name('cars.premium');
-
+        /* landings */
+        Route::get(LaravelLocalization::transRoute('routes.cars/small-medium'), [LandingCarsController::class, 'small'])->name('cars.small');
+        Route::get(LaravelLocalization::transRoute('routes.cars/large'), [LandingCarsController::class, 'large'])->name('cars.large');
+        Route::get(LaravelLocalization::transRoute('routes.cars/premium'), [LandingCarsController::class, 'premium'])->name('cars.premium');
+    }
 });
