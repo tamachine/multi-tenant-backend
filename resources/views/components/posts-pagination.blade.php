@@ -17,7 +17,7 @@
             <div class="relative h-[200px] w-80 rounded-t-lg overflow-hidden"
             >
                 <div class="bg-image image-wrapper">
-                    <img src="{{ $blogPost->featured_image_url }}" alt="">
+                    <x-image path="{{ $blogPost->featured_image_url }}" alt="" />
                 </div>
                 <div class="relative bg-black/50 h-full w-full p-5 rounded-lg">
                     <div class="flex flex-col justify-start items-start h-full">
