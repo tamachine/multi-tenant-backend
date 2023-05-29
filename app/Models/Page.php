@@ -19,6 +19,19 @@ class Page extends Model
 
     protected $fillable  = ['route_name', 'uri_fullkey', 'description', 'controller', 'method'];        
 
+     /**
+     * Scope to search by route name
+     *
+     * @param      object  $query    Illuminate\Database\Query\Builder
+     * @param      object  $request  Illuminate\Http\Request
+     *
+     * @return     object  Illuminate\Database\Query\Builder
+     */
+    public function scopeRouteName($query, $route_name)
+    {
+        return $query->where('route_name', $route_name);        
+    }
+
       /**
      * Scope to search the model
      *
