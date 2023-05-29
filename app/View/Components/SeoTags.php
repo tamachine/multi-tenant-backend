@@ -3,27 +3,27 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use App\Model\Page;
-use Route;
+use App\Services\SeoConfigurations;
 
 /**
  * This component shows the corresponding meta tags of the page based on SEO Configurations
  */
 class SeoTags extends Component
-{
-    
+{        
+    protected $seoConfigurations;
+
+    public $configurations;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(SeoConfigurations $seoConfigurations)
     {
-        $page = Page::routeName(Route::currentRouteName());
-
-        if($page->count() == 1) {
-
-        }
+        $this->seoConfigurations = $seoConfigurations;
+        
+        $this->configurations = $this->seoConfigurations->getConfigurations();
         
     }
 
@@ -35,5 +35,5 @@ class SeoTags extends Component
     public function render()
     {
         return view('components.seo-tags');
-    }
+    }    
 }

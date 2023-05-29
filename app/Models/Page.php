@@ -19,6 +19,15 @@ class Page extends Model
 
     protected $fillable  = ['route_name', 'uri_fullkey', 'description', 'controller', 'method'];        
 
+    /**
+     * method for HasSEOConfigurations. Check the trait for info
+     * 
+     * @return string url of the page
+     */
+    public function seoConfigurationUrl() {
+        return route($this->route_name);
+    }     
+
      /**
      * Scope to search by route name
      *

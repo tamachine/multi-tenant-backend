@@ -47,6 +47,15 @@ class BlogPost extends Model implements LocalizedUrlRoutable
     ];
 
     /**
+     * method for HasSEOConfigurations. Check the trait for info
+     * 
+     * @return string url of the post
+     */
+    public function seoConfigurationUrl() {
+        return $this->url;
+    }
+
+    /**
      * Returns for a given locale the translated slug
      * It is used for translatable routes in mcnamara localization package. 
      * This method has to be defined when implementing LocalizedUrlRoutable

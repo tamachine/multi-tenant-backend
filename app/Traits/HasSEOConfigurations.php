@@ -6,6 +6,7 @@ use App\Models\SeoConfiguration;
 
 /**
  * This trait manages SEO Configurations
+ * NOTE: method seoConfigurationUrl MUST be implemented in the model that uses this trait
  * 
  * It is possible to set the attribute $description_for_seo_configurations in order to get the description of the instance
  */
@@ -27,6 +28,16 @@ trait HasSEOConfigurations
     public function SEOConfiguration()
     {
         return $this->morphOne(SeoConfiguration::class, 'instance');
+    }
+
+    /**
+     * Define the url that the model will have
+     * As traits cannot implement interfaces, we through an exception
+     * 
+     * @return string url of the model
+     */
+    public function seoConfigurationUrl() {
+        throw new \Exception('define url in '. class_basename($this) . ' class');
     }
     
 }
