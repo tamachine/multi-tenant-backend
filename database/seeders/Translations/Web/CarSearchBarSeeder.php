@@ -17,7 +17,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'pick-up-day',    
+                'key' => 'start-day',    
             ],
             [                
                 'text' => ['en' => 'First day', 'es' => 'Inicio'],
@@ -27,37 +27,17 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'return-day',    
+                'key' => 'end-day',    
             ],
             [                
                 'text' => ['en' => 'Last day', 'es' => 'Fin'],
             ]
         );
-        
-        Translation::firstOrCreate(
-            [
-                'group' => 'car-search-bar',
-                'key' => 'pick-up-day',    
-            ],
-            [                
-                'text' => ['en' => 'First day', 'es' => 'Inicio'],
-            ]
-        );   
-        
-        Translation::firstOrCreate(
-            [
-                'group' => 'car-search-bar',
-                'key' => 'return-day',    
-            ],
-            [                
-                'text' => ['en' => 'Last day', 'es' => 'Fin'],
-            ]
-        );   
 
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'pick-up-day-placeholder',    
+                'key' => 'start-day-placeholder',    
             ],
             [                
                 'text' => ['en' => 'Pick up day', 'es' => 'Día de recogida'],
@@ -67,7 +47,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'return-day-placeholder',    
+                'key' => 'end-day-placeholder',    
             ],
             [                
                 'text' => ['en' => 'Return day', 'es' => 'Día de entrega'],
@@ -87,7 +67,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'pick-up-time',    
+                'key' => 'start-time',    
             ],
             [                
                 'text' => ['en' => 'Pick up Time', 'es' => 'Recogida'],
@@ -97,7 +77,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'return-time',    
+                'key' => 'end-time',    
             ],
             [                
                 'text' => ['en' => 'Return Time', 'es' => 'Entrega'],

@@ -1998,8 +1998,7 @@ textarea.form-control.is-invalid {
 .carousel-item {
     display: none;
     margin-right: -100%;
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
+    backface-visibility: hidden;
     transition: transform 0.6s ease-in-out;    
 }
 
@@ -4495,19 +4494,26 @@ h5 {
 }
 
 .search-input-group:not(:first-child)::before {
-    position: absolute;
-    top: 50%;
-    left: -18px;
-    height: 14px;
-    width: 14px;
     --tw-translate-y: -50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     background-image: url('/images/icons/arrow-right-gray.svg');
     background-size: contain;
     background-position: center;
-    background-repeat: no-repeat;
-    --tw-content: '';
-    content: var(--tw-content);    
+    content: var(--tw-content);
+    background-repeat: no-repeat;    
+}
+
+@media (min-width: 768px) {
+
+    .search-input-group:not(:first-child)::before {
+        position: absolute;
+        top: 50%;
+        left: -18px;
+        height: 14px;
+        width: 14px;
+        --tw-content: '';
+        content: var(--tw-content);    
+    }    
 }
 
 @media (min-width: 1024px) {
@@ -4662,7 +4668,7 @@ h5 {
 }
 
 .search-input-set.active .search-input {
-    top: 36px;
+    top: 38px;
     font-family: DMSansMedium;
     font-size: 1rem;
     line-height: 1.5rem;    
@@ -4671,23 +4677,28 @@ h5 {
 @media (min-width: 1024px) {
 
     .search-input-set.active .search-input {
-        font-size: 1.125rem;
-        line-height: 1.75rem;    
+        font-size: 17px;    
     }    
 }
 
-#set-dates .search-input-set.active .search-input {
-    top: 36px;
-    font-family: DMSansBold;
-    font-size: 1.125rem;
-    line-height: 1.75rem;    
+#set-dates .search-input-set.active .search-input,
+    .mobile-dates .search-input-set.active .search-input {
+    display: none;    
 }
 
-@media (min-width: 1024px) {
+.searchbar-popover#set-dates .search-input-set.active .search-input,.searchbar-popover
+    .mobile-dates .search-input-set.active .search-input {
+    height: 0px !important;    
+}
 
-    #set-dates .search-input-set.active .search-input {
-        font-size: 22px;    
-    }    
+#set-dates .search-input-set.active .selected-date,
+    .mobile-dates .search-input-set.active .selected-date {
+    position: absolute;
+    bottom: 12px;
+    z-index: 10;
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;    
 }
 
 .easepick-wrapper {
@@ -4695,6 +4706,17 @@ h5 {
         display: inline-block;
         width: 100%;
     }
+
+#resume-mobile-dates label {
+    font-family: DMSansRegular, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --tw-text-opacity: 1;
+    color: rgb(170 170 170 / var(--tw-text-opacity));    
+}
+
+#resume-mobile-dates .selected-date {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));    
+}
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
@@ -5084,6 +5106,10 @@ h5 {
     margin-top: 0.75rem;    
 }
 
+.mb-5 {
+    margin-bottom: 1.25rem;    
+}
+
 .ml-3 {
     margin-left: 0.75rem;    
 }
@@ -5166,10 +5192,6 @@ h5 {
 
 .mt-\[-45px\] {
     margin-top: -45px;    
-}
-
-.mb-5 {
-    margin-bottom: 1.25rem;    
 }
 
 .mt-28 {
@@ -5487,6 +5509,10 @@ h5 {
     width: 0.75rem;    
 }
 
+.w-auto {
+    width: auto;    
+}
+
 .w-64 {
     width: 16rem;    
 }
@@ -5541,10 +5567,6 @@ h5 {
 
 .w-24 {
     width: 6rem;    
-}
-
-.w-auto {
-    width: auto;    
 }
 
 .w-8 {
@@ -6260,6 +6282,11 @@ h5 {
     border-color: rgb(231 236 243 / var(--tw-border-opacity));    
 }
 
+.border-black {
+    --tw-border-opacity: 1;
+    border-color: rgb(0 0 0 / var(--tw-border-opacity));    
+}
+
 .border-white {
     --tw-border-opacity: 1;
     border-color: rgb(255 255 255 / var(--tw-border-opacity));    
@@ -6268,11 +6295,6 @@ h5 {
 .border-\[\#8c8c8c\] {
     --tw-border-opacity: 1;
     border-color: rgb(140 140 140 / var(--tw-border-opacity));    
-}
-
-.border-black {
-    --tw-border-opacity: 1;
-    border-color: rgb(0 0 0 / var(--tw-border-opacity));    
 }
 
 .border-gray-secondary {
@@ -6846,10 +6868,6 @@ h5 {
     padding-top: 2.5rem;    
 }
 
-.pb-6 {
-    padding-bottom: 1.5rem;    
-}
-
 .pb-9 {
     padding-bottom: 2.25rem;    
 }
@@ -6872,6 +6890,10 @@ h5 {
 
 .pt-7 {
     padding-top: 1.75rem;    
+}
+
+.pb-6 {
+    padding-bottom: 1.5rem;    
 }
 
 .pb-10 {
@@ -7122,6 +7144,14 @@ h5 {
     font-size: 26px;    
 }
 
+.text-\[30px\] {
+    font-size: 30px;    
+}
+
+.text-\[12px\] {
+    font-size: 12px;    
+}
+
 .text-\[128px\] {
     font-size: 128px;    
 }
@@ -7197,6 +7227,14 @@ h5 {
 
 .leading-6 {
     line-height: 1.5rem;    
+}
+
+.leading-\[0\.8em\] {
+    line-height: 0.8em;    
+}
+
+.leading-none {
+    line-height: 1;    
 }
 
 .leading-\[22px\] {
@@ -9407,6 +9445,10 @@ button:disabled {
         padding-bottom: 2.5rem;    
     }
 
+    .md\:pb-6 {
+        padding-bottom: 1.5rem;    
+    }
+
     .md\:pr-28 {
         padding-right: 7rem;    
     }
@@ -9739,12 +9781,8 @@ button:disabled {
         flex-basis: 30%;    
     }
 
-    .lg\:basis-\[19\%\] {
-        flex-basis: 19%;    
-    }
-
-    .lg\:basis-\[45\%\] {
-        flex-basis: 45%;    
+    .lg\:basis-\[44\%\] {
+        flex-basis: 44%;    
     }
 
     .lg\:grid-cols-3 {

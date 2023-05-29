@@ -1,51 +1,47 @@
 @php 
-    $ranges = ['pickup', 'return']; 
+    $types = ['start', 'end']; 
 @endphp
 
 <div :class="showTime ? '' : 'hidden'" class="flex flex-col h-full justify-between md:inline-block w-full md:h-auto">
+
+    {{-- Only Mobile --}}
     <div id="date-resume" :class="showTime ? '' : 'hidden'" x-on:click="backShowDate()" class=" md:hidden">
-        <h3 class="text-gray-light">{!! __('car-search-bar.mobile-first-input-placeholder') !!}</h3>
-        <div class="border-[1px] border-gray-secondary rounded w-[90%] mx-auto">
-            @foreach ($ranges as $range)
-                <div id="resume-{{ $range }}" class="text-black">
-                    <span>
-                        Pick-up
-                    </span>
-                    <span>
-                        18
-                    </span>
-                    <div>
-                        <span>Mon</span>
-                        <span>Nov</span>
-                    </div>
-                </div>
-            @endforeach
+        <h3 class="text-gray-light mb-5">{!! __('car-search-bar.mobile-first-input-placeholder') !!}</h3>
+        <div class="w-[90%] mx-auto">
+            <div id="resume-mobile-dates" class="mobile-dates hidden search-input-group flex gap-2 bg-white">
+                @foreach ($types as $type)
+                    <x-selected-date size="mobile" type="{{ $type }}" class="text-black"/>
+                @endforeach
+            </div>
         </div>
     </div>
+
+    {{-- Desktop and Mobile --}}
+
     <div id="time-picker" class="px-[3%] lg:px-4 md:mt-4">
         <h3 class="text-black text-lg md:hidden">{!! __('car-search-bar.mobile-time-title') !!}</h3>
         <div class="container md:flex md:gap-[5%] relative md:border-t-[1px] md:border-gray-secondary">
 
-            @foreach ($ranges as $range)
+            @foreach ($types as $type)
                 <div class="md:w-1/2 text-center pt-16 md:pt-5">
                     <div class="inline-block mb-4 text-black ">
                         <span class="text-sm lg:text-base">
-                            @if ($range == 'pickup')
-                                {!! __('car-search-bar.pick-up-time') !!}
+                            @if ($type == 'start')
+                                {!! __('car-search-bar.start-time') !!}
                             @else 
-                                {!! __('car-search-bar.return-time') !!}
+                                {!! __('car-search-bar.end-time') !!}
                             @endif
                         </span>
                         <img class="inline-block ml-3 mb-1 mr-1" src="{{ asset('images/icons/arrow-right-solid.svg') }}" alt="">
-                        <span class="selected-time--{{ $range }} text-black text-lg lg:text-xl inline-block w-[50px] lg:w-[55px] text-right">12:00</span>
-                        <span class="selected-time-type--{{ $range }} text-base inline-block w-[25px] ml-1">AM</span>
+                        <span class="selected-time--{{ $type }} text-black text-lg lg:text-xl inline-block w-[50px] lg:w-[55px] text-right">12:00</span>
+                        <span class="selected-time-type--{{ $type }} text-base inline-block w-[25px] ml-1">AM</span>
                     </div>
-                    <div class="range-slider range-slider--{{ $range }}">
-                        <div id="range-bullet" class="range-bullet range-bullet--{{ $range }} ">
-                            <span id="bullet-time" class="bullet-time bullet-time--{{ $range }}">12:00</span>
-                            <small id="bullet-type" class="bullet-type bullet-type--{{ $range }}">PM</small>
+                    <div class="range-slider range-slider--{{ $type }}">
+                        <div id="range-bullet" class="range-bullet range-bullet--{{ $type }} ">
+                            <span id="bullet-time" class="bullet-time bullet-time--{{ $type }}">12:00</span>
+                            <small id="bullet-type" class="bullet-type bullet-type--{{ $type }}">PM</small>
                         </div>
-                        <input class="range-input range-input--{{ $range }}" type="range" value="24" min="0" max="47" list="times">
+                        <input class="range-input range-input--{{ $type }}" type="range" value="24" min="0" max="47" list="times">
                         <div class="range-times">
                             <span class="">12 <small>AM</small></span>
                             <span class="">6 <small>AM</small></span>
@@ -85,13 +81,13 @@
 
 @push('scripts')
     <script>
-        const rangeSliderPickup = document.querySelector(".range-input--pickup");
-        const rangeSliderReturn = document.querySelector(".range-input--return");
+        const rangeSliderStart = document.querySelector(".range-input--start");
+        const rangeSliderEnd = document.querySelector(".range-input--end");
         
-        rangeSliderPickup.addEventListener("input", showSliderValue, false);
-        rangeSliderPickup.range = 'pickup';
-        rangeSliderReturn.addEventListener("input", showSliderValue, false);
-        rangeSliderReturn.range = 'return';
+        rangeSliderStart.addEventListener("input", showSliderValue, false);
+        rangeSliderStart.range = 'start';
+        rangeSliderEnd.addEventListener("input", showSliderValue, false);
+        rangeSliderEnd.range = 'end';
 
         function showSliderValue(event) {
             const range = event.currentTarget.range;
@@ -134,10 +130,10 @@
             const setFilled = inputFilled.parentElement
             setFilled.classList.add('active');
 
-            let pickupHour = document.getElementById('hour-pickup') 
-            let returnHour = document.getElementById('hour-return') 
+            let startHour = document.getElementById('hour-start') 
+            let endHour = document.getElementById('hour-end') 
         
-            if (pickupHour.value !== '' && returnHour.value !== '') {
+            if (startHour.value !== '' && endHour.value !== '') {
                 setFilled.parentElement.classList.add('active');
             }
 

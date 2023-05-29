@@ -1,3 +1,7 @@
+@php 
+    $types = ['start', 'end']; 
+@endphp
+
 <div x-data="carSearchBar()" class="relative">
     <div x-show="showOverlay" x-on:click="closePopOver()" class="fixed h-screen w-screen top-0 left-0 bg-black bg-opacity-50 backdrop-blur-sm" x-cloak></div>
 
@@ -18,34 +22,25 @@
             {{-- DESKTOP --}}
             <div class="hidden md:flex gap-5 lg:gap-8 grow">
                 <div id="set-dates" class="search-input-group flex gap-2 basis-[32%] lg:basis-[30%]" x-on:click="openCalendarClick()">
+                    @foreach ($types as $type)
+                        <x-selected-date size="desktop" type="{{ $type }}" />
+                    @endforeach
+                </div>
+                <div id="set-times" class="search-input-group flex gap-2 basis-[21%]" x-on:click="openCalendarClick()">
                     <div class="search-input-set">
                         <div class="search-input-label">
-                            <label for="start-date">{!! __('car-search-bar.pick-up-day') !!}</label>
+                            <label for="hour-start">{!! __('car-search-bar.time') !!}</label>
                         </div>
-                        <input type="text" class="search-input" id="start-date" placeholder="{!! __('car-search-bar.pick-up-day-placeholder') !!}" readonly="readonly"/>
+                        <input type="text" class="search-input" id="hour-start" placeholder="12 AM" readonly="readonly"/>
                     </div>
                     <div class="search-input-set">
                         <div class="search-input-label">
-                            <label for="end-date">{!! __('car-search-bar.return-day') !!}</label>
+                            <label for="hour-end">{!! __('car-search-bar.time') !!}</label>
                         </div>
-                        <input type="text" class="search-input" id="end-date" placeholder="{!! __('car-search-bar.return-day-placeholder') !!}" readonly="readonly"/>
+                        <input type="text" class="search-input" id="hour-end" placeholder="12 AM" readonly="readonly"/>
                     </div>
                 </div>
-                <div id="set-times" class="search-input-group flex gap-2 basis-[21%] lg:basis-[19%]" x-on:click="openCalendarClick()">
-                    <div class="search-input-set">
-                        <div class="search-input-label">
-                            <label for="pickup-hour">{!! __('car-search-bar.time') !!}</label>
-                        </div>
-                        <input type="text" class="search-input" id="hour-pickup" placeholder="12 AM" readonly="readonly"/>
-                    </div>
-                    <div class="search-input-set">
-                        <div class="search-input-label">
-                            <label for="return-hour">{!! __('car-search-bar.time') !!}</label>
-                        </div>
-                        <input type="text" class="search-input" id="hour-return" placeholder="12 AM" readonly="readonly"/>
-                    </div>
-                </div>
-                <div id="set-locations" class="search-input-group flex gap-2 basis-[41%] lg:basis-[45%]" x-on:click="openLocationsClick()">
+                <div id="set-locations" class="search-input-group flex gap-2 basis-[41%] lg:basis-[44%]" x-on:click="openLocationsClick()">
                     <div class="search-input-set">
                         <div class="search-input-label">
                             <label for="pickup-location">{!! __('car-search-bar.pick-up-location') !!}</label>
@@ -69,19 +64,10 @@
                     </div>
                     <input type="text" class="search-input text-left p-0" placeholder="{!! __('car-search-bar.mobile-first-input-placeholder') !!}" readonly="readonly"/>
                 </div>
-                <div id="mobile-dates" class="hidden search-input-group flex gap-2 basis-[32%] lg:basis-[30%] border-black bg-white">
-                    <div class="search-input-set">
-                        <div class="search-input-label">
-                            <label for="mobile-start-date">{!! __('car-search-bar.pick-up-day') !!}</label>
-                        </div>
-                        <input type="text" class="search-input" id="mobile-start-date" placeholder="{!! __('car-search-bar.pick-up-day-placeholder') !!}" readonly="readonly"/>
-                    </div>
-                    <div class="search-input-set">
-                        <div class="search-input-label">
-                            <label for="mobile-end-date">{!! __('car-search-bar.return-day') !!}</label>
-                        </div>
-                        <input type="text" class="search-input" id="mobile-end-date" placeholder="{!! __('car-search-bar.return-day-placeholder') !!}" readonly="readonly"/>
-                    </div>
+                <div id="mobile-dates" class="mobile-dates hidden search-input-group flex gap-2 basis-[32%] lg:basis-[30%] border-black bg-white">
+                    @foreach ($types as $type)
+                        <x-selected-date size="mobile" type="{{ $type }}" />
+                    @endforeach
                 </div>
             </div>
 
@@ -115,7 +101,7 @@
     </div>
 
     <div id="locations" class="searchbar-popover absolute w-full pointer-events-none" :class="showLocations ? 'show' : 'hidden'" x-cloak>
-        <div id="locations__layer" class="searchbar-popover__layer w-full md:w-[85%] max-w-4xl px-[4%] pt-10 pb-6 ">
+        <div id="locations__layer" class="searchbar-popover__layer w-full md:w-[85%] max-w-4xl px-[4%] pt-10 pb-4 md:pb-6 ">
             {{-- Mobile: go back --}}
             <x-back-popover click="backShowTime()"/>
             {{-- Mobile: close button --}}

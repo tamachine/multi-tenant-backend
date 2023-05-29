@@ -33,6 +33,8 @@
         return tooltipTranslated[day];
     }
 
+
+
     /********************
         WEEK DAY NAME FORMAT
     ********************/
@@ -43,9 +45,22 @@
             const shortName = name.slice(0, -1);
             day.textContent = shortName;
         }
-    }	
+    }
+    
+    // Array días de la semana (para poder mostrar el día de la semana al seleccionar)
 
+    let arrayWeekDays= [];
 
+    const arrayDays = (locale, day) => {
+        let dayWeekName = day.textContent;
+
+        arrayWeekDays.push(dayWeekName);
+
+        return arrayWeekDays;
+    }
+
+    
+    
     /********************
         STRUCTURE CALENDAR MOBILE
     ********************/
@@ -116,34 +131,65 @@
                     const { start, end } = e.detail;
                     
                     scrollTopPosition = e.target.querySelector('main').scrollTop;
-                    console.log(scrollTopPosition)
                     
-                    const startInput = document.getElementById('start-date')
-                    const endInput = document.getElementById('end-date')
-                    const startInputMobile = document.getElementById('mobile-start-date')
-                    const endInputMobile = document.getElementById('mobile-end-date')
                     
                     //set dates in order to show them selected when calendar hides/shows
                     picker.setStartDate(start);
                     picker.setEndDate(end);
+            
+                    // Show date
+                    const startDay = document.querySelectorAll('.start-day')
+                    const startDayWeek = document.querySelectorAll('.start-dayweek')
+                    const startMonth = document.querySelectorAll('.start-month')
+                    const endDay = document.querySelectorAll('.end-day')
+                    const endDayWeek = document.querySelectorAll('.end-dayweek')
+                    const endMonth = document.querySelectorAll('.end-month')
 
-                    //format date and inputs
-                    formatInput(start, startInput)
-                    formatInput(end, endInput)
-                    formatInput(start, startInputMobile)
-                    formatInput(end, endInputMobile)
+                    // Show selected days
+                    for (let i = 0; i < startDay.length; i++) {
+                        showDay(start, startDay[i]);
+                    }
+                    for (let i = 0; i < endDay.length; i++) {
+                        showDay(end, endDay[i]);
+                    }
+                    // Show selected day on week
+                    for (let i = 0; i < startDayWeek.length; i++) {
+                        showDayWeek(start, startDayWeek[i]);
+                    }
+                    for (let i = 0; i < endDayWeek.length; i++) {
+                        showDayWeek(end, endDayWeek[i]);
+                    }
+                    // Show selected month
+                    for (let i = 0; i < startMonth.length; i++) {
+                        showMonth(start, startMonth[i]);
+                    }
+                    for (let i = 0; i < endMonth.length; i++) {
+                        showMonth(end, endMonth[i]);
+                    }
+
+
+                    // Set date to input value
+                    const startInput = document.querySelectorAll('.start-date')
+                    const endInput = document.querySelectorAll('.end-date')
+
+                    for (let i = 0; i < startInput.length; i++) {
+                        formatInput(start, startInput[i]);
+                    }
+                    for (let i = 0; i < endInput.length; i++) {
+                        formatInput(end, endInput[i]);
+                    }
 
 
                     // If date inputs are filled:
-                    // - Show set as 'active' 
+                    // - Set as 'active' 
                     // - Enable button
                     // - Mobile: show input dates
                     const searchButton = document.getElementById('search__button')
                     const continueButton = document.getElementById('continue-date__button')
                     const emptyInputMobile = document.getElementById('mobile-empty-dates')
-                    const datesMobile = document.getElementById('mobile-dates')
+                    const datesMobile = document.querySelectorAll('.mobile-dates')
 
-                    if(startInput.value !== '' && endInput.value !== '') {
+                    if(startInput[0].value !== '' && endInput[0].value !== '') {
                         document.getElementById('set-dates').classList.add('active')
                         searchButton.removeAttribute('disabled')
                         continueButton.removeAttribute('disabled')
@@ -151,7 +197,11 @@
                         // mobile
                         if (vWidth <= 767) {
                             emptyInputMobile.classList.add('hidden');
-                            datesMobile.classList.remove('hidden');
+
+                            for (let i = 0; i < datesMobile.length; i++) {
+                                datesMobile[i].classList.remove('hidden');
+                            }
+                            // datesMobile.classList.remove('hidden');
                         }
                     } else {
                         document.getElementById('set-dates').classList.remove('active')
@@ -174,14 +224,15 @@
                             e.target.querySelector('main').scrollTop = scrollTopPosition;
                         }
                     }
-
+                    
                     if (view === 'CalendarDay') {							
                         target.dataset.day = date.getDate(); //add the data-day attribute to the days in order to use it as a 'content' in the css ::after selector
                         
                         if (date <= new Date()) target.classList.add('disabled') //disable days before tomorrow
-                    }	
-
-                    if (view === 'CalendarDayName') {                
+                    }
+                    
+                    if (view === 'CalendarDayName') {
+                        arrayDays('{{ App::getLocale() }}', target)
                         dayName('{{ App::getLocale() }}', target)
                     }
                     
@@ -196,25 +247,39 @@
             DATE FORMAT
         ********************/
 
-        const formatDate = function(d) {
-            if (d) {
-                return d.getDate() + " " + monthNames('{{ App::getLocale() }}', d.getMonth())
-            } else {
-                return ''
+        const showDay = function(date, element) {
+            if (date) {
+                element.innerHTML = date.getDate()            
+            }
+        }
+
+        const showDayWeek = function(date, element) {
+            if (date) {
+                element.innerHTML = arrayWeekDays[date.getDay()]            
+            }
+        }
+
+        const showMonth = function(date, element) {
+            if (date) {
+                element.innerHTML = monthNames('{{ App::getLocale() }}', date.getMonth())          
             }
         }
 
         const monthNames = function(locale, month) {
             let monthNames = [];
             
-            monthNames['en'] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            monthNames['es'] = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"];
+            monthNames['en'] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            monthNames['es'] = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
 
             return monthNames[locale][month]
         }
 
         const formatInput = function(date, input) {
-            input.value = formatDate(date)
+            if (date) {
+                input.value = date.format( 'DD-MM-YYYY', '{{ App::getLocale() }}')
+            } else {
+                input.value = ''
+            }
             
             toggleClassToInputGroup(input, 'active', date)
         }
@@ -225,7 +290,8 @@
             } else {
                 input.parentElement.classList.remove(klass)
             }
-        }			
+        }		
+        
     });		
 </script>
 @endpush
