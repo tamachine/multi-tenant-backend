@@ -3,6 +3,7 @@
 @import 'tinymce.css';
 @import 'swiper.css';
 @import 'backgrounds.css';
+@import 'timepicker.css';
 
 /**
  * This injects Tailwind's base styles, which is a combination of
@@ -40,21 +41,25 @@ input:invalid, textarea:invalid, select:invalid {
  * .form-input { ... }
  */
 
+html {
+    scroll-behavior: smooth;
+}
+
 h1 {
     @apply
-        font-fredoka-semibold text-pink-red font-semibold text-center leading-[46px] md:leading-[76px]
+        font-fredoka-semibold font-normal text-pink-red text-center leading-[46px] md:leading-[76px]
         text-4xl md:text-7xl;
 }
 
 h2 {
     @apply
-        font-fredoka-semibold text-pink-red font-semibold tracking-[-0.005em]
+        font-fredoka-semibold font-normal text-pink-red tracking-[-0.005em]
         leading-[1.05em]
         text-[40px] md:text-5xl;
 }
 
 h3 {
-    @apply text-black-primary md:text-3xl text-center font-sans-medium;
+    @apply text-black-primary md:text-3xl text-center font-sans-medium font-normal;
 }
 
 h4 {
@@ -62,11 +67,11 @@ h4 {
 }
 
 h5 {
-    @apply font-fredoka-semibold text-pink-red font-semibold text-[28px] text-center;
+    @apply font-fredoka-semibold font-normal text-pink-red text-[28px] text-center;
 }
 
 .btn {
-    @apply rounded-xl text-xl px-14 py-5 font-sans-bold;
+    @apply rounded-xl text-xl px-12 py-4 font-sans-bold;
 }
 
 .tab {
@@ -78,7 +83,7 @@ h5 {
 }
 
 .btn-red {
-    @apply bg-pink-red text-white hover:bg-[#F42077] font-bold text-lg md:text-xl;
+    @apply bg-pink-red text-white hover:bg-pink-red-medium font-bold text-lg md:text-xl;
 }
 
 .btn-border {
@@ -89,45 +94,84 @@ h5 {
     @apply bg-black-ci text-white hover:bg-pink-red font-bold text-lg md:text-xl;
 }
 
+
+/* SEARCH */
+
 .search-input-group {
-    @apply relative h-[70px] flex-1 cursor-pointer hover:ring-pink-red hover:ring-2 rounded-lg bg-gray-primary border-gray-secondary border;
+    @apply relative rounded-lg bg-gray-primary border-gray-secondary border;
 }
 
-.search-input-group.active {
-    @apply bg-white ring-pink-red ring-2
-}
-
-.search-input-group.active.stepped {
-    @apply ring-black-primary
-}
-
-.search-input-group:focus-within {
-    @apply ring-pink-red ring-2;
-}
-
-    .search-input-group > div {
-        @apply z-0 absolute top-2 left-6;
+    .search-input-group:not(:first-child) {
+        @apply before:content-[''] before:w-[14px] before:h-[14px] before:absolute before:top-[50%] before:left-[-18px] lg:before:left-[-24px] before:translate-y-[-50%] before:bg-[url('/images/icons/arrow-right-gray.svg')] before:bg-no-repeat before:bg-center before:bg-contain;
     }
-        .search-input-group > div > div:last-of-type {
-            @apply text-gray-tertiary text-base font-sans font-normal;
-        }
 
-        .search-input-group.active > div > div:last-of-type {
-            @apply hidden
-        }
-
-    .search-input-group input {
-        @apply
-            relative left-6 -bottom-3
-            z-10
-            cursor-pointer
-            rounded-lg border-0 ring-0 focus:outline-none focus:ring-0 focus:border-transparent caret-transparent
-            bg-transparent
-            text-black-primary
-            py-5
-            px-0
-            w-fit;
+    .search-input-group.active {
+        @apply bg-white border-black;
     }
+
+
+.search-input-set {
+    @apply relative flex-1 cursor-pointer h-[70px];
+}
+
+    .search-input-set:nth-child(2) {
+        @apply relative
+               before:content-[''] before:absolute before:top-[20%] before:left-[-0.27rem] before:inline-block before:w-[1px] before:h-[60%] before:bg-gray-secondary;
+        ;
+    }
+
+.search-input-label {
+    @apply absolute w-full top-[9px] lg:top-[6px] text-center;
+}
+
+
+.search-input-label label {
+    @apply font-sans-medium text-base lg:text-lg leading-tight cursor-pointer;
+}
+
+.search-input {
+    @apply
+        absolute top-[39px] z-10
+        cursor-pointer
+        w-full
+        text-sm lg:text-base text-center
+        bg-transparent border-0 ring-0 
+        focus:outline-none focus:ring-0 focus:border-transparent
+        caret-transparent
+        py-0
+        px-1.5
+        placeholder:text-gray-light placeholder:text-sm lg:placeholder:text-base
+        whitespace-nowrap
+        overflow-hidden
+        text-ellipsis
+}
+
+ #set-locations .search-input-set:not(.active) .search-input {
+    @apply top-[41px]
+ }
+
+    /* Active */
+
+    .search-input-set.active .search-input-label {
+        @apply top-[7px];
+    }
+    .search-input-set.active .search-input-label label {
+        @apply text-pink-red text-sm;
+    }
+
+    .search-input-set.active .search-input {
+        @apply top-[36px] text-base lg:text-lg font-sans-medium;
+    }
+
+    #set-dates .search-input-set.active .search-input {
+        @apply top-[36px] text-lg lg:text-[22px] font-sans-bold;
+    }
+
+    .easepick-wrapper {
+        position: unset !important;
+        @apply inline-block w-full;
+    }
+
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
@@ -213,3 +257,75 @@ picture img {
         margin-bottom: 0
     }
 
+
+.searchbar-popover {
+    @apply overflow-hidden transition-[height] duration-300 ease-in-out;
+}
+
+.searchbar-popover.hidden  {
+    @apply inline-block !h-0;
+}
+
+.searchbar-popover.position-top {
+    @apply top-full
+}
+
+.searchbar-popover.position-bottom {
+    @apply bottom-full
+}
+
+.searchbar-popover.position-top .searchbar-popover__layer {
+    @apply rounded-b-[20px];
+}
+
+.searchbar-popover.position-bottom .searchbar-popover__layer {
+    @apply rounded-t-[20px];
+}
+
+.toggle-selector {
+    @apply relative text-gray-light text-xs py-2 px-4;
+}
+.toggle-selector.active {
+    @apply text-white;
+}
+
+.different-location-true {
+    @apply !flex;
+}
+
+.different-location-true .location__image {
+    @apply h-[75px]
+}
+
+.different-location-true .location__text {
+    @apply py-2
+}
+
+.location.selected .location__image img,
+.location:hover .location__image img {
+    @apply scale-[120%]
+}
+
+.location.selected .location__text,
+.location:hover .location__text {
+    @apply bg-pink-red;
+}
+
+.location.selected .location__text p,
+.location:hover .location__text p {
+    @apply text-white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 0px solid white;
+  -webkit-text-fill-color: #AAAAAA;
+  -webkit-box-shadow: 0 0 0px 100px rgba(0,0,0,0) inset;
+}

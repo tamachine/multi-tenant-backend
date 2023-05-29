@@ -47,14 +47,14 @@
         x-data="{'showOverlay': false}"
         >
 
-        <div
+        {{-- <div
             id="overlay"
             class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-20"
             x-show="showOverlay"
             x-cloak
             >
-            <div id="hide-overlay" class="hidden" x-on:click="showOverlay = false"></div> {{-- this is used in the date picker range component in order to hide the overlay from an event --}}
-        </div>
+            <div id="hide-overlay" class="hidden" x-on:click="showOverlay = false"></div> 
+        </div> --}}
 
         <x-admin.wire-response />
 

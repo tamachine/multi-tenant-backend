@@ -22,12 +22,10 @@ class RoutesForPages {
     /**
      * Register the routes that are stored in Pages table
      */
-    public function registerRoutes() {
-        if(Schema::hasTable('pages')) { //this class is call from routes/web.php file and web.php is called before migrations so in order to not fire an error we check for the existence of the table
-            foreach($this->pages as $page) {
-                Route::get(LaravelLocalization::transRoute($page->uri_fullkey), [$page->controller, $page->method])->name($page->route_name);
-            }
-        }        
+    public function registerRoutes() {       
+        foreach($this->pages as $page) {
+            Route::get(LaravelLocalization::transRoute($page->uri_fullkey), [$page->controller, $page->method])->name($page->route_name);
+        }               
     }
 
     /**
