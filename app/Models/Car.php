@@ -7,6 +7,7 @@ use App\Traits\HashidTrait;
 use App\Traits\HasApiResponse;
 use App\Traits\HasFeaturedImage;
 use App\Traits\HasFeaturedImageHover;
+use App\Traits\HasSEOConfigurations;
 use App\Traits\HasUploadImages;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +17,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Car extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasApiResponse, HasUploadImages, HasFeaturedImage, HasFeaturedImageHover;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasApiResponse, HasUploadImages, HasFeaturedImage, HasFeaturedImageHover, HasSEOConfigurations;
 
     protected $apiResponse = [
         'hashid', 'active', 'name', 'description', 'year',

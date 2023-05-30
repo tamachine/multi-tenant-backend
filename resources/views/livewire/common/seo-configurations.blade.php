@@ -6,7 +6,31 @@
 
         <x-slot name="description">
             {{ $seoConfiguration->instance->description_for_seo_configurations }}
+
+            @if($configurationPages->count() > 0)
+             <!-- pages -->
+            <div class="px-4 mt-4 md:mt-0">
+                <x-admin.label for="open_to" value="{{ __('Page') }}" />
+
+                <select id="page" name="page" wire:model="location"
+                    class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
+                >
+                    <option value="">Select Location</option>
+                    @foreach ($availableLocations as $availableLocation)
+                        <option value="{{$availableLocation["id"]}}">{{ $availableLocation["name"] }}</option>
+                    @endforeach
+                </select>
+
+                <x-admin.input-error for="location" class="mt-2" />
+            </div>
+            @endif
+
+            @foreach($configurationPages as $route_name => $description)
+                {{ $route_name }} {{ $description }}
+            @endforeach
         </x-slot>
+
+        
 
         <x-slot name="form">
             

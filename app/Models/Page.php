@@ -17,7 +17,7 @@ class Page extends Model
      * @var array
      */
 
-    protected $fillable  = ['route_name', 'uri_fullkey', 'description', 'controller', 'method'];        
+    protected $fillable  = ['route_name', 'uri_fullkey', 'description', 'controller', 'method', 'instance_type'];        
 
     /**
      * method for HasSEOConfigurations. Check the trait for info
@@ -29,10 +29,34 @@ class Page extends Model
     }     
 
      /**
+     * Scope to get pages that corresponds to an instance
+     *
+     * @param      object  $query    Illuminate\Database\Query\Builder     
+     * @param      string  path of the instance. App\Models\Page:class for instance
+     * @return     object  Illuminate\Database\Query\Builder
+     */
+    public function scopeInstance($query, $instance)
+    {
+        return $query->where('instance_type', $instance);        
+    }
+
+     /**
+     * Scope to search pages without route params
+     *
+     * @param      object  $query    Illuminate\Database\Query\Builder     
+     *
+     * @return     object  Illuminate\Database\Query\Builder
+     */
+    public function scopeWithoutParams($query)
+    {
+        return $query->where('instance_type', null);        
+    }
+
+     /**
      * Scope to search by route name
      *
      * @param      object  $query    Illuminate\Database\Query\Builder
-     * @param      object  $request  Illuminate\Http\Request
+     * @param      string $route_name name of the route
      *
      * @return     object  Illuminate\Database\Query\Builder
      */

@@ -48,7 +48,7 @@ class Index extends Component
 
     public function render()
     {        
-        $pages = Page::livewireSearch($this->search)->paginate(perPage());
+        $pages = Page::withoutParams()->livewireSearch($this->search)->paginate(perPage());
 
         $this->count = $pages->count();
 

@@ -26,8 +26,12 @@ trait HasSEOConfigurations
      * Get the SEO Configuration.
      */
     public function SEOConfiguration()
-    {
-        return $this->morphOne(SeoConfiguration::class, 'instance');
+    {        
+        return $this->morphMany(SeoConfiguration::class, 'instance');
+    }
+
+    public function scopePage($query, $page_id) {
+        return $query->where('page_id', $page_id);
     }
 
     /**

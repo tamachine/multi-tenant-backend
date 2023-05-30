@@ -5,7 +5,6 @@ namespace App\Services\RoutesForPages;
 use App\Models\Page;
 use Illuminate\Support\Facades\Route;
 use \Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use Schema;
 
 /**
  * Class to store and register routes that need SEO Configuration
@@ -24,6 +23,7 @@ class RoutesForPages {
      */
     public function registerRoutes() {       
         foreach($this->pages as $page) {
+            /* URLs are defined in UrlsSeeder class because they are stored in database - LaravelLocalization::transRoute */
             Route::get(LaravelLocalization::transRoute($page->uri_fullkey), [$page->controller, $page->method])->name($page->route_name);
         }               
     }
@@ -57,11 +57,21 @@ class RoutesForPages {
         $this->storeRoute('payment', 'routes.payment', \App\Http\Controllers\Web\PaymentController::class, "Personal details page (just before valitor payment)"); 
         $this->storeRoute('success', 'routes.success', \App\Http\Controllers\Web\SuccessController::class, "Confirmation page (just after valitor payment)"); 
 
-         /* Landings */         
-         $this->storeRoute('cars.small', 'routes.cars/small-medium', \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for small-medium cars', 'small');
-         $this->storeRoute('cars.large', 'routes.cars/large', \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for large cars', 'large');
-         $this->storeRoute('cars.medium', 'routes.cars/premium', \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for medium cars', 'medium');
-        
+        $this->storeRoute('insurances', 'routes.{car_hashid}/insurances', \App\Http\Controllers\Web\InsurancesController::class, 'Insurances page for booking process', 'index', \App\Models\Car::class);
+        $this->storeRoute('extras', 'routes.{car_hashid}/extras', \App\Http\Controllers\Web\ExtrasController::class, 'Extras page for booking process', 'index', \App\Models\Car::class);
+        //$this->storeRoute('insurances', 'routes.{car_hashid}/summary', \App\Http\Controllers\Web\SummaryController::class, 'Summary page for booking process');        
+
+        /* Landings */         
+        $this->storeRoute('cars.small', 'routes.cars/small-medium', \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for small-medium cars', 'small');
+        $this->storeRoute('cars.large', 'routes.cars/large', \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for large cars', 'large');
+        $this->storeRoute('cars.medium', 'routes.cars/premium', \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for medium cars', 'medium');
+
+        /* Blog */
+        $this->storeRoute('blog.preview', 'routes.blog/preview/{blog_post_slug}', \App\Http\Controllers\Web\BlogController::class, 'Blog post preview page', 'preview', \App\Models\BlogPost::class);
+        $this->storeRoute('blog.search.category', 'routes.blog/category/{blog_category_slug}', \App\Http\Controllers\Web\BlogSearchCategoryController::class, 'Category search results page', 'index', \App\Models\BlogCategory::class);
+        $this->storeRoute('blog.search.tag', 'routes.blog/tag/{blog_tag_slug}', \App\Http\Controllers\Web\BlogSearchTagController::class, 'Tag search results page', 'index', \App\Models\BlogTag::class);
+        $this->storeRoute('blog.search.author', 'routes.blog/author/{blog_author_slug}', \App\Http\Controllers\Web\BlogSearchAuthorController::class, 'Author search results page', 'index', \App\Models\BlogAuthor::class);
+        $this->storeRoute('blog.show', 'routes.blog/post/{blog_post_slug}', \App\Http\Controllers\Web\BlogController::class, 'Author search results page', 'show', \App\Models\BlogPost::class);
     }
 
     /**
@@ -73,7 +83,7 @@ class RoutesForPages {
      * @param $descrption A description of the route
      * @param $method Method of the route
      */
-    protected function storeRoute($route_name, $uri_fullkey, $controller, $description, $method = 'index') {
+    protected function storeRoute($route_name, $uri_fullkey, $controller, $description, $method = 'index', $instance_type = null) {
         Page::firstOrCreate(
             [
                 'route_name'  => $route_name,
@@ -82,7 +92,8 @@ class RoutesForPages {
             [                 
                 'controller'  => $controller, 
                 'method'      => $method, 
-                'description' => $description
+                'description' => $description,
+                'instance_type' => $instance_type
             ]
         );
     }

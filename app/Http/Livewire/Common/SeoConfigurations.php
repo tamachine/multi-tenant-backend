@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Common;
 use Livewire\Component;
 use App\Models\SeoConfiguration;
 use App\Helpers\Language;
+use Illuminate\Support\Str;
+use App\Models\Page;
 
 /**
  * This component manages the seo configuration for a given object that uses the HasSEOConfigurations trait
@@ -27,14 +29,16 @@ class SeoConfigurations extends Component
     public SeoConfiguration $seoConfiguration;
 
     public function mount() {                        
-        $this->seoConfiguration = $this->instance->SEOConfiguration()->firstOrCreate();                    
+        $this->seoConfiguration = $this->instance->SEOConfiguration()->firstOrCreate();    
+        $this->seoConfiguration->noindex = false;                
+        $this->seoConfiguration->nofollow = false;
     }
 
     protected function rules()
     {
         $validations = [            
-            'seoConfiguration.nofollow' => 'boolean',    
-            'seoConfiguration.noindex'  => 'boolean',   
+            'seoConfiguration.nofollow' => 'nullable|boolean',    
+            'seoConfiguration.noindex'  => 'nullable|boolean',   
         ];
 
         foreach(Language::availableCodes() as $code) {
@@ -49,7 +53,7 @@ class SeoConfigurations extends Component
 
     public function save()
     {
-        $this->validate();
+        $this->validate();        
  
         $this->seoConfiguration->save();
 
@@ -57,7 +61,11 @@ class SeoConfigurations extends Component
     }
 
     public function render()
-    {
-        return view('livewire.common.seo-configurations');
+    {        
+        return view('livewire.common.seo-configurations', ['configurationPages' => $this->getConfigurationPages()]);
+    }
+
+    protected function getConfigurationPages() {
+        return Page::instance(get_class($this->instance))->pluck('route_name', 'description');
     }
 }

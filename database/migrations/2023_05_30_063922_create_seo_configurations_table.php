@@ -23,8 +23,11 @@ return new class extends Migration
             $table->string('lang')->nullable();
             $table->string('instance_type');
             $table->string('instance_id');
+            $table->unsignedBigInteger('page_id');
             
             $table->timestamps();
+
+            $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
         });
     }
 

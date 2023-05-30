@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('controller');
             $table->string('method');
             $table->string('description')->nullable();
+            $table->string('instance_type')->nullable();
             
             $table->timestamps();       
             

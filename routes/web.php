@@ -79,23 +79,10 @@ Route::group(
      *  - Pages that need seo-configuration have to be stored in database so they have to be defined in RoutesForPages class
      * **/
      
-    if (!App::runningInConsole()) { //to fix migrations to fail. Routes are loading before migrations but they are database dependant.
-
-        /* Routes stored in database (Pages) */    
-        RoutesForPages::registerRoutes();       
-        
-        /* Booking process */        
-        Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/insurances'), [InsurancesController::class, 'index'])->name('insurances');
-        Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/extras'), [ExtrasController::class, 'index'])->name('extras');
-        Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/summary'), [SummaryController::class, 'index'])->name('summary');
-            
-        /* Blog */    
-        Route::get(LaravelLocalization::transRoute('routes.blog/preview/{blog_post_slug}'), [BlogController::class, 'preview'])->name('blog.preview');     
-        Route::get(LaravelLocalization::transRoute('routes.blog/category/{blog_category_slug}'), [BlogSearchCategoryController::class, 'index'])->name('blog.search.category');
-        Route::get(LaravelLocalization::transRoute('routes.blog/tag/{blog_tag_slug}'), [BlogSearchTagController::class, 'index'])->name('blog.search.tag');
-        Route::get(LaravelLocalization::transRoute('routes.blog/author/{blog_author_slug}'), [BlogSearchAuthorController::class, 'index'])->name('blog.search.author');    
-        Route::get(LaravelLocalization::transRoute('routes.blog/post/{blog_post_slug}'), [BlogController::class, 'show'])->name('blog.show');     
+    if (!App::runningInConsole()) { //to fix migrations to fail. Routes are loading before migrations but they are database dependant.           
+        RoutesForPages::registerRoutes(); // Routes stored in database (Pages)
     }
+    
     /* Booking process */
     Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');   
 });
