@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HashidTrait;
+use App\Traits\HasSEOConfigurations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,7 +12,7 @@ use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
 class BlogCategory extends Model implements LocalizedUrlRoutable
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasSEOConfigurations;
 
     /**
      * The attributes that are mass assignable.
