@@ -66,12 +66,12 @@ class RoutesForPages {
         $this->storeRoute('cars.large', 'routes.cars/large', \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for large cars', 'large');
         $this->storeRoute('cars.medium', 'routes.cars/premium', \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for medium cars', 'medium');
 
-        /* Blog */
-        $this->storeRoute('blog.preview', 'routes.blog/preview/{blog_post_slug}', \App\Http\Controllers\Web\BlogController::class, 'Blog post preview page', 'preview', \App\Models\BlogPost::class);
+        /* Blog */        
         $this->storeRoute('blog.search.category', 'routes.blog/category/{blog_category_slug}', \App\Http\Controllers\Web\BlogSearchCategoryController::class, 'Category search results page', 'index', \App\Models\BlogCategory::class);
         $this->storeRoute('blog.search.tag', 'routes.blog/tag/{blog_tag_slug}', \App\Http\Controllers\Web\BlogSearchTagController::class, 'Tag search results page', 'index', \App\Models\BlogTag::class);
         $this->storeRoute('blog.search.author', 'routes.blog/author/{blog_author_slug}', \App\Http\Controllers\Web\BlogSearchAuthorController::class, 'Author search results page', 'index', \App\Models\BlogAuthor::class);
-        $this->storeRoute('blog.show', 'routes.blog/post/{blog_post_slug}', \App\Http\Controllers\Web\BlogController::class, 'Author search results page', 'show', \App\Models\BlogPost::class);
+        $this->storeRoute('blog.show', 'routes.blog/post/{blog_post_slug}', \App\Http\Controllers\Web\BlogController::class, 'Blog post page', 'show', \App\Models\BlogPost::class);
+        $this->storeRoute('blog.preview', 'routes.blog/preview/{blog_post_slug}', \App\Http\Controllers\Web\BlogController::class, 'Blog post preview page', 'preview', \App\Models\BlogPost::class);
     }
 
     /**

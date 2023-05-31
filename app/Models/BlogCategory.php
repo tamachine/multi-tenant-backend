@@ -34,8 +34,8 @@ class BlogCategory extends Model implements LocalizedUrlRoutable
 
      /**
      * Returns for a given locale the translated slug
-     * It is used for translatable routes in mcnamara localization package. 
-     * This method has to be defined when implementing LocalizedUrlRoutable
+     * It is used for translatable routes in mcnamara localization package and in Services\SeoCOnfigurations class
+     * This method has to be defined when implementing LocalizedUrlRoutable or using HasSEOConfigurations trait
      * @return string
      */
     public function getLocalizedRouteKey($locale)

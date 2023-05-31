@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Common;
 use Livewire\Component;
 use App\Models\SeoConfiguration;
 use App\Helpers\Language;
-use Illuminate\Support\Str;
 use App\Models\Page;
 
 /**
@@ -28,17 +27,23 @@ class SeoConfigurations extends Component
      */
     public SeoConfiguration $seoConfiguration;
 
-    public function mount() {                        
-        $this->seoConfiguration = $this->instance->SEOConfiguration()->firstOrCreate();    
-        $this->seoConfiguration->noindex = false;                
-        $this->seoConfiguration->nofollow = false;
+    protected $pages;
+
+    protected $page;
+
+    public string $pageId;
+
+    public function mount() {           
+        $this->setPages();     
+        $this->setPage();        
+        $this->setSeoConfiguration();       
     }
 
     protected function rules()
     {
         $validations = [            
             'seoConfiguration.nofollow' => 'nullable|boolean',    
-            'seoConfiguration.noindex'  => 'nullable|boolean',   
+            'seoConfiguration.noindex'  => 'nullable|boolean',                       
         ];
 
         foreach(Language::availableCodes() as $code) {
@@ -62,10 +67,32 @@ class SeoConfigurations extends Component
 
     public function render()
     {        
-        return view('livewire.common.seo-configurations', ['configurationPages' => $this->getConfigurationPages()]);
+        $this->setPages();
+
+        $this->page = Page::find($this->pageId);        
+
+        return view('livewire.common.seo-configurations', ['pages' => $this->pages->get(), 'page' => $this->page]);
     }
 
-    protected function getConfigurationPages() {
-        return Page::instance(get_class($this->instance))->pluck('route_name', 'description');
+    public function changePage() {
+        $this->setSeoConfiguration();
+    }
+
+    protected function setPages() {
+        $this->pages = Page::instance($this->instance);
+    }
+
+    protected function setPage() {
+        if($this->pages->count() > 0) {
+            $this->page = $this->pages->first();
+        } else {
+            $this->page = $this->instance;
+        }
+
+        $this->pageId = $this->page->id;
+    }
+
+    protected function setSeoConfiguration() {
+        $this->seoConfiguration = $this->instance->SEOConfigurations()->where('page_id', $this->pageId)->firstOrCreate(['page_id' => $this->pageId],['page_id' => $this->pageId, 'noindex' => 0, 'nofollow' => 0]);        
     }
 }

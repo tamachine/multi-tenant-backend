@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Models\SeoConfiguration;
+use Illuminate\Support\Facades\Route;
+use App;
 
 /**
  * 
@@ -10,10 +12,10 @@ use App\Models\SeoConfiguration;
  */
 class SeoConfigurations
 {
-    protected $seoConfigurationInstance;   
+    protected $seoConfiguration;   
 
     public function __construct() {        
-        $this->setSeoConfigurationInstance();                      
+        $this->setSeoConfiguration();                      
     }
     
     /**
@@ -22,20 +24,20 @@ class SeoConfigurations
      * @return App\Models\SeoConfiguration|null
      */
     public function getConfigurations() {
-        return $this->seoConfigurationInstance?->SEOConfiguration;
+        return $this->seoConfiguration;
     }    
 
     /**
      * Sets the instance that corresponds to the page
      */
-    protected function setSeoConfigurationInstance() {
+    protected function setSeoConfiguration() {
         $currentUrl = url()->current();
 
-        foreach(SeoConfiguration::all() as $seoConfiguration) {            
-            if($seoConfiguration->instance->seoConfigurationUrl() == $currentUrl) { //check if the url of the seoConfiguration instance is the current one
-                $this->seoConfigurationInstance = $seoConfiguration->instance;                
+        foreach(SeoConfiguration::all() as $seoConfiguration) {                
+            if($seoConfiguration->page->url($seoConfiguration->instance->getLocalizedRouteKey(App::getLocale())) == $currentUrl) { //check if the url of the seoConfiguration instance is the current one
+                $this->seoConfiguration = $seoConfiguration;                
                 break;
             }
-        } 
+        }         
     }
 }

@@ -23,25 +23,24 @@ trait HasSEOConfigurations
     }
     
     /**
-     * Get the SEO Configuration.
+     * Get the SEO Configurations.
      */
-    public function SEOConfiguration()
+    public function SEOConfigurations()
     {        
         return $this->morphMany(SeoConfiguration::class, 'instance');
     }
 
     public function scopePage($query, $page_id) {
         return $query->where('page_id', $page_id);
-    }
-
-    /**
-     * Define the url that the model will have
-     * As traits cannot implement interfaces, we through an exception
-     * 
-     * @return string url of the model
-     */
-    public function seoConfigurationUrl() {
-        throw new \Exception('define url in '. class_basename($this) . ' class');
-    }
+    }  
     
+     /**
+     * Returns for a given locale the translated slug
+     * 
+     * @return string
+     */
+    public function getLocalizedRouteKey($locale)
+    {
+        throw new \Exception(class_basename($this). ' must implement getLocalizedRouteKey() method for HasSEOConfigurations trait class');
+    }
 }

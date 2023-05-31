@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\HashidTrait;
 use App\Traits\HasSEOConfigurations;
+use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
-class Page extends Model
+class Page extends Model implements LocalizedUrlRoutable
 {  
 
     use HashidTrait, HasSEOConfigurations;     
@@ -17,27 +18,39 @@ class Page extends Model
      * @var array
      */
 
-    protected $fillable  = ['route_name', 'uri_fullkey', 'description', 'controller', 'method', 'instance_type'];        
+    protected $fillable  = ['route_name', 'uri_fullkey', 'description', 'controller', 'method', 'instance_type'];           
+
 
     /**
-     * method for HasSEOConfigurations. Check the trait for info
-     * 
-     * @return string url of the page
+     * Returns for a given locale the translated slug
+     * It is used for translatable routes in mcnamara localization package and in Services\SeoCOnfigurations class. 
+     * This method has to be defined when implementing LocalizedUrlRoutable
+     * @return string
      */
-    public function seoConfigurationUrl() {
-        return route($this->route_name);
-    }     
+    public function getLocalizedRouteKey($locale)
+    {
+        return $this->hashid;
+    }
+
+    public function url($instance = null) {
+        if($this->instance_type !== null) {
+            return route($this->route_name, $instance);
+        } else {
+            return route($this->route_name);
+        }
+    }
 
      /**
      * Scope to get pages that corresponds to an instance
      *
-     * @param      object  $query    Illuminate\Database\Query\Builder     
-     * @param      string  path of the instance. App\Models\Page:class for instance
+     * @param      object  $query     Illuminate\Database\Query\Builder     
+     * @param      object  $instance. An instance of a model
+     * 
      * @return     object  Illuminate\Database\Query\Builder
      */
     public function scopeInstance($query, $instance)
     {
-        return $query->where('instance_type', $instance);        
+        return $query->where('instance_type', get_class($instance));        
     }
 
      /**

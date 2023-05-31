@@ -5,102 +5,108 @@
         </x-slot>        
 
         <x-slot name="description">
-            {{ $seoConfiguration->instance->description_for_seo_configurations }}
+            {{ $seoConfiguration->instance->description_for_seo_configurations }}            
 
-            @if($configurationPages->count() > 0)
-             <!-- pages -->
-            <div class="px-4 mt-4 md:mt-0">
-                <x-admin.label for="open_to" value="{{ __('Page') }}" />
+            @if($pages->count() > 0)
+                <!-- pages -->
+                <div class="mt-8 md:mt-4">
+                    <x-admin.label for="open_to" value="{{ __('Pages') }}" />
 
-                <select id="page" name="page" wire:model="location"
-                    class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
-                >
-                    <option value="">Select Location</option>
-                    @foreach ($availableLocations as $availableLocation)
-                        <option value="{{$availableLocation["id"]}}">{{ $availableLocation["name"] }}</option>
-                    @endforeach
-                </select>
+                    <select id="pageId" name="pageId" wire:model="pageId" wire:change="changePage"
+                        class="disable-arrow block w-full h-10 mt-1 pt-2 px-3 text-left border-gray-300 rounded-md"
+                    >
+                        @foreach ($pages as $page_in_pages)
+                            <option value="{{ $page_in_pages->id }}">[{{ $page_in_pages->route_name }}]: {{ $page_in_pages->description_for_seo_configurations }} </option>
+                        @endforeach
+                    </select>
 
-                <x-admin.input-error for="location" class="mt-2" />
-            </div>
+                    <x-admin.input-error for="pageId" class="mt-2" />
+                </div>
             @endif
-
-            @foreach($configurationPages as $route_name => $description)
-                {{ $route_name }} {{ $description }}
-            @endforeach
         </x-slot>
 
-        
-
         <x-slot name="form">
-            
-            <div class="px-4 mt-4">     
-                <x-admin.label value="{{ __('nofollow') }}" />             
-                <label for="nofollow" class="inline-flex items-center py-2">
-                    <x-admin.checkbox id="nofollow" wire:model="seoConfiguration.nofollow" />
-                    <span class="ml-3 italic">                        
-                        {{ __('Check this option to add a nofllow meta tag to the page') }}
-                    </span>                   
-                </label>
+            <div class="w-full h-full flex items-center justify-center">
+                <x-admin.wire-spinner wire:target="pageId"/>    
             </div>
-            <hr class="my-8 pb-1 px-4 bg-blue-500">
-            <div class="px-4 mt-4"> 
-                 
-                <x-admin.label value="{{ __('noindex') }}" />             
-                <label for="noindex" class="inline-flex items-center py-2">
-                    <x-admin.checkbox id="noindex" wire:model="seoConfiguration.noindex" />
-                    <span class="ml-3 italic">                        
-                        {{ __('Check this option to add a noindex meta tag to the page') }}
-                    </span>                    
-                </label>
-            </div>     
-            <hr class="my-8 pb-1 px-4 bg-blue-500">            
-            @foreach(App\Helpers\Language::availableLanguages() as $key => $language)
- 
-                <div class="px-4 mt-4">
-                    <x-admin.label for="meta_title_{{$key}}" value="{{ $language }}" /> 
+                        
+            <div wire:loading.remove wire:target="pageId">
+                <div class="px-4 mt-4">     
+                    <p class="mt-1 font-bold">
+                        {{ $page->route_name }}
+                    </p>
                 </div>
 
-                <div class="px-4 mt-4">
-                    <x-admin.label for="seoConfiguration_meta_title_{{$key}}" value="{{ __('Meta title') }} " />                                    
-                    
-                    <x-admin.input id="seoConfiguration_meta_title_{{$key}}" type="text" class="w-full mt-1 block" wire:model.defer="seoConfiguration.meta_title.{{ $key }}" autocomplete="meta_title_text" />
-                    
-                    <x-admin.input-error for="seoConfiguration.meta_title.{{ $key }}" class="mt-2" />
+                <hr class="my-8 pb-1 px-4 bg-blue-500">
+
+                <div class="px-4 mt-4">     
+                    <x-admin.label value="{{ __('nofollow') }}" />             
+                    <label for="nofollow" class="inline-flex items-center py-2">
+                        <x-admin.checkbox id="nofollow" wire:model="seoConfiguration.nofollow" />
+                        <span class="ml-3 italic">                        
+                            {{ __('Check this option to add a nofllow meta tag to the page') }}
+                        </span>                   
+                    </label>
                 </div>
+                <hr class="my-8 pb-1 px-4 bg-blue-500">
+                <div class="px-4 mt-4"> 
+                    
+                    <x-admin.label value="{{ __('noindex') }}" />             
+                    <label for="noindex" class="inline-flex items-center py-2">
+                        <x-admin.checkbox id="noindex" wire:model="seoConfiguration.noindex" />
+                        <span class="ml-3 italic">                        
+                            {{ __('Check this option to add a noindex meta tag to the page') }}
+                        </span>                    
+                    </label>
+                </div>     
+                <hr class="my-8 pb-1 px-4 bg-blue-500">            
+                @foreach(App\Helpers\Language::availableLanguages() as $key => $language)
+    
+                    <div class="px-4 mt-4">
+                        <x-admin.label for="meta_title_{{$key}}" value="{{ $language }}" /> 
+                    </div>
 
-                <div class="px-4 mt-2">
-                    <x-admin.label for="seoConfiguration_meta_description_{{$key}}" value="{{ __('Meta description') }}" />                                    
-                    
-                    <x-admin.input id="seoConfiguration_meta_description_{{$key}}" type="text" class="w-full mt-1 block" wire:model.defer="seoConfiguration.meta_description.{{ $key }}" autocomplete="meta_description_text" />
-                    
-                    <x-admin.input-error for="seoConfiguration.meta_description.{{ $key }}" class="mt-2" />
-                </div> 
+                    <div class="px-4 mt-4">
+                        <x-admin.label for="seoConfiguration_meta_title_{{$key}}" value="{{ __('Meta title') }} " />                                    
+                        
+                        <x-admin.input id="seoConfiguration_meta_title_{{$key}}" type="text" class="w-full mt-1 block" wire:model.defer="seoConfiguration.meta_title.{{ $key }}" autocomplete="meta_title_text" />
+                        
+                        <x-admin.input-error for="seoConfiguration.meta_title.{{ $key }}" class="mt-2" />
+                    </div>
 
-                <div class="px-4 mt-2">
-                    <x-admin.label for="seoConfiguration_lang_{{$key}}" value="{{ __('Lang') }}" />                                    
-                    
-                    <x-admin.input id="seoConfiguration_lang_{{$key}}" type="text" class="w-full mt-1 block" name="seoConfiguration.lang.{{ $key }}" wire:model.defer="seoConfiguration.lang.{{ $key }}" autocomplete="lang_text" />
-                    
-                    <x-admin.input-error for="seoConfiguration.lang.{{ $key }}" class="mt-2" />
-                </div> 
+                    <div class="px-4 mt-2">
+                        <x-admin.label for="seoConfiguration_meta_description_{{$key}}" value="{{ __('Meta description') }}" />                                    
+                        
+                        <x-admin.input id="seoConfiguration_meta_description_{{$key}}" type="text" class="w-full mt-1 block" wire:model.defer="seoConfiguration.meta_description.{{ $key }}" autocomplete="meta_description_text" />
+                        
+                        <x-admin.input-error for="seoConfiguration.meta_description.{{ $key }}" class="mt-2" />
+                    </div> 
 
-                <div class="px-4 mt-2">
-                    <x-admin.label for="seoConfiguration_canonical_{{$key}}" value="{{ __('Canonical') }}" />                                    
-                    
-                    <x-admin.input id="seoConfiguration_canonical_{{$key}}" type="text" class="w-full mt-1 block" wire:model.defer="seoConfiguration.canonical.{{ $key }}" autocomplete="canonical_text" />
-                    
-                    <x-admin.input-error for="seoConfiguration.canonical.{{ $key }}" class="mt-2" />
-                </div> 
+                    <div class="px-4 mt-2">
+                        <x-admin.label for="seoConfiguration_lang_{{$key}}" value="{{ __('Lang') }}" />                                    
+                        
+                        <x-admin.input id="seoConfiguration_lang_{{$key}}" type="text" class="w-full mt-1 block" name="seoConfiguration.lang.{{ $key }}" wire:model.defer="seoConfiguration.lang.{{ $key }}" autocomplete="lang_text" />
+                        
+                        <x-admin.input-error for="seoConfiguration.lang.{{ $key }}" class="mt-2" />
+                    </div> 
 
-                <hr class="my-8 pb-1 px-4 bg-blue-500">   
+                    <div class="px-4 mt-2">
+                        <x-admin.label for="seoConfiguration_canonical_{{$key}}" value="{{ __('Canonical') }}" />                                    
+                        
+                        <x-admin.input id="seoConfiguration_canonical_{{$key}}" type="text" class="w-full mt-1 block" wire:model.defer="seoConfiguration.canonical.{{ $key }}" autocomplete="canonical_text" />
+                        
+                        <x-admin.input-error for="seoConfiguration.canonical.{{ $key }}" class="mt-2" />
+                    </div> 
 
-            @endforeach                    
+                    <hr class="my-8 pb-1 px-4 bg-blue-500">   
+
+                @endforeach                       
                          
+            </div>
         </x-slot>
 
         <x-slot name="actions">
-            <x-admin.button wire:loading.attr="disabled">
+            <x-admin.button wire:loading.remove>
                 {{ __('Save Configurations') }}
             </x-admin.button>
         </x-slot>
