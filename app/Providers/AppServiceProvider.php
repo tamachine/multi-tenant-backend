@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 
+use App\Services\HTMLLang;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Services\PreferredLanguage\ApplyPreferredLanguageToLanguageSession;
 use App\Services\PreferredLanguage\PreferredLanguage;
+use App\Services\RoutesForPages\RoutesForPages;
+use App\Services\SeoConfigurations;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,7 +21,16 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(ApplyPreferredLanguageToLanguageSession::class, function($app) {
 			return new ApplyPreferredLanguageToLanguageSession(new PreferredLanguage());
-		});
+		});       
+
+        $this->app->bind('RoutesForPages',function(){
+            return new RoutesForPages();
+        });
+
+        $this->app->bind('getHTMLLang',function(){            
+            $HTMLLang = new HTMLLang(new SeoConfigurations);
+            return $HTMLLang->getHTMLLang();
+        });
     }
 
     /**

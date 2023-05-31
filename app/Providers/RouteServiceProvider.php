@@ -100,6 +100,11 @@ class RouteServiceProvider extends ServiceProvider
             return $resource->where('hashid', $value)->first();
         });
 
+        Route::bind('page_hashid', function ($value) {
+            $resource = new \App\Models\Page();
+            return $resource->where('hashid', $value)->first();
+        });
+
         Route::bind('blog_post_slug', function ($value) {
             $resource = \App\Models\BlogPost::where('slug', 'LIKE', '%' . $value . '%')->first();
 
@@ -119,7 +124,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('blog_author_slug', function ($value) {
             $resource = new \App\Models\BlogAuthor();
             return $resource->where('slug', $value)->first();
-        });
+        });       
     }
      /**
      * Define the routes for the application.

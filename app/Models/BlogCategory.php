@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HashidTrait;
+use App\Traits\HasSEOConfigurations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,7 +12,7 @@ use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
 class BlogCategory extends Model implements LocalizedUrlRoutable
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasSEOConfigurations;
 
     /**
      * The attributes that are mass assignable.
@@ -34,8 +35,8 @@ class BlogCategory extends Model implements LocalizedUrlRoutable
 
      /**
      * Returns for a given locale the translated slug
-     * It is used for translatable routes in mcnamara localization package. 
-     * This method has to be defined when implementing LocalizedUrlRoutable
+     * It is used for translatable routes in mcnamara localization package and in Services\SeoCOnfigurations class
+     * This method has to be defined when implementing LocalizedUrlRoutable or using HasSEOConfigurations trait
      * @return string
      */
     public function getLocalizedRouteKey($locale)
