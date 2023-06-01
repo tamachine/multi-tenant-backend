@@ -9,26 +9,14 @@ use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Verify;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Web\HomeController;
-use App\Http\Controllers\Web\AboutController;
-use App\Http\Controllers\Web\ContactController;
-use App\Http\Controllers\Web\FaqController;
-
-use App\Http\Controllers\Web\CarsController;
 use App\Http\Controllers\Web\BookingController;
 use App\Http\Controllers\Web\InsurancesController;
 use App\Http\Controllers\Web\ExtrasController;
 use App\Http\Controllers\Web\SummaryController;
-use App\Http\Controllers\Web\PaymentController;
-use App\Http\Controllers\Web\SuccessController;
 use App\Http\Controllers\Web\BlogController;
-use App\Http\Controllers\Web\BlogSearchStringController;
 use App\Http\Controllers\Web\BlogSearchCategoryController;
 use App\Http\Controllers\Web\BlogSearchTagController;
 use App\Http\Controllers\Web\BlogSearchAuthorController;
-use App\Http\Controllers\Web\TermsAndConditionsController;
-use App\Http\Controllers\Web\LandingCarsController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -52,11 +40,10 @@ Route::group(
      * Fix for the issue:
      * When a Livewire component makes a request after the page has been loaded, it changes the current locale to a different locale.
      */
-    Route::post('livewire/message/{name}', '\Livewire\Controllers\HttpConnectionHandler');
-    
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::post('livewire/message/{name}', '\Livewire\Controllers\HttpConnectionHandler');    
 
-    /* Auth */
+    /****  AUTH ROUTES ****/
+
     Route::middleware('guest')->group(function () {
         Route::get('login', Login::class)
             ->name('login');
@@ -86,37 +73,16 @@ Route::group(
             ->name('logout');
     });
 
-    /** 
-     * URLs are defined in UrlsSeeder class because they are stored in database
+    /**** WEB ROUTES *****/
+    /** NOTES:
+     *  - URLs are defined in UrlsSeeder class because they are stored in database
+     *  - Pages that need seo-configuration have to be stored in database so they have to be defined in RoutesForPages class
      * **/
-    if (!App::runningInConsole()) { //to fix migrations to fail. Routes are loading before migrations but they are database dependant.
-        /* Static pages */
-        Route::get(LaravelLocalization::transRoute('routes.about'), [AboutController::class, 'index'])->name('about');
-        Route::get(LaravelLocalization::transRoute('routes.contact'), [ContactController::class, 'index'])->name('contact');
-        Route::get(LaravelLocalization::transRoute('routes.faq'), [FaqController::class, 'index'])->name('faq');
-        Route::get(LaravelLocalization::transRoute('routes.terms-and-conditions'), [TermsAndConditionsController::class, 'index'])->name('terms');
-
-        /* Blog */
-        Route::get(LaravelLocalization::transRoute('routes.blog'), [BlogController::class, 'index'])->name('blog'); 
-        Route::get(LaravelLocalization::transRoute('routes.blog/preview/{blog_post_slug}'), [BlogController::class, 'preview'])->name('blog.preview'); 
-        Route::get(LaravelLocalization::transRoute('routes.blog/search'), [BlogSearchStringController::class, 'index'])->name('blog.search.string');
-        Route::get(LaravelLocalization::transRoute('routes.blog/category/{blog_category_slug}'), [BlogSearchCategoryController::class, 'index'])->name('blog.search.category');
-        Route::get(LaravelLocalization::transRoute('routes.blog/tag/{blog_tag_slug}'), [BlogSearchTagController::class, 'index'])->name('blog.search.tag');
-        Route::get(LaravelLocalization::transRoute('routes.blog/author/{blog_author_slug}'), [BlogSearchAuthorController::class, 'index'])->name('blog.search.author');    
-        Route::get(LaravelLocalization::transRoute('routes.blog/post/{blog_post_slug}'), [BlogController::class, 'show'])->name('blog.show');     
-
-        /* Booking process */
-        Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');
-        Route::get(LaravelLocalization::transRoute('routes.cars'), [CarsController::class, 'index'])->name('cars');
-        Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/insurances'), [InsurancesController::class, 'index'])->name('insurances');
-        Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/extras'), [ExtrasController::class, 'index'])->name('extras');
-        Route::get(LaravelLocalization::transRoute('routes.{car_hashid}/summary'), [SummaryController::class, 'index'])->name('summary');
-        Route::get(LaravelLocalization::transRoute('routes.payment'), [PaymentController::class, 'index'])->name('payment');
-        Route::get(LaravelLocalization::transRoute('routes.success'), [SuccessController::class, 'index'])->name('success');
-
-        /* landings */
-        Route::get(LaravelLocalization::transRoute('routes.cars/small-medium'), [LandingCarsController::class, 'small'])->name('cars.small');
-        Route::get(LaravelLocalization::transRoute('routes.cars/large'), [LandingCarsController::class, 'large'])->name('cars.large');
-        Route::get(LaravelLocalization::transRoute('routes.cars/premium'), [LandingCarsController::class, 'premium'])->name('cars.premium');
+     
+    if (!App::runningInConsole()) { //to fix migrations to fail. Routes are loading before migrations but they are database dependant.           
+        RoutesForPages::registerRoutes(); // Routes stored in database (Pages)
     }
+    
+    /* Booking process */
+    Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');   
 });

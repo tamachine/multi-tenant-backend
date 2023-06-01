@@ -50,7 +50,7 @@
         const picker = new easepick.create({
             element: document.getElementById('calendar-picker'),
             css: [
-                'css/easepick.css',
+                '/css/easepick.css',
             ],
             plugins: [RangePlugin],
             calendars: 2, //Number of visible months.
