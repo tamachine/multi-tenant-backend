@@ -11,11 +11,13 @@
                 bg-pink-red-secondary
                 md:rounded-2xl rounded-[10px]"
                 >
-                <div
-                    style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('{{ asset('images/home/location.png') }}'); background-size:cover"
-                    class="w-auto md:w-[500px] md:h-[270px] h-[180px] md:rounded-2xl rounded-[10px]  bg-cover mx-auto"
-                    >
-                    <div class="md:p-6 p-3 flex flex-col justify-between h-full">
+                <div class="relative w-auto md:w-[500px] md:h-[270px] h-[180px] md:rounded-2xl rounded-[10px] overflow-hidden mx-auto">
+                    <div class="bg-image image-wrapper
+                        before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full 
+                        before:bg-black before:opacity-20">
+                            <x-image path="images/home/location.png"/>
+                    </div>
+                    <div class="relative md:p-6 p-3 flex flex-col justify-between h-full">
                         <div class="text-white font-fredoka-medium font-medium">
                             <div class="text-base md:text-2xl">
                             {!! __('home.location-map-title') !!}
@@ -42,18 +44,10 @@
             </div>
         </div>
     </div>
-    <div class="w-full relative">
-        <div
-            class="
-                md:hidden
-                absolute top-0 left-0
-                w-full h-[140px]
-                z-10
-                md:rounded-2xl rounded-[10px]
-                "
-            style="background: linear-gradient(180deg, #FFFFFF 20%, rgba(255, 255, 255, 0) 98.16%);"
-            ></div>
-        <div class="md:rounded-2xl rounded-[10px] p-3 md:p-5 pb-7 border-gray-secondary border">
+    <div class="w-full relative
+        before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[140px]
+        before:bg-gradient-to-b before:from-white before:via-[20%] before:via-white before:to-transparent before:z-10">
+        <div class="md:rounded-2xl rounded-[10px] p-3 md:p-5 pb-7 border-[#E7ECF3] border">
             <div
                 id="location-map"
                 class="h-[335px] md:h-[500px] w-full md:rounded-2xl rounded-[10px] "
