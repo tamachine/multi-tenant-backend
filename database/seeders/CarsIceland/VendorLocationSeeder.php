@@ -41,7 +41,7 @@ class VendorLocationSeeder extends Seeder
             'vendor_id'         => $vendor->id,
         ]);
 
-        // 2. Location: Create 2 locations
+        // 2. Location: Create 3 locations
         $location1 = Location::create([
             'name' => 'Keflavik Airport',
             'caren_settings' => [
@@ -84,6 +84,27 @@ class VendorLocationSeeder extends Seeder
             'location_id' => $location2->id,
         ]);
 
+        $location3 = Location::create([
+            'name' => 'Address in Keflavik',
+            'caren_settings' => [
+                'caren_pickup_location_id' => 45,
+                'caren_dropoff_location_id' => 420,
+            ]
+        ]);
+
+        CarenLocation::create([
+            'name'                      => 'Keflavik City',
+            'caren_pickup_location_id'  => 45,
+            'caren_dropoff_location_id' => 420,
+            'location_id'               => $location3->id
+        ]);
+
+        // Link the vendor to the location
+        VendorLocation::create([
+            'vendor_id' => $vendor->id,
+            'location_id' => $location3->id,
+        ]);
+
         // Initialise "vendor_location_fees" table
         VendorLocationFee::updateOrCreate(
             [
@@ -106,6 +127,15 @@ class VendorLocationSeeder extends Seeder
         VendorLocationFee::updateOrCreate(
             [
                 'vendor_id' => $vendor->id,
+                'location_pickup' => $location1->id,
+                'location_dropoff' => $location3->id,
+                'fee' => 0
+            ]
+        );
+
+        VendorLocationFee::updateOrCreate(
+            [
+                'vendor_id' => $vendor->id,
                 'location_pickup' => $location2->id,
                 'location_dropoff' => $location1->id,
                 'fee' => 0
@@ -117,6 +147,24 @@ class VendorLocationSeeder extends Seeder
                 'vendor_id' => $vendor->id,
                 'location_pickup' => $location2->id,
                 'location_dropoff' => $location2->id,
+                'fee' => 0
+            ]
+        );
+
+        VendorLocationFee::updateOrCreate(
+            [
+                'vendor_id' => $vendor->id,
+                'location_pickup' => $location2->id,
+                'location_dropoff' => $location3->id,
+                'fee' => 0
+            ]
+        );
+
+        VendorLocationFee::updateOrCreate(
+            [
+                'vendor_id' => $vendor->id,
+                'location_pickup' => $location3->id,
+                'location_dropoff' => $location3->id,
                 'fee' => 0
             ]
         );
