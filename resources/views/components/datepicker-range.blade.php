@@ -1,7 +1,7 @@
 <div :class="showDate ? '' : 'hidden'" class="flex flex-col h-full">
     <div id="calendar-picker" x-on:click="openCalendarClick()" x-ref="startDateButton" class="hidden"></div>
-    <div class="md:hidden w-full text-center">
-        <button x-on:click="continueShowTime()" disabled id="continue-date__button" class="btn btn-red px-16 py-3">{!! __('car-search-bar.mobile-continue-button') !!}</button>
+    <div class="md:hidden w-[80%] text-center mx-auto">
+        <button x-on:click="continueToDefault()" disabled id="continue-date__button" class="w-full btn btn-red px-16 py-3">{!! __('car-search-bar.mobile-continue-button') !!}</button>
     </div>
 </div>
     
@@ -95,8 +95,10 @@
     window.addEventListener('load', numberCalendar, structureCalendar)
     window.addEventListener('resize',  numberCalendar, structureCalendar)
 
-
     let scrollTopPosition;
+
+
+
     
 	/********************
         CALENDAR
@@ -189,10 +191,16 @@
                     const emptyInputMobile = document.getElementById('mobile-empty-dates')
                     const datesMobile = document.querySelectorAll('.mobile-dates')
 
-                    if(startInput[0].value !== '' && endInput[0].value !== '') {
+
+                    if(startInput[0].value !== '') {
                         document.getElementById('set-dates').classList.add('active')
-                        searchButton.removeAttribute('disabled')
-                        continueButton.removeAttribute('disabled')
+                        searchButton.setAttribute('disabled')
+                        continueButton.setAttribute('disabled')
+                        
+                        if(endInput[0].value !== '') {
+                            searchButton.removeAttribute('disabled')
+                            continueButton.removeAttribute('disabled')
+                        }
 
                         // mobile
                         if (vWidth <= 767) {
@@ -214,15 +222,29 @@
                             datesMobile.classList.add('hidden');
                         }
                     }
-
                 }),					
                 picker.on('view', (e) => {
                     const { view, date, target } = e.detail;
                     
                     if (view === 'Footer') {
+
+                        let mainElement = e.target.querySelector('main');
+
+
                         if (scrollTopPosition !== 'undefined'){
-                            e.target.querySelector('main').scrollTop = scrollTopPosition;
+                            mainElement.scrollTop = scrollTopPosition;
                         }
+
+                        // calendarsHeight(e)
+
+
+                        // Tooltip mobile
+                        let tooltip = e.target.querySelector('.range-plugin-tooltip')
+                        
+                        mainElement.addEventListener("mouseover", function() {
+                            let tooltipValue = tooltip.innerHTML
+                            // console.log(tooltipValue)
+                        })
                     }
                     
                     if (view === 'CalendarDay') {							
@@ -291,7 +313,7 @@
                 input.parentElement.classList.remove(klass)
             }
         }		
-        
+
     });		
 </script>
 @endpush

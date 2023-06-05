@@ -34,16 +34,3 @@ window.addEventListener('goToTop', event => {
     window.scrollTo(0, 0);
 });
 
-
-/* ALTURA DEL VIEWPORT */
-/* Se crea una variable vh para utilizar en las hojas de estilo */
-
-let vh;
-
-const variableVh = () => {
-    vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-}
-
-window.addEventListener('load', variableVh)
-window.addEventListener('resize', variableVh)

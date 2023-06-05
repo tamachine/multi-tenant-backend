@@ -1,21 +1,20 @@
-<div class="flex flex-col justify-between h-full md:h-auto">
-    <div class="flex flex-col justify-center items-center md:items-stretch h-full md:h-auto">
+<div class="flex flex-col justify-between h-auto">
+    <div class="flex flex-col justify-center items-stretch h-auto">
         <div class="flex items-center justify-between cursor-pointer">
             <h5 
                 x-text="differentLocation ? '{!! __('car-search-bar.pick-up-location-title') !!}' : '{!! __('car-search-bar.title-location') !!}'"
-                class="text-black md:text-pink-red text-xl md:text-2xl text-left flex items-center">
+                class="text-pink-red text-2xl text-left flex items-center">
             </h5>
 
             {{-- TOGGLE --}}
             <div x-on:click="toggleLocation()"
                 id="toggle"
-                class="hidden md:inline-block bg-gray-primary rounded-full overflow-hidden  border-2 border-gray-primary shadow-[inset_0px_1px_2px_0px_rgba(0,0,0,0.25)] py-[4px] px-[5px]">
+                class="inline-block bg-gray-primary rounded-full overflow-hidden  border-2 border-gray-primary shadow-[inset_0px_1px_2px_0px_rgba(0,0,0,0.25)] py-[4px] px-[5px]">
                 <div class="relative flex align-stretch">
                     {{-- Transition button --}}
                     <span 
-                        {{-- :class="differentLocation ? 'left-auto right-0' : 'left-0'" --}}
                         id="toggle-decoration"
-                        class="absolute left-0  w-1/2 h-full bg-black rounded-full transition-all">
+                        class="absolute left-0  w-1/2 h-full bg-black rounded-full">
                     </span>
 
                     {{-- Same location --}}
@@ -43,56 +42,51 @@
 
 
         @foreach ($moments as $moment)
-            @if ($moment == 'return') 
-                <h5 :class="differentLocation ? '' : 'hidden'" class="text-black md:text-pink-red text-xl md:text-2xl text-left flex items-center">
-                    {!! __('car-search-bar.return-location-title') !!}
-                </h5>
-            @endif
+            <div>
+                @if ($moment == 'return') 
+                    <h5 :class="differentLocation ? '' : 'hidden'" class="text-pink-red text-2xl text-left flex items-center">
+                        {!! __('car-search-bar.return-location-title') !!}
+                    </h5>
+                @endif
 
-            <fieldset
-                @if ($moment == 'return') id="locations-return" @endif
-                :class="differentLocation ? 'different-location-true' : ''"
-                class="flex gap-2 md:gap-[4%] mt-4 mb-16 md:mb-4 flex-wrap md:flex-nowrap justify-center md:justify-start @if ($moment == 'return') hidden @endif">
+                <fieldset
+                    @if ($moment == 'return') id="locations-return" @endif
+                    :class="differentLocation ? 'different-location-true' : ''"
+                    class="flex gap-[4%] mt-4 mb-4 flex-nowrap justify-start 
+                    @if ($moment == 'return') hidden @endif">
 
-                @foreach($locations as $key => $location)
+                    @foreach($locations as $key => $location)
 
-                    <div class="md:w-1/3">
-                        <input type="radio" id="{{$moment}}--{{ $key }}" name="location--{{$moment}}" value="{{ $location->name }}" class="hidden">
-                        <label for="{{$moment}}--{{ $key }}" class="location cursor-pointer">
+                        <div class="w-1/3">
+                            <input type="radio" id="{{$moment}}--{{ $key }}" name="location--{{$moment}}" value="{{ $location->name }}" class="hidden">
+                            <label for="{{$moment}}--{{ $key }}" class="location cursor-pointer">
 
-                            <div class="hidden md:inline-block location__image image-wrapper rounded-t-md overflow-hidden">                        
-                                <x-image :model-image="$location->getFeaturedImageModelImageInstance()" class="w-full scale-105 transition-transform duration-700"/>
-                            </div>
-                            
-                            <div class="location__text bg-white px-3 md:px-5 py-4 rounded-md md:rounded-t-none border-[1px] border-gray-secondary md:border-none md:shadow-[0_1.5px_6px_0_rgba(0,0,0,0.1)] transition-[background] duration-700">
-                                <p class="text-black text-sm text-center font-sans-bold transition-[color] duration-700">
-                                    {{ $location->name }}
-                                </p>
-                            </div>
-                            
-                            @if ($location->pickup_input_info || $location->dropoff_input_info)
-                                <small class="inline-block w-full text-gray-light text-xs text-center mt-3">
-                                    @if ($moment == 'return')
-                                        {{ $location->pickup_input_info }}
-                                    @else 
-                                        {{ $location->dropoff_input_info }}
-                                    @endif
-                                </small>
-                            @endif
-                        </label>
-                    </div>
-                @endforeach
-
-            </fieldset>
+                                <div class="inline-block location__image image-wrapper rounded-t-md overflow-hidden">                        
+                                    <x-image :model-image="$location->getFeaturedImageModelImageInstance()" class="w-full scale-105 transition-transform duration-700"/>
+                                </div>
+                                
+                                <div class="location__text bg-white px-5 py-4 rounded-b-md shadow-[0_1.5px_6px_0_rgba(0,0,0,0.1)] transition-[background] duration-500">
+                                    <p class="text-black text-sm text-center font-sans-bold transition-[color] duration-400">
+                                        {{ $location->name }}
+                                    </p>
+                                </div>
+                                
+                                @if ($location->pickup_input_info || $location->dropoff_input_info)
+                                    <small class="inline-block w-full text-gray-light text-xs text-center mt-3">
+                                        @if ($moment == 'return')
+                                            {{ $location->pickup_input_info }}
+                                        @else 
+                                            {{ $location->dropoff_input_info }}
+                                        @endif
+                                    </small>
+                                @endif
+                            </label>
+                        </div>
+                    @endforeach
+                </fieldset>
+            </div>
         @endforeach
     </div>
-    
-    <button id="search__button" 
-        class="md:hidden w-auto
-        bg-pink-red hover:bg-pink-red-medium rounded-lg md:rounded-xl p-3 lg:px-10
-        font-sans-bold text-white text-lg lg:text-xl" >
-            {!! __('general.search') !!}
-    </button>
 </div>
 
 
@@ -172,7 +166,7 @@
             const returnInput = document.getElementById('return-location');
             const setFilled = pickupInput.parentElement;
 
-            if (pickupInput.value !== '' && returnInput.value !== '') {
+            if (pickupInput.value !== '' || returnInput.value !== '') {
                 setFilled.parentElement.classList.add('active')
             }
         }
@@ -180,13 +174,22 @@
 
         // Poner recogida y devolución con el mismo valor
         const setSameLocationValue = () => {
-            let selected = document.querySelector('input[name="location--pickup"]:checked');
+            let selectedPickup = document.querySelector('input[name="location--pickup"]:checked');
+            let selectedReturn = document.querySelector('input[name="location--return"]:checked');
 
-            if (selected !== null) {
-                let selectedValue = selected.value;
-                
-                let selectedDifferentLocation = document.querySelector('input[name="location--return"][value="' + selectedValue + '"]');
-                selectedDifferentLocation.click();
+            if (selectedPickup !== null && selectedReturn !== null) {
+                // Cuando recogida y devolución tienen valores diferentes, se le asigna a los dos el valor de recogida.
+                let selectedPickupValue = selectedPickup.value;
+
+                let selectedPickupDifferentLocation = document.querySelector('input[name="location--return"][value="' + selectedPickupValue + '"]');
+                selectedPickupDifferentLocation.click();
+            } else if (selectedPickup == null && selectedReturn !== null) {
+                // Cuando se ha seleccionado lugar de devolución pero no de recogida, se le asigna a los dos el valor de recogida.
+
+                let selectedReturnValue = selectedReturn.value;
+
+                let selectedPickupDifferentLocation = document.querySelector('input[name="location--pickup"][value="' + selectedReturnValue + '"]');
+                selectedPickupDifferentLocation.click();
             }
         }
 
@@ -240,6 +243,16 @@
                 // Pone el input en el mismo lugar
                 setSameLocationValue()
             }
+        }
+
+        const startLocationToggle = () => {
+            getLocationsVariables()
+
+            if(sameLocation.classList.contains('active') == true) {
+                setSameLocationToggle()
+            } else {
+                setDifferentLocation()
+            }            
         }
         
     </script>

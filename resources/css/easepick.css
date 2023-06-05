@@ -16,7 +16,7 @@
 }
 
 .calendar {
-    @apply p-0;
+    @apply p-0 md:h-[436px];
 }
 
 .calendars .calendar:nth-child(n+2) {
@@ -57,7 +57,7 @@
 }
 
 .calendar>.days-grid>.day  {
-    @apply font-sans-medium font-normal border-none text-base lg:text-lg leading-5 w-full max-w-none cursor-pointer;
+    @apply font-sans-medium font-normal border-none text-base lg:text-lg leading-5 w-full max-h-[41px] h-[41px] max-w-none cursor-pointer;
 }
 
 .calendar>.days-grid>.day.disabled  {
@@ -108,7 +108,7 @@
         border-none rounded-md
         bg-pink-red font-medium text-white
         text-[22px] w-[50px] h-[50px]
-        lg:text-[24px] lg:w-[56px] lg:h-[56px]
+        lg:text-[24px] lg:w-[50px] lg:h-[50px]
         left-0
         right-0 mx-auto 
         flex justify-center items-center 
@@ -144,11 +144,19 @@ footer {
 
     .container.range-plugin.show main {
         @apply h-full overflow-auto 
-        before:content-[''] before:absolute before:top-[-1px] before:left-0 before:w-full before:h-[20px] before:bg-gradient-to-b before:from-white before:to-transparent before:z-10 before:pointer-events-none
-        after:content-[''] after:absolute after:bottom-[-1px] after:left-0 after:w-full after:h-[20px] after:bg-gradient-to-b after:from-transparent after:to-white after:z-10 after:pointer-events-none
     }
 
     .container.range-plugin.show .calendars {
         @apply max-w-lg md:max-w-none mx-auto pt-5 md:pt-0
     }
+
+    .range-plugin-tooltip {
+        /* position: absolute;
+        top: 50vh;
+        left: 50vw;
+        background-color: blue;
+        z-index: 99999;
+        visibility: visible; */
+    }
 }
+

@@ -7,17 +7,17 @@
                 <div class="relative min-h-[125vw] md:min-h-[650px]">    
                     <div class="absolute w-full top-0 bottom-0 left-0 rounded-2xl image-wrapper">
                         <picture>
-                            <source srcset="{{ asset('/images/landing-cars/' . $type . '-cars_dk.jpg') }}" media="(min-width: 767px)">
-                            <source srcset="{{ asset('/images/landing-cars/' . $type . '-cars_mb.jpg') }}">
-                            <img src="{{ asset('/images/landing-cars/' . $type . '-cars_dk.jpg') }}" alt="">
+                            <source srcset="{{ asset('/images/landing-cars/' . $range . '-cars_dk.jpg') }}" media="(min-width: 767px)">
+                            <source srcset="{{ asset('/images/landing-cars/' . $range . '-cars_mb.jpg') }}">
+                            <img src="{{ asset('/images/landing-cars/' . $range . '-cars_dk.jpg') }}" alt="">
                         </picture>
                     </div>
                     <div class="relative px-5 py-10 md:p-20">
-                        <h1 class="max-w-4xl text-white mx-auto">{!! __('landing-cars.'. $type . '-title') !!}</h1>
+                        <h1 class="max-w-4xl text-white mx-auto">{!! __('landing-cars.'. $range . '-title') !!}</h1>
                     </div>
                 </div>
                 <div class="intro__description max-w-4xl mx-auto mt-5 mb-20 md:mt-10 text-center">
-                    <p class="text-xl leading-loose">{!! __('landing-cars.'. $type . '-text') !!}</p>
+                    <p class="text-xl leading-loose">{!! __('landing-cars.'. $range . '-text') !!}</p>
                 </div>
             </section>
 
@@ -61,7 +61,7 @@
                 <div class="about__content md:w-[56%] my-5">
                     <x-read-more-block text="{!! __('landing-cars.about-text') !!}" image-path="/images/icons/arrow-up-solid.svg"/>
                     
-                    <a class="btn-border" href="">{{ __('landing-cars.about-button') }}</a>
+                    <a class="btn-border mt-10" href="">{{ __('landing-cars.about-button') }}</a>
                 </div>
                 
             </section>
@@ -74,7 +74,7 @@
                     <div class="brands__text md:w-1/2 mb-10 md:mb-0">
                         <h2 class="mb-5">{{ __('landing-cars.brands-title') }}</h2>
                         <p>{!! __('landing-cars.brands-text') !!}</p>
-                        <a class="btn-border hidden md:inline-block" href="">{{ __('landing-cars.brands-button') }}</a>
+                        <a class="btn-border mt-10 hidden md:inline-block" href="">{{ __('landing-cars.brands-button') }}</a>
                     </div>
                     @php
                         $brands = [
