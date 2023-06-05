@@ -43,7 +43,7 @@ class AuthorController extends Controller
         return view('blog.author.create')->with($data);
     }
 
-    public function edit($hashid): View
+    public function edit($hashid, $tab = null): View
     {
         $this->authorize('blog');
 
@@ -59,6 +59,7 @@ class AuthorController extends Controller
                 'Blog' => route('intranet.blog.dashboard'),
                 'Authors' => route('intranet.blog.author.index')
             ],
+            'tab' => emptyOrNull($tab) ? 'basic' : $tab,
         ];
 
         return view('blog.author.edit')->with($data);
