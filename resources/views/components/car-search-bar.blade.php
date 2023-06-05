@@ -273,10 +273,10 @@
         </div>
     </div>
 
-    <div id="locations" class="searchbar-popover absolute w-full pointer-events-none"
+    <div id="locations" class="searchbar-popover absolute w-full hidden md:block pointer-events-none"
         :class="{
             'show': showLocations,
-            'hidden': !showLocations,
+            '!h-0': !showLocations,
             'different-location': differentLocation,
             'same-location': !differentLocation
         }"
@@ -340,10 +340,9 @@
                     this.showLocations = true
                     this.openCalendar = false
                     this.showBack = true
-                    if (vWidth > 767) {
-                        this.showOverlay = true
-                        this.showBack = false
-                    }
+                    this.showOverlay = true
+                    this.showBack = false
+                    locationsOpenTransition();
                     setTimeout(startLocationToggle, 1);
                 },
 
@@ -399,7 +398,7 @@
 
 
         /********************
-           POSITION POPOVER DEPENDING ON SPACE 
+           POSITION POPOVER DEPENDING ON SPACE (Top or bottom car-search-bar)
         ********************/
 
         const searchBar = document.querySelector('#search-bar');
@@ -421,11 +420,13 @@
             const searchbarPopovers = document.querySelectorAll('.searchbar-popover');
 
             searchbarPopovers.forEach(searchbarPopover => {
-                if (spaceTop < 640) {
+                if (windowHeight < 750) {
+                    // El calendario no cabe arriba
                     searchbarPopover.classList.add('position-top');
                     searchbarPopover.classList.remove('position-bottom');
                 } else {
                     if (spaceTop <= spaceBottom) {
+                        // Más espacio abajo
                         searchbarPopover.classList.add('position-top');
                         searchbarPopover.classList.remove('position-bottom');
                     } else {
@@ -444,7 +445,7 @@
         const scrollToCalendar = () => {
             getPositionVariables()
 
-            if (windowHeight < 740) {
+            if (windowHeight < 750) {
                 searchBar.scrollIntoView()
             }
         }
@@ -480,30 +481,31 @@
            TRANSITION HEIGHT LOCATIONS
         ********************/
 
+        // Transition on toggle change
         function locationsHeight() {
+            const locationsLayer = document.getElementById('return__layer');
+            const locations = document.getElementById('select-return-location');
+
+            let locationsLayerHeight = locationsLayer.offsetHeight;
+
+            locations.style.height = locationsLayerHeight + 'px';
+        }
+        new ResizeObserver(locationsHeight).observe(return__layer);
+
+        // Transition on open layer
+        function locationsOpenTransition() {
             const locationsLayer = document.getElementById('locations__layer');
             const locations = document.getElementById('locations');
 
             let locationsLayerHeight = locationsLayer.offsetHeight;
 
             locations.style.height = locationsLayerHeight + 'px';
+
+            setTimeout(function(){
+                locations.style.height = 'auto'
+            }, 200);
         }
 
-        // const calendarsHeight = (e) => {
-        //     if (vWidth > 767) {
-        //         const calendars =  e.target.querySelector('.calendars')
-        //         const calendarContainer =  e.target.querySelector('.range-plugin')
-
-        //         const calendarsHeight = calendars.offsetHeight
-
-        //         console.log(calendarsHeight)
-
-        //         calendarContainer.style.height = calendarsHeight + 'px';
-
-        //     }
-        // }
-
-        new ResizeObserver(locationsHeight).observe(locations__layer);
 
 
 
@@ -536,7 +538,7 @@
                 e.preventDefault();
                 searchBarMobile.click()
             } else {
-                // ATENCIÓN: FALT
+                // ATENCIÓN: FALTA FUNCIÓN DE ENVIAR
                 // Aquí irá la función de enviar formulario
                 console.log('Enviar')
             }

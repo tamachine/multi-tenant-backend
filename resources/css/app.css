@@ -307,10 +307,6 @@ picture img {
     @apply overflow-hidden transition-[height] duration-300 ease-in-out;
 }
 
-.searchbar-popover.hidden  {
-    @apply !h-0;
-}
-
 .searchbar-popover.position-top {
     @apply top-full
 }

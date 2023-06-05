@@ -4670,11 +4670,6 @@ h5 {
     display: none;    
 }
 
-.searchbar-popover#set-dates .search-input-set.active .search-input,.searchbar-popover
-    .mobile-dates .search-input-set.active .search-input {
-    height: 0px !important;    
-}
-
 #set-dates .search-input-set.active .selected,
     #mobile-dates .search-input-set.active .selected {
     position: absolute;
@@ -5320,6 +5315,10 @@ h5 {
 
 .h-screen {
     height: 100vh;    
+}
+
+.\!h-0 {
+    height: 0px !important;    
 }
 
 .h-\[495px\] {
@@ -7701,6 +7700,12 @@ h5 {
     transition-duration: 150ms;    
 }
 
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;    
+}
+
 .transition-transform {
     transition-property: transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -7721,6 +7726,12 @@ h5 {
 
 .transition-opacity {
     transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;    
+}
+
+.transition-\[height\] {
+    transition-property: height;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;    
 }
@@ -7875,10 +7886,6 @@ picture img {
     transition-property: height;
     transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);    
-}
-
-.searchbar-popover.hidden {
-    height: 0px !important;    
 }
 
 .searchbar-popover.position-top {
@@ -10107,8 +10114,8 @@ button:disabled {
 
     @media (min-width: 768px) {
 
-        .landscape\:md\:h-\[84vh\] {
-            height: 84vh;    
+        .landscape\:md\:h-\[86vh\] {
+            height: 86vh;    
         }    
     }    
 }

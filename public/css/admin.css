@@ -4901,6 +4901,10 @@ textarea.form-control.is-invalid{
     height: 490px;
 }
 
+.\!h-0{
+    height: 0px !important;
+}
+
 .max-h-48{
     max-height: 12rem;
 }
@@ -7161,6 +7165,18 @@ textarea.form-control.is-invalid{
 
 .transition-opacity{
     transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.transition-\[height\]{
+    transition-property: height;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.transition-all{
+    transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 }
@@ -9597,6 +9613,10 @@ input[type=number] {
 
         .landscape\:md\:h-\[84vh\]{
             height: 84vh;
+        }
+
+        .landscape\:md\:h-\[86vh\]{
+            height: 86vh;
         }
     }
 }

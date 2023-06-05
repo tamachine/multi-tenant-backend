@@ -42,48 +42,55 @@
 
 
         @foreach ($moments as $moment)
-            <div>
-                @if ($moment == 'return') 
-                    <h5 :class="differentLocation ? '' : 'hidden'" class="text-pink-red text-2xl text-left flex items-center">
-                        {!! __('car-search-bar.return-location-title') !!}
-                    </h5>
-                @endif
+            <div 
+            @if ($moment == 'return') 
+            :class="differentLocation ? '' : '!h-0 opacity-0 overflow-hidden'" 
+                id="select-return-location"
+                class=" transition-[height]"
+            @endif>
+                <div @if ($moment == 'return') id="return__layer" @endif>
+                    @if ($moment == 'return') 
+                        <h5 class="text-pink-red text-2xl text-left flex items-center">
+                            {!! __('car-search-bar.return-location-title') !!}
+                        </h5>
+                    @endif
 
-                <fieldset
-                    @if ($moment == 'return') id="locations-return" @endif
-                    :class="differentLocation ? 'different-location-true' : ''"
-                    class="flex gap-[4%] mt-4 mb-4 flex-nowrap justify-start 
-                    @if ($moment == 'return') hidden @endif">
+                    <fieldset
+                        @if ($moment == 'return') id="locations-return" @endif
+                        :class="differentLocation ? 'different-location-true' : ''"
+                        class="flex gap-[4%] py-4 flex-nowrap justify-start 
+                        ">
 
-                    @foreach($locations as $key => $location)
+                        @foreach($locations as $key => $location)
 
-                        <div class="w-1/3">
-                            <input type="radio" id="{{$moment}}--{{ $key }}" name="location--{{$moment}}" value="{{ $location->name }}" class="hidden">
-                            <label for="{{$moment}}--{{ $key }}" class="location cursor-pointer">
+                            <div class="w-1/3">
+                                <input type="radio" id="{{$moment}}--{{ $key }}" name="location--{{$moment}}" value="{{ $location->name }}" class="hidden">
+                                <label for="{{$moment}}--{{ $key }}" class="location cursor-pointer">
 
-                                <div class="inline-block location__image image-wrapper rounded-t-md overflow-hidden">                        
-                                    <x-image :model-image="$location->getFeaturedImageModelImageInstance()" class="w-full scale-105 transition-transform duration-700"/>
-                                </div>
-                                
-                                <div class="location__text bg-white px-5 py-4 rounded-b-md shadow-[0_1.5px_6px_0_rgba(0,0,0,0.1)] transition-[background] duration-500">
-                                    <p class="text-black text-sm text-center font-sans-bold transition-[color] duration-400">
-                                        {{ $location->name }}
-                                    </p>
-                                </div>
-                                
-                                @if ($location->pickup_input_info || $location->dropoff_input_info)
-                                    <small class="inline-block w-full text-gray-light text-xs text-center mt-3">
-                                        @if ($moment == 'return')
-                                            {{ $location->pickup_input_info }}
-                                        @else 
-                                            {{ $location->dropoff_input_info }}
-                                        @endif
-                                    </small>
-                                @endif
-                            </label>
-                        </div>
-                    @endforeach
-                </fieldset>
+                                    <div class="inline-block location__image image-wrapper rounded-t-md overflow-hidden">                        
+                                        <x-image :model-image="$location->getFeaturedImageModelImageInstance()" class="w-full scale-105 transition-transform duration-700"/>
+                                    </div>
+                                    
+                                    <div class="location__text bg-white px-5 py-4 rounded-b-md shadow-[0_1.5px_6px_0_rgba(0,0,0,0.1)] transition-[background] duration-500">
+                                        <p class="text-black text-sm text-center font-sans-bold transition-[color] duration-400">
+                                            {{ $location->name }}
+                                        </p>
+                                    </div>
+                                    
+                                    @if ($location->pickup_input_info || $location->dropoff_input_info)
+                                        <small class="inline-block w-full text-gray-light text-xs text-center mt-3">
+                                            @if ($moment == 'return')
+                                                {{ $location->pickup_input_info }}
+                                            @else 
+                                                {{ $location->dropoff_input_info }}
+                                            @endif
+                                        </small>
+                                    @endif
+                                </label>
+                            </div>
+                        @endforeach
+                    </fieldset>
+                </div>
             </div>
         @endforeach
     </div>
