@@ -6,7 +6,7 @@
 
     {{-- Desktop --}}
 
-    <div id="time-picker" class="px-[3%] lg:px-4 md:mt-4">
+    <div id="time-picker" class="px-[3%] lg:px-4 md:mt-3">
         <div class="container md:flex md:gap-[5%] relative md:border-t-[1px] md:border-gray-secondary">
 
             @foreach ($ranges as $range)

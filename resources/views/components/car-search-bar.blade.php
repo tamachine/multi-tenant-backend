@@ -264,11 +264,6 @@
                     </div>
                 </div>
 
-                {{-- <button class="
-                    w-full font-sans-bold text-base rounded-[10px] p-2
-                    bg-pink-red text-white hover:bg-pink-red-medium">{!! __('car-search-bar.mobile-continue-button') !!}</button> --}}
-
-
             </div>
         </div>
     </div>
@@ -406,12 +401,16 @@
         let spaceTop;
         let windowHeight;
         let spaceBottom;
+        let scrollTop;
+        let positionTop;
 
         const getPositionVariables = () => {
             searchBarPositions = searchBar.getBoundingClientRect();
             spaceTop = searchBarPositions.top;
             windowHeight = window.innerHeight;
             spaceBottom = windowHeight - searchBarPositions.bottom;
+            scrollTop = window.pageYOffset;
+            positionTop = spaceTop + scrollTop
         }
 
         const position = () => {
@@ -420,7 +419,7 @@
             const searchbarPopovers = document.querySelectorAll('.searchbar-popover');
 
             searchbarPopovers.forEach(searchbarPopover => {
-                if (windowHeight < 750) {
+                if (positionTop < 630) {
                     // El calendario no cabe arriba
                     searchbarPopover.classList.add('position-top');
                     searchbarPopover.classList.remove('position-bottom');
@@ -445,7 +444,7 @@
         const scrollToCalendar = () => {
             getPositionVariables()
 
-            if (windowHeight < 750) {
+            if (positionTop < 630) {
                 searchBar.scrollIntoView()
             }
         }
