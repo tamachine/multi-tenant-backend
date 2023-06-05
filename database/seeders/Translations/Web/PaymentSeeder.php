@@ -167,6 +167,16 @@ class PaymentSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'payment',
+                'key' => 'passengers',
+            ],
+            [
+                'text' => ['en' => 'Passengers', 'es' => 'Pasajeros'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'payment',
                 'key' => 'payment-details',
             ],
             [
