@@ -40,7 +40,6 @@
                 {{ $message }}
             </p>
             @enderror
-        </div>
-        
+        </div>        
     </div>
 </div>

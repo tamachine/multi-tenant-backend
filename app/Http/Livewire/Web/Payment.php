@@ -81,6 +81,8 @@ class Payment extends Component
      */
     public $number_passengers = 0;
 
+    protected $listeners = ['update_number' => 'updateNumberPassengers'];
+
     /*
     ***************************************************************
     ** METHODS
@@ -114,6 +116,11 @@ class Payment extends Component
         return view('livewire.web.payment');
     }
 
+    public function updateNumberPassengers($number)
+    {
+        $this->number_passengers = $number;
+    }
+
     public function continue()
     {
         $this->dispatchBrowserEvent('validationError');
@@ -127,7 +134,7 @@ class Payment extends Component
             'postal_code'   => ['required'],
             'city'          => ['required'],
             'country'       => ['required'],
-            'number_passengers' => 'required|numeric|max:12'
+            'number_passengers' => 'required|numeric|min:1|max:12'
         ];
 
         $this->validate($rules);

@@ -28,7 +28,7 @@
         </div>
     </div>
     
-    <input type="text" class="text-center bg-transparent border-0 text-white w-10 text-[22px] " readonly wire:model="{{ $field }}" x-model="number" />
+    <input type="text" class="text-center bg-transparent border-0 text-white w-10 text-[22px] " readonly x-model="number" wire:model="{{ $field }}"  />
     
     <div 
         x-on:click="plus()"
