@@ -55,8 +55,10 @@ module.exports = {
                 'gray-secondary' : '#E7E8EA',
                 'gray-tertiary' : '#B1B5C4',
                 'gray-light' : '#AAAAAA',
+                'gray-bg-cars' : '#FCFCFC',
                 'pink-red':'#E11166',
                 'pink-red-secondary' : '#FDEEF4',
+                'pink-red-medium' : '#D31060',
                 'yellow-ci': '#F6BD00',
                 'black-ci' : '#161616',
             },
@@ -94,6 +96,9 @@ module.exports = {
             },
             width: {
                 '6xl': '1170px',
+            },
+            dropShadow: {
+                'text': '0 6px 20px rgba(0, 0, 0, 0.4)',
             },
         },
     },

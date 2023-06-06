@@ -193,7 +193,7 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
+        App\Providers\EventServiceProvider::class,        
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
 
@@ -211,6 +211,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+        'RoutesForPages' => App\Services\RoutesForPages\RoutesForPagesFacade::class
     ])->toArray(),
 ];

@@ -29,3 +29,11 @@ Homestead.json
 package-lock.json
 
 .vscode
+
+config.yaml
+
+#assets
+public/css
+public/fonts
+public/js
+public/mix-manifest.json

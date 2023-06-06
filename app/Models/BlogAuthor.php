@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Traits\HasFeaturedImage;
+use App\Traits\HasSEOConfigurations;
 use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
 class BlogAuthor extends Model implements LocalizedUrlRoutable
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImage;
+    use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImage, HasSEOConfigurations;
 
     //for HasFeaturedImage
     protected $featured_image_attribute = 'photo';
@@ -31,8 +32,8 @@ class BlogAuthor extends Model implements LocalizedUrlRoutable
 
      /**
      * Returns for a given locale the translated slug
-     * It is used for translatable routes in mcnamara localization package. 
-     * This method has to be defined when implementing LocalizedUrlRoutable
+     * It is used for translatable routes in mcnamara localization package and in Services\SeoCOnfigurations class
+     * This method has to be defined when implementing LocalizedUrlRoutable or using HasSEOConfigurations trait
      * @return string
      */
     public function getLocalizedRouteKey($locale)

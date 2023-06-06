@@ -26,23 +26,15 @@ Install npm dependencies
 
     npm install
 
+Create the assets
+
+    npm run development
+
 Copy the example env file and make the required configuration changes in the .env file
 
     cp .env.example .env
 
-Run the database migrations (**Set the database connection in .env before migrating**)
-
-    php artisan migrate
-
-Run the database seeder for translations. You can run it as much as you want.
-
-    php artisan db:seed --class=LanguageLineSeeder
-
-Run the database seeder for faqs. You should run it just once.
-
-    php artisan db:seed --class=FaqsSeeder
-
-There is a commmand to run the migrations and seeders altogether. (Alternative to the 3 "artisan" commands above)
+Run the database migrations and default seeder(**Set the database connection in .env before migrating**)
 
     php artisan migrate:refresh --seed
 
@@ -52,7 +44,7 @@ Start the local development server
 
 You can now access the server at http://localhost:8000
 
-## API token
+## API token (**This feature is no longer used**)
 
 There is an API to be consumed from the front-end.
 
@@ -68,13 +60,13 @@ Translations are stored in database using https://github.com/spatie/laravel-tran
 
 The structure for the translations is always:
 
-    'group' ->  web page name (home, cars, about, etc...)
+    'group' -> web page name (home, cars, about, etc...)
 
-    'key'   -> 'key-group.key' where  'key-group' is something like 'card', 'section1', 'hero'
+    'key'   -> something like 'card', 'section1', 'hero'
 
-There is one Seeder for every 'group.key-group'. You can run LanguageLineSeeder to run all translations seeders (if you create a new one, include it in LanguageLineSeeder). You can run it as many times as you want since it uses the firstOrCreate method.
+There is one Seeder for every 'group'. You can run LanguageLineSeeder to run all translations seeders (if you create a new one, include it in LanguageLineSeeder). You can run it as many times as you want since it uses the firstOrCreate method.
 
-Please, note that 'group.key-group.key' must be unique and that all translations can be changed by users so as far as possible, don't include parameters in the translations becasue the user can not modify them.
+Please, note that 'group.key' must be unique and that all translations can be changed by users so as far as possible, don't include parameters in the translations becasue the user can not modify them.
 
 ## Model Translations
 
@@ -102,6 +94,8 @@ For not local environment use: https://laravel.com/docs/9.x/scheduling#running-t
     cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
 
 ## Slack
+
+Currently two slack channels are used to send notifications
 
     #caren-observer
     #nave-intergalactica

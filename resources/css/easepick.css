@@ -4,7 +4,7 @@
 @import '../../node_modules/@easepick/time-plugin/dist/index.css';
 
 .container {
-    @apply font-sans text-lg font-semibold leading-8;
+    @apply relative font-sans text-lg leading-8 !left-0 transition-none px-[3%];
 }
 
 .container.inline {
@@ -12,50 +12,81 @@
 }
 
 .container.show {
-    @apply bg-white px-12 pt-10 pb-28    shadow-none rounded-[20px];
+    @apply shadow-none !left-0 !top-0 w-full;
+}
+
+.calendars {
+    @apply gap-[4%] lg:gap-[5%];
 }
 
 .calendar {
-    @apply px-7;
+    @apply p-0;
+}
+.calendar>.header {
+    @apply py-0;
 }
 .calendar>.header .month-name,
 .calendar>.header .month-name>span {
-    @apply font-fredoka-semibold text-2xl leading-8 text-black-not-deep;
+    @apply font-fredoka-semibold font-normal text-xl lg:text-2xl leading-8 text-black-not-deep capitalize;
 }
 
 .calendar>.header button>img, .calendar>.header button>svg {
-    @apply fill-black-primary;
+    @apply fill-black-primary scale-100;
 }
 
-.calendar>.daynames-row>.dayname {
-    @apply text-pink-red text-base leading-5;
-}
-
-.calendar>.days-grid {
-    @apply text-lg;
+.calendar>.header button.previous-button,
+.calendar>.header button.next-button {
+    @apply hover:bg-white
 }
 
 .calendar>.daynames-row {
-    @apply gap-x-5 gap-y-4 mt-4 mx-2;
+    @apply gap-x-3 lg:gap-x-5 gap-y-4 mt-9 mx-2 lg:mx-3;
 }
+
+.calendar>.daynames-row>.dayname {
+    @apply text-pink-red text-sm lg:text-[15px] leading-5 font-sans-medium font-normal uppercase py-0;
+}
+
 .calendar>.days-grid {
-    @apply gap-y-4 mt-4;
+    @apply w-full text-lg gap-y-3 my-5;
 }
+
+.calendar>.days-grid .offset {
+    width: auto;
+}
+
+
 .calendar>.days-grid>.day  {
-    @apply px-8 border-none text-lg font-medium;
+    @apply font-sans-medium font-normal border-none text-base lg:text-lg w-full max-w-none cursor-pointer;
 }
 
 .calendar>.days-grid>.day.disabled  {
-    @apply pointer-events-none opacity-40
+    @apply pointer-events-none opacity-40 cursor-auto;
+}
+
+.calendar>.days-grid>.day.today {
+    @apply opacity-100;
 }
 
 /* selected day */
 .container.range-plugin
 .calendar>.days-grid>.day.end,
 .container.range-plugin
-.calendar>.days-grid>.day.start,
-.calendar>.days-grid>.day:hover {
+.calendar>.days-grid>.day.start {
     @apply bg-pink-red-secondary text-xl hover:border-none text-black-primary cursor-pointer;
+}
+
+.calendar>.days-grid>.day:hover {
+    @apply text-xl border-none text-black-primary;
+}
+
+.calendar>.days-grid>.day:not(.in-range):hover:before {
+    @apply 
+        content-[attr(data-day)] 
+        absolute top-[50%] left-[50%] 
+        w-[47px] h-[47px] translate-x-[-50%] translate-y-[-50%] 
+        bg-pink-red-secondary rounded-md
+        flex justify-center items-center;
 }
 
 .container.range-plugin .calendar>.days-grid>.day.start.end {
@@ -69,9 +100,27 @@
     @apply
         content-[attr(data-day)]
         border-none rounded-md
-        bg-pink-red text-[28px] font-medium text-white
-        left-0 right-0 mx-auto w-full h-[150%]
-        flex justify-center items-center ;
+        bg-pink-red font-medium text-white
+        text-[22px] w-[50px] h-[50px]
+        lg:text-[24px] lg:w-[56px] lg:h-[56px]
+        left-0
+        right-0 mx-auto 
+        flex justify-center items-center 
+        shadow-[-1px_1px_4px_0_rgba(0,0,0,0.3)];
+}
+
+.container.range-plugin .calendar>.days-grid>.day.start:not(.flipped),
+.container.range-plugin .calendar>.days-grid>.day.end.flipped {
+    background: linear-gradient(90deg, rgba(253,238,244,0) 20%, rgba(253,238,244,1) 50%) !important;
+}
+
+.container.range-plugin .calendar>.days-grid>.day.end:not(.flipped),
+.container.range-plugin .calendar>.days-grid>.day.start.flipped {
+    background: linear-gradient(90deg, rgba(253,238,244,1) 50%, rgba(253,238,2444,0) 80%) !important;
+}
+
+.container.range-plugin .calendar>.days-grid>.day.start.end {
+    background: transparent !important;
 }
 
 .container.range-plugin .calendar>.days-grid>.day.in-range {
@@ -81,3 +130,4 @@
 footer {
    @apply hidden
 }
+

@@ -1,14 +1,15 @@
 @extends('layouts.web')
 
 @section('body')
-    <div class="relative bg-violet-100">
-        @include('web.home.partial.hero')
 
-        <div class="absolute md:-bottom-6 md-max:top-[180px]  mx-auto w-full z-30">
+    <div class="intro relative">
+        @include('web.home.partial.hero')
+        
+        <div class="searcher absolute bottom-[-20px] w-full z-30">
             <x-car-search-bar />
         </div>
     </div>
-
+    
     <div class="max-w-6xl mx-auto p-3">
 
         @include('web.home.partial.reviews')

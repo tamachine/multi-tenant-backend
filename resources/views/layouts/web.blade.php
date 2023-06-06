@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html
-    lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+    lang="{{ app('getHTMLLang')  }}"
     x-data="{'showMobileNavBar': false, 'htmlOverflowHidden': false}"
     :class="showMobileNavBar || htmlOverflowHidden ? 'overflow-hidden' : ''"
     x-ref="html"
@@ -8,12 +8,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        @hasSection('title')
 
-            <title>@yield('title') - {{ config('app.name') }}</title>
-        @else
-            <title>{{ config('app.name') }}</title>
-        @endif
+        <x-seo-tags />
 
         <!-- Favicon -->
 		<link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
@@ -33,7 +29,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <x-nav-bar/>
+        <x-nav-bar/>        
     </head>
 
     {{--
@@ -45,14 +41,14 @@
         x-data="{'showOverlay': false}"
         >
 
-        <div
+        {{-- <div
             id="overlay"
             class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-20"
             x-show="showOverlay"
             x-cloak
             >
-            <div id="hide-overlay" class="hidden" x-on:click="showOverlay = false"></div> {{-- this is used in the date picker range component in order to hide the overlay from an event --}}
-        </div>
+            <div id="hide-overlay" class="hidden" x-on:click="showOverlay = false"></div> 
+        </div> --}}
 
         <x-admin.wire-response />
 

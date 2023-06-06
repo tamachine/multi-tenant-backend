@@ -4,7 +4,13 @@
     height: '{{ $height ?? "200px" }}',
     menubar: false,
     plugins: 'anchor autolink charmap codesample image link lists media searchreplace table visualblocks wordcount',
-    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',              
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    link_rel_list: [
+        { title: 'none', value: '' },
+        { title: 'noreferrer', value: 'noreferrer' },
+        { title: 'nofollow', value: 'nofollow' },
+        { title: 'noreferrer nofollow', value: 'noreferrer nofollow' }
+    ],
     setup: function(editor) {
         editor.on('blur', function(e) {
             value = editor.getContent()
