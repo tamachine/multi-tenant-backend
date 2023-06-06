@@ -153,26 +153,6 @@ class CarSearchBarSeeder extends Seeder
                 'text' => ['en' => 'Different location', 'es' => 'Lugares diferentes'],
             ]
         ); 
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'car-search-bar',
-                'key' => 'resume-start-title',    
-            ],
-            [                
-                'text' => ['en' => 'Pick-Up', 'es' => 'Recogida'],
-            ]
-        );  
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'car-search-bar',
-                'key' => 'resume-end-title',    
-            ],
-            [                
-                'text' => ['en' => 'Return', 'es' => 'Entrega'],
-            ]
-        ); 
         
         Translation::firstOrCreate(
             [
@@ -197,32 +177,123 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
+                'key' => 'mobile-default-title',    
+            ],
+            [                
+                'text' => ['en' => 'Default Pick & Return<br>Time and location', 'es' => 'Horario y localización por defecto'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'mobile-default-times-title',    
+            ],
+            [                
+                'text' => ['en' => 'Pick & Return Time', 'es' => 'Horario recogida y devolución'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'mobile-default-location-airport',    
+            ],
+            [                
+                'text' => ['en' => 'Airport', 'es' => 'Aeropuerto'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'mobile-default-location-title',    
+            ],
+            [                
+                'text' => ['en' => 'Pick & Return Location', 'es' => 'Lugar recogida y devolución'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
                 'key' => 'mobile-continue-button',    
             ],
             [                
                 'text' => ['en' => 'Continue', 'es' => 'Continuar'],
             ]
-        );  
+        ); 
 
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'mobile-pickup-location-title',    
+                'key' => 'mobile-edit-button',    
             ],
             [                
-                'text' => ['en' => 'Pick up location', 'es' => 'Lugar de recogida'],
+                'text' => ['en' => 'Edit', 'es' => 'Editar'],
             ]
         );  
 
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'mobile-return-location-title',    
+                'key' => 'resume-start-title',    
             ],
             [                
-                'text' => ['en' => 'Return location', 'es' => 'Lugar de revolución'],
+                'text' => ['en' => 'Pick-Up', 'es' => 'Recogida'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'resume-end-title',    
+            ],
+            [                
+                'text' => ['en' => 'Return', 'es' => 'Devolución'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'mobile-resume-title',    
+            ],
+            [                
+                'text' => ['en' => 'Planning', 'es' => 'Resumen'],
+            ]
+        ); 
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'mobile-dates-title',    
+            ],
+            [                
+                'text' => ['en' => 'Travel Days', 'es' => 'Días de viaje'],
             ]
         );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'mobile-times-title',    
+            ],
+            [                
+                'text' => ['en' => 'Select Time', 'es' => 'Selecciona horario'],
+            ]
+        );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'mobile-location-title',    
+            ],
+            [                
+                'text' => ['en' => 'Location', 'es' => 'Localización'],
+            ]
+        );  
+
         
     }
 }

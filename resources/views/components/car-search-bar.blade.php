@@ -120,24 +120,23 @@
 
                 <div
                     class="relative min-w-[85%] max-w-[99%] bg-white rounded-md p-5 shadow-[0_-6px_13px_0_rgba(0,0,0,0.25)]">
-                    <h3 class=" font-fredoka-medium text-pink-red text-xl leading-tight text-center mb-5">Default Pick &
-                        Return<br>Time and location</h3>
+                    <h3 class=" font-fredoka-medium text-pink-red text-xl leading-tight text-center mb-5">{!! __('car-search-bar.mobile-default-title') !!}</h3>
                     <div class="grid grid-cols-2 gap-3 text-black mb-6">
                         <div class=" text-center">
                             <p class="flex items-center justify-center gap-0.5 font-sans-medium text-3xl leading-none">
                                 12:00 <span class="text-sm">AM</span></p>
-                            <p class="text-gray-light text-xs">Pick & Return Time</p>
+                            <p class="text-gray-light text-xs">{!! __('car-search-bar.mobile-default-times-title') !!}</p>
                         </div>
                         <div class=" text-center">
                             <p class="flex items-center justify-center gap-0.5 font-sans-medium text-3xl leading-none">
-                                KEF <span class="text-sm uppercase">aeropuerto</span></p>
-                            <p class="text-gray-light text-xs">Pick & Return Location</p>
+                                KEF <span class="text-sm uppercase">{!! __('car-search-bar.mobile-default-location-airport') !!}</span></p>
+                            <p class="text-gray-light text-xs">{!! __('car-search-bar.mobile-default-location-title') !!}</p>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-3">
                         {{-- Edit button --}}
                         <button x-on:click="editDefault()"
-                            class=" btn btn-border border-black text-lg px-4 py-2">Edit</button>
+                            class=" btn btn-border border-black text-lg px-4 py-2">{!! __('car-search-bar.mobile-edit-button') !!}</button>
 
                         {{-- Search button --}}
                         {{-- Falta funcionalidad enviar formulario --}}
@@ -150,11 +149,11 @@
             <div :class="showResume ? '' : 'hidden'" class="h-full">
                 <div id="resume" class="flex flex-col justify-between h-full">
                     <div class="overflow-auto p-5 sm:px-10">
-                        <h3 class="font-fredoka-medium text-[28px] text-center mb-7">Planning</h3>
+                        <h3 class="font-fredoka-medium text-[28px] text-center mb-7">{!! __('car-search-bar.mobile-resume-title') !!}</h3>
                         <div id="resume-dates" class="mb-10">
                             <div class="flex items-center gap-1.5 mb-3">
                                 <img src="{{ asset('images/icons/calendar.svg') }}" />
-                                <h3 class="font-fredoka-medium text-lg text-black">Travel Days</h3>
+                                <h3 class="font-fredoka-medium text-lg text-black">{!! __('car-search-bar.mobile-dates-title') !!}</h3>
                             </div>
                             <div>
                                 <div id="resume-mobile-dates"
@@ -190,7 +189,7 @@
                         <div id="resume-times" class="mb-10">
                             <div class="flex items-center gap-1.5 mb-3">
                                 <img src="{{ asset('images/icons/time.svg') }}" />
-                                <h3 class="font-fredoka-medium text-lg text-black">Select Time</h3>
+                                <h3 class="font-fredoka-medium text-lg text-black">{!! __('car-search-bar.mobile-times-title') !!}</h3>
                             </div>
                             <div>
                                 <div id="resume-mobile-times"
@@ -225,7 +224,7 @@
                         <div id="resume-locations" class="mb-10">
                             <div class="flex items-center gap-1.5 mb-3">
                                 <img src="{{ asset('images/icons/location.svg') }}" />
-                                <h3 class="font-fredoka-medium text-lg text-black">Location</h3>
+                                <h3 class="font-fredoka-medium text-lg text-black">{!! __('car-search-bar.mobile-location-title') !!}</h3>
                             </div>
                             <div>
                                 <div id="resume-mobile-locations"
