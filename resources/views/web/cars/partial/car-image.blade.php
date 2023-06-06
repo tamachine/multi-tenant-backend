@@ -1,15 +1,5 @@
-<div class="hidden md:block w-fill-screen relative pt-48">
-    <div class="absolute h-40 w-full bg-cars-image-pattern"></div>
-    <img class="w-full Z-10" src="{{ asset('images/cars/image.png') }}" />    
-</div>
-
-<div 
-    class="block md:hidden w-fill-screen h-[450px] mt-36" 
-    style="
-        background-image:url('{{ asset('images/cars/image.png') }}'); 
-        background-position:center; background-size:cover;
-        background-repeat: no-repeat
-        "
-    >
-    <div class="h-40 w-full bg-cars-image-pattern-mobile"></div>
+<div class="relative image-wrapper w-fill-screen h-[450px] md:h-auto mt-36 mb-24 md:mt-48 md:mb-40
+    before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-1/3 
+    before:bg-gradient-to-b before:from-gray-bg-cars before:to-transparent">
+        <x-image path="images/cars/image.png"/>
 </div>

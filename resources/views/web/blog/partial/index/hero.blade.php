@@ -40,28 +40,28 @@
             data-author-url="{{ $post->author->url }}"
         >
             <div class="flex flex-col gap-4 h-[540px] md:h-[670px]">
-                <div
-                    class="w-full h-full bg-cover"
-                    style="background-image: url('{{ $post->featured_image_url }}')"
-                >
-                    <div class="bg-black/50 h-full w-full">
-                        <div class="max-w-7xl mx-auto h-full">
-                            <div class="px-3 md:px-0 max-w-6xl mx-auto h-full pb-[50px]">
-                                <div class="flex flex-col justify-end h-full py-10 md:py-[75px] gap-2 md:gap-5 md:max-w-[710px]">
+                <div class="relative w-full h-full ">
+                    <div class="bg-image image-wrapper
+                        before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full 
+                        before:bg-black/50">
+                            <x-image path="{{ $post->featured_image_url }}"/>
+                    </div>
+                    <div class="relative max-w-7xl mx-auto h-full">
+                        <div class="px-3 md:px-0 max-w-6xl mx-auto h-full pb-[50px]">
+                            <div class="flex flex-col justify-end h-full py-10 md:py-[75px] gap-2 md:gap-5 md:max-w-[710px]">
 
-                                    <h1 class="text-white text-[40px] md:text-[64px] leading-[1.1em] text-left swiper-no-swiping">
-                                        {!! $post->title !!}
-                                    </h1>
+                                <h1 class="text-white text-[40px] md:text-[64px] leading-[1.1em] text-left swiper-no-swiping">
+                                    {!! $post->title !!}
+                                </h1>
 
-                                    <div class="font-sans text-xs md:hidden swiper-no-swiping">                                       
-                                        <x-blog-post-by :blogPost="$post" />
-                                    </div>
-
-                                    <div class="font-sans-medium swiper-no-swiping">
-                                        {!! $post->summary !!}
-                                    </div>
-                                
+                                <div class="font-sans text-xs md:hidden swiper-no-swiping">                                       
+                                    <x-blog-post-by :blogPost="$post" />
                                 </div>
+
+                                <div class="font-sans-medium swiper-no-swiping">
+                                    {!! $post->summary !!}
+                                </div>
+                            
                             </div>
                         </div>
                     </div>
