@@ -29,10 +29,18 @@
 
     <div class="lg:mt-2 lg:flex lg:justify-between">
         <x-payment-input field="city" type="text" placeholder="{{ __('payment.city') }}" />
-        
-        <div class="mx-auto lg:mx-0 w-full md:w-[280px] mt-7 flex flex-row justify-between items-center rounded-lg border border-gray-200 px-4 font-sans-medium text-lg">
-            <label class="overflow-hidden h-12 flex items-center">{{ __('payment.passengers') }}</label>            
-            <x-plus-minus-input />                      
+        <div>
+            <div class="mx-auto lg:mx-0 w-full md:w-[280px] mt-7 flex flex-row justify-between items-center rounded-lg border border-gray-200 px-4 font-sans-medium text-lg">
+                <label class="overflow-hidden h-12 flex items-center">{{ __('payment.passengers') }}</label>            
+                <x-plus-minus-input field="number_passengers"/>                      
+            </div>
+
+            @error('number_passengers')
+            <p class="validation-error text-sm text-red-600">
+                {{ $message }}
+            </p>
+            @enderror
         </div>
+        
     </div>
 </div>

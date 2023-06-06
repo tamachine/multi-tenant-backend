@@ -76,6 +76,11 @@ class Payment extends Component
      */
     public $agree = false;
 
+    /**
+     * @var int
+     */
+    public $number_passengers = 0;
+
     /*
     ***************************************************************
     ** METHODS
@@ -122,11 +127,13 @@ class Payment extends Component
             'postal_code'   => ['required'],
             'city'          => ['required'],
             'country'       => ['required'],
+            'number_passengers' => 'required|numeric|max:12'
         ];
 
         $this->validate($rules);
 
         $this->saveBooking();
+
         return redirect()->route('success');
     }
 
@@ -167,6 +174,7 @@ class Payment extends Component
             'postal_code' => $this->postal_code,
             'city' => $this->city,
             'country' => $this->country,
+            'number_passengers' => $this->number_passengers,
 
             'affiliate_id' => $affiliate ? $affiliate->id : null,
             'affiliate_commission' => $affiliate

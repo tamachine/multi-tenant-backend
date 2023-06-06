@@ -1,13 +1,15 @@
+
 <div 
     x-data="plusMinusInput()"
     class="
         bg-[#B1B5C4] text-white 
         flex flex-row items-center justify-between
-        gap-4 px-2 py-4
+        gap-1 px-2 py-4
         text-[22px] 
         rounded-md
         h-8"
     >    
+    
     <div>
         <div 
             x-on:click="minus()" 
@@ -26,10 +28,11 @@
         </div>
     </div>
     
-    <div x-text="number" class="w-5 text-center"></div>
+    <input type="text" class="text-center bg-transparent border-0 text-white w-10 text-[22px] " readonly wire:model="{{ $field }}" x-model="number" />
     
     <div 
         x-on:click="plus()"
+        
         class="relative w-5 h-5 cursor-pointer">
             <div class="
                 absolute

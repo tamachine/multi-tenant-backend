@@ -1,7 +1,8 @@
 /**
  * Manages the plus-minus-input
  * Optional params for config:
- *  int minimum -> minimum number accepted
+ *  int minimum  -> minimum number accepted
+ *  int starting -> number where the input will start
  */
 
 plusMinusInput = function (config) {
@@ -11,6 +12,8 @@ plusMinusInput = function (config) {
 
         minimum: 0,
 
+        starting: 0,
+
         minusDisabled: true,
 
         init: function() {
@@ -18,8 +21,12 @@ plusMinusInput = function (config) {
             if (config !== undefined && config.minimum !== undefined) {  
                 this.minimum = config.minimum;                
             }
+
+            if (config !== undefined && config.starting !== undefined) {  
+                this.starting = config.starting;                            
+            }
             
-            this.number = this.minimum;
+            this.number = this.starting;
         },
 
         plus: function() {            
