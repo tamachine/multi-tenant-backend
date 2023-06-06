@@ -10,6 +10,8 @@
     <div class="cars__list flex md:gap-x-6
             @if ($widthFillScreen)
                 w-fill-screen 
+                2xl:max-w-screen-2xl
+                2xl:left-[calc((100%_-_1536px)_/_2)]
             @endif
         ">
         @if(count($cars) > 0)
@@ -47,7 +49,7 @@
                     @if(count($cars) > 4 || (count($cars) == 4 && $showImageIfLittleResults == 0)) 
                         grid justify-center basis-0 grow
                         sm:grid-cols-[repeat(2,_minmax(300px,_1fr))]
-                        lg:grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))]
+                        lg:grid-cols-[repeat(auto-fit,_minmax(310px,_1fr))]
                     @endif
                     
                     ">

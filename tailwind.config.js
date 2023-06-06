@@ -90,7 +90,7 @@ module.exports = {
             borderRadius: {
                 '3xl' : "20px",
             },
-            screens: {
+            screens: { //Breakpoints
                 'md-max': {'max': '767px'}, // => @media (max-width: 767px) { ... }
                 '7xl': '1440px'
             },
@@ -100,6 +100,9 @@ module.exports = {
             dropShadow: {
                 'text': '0 6px 20px rgba(0, 0, 0, 0.4)',
             },
+            maxWidth: {
+                '10xl': '1800px',
+            }
         },
     },
     plugins: [
