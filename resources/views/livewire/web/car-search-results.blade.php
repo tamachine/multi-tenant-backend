@@ -3,8 +3,9 @@
         @include('web.cars.partial.car-categories')
 
         @include('web.cars.partial.car-selectables')  
-
-        <x-wire-spinner /> 
+        <div x-show="!redirecting">
+            <x-wire-spinner x-show="!redirecting"/> 
+        </div>
     @endif
     
     @if(count($cars) > 0)
