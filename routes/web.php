@@ -32,7 +32,7 @@ use App\Http\Controllers\Web\BlogSearchAuthorController;
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(), 
-        'middleware' => [ 'localize' ]
+        'middleware' => [ 'localize', 'localizationRedirect' ]
     ],  function()
 {
 
