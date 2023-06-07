@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Web;
 use Livewire\Component;
 use App\Services\SelectableFull\AllSelectables;
 use App\Services\CarsSearch\CarsSearch;
+use App\Models\CarType;
 
 class CarSearchResults extends Component
 {
@@ -26,7 +27,7 @@ class CarSearchResults extends Component
     protected $carsSearch;
 
     public $showFilters;    
-    public $showImageIfLittleResults;
+    public $showImageIfLittleResults;   
 
     /*
     ***************************************************************
@@ -76,7 +77,7 @@ class CarSearchResults extends Component
         $sessionData = request()->session()->get('booking_data');
         $sessionData['car'] = $hashid;
 
-        request()->session()->put('booking_data', $sessionData);
+        request()->session()->put('booking_data', $sessionData);        
 
         return redirect()->route('insurances', $hashid);
     }
@@ -122,7 +123,7 @@ class CarSearchResults extends Component
     }
 
     public function render()
-    {
-        return view('livewire.web.car-search-results');
+    {        
+        return view('livewire.web.car-search-results', ['carCategories' => CarType::all()]);
     }
 }

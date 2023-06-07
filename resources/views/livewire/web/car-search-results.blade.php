@@ -1,4 +1,4 @@
-<div>
+<div x-data="{redirecting: false}">
     @if($showFilters)
         @include('web.cars.partial.car-categories')
 
@@ -8,7 +8,12 @@
     @endif
     
     @if(count($cars) > 0)
+
+    {{-- Livewire redirection is fired after the request has ended so we control the loading of the spinner manually in order to avoid the flickering caused by this --}}
+    <x-spinner x-cloak x-show="redirecting" />
+    
     <div 
+        x-show="!redirecting"
         wire:loading.remove
         class="
             grid 
@@ -29,7 +34,7 @@
         @endforeach        
     </div>
     @else
-    <div wire:loading.remove class="text-center w-full">
+    <div x-show="!redirecting" wire:loading.remove class="text-center w-full">
         {!! __('cars.search-not-found') !!}
     </div>
     @endif
