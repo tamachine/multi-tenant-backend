@@ -36,7 +36,7 @@
             </div>
 
             @error('number_passengers')
-            <p class="validation-error text-sm text-red-600">
+            <p class="validation-error text-sm text-red-600 md:w-[280px]">
                 {{ $message }}
             </p>
             @enderror
