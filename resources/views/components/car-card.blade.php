@@ -53,6 +53,7 @@
                 </div>
                 <div>
                     <button class="btn btn-black text-base px-5 py-3"
+                        x-on:click="redirecting = true"
                         wire:click="selectCar('{{ $car->hashid }}')"
                     >
                         {!! __('cars.card-button') !!}
