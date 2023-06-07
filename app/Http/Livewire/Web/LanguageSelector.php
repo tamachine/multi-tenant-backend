@@ -36,11 +36,11 @@ class LanguageSelector extends Component
         return redirect($urlToRedirect);
     }
 
-    public function changeCurrency($code)
+    public function changeCurrency($code, $urlToRedirect)
     {
         Currency::setCurrencyInSession($code);
 
-        return redirect()->route($this->route);
+        return redirect($urlToRedirect);
     }
 
     public function render()
