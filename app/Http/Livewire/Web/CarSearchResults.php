@@ -79,7 +79,7 @@ class CarSearchResults extends Component
         $sessionData = request()->session()->get('booking_data');
         $sessionData['car'] = $hashid;
 
-        request()->session()->put('booking_data', $sessionData);
+        request()->session()->put('booking_data', $sessionData);        
 
         return redirect()->route('insurances', $hashid);
     }
