@@ -7,7 +7,6 @@
             <x-wire-spinner x-show="!redirecting"/> 
         </div>
     @endif
-<<<<<<< HEAD
 
     <div class="cars__list flex md:gap-x-6
             @if ($widthFillScreen)
@@ -17,7 +16,13 @@
             @endif
         ">
         @if(count($cars) > 0)
-            <div wire:loading.remove
+
+            {{-- Livewire redirection is fired after the request has ended so we control the loading of the spinner manually in order to avoid the flickering caused by this --}}
+            <x-spinner x-cloak x-show="redirecting" />
+            
+            <div
+                x-show="!redirecting" 
+                wire:loading.remove
                 class="gap-x-5 gap-y-8 md:px-10 mx-auto
 
                     {{-- 
@@ -61,47 +66,18 @@
             </div>
 
             @if(count($cars) == 4 && $showImageIfLittleResults) 
-                <div class="relative hidden lg:inline-block w-1/3 image-wrapper rounded-2xl">
+                <div
+                    x-show="!redirecting" 
+                    wire:loading.remove 
+                    class="relative hidden lg:inline-block w-1/3 image-wrapper rounded-2xl">
                     <img class="absolute top-[-50%] left-[-50%] translate-x-[50%] translate-y-[50%]" src="{{ asset('/images/landing-cars/road.jpg') }}" alt="">
                 </div>
             @endif
         
         @else
-            <div wire:loading.remove class="text-center w-full">
+            <div x-show="!redirecting" wire:loading.remove class="text-center w-full">
                 {!! __('cars.search-not-found') !!}
             </div>
         @endif
-=======
-    
-    @if(count($cars) > 0)
-
-    {{-- Livewire redirection is fired after the request has ended so we control the loading of the spinner manually in order to avoid the flickering caused by this --}}
-    <x-spinner x-cloak x-show="redirecting" />
-    
-    <div 
-        x-show="!redirecting"
-        wire:loading.remove
-        class="
-            grid 
-            
-            {{ (count($cars) == 1) ? 'md:grid-cols-[350px]' : ''  }} 
-            {{ (count($cars) >= 2) ? 'grid-cols-[repeat(auto-fill,350px)] ' : ''  }} 
-            
-            {{ (count($cars) == 1) ? 'md:grid-cols-[324px]' : ''  }} 
-            {{ (count($cars) == 2) ? 'md:grid-cols-[324px_324px]' : ''  }} 
-            {{ (count($cars) == 3) ? 'md:grid-cols-[324px_324px_324px]' : '' }} 
-            {{ (count($cars) >= 4) ? 'md:grid-cols-[repeat(auto-fill,324px)] ' : '' }} 
-
-            justify-center
-            gap-x-5 gap-y-8 md:gap-y-10 
-            ">       
-        @foreach($cars as $car)
-            <x-car-card :car="$car" />
-        @endforeach        
-    </div>
-    @else
-    <div x-show="!redirecting" wire:loading.remove class="text-center w-full">
-        {!! __('cars.search-not-found') !!}
->>>>>>> 0708b3a10e2df30833a0fe8333c893d62c551877
     </div>
 </div>
