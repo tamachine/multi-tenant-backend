@@ -10,28 +10,34 @@
     @foreach ($locations as $key => $location)
     @endforeach
 
-    <div class="max-w-6xl px-3 xl:px-0 mx-auto">
+    <div class="max-w-6xl px-7 md:px-3 xl:px-0 mx-auto">
         <form :class="openCalendar ? 'md:shadow-t-xl' : 'md:shadow-xl'" id="search-bar"
             class="relative 
-            
-            bg-white rounded-3xl font-medium text-black-secondary 
+            md:bg-white rounded-3xl font-medium text-black-secondary 
             md:border-[3px] md:border-pink-red"
             autocomplete="off">
 
             {{-- Este input hay que ponerlo para deshabilitar la opción de autocompletado --}}
             <input autocomplete="false" name="hidden" type="text" class="hidden">
 
-            <div class="flex gap-4 flex-col md:flex-row lg:gap-6 items-stretch p-3 lg:p-5">
+            <div class="flex gap-2 flex-col md:flex-row md:gap-4 lg:gap-6 items-stretch p-3 lg:p-5">
 
                 {{-- DESKTOP --}}
                 <div class="hidden md:flex gap-5 lg:gap-8 grow">
-                    <div id="set-dates" class="search-input-group flex gap-2 basis-[32%] lg:basis-[30%]"
+                    <div id="set-dates" 
+                        class="search-input-group flex gap-2 basis-[32%] lg:basis-[30%]"
+                        :class="showOpenDateInput ? 'border-gray-tertiary' : ''"
                         x-on:click="openCalendarClick()">
+
                         @foreach ($ranges as $range)
                             <x-selected-date size="desktop" range="{{ $range }}" />
                         @endforeach
                     </div>
-                    <div id="set-times" class="search-input-group flex gap-2 basis-[21%]" x-on:click="openTimeClick()">
+                    <div id="set-times" 
+                        class="search-input-group flex gap-2 basis-[21%]" 
+                        :class="showOpenTimesInput ? 'border-gray-tertiary' : ''"
+                        x-on:click="openTimeClick()">
+
                         <div class="search-input-set">
                             <div class="search-input-label">
                                 <label for="hour-start">{!! __('car-search-bar.time') !!}</label>
@@ -47,7 +53,9 @@
                                 readonly="readonly" />
                         </div>
                     </div>
-                    <div id="set-locations" class="search-input-group flex gap-2 basis-[41%] lg:basis-[44%]"
+                    <div id="set-locations" 
+                        class="search-input-group flex gap-2 basis-[41%] lg:basis-[44%]"
+                        :class="showOpenLocationsInput ? 'border-gray-tertiary' : ''"
                         x-on:click="openLocationsClick()">
                         <div class="search-input-set">
                             <div class="search-input-label">
@@ -99,7 +107,7 @@
     <div id="calendar" class="searchbar-popover absolute w-full pointer-events-none"
         :class="openCalendar ? '' : 'hidden'" x-cloak>
         <div id="calendar__layer"
-            class="searchbar-popover__layer max-w-5xl w-full md:w-[90%] pt-8 pb-4 md:pb-10 overflow-hidden
+            class="searchbar-popover__layer max-w-5xl w-full md:w-[90%] pt-8 pb-4 md:pb-8 overflow-hidden
         before:content-[''] before:md:content-none before:absolute before:top-[32px] before:left-0 before:w-full before:h-[20px] before:bg-gradient-to-b before:from-white before:to-transparent before:z-10 before:pointer-events-none
         after:content-[''] after:md:content-none after:absolute after:bottom-[68px] after:left-0 after:w-full after:h-[20px] after:bg-gradient-to-b after:from-transparent after:to-white after:z-10 after:pointer-events-none
         ">
@@ -121,16 +129,16 @@
                 <div
                     class="relative min-w-[85%] max-w-[99%] bg-white rounded-md p-5 shadow-[0_-6px_13px_0_rgba(0,0,0,0.25)]">
                     <h3 class=" font-fredoka-medium text-pink-red text-xl leading-tight text-center mb-5">{!! __('car-search-bar.mobile-default-title') !!}</h3>
-                    <div class="grid grid-cols-2 gap-3 text-black mb-6">
+                    <div class="grid grid-cols-2 gap-3 text-black mb-6 font-sans-medium">
                         <div class=" text-center">
-                            <p class="flex items-center justify-center gap-0.5 font-sans-medium text-3xl leading-none">
+                            <p class="flex items-center justify-center gap-0.5 text-3xl leading-none">
                                 12:00 <span class="text-sm">AM</span></p>
-                            <p class="text-gray-light text-xs">{!! __('car-search-bar.mobile-default-times-title') !!}</p>
+                            <p class="text-black text-xs">{!! __('car-search-bar.mobile-default-times-title') !!}</p>
                         </div>
                         <div class=" text-center">
-                            <p class="flex items-center justify-center gap-0.5 font-sans-medium text-3xl leading-none">
+                            <p class="flex items-center justify-center gap-0.5 text-3xl leading-none">
                                 KEF <span class="text-sm uppercase">{!! __('car-search-bar.mobile-default-location-airport') !!}</span></p>
-                            <p class="text-gray-light text-xs">{!! __('car-search-bar.mobile-default-location-title') !!}</p>
+                            <p class="text-black text-xs">{!! __('car-search-bar.mobile-default-location-title') !!}</p>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-3">
@@ -289,8 +297,11 @@
         function carSearchBar() {
             return {
                 openCalendar: false,
+                showOpenDateInput: false,
+                showOpenTimesInput: false,
                 showDate: false,
                 showLocations: false,
+                showOpenLocationsInput: false,
                 showDefault: false, // mobile default time and location
                 showResume: false, // edit default information
                 differentLocation: false,
@@ -305,12 +316,16 @@
                     this.showDefault = false
 
                     if (vWidth <= 767) {
+                        this.showOverlay = false
                         noScroll()
                     }
 
                     if (vWidth > 767) {
                         this.showOverlay = true
                         scrollToCalendar()
+                        this.showOpenDateInput = true
+                        this.showOpenTimesInput = false
+                        this.showOpenLocationsInput = false
                     }
                 },
 
@@ -320,23 +335,31 @@
                     this.$refs.startDateButton.click()
                     this.showLocations = false
                     this.showBack = false
-
+                    
                     if (vWidth <= 767) {
                         noScroll()
                     }
-
+                    
                     if (vWidth > 767) {
                         this.showOverlay = true
+                        this.showOpenDateInput = false
+                        this.showOpenTimesInput = true
+                        this.showOpenLocationsInput = false
                         scrollToTimes()
                     }
                 },
 
                 openLocationsClick() {
-                    this.showLocations = true
                     this.openCalendar = false
+                    this.showOpenDateInput = false
+                    this.showOpenTimesInput = false
+                    this.showLocations = true
+                    this.showOpenLocationsInput = true
                     this.showBack = true
                     this.showOverlay = true
                     this.showBack = false
+                    console.log('hola')
+                    console.log(this.showOpenLocationsInput)
                     locationsOpenTransition();
                     setTimeout(startLocationToggle, 1);
                 },
@@ -351,8 +374,11 @@
 
                 closePopOver() {
                     this.openCalendar = false
+                    this.showOpenDateInput = false
+                    this.showOpenTimesInput = false
                     this.showDate = false
                     this.showLocations = false
+                    this.showOpenLocationsInput = false
                     this.showOverlay = false
                     this.showBack = false
                     this.modalOpen = false
@@ -364,8 +390,7 @@
 
                 toggleLocation() {
                     this.differentLocation = !this.differentLocation,
-
-                        toggleLocation()
+                    toggleLocation()
                 },
 
                 continueToDefault() {
@@ -419,7 +444,7 @@
             const searchbarPopovers = document.querySelectorAll('.searchbar-popover');
 
             searchbarPopovers.forEach(searchbarPopover => {
-                if (positionTop < 630) {
+                if (positionTop < 600) {
                     // El calendario no cabe arriba
                     searchbarPopover.classList.add('position-top');
                     searchbarPopover.classList.remove('position-bottom');
@@ -444,14 +469,14 @@
         const scrollToCalendar = () => {
             getPositionVariables()
 
-            if (positionTop < 630) {
+            if (positionTop < 600) {
                 searchBar.scrollIntoView()
             }
         }
 
         const scrollToTimes = () => {
             // Si la selección de horas no aparece en pantalla se hace un pequeño scroll
-            if (windowHeight < 610) {
+            if (windowHeight < 620) {
                 let scrollMovement = 700 - windowHeight
                 window.scrollBy(0, scrollMovement)
             }
@@ -618,5 +643,27 @@
 
         locationStart.locationsList.addEventListener('change', () => showLocationValue(locationStart));
         locationEnd.locationsList.addEventListener('change', () => showLocationValue(locationEnd));
+
+
+        /******************
+            Check if times or locations were selected previously
+        ******************/
+
+        function checkIfAnySelectIsSelected() {
+            const startHoursList = document.getElementById('start-hours-list');
+            const endHoursList = document.getElementById('end-hours-list');
+            const startLocationsList = document.getElementById('start-locations-list');
+            const endLocationsList = document.getElementById('end-locations-list');
+
+            if(
+                startHoursList.selectedIndex !== 0 ||
+                endHoursList.selectedIndex !== 0 ||
+                startLocationsList.selectedIndex !== 0 ||
+                endLocationsList.selectedIndex !== 0) {
+                return true
+            }
+        }
+
+
     </script>
 @endpush

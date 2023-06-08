@@ -1,7 +1,9 @@
 <div :class="showDate ? '' : 'hidden'" class="flex flex-col h-full">
     <div id="calendar-picker" x-on:click="openCalendarClick()" x-ref="startDateButton" class="hidden"></div>
     <div class="md:hidden w-[80%] text-center mx-auto">
-        <button x-on:click="continueToDefault()" disabled id="continue-date__button" class="w-full btn btn-red px-16 py-3">{!! __('car-search-bar.mobile-continue-button') !!}</button>
+        <button 
+            x-on:click="checkIfAnySelectIsSelected() ? editDefault() : continueToDefault()"
+            disabled id="continue-date__button" class="w-full btn btn-red px-16 py-3">{!! __('car-search-bar.mobile-continue-button') !!}</button>
     </div>
 </div>
     
@@ -315,5 +317,6 @@
         }		
 
     });		
+
 </script>
 @endpush

@@ -16,7 +16,7 @@
 }
 
 .calendar {
-    @apply p-0 md:h-[436px];
+    @apply p-0 md:h-[423px];
 }
 
 .calendars .calendar:nth-child(n+2) {
