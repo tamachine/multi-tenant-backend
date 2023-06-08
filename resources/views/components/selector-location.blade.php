@@ -65,7 +65,7 @@
 
                             <div class="w-1/3">
                                 <input type="radio" id="{{$moment}}--{{ $key }}" name="location--{{$moment}}" value="{{ $location->name }}" class="hidden">
-                                <label for="{{$moment}}--{{ $key }}" class="location cursor-pointer">
+                                <label for="{{$moment}}--{{ $key }}" class="location flex flex-col cursor-pointer">
 
                                     <div class="inline-block location__image image-wrapper rounded-t-md overflow-hidden">                        
                                         <x-image :model-image="$location->getFeaturedImageModelImageInstance()" class="w-full scale-105 transition-transform duration-700"/>

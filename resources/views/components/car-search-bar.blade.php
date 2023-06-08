@@ -156,7 +156,8 @@
                                 <h3 class="font-fredoka-medium text-lg text-black">{!! __('car-search-bar.mobile-dates-title') !!}</h3>
                             </div>
                             <div>
-                                <div id="resume-mobile-dates"
+                                <div x-on:click="backShowDate()" 
+                                    id="resume-mobile-dates"
                                     class="mobile-dates search-input-group flex bg-white">
                                     @foreach ($ranges as $range)
                                         <div class='search-input-set'>
