@@ -85,33 +85,4 @@ Route::group(
     
     /* Booking process */
     Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');   
-
-    Route::get('/test', function() {
-        $merchantid         = "1";
-        $verificationcode   = "12345";
-        $authorizationonly  = "0";
-        $referenceNumber    = "800125";
-        $url_success        = "nave-intergalactica.test/successful";
-        $url_success_server = "nave-intergalactica.test/server";
-        $currency           = "ISK"; //NOK
-        $product_1_quantity = "1";
-        $product_1_price    = "1000";
-        $product_1_discount = "0";
-        $product_x_y        =  $product_1_quantity .  $product_1_price . $product_1_discount;
-  
-        $code               = $verificationcode . $authorizationonly . $product_x_y . $merchantid . $referenceNumber . $url_success . $url_success_server . $currency;
-        echo ($code);
-
-/*
-VerificationCode (Öryggisnúmer) + 
-AuthorizationOnly + 
-Product_x_y + //only when CreateVirtualCardOnly=0 or is omitted*
-MerchantID + 
-ReferenceNumber + 
-PaymentSuccessfulURL + 
-PaymentSuccessfulServerSideURL + 
-Currency +
-IsInterestFree //only when creating card loan*
-*/
-    });
 });

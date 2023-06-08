@@ -261,22 +261,5 @@ class Payment extends Component
                 'caren_info'    => $bookingInfo
             ]);
         }
-    }
-
-    private function generateValitorRequest() {
-        $merchantid         = "1";
-        $verificationcode   = "12345";
-        $authorizationonly  = "0";
-        $referenceNumber    = "456936";
-        $url_success        = "http://www.minsida.is/takkfyrir";
-        $url_success_server = "http://www.minsida.is/sale.aspx?c=8282&ref=232";
-        $currency           = "ISK"; //NOK
-        $product_1_quantity = "1";
-        $product_1_price    = "1000";
-        $product_1_discount = "0";
-        $product_x_y        =  $product_1_quantity .  $product_1_price . $product_1_discount;
-  
-        $code               = $verificationcode . $authorizationonly . $product_x_y . $merchantid . $referenceNumber . $url_success . $url_success_server . $currency;
-        echo md5($code);
-    }
+    }    
 }
