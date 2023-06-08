@@ -46,15 +46,15 @@ html {
 
 h1 {
     @apply
-        font-fredoka-semibold font-normal text-pink-red text-center leading-[46px] md:leading-[76px]
-        text-4xl md:text-7xl;
+        font-fredoka-semibold font-normal text-pink-red text-center 
+        text-4xl sm:text-5xl lg:text-7xl leading-[1.2em];
 }
 
 h2 {
     @apply
         font-fredoka-semibold font-normal text-pink-red tracking-[-0.005em]
         leading-[1.05em]
-        text-[40px] md:text-5xl;
+        text-4xl lg:text-5xl;
 }
 
 h3 {

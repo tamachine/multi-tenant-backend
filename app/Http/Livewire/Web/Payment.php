@@ -98,7 +98,7 @@ class Payment extends Component
         if($this->car->featured_image) {
             $this->mainImage = $this->car->featured_image_url;
         } else {
-            $this->mainImage = asset('images/cars/default-car.svg');
+            $this->mainImage = asset('images/cars/default-car.jpg');
         }
 
         $this->pickupLocation = bookingPickupLocation();
