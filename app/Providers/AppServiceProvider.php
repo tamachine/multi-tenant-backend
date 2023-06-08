@@ -9,6 +9,7 @@ use App\Services\PreferredLanguage\ApplyPreferredLanguageToLanguageSession;
 use App\Services\PreferredLanguage\PreferredLanguage;
 use App\Services\RoutesForPages\RoutesForPages;
 use App\Services\SeoConfigurations;
+use App\Services\Valitor\Valitor;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind('RoutesForPages',function(){
             return new RoutesForPages();
+        });
+
+        $this->app->bind('Valitor', function ($app) {            
+            return new Valitor();
         });
 
         $this->app->bind('getHTMLLang',function(){            

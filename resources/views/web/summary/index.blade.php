@@ -151,5 +151,9 @@
         >
             {!! $buttonText !!}
         </button>
+        
+        @if($generateValitorForm)                        
+            <x-valitor-form :booking="$booking" />
+        @endif
     </div>
 </div>

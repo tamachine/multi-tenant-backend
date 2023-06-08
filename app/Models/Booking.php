@@ -34,6 +34,9 @@ class Booking extends Model
         'created_at'
     ];
 
+    protected $append = ['pay_now_amount'];
+
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -64,6 +67,16 @@ class Booking extends Model
     /**********************************
      * Accessors & Mutators
      **********************************/
+
+    /**
+     * Get the percentage to pay now
+     *
+     * @return     string
+     */
+    public function getPayNowAmountAttribute()
+    {
+        return round($this->total_price * ($this->car->booking_percentage / 100));
+    }
 
     /**
      * Get the booking's edit URL

@@ -79,7 +79,12 @@ class Payment extends Component
     /**
      * @var int
      */
-    public $number_passengers = 0;
+    public $number_passengers = 0;    
+
+    /**
+     * @var App/Booking|null
+     */
+    public $booking = null;
 
     protected $listeners = ['update_number' => 'updateNumberPassengers'];
 
@@ -107,7 +112,7 @@ class Payment extends Component
         $this->includedExtras = $this->car->extraList()->where('included', 1);
         $this->chosenExtras = $sessionData["extras"];
 
-        $this->percentage = $this->car->vendor->caren_settings["online_percentage"];
+        $this->percentage = $this->car->booking_percentage;
         $this->calculateTotal();
     }
 
@@ -139,9 +144,9 @@ class Payment extends Component
 
         $this->validate($rules);
 
-        $this->saveBooking();
+        $this->booking = $this->saveBooking();
 
-        return redirect()->route('success');
+        $this->generateValitorForm = true;
     }
 
     private function saveBooking()
@@ -218,6 +223,8 @@ class Payment extends Component
 
         // 6. Dispatch the job to create the booking PDF and send it to the customer
         dispatch(new CreateBookingPdf($booking, true));
+
+        return $booking;
     }
 
     private function createCarenBooking(Booking $booking)
@@ -254,5 +261,22 @@ class Payment extends Component
                 'caren_info'    => $bookingInfo
             ]);
         }
+    }
+
+    private function generateValitorRequest() {
+        $merchantid         = "1";
+        $verificationcode   = "12345";
+        $authorizationonly  = "0";
+        $referenceNumber    = "456936";
+        $url_success        = "http://www.minsida.is/takkfyrir";
+        $url_success_server = "http://www.minsida.is/sale.aspx?c=8282&ref=232";
+        $currency           = "ISK"; //NOK
+        $product_1_quantity = "1";
+        $product_1_price    = "1000";
+        $product_1_discount = "0";
+        $product_x_y        =  $product_1_quantity .  $product_1_price . $product_1_discount;
+  
+        $code               = $verificationcode . $authorizationonly . $product_x_y . $merchantid . $referenceNumber . $url_success . $url_success_server . $currency;
+        echo md5($code);
     }
 }
