@@ -87,7 +87,7 @@
                     const map = new google.maps.Map(locationMapElement, {
                         zoom: 13,
                         center: reykjavikAuto,
-                        mapId: '307e19008875bc83', {{-- https://console.cloud.google.com/google/maps-apis/studio/maps?authuser=3&project=website-368713 --}}
+                        mapId: '307e19008875bc83', /* https://console.cloud.google.com/google/maps-apis/studio/maps?authuser=3&project=website-368713 */
                         disableDefaultUI: true,
                         gestureHandling: "greedy"
                     });

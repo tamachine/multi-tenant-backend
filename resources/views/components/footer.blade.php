@@ -5,9 +5,9 @@
     <div
         before=""
         class="relative before:content-[attr(before)] pt-28 md:pt-0 before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:z-0 md:before:bg-footer-image-pattern before:bg-footer-image-pattern-mobile w-fill-screen">
-            
+           
             <x-image :path="$footerImagePath" class="w-full h-[587px] md:h-auto object-cover" />
-
+            
             <div class="absolute md:top-[5%] top-0 left-0 right-0 bottom-0 z-10 text-lg">
                 <div class="max-w-6xl mx-auto p-3">
                     <div class="max-w-96 px-10 md:text-left text-center mx-auto md:mx-0">
@@ -36,7 +36,7 @@
             <div class="
                 grid grid-cols-2 gap-10 md:gap-0 md:flex md:justify-between
                 w-full
-                font-medium text-[#E7ECF3] text-sm md:text-base
+                font-medium text-gray-secondary text-sm md:text-base
                 px-3 md:px-14 py-12"
                 >
                 @for ($i = 1; $i <= 4; $i++)

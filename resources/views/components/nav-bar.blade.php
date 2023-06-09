@@ -30,7 +30,7 @@
             <a href="{{ route('contact') }}" class="hover:text-pink-red">{!! __('navbar.contact') !!}</a>
         </div>
         <div class="pl-5 text-sm font-medium flex items-center gap-1" x-on:click="toggle()">
-            <img class="inline" src='{{ asset("/images/currencies/dollar.svg") }}' />
+            <img class="inline" src='{{ asset("/images/currencies/".selectedCurrency().".svg") }}' />
             <img class="inline" src='{{ asset("/images/flags/".App::currentLocale().".svg") }}' />
             <img class="cursor-pointer language-selector" src="{{ asset('images/icons/arrow-down.svg') }}" />
         </div>
@@ -78,7 +78,7 @@
                         @endif
 
                         <div>
-                            <button class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-[#E7ECF3] cursor-pointer">{!! __('navbar.cars-button') !!}</button>
+                            <button class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-gray-secondary cursor-pointer">{!! __('navbar.cars-button') !!}</button>
                         </div>
                     </div>
                     <div class="text-center text-pink-red font-fredoka-semibold text-[26px] py-5 h-full flex items-center justify-center">
@@ -106,8 +106,8 @@
                         <div class="flex flex-col justify-center items-center gap-3" x-on:click="open()">
                             <div class="text-[#B1B5C3]">{!! __('general.languages-currency') !!}</div>
                             <div class="flex justify-center gap-2">
-                                <img class="inline" src="{{ asset('images/currencies/usd-red.svg') }}" />
-                                <span class="text-black-primary font-cabin-semibold">USD</span>
+                                <img class="inline" src="{{ asset('images/currencies/'.selectedCurrency().'-red.svg') }}" />
+                                <span class="text-black-primary font-cabin-semibold">{{selectedCurrency()}}</span>
                                 <img class="cursor-pointer" src="{{ asset('images/icons/arrow-down.svg') }}" />
                             </div>
                         </div>

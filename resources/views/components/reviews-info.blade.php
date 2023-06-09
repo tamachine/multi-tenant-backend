@@ -1,7 +1,7 @@
 <div class="
         flex items-center gap-1
         h-fit w-max
-        md:border-0 border border-[#E7ECF3] rounded-xl
+        md:border-0 border border-gray-secondary rounded-xl
         md:p-0 px-3 py-2
         "
     >

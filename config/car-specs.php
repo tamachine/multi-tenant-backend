@@ -66,7 +66,7 @@ return [
 
     'transmission' => [
         'manual',
-        'auto'
+        'automatic'
     ],
 
     'type' => [        
