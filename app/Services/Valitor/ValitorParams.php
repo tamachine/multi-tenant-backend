@@ -30,6 +30,8 @@ class ValitorParams {
     protected $paymentSuccessfulURLText;
     protected $digitalSignature;
     protected $productXY;   
+    protected $paymentSuccessfulAutomaticRedirect;
+    protected $paymentCancelledURL;
 
     public function __construct(Booking $booking) {
         $this->booking = $booking;
@@ -57,10 +59,12 @@ class ValitorParams {
             'Product_1_Quantity' => $this->productQuantity,
             'Product_1_Price' => $this->productPrice,
             'Product_1_Discount' => $this->productDiscount,
-            'PaymentSuccessfulURL' => $this->paymentSuccessfulURL,
+            //'PaymentSuccessfulURL' => $this->paymentSuccessfulURL,
             'PaymentSuccessfulServerSideURL' => $this->paymentSuccessfulServerSideURL,
-            'PaymentSuccessfulURLText' => $this->paymentSuccessfulURLText,
-            'DigitalSignature' => $this->digitalSignature,            
+            //'PaymentSuccessfulURLText' => $this->paymentSuccessfulURLText,
+            'DigitalSignature' => $this->digitalSignature,    
+            'PaymentSuccessfulAutomaticRedirect' => $this->paymentSuccessfulAutomaticRedirect,  
+            'PaymentCancelledURL' => $this->paymentCancelledURL,
         ];
     }
 
@@ -77,7 +81,9 @@ class ValitorParams {
         $this->setPaymentSuccessfulURL();
         $this->setPaymentSuccessfulServerSideURL();
         $this->setPaymentSuccessfulURLText();
-        $this->setVerificationCode();                   
+        $this->setVerificationCode();      
+        $this->setPaymentSuccessfulAutomaticRedirect();   
+        $this->setPaymentCancelledURL();             
     }   
 
     /**
@@ -116,7 +122,7 @@ class ValitorParams {
     }
 
     protected function setReferenceNumber() {
-        $this->referenceNumber = $this->booking->order_id;
+        $this->referenceNumber = $this->booking->valitor_reference_number;
     }
 
     protected function setProductDescription() {
@@ -124,7 +130,7 @@ class ValitorParams {
     }
 
     protected function setProductQuantity() {
-        $this->productQuantity = "1";
+        $this->productQuantity = 1;
     }
 
     protected function setProductPrice() {        
@@ -132,7 +138,7 @@ class ValitorParams {
     }
 
     protected function setProductDiscount() {
-        $this->productDiscount = "0";
+        $this->productDiscount = 0;
     }
 
     protected function setProductXY() {
@@ -153,6 +159,17 @@ class ValitorParams {
 
     protected function setVerificationCode() {        
         $this->verificationCode = $this->valitorConfig['verification_code'];
+    }
+
+    protected function setPaymentSuccessfulAutomaticRedirect() {
+        $this->paymentSuccessfulAutomaticRedirect = 1;
+    }
+
+    /**
+     * @todo -> it has to be another url
+     */
+    protected function setPaymentCancelledURL() {
+        $this->paymentCancelledURL = route('success'); 
     }
 
     /**

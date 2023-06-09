@@ -34,7 +34,7 @@ class Booking extends Model
         'created_at'
     ];
 
-    protected $append = ['pay_now_amount'];
+    protected $append = ['pay_now_amount', 'valitor_reference_number'];
 
 
     /**
@@ -67,6 +67,13 @@ class Booking extends Model
     /**********************************
      * Accessors & Mutators
      **********************************/
+
+     /**
+      * Get the referenc number that we will send to valitor
+      */
+    public function getValitorReferenceNumberAttribute() {
+        return $this->order_id;
+    }
 
     /**
      * Get the percentage to pay now
