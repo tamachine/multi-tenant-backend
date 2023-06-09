@@ -1,4 +1,4 @@
-<div class="relative text-pink-red bg-white landscape:h-[200vh] portrait:h-[calc(100dvh_-_62px)] landscape:md:h-[86vh] portrait:md:h-[75vh] w-fill-screen">
+<div class="relative text-pink-red bg-white landscape:h-[200vh] portrait:h-[calc(100vh_-_62px)] landscape:md:h-[86vh] portrait:md:h-[75vh] w-fill-screen">
    <div class="relative z-[1]">
       <h1 class="text-center text-[2.8rem] leading-[0.95em] md:text-[3.5rem] md:leading-none lg:text-[4.5rem] px-11 pt-9 pb-4 md:py-3 ">{!! __('home.title') !!}</h1>
       <h3 class="text-black font-sans-medium text-base md:text-xl">{!! __('home.subtitle') !!}</h3>
