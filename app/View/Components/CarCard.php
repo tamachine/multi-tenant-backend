@@ -56,7 +56,7 @@ class CarCard extends Component
                 $this->secondaryImage = $this->car->getFeaturedImagaHoverModelImageInstance(); 
             }
         } else {            
-            $this->mainImagePath = 'images/cars/default-car.svg';
+            $this->mainImagePath = 'images/cars/default-car.jpg';
         }
     }    
 }
