@@ -14,6 +14,11 @@ class LandingCarsSeeder extends Seeder
      */
     public function run()
     {
+
+        /******************
+            INTRO
+        ******************/
+
         Translation::firstOrCreate(
             [
                 'group' => 'landing-cars',
@@ -30,7 +35,7 @@ class LandingCarsSeeder extends Seeder
                 'key' => 'small-text',
             ],
             [
-                'text' => ['en' => 'While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!', 'es' => 'Cambiar texto: While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!'],
+                'text' => ['en' => 'While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!', 'es' => 'While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!'],
             ]
         );
 
@@ -50,7 +55,7 @@ class LandingCarsSeeder extends Seeder
                 'key' => 'large-text',
             ],
             [
-                'text' => ['en' => 'Cambiar texto: While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!', 'es' => 'Cambiar texto: While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!'],
+                'text' => ['en' => 'While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!', 'es' => 'While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!'],
             ]
         );
 
@@ -72,9 +77,14 @@ class LandingCarsSeeder extends Seeder
                 'key' => 'premium-text',
             ],
             [
-                'text' => ['en' => 'Cambiar texto: While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!', 'es' => 'Cambiar texto: While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!'],
+                'text' => ['en' => 'While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!', 'es' => 'While small in size, our Economy and City Car rentals offer excellent performance at a reduced price. A perfect choice for short trips around Reykjavík or even the Ring Road if the weather is good. Driving around Iceland has never been easier!'],
             ]
         );
+
+
+        /******************
+            TESTIMONIALS
+        ******************/
         
         Translation::firstOrCreate(
             [
@@ -106,6 +116,11 @@ class LandingCarsSeeder extends Seeder
             ]
         );
 
+
+        /******************
+            ABOUT
+        ******************/
+
         Translation::firstOrCreate(
             [
                 'group' => 'landing-cars',
@@ -125,6 +140,11 @@ class LandingCarsSeeder extends Seeder
                 'text' => ['en' => 'Learn more', 'es' => 'Más información'],
             ]
         );
+
+
+        /******************
+            BRANDS
+        ******************/
 
         Translation::firstOrCreate(
             [
@@ -156,13 +176,94 @@ class LandingCarsSeeder extends Seeder
             ]
         );
 
+
+        /******************
+            OTHER LANDINGS
+        ******************/
+
         Translation::firstOrCreate(
             [
                 'group' => 'landing-cars',
-                'key' => 'categories-title',
+                'key' => 'otherlandings-title',
             ],
             [
                 'text' => ['en' => "Different vehicles for all type of adventures", 'es' => "Different vehicles for all type of adventures"],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'landing-cars',
+                'key' => 'otherlandings-small-name',
+            ],
+            [
+                'text' => ['en' => "Small vehicles", 'es' => "Coches pequeños"],
+            ]
+        );
+        Translation::firstOrCreate(
+            [
+                'group' => 'landing-cars',
+                'key' => 'otherlandings-small-text',
+            ],
+            [
+                'text' => ['en' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all.", 'es' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all."],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'landing-cars',
+                'key' => 'otherlandings-large-name',
+            ],
+            [
+                'text' => ['en' => "Large vehicles", 'es' => "Coches grandes"],
+            ]
+        );
+        Translation::firstOrCreate(
+            [
+                'group' => 'landing-cars',
+                'key' => 'otherlandings-large-text',
+            ],
+            [
+                'text' => ['en' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all.", 'es' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all."],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'landing-cars',
+                'key' => 'otherlandings-premium-name',
+            ],
+            [
+                'text' => ['en' => "Premium vehicles", 'es' => "Coches premium"],
+            ]
+        );
+        Translation::firstOrCreate(
+            [
+                'group' => 'landing-cars',
+                'key' => 'otherlandings-premium-text',
+            ],
+            [
+                'text' => ['en' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all.", 'es' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all."],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'landing-cars',
+                'key' => 'otherlandings-view-more',
+            ],
+            [
+                'text' => ['en' => "View more", 'es' => "Ver más"],
+            ]
+        );
+        Translation::firstOrCreate(
+            [
+                'group' => 'landing-cars',
+                'key' => 'otherlandings-view-less',
+            ],
+            [
+                'text' => ['en' => "View less", 'es' => "Ver menos"],
             ]
         );
     }

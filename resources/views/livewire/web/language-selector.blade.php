@@ -45,8 +45,8 @@
                     <a
                         href="javascript:void(0)"
                         :class="selectedOption == '{{ $currency }}' ? 'text-pink-red' : 'text-black-primary'"
-                        x-on:click="select('{{ $currency }}')"
-                        wire:click="changeCurrency('{{ $currency }}')"
+                        x-on:click="select('{{ $currency }}')"                        
+                        wire:click="changeCurrency('{{ $currency }}', '{{ LaravelLocalization::getLocalizedURL(App::getLocale()) }}')"
                         >
                         {{ strtoupper($currency) }}
                     </a>

@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Web;
 use Livewire\Component;
 use App\Services\SelectableFull\AllSelectables;
 use App\Services\CarsSearch\CarsSearch;
+use App\Models\CarType;
 
 class CarSearchResults extends Component
 {
@@ -27,6 +28,7 @@ class CarSearchResults extends Component
 
     public $showFilters;    
     public $showImageIfLittleResults;
+    public $widthFillScreen;
 
     /*
     ***************************************************************
@@ -39,9 +41,10 @@ class CarSearchResults extends Component
         $this->carsSearch = $carsSearch;
     }
 
-    public function mount(bool $showFilters = true, bool $showImageIfLittleResults = false, array $categories = [], array $dates = [], array $locations = []) {        
+    public function mount(bool $showFilters = true, bool $showImageIfLittleResults = false, bool $widthFillScreen = false, array $categories = [], array $dates = [], array $locations = []) {        
         $this->showFilters              = $showFilters;
         $this->showImageIfLittleResults = $showImageIfLittleResults;
+        $this->widthFillScreen          = $widthFillScreen;
         $this->categories               = $categories;
         $this->dates                    = $dates;
         $this->locations                = $locations;
@@ -76,7 +79,7 @@ class CarSearchResults extends Component
         $sessionData = request()->session()->get('booking_data');
         $sessionData['car'] = $hashid;
 
-        request()->session()->put('booking_data', $sessionData);
+        request()->session()->put('booking_data', $sessionData);        
 
         return redirect()->route('insurances', $hashid);
     }
@@ -123,6 +126,6 @@ class CarSearchResults extends Component
 
     public function render()
     {
-        return view('livewire.web.car-search-results');
+        return view('livewire.web.car-search-results', ['carCategories' => CarType::all()]);
     }
 }
