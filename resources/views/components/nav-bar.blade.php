@@ -53,7 +53,7 @@
 <div
     x-cloak
     class="
-        md:hidden fixed w-screen top-[60px] left-0 h-[calc(100vh_-_20px)] {{-- the screen, minus 60px for the top position, plus 20px for every bottom line (red and black) so -60 +20 +20 = 100vh -20px --}}
+        md:hidden fixed w-screen top-[60px] left-0 h-[calc(100dvh_-_20px)] {{-- the screen, minus 60px for the top position, plus 20px for every bottom line (red and black) so -60 +20 +20 = 100dvh -20px --}}
         bg-white z-40 overflow-hidden"
     x-show="showMobileNavBar"
     x-transition:enter="transition ease-out duration-700"
@@ -80,7 +80,7 @@
                         @endif
 
                         <div>
-                            <button class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-gray-secondary cursor-pointer">{!! __('navbar.cars-button') !!}</button>
+                            <a href="{{ route('cars') }}" class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-gray-secondary  focus:bg-gray-secondary cursor-pointer">{!! __('navbar.cars-button') !!}</a>
                         </div>
                     </div>
                     <div class="text-center text-pink-red font-fredoka font-semibold text-[26px] py-5 h-full flex items-center justify-center">
@@ -123,7 +123,7 @@
     </div>
 
     <div
-        class="md:hidden fixed w-screen top-[60px] left-0 h-[calc(100vh_-_20px)]" {{-- the screen, minus 60px for the top position, plus 20px for every bottom line (red and black) so -60 +20 +20 = 100vh -20px --}}
+        class="md:hidden fixed w-screen top-[60px] left-0 h-[calc(100dvh_-_20px)]" {{-- the screen, minus 60px for the top position, plus 20px for every bottom line (red and black) so -60 +20 +20 = 100vh -20px --}}
         x-cloak
         x-show="visibility()"
 
