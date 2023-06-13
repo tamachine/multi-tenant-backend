@@ -7,6 +7,7 @@
     >
     <head>
         <meta charset="utf-8">
+        <meta name="theme-color" content="#E11166" >
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <x-seo-tags />
