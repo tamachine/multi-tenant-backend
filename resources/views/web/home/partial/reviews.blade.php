@@ -1,4 +1,4 @@
-<div class="w-fill-screen md:left-0 md:w-full flex flex-nowrap md:flex-wrap justify-between gap-3 overflow-x-auto scrollbar-none px-3 md:px-0 pt-8 pb-14 md:pt-14 md:pb-36">
+<div class="w-fill-screen md:left-0 md:w-full flex flex-nowrap md:flex-wrap justify-between gap-3 overflow-x-auto scrollbar-none px-3 sm:px-8 md:px-0 pt-8 pb-14 md:pt-14 md:pb-36">
     <div class="flex justify-start pt-0 ">
         <x-reviews-info :reviewInfoComponent="$googleReviewInfoComponent" />
     </div>  

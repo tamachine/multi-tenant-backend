@@ -2,7 +2,7 @@
         flex items-center md:items-stretch gap-1
         h-full w-max
         md:border-0 border border-gray-secondary rounded-xl
-        p-3 md:p-0
+        p-3 sm:px-8 md:p-0
         "
     >
 
