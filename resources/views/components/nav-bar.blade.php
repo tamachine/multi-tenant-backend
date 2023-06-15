@@ -24,14 +24,14 @@
 
     {{-- desktop --}}
     <div class="hidden md:flex items-center divide-x gap-10">
-        <div class="flex items-end justify-between flex-wrap gap-10 text-lg font-sans-medium">
+        <div class="flex items-end justify-between flex-wrap gap-6 lg:gap-10 text-base lg:text-lg font-sans-medium">
             <a href="{{ route('cars') }}" class="hover:text-pink-red">{!! __('navbar.cars') !!}</a>
             <a href="{{ route('about') }}" class="hover:text-pink-red">{!! __('navbar.about') !!}</a>
             <a href="{{ route('faq') }}" class="hover:text-pink-red">{!! __('navbar.faq') !!}</a>
             <a href="{{ route('blog') }}" class="hover:text-pink-red">{!! __('navbar.blog') !!}</a>
             <a href="{{ route('contact') }}" class="hover:text-pink-red">{!! __('navbar.contact') !!}</a>
         </div>
-        <div class="pl-5 text-sm font-medium flex items-center gap-1" x-on:click="toggle()">
+        <div class="pl-7 text-sm font-medium flex items-center gap-1" x-on:click="toggle()">
             <img class="inline" src='{{ asset("/images/currencies/".selectedCurrency().".svg") }}' />
             <img class="inline" src='{{ asset("/images/flags/".App::currentLocale().".svg") }}' />
             <img class="cursor-pointer language-selector" src="{{ asset('images/icons/arrow-down.svg') }}" />

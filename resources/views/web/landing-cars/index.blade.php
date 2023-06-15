@@ -2,7 +2,7 @@
 
 @section('body')        
     <div class="w-fill-screen mt-5">
-        <main class="max-w-7xl mx-auto px-3 md:px-11">
+        <main class="max-w-7xl mx-auto px-5 md:px-11">
             
             @include('web.landing-cars.partial.hero')
 

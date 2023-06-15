@@ -1,4 +1,4 @@
-<div class="text-justify flex flex-col gap-20 mt-20">
+<div class="text-justify flex flex-col gap-10 md:gap-20 mt-20">
     <p>{!! __('about.intro') !!}</p>
 
     <div class="flex flex-col">

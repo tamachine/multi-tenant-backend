@@ -1,5 +1,5 @@
-<footer class="pt-28 md:pt-36">
-    <div class="max-w-6xl mx-auto px-10 pb-5 md:pb-0 text-pink-red text-5xl md:text-8xl text-center md:text-left font-semibold leading-[50px] md:leading-[110px] font-fredoka-semibold">
+<footer class="max-w-6xl mx-auto pt-28 md:pt-36">
+    <div class="px-3 md:px-14 pb-5 md:pb-0 text-pink-red text-5xl md:text-8xl text-center md:text-left font-semibold leading-[50px] md:leading-[110px] font-fredoka-semibold">
         {!! __('footer.title') !!}
     </div>
     <div
@@ -9,8 +9,8 @@
             <x-image :path="$footerImagePath" class="w-full h-[587px] md:h-auto object-cover" />
             
             <div class="absolute md:top-[5%] top-0 left-0 right-0 bottom-0 z-10 text-lg">
-                <div class="max-w-6xl mx-auto p-3">
-                    <div class="max-w-96 px-10 md:text-left text-center mx-auto md:mx-0">
+                <div class="max-w-6xl mx-auto px-3 md:px-14">
+                    <div class="max-w-xs text-center md:text-left mx-auto md:mx-0">
                         <span>{!! __('footer.text') !!}</span>
                         <div class="flex gap-4 pt-7 md:pt-3 justify-center md:justify-start">
                             <x-social color="red"/>
@@ -18,9 +18,10 @@
                     </div>
                 </div>
             </div>
+            
     </div>
     <div class="bg-[#070000] w-fill-screen">
-        <div class="max-w-6xl mx-auto md:p-3 px-1">
+        <div class="md:py-3">
 
             <div class="bg-[#1C1C1C] flex flex-col gap-5 md:gap-0 md:flex-row flex-between items-center text-[#8c8c8c] rounded-xl px-3 md:px-9 py-7">
                 <div class="flex-1 flex flex-col w-full">

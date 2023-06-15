@@ -10,7 +10,7 @@
         </div>
     </div>
     
-    <div class="max-w-6xl mx-auto p-3">
+    <div class="max-w-6xl mx-auto p-3 md:p-10">
 
         @include('web.home.partial.reviews')
 

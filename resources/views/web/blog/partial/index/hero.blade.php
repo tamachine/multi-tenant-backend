@@ -1,7 +1,7 @@
 <div class="w-fill-screen text-white relative">
     <div class="absolute top-0 left-0 z-10 w-full">
         <div class="max-w-7xl mx-auto">
-            <div class="px-3 md:px-0 max-w-6xl mx-auto">
+            <div class="px-5 md:px-0 max-w-6xl mx-auto">
                 <div class="flex justify-between">
                     <div>
                         <x-breadcrumb :breadcrumbs="$breadcrumbs" light-colors="{{ $hero->count() > 0 }}"/>
@@ -18,7 +18,7 @@
 
     <div class="absolute bottom-0 left-0 z-10 w-full">
         <div class="max-w-7xl mx-auto">            
-            <div class="px-3 md:px-0 max-w-6xl mx-auto flex flex-row items-center">
+            <div class="px-5 md:px-0 max-w-6xl mx-auto flex flex-row items-center">
                 <div class="basis-1/2">
                     <button id="hero-blog-link" class="rounded-lg bg-white font-sans-medium text-pink-red px-7 py-2 cursor-pointer" onclick="window.location.href='{!! $hero->first()?->url !!}'">{!! __('blog.read-more') !!}</button>
                 </div>
@@ -47,7 +47,7 @@
                             <x-image path="{{ $post->featured_image_url }}"/>
                     </div>
                     <div class="relative max-w-7xl mx-auto h-full">
-                        <div class="px-3 md:px-0 max-w-6xl mx-auto h-full pb-[50px]">
+                        <div class="px-5 md:px-0 max-w-6xl mx-auto h-full pb-[50px]">
                             <div class="flex flex-col justify-end h-full py-10 md:py-[75px] gap-2 md:gap-5 md:max-w-[710px]">
 
                                 <h1 class="text-white text-[40px] md:text-[64px] leading-[1.1em] text-left swiper-no-swiping">
