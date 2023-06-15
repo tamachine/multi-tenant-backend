@@ -20,7 +20,7 @@ class ReviewsSeeder extends Seeder
                 'key' => 'award',    
             ],
             [                
-                'text' => ['en' => 'Award', 'es' => 'Premio'],
+                'text' => ['en' => 'Outstanding <br>Company 2021', 'es' => 'Premio'],
             ]
         );  
 
