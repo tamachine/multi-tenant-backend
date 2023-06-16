@@ -66,9 +66,9 @@
     x-data="visibilitySelector()"
     >
     <div class="flex flex-col h-full justify-between">
-        <div class="h-full">
+        <div class="h-full overflow-auto">
             <div class="flex flex-col divide-y h-full">
-                <div class="h-full p-9 pb-0 flex flex-col items-center justify-between">
+                <div class="h-full p-9 pb-0 flex flex-col items-center justify-around">
                     <div class="grid grid-cols-2 justify-center items-center text-center gap-y-8 gap-x-9">
                         @if (isset($carCategories))
                             @foreach($carCategories as $carType)
@@ -83,7 +83,7 @@
                             <a href="{{ route('cars') }}" class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-gray-secondary  focus:bg-gray-secondary cursor-pointer">{!! __('navbar.cars-button') !!}</a>
                         </div>
                     </div>
-                    <div class="text-center text-pink-red font-fredoka font-semibold text-[26px] py-5 h-full flex items-center justify-center">
+                    <div class="text-center text-pink-red font-fredoka font-semibold text-xl py-5 flex items-center justify-center">
                         {!! __('navbar.cars-title') !!}
                     </div>
                 </div>
