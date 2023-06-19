@@ -244,7 +244,7 @@ class Booking extends Model
      * @param      string  $booking_status      string
      * @param      string  $vehicle             string
      * @param      string  $vendor              string
-     * @param      string  $order_id        string
+     * @param      string  $order_id            string
      * @param      string  $email               string
      * @param      string  $first_name          string
      * @param      string  $last_name           string
