@@ -8,11 +8,10 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Notifications\Notifiable;
 
 class Booking extends Model
 {
-    use HasFactory, Notifiable, HashidTrait, SoftDeletes, HasPdf;    
+    use HasFactory, HashidTrait, SoftDeletes, HasPdf;    
 
     /**
      * The attributes that are mass assignable.
@@ -44,6 +43,17 @@ class Booking extends Model
         'pickup_at'     => 'datetime',
         'dropoff_at'    => 'datetime',
     ];     
+
+    /**
+     * Route notifications for the mail channel.
+     *
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @return array|string
+     */
+    public function routeNotificationForMail($notification)
+    {        
+        return $this->email;        
+    }
 
     /**********************************
      * Accessors & Mutators

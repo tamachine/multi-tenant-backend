@@ -5,17 +5,21 @@ namespace App\Traits;
 use Illuminate\Support\Facades\Storage;
 use App\Traits\HasFiles;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Notifications\Notifiable;
 
+/**
+ * This trait manages a unique pdf for an instance
+ */
 trait HasPdf
 {           
     protected $pdf_disk = 'pdfs';    
 
-    use HasFiles;
+    use HasFiles, Notifiable;
 
     /**
      * Delete any old versions of the PDF
      *
-     * @return     void
+     * @return void
      */
     public function deleteOldPdf()
     {
@@ -25,57 +29,83 @@ trait HasPdf
     }   
 
     /**
-     * Get the booking's PDF path
+     * Get the PDF path
      *
-     * @return     string
+     * @return string
     */
-    public function getPdfPathAttribute()
+    public function getPdfPathAttribute() : string
     {
         return $this->getModelFolder() . '/' . $this->getInstanceFolder() . '/' . $this->getPdfFileName();
     }
 
+    /**
+     * Get the full PDF path
+     * @return string
+     */
+    public function getFullPdfPathAttribute() : string 
+    {
+        return Storage::disk($this->pdf_disk)->path($this->pdf_path);
+    }
+
      /**
-     * Get the booking's PDF path
+     * Get the url for the pdf
      *
-     * @return     string
+     * @return string
     */
-    public function getPdfUrlAttribute()
+    public function getPdfUrlAttribute() : string
     {
         return Storage::disk($this->pdf_disk)->url($this->pdf_path);
     }
 
+    /**
+     * Uploads a pdf file
+     */
     public function uploadPdf() {
         $this->loadPdf()->save($this->pdf_path, $this->pdf_disk);
     }
 
+    /**
+     * returns an instance of the pdf
+     * 
+     * @return Barryvdh\DomPDF\PDF
+     */
     public function loadPdf() {
         return Pdf::loadView($this->getPdfView(), $this->getPdfData());
     }
 
-    public function getHasPdfAttribute() {
+    /**
+     * Checks if the instance has a pdf file
+     * 
+     * @return bool
+     */
+    public function getHasPdfAttribute() : bool {
         return Storage::disk($this->pdf_disk)->exists($this->pdf_path);
-    }
-
-    public function sendPdf($notificationClass) {
-
-    }
+    }   
 
    /**
      * Get the pdf file name 
      *
      * @return string
     */
-    public function getPdfFileName() {
+    public function getPdfFileName() : string {
         return 'booking-'.$this->order_number.'.pdf';
     }
-
     
-
-    protected function getPdfView() {
+    /**
+     * Gets the view to generate the pdf. By default is the bookings one but it can be overrided in the model
+     * 
+     * @return string
+     */
+    protected function getPdfView() : string {
         return 'pdfs.booking';
     }
 
-    protected function getPdfData() {
+    /**
+     * Gets the data for the view to generate the pdf. By default is the bookings one but it can be overrided in the model
+     * 
+     * @return array
+     */
+    protected function getPdfData() : array {
         return ['booking' => $this];
     }
 }

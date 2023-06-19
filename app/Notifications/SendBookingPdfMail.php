@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use App\Models\Booking;
 
 class SendBookingPdfMail extends Notification implements ShouldQueue
 {
@@ -18,7 +19,7 @@ class SendBookingPdfMail extends Notification implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($booking)
+    public function __construct(Booking $booking)
     {
         $this->booking = $booking;
     }
@@ -49,8 +50,8 @@ class SendBookingPdfMail extends Notification implements ShouldQueue
                     ->greeting('Hello!')
                     ->line("We are sending you the summary of your latest booking in $appName.")
                     ->line('You will find that summary in the attached PDF file.')
-                    ->line('Thanks for booking with ' . $appName);
-                    //->attach($this->booking->pdf_url);
+                    ->line('Thanks for booking with ' . $appName)
+                    ->attach($this->booking->full_pdf_path, ['as' => $this->booking->getPdfFileName()]);
     }
 
     /**
