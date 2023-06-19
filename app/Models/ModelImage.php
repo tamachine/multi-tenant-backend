@@ -55,7 +55,7 @@ class ModelImage extends Model
         if ($this->is_external_url) { 
             return $this->image_path;
         } else {
-            return $this->image_path ? Storage::url($this->image_path) : '';
+            return $this->image_path ? Storage::disk($this->disk)->url($this->image_path) : '';
         } 
     }   
 

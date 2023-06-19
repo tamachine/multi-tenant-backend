@@ -11,14 +11,16 @@ class SendBookingPdfMail extends Notification implements ShouldQueue
 {
     use Queueable;
 
+    protected $booking;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($booking)
     {
-        //
+        $this->booking = $booking;
     }
 
     /**
@@ -47,8 +49,8 @@ class SendBookingPdfMail extends Notification implements ShouldQueue
                     ->greeting('Hello!')
                     ->line("We are sending you the summary of your latest booking in $appName.")
                     ->line('You will find that summary in the attached PDF file.')
-                    ->line('Thanks for booking with ' . $appName)
-                    ->attach(storage_path() . '/app/public/bookings/pdf/' . $notifiable->hashid . '.pdf', ['as' => 'Booking.pdf']);
+                    ->line('Thanks for booking with ' . $appName);
+                    //->attach($this->booking->pdf_url);
     }
 
     /**
