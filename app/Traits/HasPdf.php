@@ -88,7 +88,7 @@ trait HasPdf
      * @return string
     */
     public function getPdfFileName() : string {
-        return 'booking-'.$this->order_number.'.pdf';
+        return 'booking-'.$this->order_id.'.pdf';
     }
     
     /**
