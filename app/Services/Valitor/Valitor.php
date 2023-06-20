@@ -25,7 +25,9 @@ class Valitor {
     /**
      * Checks the valitor response
      */
-    public function checkResponse(Booking $booking) {
-        
+    public function checkResponse() {
+        $response = new ValitorCheckResponse();
+
+        return $response->check();
     }
 }

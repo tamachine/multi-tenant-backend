@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Web;
 
 use App\Apis\Caren\Api;
-use App\Jobs\CreateBookingPdf;
 use App\Models\Affiliate;
 use App\Models\Booking;
 use App\Models\Car;
@@ -219,10 +218,7 @@ class Payment extends Component
         ]);
 
         // 5. Create booking in Caren
-        $this->createCarenBooking($booking);
-
-        // 6. Dispatch the job to create the booking PDF and send it to the customer
-        dispatch(new CreateBookingPdf($booking, true));
+        $this->createCarenBooking($booking);        
 
         return $booking;
     }

@@ -13,27 +13,34 @@ class ValitorCheckResponse {
     protected Booking $booking;
     protected Request $request;
 
-    public function __construct(Request $request) 
-    {
-        $this->request = $request;
-        
-        $this->setBooking();
-    }
+    use ValitorBase;
 
+    public function __construct() 
+    {
+        $this->request = request();
+
+        $this->setValitorConfig();
+        
+        $this->setBooking();        
+    }
     
     public function check() : bool 
     {
-        return true;
+        return $this->checkDigitalSignatureResponse();
     }
 
     protected function setBooking()
     {
-
+        $this->booking = Booking::ValitorReferenceNumber($this->request->ReferenceNumber)->first();
     }
 
     protected function checkDigitalSignatureResponse() 
     {
-
+        if($this->booking) {
+            return ($this->request->DigitalSignatureResponse == hash('sha256', ($this->valitorConfig['verification_code'] . $this->booking->valitor_reference_number)));
+        }
+        
+        return false;
     }
 }
 

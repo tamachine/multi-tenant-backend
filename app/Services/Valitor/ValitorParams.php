@@ -11,9 +11,9 @@ use App;
  */
 class ValitorParams {
 
-    protected Booking $booking;
+    protected Booking $booking;    
 
-    protected array $valitorConfig;
+    use ValitorBase;
 
     protected $merchantId;
     protected $language;
@@ -34,9 +34,9 @@ class ValitorParams {
     protected $paymentCancelledURL;
 
     public function __construct(Booking $booking) {
-        $this->booking = $booking;
-
-        $this->valitorConfig = config('valitor');
+        $this->booking = $booking;  
+        
+        $this->setValitorConfig();
 
         $this->setParams();    
         
@@ -59,9 +59,9 @@ class ValitorParams {
             'Product_1_Quantity' => $this->productQuantity,
             'Product_1_Price' => $this->productPrice,
             'Product_1_Discount' => $this->productDiscount,
-            //'PaymentSuccessfulURL' => $this->paymentSuccessfulURL,
+            'PaymentSuccessfulURL' => $this->paymentSuccessfulURL,
             'PaymentSuccessfulServerSideURL' => $this->paymentSuccessfulServerSideURL,
-            //'PaymentSuccessfulURLText' => $this->paymentSuccessfulURLText,
+            'PaymentSuccessfulURLText' => $this->paymentSuccessfulURLText,
             'DigitalSignature' => $this->digitalSignature,    
             'PaymentSuccessfulAutomaticRedirect' => $this->paymentSuccessfulAutomaticRedirect,  
             'PaymentCancelledURL' => $this->paymentCancelledURL,
@@ -150,7 +150,7 @@ class ValitorParams {
     }
 
     protected function setPaymentSuccessfulURLText() {
-        $this->paymentSuccessfulServerSideURL = 'successfulURLText';
+        $this->paymentSuccessfulURLText = 'successfulURLText';
     }
 
     protected function setPaymentSuccessfulServerSideURL() {
@@ -188,6 +188,6 @@ class ValitorParams {
             $this->currency
         ;        
 
-        return hash('sha256', $params);
+        $this->digitalSignature = hash('sha256', $params);
     }
 }

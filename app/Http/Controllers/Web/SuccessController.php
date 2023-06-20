@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use Valitor;
+use App\Jobs\CreateBookingPdf;
 
 class SuccessController extends BaseController
 {
@@ -13,8 +14,11 @@ class SuccessController extends BaseController
         }
 
         if(!Valitor::checkResponse()) {
-            echo "error valitor";die;
+            echo "error valitor";
+            die;
         }
+        
+        //dispatch(new CreateBookingPdf($booking, true));
 
         return view(
             'web.success.index'

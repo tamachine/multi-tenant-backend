@@ -13,6 +13,8 @@ class Booking extends Model
 {
     use HasFactory, HashidTrait, SoftDeletes, HasPdf;    
 
+    protected $valitor_reference_number_column = 'hashid';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -66,8 +68,10 @@ class Booking extends Model
       * Get the referenc number that we will send to valitor
       */
     public function getValitorReferenceNumberAttribute() {
-        return $this->order_id;
-    }
+        $valitor_reference_number_column = $this->valitor_reference_number_column;
+
+        return $this->$valitor_reference_number_column;
+    }    
 
     /**
      * Get the percentage to pay now
@@ -400,6 +404,17 @@ class Booking extends Model
         }
 
         return $query;
+    }
+
+    /**
+     * Scope to search by the valitorreference number.
+     * @param      object  $query             Illuminate\Database\Query\Builder
+     * @param      string  $reference_number  string
+     *
+     * @return     object  Illuminate\Database\Query\Builder
+     */
+    public function scopeValitorReferenceNumber($query, $reference_number) {
+        return $query->where($this->valitor_reference_number_column, $reference_number);
     }
 
     /**********************************
