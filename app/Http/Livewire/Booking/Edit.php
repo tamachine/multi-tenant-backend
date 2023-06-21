@@ -11,6 +11,7 @@ use App\Notifications\SendBookingPdfMail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use App;
 
 class Edit extends Component
 {
@@ -129,12 +130,7 @@ class Edit extends Component
      * @var string
      */
     public $comment;
-
-    /**
-     * @var string
-     */
-    public $pdf_path;
-
+    
     /*
     ***************************************************************
     ** METHODS
@@ -168,9 +164,7 @@ class Edit extends Component
         $this->payment_status = $booking->payment_status;
         $this->vendor_status = $booking->vendor_status;
         $this->status = $booking->status;
-        $this->cancel_reason = $booking->cancel_reason;
-
-        $this->pdf_path = $booking->pdf_path;
+        $this->cancel_reason = $booking->cancel_reason;        
     }
 
     public function getRemainingBalanceProperty()
@@ -301,16 +295,11 @@ class Edit extends Component
         session()->flash('message', 'Creating the booking PDF');
 
         return redirect()->route('intranet.booking.edit', $this->booking->hashid);
-    }
-
-    public function viewPdf()
-    {
-        return response()->download(storage_path('app/public/bookings/pdf/' . $this->booking->hashid . '.pdf'), 'Booking.pdf');
-    }
+    }   
 
     public function sendPdf()
     {
-        $this->booking->notify(new SendBookingPdfMail);
+        $this->booking->notify(new SendBookingPdfMail($this->booking));
         $this->dispatchBrowserEvent('open-success', ['message' => 'PDF sent to the customer']);
     }
 
