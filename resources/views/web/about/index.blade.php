@@ -4,7 +4,7 @@
 
     @include('web.about.partial.hero')
 
-    <div class="px-3 md:px-0 max-w-6xl mx-auto">
+    <div class="px-5 md:px-0 max-w-6xl mx-auto">
 
         @include('web.about.partial.intro')
 

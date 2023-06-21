@@ -1,71 +1,65 @@
-<div id="time-picker" class="mt-4 px-[3%] lg:px-4">
-    <div class="container flex gap-[5%] relative border-t-[1px] border-gray-secondary">
+@php 
+    $ranges = ['start', 'end']; 
+@endphp
 
-        @php 
-            $ranges = ['pickup', 'return']; 
-        @endphp
+<div class="hidden md:inline-block w-full">
 
-        @foreach ($ranges as $range)
-            <div class="w-1/2 text-center pt-5">
-                <div class="inline-block mb-4">
-                    <span class="text-sm lg:text-base">
-                        @if ($range == 'pickup')
-                            {!! __('car-search-bar.pick-up-time') !!}
-                        @else 
-                            {!! __('car-search-bar.return-time') !!}
-                        @endif
-                    </span>
-                    <img class="inline-block ml-3 mb-1 mr-1" src="{{ asset('images/icons/arrow-right-solid.svg') }}" alt="">
-                    <span class="selected-time--{{ $range }} text-lg lg:text-xl inline-block w-[50px] lg:w-[55px] text-right">12:00</span><span class="selected-time-type--{{ $range }} text-base inline-block w-[25px] ml-1">AM</span>
-                </div>
-                <div class="range-slider range-slider--{{ $range }}">
-                    <div id="range-bullet" class="range-bullet range-bullet--{{ $range }} ">
-                        <span id="bullet-time" class="bullet-time bullet-time--{{ $range }}">12:00</span>
-                        <small id="bullet-type" class="bullet-type bullet-type--{{ $range }}">PM</small>
+    {{-- Desktop --}}
+
+    <div id="time-picker" class="px-[3%] lg:px-4 md:mt-3">
+        <div class="container md:flex md:gap-[5%] relative md:border-t-[1px] md:border-gray-secondary">
+
+            @foreach ($ranges as $range)
+                <div class="md:w-1/2 text-center pt-16 md:pt-5">
+                    <div class="inline-block mb-4 text-black ">
+                        <span class="text-sm lg:text-base">
+                            @if ($range == 'start')
+                                {!! __('car-search-bar.start-time') !!}
+                            @else 
+                                {!! __('car-search-bar.end-time') !!}
+                            @endif
+                        </span>
+                        <img class="inline-block ml-3 mb-1 mr-1" src="{{ asset('images/icons/arrow-right-solid.svg') }}" alt="">
+                        <span class="selected-time--{{ $range }} text-black text-lg lg:text-xl inline-block w-[50px] lg:w-[55px] text-right">12:00</span>
+                        <span class="selected-time-type--{{ $range }} text-base inline-block w-[25px] ml-1">AM</span>
                     </div>
-                    <input class="range-input range-input--{{ $range }}" type="range" value="24" min="0" max="47" list="times">
-                    <div class="range-times">
-                        <span class="">12 <small>AM</small></span>
-                        <span class="">6 <small>AM</small></span>
-                        <span class="">12 <small>PM</small></span>
-                        <span class="">6 <small>PM</small></span>
-                        <span class="">11 <small>PM</small></span>
+                    <div class="range-slider range-slider--{{ $range }}">
+                        <div id="range-bullet" class="range-bullet range-bullet--{{ $range }} ">
+                            <span id="bullet-time" class="bullet-time bullet-time--{{ $range }}">12:00</span>
+                            <small id="bullet-type" class="bullet-type bullet-type--{{ $range }}">PM</small>
+                        </div>
+                        <input class="range-input range-input--{{ $range }}" type="range" value="24" min="0" max="47" list="times">
+                        <div class="range-times">
+                            <span class="">12 <small>AM</small></span>
+                            <span class="">6 <small>AM</small></span>
+                            <span class="">12 <small>PM</small></span>
+                            <span class="">6 <small>PM</small></span>
+                            <span class="">11 <small>PM</small></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
 
-        <datalist id="times">
-            @for($i = 0; $i <= 47; $i++)
-                @php
-                    $hour = floor($i / 2);
-                    $minute = ($i % 2 == 0) ? "00" : "30";
-                    $meridian = ($hour >= 12) ? "PM" : "AM";
-                    if ($hour == 0) {
-                        $hour = 12;
-                    } else if ($hour > 12) {
-                        $hour -= 12;
-                    }
-                    $time = $hour . ":" . $minute;
-                @endphp
-                <option value="{{ $i }}" time="{{ $time }}" type="{{ $meridian }}">
-                    {{ $hour }}:{{ $minute }} <span>{{ $meridian }}</span>
-                </option>
-            @endfor
-        </datalist>
-    
+            <datalist id="times">
+                <x-hours-list />
+            </datalist>
+        
+        </div>
+    </div>
+    <div class="md:hidden w-full text-center">
+        <button x-on:click="continueShowLocation()" id="continue-time__button" class="btn btn-red px-16 py-3">{!! __('car-search-bar.mobile-continue-button') !!}</button>
     </div>
 </div>
 
 @push('scripts')
     <script>
-        const rangeSliderPickup = document.querySelector(".range-input--pickup");
-        const rangeSliderReturn = document.querySelector(".range-input--return");
+        const rangeSliderStart = document.querySelector(".range-input--start");
+        const rangeSliderEnd = document.querySelector(".range-input--end");
         
-        rangeSliderPickup.addEventListener("input", showSliderValue, false);
-        rangeSliderPickup.range = 'pickup';
-        rangeSliderReturn.addEventListener("input", showSliderValue, false);
-        rangeSliderReturn.range = 'return';
+        rangeSliderStart.addEventListener("input", showSliderValue, false);
+        rangeSliderStart.range = 'start';
+        rangeSliderEnd.addEventListener("input", showSliderValue, false);
+        rangeSliderEnd.range = 'end';
 
         function showSliderValue(event) {
             const range = event.currentTarget.range;
@@ -107,13 +101,10 @@
             const inputFilled = document.getElementById('hour-' + range)
             const setFilled = inputFilled.parentElement
             setFilled.classList.add('active');
+            setFilled.parentElement.classList.add('active');
 
-            let pickupHour = document.getElementById('hour-pickup') 
-            let returnHour = document.getElementById('hour-return') 
-        
-            if (pickupHour.value !== '' && returnHour.value !== '') {
-                setFilled.parentElement.classList.add('active');
-            }
+            let startHour = document.getElementById('hour-start') 
+            let endHour = document.getElementById('hour-end') 
 
         }
 
