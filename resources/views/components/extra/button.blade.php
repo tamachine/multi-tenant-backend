@@ -6,7 +6,7 @@
         <div class="flex items-center justify-center gap-3">
             <div>{!! __('extras.included') !!}</div>
             <div class="flex items-center">
-                <img class="inline border rounded-full w-[18px] h-[18px]" src="{{ asset('images/icons/check-circle.svg') }}" />
+                <img class="inline" src="{{ asset('images/icons/check-circle.svg') }}" />
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
                 x-show="selected"
                 class="flex items-center"
             >
-                <img class="inline border rounded-full w-[18px] h-[18px]" src="{{ asset('images/icons/check-circle.svg') }}" />
+                <img class="inline" src="{{ asset('images/icons/check-circle.svg') }}" />
             </div>
         </div>
     </button>

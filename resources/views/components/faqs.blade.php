@@ -20,7 +20,7 @@
         
 
         @if ($categories)
-            <div class="mb-10 md:mb-16 flex md:justify-center justify-start gap-5 w-full {{ $categories->count() > 3 ? 'flex-wrap' : '' }} flex-nowrap overflow-x-auto scrollbar-none">            
+            <div class="mb-10 md:mb-16 flex md:justify-center justify-start gap-2 md:gap-5 w-full {{ $categories->count() > 3 ? 'flex-wrap' : '' }} flex-nowrap overflow-auto scrollbar-none w-fill-screen md:w-full md:left-0 px-3">            
                 @foreach($categories as $category)
                     <button class="tab w-[136px] h-[50px] p-0 flex-shrink-0 " @click.prevent="tab='#tab{{ $category->id }}'" :class="{ 'active': tab == '#tab{{ $category->id }}' }">{{ $category->name }}</button>
                 @endforeach

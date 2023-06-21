@@ -1,5 +1,12 @@
-<div id="calendar-picker" x-on:click="openCalendarClick()" x-ref="startDateButton" class="hidden"></div>
-
+<div :class="showDate ? '' : 'hidden'" class="flex flex-col h-full">
+    <div id="calendar-picker" x-on:click="openCalendarClick()" x-ref="startDateButton" class="hidden"></div>
+    <div class="md:hidden w-[80%] text-center mx-auto">
+        <button 
+            x-on:click="checkIfAnySelectIsSelected() ? editDefault() : continueToDefault()"
+            disabled id="continue-date__button" class="w-full btn btn-red px-16 py-3">{!! __('car-search-bar.mobile-continue-button') !!}</button>
+    </div>
+</div>
+    
 
 @push('scripts')
 <script>
@@ -28,6 +35,8 @@
         return tooltipTranslated[day];
     }
 
+
+
     /********************
         WEEK DAY NAME FORMAT
     ********************/
@@ -38,7 +47,58 @@
             const shortName = name.slice(0, -1);
             day.textContent = shortName;
         }
-    }	
+    }
+    
+    // Array días de la semana (para poder mostrar el día de la semana al seleccionar)
+
+    let arrayWeekDays= [];
+
+    const arrayDays = (locale, day) => {
+        let dayWeekName = day.textContent;
+
+        arrayWeekDays.push(dayWeekName);
+
+        return arrayWeekDays;
+    }
+
+    
+    
+    /********************
+        STRUCTURE CALENDAR MOBILE
+    ********************/
+    let vWidth;
+    let vHeight;
+
+    const getSizeScreen = () => {
+        vWidth = window.innerWidth;
+        vHeight = window.innerHeight;
+    }
+
+    const numberCalendar = () => {
+        getSizeScreen();
+
+        if (vWidth <= 767) {
+            return 24;
+        } else {
+            return 2;
+        }
+    }
+
+    const structureCalendar = () => {
+        getSizeScreen();
+
+        if (vWidth <= 767) {
+            return 1;
+        } else {
+            return 2;
+        }
+    }
+
+    window.addEventListener('load', numberCalendar, structureCalendar)
+    window.addEventListener('resize',  numberCalendar, structureCalendar)
+
+    let scrollTopPosition;
+
 
 
     
@@ -53,8 +113,8 @@
                 '/css/easepick.css',
             ],
             plugins: [RangePlugin],
-            calendars: 2, //Number of visible months.
-            grid: 2, //Number of calendar columns.	
+            calendars: numberCalendar(), //Number of visible months.
+            grid: structureCalendar(), //Number of calendar columns.	
             firstDay: 7,
             autoApply: false,
             documentClick:false,
@@ -74,40 +134,129 @@
                 picker.on('preselect', (e) => { //Event is called on select days (before submit selection). When autoApply option is false.
                     const { start, end } = e.detail;
                     
-                    const startInput = document.getElementById('start-date')
-                    const endInput = document.getElementById('end-date')
+                    scrollTopPosition = e.target.querySelector('main').scrollTop;
+                    
                     
                     //set dates in order to show them selected when calendar hides/shows
                     picker.setStartDate(start);
                     picker.setEndDate(end);
+            
+                    // Show date
+                    const startDay = document.querySelectorAll('.start-day')
+                    const startDayWeek = document.querySelectorAll('.start-dayweek')
+                    const startMonth = document.querySelectorAll('.start-month')
+                    const endDay = document.querySelectorAll('.end-day')
+                    const endDayWeek = document.querySelectorAll('.end-dayweek')
+                    const endMonth = document.querySelectorAll('.end-month')
 
-                    //format date and inputs
-                    formatInput(start, startInput)
-                    formatInput(end, endInput)
+                    // Show selected days
+                    for (let i = 0; i < startDay.length; i++) {
+                        showDay(start, startDay[i]);
+                    }
+                    for (let i = 0; i < endDay.length; i++) {
+                        showDay(end, endDay[i]);
+                    }
+                    // Show selected day on week
+                    for (let i = 0; i < startDayWeek.length; i++) {
+                        showDayWeek(start, startDayWeek[i]);
+                    }
+                    for (let i = 0; i < endDayWeek.length; i++) {
+                        showDayWeek(end, endDayWeek[i]);
+                    }
+                    // Show selected month
+                    for (let i = 0; i < startMonth.length; i++) {
+                        showMonth(start, startMonth[i]);
+                    }
+                    for (let i = 0; i < endMonth.length; i++) {
+                        showMonth(end, endMonth[i]);
+                    }
 
 
-                    // if inputs are filled, show set as 'active' and enable button
+                    // Set date to input value
+                    const startInput = document.querySelectorAll('.start-date')
+                    const endInput = document.querySelectorAll('.end-date')
+
+                    for (let i = 0; i < startInput.length; i++) {
+                        formatInput(start, startInput[i]);
+                    }
+                    for (let i = 0; i < endInput.length; i++) {
+                        formatInput(end, endInput[i]);
+                    }
+
+
+                    // If date inputs are filled:
+                    // - Set as 'active' 
+                    // - Enable button
+                    // - Mobile: show input dates
                     const searchButton = document.getElementById('search__button')
+                    const continueButton = document.getElementById('continue-date__button')
+                    const emptyInputMobile = document.getElementById('mobile-empty-dates')
+                    const datesMobile = document.querySelectorAll('.mobile-dates')
 
-                    if(startInput.value !== '' && endInput.value !== '') {
+
+                    if(startInput[0].value !== '') {
                         document.getElementById('set-dates').classList.add('active')
-                        searchButton.removeAttribute('disabled')
+                        searchButton.setAttribute('disabled')
+                        continueButton.setAttribute('disabled')
+                        
+                        if(endInput[0].value !== '') {
+                            searchButton.removeAttribute('disabled')
+                            continueButton.removeAttribute('disabled')
+                        }
+
+                        // mobile
+                        if (vWidth <= 767) {
+                            emptyInputMobile.classList.add('hidden');
+
+                            for (let i = 0; i < datesMobile.length; i++) {
+                                datesMobile[i].classList.remove('hidden');
+                            }
+                            // datesMobile.classList.remove('hidden');
+                        }
                     } else {
                         document.getElementById('set-dates').classList.remove('active')
                         searchButton.setAttribute('disabled')
-                    }
+                        continueButton.setAttribute('disabled')
 
+                        // mobile
+                        if (vWidth <= 767) {
+                            emptyInputMobile.classList.remove('hidden');
+                            datesMobile.classList.add('hidden');
+                        }
+                    }
                 }),					
                 picker.on('view', (e) => {
                     const { view, date, target } = e.detail;
+                    
+                    if (view === 'Footer') {
+
+                        let mainElement = e.target.querySelector('main');
+
+
+                        if (scrollTopPosition !== 'undefined'){
+                            mainElement.scrollTop = scrollTopPosition;
+                        }
+
+                        // calendarsHeight(e)
+
+
+                        // Tooltip mobile
+                        let tooltip = e.target.querySelector('.range-plugin-tooltip')
+                        
+                        mainElement.addEventListener("mouseover", function() {
+                            let tooltipValue = tooltip.innerHTML
+                            // console.log(tooltipValue)
+                        })
+                    }
                     
                     if (view === 'CalendarDay') {							
                         target.dataset.day = date.getDate(); //add the data-day attribute to the days in order to use it as a 'content' in the css ::after selector
                         
                         if (date <= new Date()) target.classList.add('disabled') //disable days before tomorrow
-                    }	
-
-                    if (view === 'CalendarDayName') {                
+                    }
+                    
+                    if (view === 'CalendarDayName') {
+                        arrayDays('{{ App::getLocale() }}', target)
                         dayName('{{ App::getLocale() }}', target)
                     }
                     
@@ -122,25 +271,39 @@
             DATE FORMAT
         ********************/
 
-        const formatDate = function(d) {
-            if (d) {
-                return d.getDate() + " " + monthNames('{{ App::getLocale() }}', d.getMonth())
-            } else {
-                return ''
+        const showDay = function(date, element) {
+            if (date) {
+                element.innerHTML = date.getDate()            
+            }
+        }
+
+        const showDayWeek = function(date, element) {
+            if (date) {
+                element.innerHTML = arrayWeekDays[date.getDay()]            
+            }
+        }
+
+        const showMonth = function(date, element) {
+            if (date) {
+                element.innerHTML = monthNames('{{ App::getLocale() }}', date.getMonth())          
             }
         }
 
         const monthNames = function(locale, month) {
             let monthNames = [];
             
-            monthNames['en'] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            monthNames['es'] = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"];
+            monthNames['en'] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            monthNames['es'] = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
 
             return monthNames[locale][month]
         }
 
         const formatInput = function(date, input) {
-            input.value = formatDate(date)
+            if (date) {
+                input.value = date.format( 'DD-MM-YYYY', '{{ App::getLocale() }}')
+            } else {
+                input.value = ''
+            }
             
             toggleClassToInputGroup(input, 'active', date)
         }
@@ -151,7 +314,9 @@
             } else {
                 input.parentElement.classList.remove(klass)
             }
-        }			
+        }		
+
     });		
+
 </script>
 @endpush

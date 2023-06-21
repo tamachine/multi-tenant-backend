@@ -40,21 +40,27 @@ input:invalid, textarea:invalid, select:invalid {
  * .form-input { ... }
  */
 
+* {
+    @apply selection:bg-pink-red selection:text-white;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
+* {-webkit-tap-highlight-color: transparent;}
+
 h1 {
     @apply
-        font-fredoka-semibold font-normal text-pink-red text-center leading-[46px] md:leading-[76px]
-        text-4xl md:text-7xl;
+        font-fredoka-semibold font-normal text-pink-red text-center 
+        text-4xl sm:text-5xl lg:text-7xl leading-[1.2em];
 }
 
 h2 {
     @apply
         font-fredoka-semibold font-normal text-pink-red tracking-[-0.005em]
         leading-[1.05em]
-        text-[40px] md:text-5xl;
+        text-4xl lg:text-5xl;
 }
 
 h3 {
@@ -67,6 +73,10 @@ h4 {
 
 h5 {
     @apply font-fredoka-semibold font-normal text-pink-red text-[28px] text-center;
+}
+
+a, button {
+    -webkit-tap-highlight-color: transparent
 }
 
 .btn {
@@ -86,7 +96,7 @@ h5 {
 }
 
 .btn-border {
-    @apply inline-block rounded-[10px] text-base py-[14px] px-6 mt-10 font-normal text-black-primary border-pink-red border hover:bg-pink-red-secondary;
+    @apply inline-block rounded-[10px] text-base py-[14px] px-6 font-normal text-black-primary border-pink-red border hover:bg-pink-red-secondary;
 }
 
 .btn-black {
@@ -101,7 +111,7 @@ h5 {
 }
 
     .search-input-group:not(:first-child) {
-        @apply before:content-[''] before:w-[14px] before:h-[14px] before:absolute before:top-[50%] before:left-[-18px] lg:before:left-[-24px] before:translate-y-[-50%] before:bg-[url('/images/icons/arrow-right-gray.svg')] before:bg-no-repeat before:bg-center before:bg-contain;
+        @apply md:before:content-[''] md:before:w-[14px] md:before:h-[14px] md:before:absolute md:before:top-[50%] md:before:left-[-18px] lg:before:left-[-24px] before:translate-y-[-50%] before:bg-[url('/images/icons/arrow-right-gray.svg')] before:bg-no-repeat before:bg-center before:bg-contain;
     }
 
     .search-input-group.active {
@@ -115,22 +125,22 @@ h5 {
 
     .search-input-set:nth-child(2) {
         @apply relative
-               before:content-[''] before:absolute before:top-[20%] before:left-[-0.27rem] before:inline-block before:w-[1px] before:h-[60%] before:bg-gray-secondary;
+               before:content-[''] before:absolute before:top-[20%] md:before:left-[-0.27rem] before:inline-block before:w-[1px] before:h-[60%] before:bg-gray-secondary;
         ;
     }
 
 .search-input-label {
-    @apply absolute w-full top-[9px] lg:top-[6px] text-center;
+    @apply absolute w-full top-[9px] text-center;
 }
 
 
 .search-input-label label {
-    @apply font-sans-medium text-base lg:text-lg leading-tight cursor-pointer;
+    @apply font-sans-medium text-lg leading-tight cursor-pointer transition-all duration-200 ease-in-out;
 }
 
 .search-input {
     @apply
-        absolute top-[39px] z-10
+        absolute top-[38px] z-10
         cursor-pointer
         w-full
         text-sm lg:text-base text-center
@@ -139,32 +149,80 @@ h5 {
         caret-transparent
         py-0
         px-1.5
-        placeholder:text-gray-light placeholder:text-sm lg:placeholder:text-base
+        placeholder:text-gray-light placeholder:text-base
         whitespace-nowrap
         overflow-hidden
         text-ellipsis
 }
 
  #set-locations .search-input-set:not(.active) .search-input {
-    @apply top-[41px]
+    @apply top-[40px]
  }
 
-/* Active */
+    /* Active */
+    
+    .search-input-set.active .search-input-label {
+        @apply top-[7px];
+    }
+    .search-input-set.active .search-input-label label {
+        @apply text-pink-red text-sm;
+    }
 
-.search-input-set.active .search-input-label {
-    @apply top-[7px];
-}
-.search-input-set.active .search-input-label label {
-    @apply text-pink-red text-sm;
-}
+    .search-input-set.active .search-input {
+        @apply top-[37px] text-base lg:text-[17px] font-sans-medium;
+    }
 
-.search-input-set.active .search-input {
-    @apply top-[36px] text-base lg:text-lg font-sans-medium;
-}
+    #set-dates .search-input-set.active .search-input,
+    .mobile-dates .search-input-set.active .search-input {
+        @apply hidden;
+    }
+    
+    #set-dates .search-input-set.active .selected,
+    #mobile-dates .search-input-set.active .selected {
+        @apply inline-block absolute bottom-[10px] w-full z-10 cursor-pointer;
+    }
 
-#set-dates .search-input-set.active .search-input {
-    @apply top-[36px] text-lg lg:text-[22px] font-sans-bold;
+    .easepick-wrapper {
+        position: unset !important;
+        @apply inline-block w-full;
+    }
+
+#resume label {
+    @apply text-gray-light font-sans
 }
+    
+        #resume .resume-selected {
+            @apply text-black
+        }
+    
+        #resume select {
+            @apply w-full h-full border-none text-transparent bg-transparent bg-none p-0 ring-0 focus:ring-0;
+        }
+    
+        #resume .search-info {
+            @apply absolute top-0 left-0 w-full h-full flex items-center px-[5%]
+        }
+    
+        #resume .search-input-label {
+            position: unset;
+            @apply w-auto
+        }
+        #resume .search-input-label label {
+            @apply text-black
+        }
+        
+        #resume .resume-selected {
+            position: unset;
+            @apply inline-flex items-baseline justify-center gap-0.5 flex-1 pr-[2px]
+        }
+    
+        #resume .mobile-dates .search-input-set.active .selected {
+            @apply inline-block flex-1
+        }
+    
+        #resume .select-arrow {
+            @apply translate-y-[3px]
+        }
 
 .easepick-wrapper {
     position: unset !important;
@@ -265,10 +323,6 @@ picture img {
     @apply overflow-hidden transition-[height] duration-300 ease-in-out;
 }
 
-.searchbar-popover.hidden  {
-    @apply inline-block !h-0;
-}
-
 .searchbar-popover.position-top {
     @apply top-full
 }
@@ -277,16 +331,35 @@ picture img {
     @apply bottom-full
 }
 
+.searchbar-popover .searchbar-popover__layer {
+    @apply 
+        bg-white mx-auto pointer-events-auto
+        rounded-t-[20px] rounded-b-none md:rounded-none
+        fixed top-[72px] md:relative md:top-0 
+        z-[99];
+}
+
 .searchbar-popover.position-top .searchbar-popover__layer {
-    @apply rounded-b-[20px];
+    @apply md:rounded-b-[20px];
 }
 
 .searchbar-popover.position-bottom .searchbar-popover__layer {
-    @apply rounded-t-[20px];
+    @apply md:rounded-t-[20px];
 }
 
+    @media (max-width: 767px) {
+        .searchbar-popover .searchbar-popover__layer {
+            box-shadow: 0 -5px 9px 0 rgba(0,0,0,0.1);
+            height: calc(100dvh - 72px);
+        }
+
+        .searchbar-popover .easepick-wrapper {
+            overflow: auto;
+        }
+    }
+
 .toggle-selector {
-    @apply relative text-gray-light text-xs py-2 px-4;
+    @apply relative text-black text-xs py-2 px-4;
 }
 .toggle-selector.active {
     @apply text-white;
@@ -333,3 +406,11 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 100px rgba(0,0,0,0) inset;
 }
 
+button {
+    @apply disabled:opacity-50 disabled:cursor-not-allowed
+}
+
+.modal-open {
+    height: 100dvh;
+    @apply overflow-y-hidden
+}

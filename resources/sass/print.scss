@@ -1,3 +1,29 @@
+@font-face {
+  font-family: 'CabinSemiBold';
+  src: url('/fonts/Cabin/Cabin-SemiBold.ttf');    
+  font-weight: 600;    
+}
+
+@font-face {
+  font-family: 'DMSansBold';
+  src: url('/fonts/DMSans/DMSans-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'DMSansMedium';
+  src: url('/fonts/DMSans/DMSans-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'DMSansRegular';
+  src: url('/fonts/DMSans/DMSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'FredokaOne';
+  src: url('/fonts/FredokaOne/FredokaOne-Regular.ttf');    
+}
+
 @tailwind base;
 
 @tailwind components;
@@ -25,4 +51,16 @@ html, body {
     width: 190mm;
     height: 277mm;
     margin: 5mm 10mm;
+}
+
+.bg-gray-50 {
+  background-color:#F9FAFB;
+}
+
+.bg-gray-100 {
+  background-color:#F3F4F6;
+}
+
+.text-pink-red {
+  color: #E11166;
 }

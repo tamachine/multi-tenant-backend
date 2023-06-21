@@ -1,1 +1,5 @@
-<livewire:web.car-search-results :dates="$dates" :locations="$locations"/> 
+<livewire:web.car-search-results 
+    :dates="$dates" 
+    :locations="$locations"
+    :widthFillScreen="true" 
+/>

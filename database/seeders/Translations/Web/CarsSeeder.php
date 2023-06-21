@@ -325,7 +325,17 @@ class CarsSeeder extends Seeder
             [                
                 'text' => ['en' => 'Features', 'es' => 'Cracterísticas'],                
             ]
-        );  
+        ); 
+        
+        Translation::firstOrCreate(
+            [
+                'group' => 'cars',
+                'key'   => 'card-price-start',    
+            ],
+            [                
+                'text' => ['en' => 'Starting at', 'es' => 'Desde'],                
+            ]
+        ); 
 
         Translation::firstOrCreate(
             [
@@ -333,7 +343,7 @@ class CarsSeeder extends Seeder
                 'key'   => 'card-perday',    
             ],
             [                
-                'text' => ['en' => 'Per day', 'es' => 'Al día'],                
+                'text' => ['en' => '/day', 'es' => '/día'],                
             ]
         ); 
 

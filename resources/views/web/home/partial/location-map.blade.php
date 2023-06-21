@@ -6,7 +6,7 @@
                 >
             <div
                 class="
-                md:mt-32 mx-6 md:mx-0 p-3 md:p-4
+                md:mt-32 mx-6 md:mx-0 p-3 sm:px-8 md:p-4
                 md:w-fit
                 bg-pink-red-secondary
                 md:rounded-2xl rounded-[10px]"
@@ -47,7 +47,7 @@
     <div class="w-full relative
         before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-[140px]
         before:bg-gradient-to-b before:from-white before:via-[20%] before:via-white before:to-transparent before:z-10">
-        <div class="md:rounded-2xl rounded-[10px] p-3 md:p-5 pb-7 border-[#E7ECF3] border">
+        <div class="md:rounded-2xl rounded-[10px] p-3 sm:px-8 md:p-5 pb-7 border-[#E7ECF3] border">
             <div
                 id="location-map"
                 class="h-[335px] md:h-[500px] w-full md:rounded-2xl rounded-[10px] "
@@ -87,7 +87,7 @@
                     const map = new google.maps.Map(locationMapElement, {
                         zoom: 13,
                         center: reykjavikAuto,
-                        mapId: '307e19008875bc83', {{-- https://console.cloud.google.com/google/maps-apis/studio/maps?authuser=3&project=website-368713 --}}
+                        mapId: '307e19008875bc83', /* https://console.cloud.google.com/google/maps-apis/studio/maps?authuser=3&project=website-368713 */
                         disableDefaultUI: true,
                         gestureHandling: "greedy"
                     });

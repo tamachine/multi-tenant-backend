@@ -28,16 +28,24 @@ class IconText extends Component
      */
     public $isColumn;
 
+
+    /**
+     *
+     * @var string
+     */
+    public $iconClasses;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($iconPath, $text, $isColumn = true)
+    public function __construct($iconPath, $text, $isColumn = true, $iconClasses = "")
     {
         $this->iconPath = $iconPath;
         $this->text = $text;
         $this->isColumn = $isColumn;
+        $this->iconClasses = $iconClasses;
     }
 
     /**

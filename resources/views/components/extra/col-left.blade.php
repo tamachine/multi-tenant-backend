@@ -1,6 +1,6 @@
-<div class="grid grid-cols-[96px_1fr] md:grid-cols-[170px_auto] gap-3 md:gap-10 p-3 md:p-8">
+<div class="grid grid-cols-[96px_1fr] md:grid-cols-[170px_auto] gap-3 md:gap-10 p-3 sm:px-8 md:p-8">
     <div class="md-max:h-24 relative">        
-        @if(!empty($extra->featured_image_url))                    
+        @if(!empty($extra->featured_image_url))
             <x-image :modelImage="$extra->getFeaturedImageModelImageInstance()" class="rounded-xl md-max:w-24 md-max:h-24 md-max:object-cover" /> 
         @endif
         <div

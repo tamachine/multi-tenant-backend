@@ -3,7 +3,7 @@
         {{$car->name}}
     </div>
 
-    <img class="mt-8 mx-auto rounded-t-2lg w-80 max-h-48 object-cover object-center" src="{{ $mainImage }}">
+    <img class="mt-8 mx-auto rounded-t-2lg overflow-hidden" src="{{ $mainImage }}">
 
     <div class="mt-8 flex justify-between">
         <div>

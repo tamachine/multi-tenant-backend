@@ -32,7 +32,7 @@ use App\Http\Controllers\Web\BlogSearchAuthorController;
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(), 
-        'middleware' => [ 'localize' ]
+        'middleware' => [ 'localize', 'localizationRedirect' ]
     ],  function()
 {
 
@@ -81,8 +81,5 @@ Route::group(
      
     if (!App::runningInConsole()) { //to fix migrations to fail. Routes are loading before migrations but they are database dependant.           
         RoutesForPages::registerRoutes(); // Routes stored in database (Pages)
-    }
-    
-    /* Booking process */
-    Route::get('booking/{booking}/pdf', [BookingController::class, 'pdf'])->name('booking.pdf');   
+    }    
 });

@@ -48,7 +48,7 @@ class Success extends Component
         if($this->car->featured_image) {
             $this->mainImage = $this->car->featured_image_url;
         } else {
-            $this->mainImage = asset('images/cars/default-car.svg');
+            $this->mainImage = asset('images/cars/default-car.jpg');
         }
 
         $this->bookingPickupDate = $sessionData['from']->isoFormat("MMMM D, Y");
