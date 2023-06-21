@@ -1,9 +1,7 @@
-<nav x-data="visibilitySelector()" @languageSelector-show="show()" class="max-w-7xl mx-auto flex items-center justify-between flex-wrap p-3 md:px-4 md:py-5 border md:border-0 border-gray-secondary bg-white relative z-50">
-    <div class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-2xl lg:text-3xl leading-9 cursor-pointer"
-        onclick='window.location.href="{{route("home")}}"'
-    >
+<nav x-data="visibilitySelector()" @languageSelector-show="show()" class="max-w-7xl mx-auto flex items-center justify-between flex-wrap p-3 md:px-4 md:py-5 border md:border-0 border-[#E7ECF3] bg-white relative z-50">
+    <a href="{{route("home")}}" class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-2xl lg:text-3xl leading-9">
         {{ __('general.brand') }}
-    </div>
+    </a>
 
     {{-- mobile --}}
     <div
@@ -83,7 +81,11 @@
                             <a href="{{ route('cars') }}" class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-gray-secondary  focus:bg-gray-secondary cursor-pointer">{!! __('navbar.cars-button') !!}</a>
                         </div>
                     </div>
+<<<<<<< HEAD
+                    <div class="text-center text-pink-red font-fredoka-semibold text-[26px] py-5 h-full flex items-center justify-center">
+=======
                     <div class="text-center text-pink-red font-fredoka font-semibold text-xl py-5 flex items-center justify-center">
+>>>>>>> 5f254b68158b3a2b8aa1384dd5cc9086abdba817
                         {!! __('navbar.cars-title') !!}
                     </div>
                 </div>
@@ -95,7 +97,7 @@
                         <a href="{{ route('contact') }}">{{ __('navbar.contact') }}</a>
                     </div>
                 </div>
-                <div class="font-fredoka font-semibold text-center pt-5 pb-10">
+                <div class="font-fredoka-semibold text-center pt-5 pb-10">
                     <div class="grid grid-cols-2 gap-10">
                         <div class="flex flex-col justify-center items-center gap-3" x-on:click="open()">
                             <div class="text-[#B1B5C3]">{!! __('general.languages-language') !!}</div>

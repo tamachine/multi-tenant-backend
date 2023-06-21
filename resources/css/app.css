@@ -40,6 +40,10 @@ input:invalid, textarea:invalid, select:invalid {
  * .form-input { ... }
  */
 
+* {
+    @apply selection:bg-pink-red selection:text-white;
+}
+
 html {
     scroll-behavior: smooth;
 }

@@ -26,7 +26,7 @@
                 ($loop->first && $loop->parent->index <= 1) ||
                 ($loop->index == 1 && (($loop->parent->index <= 3) || ($loop->parent->remaining == 1)))
                 )
-                <img class="mx-auto" src="{{ asset('images/icons/check-circle.svg') }}" />
+                <img class="mx-auto w-[24px]" src="{{ asset('images/icons/check-white.svg') }}" />
             @endif
         </td>
         @endforeach
