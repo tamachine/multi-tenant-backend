@@ -1,5 +1,5 @@
-<footer class="pt-28 md:pt-36">
-    <div class="max-w-6xl mx-auto px-10 pb-5 md:pb-0 text-pink-red text-5xl md:text-8xl text-center md:text-left leading-[50px] md:leading-[110px] font-fredoka-semibold">
+<footer class="max-w-6xl mx-auto pt-28 md:pt-36">
+    <div class="px-3 sm:px-8 md:px-10 pb-5 md:pb-0 text-pink-red text-5xl md:text-8xl text-center md:text-left font-semibold leading-[50px] md:leading-[110px] font-fredoka-semibold">
         {!! __('footer.title') !!}
     </div>
     <div
@@ -9,8 +9,8 @@
             <x-image :path="$footerImagePath" class="w-full h-[587px] md:h-auto object-cover" />
             
             <div class="absolute md:top-[5%] top-0 left-0 right-0 bottom-0 z-10 text-lg">
-                <div class="max-w-6xl mx-auto p-3">
-                    <div class="max-w-96 px-10 md:text-left text-center mx-auto md:mx-0">
+                <div class="max-w-6xl mx-auto px-3 sm:px-8 md:px-14">
+                    <div class="max-w-xs text-center md:text-left mx-auto md:mx-0">
                         <span>{!! __('footer.text') !!}</span>
                         <div class="flex gap-4 pt-7 md:pt-3 justify-center md:justify-start">
                             <x-social color="red"/>
@@ -18,11 +18,11 @@
                     </div>
                 </div>
             </div>
+            
     </div>
     <div class="bg-[#070000] w-fill-screen">
-        <div class="max-w-6xl mx-auto md:p-3 px-1">
-
-            <div class="bg-[#1C1C1C] flex flex-col gap-5 md:gap-3 md:flex-row flex-between items-center rounded-xl px-3 md:px-9 py-7">
+        <div class="max-w-6xl mx-auto px-1 md:py-3">
+            <div class="bg-[#1C1C1C] flex flex-col gap-5 md:gap-0 md:flex-row flex-between items-center text-[#8c8c8c] rounded-xl px-3 sm:px-8 md:px-9 py-7">
                 <div class="flex-1 flex flex-col w-full">
                     <div class="font-fredoka-medium font-medium text-2xl text-white">{!! __('footer.newsletter-title') !!}</div>
                     <div class="text-[#8c8c8c] md:text-base text-sm">{!! __('footer.newsletter-text') !!}</div>
@@ -37,7 +37,7 @@
                 grid grid-cols-2 gap-10 md:gap-0 md:flex md:justify-between
                 w-full
                 font-medium text-gray-secondary text-sm md:text-base
-                px-3 md:px-14 py-12"
+                px-3 sm:px-8 md:px-14 py-12"
                 >
                 @for ($i = 1; $i <= 4; $i++)
                 <div>
@@ -53,7 +53,7 @@
 
             <div class="
                 grid grid-cols-[auto_1fr] md:grid-cols-[1fr_auto_1fr] justify-center items-center gap-y-10 md:gap-0
-                px-3 md:px-[14px] pb-10 md:pb-7"
+                px-3 sm:px-8 md:px-[14px] pb-10 md:pb-7"
                 >
                 <div class="flex flex-col">
                     <a href="{{route("home")}}" class="font-fredokaOne text-3xl text-pink-red">{{ __('general.brand') }}</a>

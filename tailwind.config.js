@@ -82,6 +82,7 @@ module.exports = {
                 '7xl': '1440px',
             },
             lineHeight: {
+                'mini': '0.85',
                 'extra-loose': '1.8',
             },
             padding: {
