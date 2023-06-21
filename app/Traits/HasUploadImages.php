@@ -5,6 +5,7 @@ namespace App\Traits;
 use Illuminate\Support\Facades\Storage;
 use App\Traits\HasWebp;
 use App\Traits\HasImages;
+use App\Traits\HasFiles;
 
 /**
  * This trait uploads and deletes images in the storage public folder
@@ -12,9 +13,9 @@ use App\Traits\HasImages;
  */
 trait HasUploadImages
 {        
-    use HasWebp, HasImages;
+    use HasWebp, HasImages, HasFiles;
 
-    protected $disk = 'public';
+    protected $disk = 'images';
 
      /**
      * When any model is deleted we need to delete all the images     
@@ -111,34 +112,7 @@ trait HasUploadImages
         if (Storage::disk($this->disk)->exists($path)) {
             Storage::disk($this->disk)->delete($path);
         }
-    }    
-
-    /**
-     * The folder to store the image
-     * 
-     * @return string 'model/hashid'
-     */
-    protected function getFolderPath() {
-        return $this->getModelFolder() . '/' . $this->getInstanceFolder();
-    }
-
-    /**
-     * The name of the model for the folder
-     * 
-     * @return string 'blogpost, extra, car  ...'
-     */
-    protected function getModelFolder() {
-        return strtolower(class_basename($this));
-    }
-
-    /**
-     * The id for the instance folder
-     * 
-     * @return string 'usually hashid'
-     */
-    protected function getInstanceFolder() {
-        return $this->hashid;
-    }     
+    }         
 
     /**
      * Checks if the corresopnding webp image for the path exists in the storage

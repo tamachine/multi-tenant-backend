@@ -7,6 +7,7 @@
     >
     <head>
         <meta charset="utf-8">
+        <meta name="theme-color" content="#E11166" >
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <x-seo-tags />
@@ -18,6 +19,7 @@
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
         <!-- Styles -->
+        <link rel="preload" href="/css/preload.css" as="style" /> {{-- Hoja de estilos de la precarga --}}
         <link href="/css/app.css" rel="stylesheet">
         @livewireStyles
 
