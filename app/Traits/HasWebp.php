@@ -11,7 +11,7 @@ use Spatie\Image\Manipulations;
  */
 trait HasWebp
 {        
-    protected $disk = 'public';
+    protected $disk = 'images';
     
     /**
      * Creates a webp image

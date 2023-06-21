@@ -4,10 +4,6 @@
 
     <div class="intro relative">
         @include('web.home.partial.hero')
-        
-        <div class="searcher absolute bottom-[-20px] w-full z-30">
-            <x-car-search-bar />
-        </div>
     </div>
     
     <div class="max-w-6xl mx-auto p-3 sm:px-8 md:p-10 xl:px-0">

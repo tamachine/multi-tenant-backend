@@ -97,6 +97,10 @@ module.exports = {
             },
             width: {
                 '6xl': '1170px',
+                'screen': '100dvw',
+            },
+            height: {
+                'screen': '100dvh',
             },
             dropShadow: {
                 'text': '0 6px 20px rgba(0, 0, 0, 0.4)',

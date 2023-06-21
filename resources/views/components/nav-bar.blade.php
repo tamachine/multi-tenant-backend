@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 <nav x-data="visibilitySelector()" @languageSelector-show="show()" class="max-w-7xl mx-auto flex items-center justify-between flex-wrap p-3 sm:px-8 md:px-4 md:py-5 border md:border-0 border-gray-secondary bg-white relative z-50">
     <div class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-2xl lg:text-3xl leading-9 cursor-pointer"
         onclick='window.location.href="{{route("home")}}"'
     >
+=======
+<nav x-data="visibilitySelector()" @languageSelector-show="show()" class="max-w-7xl mx-auto flex items-center justify-between flex-wrap p-3 md:px-4 md:py-5 border md:border-0 border-[#E7ECF3] bg-white relative z-50">
+    <a href="{{route("home")}}" class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-2xl lg:text-3xl leading-9">
+>>>>>>> f76fed2a627d903aa4a333d5d8e5210d2f9dd7f4
         {{ __('general.brand') }}
-    </div>
+    </a>
 
     {{-- mobile --}}
     <div
@@ -53,7 +58,7 @@
 <div
     x-cloak
     class="
-        md:hidden fixed w-screen top-[60px] left-0 h-[calc(100vh_-_20px)] {{-- the screen, minus 60px for the top position, plus 20px for every bottom line (red and black) so -60 +20 +20 = 100vh -20px --}}
+        md:hidden fixed w-screen top-[60px] left-0 h-[calc(100dvh_-_20px)] {{-- the screen, minus 60px for the top position, plus 20px for every bottom line (red and black) so -60 +20 +20 = 100dvh -20px --}}
         bg-white z-40 overflow-hidden"
     x-show="showMobileNavBar"
     x-transition:enter="transition ease-out duration-700"
@@ -66,9 +71,9 @@
     x-data="visibilitySelector()"
     >
     <div class="flex flex-col h-full justify-between">
-        <div class="h-full">
+        <div class="h-full overflow-auto">
             <div class="flex flex-col divide-y h-full">
-                <div class="h-full p-9 pb-0 flex flex-col items-center justify-between">
+                <div class="h-full p-9 pb-0 flex flex-col items-center justify-around">
                     <div class="grid grid-cols-2 justify-center items-center text-center gap-y-8 gap-x-9">
                         @if (isset($carCategories))
                             @foreach($carCategories as $carType)
@@ -80,10 +85,14 @@
                         @endif
 
                         <div>
-                            <button class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-gray-secondary cursor-pointer">{!! __('navbar.cars-button') !!}</button>
+                            <a href="{{ route('cars') }}" class="btn font-fredoka font-medium text-sm text-black-primary p-4 border border-gray-secondary  focus:bg-gray-secondary cursor-pointer">{!! __('navbar.cars-button') !!}</a>
                         </div>
                     </div>
-                    <div class="text-center text-pink-red font-fredoka font-semibold text-[26px] py-5 h-full flex items-center justify-center">
+<<<<<<< HEAD
+                    <div class="text-center text-pink-red font-fredoka-semibold text-[26px] py-5 h-full flex items-center justify-center">
+=======
+                    <div class="text-center text-pink-red font-fredoka font-semibold text-xl py-5 flex items-center justify-center">
+>>>>>>> 5f254b68158b3a2b8aa1384dd5cc9086abdba817
                         {!! __('navbar.cars-title') !!}
                     </div>
                 </div>
@@ -95,7 +104,7 @@
                         <a href="{{ route('contact') }}">{{ __('navbar.contact') }}</a>
                     </div>
                 </div>
-                <div class="font-fredoka font-semibold text-center pt-5 pb-10">
+                <div class="font-fredoka-semibold text-center pt-5 pb-10">
                     <div class="grid grid-cols-2 gap-10">
                         <div class="flex flex-col justify-center items-center gap-3" x-on:click="open()">
                             <div class="text-[#B1B5C3]">{!! __('general.languages-language') !!}</div>
@@ -123,7 +132,7 @@
     </div>
 
     <div
-        class="md:hidden fixed w-screen top-[60px] left-0 h-[calc(100vh_-_20px)]" {{-- the screen, minus 60px for the top position, plus 20px for every bottom line (red and black) so -60 +20 +20 = 100vh -20px --}}
+        class="md:hidden fixed w-screen top-[60px] left-0 h-[calc(100dvh_-_20px)]" {{-- the screen, minus 60px for the top position, plus 20px for every bottom line (red and black) so -60 +20 +20 = 100vh -20px --}}
         x-cloak
         x-show="visibility()"
 
