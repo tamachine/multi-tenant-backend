@@ -69,6 +69,10 @@ h5 {
     @apply font-fredoka-semibold font-normal text-pink-red text-[28px] text-center;
 }
 
+a, button {
+    -webkit-tap-highlight-color: transparent
+}
+
 .btn {
     @apply rounded-xl text-xl px-12 py-4 font-sans-bold;
 }
