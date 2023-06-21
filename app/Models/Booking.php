@@ -3,16 +3,15 @@
 namespace App\Models;
 
 use App\Traits\HashidTrait;
+use App\Traits\HasPdf;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Storage;
 
 class Booking extends Model
 {
-    use HasFactory, Notifiable, HashidTrait, SoftDeletes;    
+    use HasFactory, HashidTrait, SoftDeletes, HasPdf;    
 
     /**
      * The attributes that are mass assignable.
@@ -43,23 +42,18 @@ class Booking extends Model
         'caren_info'    => 'array',
         'pickup_at'     => 'datetime',
         'dropoff_at'    => 'datetime',
-    ];
-
-    /**********************************
-     * Methods
-     **********************************/
+    ];     
 
     /**
-     * Delete any old versions of the PDF
+     * Route notifications for the mail channel.
      *
-     * @return     void
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @return array|string
      */
-    public function deleteOldPdf()
-    {
-        if (Storage::disk('public')->exists('bookings/pdf/' . $this->hashid . '.pdf')) {
-            Storage::disk('public')->delete('bookings/pdf/' . $this->hashid . '.pdf');
-        }
-    }    
+    public function routeNotificationForMail($notification)
+    {        
+        return $this->email;        
+    }
 
     /**********************************
      * Accessors & Mutators
@@ -95,18 +89,6 @@ class Booking extends Model
     public function getIsCarenAttribute()
     {
         return $this->caren_id || $this->vendor->caren_settings;
-    }
-
-    /**
-     * Get the booking's PDF path
-     *
-     * @return     string
-     */
-    public function getPdfPathAttribute()
-    {
-        return Storage::disk('public')->exists('bookings/pdf/' . $this->hashid . '.pdf')
-            ? asset('storage/bookings/pdf/' . $this->hashid . '.pdf')
-            : '';
     }
 
     /**
