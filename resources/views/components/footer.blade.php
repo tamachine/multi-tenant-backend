@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 <footer class="max-w-6xl mx-auto pt-28 md:pt-36">
     <div class="px-3 sm:px-8 md:px-10 pb-5 md:pb-0 text-pink-red text-5xl md:text-8xl text-center md:text-left font-semibold leading-[50px] md:leading-[110px] font-fredoka-semibold">
-=======
-<footer class="pt-28 md:pt-36">
-    <div class="max-w-6xl mx-auto px-10 pb-5 md:pb-0 text-pink-red text-5xl md:text-8xl text-center md:text-left leading-[50px] md:leading-[110px] font-fredoka-semibold">
->>>>>>> f76fed2a627d903aa4a333d5d8e5210d2f9dd7f4
         {!! __('footer.title') !!}
     </div>
     <div
@@ -27,12 +22,7 @@
     </div>
     <div class="bg-[#070000] w-fill-screen">
         <div class="max-w-6xl mx-auto px-1 md:py-3">
-
-<<<<<<< HEAD
             <div class="bg-[#1C1C1C] flex flex-col gap-5 md:gap-0 md:flex-row flex-between items-center text-[#8c8c8c] rounded-xl px-3 sm:px-8 md:px-9 py-7">
-=======
-            <div class="bg-[#1C1C1C] flex flex-col gap-5 md:gap-3 md:flex-row flex-between items-center rounded-xl px-3 md:px-9 py-7">
->>>>>>> f76fed2a627d903aa4a333d5d8e5210d2f9dd7f4
                 <div class="flex-1 flex flex-col w-full">
                     <div class="font-fredoka-medium font-medium text-2xl text-white">{!! __('footer.newsletter-title') !!}</div>
                     <div class="text-[#8c8c8c] md:text-base text-sm">{!! __('footer.newsletter-text') !!}</div>
