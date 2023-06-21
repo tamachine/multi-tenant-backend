@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
         <!-- Styles -->
+        <link rel="preload" href="/css/preload.css" as="style" /> {{-- Hoja de estilos de la precarga --}}
         <link href="/css/app.css" rel="stylesheet">
         @livewireStyles
 

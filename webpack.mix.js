@@ -23,6 +23,7 @@ mix
         require('tailwindcss'),
     ])
     .copy('node_modules/tinymce/skins', 'public/js/skins')
+    .postCss('resources/css/preload.css', 'public/css')
     .postCss('resources/css/easepick.css', 'public/css') //it is needed here to avoid overriding css classes when using easepick
     .sass('resources/sass/admin.scss', 'public/css')
     .sass('resources/sass/print.scss', 'public/css')
