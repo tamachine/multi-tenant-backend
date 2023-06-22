@@ -60,7 +60,7 @@ trait HasPdf
     /**
      * Uploads a pdf file
      */
-    public function uploadPdf() {
+    public function createPdf() {
         $this->loadPdf()->save($this->pdf_path, $this->pdf_disk);
     }
 
