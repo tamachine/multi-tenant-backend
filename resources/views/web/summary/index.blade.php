@@ -147,13 +147,9 @@
 
     <div class="mt-2">
         <button class="w-full rounded-lg text-white font-sans-bold py-4 text-lg bg-pink-red hover:bg-black-ci disabled:bg-[#B1B5C3]"
-            wire:click="continue"
+            wire:click="continue"            
         >
             {!! $buttonText !!}
-        </button>
-        
-        @if($generateValitorForm)                        
-            <x-valitor-form :booking="$booking" />
-        @endif
+        </button>        
     </div>
 </div>
