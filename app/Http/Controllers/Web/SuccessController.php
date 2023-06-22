@@ -47,7 +47,7 @@ class SuccessController extends BaseController
 
     protected function setValitorResponseToBooking() {
        
-        $this->booking->valitor_response = json_encode(request()->all());
+        $this->booking->valitor_response = request()->all();
         $this->booking->save();                
     }
 

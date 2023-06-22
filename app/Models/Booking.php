@@ -47,6 +47,8 @@ class Booking extends Model
         'caren_info'    => 'array',
         'pickup_at'     => 'datetime',
         'dropoff_at'    => 'datetime',
+        'valitor_request' => 'array',
+        'valitor_response' => 'array'
     ];     
 
     /**

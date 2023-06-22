@@ -44,7 +44,7 @@ class ValitorForm extends Component
      * Sets the valitor_request attribute to the booking
      */
     protected function setValitorRequestToBooking() {
-        $this->booking->valitor_request = json_encode($this->params);
+        $this->booking->valitor_request = $this->params;
         $this->booking->save();
     }
 }
