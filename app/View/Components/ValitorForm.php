@@ -26,6 +26,8 @@ class ValitorForm extends Component
 
         $this->params       = Valitor::getParams($this->booking);
         $this->formAction   = Valitor::getFormAction();
+
+        $this->setValitorRequestToBooking();
     }
 
     /**
@@ -36,5 +38,13 @@ class ValitorForm extends Component
     public function render()
     {
         return view('components.valitor-form');
+    }
+
+    /**
+     * Sets the valitor_request attribute to the booking
+     */
+    protected function setValitorRequestToBooking() {
+        $this->booking->valitor_request = json_encode($this->params);
+        $this->booking->save();
     }
 }

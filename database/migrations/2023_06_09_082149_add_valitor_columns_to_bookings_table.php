@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('bookings', function (Blueprint $table) {
-            //
+            $table->longText('valitor_request')->nullable()->after('caren_info');
+            $table->longText('valitor_response')->nullable()->after('caren_info');
         });
     }
 
@@ -26,7 +27,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('bookings', function (Blueprint $table) {
-            //
+            $table->dropColumn('valitor_request');
+            $table->dropColumn('valitor_response');
         });
     }
 };
