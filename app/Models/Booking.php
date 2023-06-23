@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Casts\ArrayCast;
 
 class Booking extends Model
 {
@@ -44,11 +45,11 @@ class Booking extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'caren_info'    => 'array',
-        'pickup_at'     => 'datetime',
-        'dropoff_at'    => 'datetime',
-        'valitor_request' => 'array',
-        'valitor_response' => 'array'
+        'caren_info'        => 'array',
+        'pickup_at'         => 'datetime',
+        'dropoff_at'        => 'datetime',
+        'valitor_request'   => ArrayCast::class,
+        'valitor_response'  => ArrayCast::class
     ];     
 
     /**
