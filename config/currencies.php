@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'usd',
-    'eur',
-    'gbp',
-    'isk',
+    'USD',
+    'EUR',
+    'GBP',
+    'ISK',
 ];

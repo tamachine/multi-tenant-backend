@@ -5,7 +5,7 @@
 */
 
 return [
-    'default_currency' => 'usd',
+    'default_currency' => 'USD',
 
     'booking_enabled' => [
         'own' => false,

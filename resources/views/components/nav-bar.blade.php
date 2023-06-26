@@ -30,7 +30,7 @@
             <a href="{{ route('contact') }}" class="hover:text-pink-red">{!! __('navbar.contact') !!}</a>
         </div>
         <div class="pl-7 text-sm font-medium flex items-center gap-1" x-on:click="toggle()">
-            <img class="inline" src='{{ asset("/images/currencies/".selectedCurrency().".svg") }}' />
+            <img class="inline" src='{{ asset("/images/currencies/".strtolower(selectedCurrency()).".svg") }}' />
             <img class="inline" src='{{ asset("/images/flags/".App::currentLocale().".svg") }}' />
             <img class="cursor-pointer language-selector" src="{{ asset('images/icons/arrow-down.svg') }}" />
         </div>
