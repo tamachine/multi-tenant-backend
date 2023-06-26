@@ -59,7 +59,7 @@ class CreateBookingPdf implements ShouldQueue
 
         Log::debug('CreateBookingPdf FINISHED for booking ' . $this->booking->hashid);
 
-        $this->booking->uploadPdf();
+        $this->booking->createPdf();
 
         if ($this->send) {
             $this->booking->notify(new SendBookingPdfMail($this->booking));

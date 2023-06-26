@@ -3,12 +3,11 @@
 namespace App\Http\Livewire\Web;
 
 use App\Apis\Caren\Api;
-use App\Jobs\CreateBookingPdf;
 use App\Models\Affiliate;
 use App\Models\Booking;
 use App\Models\Car;
 use App\Traits\Livewire\SummaryTrait;
-use Illuminate\Support\Facades\Log;
+use App\Jobs\CreateCarenBooking;
 use Livewire\Component;
 
 class Payment extends Component
@@ -79,7 +78,12 @@ class Payment extends Component
     /**
      * @var int
      */
-    public $number_passengers = 0;
+    public $number_passengers = 0;    
+
+    /**
+     * @var App/Booking|null
+     */
+    public $booking = null;
 
     protected $listeners = ['update_number' => 'updateNumberPassengers'];
 
@@ -107,7 +111,7 @@ class Payment extends Component
         $this->includedExtras = $this->car->extraList()->where('included', 1);
         $this->chosenExtras = $sessionData["extras"];
 
-        $this->percentage = $this->car->vendor->caren_settings["online_percentage"];
+        $this->percentage = $this->car->booking_percentage;
         $this->calculateTotal();
     }
 
@@ -139,9 +143,9 @@ class Payment extends Component
 
         $this->validate($rules);
 
-        $this->saveBooking();
+        $this->booking = $this->saveBooking();
 
-        return redirect()->route('success');
+        $this->generateValitorForm = true;
     }
 
     private function saveBooking()
@@ -211,48 +215,11 @@ class Payment extends Component
         // 4. Save a booking log
         $booking->logs()->create([
             'message'    => 'Booking created'
-        ]);
+        ]);             
 
-        // 5. Create booking in Caren
-        $this->createCarenBooking($booking);
+        // 5. Create booking in caren
+        dispatch(new CreateCarenBooking($booking));  
 
-        // 6. Dispatch the job to create the booking PDF and send it to the customer
-        dispatch(new CreateBookingPdf($booking, true));
-    }
-
-    private function createCarenBooking(Booking $booking)
-    {
-        $api = new Api();
-
-        $carenBooking = $api->createBooking($booking->carenParameters);
-
-        // When "Success" is set, there has been an error (irony)
-        if (isset($carenBooking["Success"])) {
-            Log::error("Error creating booking in Caren. Booking ID: " . $booking->id . ". Error: " . $carenBooking["Message"]);
-            return;
-        }
-
-        // Booking created successfully. We get the "Guid" in the response
-        $booking->update([
-            'caren_guid' => $carenBooking["Guid"]
-        ]);
-
-        // Save a booking log
-        $booking->logs()->create([
-            'message'    => 'Booking created in Caren'
-        ]);
-
-        // Save the booking info from Caren
-        $bookingInfo = $api->bookingInfo([
-            "RentalId" => $booking->vendor->caren_settings["rental_id"],
-            "Guid" => $carenBooking["Guid"],
-        ]);
-
-        if (!isset($bookingInfo["Success"])) {
-            $booking->update([
-                'caren_id'      => $bookingInfo["Id"],
-                'caren_info'    => $bookingInfo
-            ]);
-        }
-    }
+        return $booking;
+    }    
 }

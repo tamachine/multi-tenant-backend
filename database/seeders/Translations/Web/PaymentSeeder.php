@@ -283,5 +283,35 @@ class PaymentSeeder extends Seeder
                 'text' => ['en' => 'Payment info', 'es' => 'Información del pago'],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'payment',
+                'key' => 'processing',
+            ],
+            [
+                'text' => ['en' => "Please wait and don't reload the page, you'll be redirected to the payment platform.", 'es' => 'Por favor espera y no recargues la página, serás redirigdo a la pasarela de pago'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'payment',
+                'key' => 'card-number',
+            ],
+            [
+                'text' => ['en' => 'Card number', 'es' => 'Número de tarjeta'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'payment',
+                'key' => 'card-type',
+            ],
+            [
+                'text' => ['en' => 'Card type', 'es' => 'Tipo de tarjeta'],
+            ]
+        );
     }
 }

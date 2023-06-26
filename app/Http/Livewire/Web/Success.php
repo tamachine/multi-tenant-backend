@@ -32,6 +32,11 @@ class Success extends Component
      */
     public $bookingDropoffDate = "";
 
+    /**
+     * @var array
+     */
+    public $personalInfo = [];
+
     /*
     ***************************************************************
     ** METHODS
@@ -62,8 +67,18 @@ class Success extends Component
         $this->percentage = $this->car->vendor->caren_settings["online_percentage"];
         $this->calculateTotal();
 
+        $this->setPersonalInfo();
+
         // Remove the session
         request()->session()->forget('booking_data');
+    }
+
+    protected function setPersonalInfo()
+    {
+       $this->personalInfo = [
+            'card_number'   => request()->CardNumberMasked,
+            'card_type'     => request()->CardType
+        ];
     }
 
     public function render()

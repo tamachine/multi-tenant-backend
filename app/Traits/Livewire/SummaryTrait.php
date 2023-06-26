@@ -77,6 +77,11 @@ trait SummaryTrait
      */
     public $payNow = 0;
 
+    /**
+     * @var bool
+     */
+    public $generateValitorForm = false;
+
     /*
     ***************************************************************
     ** METHODS
