@@ -1,8 +1,11 @@
 <div
     x-data="extraPopup()"
     >
-    <div class="flex justify-center gap-[60px]">
-        <div class="w-full flex flex-col gap-3 max-w-[780px]">
+    <div 
+        class="flex justify-center gap-[60px]"
+        x-data="{ showSummary : false }"
+    >
+        <div class="w-full flex flex-col gap-3 max-w-[780px]" :class="showSummary ? 'hidden' : ''">
             @foreach($extras as $extra)
                 <x-extra.extra :extra=$extra />
             @endforeach
@@ -28,13 +31,16 @@
                             md:hidden
                             rounded-lg bg-pink-red text-white
                             px-3 py-4
-                            ">
+                            "                        
+                        x-on:click="showSummary = true"
+                            >
                         {{ __('extras.continue') }}
+                        
                     </button>
             </div>
         </div>
 
-        <div class="md-max:hidden">
+        <div :class="showSummary ? '' : 'md-max:hidden'">
             @include('web.summary.index', ['buttonText' => __('summary.continue')])
         </div>
     </div>
