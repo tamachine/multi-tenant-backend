@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use App;
+use App\Jobs\ConfirmCarenBooking;
 
 class Edit extends Component
 {
@@ -241,15 +242,7 @@ class Edit extends Component
                 // Check if the status has changed to "Confirmed"
                 // If so, confirm the booking in Caren
                 if (isset($changes['status']) && $this->status == 'confirmed') {
-                    $carenBooking = $api->confirmBooking([
-                        "RentalId" => $this->booking->vendor->caren_settings["rental_id"],
-                        "Guid" => $this->booking->caren_guid
-                    ]);
-
-                    // When there is an error confirming, "Success" is equal to false
-                    if (isset($carenBooking["Success"]) && $carenBooking["Success"] == false) {
-                        Log::error("Error confiming booking in Caren. Booking ID: " . $this->booking->id . ". Error: " . $carenBooking["Message"]);
-                    }
+                    dispatch(new ConfirmCarenBooking($this->booking));
                 }
 
                 // Reload the booking information from Caren

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use Valitor;
 use App\Jobs\CreateBookingPdf;
+use App\Jobs\ConfirmCarenBooking;
 use App\Models\Booking;
 
 class SuccessController extends BaseController
@@ -27,8 +28,7 @@ class SuccessController extends BaseController
 
         $this->confirmBooking();
 
-        //create and send the pdf to the client
-        dispatch(new CreateBookingPdf($this->booking, true));        
+        dispatch(new CreateBookingPdf($this->booking, true)); //create and send the pdf to the client                
 
         return view('web.success.index');
     }
@@ -49,7 +49,7 @@ class SuccessController extends BaseController
        
         $this->booking->valitor_response = request()->all();
         $this->booking->save();                
-    }
+    }   
 
     protected function footerImagePath(): string
     {
