@@ -119,14 +119,14 @@
         </div>
     </div>
 
-    @if (selectedCurrency() != 'isk')
+    @if (selectedCurrency() != 'ISK')
         <div class="flex justify-between">
             <div class="font-sans-medium font-medium text-black-ci">
                 {!! __('summary.total-in-isk') !!}
             </div>
 
             <div class="font-sans-bold font-bold text-black-ci">
-                {{formatPrice($iskPrice, 'isk')}}
+                {{formatPrice($iskPrice, 'ISK')}}
             </div>
         </div>
     @endif
