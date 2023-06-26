@@ -40,6 +40,8 @@ class Car extends Model
         'caren_id'
     ];
 
+    protected $append = ['booking_percentage'];
+
     /**
      * The attributes that are translatable.
      *
@@ -61,6 +63,18 @@ class Car extends Model
     /**********************************
      * Accessors & Mutators
      **********************************/
+
+     /**
+      * Get the booking percentage for the pay now action
+      * @return int
+      */
+     public function getBookingPercentageAttribute() {
+        if(!empty($this->caren_id)) {            
+            return $this->vendor->caren_settings["online_percentage"];
+        } else {
+            return 20;
+        }
+     }
 
     /**
      * Get the car's edit URL

@@ -23,10 +23,9 @@
                 </th>
             </tr>
         </thead>
-
-        @php $i = 0; @endphp
+ 
         @foreach (config('caren.' . $data) as $key => $value)
-            <tr class="{{$i % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">
+            <tr class="{{$loop->odd ? 'bg-white' : 'bg-gray-50'}}">
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {{ $key }}
                 </td>
@@ -36,8 +35,7 @@
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     {{ carenValue($caren_info, $value) }}
                 </td>
-            </tr>
-            @php $i++; @endphp
+            </tr>        
         @endforeach
     </table>
 </div>

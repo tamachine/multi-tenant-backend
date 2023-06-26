@@ -8,10 +8,13 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Casts\ArrayCast;
 
 class Booking extends Model
 {
     use HasFactory, HashidTrait, SoftDeletes, HasPdf;    
+
+    protected $valitor_reference_number_column = 'hashid';
 
     /**
      * The attributes that are mass assignable.
@@ -33,15 +36,20 @@ class Booking extends Model
         'created_at'
     ];
 
+    protected $append = ['pay_now_amount', 'valitor_reference_number'];
+
+
     /**
      * The attributes that should be cast to native types.
      *
      * @var array<string, string>
      */
     protected $casts = [
-        'caren_info'    => 'array',
-        'pickup_at'     => 'datetime',
-        'dropoff_at'    => 'datetime',
+        'caren_info'        => 'array',
+        'pickup_at'         => 'datetime',
+        'dropoff_at'        => 'datetime',
+        'valitor_request'   => ArrayCast::class,
+        'valitor_response'  => ArrayCast::class
     ];     
 
     /**
@@ -58,6 +66,25 @@ class Booking extends Model
     /**********************************
      * Accessors & Mutators
      **********************************/
+
+     /**
+      * Get the referenc number that we will send to valitor
+      */
+    public function getValitorReferenceNumberAttribute() {
+        $valitor_reference_number_column = $this->valitor_reference_number_column;
+
+        return $this->$valitor_reference_number_column;
+    }    
+
+    /**
+     * Get the percentage to pay now
+     *
+     * @return     string
+     */
+    public function getPayNowAmountAttribute()
+    {
+        return round($this->total_price * ($this->car->booking_percentage / 100));
+    }
 
     /**
      * Get the booking's edit URL
@@ -206,7 +233,7 @@ class Booking extends Model
      * @param      string  $booking_status      string
      * @param      string  $vehicle             string
      * @param      string  $vendor              string
-     * @param      string  $order_id        string
+     * @param      string  $order_id            string
      * @param      string  $email               string
      * @param      string  $first_name          string
      * @param      string  $last_name           string
@@ -380,6 +407,17 @@ class Booking extends Model
         }
 
         return $query;
+    }
+
+    /**
+     * Scope to search by the valitorreference number.
+     * @param      object  $query             Illuminate\Database\Query\Builder
+     * @param      string  $reference_number  string
+     *
+     * @return     object  Illuminate\Database\Query\Builder
+     */
+    public function scopeValitorReferenceNumber($query, $reference_number) {
+        return $query->where($this->valitor_reference_number_column, $reference_number);
     }
 
     /**********************************
