@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Web;
+use App\Models\Car;
 
 class PaymentController extends BaseController
 {
@@ -10,8 +11,12 @@ class PaymentController extends BaseController
             return redirect()->route('cars');
         }
 
+        $sessionData = request()->session()->get('booking_data');
+
+        $car = Car::find(dehash($sessionData['car']));
+
         return view(
-            'web.payment.index'
+            'web.payment.index', ['car' => $car]
         );
     }
 

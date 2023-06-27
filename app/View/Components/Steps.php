@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use App\Models\Car;
 
 class Steps extends Component
 {
@@ -12,15 +13,18 @@ class Steps extends Component
 
     protected $steps;
 
+    protected Car $car;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($active = null, $mobile = false)
+    public function __construct(Car $car, $active = null, $mobile = false)
     {        
         $this->active = $active;
         $this->mobile = $mobile;
+        $this->car = $car;
 
         $this->setSteps();
     }
@@ -37,9 +41,46 @@ class Steps extends Component
 
     protected function setSteps() {
         if ($this->mobile) {
-            $this->steps = [1 => 'Insurance', 2 => 'Extras', 3 => 'Summary', 4 => 'Personal Details'];
+            $this->steps = [
+                1 => $this->getStep('insurances'), 
+                2 => $this->getStep('extras'), 
+                3 => $this->getStep('summary'), 
+                4 => $this->getStep('personal-details')
+            ];
         } else {
-            $this->steps = [1 => 'Insurance', 2 => 'Extras', 3 => 'Personal Details'];
+            $this->steps = [
+                1 => $this->getStep('insurances'), 
+                2 => $this->getStep('extras'), 
+                3 => $this->getStep('personal-details')
+            ];
         }
+    }
+
+    protected function getStep($step) {
+
+        $steps = [
+
+            'insurances' => [
+                'text' => trans('steps.insurances'), 
+                'url'  => route('insurances', $this->car)
+            ],
+
+            'extras' => [
+                'text' => trans('steps.extras'), 
+                'url'  => route('extras', $this->car)
+            ],
+
+            'summary' => [
+                'text' => trans('steps.summary'), 
+                'url'  => route('extras', ['car_hashid' => $this->car, 'showSummary' => true])
+            ],
+
+            'personal-details' => [
+                'text' => trans('steps.personal-details'), 
+                'url'  => route('payment', $this->car)
+            ],
+        ];
+
+        return $steps[$step];
     }
 }
