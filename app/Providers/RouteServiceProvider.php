@@ -52,7 +52,7 @@ class RouteServiceProvider extends ServiceProvider
     public function bindings() {
         Route::bind('translation_hashid', function ($value) {
             $resource = new \App\Models\Translation();
-            return $resource->where('hashid', $value)->first();
+            return $resource->where('hashid', $value)->firstOrFail();
         });
 
         Route::bind('translation_full_key', function ($value) {
@@ -61,69 +61,69 @@ class RouteServiceProvider extends ServiceProvider
             $params = explode(".", $value, 2);
 
             if (count($params) == 2) {
-                return $resource->where('group', $params[0])->where('key', $params[1])->first();
+                return $resource->where('group', $params[0])->where('key', $params[1])->firstOrFail();
             }
         });
 
         Route::bind('faq_category_hashid', function ($value) {
             $resource = new \App\Models\FaqCategory();
-            return $resource->where('hashid', $value)->first();
+            return $resource->where('hashid', $value)->firstOrFail();
         });
 
         Route::bind('faq_hashid', function ($value) {
             $resource = new \App\Models\Faq();
-            return $resource->where('hashid', $value)->first();
+            return $resource->where('hashid', $value)->firstOrFail();
         });
 
         Route::bind('car_hashid', function ($value) {
             $resource = new \App\Models\Car();
-            return $resource->where('hashid', $value)->first();
+            return $resource->where('hashid', $value)->firstOrFail();
         });
 
         Route::bind('extra_hashid', function ($value) {
             $resource = new \App\Models\Extra();
-            return $resource->where('hashid', $value)->first();
+            return $resource->where('hashid', $value)->firstOrFail();
         });
 
         Route::bind('insurance_feature_hashid', function ($value) {
             $resource = new \App\Models\InsuranceFeature();
-            return $resource->where('hashid', $value)->first();
+            return $resource->where('hashid', $value)->firstOrFail();
         });
 
         Route::bind('newsletter_user_hashid', function ($value) {
             $resource = new \App\Models\NewsletterUser();
-            return $resource->where('hashid', $value)->first();
+            return $resource->where('hashid', $value)->firstOrFail();
         });
 
         Route::bind('blog_post_hashid', function ($value) {
             $resource = new \App\Models\BlogPost();
-            return $resource->where('hashid', $value)->first();
+            return $resource->where('hashid', $value)->firstOrFail();
         });
 
         Route::bind('page_hashid', function ($value) {
             $resource = new \App\Models\Page();
-            return $resource->where('hashid', $value)->first();
+            return $resource->where('hashid', $value)->firstOrFail();
         });
 
         Route::bind('blog_post_slug', function ($value) {
-            $resource = \App\Models\BlogPost::where('slug', 'LIKE', '%' . $value . '%')->first();
+            $resource = \App\Models\BlogPost::where('slug', 'LIKE', '%' . $value . '%')->firstOrFail();
 
             return $resource;
         });
 
         Route::bind('blog_category_slug', function ($value) {
             $resource = new \App\Models\BlogCategory();
-            return $resource->where('slug', 'LIKE', '%' . $value . '%')->first();
+            return $resource->where('slug', 'LIKE', '%' . $value . '%')->firstOrFail();
         });
 
         Route::bind('blog_tag_slug', function ($value) {
             $resource = new \App\Models\BlogTag();
-            return $resource->where('slug', $value)->first();
+            return $resource->where('slug', $value)->firstOrFail();
         });
 
         Route::bind('blog_author_slug', function ($value) {
             $resource = new \App\Models\BlogAuthor();
-            return $resource->where('slug', $value)->first();
+            return $resource->where('slug', $value)->firstOrFail();
         });       
     }
      /**
