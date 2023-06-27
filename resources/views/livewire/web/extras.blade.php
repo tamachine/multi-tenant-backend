@@ -3,9 +3,13 @@
     >
     <div 
         class="flex justify-center gap-[60px]"
-        x-data="{ showSummary : false }"
-    >
-        <div class="w-full flex flex-col gap-3 max-w-[780px]" :class="showSummary ? 'hidden' : ''">
+        x-data="{ showSummary : '{{ $showSummary}}' }"
+    >        
+        <div
+            x-cloak 
+            x-show="!showSummary"
+            class="w-full flex flex-col gap-3 max-w-[780px]"
+        >
             @foreach($extras as $extra)
                 <x-extra.extra :extra=$extra />
             @endforeach
@@ -32,7 +36,7 @@
                             rounded-lg bg-pink-red text-white
                             px-3 py-4
                             "                        
-                        x-on:click="showSummary = true"
+                        x-on:click="window.location.href='{{ route('extras', ['car_hashid' => $car, 'showSummary' => true]) }}'"
                             >
                         {{ __('extras.continue') }}
                         
@@ -40,7 +44,9 @@
             </div>
         </div>
 
-        <div :class="showSummary ? '' : 'md-max:hidden'">
+        <div 
+            x-cloak
+            :class="showSummary ? '' : 'md-max:hidden'">
             @include('web.summary.index', ['buttonText' => __('summary.continue')])
         </div>
     </div>

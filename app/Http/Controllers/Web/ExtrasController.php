@@ -14,7 +14,10 @@ class ExtrasController extends BaseController
 
         return view(
             'web.extras.index',
-            ['car' => $car]
+            [
+                'car' => $car,
+                'showSummary' => (null !== request()->query('showSummary')) ? request()->query('showSummary') : false
+            ]
         );
     }
 
