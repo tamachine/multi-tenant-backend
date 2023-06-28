@@ -355,9 +355,7 @@
                     this.showOpenLocationsInput = true
                     this.showBack = true
                     this.showOverlay = true
-                    this.showBack = false
-                    console.log('hola')
-                    console.log(this.showOpenLocationsInput)
+                    this.showBack = false                    
                     locationsOpenTransition();
                     setTimeout(startLocationToggle, 1);
                 },

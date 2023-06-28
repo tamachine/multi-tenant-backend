@@ -1,4 +1,23 @@
 /**
+ * Inits the calendar dates
+ * @param {date} start 
+ * @param {date} end 
+ */
+function initDates(start, end) {
+    //format the selected date shown in the inputs
+    formatDateInputs(start, end);
+
+    //set the date values in the inputs
+    setDateInputs(start, end);
+
+    //manage the search/continue button visibility
+    buttonsVisibility(start, end);
+
+    //manage the input values for the mobile version
+    mobileInputDatesVisibility(start);   
+}
+
+/**
  * Manages the visibiliity of the input values for the movile version
  * @param {date} start 
  */
