@@ -5,13 +5,11 @@
 
 <div x-data="carSearchBar()" class="relative">
     <div x-show="showOverlay" x-on:click="closePopOver()"
-        class="fixed h-screen w-screen top-0 left-0 bg-black bg-opacity-50 backdrop-blur-sm" x-cloak></div>
-
-    @foreach ($locations as $key => $location)
-    @endforeach
+        class="fixed h-screen w-screen top-0 left-0 bg-black bg-opacity-50 backdrop-blur-sm" x-cloak></div>    
 
     <div class="max-w-6xl px-7 md:px-3 xl:px-0 mx-auto">
         <form :class="openCalendar ? 'md:shadow-t-xl' : 'md:shadow-xl'" id="search-bar"
+            action="{{ route('cars') }}"
             class="relative 
             md:bg-white rounded-3xl font-medium text-black-secondary 
             md:border-[3px] md:border-pink-red"
@@ -42,14 +40,14 @@
                             <div class="search-input-label">
                                 <label for="hour-start">{!! __('car-search-bar.time') !!}</label>
                             </div>
-                            <input type="text" class="search-input" id="hour-start" placeholder="12 AM"
+                            <input type="text" name="hours[start]" class="search-input" id="hour-start" placeholder="12 AM"
                                 readonly="readonly" />
                         </div>
                         <div class="search-input-set">
                             <div class="search-input-label">
                                 <label for="hour-end">{!! __('car-search-bar.time') !!}</label>
                             </div>
-                            <input type="text" class="search-input" id="hour-end" placeholder="12 AM"
+                            <input type="text" name="hours[end]" class="search-input" id="hour-end" placeholder="12 AM"
                                 readonly="readonly" />
                         </div>
                     </div>
