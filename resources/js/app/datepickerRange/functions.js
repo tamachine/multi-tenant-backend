@@ -51,7 +51,7 @@ function buttonsVisibility(start, end) {
     const continueButton = document.getElementById('continue-date__button')
 
     if(start) {
-        document.getElementById('set-dates').classList.add('active')
+        document.getElementById('date-inputs').classList.add('active')
         searchButton.setAttribute('disabled')
         continueButton.setAttribute('disabled')
         
@@ -60,7 +60,7 @@ function buttonsVisibility(start, end) {
             continueButton.removeAttribute('disabled')
         }           
     } else {
-        document.getElementById('set-dates').classList.remove('active')
+        document.getElementById('date-inputs').classList.remove('active')
         searchButton.setAttribute('disabled')
         continueButton.setAttribute('disabled')           
     }
@@ -86,7 +86,7 @@ function setDateInput(date, selector) {
 
     for (let i = 0; i < elements.length; i++) {
         if (date) {
-            elements[i].value = date.format( 'DD-MM-YYYY', appLocale())
+            elements[i].value = date.format( 'YYYY-MM-DD', appLocale())
         } else {
             elements[i].value = ''
         }
@@ -108,3 +108,27 @@ function toggleClassToInputGroup(input, klass, add = true) {
         input.parentElement.classList.remove(klass)
     }
 }	
+
+/**
+ * returns the start date from the url
+ * @returns {String}
+ */
+function getStartDateFromUrl() {
+    return getUrlParams().get('dates[start]');    
+}
+
+/**
+ * returns the end date from the url
+ * @returns {String}
+ */
+function getEndDateFromUrl() {
+    return getUrlParams().get('dates[end]');    
+}
+
+/**
+ * Get params from the url
+ * @returns URLSearchParams
+ */
+function getUrlParams() {
+    return new URLSearchParams(window.location.search);
+}

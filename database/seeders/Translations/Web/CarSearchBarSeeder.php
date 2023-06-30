@@ -294,6 +294,24 @@ class CarSearchBarSeeder extends Seeder
             ]
         );  
 
-        
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'pick-up-location-placeholder',    
+            ],
+            [                
+                'text' => ['en' => 'Keflavik Airport', 'es' => 'Aeropuerto Keflavik'],
+            ]
+        );  
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'car-search-bar',
+                'key' => 'return-location-placeholder',    
+            ],
+            [                
+                'text' => ['en' => 'Keflavik Airport', 'es' => 'Aeropuerto Keflavik'],
+            ]
+        );  
     }
 }

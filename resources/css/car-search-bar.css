@@ -1,0 +1,9 @@
+#date-inputs .search-input-set.active .search-input,
+.mobile-dates .search-input-set.active .search-input {
+    @apply hidden;
+}
+
+#date-inputs .search-input-set.active .selected,
+#mobile-dates .search-input-set.active .selected {
+    @apply inline-block absolute bottom-[10px] w-full z-10 cursor-pointer;
+}

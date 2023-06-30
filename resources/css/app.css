@@ -3,6 +3,7 @@
 @import 'tinymce.css';
 @import 'swiper.css';
 @import 'timepicker.css';
+@import 'car-search-bar.css';
 
 /**
  * This injects Tailwind's base styles, which is a combination of
@@ -103,6 +104,11 @@ a, button {
     @apply bg-black-ci text-white hover:bg-pink-red font-bold text-lg md:text-xl;
 }
 
+.full-height {
+    height: 100dvh;
+    @apply overflow-y-hidden
+}
+
 
 /* SEARCH */
 
@@ -155,7 +161,7 @@ a, button {
         text-ellipsis
 }
 
- #set-locations .search-input-set:not(.active) .search-input {
+ #location-inputs .search-input-set:not(.active) .search-input {
     @apply top-[40px]
  }
 
@@ -170,17 +176,7 @@ a, button {
 
     .search-input-set.active .search-input {
         @apply top-[37px] text-base lg:text-[17px] font-sans-medium;
-    }
-
-    #set-dates .search-input-set.active .search-input,
-    .mobile-dates .search-input-set.active .search-input {
-        @apply hidden;
-    }
-    
-    #set-dates .search-input-set.active .selected,
-    #mobile-dates .search-input-set.active .selected {
-        @apply inline-block absolute bottom-[10px] w-full z-10 cursor-pointer;
-    }
+    }    
 
     .easepick-wrapper {
         position: unset !important;
@@ -358,39 +354,6 @@ picture img {
         }
     }
 
-.toggle-selector {
-    @apply relative text-black text-xs py-2 px-4;
-}
-.toggle-selector.active {
-    @apply text-white;
-}
-
-.different-location-true {
-    @apply !flex;
-}
-
-.different-location-true .location__image {
-    @apply h-[75px]
-}
-
-.different-location-true .location__text {
-    @apply py-2
-}
-
-.location.selected .location__image img,
-.location:hover .location__image img {
-    @apply scale-[120%]
-}
-
-.location.selected .location__text,
-.location:hover .location__text {
-    @apply bg-pink-red;
-}
-
-.location.selected .location__text p,
-.location:hover .location__text p {
-    @apply text-white;
-}
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
@@ -410,7 +373,4 @@ button {
     @apply disabled:opacity-50 disabled:cursor-not-allowed
 }
 
-.modal-open {
-    height: 100dvh;
-    @apply overflow-y-hidden
-}
+

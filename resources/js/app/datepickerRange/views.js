@@ -20,7 +20,7 @@ function addDataDayAttribute(date, target) {
  * Scrolls to the top
  * @param {element} target 
  */
-function footerScrool(target) {
+function footerScroll(target) {
     let mainElement = target.querySelector('main');
 
     if (scrollTopPosition !== 'undefined'){

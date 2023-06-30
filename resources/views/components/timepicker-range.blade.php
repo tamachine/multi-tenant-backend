@@ -1,7 +1,3 @@
-@php 
-    $ranges = ['start', 'end']; 
-@endphp
-
 <div class="hidden md:inline-block w-full">
 
     {{-- Desktop --}}

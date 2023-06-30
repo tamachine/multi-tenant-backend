@@ -3,16 +3,9 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use APp\Models\Location;
 
-class CarSearchBar extends Component
-{
-
-    /**
-     * The current locations     
-     * @var string     
-     */
-    public $locations;
+class TimepickerRange extends Component
+{    
 
     /**
      * Create a new component instance.
@@ -21,9 +14,9 @@ class CarSearchBar extends Component
      */
     public function __construct()
     {
-        $this->locations = Location::all();
+        //
     }
-
+    
     /**
      * Get the view / contents that represent the component.
      *
@@ -31,6 +24,6 @@ class CarSearchBar extends Component
      */
     public function render()
     {
-        return view('components.car-search-bar.car-search-bar', ['ranges' => ['start', 'end']]);
+        return view('components.timepicker-range', ['ranges' => ['start', 'end']]);
     }
 }

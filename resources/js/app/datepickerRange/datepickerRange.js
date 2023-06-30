@@ -1,6 +1,5 @@
 let scrollTopPosition;
 
-
 document.addEventListener('DOMContentLoaded', () => {    
     
     const picker = new easepick.create({            
@@ -20,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 one: tooltipText('one'),
                 other: tooltipText('other'),
             },
-            startDate:  '2023-12-01',
-            endDate:    '2023-12-10',
+            startDate: getStartDateFromUrl(),
+            endDate: getEndDateFromUrl(),
         },
         locale: {
             previousMonth: '<svg width="14" height="24" viewBox="0 0 14 24" xmlns="http://www.w3.org/2000/svg"><path fill="#000" d="M0.606095 11.9238C0.623254 11.6068 0.754464 11.3054 0.977016 11.0716L11.1508 0.43725C11.4062 0.17139 11.7605 0.0146009 12.1354 0.000967091C12.5104 -0.0126668 12.8757 0.118316 13.1508 0.364699C13.4263 0.611082 13.5888 0.952901 13.6024 1.31469C13.6166 1.67647 13.4808 2.029 13.226 2.29437L3.94388 12.0002L13.226 21.7056C13.4813 21.9714 13.6171 22.3235 13.6024 22.6857C13.5883 23.0475 13.4258 23.3893 13.1508 23.6357C12.8757 23.8821 12.5104 24.0131 12.1354 23.999C11.7605 23.9853 11.4062 23.8285 11.1508 23.5632L0.977016 12.9288C0.717119 12.6561 0.582881 12.2933 0.606095 11.9233V11.9238Z" fill="black"/></svg>',
@@ -52,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const { view, date, target } = e.detail;
                 
                 if (view === 'Footer') {
-                    footerScrool(e.target);                                         
+                    footerScroll(e.target);                                         
                 }
                 
                 if (view === 'CalendarDay') {							
