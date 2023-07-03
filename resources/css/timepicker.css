@@ -26,6 +26,7 @@
     @apply relative top-0 shadow-none border-none w-[80px] h-[30px] rounded-3xl bg-pink-red cursor-pointer translate-y-[-50%] z-[4];
     -webkit-appearance: none;
 }
+
 .range-input::-moz-range-thumb {
     @apply relative shadow-none border-none w-[80px] h-[30px] rounded-3xl bg-pink-red cursor-pointer z-[2];
     -moz-appearance: none;
