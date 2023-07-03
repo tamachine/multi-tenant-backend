@@ -1,51 +1,44 @@
 <div 
     class="md:w-1/2 text-center pt-16 md:pt-5"
-    x-data="timePicker({ inputElementSelector: '#hour-{{ $range }}' })"
+    x-data="timePicker({ inputElementSelector: '{{ $inputElementSelector }}' })"
     >
     <div class="inline-block mb-4 text-black ">
-        <span class="text-sm lg:text-base">
-            @if ($range == 'start')
-                {!! __('car-search-bar.start-time') !!}
-            @else 
-                {!! __('car-search-bar.end-time') !!}
-            @endif
+        <span class="text-sm lg:text-base">           
+            {!! $text !!}
         </span>
         <img class="inline-block ml-3 mb-1 mr-1" src="{{ asset('images/icons/arrow-right-solid.svg') }}" alt="">
         <span 
             x-text="time"
-            class="selected-time--{{ $range }} text-black text-lg lg:text-xl inline-block w-[50px] lg:w-[55px] text-right"
+            class="text-black text-lg lg:text-xl inline-block w-[50px] lg:w-[55px] text-right"
             >
             
         </span>
         <span 
             x-text="meridian"
-            class="selected-time-type--{{ $range }} text-base inline-block w-[25px] ml-1"
+            class="text-base inline-block w-[25px] ml-1"
             >
             
         </span>
     </div>
-    <div class="range-slider range-slider--{{ $range }}">
-        <div 
-            id="range-bullet" 
-            class="range-bullet range-bullet--{{ $range }} "
+    <div class="relative w-[85%] lg:w-[80%] mx-auto">
+        <div             
+            class="absolute top-[-2px] left-[50%] translate-x-[-47%] block text-white text-base leading-[1.6em] text-center w-[80px] pointer-events-none z-10"
             x-ref="bulletValueElement"
         >
             <span 
                 x-text="time" 
-                id="bullet-time" 
-                class="bullet-time bullet-time--{{ $range }}">
+                >
             </span>
             <small 
                 x-text="meridian" 
-                id="bullet-type" 
-                class="bullet-type bullet-type--{{ $range }}">
+               >
             </small>
         </div>
 
         <input 
             x-ref="rangeInput"
             x-on:input="changeValue($event)"
-            class="range-input range-input--{{ $range }}" 
+            class="range-input" 
             type="range" 
             value="24" 
             min="0" 
@@ -53,7 +46,7 @@
             list="times"
         />
         
-        <div class="range-times">
+        <div class="bg-gray-primary rounded-3xl absolute top-px w-full flex justify-between text-[13px] text-gray-light px-2.5 pointer-events-none z-0">
             <span class="">12 <small>AM</small></span>
             <span class="">6 <small>AM</small></span>
             <span class="">12 <small>PM</small></span>

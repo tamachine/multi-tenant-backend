@@ -7,16 +7,19 @@ use Illuminate\View\Component;
 class TimePicker extends Component
 {    
 
-    public $range;
+    public $inputElementSelector; //the input element selector which is related to the time picker in order to show the value selected
+
+    public $text;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(String $range = 'start')
+    public function __construct(String $inputElementSelector = '', String $text = '')
     {
-        $this->range = $range;
+        $this->inputElementSelector = $inputElementSelector;
+        $this->text  = $text;
     }
     
     /**

@@ -5,9 +5,9 @@
     <div id="time-picker" class="px-[3%] lg:px-4 md:mt-3">
         <div class="container md:flex md:gap-[5%] relative md:border-t-[1px] md:border-gray-secondary">
 
-            <x-time-picker range="start" />
+            <x-time-picker inputElementSelector="#hour-start" :text="__('car-search-bar.start-time')" />
            
-            <x-time-picker range="end" />
+            <x-time-picker inputElementSelector="#hour-end"   :text="__('car-search-bar.end-time')" />
 
             <datalist id="times">
                 @foreach($times as $index => $time)
