@@ -25,7 +25,7 @@
                 class=" btn btn-border border-black text-lg px-4 py-2">{!! __('car-search-bar.mobile-edit-button') !!}</button>
 
             {{-- Search button --}}            
-            <button class="btn btn-red px-4 py-2">{!! __('car-search-bar.mobile-continue-button') !!}</button>
+            <button x-on:click="mobileSubmit()" class="btn btn-red px-4 py-2">{!! __('car-search-bar.mobile-continue-button') !!}</button>
         </div>
     </div>
 </div>

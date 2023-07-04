@@ -135,7 +135,17 @@ function carSearchBar() {
                 startLocationsList.selectedIndex !== 0 ||
                 endLocationsList.selectedIndex   !== 0
                 )            
-        }
+        },
+
+        mobileSubmit() {
+            document.getElementById('search-bar').submit()
+        },
+
+        mobileSelectableChange(id, event) {
+            const input = document.getElementById(id);
+
+            input.value = event.target.value
+        },       
     }
 }
 

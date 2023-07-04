@@ -67,7 +67,9 @@
                                     </div>
                                     <img class="select-arrow w-[8px] " src="{{ asset('images/icons/arrow-down-solid.svg') }}" />
                                 </div>
-                                <select id="{{ $range }}-hours-list"
+                                <select 
+                                    x-on:change="mobileSelectableChange('hour-{{ $range }}', event)"
+                                    id="{{ $range }}-hours-list"
                                     name="{{ $range }}-hours-list"
                                     for="'selected-time-{{ $range }}'">
 
@@ -102,7 +104,9 @@
                                     </div>
                                     <img class="select-arrow w-[8px] " src="{{ asset('images/icons/arrow-down-solid.svg') }}" />
                                 </div>
-                                <select id="{{ $range }}-locations-list"
+                                <select 
+                                    x-on:change="mobileSelectableChange('{{ $range == 'start' ? 'pickup' : 'return' }}-location', event)"
+                                    id="{{ $range }}-locations-list"
                                     name="{{ $range }}-locations-list"
                                     for="'selected-location-{{ $range }}'">
                                     @foreach ($locations as $key => $location)

@@ -3,11 +3,15 @@
         class="fixed h-screen w-screen top-0 left-0 bg-black bg-opacity-50 backdrop-blur-sm" x-cloak></div>
 
     <div class="max-w-6xl px-7 md:px-3 xl:px-0 mx-auto">
-        <form :class="openCalendar ? 'md:shadow-t-xl' : 'md:shadow-xl'" id="search-bar"
+        <form 
+            :class="openCalendar ? 'md:shadow-t-xl' : 'md:shadow-xl'" 
+            id="search-bar"
             class="relative 
             md:bg-white rounded-3xl font-medium text-black-secondary 
             md:border-[3px] md:border-pink-red"
-            autocomplete="off">
+            autocomplete="off"
+            action="{{ route('cars') }}"
+            >
 
             {{-- Este input hay que ponerlo para deshabilitar la opción de autocompletado --}}
             <input autocomplete="false" type="hidden" type="text">
