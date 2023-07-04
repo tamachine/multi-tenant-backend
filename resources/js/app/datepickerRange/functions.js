@@ -129,6 +129,7 @@ function getEndDateFromUrl() {
     return getUrlParams().get('dates[end]');    
 }
 
+
 /**
  * Get params from the url
  * @returns URLSearchParams

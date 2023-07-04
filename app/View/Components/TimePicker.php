@@ -11,15 +11,18 @@ class TimePicker extends Component
 
     public $text;
 
+    public $urlElementParam; //the url param which defines the default time
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(String $inputElementSelector = '', String $text = '')
-    {
+    public function __construct(String $inputElementSelector = '', String $text = '', String $urlElementParam = '')
+    {       
         $this->inputElementSelector = $inputElementSelector;
         $this->text  = $text;
+        $this->urlElementParam = $urlElementParam;
     }
     
     /**

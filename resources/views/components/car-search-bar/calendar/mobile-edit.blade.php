@@ -2,6 +2,7 @@
 <div 
     x-show="showResume"
     class="h-full"
+    x-data="mobileTimeInputs()"
     >
     <div id="resume" class="flex flex-col justify-between h-full">
         <div class="overflow-auto p-5 sm:px-10">
@@ -61,9 +62,9 @@
                                     </div>
                                     <div class="resume-selected search-input">
                                         <span id="resume-time--{{ $range }}"
-                                            class="font-sans-medium text-xl">12:00</span>
+                                            class="font-sans-medium text-xl" x-text="{{ $range }}Hour"></span>
                                         <span id="resume-type--{{ $range }}"
-                                            class="text-xs">AM</span>
+                                            class="text-xs" x-text="{{ $range }}Meridian"></span>
                                     </div>
                                     <img class="select-arrow w-[8px] " src="{{ asset('images/icons/arrow-down-solid.svg') }}" />
                                 </div>
@@ -71,7 +72,9 @@
                                     x-on:change="mobileSelectableChange('hour-{{ $range }}', event)"
                                     id="{{ $range }}-hours-list"
                                     name="{{ $range }}-hours-list"
-                                    for="'selected-time-{{ $range }}'">
+                                    for="'selected-time-{{ $range }}'"
+                                    x-model="{{ $range }}Time"
+                                    >
 
                                     <x-hours-list />
                                     

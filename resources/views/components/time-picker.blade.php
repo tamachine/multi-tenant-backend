@@ -1,7 +1,8 @@
 <div 
     class="md:w-1/2 text-center pt-16 md:pt-5"
-    x-data="timePicker({ inputElementSelector: '{{ $inputElementSelector }}' })"
-    >
+    x-data="timePicker({ inputElementSelector: '{{ $inputElementSelector }}', urlElementParam: '{{ $urlElementParam }}' })"    
+    >    
+    
     <div class="inline-block mb-4 text-black ">
         <span class="text-sm lg:text-base">           
             {!! $text !!}
@@ -33,11 +34,10 @@
                 x-text="meridian" 
                >
             </small>
-        </div>
-
+        </div>        
         <input 
             x-ref="rangeInput"
-            x-on:input="changeValue($event)"
+            x-on:input="changeValue($event.target.value)"
             class="range-input" 
             type="range" 
             value="24" 

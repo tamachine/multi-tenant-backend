@@ -13,17 +13,26 @@ function timePicker(config) {
 
         currentValue: 24,
 
-        init() {
+        timeFromUrl: null,
 
+        init() {            
             this.setTimes()
             
-            this.setInputElement()            
+            this.setInputElement()          
+            
+            this.setTimeFromUrl()
 
-        },
+            if(this.timeFromUrl) {
+                const timesKey = getTimesKeyByValue(this.timeFromUrl);
 
-        changeValue: function(event) {
+                if(timesKey) this.changeValue(timesKey)
+            }
 
-            this.currentValue = event.target.value
+        },       
+
+        changeValue: function(value) {     
+            
+            this.currentValue = value
 
             this.setValues()
 
@@ -57,32 +66,23 @@ function timePicker(config) {
             this.$refs.bulletValueElement.style.left = leftPosition + 'px'
             this.$refs.bulletValueElement.style.transform = 'none'
             
-        },
+        },        
 
         setTimes() {
 
-            for($i = 0; $i <= 47; $i++) {            
-            
-                $hour       = Math.floor($i / 2);
-                $minute     = ($i % 2 == 0) ? "00" : "30";
-                $meridian   = ($hour >= 12) ? "PM" : "AM";
-    
-                if ($hour == 0) {
-                    $hour  = 12;
-                } else if ($hour > 12) {
-                    $hour -= 12;
-                }            
-    
-                $time = $hour + ":" + $minute;            
-    
-                this.times.push({ 'hour': $hour, 'minute': $minute, 'time': $time, 'meridian': $meridian });
-            }
-    
+            this.times = getTimes()            
+
         },
 
         setInputElement() {
 
             this.inputElement = document.querySelector(config.inputElementSelector)
+
+        },
+
+        setTimeFromUrl() {
+           
+            this.timeFromUrl = getUrlParams().get(config.urlElementParam)
 
         }
     }
