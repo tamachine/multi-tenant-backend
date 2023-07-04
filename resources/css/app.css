@@ -183,42 +183,6 @@ a, button {
         @apply inline-block w-full;
     }
 
-#resume label {
-    @apply text-gray-light font-sans
-}
-    
-        #resume .resume-selected {
-            @apply text-black
-        }
-    
-        #resume select {
-            @apply w-full h-full border-none text-transparent bg-transparent bg-none p-0 ring-0 focus:ring-0;
-        }
-    
-        #resume .search-info {
-            @apply absolute top-0 left-0 w-full h-full flex items-center px-[5%]
-        }
-    
-        #resume .search-input-label {
-            position: unset;
-            @apply w-auto
-        }
-        #resume .search-input-label label {
-            @apply text-black
-        }
-        
-        #resume .resume-selected {
-            position: unset;
-            @apply inline-flex items-baseline justify-center gap-0.5 flex-1 pr-[2px]
-        }
-    
-        #resume .mobile-dates .search-input-set.active .selected {
-            @apply inline-block flex-1
-        }
-    
-        #resume .select-arrow {
-            @apply translate-y-[3px]
-        }
 
 .easepick-wrapper {
     position: unset !important;
@@ -314,46 +278,6 @@ picture img {
     .hover-no-image:hover img:not(.image-hover) {
         @apply scale-110
     }
-
-.searchbar-popover {
-    @apply overflow-hidden transition-[height] duration-300 ease-in-out;
-}
-
-.searchbar-popover.position-top {
-    @apply top-full
-}
-
-.searchbar-popover.position-bottom {
-    @apply bottom-full
-}
-
-.searchbar-popover .searchbar-popover__layer {
-    @apply 
-        bg-white mx-auto pointer-events-auto
-        rounded-t-[20px] rounded-b-none md:rounded-none
-        fixed top-[72px] md:relative md:top-0 
-        z-[99];
-}
-
-.searchbar-popover.position-top .searchbar-popover__layer {
-    @apply md:rounded-b-[20px];
-}
-
-.searchbar-popover.position-bottom .searchbar-popover__layer {
-    @apply md:rounded-t-[20px];
-}
-
-    @media (max-width: 767px) {
-        .searchbar-popover .searchbar-popover__layer {
-            box-shadow: 0 -5px 9px 0 rgba(0,0,0,0.1);
-            height: calc(100dvh - 72px);
-        }
-
-        .searchbar-popover .easepick-wrapper {
-            overflow: auto;
-        }
-    }
-
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 

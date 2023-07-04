@@ -118,6 +118,24 @@ function carSearchBar() {
             this.showDefault = false
             this.showResume = false
         },
+
+        continueMobileButton() {
+            this.checkIfAnySelectIsSelected() ? this.editDefault() : this.continueToDefault()
+        },
+
+        checkIfAnySelectIsSelected() {
+            const startHoursList     = document.getElementById('start-hours-list');
+            const endHoursList       = document.getElementById('end-hours-list');
+            const startLocationsList = document.getElementById('start-locations-list');
+            const endLocationsList   = document.getElementById('end-locations-list');
+    
+            return (
+                startHoursList.selectedIndex     !== 0 ||
+                endHoursList.selectedIndex       !== 0 ||
+                startLocationsList.selectedIndex !== 0 ||
+                endLocationsList.selectedIndex   !== 0
+                )            
+        }
     }
 }
 
@@ -229,18 +247,5 @@ document.addEventListener('DOMContentLoaded', () => {
         Check if times or locations were selected previously
     ******************/
 
-    function checkIfAnySelectIsSelected() {
-        const startHoursList = document.getElementById('start-hours-list');
-        const endHoursList = document.getElementById('end-hours-list');
-        const startLocationsList = document.getElementById('start-locations-list');
-        const endLocationsList = document.getElementById('end-locations-list');
-
-        if(
-            startHoursList.selectedIndex !== 0 ||
-            endHoursList.selectedIndex !== 0 ||
-            startLocationsList.selectedIndex !== 0 ||
-            endLocationsList.selectedIndex !== 0) {
-            return true
-        }
-    }
+    
 });

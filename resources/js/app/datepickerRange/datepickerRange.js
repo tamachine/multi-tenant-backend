@@ -28,10 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         
         setup(picker) {  
-            picker.on('render', (e) => {            
+            picker.on('render', (e) => {       
+                const { date, view } = e.detail;                    
+
                 const start = picker.getStartDate();
                 const end   = picker.getEndDate();
-                 
+                
                 initDates(start, end);
             });           
 
@@ -39,11 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const { start, end } = e.detail;
                 
                 scrollTopPosition = e.target.querySelector('main').scrollTop;
-                                    
+                               
                 //set dates in order to show them selected when calendar hides/shows
-                picker.setStartDate(start);
-                picker.setEndDate(end);
-                        
+                if (start) picker.setStartDate(start);
+                if (end)   picker.setEndDate(end);
+                
                 initDates(start, end);            
             }),				
                 

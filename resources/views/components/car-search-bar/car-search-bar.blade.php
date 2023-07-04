@@ -26,7 +26,7 @@
                 </div>
 
                 {{-- MOBILE --}}
-                @include('components.car-search-bar.mobile-search-bar')
+                @include('components.car-search-bar.car-search-bar-mobile')
 
                 {{-- BUTTON --}}
                 <div class="flex items-stretch">
@@ -41,7 +41,7 @@
         </form>
     </div>
 
-    @include('components.car-search-bar.calendar.index')
+    @include('components.car-search-bar.calendar.calendar')
 
     @include('components.car-search-bar.locations.index')
 </div>

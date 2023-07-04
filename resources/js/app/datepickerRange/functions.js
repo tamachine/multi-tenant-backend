@@ -3,7 +3,7 @@
  * @param {date} start 
  * @param {date} end 
  */
-function initDates(start, end) {
+function initDates(start, end) {    
     //format the selected date shown in the inputs
     formatDateInputs(start, end);
 
@@ -18,15 +18,16 @@ function initDates(start, end) {
 }
 
 /**
- * Manages the visibiliity of the input values for the movile version
+ * Manages the visibiliity of the input values for the mobile version
  * @param {date} start 
  */
 function mobileInputDatesVisibility(start) {
+    
     const emptyInputMobile  = document.getElementById('mobile-empty-dates')
     const datesMobile       = document.querySelectorAll('.mobile-dates')
 
     if(start) {                                   
-        if (vWidth <= 767) {
+        if (isMobile) {
             emptyInputMobile.classList.add('hidden');
 
             for (let i = 0; i < datesMobile.length; i++) {
@@ -34,9 +35,12 @@ function mobileInputDatesVisibility(start) {
             }                
         }         
     } else {            
-        if (vWidth <= 767) {
+        if (isMobile) {
             emptyInputMobile.classList.remove('hidden');
-            datesMobile.classList.add('hidden');
+            
+            for (let i = 0; i < datesMobile.length; i++) {
+                datesMobile[i].classList.add('hidden');
+            }
         }        
     }
 }
