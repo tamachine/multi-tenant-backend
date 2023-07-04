@@ -24,7 +24,7 @@
     @apply 
         bg-white mx-auto pointer-events-auto
         rounded-t-[20px] rounded-b-none md:rounded-none
-        fixed top-[72px] md:relative md:top-0 
+        fixed top-[72px] left-0 md:relative md:top-0 
         z-[99];
 }
 
