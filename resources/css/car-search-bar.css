@@ -58,6 +58,9 @@
     #resume select {
         @apply w-full h-full border-none text-transparent bg-transparent bg-none p-0 ring-0 focus:ring-0;
     }
+        #resume select option{
+            @apply text-pink-red;
+        }
 
     #resume .search-info {
         @apply absolute top-0 left-0 w-full h-full flex items-center px-[5%]
