@@ -2,11 +2,18 @@ function locationsSelector(config) {
 
     return {
         
-        selectedLocations: {'pickup': null, 'dropoff': null},        
+        selectedLocations: {'pickup': null, 'dropoff': null},  
+        
+        pickupInput: null,
+
+        dropoffInput: null,
 
         init : function() {
             this.sameLocation = config.sameLocation,
             this.locations    = JSON.parse(config.locations)
+
+            this.pickupInput  = document.getElementById('pickup-location')
+            this.dropoffInput = document.getElementById('return-location')
         },
 
         toggleLocations: function () {      
@@ -25,6 +32,8 @@ function locationsSelector(config) {
             } 
             
             this.setValuesToInputs()
+
+            this.setInputsActive()
         },
 
         equalizeLocations: function() {
@@ -33,14 +42,26 @@ function locationsSelector(config) {
             this.setValuesToInputs()
         },
 
-        setValuesToInputs: function() {            
+        setValuesToInputs: function() {                        
+            this.pickupInput.value  = this.locations[this.selectedLocations['pickup']]
+            this.dropoffInput.value = this.locations[this.selectedLocations['dropoff']]            
+        },
 
-            const pickupInput  = document.getElementById('pickup-location')
-            const dropoffInput = document.getElementById('return-location')
+        setInputsActive: function() {
+            const inputs       = document.getElementsByClassName('search-input-set')
+            const inputsParent = document.getElementById('location-inputs')
 
-            pickupInput.value  = this.locations[this.selectedLocations['pickup']]
-            dropoffInput.value = this.locations[this.selectedLocations['dropoff']]
-            
-        }
+            if(this.selectedLocations['pickup']) {
+                for (let i = 0; i < inputs.length; i++) {
+                    inputs[i].classList.add('active')
+                }
+                inputsParent.classList.add('active')
+            } else{
+                for (let i = 0; i < inputs.length; i++) {
+                    inputs[i].classList.remove('active')
+                }
+                inputsParent.classList.remove('active')
+            }
+        }        
     }
 }
