@@ -2,7 +2,7 @@
 <div 
     x-show="showResume"
     class="h-full"
-    x-data="mobileTimeInputs({ locations: '{{ $locationsIds }}' })"
+    x-data="mobileInputs({ locations: '{{ $locationsIds }}' })"
     >
     <div id="resume" class="flex flex-col justify-between h-full">
         <div class="overflow-auto p-5 sm:px-10">

@@ -1,4 +1,4 @@
-function mobileTimeInputs(config) {    
+function mobileInputs(config) {    
 
     return {
         startTime: '12:00 AM',
@@ -55,11 +55,7 @@ function mobileTimeInputs(config) {
         setLocations: function() {
             const urlPickupLocation = getUrlParams().get('locations[pickup]')
             const urlReturnLocation = getUrlParams().get('locations[return]')
-
-            console.log(urlPickupLocation)
-
-            console.log(this.validateLocation(urlPickupLocation))
-
+            
             if(this.validateLocation(urlPickupLocation)) this.startLocation = urlPickupLocation
 
             if(this.validateLocation(urlReturnLocation)) this.endLocation = urlReturnLocation
