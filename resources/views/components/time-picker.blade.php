@@ -1,6 +1,6 @@
 <div 
     class="md:w-1/2 text-center pt-16 md:pt-5"
-    x-data="timePicker({ inputElementSelector: '{{ $inputElementSelector }}', urlElementParam: '{{ $urlElementParam }}' })"    
+    x-data="timePicker({ inputElementSelector: '{{ $inputElementSelector }}', urlElementParam: '{{ $urlElementParam }}' })"      
     >    
     
     <div class="inline-block mb-4 text-black ">
@@ -35,8 +35,8 @@
                >
             </small>
         </div>        
-        <input 
-            x-ref="rangeInput"
+        <input            
+            x-ref="rangeinput"
             x-on:input="changeValue($event.target.value)"
             class="range-input" 
             type="range" 
@@ -44,6 +44,7 @@
             min="0" 
             max="47" 
             list="times"
+            x-model="currentValue"
         />
         
         <div class="bg-gray-primary rounded-3xl absolute top-px w-full flex justify-between text-[13px] text-gray-light px-2.5 pointer-events-none z-0">
