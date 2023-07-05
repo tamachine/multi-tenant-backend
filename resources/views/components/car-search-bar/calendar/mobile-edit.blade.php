@@ -2,7 +2,7 @@
 <div 
     x-show="showResume"
     class="h-full"
-    x-data="mobileTimeInputs()"
+    x-data="mobileTimeInputs({ locations: '{{ $locationsIds }}' })"
     >
     <div id="resume" class="flex flex-col justify-between h-full">
         <div class="overflow-auto p-5 sm:px-10">
@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="resume-selected search-input">
                                         <span id="resume-location--{{ $range }}"
-                                        class="w-full font-sans-medium text-xl text-ellipsis overflow-hidden">KEF Int</span>
+                                        class="w-full font-sans-medium text-xl text-ellipsis overflow-hidden" x-text="{{ $range }}Location">KEF Int</span>
                                     </div>
                                     <img class="select-arrow w-[8px] " src="{{ asset('images/icons/arrow-down-solid.svg') }}" />
                                 </div>
@@ -111,7 +111,9 @@
                                     x-on:change="mobileSelectableChange('{{ $range == 'start' ? 'pickup' : 'return' }}-location', event)"
                                     id="{{ $range }}-locations-list"
                                     name="{{ $range }}-locations-list"
-                                    for="'selected-location-{{ $range }}'">
+                                    for="'selected-location-{{ $range }}'"
+                                    x-model="{{ $range }}Location"
+                                    >
                                     @foreach ($locations as $key => $location)
                                         <option value="{{ $location->name }}">
                                             {{ $location->name }}

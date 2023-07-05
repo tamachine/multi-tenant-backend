@@ -80,3 +80,20 @@ function getTimesKeyByValue(value) {
         return null
     }
 }
+
+function setLocationInputsToActive(selectedPickup) {
+    const inputs       = document.getElementsByClassName('search-input-set')
+    const inputsParent = document.getElementById('location-inputs')
+
+    if(selectedPickup) {
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].classList.add('active')
+        }
+        inputsParent.classList.add('active')
+    } else{
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].classList.remove('active')
+        }
+        inputsParent.classList.remove('active')
+    }
+}

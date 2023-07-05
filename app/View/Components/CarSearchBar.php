@@ -14,6 +14,12 @@ class CarSearchBar extends Component
      */
     public $locations;
 
+     /**
+     * The current locations     
+     * @var string     
+     */
+    public $locationsIds;
+
     /**
      * Create a new component instance.
      *
@@ -21,7 +27,9 @@ class CarSearchBar extends Component
      */
     public function __construct()
     {
-        $this->locations = Location::all();
+        $this->locations = Location::all();     
+        
+        $this->locationsIds = $this->locations->pluck('name', 'hashid');
     }
 
     /**
@@ -31,6 +39,11 @@ class CarSearchBar extends Component
      */
     public function render()
     {
-        return view('components.car-search-bar.car-search-bar', ['ranges' => ['start', 'end']]);
+        return view(
+            'components.car-search-bar.car-search-bar', 
+            [
+                'ranges' => ['start', 'end'],                 
+            ]
+        );
     }
 }

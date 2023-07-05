@@ -48,20 +48,9 @@ function locationsSelector(config) {
         },
 
         setInputsActive: function() {
-            const inputs       = document.getElementsByClassName('search-input-set')
-            const inputsParent = document.getElementById('location-inputs')
 
-            if(this.selectedLocations['pickup']) {
-                for (let i = 0; i < inputs.length; i++) {
-                    inputs[i].classList.add('active')
-                }
-                inputsParent.classList.add('active')
-            } else{
-                for (let i = 0; i < inputs.length; i++) {
-                    inputs[i].classList.remove('active')
-                }
-                inputsParent.classList.remove('active')
-            }
+            setLocationInputsToActive(this.selectedLocations['pickup'])            
+            
         }        
     }
 }

@@ -9,7 +9,7 @@ function carSearchBar() {
         showDefault: false, // mobile default time and location
         showResume: false, // edit default information
         differentLocation: false,
-        showBack: false,
+        showBack: false,       
 
         openCalendarClick() {
             this.openCalendar = true
