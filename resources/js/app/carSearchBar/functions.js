@@ -82,8 +82,9 @@ function getTimesKeyByValue(value) {
 }
 
 function setLocationInputsToActive(selectedPickup) {
-    const inputs       = document.getElementsByClassName('search-input-set')
+    
     const inputsParent = document.getElementById('location-inputs')
+    const inputs       = inputsParent.getElementsByClassName('search-input-set')
 
     if(selectedPickup) {
         for (let i = 0; i < inputs.length; i++) {
