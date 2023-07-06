@@ -86,7 +86,7 @@ function timePicker(config) {
 
         setTimeFromUrl() {
            
-            this.timeFromUrl = getUrlParams().get(config.urlElementParam)
+            this.timeFromUrl = carSearchUrlParams[config.urlElementParam] 
 
         }
     }

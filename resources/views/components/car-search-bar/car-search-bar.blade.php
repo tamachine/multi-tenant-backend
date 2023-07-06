@@ -49,3 +49,9 @@
 
     @include('components.car-search-bar.locations.index')
 </div>
+
+@push('scripts')
+    <script>
+        const carSearchUrlParams = {!! CarSearchInitialValues::getJsonData() !!}
+    </script>
+@endpush

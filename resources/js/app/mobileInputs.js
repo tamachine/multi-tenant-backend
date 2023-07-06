@@ -36,8 +36,8 @@ function mobileInputs(config) {
         },
         
         setTimes: function() {
-            const urlStartTime = getUrlParams().get('hours[start]')
-            const urlEndTime   = getUrlParams().get('hours[end]')
+            const urlStartTime = carSearchUrlParams.startTime; 
+            const urlEndTime   = carSearchUrlParams.endTime;   
 
             if(getTimesKeyByValue(urlStartTime) != null) this.startTime = urlStartTime
 
@@ -53,8 +53,8 @@ function mobileInputs(config) {
         },
 
         setLocations: function() {
-            const urlPickupLocation = getUrlParams().get('locations[pickup]')
-            const urlReturnLocation = getUrlParams().get('locations[return]')
+            const urlPickupLocation = carSearchUrlParams.startLocation; 
+            const urlReturnLocation = carSearchUrlParams.endLocation; 
             
             if(this.validateLocation(urlPickupLocation)) this.startLocation = urlPickupLocation
 

@@ -118,7 +118,7 @@ function toggleClassToInputGroup(input, klass, add = true) {
  * @returns {String}
  */
 function getStartDateFromUrl() {
-    return getUrlParams().get('dates[start]');    
+    return carSearchUrlParams.startDate;    
 }
 
 /**
@@ -126,14 +126,6 @@ function getStartDateFromUrl() {
  * @returns {String}
  */
 function getEndDateFromUrl() {
-    return getUrlParams().get('dates[end]');    
+    return carSearchUrlParams.endDate;  
 }
 
-
-/**
- * Get params from the url
- * @returns URLSearchParams
- */
-function getUrlParams() {
-    return new URLSearchParams(window.location.search);
-}

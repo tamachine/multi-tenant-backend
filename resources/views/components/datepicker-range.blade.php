@@ -22,4 +22,9 @@
 
     </div>
     
+    @push('scripts')
+        <script>
+           
+        </script>
+    @endpush
 </div>

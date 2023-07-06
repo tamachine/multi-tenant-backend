@@ -18,9 +18,9 @@ locationInputs = function (config) {
         },
 
         setLocationsFromUrl: function() {
-            this.pickupLocationFromUrl = getUrlParams().get('locations[pickup]')
+            this.pickupLocationFromUrl = carSearchUrlParams.startLocation;
 
-            this.returnLocationFromUrl = getUrlParams().get('locations[return]')
+            this.returnLocationFromUrl = carSearchUrlParams.endLocation; 
 
             this.setLocations()
 
