@@ -13,5 +13,5 @@
             </div>
         </div>
     </div>
-    <input type="text" class="{{ $range }}-date search-input" placeholder="{!! __('car-search-bar.' . $range . '-day-placeholder') !!}" readonly="readonly"/>
+    <input type="text" name="dates[{{ $range }}]" class="{{ $range }}-date search-input" placeholder="{!! __('car-search-bar.' . $range . '-day-placeholder') !!}" readonly="readonly"/>
 </div>

@@ -3,18 +3,17 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use APp\Models\Location;
+use App\Models\Location;
 
-class CarSearchBar extends Component
+class LocationsSelector extends Component
 {
-
     /**
      * The current locations     
      * @var string     
      */
     public $locations;
 
-     /**
+    /**
      * The current locations     
      * @var string     
      */
@@ -27,7 +26,7 @@ class CarSearchBar extends Component
      */
     public function __construct()
     {
-        $this->locations = Location::all();     
+        $this->locations = Location::all();
         
         $this->locationsIds = $this->locations->pluck('name', 'hashid');
     }
@@ -39,11 +38,6 @@ class CarSearchBar extends Component
      */
     public function render()
     {
-        return view(
-            'components.car-search-bar.car-search-bar', 
-            [
-                'ranges' => ['start', 'end'],                 
-            ]
-        );
+        return view('components.locations-selector.locations-selector');
     }
 }

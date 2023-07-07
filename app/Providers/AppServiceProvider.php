@@ -10,6 +10,7 @@ use App\Services\PreferredLanguage\PreferredLanguage;
 use App\Services\RoutesForPages\RoutesForPages;
 use App\Services\SeoConfigurations;
 use App\Services\Valitor\Valitor;
+use App\Services\CarsSearch\InitialValues;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,10 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind('Valitor', function ($app) {            
             return new Valitor();
+        });
+
+        $this->app->bind('CarSearchInitialValues', function ($app) {            
+            return new InitialValues();
         });
 
         $this->app->bind('getHTMLLang',function(){            
