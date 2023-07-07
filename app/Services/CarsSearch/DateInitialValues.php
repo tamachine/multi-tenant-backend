@@ -36,6 +36,16 @@ class DateInitialValues
     }  
     
     /**
+     * Validates if the dates are correct.
+     * @return boolean
+     */
+    public function validate() {
+        $validation = new ValidateCarSearchDates($this->dates['from'], $this->dates['to']);
+
+        return $validation->check();
+    }
+
+    /**
      * Checks if the dates are correct. If they are not, it sets the dates to null
      */
     protected function check() {        
@@ -43,25 +53,7 @@ class DateInitialValues
             $this->dates['from'] = null;
             $this->dates['to'] = null;
         }
-    }
-
-    /**
-     * Validates if the dates are correct.
-     * @return boolean
-     */
-    protected function validate() {
-        if($this->dates['from']) {
-            if($this->dates['to']) {
-                if($this->dates['to']->gt($this->dates['from'])) {                   
-                    if($this->dates['from']->copy()->startOfDay()->diffInDays(Carbon::today()->startOfDay()) >= 1){
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
-    }
+    }    
 
     /**
      * Sets the default dates
@@ -116,7 +108,7 @@ class DateInitialValues
 
                     if($type == 'date') {                       
 
-                        $this->dates[$dateType] = $carbon;   
+                        $this->dates[$dateType] = $carbon->setTimeFromTimeString('12:00 AM');   
                               
                     } else { //time
 
