@@ -1,8 +1,15 @@
 <div
     x-data="extraPopup()"
     >
-    <div class="flex justify-center gap-[60px]">
-        <div class="w-full flex flex-col gap-3 max-w-[780px]">
+    <div 
+        class="flex justify-center gap-[60px]"
+        x-data="{ showSummary : '{{ $showSummary}}' }"
+    >        
+        <div
+            x-cloak 
+            x-show="!showSummary"
+            class="w-full flex flex-col gap-3 max-w-[780px]"
+        >
             @foreach($extras as $extra)
                 <x-extra.extra :extra=$extra />
             @endforeach
@@ -28,13 +35,18 @@
                             md:hidden
                             rounded-lg bg-pink-red text-white
                             px-3 py-4
-                            ">
+                            "                        
+                        x-on:click="window.location.href='{{ route('extras', ['car_hashid' => $car, 'showSummary' => true]) }}'"
+                            >
                         {{ __('extras.continue') }}
+                        
                     </button>
             </div>
         </div>
 
-        <div class="md-max:hidden">
+        <div 
+            x-cloak
+            :class="showSummary ? '' : 'md-max:hidden'">
             @include('web.summary.index', ['buttonText' => __('summary.continue')])
         </div>
     </div>

@@ -31,6 +31,9 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        {{-- app locale --}}
+        <input type="hidden" id="app_locale" value="{{ App::getLocale() }}">
+
         <x-nav-bar/>        
     </head>
 

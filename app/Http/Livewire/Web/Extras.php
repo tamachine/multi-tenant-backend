@@ -38,6 +38,12 @@ class Extras extends Component
     public $extraPopup;
 
     /**
+     * @var boolean
+     * 
+     */
+    public $showSummary = false;
+
+    /**
      * @var int
      */
     protected $take = 4;
@@ -67,6 +73,8 @@ class Extras extends Component
 
         $this->percentage = $this->car->vendor->caren_settings["online_percentage"];
         $this->calculateTotal();
+
+        $this->showSummary = (null !== request()->query('showSummary')) ? request()->query('showSummary') : false;
 
     }
 

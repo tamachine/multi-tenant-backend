@@ -11,7 +11,7 @@ use Carbon\Carbon;
 class Dates
 {       
     const DEFAULT_RANGE_DAYS = 14;
-    const FORMAT = 'Y-m-d';
+    const FORMAT = 'Y-m-d g:i A';
     
     protected $dateFrom;
     protected $dateTo;    

@@ -26,6 +26,7 @@
     @apply relative top-0 shadow-none border-none w-[80px] h-[30px] rounded-3xl bg-pink-red cursor-pointer translate-y-[-50%] z-[4];
     -webkit-appearance: none;
 }
+
 .range-input::-moz-range-thumb {
     @apply relative shadow-none border-none w-[80px] h-[30px] rounded-3xl bg-pink-red cursor-pointer z-[2];
     -moz-appearance: none;
@@ -33,20 +34,5 @@
 
 .range-input::-moz-focus-outer {
     @apply border-none;
-}
-
-/* Slider */
-.range-slider {
-    @apply relative w-[85%] lg:w-[80%] mx-auto
-}
-
-/* Bullet */
-.range-bullet {
-    @apply absolute top-[-2px] left-[50%] translate-x-[-47%] block text-white text-base leading-[1.6em] text-center w-[80px] pointer-events-none z-10;
-}
-
-/* Horas */
-.range-times {
-    @apply bg-gray-primary rounded-3xl absolute top-px w-full flex justify-between text-[13px] text-gray-light px-2.5 pointer-events-none z-0
 }
 

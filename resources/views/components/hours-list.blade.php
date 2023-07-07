@@ -10,7 +10,7 @@
         }
         $time = $hour . ":" . $minute;
     @endphp
-    <option value="{{ $i }}" time="{{ $time }}" type="{{ $meridian }}">
+    <option value="{{ $hour }}:{{ $minute }} {{ $meridian }}" time="{{ $time }}" type="{{ $meridian }}">
         {{ $hour }}:{{ $minute }} <span>{{ $meridian }}</span>
     </option>
 @endfor

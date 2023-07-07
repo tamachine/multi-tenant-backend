@@ -214,3 +214,208 @@ if (!function_exists('getBreadcrumb')) {
         return $breadcrumb;
     }
 }
+
+
+if (!function_exists('checkSessionCar')) {
+    /**
+     * Check if we have an active search session in the car list.
+     * If so, delete the car, insurances & extras info
+     * If not, we create one
+     *
+     * @return void
+     */
+    function checkSessionCar()
+    {            
+        $dates = CarSearchInitialValues::getDates();
+        
+        $locations = CarSearchInitialValues::getLocations();
+
+        $locationFrom = App\Models\Location::where('hashid', '=', $locations['pickup'])->first();
+        $locationTo   = App\Models\Location::where('hashid', '=', $locations['dropoff'])->first();
+
+        $data = [
+            'from'              => $dates['from'],
+            'to'                => $dates['to'],
+            'pickup'            => $locationFrom->hashid,
+            'pickup_name'       => $locationFrom->name,
+            'pickup_caren_id'   => $locationFrom->caren_settings ? $locationFrom->caren_settings["caren_pickup_location_id"] : null,
+            'dropoff'           => $locationTo->hashid,
+            'dropoff_name'      => $locationTo->name,
+            'dropoff_caren_id'  => $locationTo->caren_settings ? $locationTo->caren_settings["caren_dropoff_location_id"] : null,
+        ];       
+
+        unset($data['car']);
+        unset($data['insurances']);
+        unset($data['extras']);
+
+        request()->session()->put('booking_data', $data);        
+    }
+}
+
+if (!function_exists('checkSessionInsurances')) {
+    /**
+     * Inruances screen: We must have dates, locations and a car selected
+     *
+     * @return bool
+     */
+    function checkSessionInsurances()
+    {
+        if(!request()->session()->has('booking_data')) {
+            return false;
+        }
+
+        $data = request()->session()->get('booking_data');
+
+        if (!isset($data['from'])
+            || !isset($data['to'])
+            || !isset($data['pickup'])
+            || !isset($data['dropoff'])
+            || !isset($data['car'])
+        ) {
+            return false;
+        }
+
+        unset($data['insurances']);
+        unset($data['extras']);
+
+        request()->session()->put('booking_data', $data);
+
+        return true;
+    }
+}
+
+if (!function_exists('checkSessionExtras')) {
+    /**
+     * Extras screen: We must have dates, locations, a car and an insurance selected
+     *
+     * @return bool
+     */
+    function checkSessionExtras()
+    {
+        if(!request()->session()->has('booking_data')) {
+            return false;
+        }
+
+        $data = request()->session()->get('booking_data');
+
+        if (!isset($data['from'])
+            || !isset($data['to'])
+            || !isset($data['pickup'])
+            || !isset($data['dropoff'])
+            || !isset($data['car'])
+            || !isset($data['insurances'])
+        ) {
+            return false;
+        }
+
+        unset($data['extras']);
+        request()->session()->put('booking_data', $data);
+
+        return true;
+    }
+}
+
+if (!function_exists('checkSessionPayment')) {
+    /**
+     * Extras screen: We must have dates, locations, car, insurances and extras selected
+     *
+     * @return bool
+     */
+    function checkSessionPayment()
+    {
+        if(!request()->session()->has('booking_data')) {
+            return false;
+        }
+
+        $data = request()->session()->get('booking_data');
+
+        if (!isset($data['from'])
+            || !isset($data['to'])
+            || !isset($data['pickup'])
+            || !isset($data['dropoff'])
+            || !isset($data['car'])
+            || !isset($data['insurances'])
+            || !isset($data['extras'])
+        ) {
+            return false;
+        }
+
+        return true;
+    }
+}
+
+if (!function_exists('bookingDays')) {
+    /**
+     * The number of days a vehicle is booked
+     *
+     * @return     int
+     */
+    function bookingDays()
+    {
+        $sessionData = request()->session()->get('booking_data');
+        return ceil($sessionData['from']->floatDiffInRealDays($sessionData['to']));
+    }
+}
+
+if (!function_exists('bookingPickupLocation')) {
+    /**
+     * It returns the booking pickup location
+     *
+     * @return     string
+     */
+    function bookingPickupLocation()
+    {
+        $sessionData = request()->session()->get('booking_data');
+        return $sessionData['pickup_name'];
+    }
+}
+
+if (!function_exists('bookingDropoffLocation')) {
+    /**
+     * It returns the booking dropoff location
+     *
+     * @return     string
+     */
+    function bookingDropoffLocation()
+    {
+        $sessionData = request()->session()->get('booking_data');
+        return $sessionData['dropoff_name'];
+    }
+}
+
+if (!function_exists('bookingInsurances')) {
+    /**
+     * It returns the booking insurances
+     *
+     * @return     array
+     */
+    function bookingInsurances()
+    {
+        $sessionData = request()->session()->get('booking_data');
+        return $sessionData['insurances'];
+    }
+}
+
+if (!function_exists('validateCarSearchData')) {
+    /**
+     * Check if we have an active search session in the car list.
+     * If so, delete the car, insurances & extras info
+     * If not, we create one
+     *
+     * @return void
+     */
+    function validateCarSearchData($dateFrom, $dateTo)
+    {
+        if($dateFrom) {
+            if($dateTo) {
+                if($dateTo->gt($dateFrom)) {                   
+                    if($dateFrom->copy()->startOfDay()->diffInDays(Carbon\Carbon::today()->startOfDay()) >= 1){
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+}

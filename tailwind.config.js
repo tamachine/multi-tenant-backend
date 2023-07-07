@@ -95,6 +95,9 @@ module.exports = {
                 'md-max': {'max': '767px'}, // => @media (max-width: 767px) { ... }
                 '7xl': '1440px'
             },
+            transitionProperty: {
+                'height': 'height'
+            },
             width: {
                 '6xl': '1170px',
                 'screen': '100dvw',

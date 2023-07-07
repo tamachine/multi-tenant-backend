@@ -34,3 +34,7 @@ window.addEventListener('goToTop', event => {
     window.scrollTo(0, 0);
 });
 
+window.appLocale = function() {    
+    return document.getElementById('app_locale').value;
+}
+
