@@ -34,6 +34,8 @@ function carSearchBar() {
                 this.showOpenTimesInput = false
                 this.showOpenLocationsInput = false
             }
+
+            this.moveBulletValueElement()  //we call it here because from timePicker.js, the with input is not rendered until the layer is shown  
         },
 
         openTimeClick() {
@@ -54,6 +56,8 @@ function carSearchBar() {
                 this.showOpenLocationsInput = false
                 scrollToTimes()
             }
+
+            this.moveBulletValueElement() //we call it here because from timePicker.js, the with input is not rendered until the layer is shown
         },
 
         openLocationsClick() {
@@ -67,6 +71,15 @@ function carSearchBar() {
             this.showBack = false
             
             locationsOpenTransition();            
+        },
+
+        moveBulletValueElement() {
+            this.$nextTick(() => { 
+                const rangeInput = document.getElementsByClassName('range-input');
+
+                moveBulletValueElement(rangeInput[0].value, rangeInput[0], rangeInput[0].previousElementSibling);   
+                moveBulletValueElement(rangeInput[1].value, rangeInput[1], rangeInput[1].previousElementSibling);   
+            });  
         },
 
         openOverlay() {

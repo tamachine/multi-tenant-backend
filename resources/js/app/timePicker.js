@@ -16,6 +16,7 @@ function timePicker(config) {
         timeFromUrl: null,
 
         init() {            
+        
             this.setTimes()
             
             this.setInputElement()          
@@ -30,8 +31,9 @@ function timePicker(config) {
                     if(timesKey) this.changeValue(timesKey)
                 }
 
-            })      
-        },       
+            })     
+    
+        },              
 
         changeValue: function(value) {     
             
@@ -60,16 +62,8 @@ function timePicker(config) {
 
         },
 
-        moveBulletValueElement() {
-
-            let bulletPosition = (this.currentValue / this.$refs.rangeinput.max)
-            const widthInputRange = this.$refs.rangeinput.offsetWidth == 0 ? '336' : this.$refs.rangeinput.offsetWidth;       
-            let leftPosition = (bulletPosition * (widthInputRange - 80));  //El 80 son los pixels que mide el bolo rosa. Su medida está en .range-input::-webkit-slider-thumb
-            
-            this.$refs.bulletValueElement.style.left = leftPosition + 'px'
-            this.$refs.bulletValueElement.style.transform = 'none'
-           
-            
+        moveBulletValueElement() {            
+            moveBulletValueElement(this.currentValue, this.$refs.rangeinput,this.$refs.bulletValueElement);                       
         },        
 
         setTimes() {

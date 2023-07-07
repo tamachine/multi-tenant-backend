@@ -98,3 +98,14 @@ function setLocationInputsToActive(selectedPickup) {
         inputsParent.classList.remove('active')
     }
 }
+
+function moveBulletValueElement(currentValue, rangeInputElement, bulletValueElement) {
+    let bulletPosition = (currentValue / rangeInputElement.max)
+    const widthInputRange = rangeInputElement.offsetWidth;                              
+    let leftPosition = (bulletPosition * (widthInputRange - 80));  //El 80 son los pixels que mide el bolo rosa. Su medida está en .range-input::-webkit-slider-thumb
+    
+    bulletValueElement.style.left = leftPosition + 'px'
+    bulletValueElement.style.transform = 'none'
+
+    
+}
