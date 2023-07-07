@@ -13,7 +13,8 @@ function locationsSelector(config) {
             this.locations    = JSON.parse(config.locations)
 
             this.pickupInput  = document.getElementById('pickup-location')
-            this.dropoffInput = document.getElementById('return-location')
+            this.dropoffInput = document.getElementById('return-location')       
+            
         },
 
         toggleLocations: function () {      
@@ -30,6 +31,8 @@ function locationsSelector(config) {
             if (this.sameLocation && type == 'pickup') {
                 this.selectedLocations['dropoff'] = location;    
             } 
+
+            if(this.selectedLocations['dropoff'] == null ) this.equalizeLocations() //it happens when first time toggleLocations is clicked
             
             this.setValuesToInputs()
 
@@ -42,7 +45,7 @@ function locationsSelector(config) {
             this.setValuesToInputs()
         },
 
-        setValuesToInputs: function() {                        
+        setValuesToInputs: function() {                    
             this.pickupInput.value  = this.locations[this.selectedLocations['pickup']]
             this.dropoffInput.value = this.locations[this.selectedLocations['dropoff']]            
         },
