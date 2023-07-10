@@ -86,14 +86,12 @@ class CarSearchResults extends Component
 
     protected function carSearch()
     {
-        //$sessionData = request()->session()->get('booking_data');
-
         $this->carsSearch->setData(
             [
                 'types' => $this->categories,
                 'specs' => $this->selectables,
-                'dates' => $this->dates, //['from' => $sessionData['from'], 'to' => $sessionData['to']],
-                'locations' => $this->locations,// ['pickup' => $sessionData['pickup'], 'dropoff' => $sessionData['dropoff']]
+                'dates' => $this->dates, 
+                'locations' => $this->locations,
             ]
         );
 
@@ -126,6 +124,6 @@ class CarSearchResults extends Component
 
     public function render()
     {
-        return view('livewire.web.car-search-results', ['carCategories' => CarType::all()]);
+        return view('livewire.web.car-search-results', ['carCategories' => CarType::all(), 'searchByDates' => $this->carsSearch->searchByDates() ]);
     }
 }

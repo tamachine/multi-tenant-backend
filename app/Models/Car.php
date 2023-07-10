@@ -287,6 +287,17 @@ class Car extends Model
         return $query->whereNotNull('caren_id');
     }
 
+    /**
+     * Scope to get active cars
+     *
+     * @param      object  $query   Illuminate\Database\Query\Builder
+     *
+     * @return     object  Illuminate\Database\Query\Builder
+     */
+    public function scopeActive($query) {
+        return $query->where('active', 1);
+    }
+
     /**********************************
      * Relationships
      **********************************/

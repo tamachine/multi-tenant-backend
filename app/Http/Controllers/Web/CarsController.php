@@ -23,19 +23,22 @@ class CarsController extends BaseController
 
     public function index()
     {
-        if($this->validateValues()){     
-            
+        if($this->validateValues()){  //it will show cars filtered by data
+
             checkSessionCar();
 
-            $params = [
-                'dates'     => $this->dates,
-                'locations' => $this->locations
-            ];                      
-        } else {
+        } else { //it will show cars with a 'from price'
+
             $params = [
                 'dataErrors' => $this->validationErrors
             ];
-        }
+            
+        }              
+
+        $params = [
+            'dates'     => $this->dates,
+            'locations' => $this->locations
+        ];   
 
         return view(
             'web.cars.index',

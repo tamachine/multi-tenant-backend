@@ -9,6 +9,7 @@ use App\Models\Car;
 class CarCard extends Component
 {
     public $car;
+    public $showBookButton;
 
     protected $secondaryImage;
     protected $mainImageModelImage = null;    
@@ -19,9 +20,10 @@ class CarCard extends Component
      *
      * @return void
      */
-    public function __construct(Car $car)
-    {
+    public function __construct(Car $car, Bool $showBookButton)
+    {        
         $this->car = $car;
+        $this->showBookButton = $showBookButton;
 
         $this->setImages();
     }

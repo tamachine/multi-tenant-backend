@@ -100,6 +100,17 @@ class Vendor extends Model
         return $query;
     }
 
+     /**
+     * Scope to get active vendors
+     *
+     * @param      object  $query   Illuminate\Database\Query\Builder
+     *
+     * @return     object  Illuminate\Database\Query\Builder
+     */
+    public function scopeActive($query) {
+        return $query->where('status', 'active');
+    }
+
     /**********************************
      * Relationships
      **********************************/
