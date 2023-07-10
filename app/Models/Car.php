@@ -37,7 +37,7 @@ class Car extends Model
         'adult_passengers', 'doors', 'luggage', 'units', 'online_percentage', 'discount_percentage', 'beds',
         'km_unlimited', 'bath_shower', 'kitchen', 'heater', 'cdw_insurance', 'driver_extra',
         'engine', 'transmission', 'vehicle_type', 'vehicle_brand', 'f_roads_name', 'vehicle_class',
-        'caren_id'
+        'caren_id', 'price_from'
     ];
 
     protected $append = ['booking_percentage'];

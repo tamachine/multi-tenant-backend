@@ -133,6 +133,11 @@ class Edit extends Component
      */
     public $vehicle_class;
 
+    /**
+     * @var int
+     */
+    public $price_from;
+
     /*
     ***************************************************************
     ** METHODS
@@ -169,6 +174,7 @@ class Edit extends Component
         $this->vehicle_brand = $this->car->vehicle_brand;
         $this->f_roads_name = $this->car->f_roads_name;
         $this->vehicle_class = $this->car->vehicle_class;
+        $this->price_from = $this->car->price_from;
     }
 
     public function saveCar()
@@ -180,6 +186,7 @@ class Edit extends Component
             'name' => ['required'],
             'car_code' => ['required', 'string', 'min:4', 'max:4', 'unique:cars,car_code,' . $this->car->id],
             'year' => ['required', 'numeric', 'gte:2000', 'lte:' . now()->year],
+            'price_from' => ['numeric']
         ]);
 
         $this->car->update([
@@ -206,6 +213,7 @@ class Edit extends Component
             'vehicle_brand' => $this->vehicle_brand,
             'f_roads_name' => $this->f_roads_name,
             'vehicle_class' => $this->vehicle_class,
+            'price_from' => $this->price_from,
         ]);
 
         session()->flash('status', 'success');
