@@ -317,7 +317,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'errors.date-from',    
+                'key' => 'errors-date-from',    
             ],
             [                
                 'text' => ['en' => 'Date from not defined', 'es' => 'Fecha de inicio no definida'],
@@ -327,7 +327,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'errors.date-to',    
+                'key' => 'errors-date-to',    
             ],
             [                
                 'text' => ['en' => 'Date to not defined', 'es' => 'Fecha de fin no definida'],
@@ -337,7 +337,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'errors.date-today',    
+                'key' => 'errors-date-today',    
             ],
             [                
                 'text' => ['en' => 'Date from must be greater than today', 'es' => 'Fecha de inicio debe ser superior a hoy'],
@@ -347,7 +347,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'errors.date-gt',    
+                'key' => 'errors-date-gt',    
             ],
             [                
                 'text' => ['en' => 'There was an error, dates must be defined correctly', 'es' => 'Ha habido un error, las fechas deben definirse correctamente'],
@@ -357,7 +357,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'errors.date-e',    
+                'key' => 'errors-date-e',    
             ],
             [                
                 'text' => ['en' => 'Date to must be greater than date to', 'es' => 'Fecha de fin debe ser superior a fecha de inicio'],
@@ -367,7 +367,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'errors.location-from',    
+                'key' => 'errors-location-from',    
             ],
             [                
                 'text' => ['en' => 'Location from not valid', 'es' => 'Fecha de inicio no válida'],
@@ -377,7 +377,7 @@ class CarSearchBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'car-search-bar',
-                'key' => 'errors.location-to',    
+                'key' => 'errors-location-to',    
             ],
             [                
                 'text' => ['en' => 'Location to not valid', 'es' => 'Fecha de fin no válida'],

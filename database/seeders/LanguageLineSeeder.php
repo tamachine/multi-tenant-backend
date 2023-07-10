@@ -14,6 +14,7 @@ class LanguageLineSeeder extends Seeder
     public function run()
     {
         $this->call(Translations\Web\AboutSeeder::class);
+        $this->call(Translations\Web\AppErrorsSeeder::class);
         $this->call(Translations\Web\BlogSearchSeeder::class);
         $this->call(Translations\Web\BlogSeeder::class);        
         $this->call(Translations\Web\BreadcrumbsSeeder::class);
@@ -28,8 +29,7 @@ class LanguageLineSeeder extends Seeder
         $this->call(Translations\Web\HomeSeeder::class);
         $this->call(Translations\Web\InsurancesSeeder::class);
         $this->call(Translations\Web\NavBarSeeder::class);
-        $this->call(Translations\Web\NewsletterSeeder::class);
-        $this->call(Translations\Web\NotFoundSeeder::class);
+        $this->call(Translations\Web\NewsletterSeeder::class);        
         $this->call(Translations\Web\PaymentSeeder::class);
         $this->call(Translations\Web\ReviewsSeeder::class);
         $this->call(Translations\Web\StepsSeeder::class);
