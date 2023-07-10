@@ -17,7 +17,7 @@ class CarsSearchQuery
 {
     protected $query;
     protected $carenApi;
-
+    
     protected $dates;
     protected $locations;
     protected $specs;
@@ -31,7 +31,7 @@ class CarsSearchQuery
 
     public function __construct(Api $carenApi)
     {
-        $this->carenApi = $carenApi;
+        $this->carenApi = $carenApi;        
     }
 
     /**
@@ -64,12 +64,21 @@ class CarsSearchQuery
     }
 
     /**
+     * There are two kinds of search: carsByDates and fullCarList
+     * For the first one we need dates data and prices come from caren, from the second one, we don't need dates data and prices come from database
+     * @return boolean
+     */
+    public function searchByDates() {
+        return $this->dates->datesDefined();
+    }
+
+    /**
      * for now, only one vendor is used and its data comes from caren
      */
     protected function setVendors()
     {
         if ($this->vendors->count() == 0) {
-            $this->vendors = Vendor::whereNotNull('caren_settings')->get();
+            $this->vendors = Vendor::Active()->whereNotNull('caren_settings')->get();
         }
     }
 
@@ -82,10 +91,10 @@ class CarsSearchQuery
 
     protected function initSearch()
     {
-        if ($this->vendors->count() == 0) {
-            $this->query = Car::fromCaren();
-        } else {
-            $this->query = Car::fromCaren()->whereIn('vendor_id', $this->vendors->pluck('id')->toArray());
+        $this->query = Car::fromCaren()->Active();
+        
+        if ($this->vendors->count() > 0) {
+            $this->query->whereIn('vendor_id', $this->vendors->pluck('id')->toArray());
         }
     }
 
@@ -93,7 +102,7 @@ class CarsSearchQuery
     {
         if ($this->specs) {
             if (count($this->specs->getTypes()) > 0) {
-                $this->query = Car::fromCaren()->whereIn('vehicle_type', $this->specs->getTypes());
+                $this->query = Car::fromCaren()->Active()->whereIn('vehicle_type', $this->specs->getTypes());
             }
 
             foreach ($this->specs->getSpecsWithoutTypes() as $column => $value) {
@@ -106,43 +115,49 @@ class CarsSearchQuery
 
     protected function searchCaren()
     {
-        if ($this->dates->datesDefined() || $this->locations->locationsDefined()) {
 
-            $params = [];
-            $carsCarenIds = [];
-
-            if ($this->dates->datesDefined()) {
-                $params['dateFrom'] = $this->dates->getDateFrom();
-                $params['dateTo']   = $this->dates->getDateTo();
-            }
-
-            if ($this->locations->locationsDefined()) {
-                $params['PickupLocationId']     = $this->locations->getPickupLocation()->caren_settings['caren_pickup_location_id'];
-                $params['DropoffLocationId']    = $this->locations->getDropoffLocation()->caren_settings['caren_dropoff_location_id'];
-            }
-
-            foreach ($this->vendors as $vendor) {
-                $cars = $this->carenApi->carsByDates(
-                    array_merge(
-                        $params,
-                        ["RentalId"  => $vendor->caren_settings['rental_id']]
-                    )
-                );
-
-                if (isset($cars['Classes'])) {
-                    $carsCarenIds = array_merge($carsCarenIds, array_column($cars['Classes'], 'Id'));
-
-                    // Get the prices from Caren (daily and total)
-                    foreach ($cars['Classes'] as $carenCar) {
-                        $this->carenPrices[$carenCar['Id']] = [
-                            'daily_price'   => $carenCar['DailyPrice'],
-                            'total_price'   => $carenCar['TotalPrice'],
-                        ];
-                    }
-                }
-            }
-
-            $this->query->whereIn('caren_id', $carsCarenIds);
+        $params = [];
+        
+        if ($this->dates->datesDefined()) {
+            $params['dateFrom'] = $this->dates->getDateFrom();
+            $params['dateTo']   = $this->dates->getDateTo();
         }
+
+        if ($this->locations->locationsDefined()) {
+            $params['PickupLocationId']     = $this->locations->getPickupLocation()->caren_settings['caren_pickup_location_id'];
+            $params['DropoffLocationId']    = $this->locations->getDropoffLocation()->caren_settings['caren_dropoff_location_id'];
+        }
+
+        foreach ($this->vendors as $vendor) {
+
+            if($this->searchByDates()) {
+                $carenApiEndPoint = "carsByDates";
+            } else {
+                $carenApiEndPoint = "fullCarList";
+            }
+
+            $cars = $this->carenApi->$carenApiEndPoint(
+                array_merge(
+                    $params,
+                    ["RentalId"  => $vendor->caren_settings['rental_id']]
+                )
+            );
+
+            if (isset($cars['Classes'])) {
+                                
+                foreach ($cars['Classes'] as $carenCar) {
+                    $carenId = $carenCar['Id'];
+                    
+                    $this->carenPrices[$carenId] = [
+                        'daily_price'   => $this->searchByDates() ? $carenCar['DailyPrice'] : Car::where('caren_id', $carenId)->first()?->price_from,
+                        'total_price'   => $carenCar['TotalPrice'],
+                    ];
+                }
+
+            } 
+        }
+
+        $this->query->whereIn('caren_id', array_keys($this->carenPrices));
+        
     }
 }

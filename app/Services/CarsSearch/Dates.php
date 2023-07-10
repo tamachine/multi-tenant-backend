@@ -53,7 +53,7 @@ class Dates
 
     protected function setDefaultDates() {
         if($this->dateFrom == null && $this->dateTo == null) {
-            $this->dateFrom = Carbon::tomorrow()->format(self::FORMAT);            
+            $this->dateFrom = null; //Carbon::tomorrow()->format(self::FORMAT);            
         }
     }
 

@@ -10,14 +10,12 @@
                         
             @include('web.cars.partial.car-search-bar')                      
 
-            @isset($dataErrors)            
-                @foreach($errors as $key => $error)
-                    <div class="w-fill text-center pt-4">{!! __('car-search-bar.errors-.'.$key) !!}</div>
-                @endforeach                
-            @else            
-                @include('web.cars.partial.car-list')   
-            @endisset
-                        
+            @isset($dataErrors)                        
+                @include('web.cars.partial.car-list-errors')   
+            @endisset         
+            
+            @include('web.cars.partial.car-list')   
+                                   
             @include('web.cars.partial.car-image') 
             
             @include('web.cars.partial.car-faqs')   

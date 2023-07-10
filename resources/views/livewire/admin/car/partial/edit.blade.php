@@ -217,6 +217,18 @@
         </div>
 
         <hr class="mt-8 mb-4 px-4">
+
+        <div class="w-full sm:grid sm:gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {{-- Price from --}}
+            <div class="px-4 mt-4">
+                <x-admin.label-tooltip for="price_from" value="{{ __('Price from') }}" tooltip="Custom starting price to show on cars page when no dates are supplied for the search" />            
+                <x-admin.input id="price_from" type="number" class="w-20 mt-1 block" min="0" max="999999" wire:model.defer="price_from" />                
+                <x-admin.input-error for="price_from" class="mt-2" />
+                <x-admin.input-help value="{{ __('(in ISK / per day)') }}" />
+            </div>
+        </div>
+
+        <hr class="mt-8 mb-4 px-4">
     </x-slot>
 
     <x-slot name="actions">

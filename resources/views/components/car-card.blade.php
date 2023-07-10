@@ -47,8 +47,10 @@
             <div class="flex flex-row justify-between items-center gap-4
                         sm:flex-col sm:items-start
                         md:flex-row md:items-center">
-                <div>
-                    <div class="text-gray-tertiary">{!! __('cars.card-price-start') !!}</div>
+                <div>                   
+                    <div class="text-gray-tertiary">
+                        {!! __('cars.card-price-start') !!}
+                    </div>                   
                     <div>
                         <span class="font-sans-bold text-2xl">
                             {!! formatPrice($car->daily_price) !!}
@@ -56,6 +58,7 @@
                         <span class="">{!! __('cars.card-perday') !!}</span>
                     </div>
                 </div>
+                @if($showBookButton)
                 <div>
                     <button class="btn btn-black text-base px-5 py-3"
                         x-on:click="redirecting = true"
@@ -64,6 +67,7 @@
                         {!! __('cars.card-button') !!}
                     </button>
                 </div>
+                @endif
             </div>
         </div>
     </div>
