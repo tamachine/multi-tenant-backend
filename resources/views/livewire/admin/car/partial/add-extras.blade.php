@@ -13,10 +13,10 @@
             <div class="px-4 mt-2">
                 <label for="availableExtras_{{ $key }}" class="inline-flex items-center">
                     <x-admin.checkbox id="availableExtras_{{ $key }}" wire:model="availableExtras.{{ $key }}.selected" />
-                    <span class="ml-3">
+                    <span >
                         <a href="{{route('intranet.extra.edit', $availableExtra["id"])}}" target="_blank"
-                            class="text-purple-700 hover:underline"
-                        >
+                            class="text-purple-700 hover:underline {{ $availableExtra['color'] ? 'ml-1 p-2 rounded' : 'ml-3'  }}" style="background-color:{{ $availableExtra['color'] }}"
+                        >                            
                             {{$availableExtra["name"]}}
                         </a>
                     </span>

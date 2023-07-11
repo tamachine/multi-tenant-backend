@@ -139,6 +139,17 @@
                 </select>
             </div>
         </div>
+
+        @if($extra->is_insurance)
+        <hr class="mt-8 mb-4 px-4">
+
+        <div class="w-full sm:grid sm:gap-2 sm:grid-cols-2 md:grid-cols-3">
+            {{-- Color --}}
+            <div class="px-4 mt-4">                
+                <div style="background-color:{{ $extra->insurance->color }}" class="p-4 text-white w-fit">{{ $extra->name }}</div>
+            </div>
+        </div>
+        @endif
     </x-slot>
 
     <x-slot name="actions">

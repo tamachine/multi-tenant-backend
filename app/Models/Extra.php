@@ -154,4 +154,8 @@ class Extra extends Model
     {        
         return $this->hasOne(Insurance::class, 'id')->where('category', 'insurance');
     }
+
+    public function carenExtra() {
+        return $this->hasOne(CarenExtra::class, 'caren_id', 'caren_id');
+    }
 }

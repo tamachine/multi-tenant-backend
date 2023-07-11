@@ -26,7 +26,7 @@
                                     </td>    
                                     <td class="px-6 py-4 text-sm font-medium">     
                                         @foreach($insurance_feature->insurances as $insurance)
-                                            <span class="border p-2">{{ $insurance->name }}</span>           
+                                            <span class="rounded p-2 text-white" style="background-color:{{ $insurance->color }}">{{ $insurance->name }}</span>           
                                         @endforeach                                                                                                                                         
                                     </td>                                                          
                                 </tr>                                

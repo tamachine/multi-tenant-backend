@@ -17,14 +17,14 @@ class Insurance extends Extra
         });
     }    
 
-    public function getColorAttribute() {
-        if(str_contains($this->name, 'CDW')) {
-            return '#8E9AAF';
-        } elseif(str_contains($this->name, 'SCDW')) {
+    public function getColorAttribute() {        
+        if(str_contains($this->carenExtra->name, 'SCDW')) {
             return '#AA78A6';
-        } elseif(str_contains($this->name, 'GP')) {
+        } elseif(str_contains($this->carenExtra->name, 'CDW')) {
+            return '#8E9AAF';
+        } elseif(str_contains($this->carenExtra->name, 'GP')) {
             return '#F5CB5C';
-        } elseif(str_contains($this->name, 'TP')) {
+        } elseif(str_contains($this->carenExtra->name, 'TP')) {
             return '#AECBEB';
         } else {
             return '#B4D6D3';
@@ -39,6 +39,6 @@ class Insurance extends Extra
     public function features()
     {
         return $this->belongsToMany('App\Models\Feature')->withTimestamps();
-    }
+    }   
     
 }
