@@ -27,6 +27,8 @@ class Extra extends Model
         'caren_id'
     ];
 
+    protected $append = ["is_insurance"];
+
     /**
      * The attributes that are translatable.
      *
@@ -88,6 +90,10 @@ class Extra extends Model
         return route('intranet.extra.edit', $this->hashid);
     }    
 
+    public function getIsInsuranceAttribute() {
+        return $this->category == 'insurance';
+    }
+
     /**********************************
      * Scopes
      **********************************/
@@ -142,5 +148,10 @@ class Extra extends Model
     public function cars()
     {
         return $this->belongsToMany('App\Models\Car')->withTimestamps();
+    }
+
+    public function insurance()
+    {        
+        return $this->hasOne(Insurance::class, 'id')->where('category', 'insurance');
     }
 }

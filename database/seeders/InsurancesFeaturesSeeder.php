@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\InsuranceFeature;
+use App\Models\Feature;
 
 class InsurancesFeaturesSeeder extends Seeder
 {
@@ -16,7 +16,7 @@ class InsurancesFeaturesSeeder extends Seeder
     {
         // Create 7 insurances features
         for ($i = 1; $i <= 7; $i++) {
-            InsuranceFeature::factory()->create();
+            Feature::factory()->create();
         }
     }
 }

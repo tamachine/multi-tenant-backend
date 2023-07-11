@@ -7,7 +7,7 @@ use Spatie\Translatable\HasTranslations;
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class InsuranceFeature extends Model
+class Feature extends Model
 {
 
     use HasTranslations, HashidTrait, HasFactory;
@@ -42,5 +42,13 @@ class InsuranceFeature extends Model
         }
 
         return $query;
+    }
+
+     /**
+     * The users that belong to the role.
+     */
+    public function insurances()
+    {
+        return $this->belongsToMany(Insurance::class);
     }
 }

@@ -10,7 +10,10 @@
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Name
                                 </th>
-                            </tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Insurances
+                                </th>
+                            </tr>                           
                         </thead>
 
                         <tbody>
@@ -20,8 +23,13 @@
                                         <a href="{{route('intranet.insurance-feature.edit', [ $insurance_feature, 'search' => $search ])}}" class="text-purple-700 hover:underline">
                                         {{$insurance_feature->name}}                                                                                                            
                                         </a>
-                                    </td>                                                           
-                                </tr>
+                                    </td>    
+                                    <td class="px-6 py-4 text-sm font-medium">     
+                                        @foreach($insurance_feature->insurances as $insurance)
+                                            <span class="border p-2">{{ $insurance->name }}</span>           
+                                        @endforeach                                                                                                                                         
+                                    </td>                                                          
+                                </tr>                                
                             @endforeach
                         </tbody>
                     </table>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin\InsuranceFeature;
 
-use App\Models\InsuranceFeature;
+use App\Models\Feature as InsuranceFeature;
 use App\Helpers\Language;
 use Livewire\Component;
 

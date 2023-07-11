@@ -30,4 +30,15 @@ class Insurance extends Extra
             return '#B4D6D3';
         }
     }
+
+    /**
+     * Define belongsToMany extras
+     *
+     * @return object
+     */
+    public function features()
+    {
+        return $this->belongsToMany('App\Models\Feature')->withTimestamps();
+    }
+    
 }
