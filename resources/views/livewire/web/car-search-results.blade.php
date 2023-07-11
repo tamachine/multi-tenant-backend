@@ -61,7 +61,7 @@
                     
                     ">
                 @foreach($cars as $car)
-                    <x-car-card :car="$car" :showBookButton="$searchByDates"/>
+                    <x-car-card :car="$car" :canBeBooked="$searchByDates" :redirectToCarsPage="$isLanding"/>
                 @endforeach        
             </div>
 

@@ -9,7 +9,8 @@ use App\Models\Car;
 class CarCard extends Component
 {
     public $car;
-    public $showBookButton;
+    public $canBeBooked;
+    public $redirectToCarsPage;
 
     protected $secondaryImage;
     protected $mainImageModelImage = null;    
@@ -20,10 +21,11 @@ class CarCard extends Component
      *
      * @return void
      */
-    public function __construct(Car $car, Bool $showBookButton)
+    public function __construct(Car $car, Bool $canBeBooked = true, Bool $redirectToCarsPage = false)
     {        
         $this->car = $car;
-        $this->showBookButton = $showBookButton;
+        $this->canBeBooked = $canBeBooked;
+        $this->redirectToCarsPage = $redirectToCarsPage;
 
         $this->setImages();
     }

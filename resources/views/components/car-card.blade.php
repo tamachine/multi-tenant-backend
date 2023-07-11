@@ -58,16 +58,34 @@
                         <span class="">{!! __('cars.card-perday') !!}</span>
                     </div>
                 </div>
-                @if($showBookButton)
+                
                 <div>
-                    <button class="btn btn-black text-base px-5 py-3"
+                    @if($canBeBooked)
+                    <button 
+                        class="btn btn-black text-base px-5 py-3"
                         x-on:click="redirecting = true"
                         wire:click="selectCar('{{ $car->hashid }}')"
                     >
                         {!! __('cars.card-button') !!}
                     </button>
+                    @elseif($redirectToCarsPage)
+                    <button 
+                        class="btn btn-black text-base px-5 py-3"
+                        x-on:click="window.location.href='{{ route('cars') }}'"
+                    >
+                        {!! __('cars.card-button') !!}
+                    </button>
+                    @else
+                    <button 
+                        class="btn btn-black text-base px-5 py-3"
+                        x-on:click="window.scrollTo({top: 0, behavior: 'smooth'})"                        
+                    >
+                        {!! __('cars.card-button') !!}
+                    </button>
+                    @endif
                 </div>
-                @endif
+                
+                
             </div>
         </div>
     </div>

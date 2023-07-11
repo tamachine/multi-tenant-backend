@@ -2,4 +2,5 @@
     :dates="$dates" 
     :locations="$locations"
     :widthFillScreen="true" 
+    :isLanding="false"
 />
