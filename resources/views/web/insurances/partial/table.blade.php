@@ -21,11 +21,7 @@
         </td>
         @foreach($insurances as $insurance)
         <td class="{{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }} {{ $loop->last ? 'rounded-r-lg' : '' }}">
-            @if(
-                ($loop->last) ||
-                ($loop->first && $loop->parent->index <= 1) ||
-                ($loop->index == 1 && (($loop->parent->index <= 3) || ($loop->parent->remaining == 1)))
-                )
+            @if($insurance->features->contains($InsuranceFeature))
                 <img class="mx-auto w-[24px]" src="{{ asset('images/icons/check-white.svg') }}" />
             @endif
         </td>

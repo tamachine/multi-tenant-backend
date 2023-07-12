@@ -20,10 +20,13 @@ class InsurancesFeaturesSeeder extends Seeder
             Feature::factory()->create();
         }
 
-        foreach(Insurance::all() as $insurance) {
-            $featureIds = Feature::inRandomOrder()->take(rand(0, Feature::all()->count()))->pluck('id');
+        $count = 1;
+        foreach(Insurance::orderBy('order_appearance')->get() as $insurance) {
+            $featureIds = Feature::all()->take($count);
 
             $insurance->features()->attach($featureIds);
+            
+            $count = $count*2;
         }
     }
 }

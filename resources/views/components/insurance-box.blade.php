@@ -18,10 +18,10 @@
         x-show="insuranceBoxVisibility"
         class="md:hidden flex flex-col gap-4 my-2"
         >
-        @foreach($InsuranceFeatures as $InsuranceFeature)
+        @foreach($insurance->features as $feature)
             <div>
                 <img class="inline mr-3" src="{{ asset('images/icons/check-circle-white.svg') }}" />
-                <span>{!! $InsuranceFeature->name !!}</span>
+                <span>{!! $feature->name !!}</span>
             </div>
         @endforeach
     </div>

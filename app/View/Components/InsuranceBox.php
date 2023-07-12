@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 use App\Models\Insurance;
-use App\Models\Feature as InsuranceFeature;
+use App\Models\Feature;
 use App\Models\Car;
 
 class InsuranceBox extends Component
@@ -22,7 +22,7 @@ class InsuranceBox extends Component
     public function __construct(Insurance $insurance, Car $car)
     {
         $this->insurance = $insurance;
-        $this->car = $car;
+        $this->car       = $car;
     }
 
     /**
@@ -32,6 +32,6 @@ class InsuranceBox extends Component
      */
     public function render()
     {
-        return view('components.insurance-box', ['InsuranceFeatures' => InsuranceFeature::all()]);
+        return view('components.insurance-box', ['features' => Feature::all()]);
     }    
 }
