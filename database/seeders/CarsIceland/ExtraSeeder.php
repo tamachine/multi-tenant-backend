@@ -39,7 +39,7 @@ class ExtraSeeder extends Seeder
 
         // 2. CDW Insurance
         $extraData = $defaultExtra;
-        $extraData['name'] = 'CDW Insurance';
+        $extraData['name'] = 'Silver';
         $extraData['description'] = 'INCLUDED. The maximum self risk amount is ISK 350.000 for all cars.';
         $extraData['category'] = 'insurance';
         $extraData['included'] = 1;
@@ -61,7 +61,7 @@ class ExtraSeeder extends Seeder
 
         // 4. GP Insurance
         $extraData = $defaultExtra;
-        $extraData['name'] = 'GP Insurance';
+        $extraData['name'] = 'Gold';
         $extraData['description'] = 'INCLUDED. This protection includes damage to windscreen and headlights of the car when gravel or rocks get thrown on the vehicle by another car. Self risk amount for broken windscreen is ISK 20.000.';
         $extraData['category'] = 'insurance';
         $extraData['included'] = 1;
@@ -72,7 +72,7 @@ class ExtraSeeder extends Seeder
 
         // 5. TP Insurance
         $extraData = $defaultExtra;
-        $extraData['name'] = 'TP Insurance';
+        $extraData['name'] = 'Platinum';
         $extraData['description'] = 'TP covers theft damages of rental vehicle. INCLUDED';
         $extraData['category'] = 'insurance';
         $extraData['included'] = 1;

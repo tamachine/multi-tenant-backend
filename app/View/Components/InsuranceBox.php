@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 use App\Models\Insurance;
-use App\Models\InsuranceFeature;
+use App\Models\Feature as InsuranceFeature;
 use App\Models\Car;
 
 class InsuranceBox extends Component
