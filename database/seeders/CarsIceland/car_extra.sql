@@ -1,5 +1,5 @@
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,1);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,1);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,1);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,1);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,1);
@@ -8,7 +8,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (9,1);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (11,1);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,1);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,2);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,2);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,2);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,2);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,2);
@@ -18,7 +18,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (11,2);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,2);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (14,2);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,3);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,3);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,3);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,3);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,3);
@@ -28,7 +28,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (11,3);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,3);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (14,3);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,4);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,4);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,4);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,4);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,4);
@@ -43,7 +43,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,4);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (13,4);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,2);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,5);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,5);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,5);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,5);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,5);
@@ -55,7 +55,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,5);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (13,5);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,5);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,6);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,6);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,6);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,6);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,6);
@@ -67,7 +67,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,6);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (13,6);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,6);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,7);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,7);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,7);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,7);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,7);
@@ -79,7 +79,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,7);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (13,7);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,7);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,8);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,8);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,8);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,8);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,8);
@@ -91,7 +91,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,8);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (13,8);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,8);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,9);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,9);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,9);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,9);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,9);
@@ -103,7 +103,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,9);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (13,9);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,9);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,10);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,10);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,10);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,10);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,10);
@@ -115,7 +115,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,10);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (13,10);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,10);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,11);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,11);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,11);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,11);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,11);
@@ -126,7 +126,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (11,11);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,11);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,11);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,12);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,12);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,12);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,12);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,12);
@@ -137,7 +137,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (11,12);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,12);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,12);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,13);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,13);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,13);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,13);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,13);
@@ -148,7 +148,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (11,13);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,13);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,13);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,14);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,14);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,14);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,14);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,14);
@@ -158,7 +158,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (11,14);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,14);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,14);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,15);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,15);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,15);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,15);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,15);
@@ -168,7 +168,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (11,15);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,15);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,15);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,16);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,16);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,16);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,16);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,16);
@@ -180,7 +180,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,16);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,16);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (14,16);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,17);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,17);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,17);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,17);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,17);
@@ -192,7 +192,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,17);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,17);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (14,17);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,18);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,18);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,18);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,18);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,18);
@@ -203,7 +203,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,18);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (14,18);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,18);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,19);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,19);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,19);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,19);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,19);
@@ -215,7 +215,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,19);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (14,19);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,19);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,20);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,20);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,20);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,20);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,20);
@@ -225,7 +225,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (11,20);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,20);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,20);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,21);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,21);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,21);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,21);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,21);
@@ -236,7 +236,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,21);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,21);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,22);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,22);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,22);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,22);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,22);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,22);
@@ -248,7 +248,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,22);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,22);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (16,22);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,23);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,23);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,23);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,23);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,23);
@@ -258,7 +258,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (11,23);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,23);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,23);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,24);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,24);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,24);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,24);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,24);
@@ -270,7 +270,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,24);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,24);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,25);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,25);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,25);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,25);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,25);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,25);
@@ -282,7 +282,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (11,25);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,25);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,25);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,26);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,26);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,26);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,26);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,26);
@@ -294,7 +294,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (12,26);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (13,26);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,26);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,27);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,27);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,27);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,27);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,27);
@@ -308,7 +308,7 @@ INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (15,27);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (13,21);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (8,21);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (1,28);
-
+INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (3,28);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (4,28);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (5,28);
 INSERT INTO `car_extra` (`extra_id`,`car_id`) VALUES (2,28);

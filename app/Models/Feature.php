@@ -13,10 +13,10 @@ class Feature extends Model
     use HasTranslations, HashidTrait, HasFactory;
     
     protected $fillable = [
-        'name', 
+        'name', 'description'
     ];
 
-    public $translatable = ['name'];
+    public $translatable = ['name', 'description'];
 
     /**********************************
      * Scopes

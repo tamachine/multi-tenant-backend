@@ -13,6 +13,8 @@ class Edit extends Component
 
     public $name;
 
+    public $description;
+
     /*
     ***************************************************************
     ** METHODS
@@ -25,6 +27,7 @@ class Edit extends Component
         
         foreach(Language::availableLanguages() as $key => $language) {
             $this->name[$key] = $this->insuranceFeature->getTranslation('name', $key);
+            $this->description[$key] = $this->insuranceFeature->getTranslation('description', $key);
         }    
     }
 
@@ -35,7 +38,7 @@ class Edit extends Component
 
         $this->validate(['name.'.Language::defaultCode() => 'required']);
 
-        $this->insuranceFeature->update(['name' => $this->name]);        
+        $this->insuranceFeature->update(['name' => $this->name, 'description' => $this->description]);        
         
         $this->dispatchBrowserEvent('open-success', ['message' => 'Insurance feature "' . $this->insuranceFeature->name .'" updated succesfully']);               
     }    

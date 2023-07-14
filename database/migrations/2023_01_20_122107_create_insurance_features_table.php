@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('hashid')->nullable()->index();
             $table->text('name');
+            $table->text('description');
             $table->timestamps();
         });
         

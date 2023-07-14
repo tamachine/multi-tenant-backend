@@ -83,6 +83,11 @@ class Edit extends Component
      */
     public $insurance_premium;
 
+     /**
+     * @var int
+     */
+    public $price_from;
+
     /*
     ***************************************************************
     ** METHODS
@@ -106,6 +111,7 @@ class Edit extends Component
         $this->category = $this->extra->category;
         $this->included = $this->extra->included;
         $this->insurance_premium = $this->extra->insurance_premium;
+        $this->price_from = $this->extra->price_from;
 
         if ($this->extra->caren_id) {
             $this->caren = true;
@@ -120,6 +126,7 @@ class Edit extends Component
             'name'              => ['required'],
             'price'             => ['required', 'numeric', 'gte:0'],
             'maximum_fee'       => ['required', 'numeric', 'gte:0'],
+            'price_from'        => ['numeric']
         ]);
 
         $this->extra->update([
@@ -132,7 +139,8 @@ class Edit extends Component
             'price_mode'        => $this->price_mode,
             'category'          => $this->category,
             'included'          => $this->included,
-            'insurance_premium' => $this->insurance_premium
+            'insurance_premium' => $this->insurance_premium,
+            'price_from'        => $this->price_from,
         ]);
 
         session()->flash('status', 'success');

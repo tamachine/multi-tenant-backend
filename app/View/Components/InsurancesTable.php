@@ -12,16 +12,21 @@ class InsurancesTable extends Component
 
     public $features;
 
+    public $isLanding = false;
+
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(Collection $insurances)
-    {
+    public function __construct(Collection $insurances, bool $isLanding = false)
+    {        
         $this->insurances = $insurances;
 
         $this->features   = Feature::all();
+
+        $this->isLanding = $isLanding;
     }
 
     /**

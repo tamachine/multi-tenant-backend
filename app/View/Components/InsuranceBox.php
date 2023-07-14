@@ -7,16 +7,24 @@ use App\Models\Insurance;
 
 class InsuranceBox extends Component
 {
-    public $insurance;    
+    public $insurance;   
+    
+    public $price;  //price to show. For insurances booking is the price, for landings, is the price_from...
+
+    public $showButton;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(Insurance $insurance)
+    public function __construct(Insurance $insurance, int $price, bool $showButton = true)
     {
         $this->insurance = $insurance;        
+
+        $this->price = $price;
+
+        $this->showButton = $showButton;        
     }
 
     /**

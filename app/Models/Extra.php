@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Translatable\HasTranslations;
-use App\Apis\Caren\Api;
 
 class Extra extends Model
 {
@@ -24,7 +23,7 @@ class Extra extends Model
         'vendor_id', 'name', 'description', 'active', 'order_appearance',
         'price', 'maximum_fee', 'max_units', 'price_mode', 'category',
         'included', 'insurance_premium', 'image',
-        'caren_id'
+        'caren_id', 'price_from'
     ];
 
     protected $append = ["is_insurance"];

@@ -22,7 +22,8 @@ class FeatureFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->text(35),            
+            'name' => $this->faker->text(35),    
+            'description' => $this->faker->text(150),            
         ];
     }
 }

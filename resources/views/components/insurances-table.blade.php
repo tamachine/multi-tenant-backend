@@ -8,8 +8,8 @@
                 </th>
 
                 @foreach($insurances as $insurance)
-                <th class="pb-10 {{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }} font-normal">
-                    <x-insurance-box :insurance=$insurance />
+                <th class="pb-10 {{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }} font-normal">                            
+                    <x-insurance-box :insurance=$insurance :price="$isLanding ? $insurance->price_from : $insurance->price" :show-button="!$isLanding" class="w-52"/>                                        
                 </th>
                 @endforeach
             </tr>
@@ -17,8 +17,9 @@
     <tbody>
     @foreach($features as $feature)
         <tr class="{{ ($loop->even) ? '' : 'bg-pink-red-secondary' }}">
-            <td class="rounded-l-lg p-6">
-                {!! $feature->name !!}
+            <td class="rounded-l-lg p-6 font-sans-medium md:text-lg flex gap-[6px] relative" x-data="{tooltip: false}" >
+                <img class="hidden md:inline-block w-[18px] cursor-pointer" src="{{ asset('images/icons/info-black.svg') }}" x-on:mouseover="tooltip = true"  /> <span class="w-full">{!! $feature->name !!}</span>
+                <div x-cloak x-show="tooltip" class="absolute bg-white rounded p-2 shadow-lg z-10 text-sm" x-on:mouseover.away="tooltip = false">{!! $feature->description !!}</div>
             </td>
             @foreach($insurances as $insurance)
             <td class="{{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }} {{ $loop->last ? 'rounded-r-lg' : '' }}">
@@ -29,6 +30,7 @@
             @endforeach
         </tr>
     @endforeach
+        @if(!$isLanding)
         <tr>
             <td></td>
             @foreach($insurances as $insurance)
@@ -39,6 +41,7 @@
             </td>
             @endforeach
         </tr>
+        @endif
     </tbody>
     </table>
     {{-- desktop end --}}
@@ -50,7 +53,7 @@
         </div>
 
         @foreach($insurances as $insurance)
-            <x-insurance-box :insurance=$insurance />
+            <x-insurance-box :insurance=$insurance :price="$isLanding ? $insurance->price_from : $insurance->price" :show-button="!$isLanding"/>
         @endforeach
     </div>
     {{-- mobile end --}}
