@@ -2,7 +2,7 @@
 
 @if ($faqs)
     <div x-data="{ tab: '#tab1' }"> 
-        @if (request()->routeIs('faq'))
+        @if ($titleH1)
             <div class="max-w-5xl mx-auto mb-10 md:mb-24">
                 <h1 class="mb-6 capitalize">
                     {{ __('home.faqs-title') }}
