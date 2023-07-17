@@ -46,6 +46,7 @@ class Extras extends Component
             $this->currentExtras[] = [
                 'id'    => $extra->hashid,
                 'name'  => $extra->name,
+                'color' => $extra->is_insurance ? $extra->insurance->color : '',
             ];
             $currentExtras[] = $extra->id;
         }
@@ -56,7 +57,8 @@ class Extras extends Component
                 $this->availableExtras[] = [
                     'id'        => $extra->hashid,
                     'name'      => $extra->name,
-                    'selected'  => false
+                    'selected'  => false,
+                    'color'     => $extra->is_insurance ? $extra->insurance->color : '',
                 ];
             }
         }

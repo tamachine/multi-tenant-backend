@@ -39,16 +39,17 @@ class ExtraSeeder extends Seeder
 
         // 2. CDW Insurance
         $extraData = $defaultExtra;
-        $extraData['name'] = 'CDW Insurance';
+        $extraData['name'] = 'Silver';
         $extraData['description'] = 'INCLUDED. The maximum self risk amount is ISK 350.000 for all cars.';
         $extraData['category'] = 'insurance';
         $extraData['included'] = 1;
         $extraData['order_appearance'] = 1;
-        $extraData['caren_id'] = 59;
+        $extraData['caren_id'] = 59;       
         $extra = Extra::create($extraData);
         CarenExtra::where('caren_id', 59)->update(['extra_id' => $extra->id]);
 
         // 3. SCDW Insurance
+        /*
         $extraData = $defaultExtra;
         $extraData['name'] = 'SCDW Insurance';
         $extraData['description'] = 'Super Collision damage waiver (SCDW) is INCLUDED. The maximum self risk amount is ISK 90.000 for all 2wd cars and ISK 120.000 for all 4wd';
@@ -58,30 +59,33 @@ class ExtraSeeder extends Seeder
         $extraData['caren_id'] = 58;
         $extra = Extra::create($extraData);
         CarenExtra::where('caren_id', 58)->update(['extra_id' => $extra->id]);
-
+        */
         // 4. GP Insurance
         $extraData = $defaultExtra;
-        $extraData['name'] = 'GP Insurance';
+        $extraData['name'] = 'Gold';
         $extraData['description'] = 'INCLUDED. This protection includes damage to windscreen and headlights of the car when gravel or rocks get thrown on the vehicle by another car. Self risk amount for broken windscreen is ISK 20.000.';
         $extraData['category'] = 'insurance';
         $extraData['included'] = 1;
         $extraData['order_appearance'] = 3;
         $extraData['caren_id'] = 57;
+        $extraData['price_from'] = 2762;
         $extra = Extra::create($extraData);
         CarenExtra::where('caren_id', 57)->update(['extra_id' => $extra->id]);
 
         // 5. TP Insurance
         $extraData = $defaultExtra;
-        $extraData['name'] = 'TP Insurance';
+        $extraData['name'] = 'Platinum';
         $extraData['description'] = 'TP covers theft damages of rental vehicle. INCLUDED';
         $extraData['category'] = 'insurance';
         $extraData['included'] = 1;
         $extraData['order_appearance'] = 4;
         $extraData['caren_id'] = 56;
+        $extraData['price_from'] = 4472;
         $extra = Extra::create($extraData);
         CarenExtra::where('caren_id', 56)->update(['extra_id' => $extra->id]);
 
         // 6. SAAP Insurance
+        /*
         $extraData = $defaultExtra;
         $extraData['name'] = 'SAAP Insurance';
         $extraData['description'] = 'By purchasing SAAP the self risk in case of damage from sand and ash is lowered to ISK 90.000. We offer the SAAP for 1.650 ISK per day.';
@@ -91,7 +95,7 @@ class ExtraSeeder extends Seeder
         $extraData['caren_id'] = 60;
         $extra = Extra::create($extraData);
         CarenExtra::where('caren_id', 60)->update(['extra_id' => $extra->id]);
-
+        */
         // 7. Extra driver
         $extraData = $defaultExtra;
         $extraData['name'] = 'Extra driver';

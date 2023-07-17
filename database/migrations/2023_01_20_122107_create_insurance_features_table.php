@@ -13,13 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('insurance_features', function (Blueprint $table) {
+        Schema::create('features', function (Blueprint $table) {
             $table->id();
             $table->string('hashid')->nullable()->index();
-            $table->string('name');
+            $table->text('name');
+            $table->text('description');
             $table->timestamps();
         });
         
+        Schema::create('feature_insurance', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('insurance_id')->unsigned()->index();
+            $table->unsignedBigInteger('feature_id')->unsigned()->index();
+            $table->timestamps();
+
+            $table->foreign('insurance_id')->references('id')->on('extras')->onDelete('cascade');
+            $table->foreign('feature_id')->references('id')->on('features')->onDelete('cascade');
+        });
     }
 
     /**
@@ -29,6 +39,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('insurance_features');
+        Schema::dropIfExists('insurance_feature');
+        Schema::dropIfExists('features');
     }
 };

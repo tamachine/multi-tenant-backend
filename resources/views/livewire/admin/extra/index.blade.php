@@ -35,8 +35,12 @@
 
                                     </th>
                                 @endif
+                               
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Name
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Type
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Vendor
@@ -81,12 +85,16 @@
                                                 </svg>
                                             @endif
                                         </td>
-                                    @endif
+                                    @endif                                    
 
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         <a href="{{route('intranet.extra.edit', $extra->hashid)}}" class="text-purple-700 hover:underline">
                                             {{ $extra->name }}
                                         </a>
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        {{ $extra->category == 'insurance' ? 'Insurance' : 'Extra' }}                                                                                 
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">

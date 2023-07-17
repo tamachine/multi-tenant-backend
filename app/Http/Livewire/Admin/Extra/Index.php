@@ -42,10 +42,10 @@ class Index extends Component
      */
     public $oneVendor = false;
 
-    /**
-     * @var array
+     /**
+     * @var array     
      */
-    protected $updatesQueryString = [
+    protected $updatesQueryString = [   
         'search',
         'page' => ['except' => 1],
     ];
@@ -86,9 +86,9 @@ class Index extends Component
     {
         $extras = Extra::join('vendors', 'extras.vendor_id', '=', 'vendors.id')
             ->livewireSearch($this->vendor, $this->search)
-            ->select('extras.hashid', 'extras.name', 'extras.active', 'extras.caren_id', 'vendors.name as vendor_name', 'vendors.brand_color')
+            ->select('extras.hashid', 'extras.name', 'extras.active', 'extras.caren_id', 'vendors.name as vendor_name', 'vendors.brand_color', 'extras.category')
             ->orderBy('vendor_name', 'asc')
-            ->orderBy('extras.order_appearance', 'asc')
+            ->orderBy('extras.order_appearance', 'asc')            
             ->get();
 
         $this->count = $extras->count();

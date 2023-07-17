@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Models\Car;
-use App\Models\InsuranceFeature;
+use App\Models\Feature as InsuranceFeature;
 
 class InsurancesController extends BaseController
 {

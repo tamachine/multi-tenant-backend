@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Translatable\HasTranslations;
-use App\Apis\Caren\Api;
 
 class Extra extends Model
 {
@@ -24,8 +23,10 @@ class Extra extends Model
         'vendor_id', 'name', 'description', 'active', 'order_appearance',
         'price', 'maximum_fee', 'max_units', 'price_mode', 'category',
         'included', 'insurance_premium', 'image',
-        'caren_id'
+        'caren_id', 'price_from'
     ];
+
+    protected $append = ["is_insurance"];
 
     /**
      * The attributes that are translatable.
@@ -88,6 +89,10 @@ class Extra extends Model
         return route('intranet.extra.edit', $this->hashid);
     }    
 
+    public function getIsInsuranceAttribute() {
+        return $this->category == 'insurance';
+    }
+
     /**********************************
      * Scopes
      **********************************/
@@ -142,5 +147,14 @@ class Extra extends Model
     public function cars()
     {
         return $this->belongsToMany('App\Models\Car')->withTimestamps();
+    }
+
+    public function insurance()
+    {        
+        return $this->hasOne(Insurance::class, 'id')->where('category', 'insurance');
+    }
+
+    public function carenExtra() {
+        return $this->hasOne(CarenExtra::class, 'caren_id', 'caren_id');
     }
 }

@@ -146,7 +146,7 @@
             </div>
 
             <div class="ml-8 my-auto font-bold text-purple-700 hover:underline">
-                Insurances features
+                Insurance features
             </div>
         </div>
     </div>

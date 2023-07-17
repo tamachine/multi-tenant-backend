@@ -30,9 +30,9 @@
                                         {{$key + 1}}
                                     </td>
 
-                                    <td class="px-4 py-2 whitespace-nowrap">
+                                    <td class=" whitespace-nowrap">
                                         <a href="{{route('intranet.extra.edit', $record["id"])}}" target="_blank"
-                                            class="text-purple-700 hover:underline"
+                                            class="text-purple-700 hover:underline {{$record['color'] ? 'px-4 rounded' : 'mx-4'}}  py-2" style="background-color:{{$record['color']}}"
                                         >
                                             {{$record["name"]}}
                                         </a>

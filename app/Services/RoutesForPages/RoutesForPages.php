@@ -66,6 +66,8 @@ class RoutesForPages {
         $this->storeRoute('cars.large', 'routes.cars/large', \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for large cars', 'large');
         $this->storeRoute('cars.premium', 'routes.cars/premium', \App\Http\Controllers\Web\LandingCarsController::class, 'Landing for medium cars', 'premium');
 
+        $this->storeRoute('insurances.landing', 'routes.insurances/landing', \App\Http\Controllers\Web\LandingInsurancesController::class, 'Landing for insurances');
+
         /* Blog */        
         $this->storeRoute('blog.search.category', 'routes.blog/category/{blog_category_slug}', \App\Http\Controllers\Web\BlogSearchCategoryController::class, 'Category search results page', 'index', \App\Models\BlogCategory::class);
         $this->storeRoute('blog.search.tag', 'routes.blog/tag/{blog_tag_slug}', \App\Http\Controllers\Web\BlogSearchTagController::class, 'Tag search results page', 'index', \App\Models\BlogTag::class);

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\InsuranceFeature;
+use App\Models\Feature as InsuranceFeature;
 use Illuminate\View\View;
 
 class InsuranceFeatureController extends Controller
