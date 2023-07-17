@@ -19,23 +19,21 @@ class Faqs extends Component
      */
     public $allFaqs;
 
-     /**
-     * If true, title will be h1.
-     * If false, title will be h2
+     /**    
      *
      * @var string
      */
-    public $titleH1;
+    public $isFaqsPage;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(bool $allFaqs = false, $titleH1 = true)
+    public function __construct(bool $allFaqs = false, $isFaqsPage = false)
     {
         $this->allFaqs = $allFaqs;
-        $this->titleH1 = $titleH1;
+        $this->isFaqsPage = $isFaqsPage;
     }
 
     /**

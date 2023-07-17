@@ -1,9 +1,7 @@
-@props(['class', 'title'])
-
 @if ($faqs)
     <div x-data="{ tab: '#tab1' }"> 
-        @if ($titleH1)
-            <div class="max-w-5xl mx-auto mb-10 md:mb-24">
+        @if ($isFaqsPage)
+            <div class="max-w-5xl mx-auto">
                 <h1 class="mb-6 capitalize">
                     {{ __('home.faqs-title') }}
                 </h1>
@@ -20,14 +18,14 @@
         
 
         @if ($categories)
-            <div class="mb-10 md:mb-16 flex md:justify-center justify-start gap-2 md:gap-5 w-full {{ $categories->count() > 3 ? 'flex-wrap' : '' }} flex-nowrap overflow-auto scrollbar-none w-fill-screen md:w-full md:left-0 px-3">            
+            <div class="{{ $isFaqsPage ? 'md:mt-8 mt-24' : 'mt-10 md:mt-12' }} flex md:justify-center justify-start gap-2 md:gap-5 w-full {{ $categories->count() > 3 ? 'flex-wrap' : '' }} flex-nowrap overflow-auto scrollbar-none w-fill-screen md:w-full md:left-0 px-3">            
                 @foreach($categories as $category)
                     <button class="tab w-[136px] h-[50px] p-0 flex-shrink-0 " @click.prevent="tab='#tab{{ $category->id }}'" :class="{ 'active': tab == '#tab{{ $category->id }}' }">{{ $category->name }}</button>
                 @endforeach
             </div>
         @endif
 
-        <div class="max-w-2xl m-auto">
+        <div class="max-w-2xl m-auto {{ $isFaqsPage ? 'md:mt-20 mt-10' : 'md:mt-12 mt-14' }}">
             @foreach($categories as $category)
                 <div x-show="tab == '#tab{{ $category->id }}'" class="grid grid-cols-1 divide-y">
                     @foreach($category->takeFaqs($take) as $faq)
