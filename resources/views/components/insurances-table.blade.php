@@ -19,7 +19,9 @@
         <tr class="{{ ($loop->even) ? '' : 'bg-pink-red-secondary' }}">
             <td class="rounded-l-lg p-6 font-sans-medium md:text-lg flex gap-[6px] relative" x-data="{tooltip: false}" >
                 <img class="hidden md:inline-block w-[18px] cursor-pointer" src="{{ asset('images/icons/info-black.svg') }}" x-on:mouseover="tooltip = true"  /> <span class="w-full">{!! $feature->name !!}</span>
-                <div x-cloak x-show="tooltip" class="absolute bg-white rounded p-2 shadow-lg z-10 text-sm" x-on:mouseover.away="tooltip = false">{!! $feature->description !!}</div>
+
+                <img x-cloak x-show="tooltip" src="{{ asset('images/icons/triangle-left-white.svg') }}" class="w-3 h-3 z-20 absolute left-10 top-0 bottom-0 my-auto mx-auto" />                
+                <div x-cloak x-show="tooltip" class="absolute left-12 w-80 bg-white rounded p-2 shadow-lg z-10 text-sm" x-on:mouseover.away="tooltip = false">{!! $feature->description !!}</div>
             </td>
             @foreach($insurances as $insurance)
             <td class="{{ $loop->last ? 'pl-6' : ($loop->first ? 'pr-6' : 'px-6') }} {{ $loop->last ? 'rounded-r-lg' : '' }}">
