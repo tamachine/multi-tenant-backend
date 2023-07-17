@@ -4,6 +4,7 @@
 @import 'swiper.css';
 @import 'timepicker.css';
 @import 'car-search-bar.css';
+@import 'animations.css';
 
 /**
  * This injects Tailwind's base styles, which is a combination of
@@ -296,5 +297,3 @@ select:-webkit-autofill:focus {
 button {
     @apply disabled:opacity-50 disabled:cursor-not-allowed
 }
-
-
