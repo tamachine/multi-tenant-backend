@@ -34,6 +34,20 @@ class ReadMoreBlock extends Component
      * @var string
      */
     public $arrowClose;
+
+    /**
+     * if Read more text has to be font regular instead of font medium
+     *
+     * @var bool
+     */
+    public $fontRegular;
+
+     /**
+     * The text size class
+     *
+     * @var bool
+     */
+    public $textSizeClass;
     
 
     /**
@@ -41,12 +55,14 @@ class ReadMoreBlock extends Component
      *
      * @return void
      */
-    public function __construct($text, $reverseTextAlign = false, $arrowOpen = 'images/icons/read-more.svg', $arrowClose = 'images/icons/read-less.svg')
+    public function __construct($text, $reverseTextAlign = false, $arrowOpen = 'images/icons/read-more.svg', $arrowClose = 'images/icons/read-less.svg', $fontRegular = false, $textSizeClass = null)
     {
         $this->text = $text;
         $this->reverseTextAlign = $reverseTextAlign;   
         $this->arrowOpen = $arrowOpen;     
         $this->arrowClose = $arrowClose;     
+        $this->fontRegular = $fontRegular;     
+        $this->textSizeClass = $textSizeClass;
     }
 
     /**

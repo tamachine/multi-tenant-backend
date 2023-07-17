@@ -125,7 +125,7 @@
                         <option value="{{$priceModeKey}}">{{ ucwords($priceModeText) }}</option>
                     @endforeach
                 </select>
-            </div>
+            </div>           
 
             {{-- Category --}}
             <div class="px-4 mt-4">
@@ -138,7 +138,32 @@
                     @endforeach
                 </select>
             </div>
+            
+            @if($extra->is_insurance)
+            <div class="w-full sm:grid sm:gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {{-- Price from --}}
+                <div class="px-4 mt-4">
+                    <x-admin.label-tooltip for="price_from" value="{{ __('Price from') }}" tooltip="Custom starting price to show on insurances landing page when no car are supplied" />            
+                    <x-admin.input id="price_from" type="number" class="w-20 mt-1 block" min="0" max="999999" wire:model.defer="price_from" />                
+                    <x-admin.input-error for="price_from" class="mt-2" />
+                    <x-admin.input-help value="{{ __('(in ISK / per day)') }}" />
+                </div>
+            </div>
+            @endif
         </div>
+
+        @if($extra->is_insurance)
+        <hr class="mt-8 mb-4 px-4">
+
+        <div class="w-full sm:grid sm:gap-2 sm:grid-cols-1">
+            {{-- Color --}}            
+            <div class="px-4 mt-4">              
+                <x-admin.label-tooltip value="{{ __('Color') }}" tooltip="Color used in insurances page. {{ $extra->caren_id ? 'Name shown here is the corresponding in Caren' : '' }}" />
+
+                <div style="background-color:{{ $extra->insurance->color }}" class="p-4 text-white w-fit inline-block">{{ $extra->caren_id ? $extra->carenExtra->name : $extra->name }}</div>
+            </div>
+        </div>        
+        @endif
     </x-slot>
 
     <x-slot name="actions">

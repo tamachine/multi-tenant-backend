@@ -214,6 +214,16 @@ class UrlsSeeder extends Seeder
                 'text' => ['en' => 'cars/premium', 'es' => 'flota/premium'],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'insurances/landing',
+            ],
+            [
+                'text' => ['en' => 'insurances', 'es' => 'seguros'],
+            ]
+        );
        
     }
 }

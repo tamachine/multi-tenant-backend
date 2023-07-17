@@ -53,7 +53,11 @@ class CarsSearch
         $this->carsSearchQuery->handle($this->specs, $this->locations, $this->dates, $this->vendors);
 
         return $this->carsSearchQuery->get();
-    }      
+    }    
+    
+    public function searchByDates() {
+        return $this->carsSearchQuery->searchByDates();
+    }
 
     protected function setVendors() {
         if(isset($this->data['vendors'])) {

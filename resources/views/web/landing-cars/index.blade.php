@@ -10,6 +10,7 @@
                 :showFilters="false" 
                 :showImageIfLittleResults="true" 
                 :categories="$categories" 
+                :isLanding="true"
                 />
 
             @include('web.landing-cars.partial.testimonials')

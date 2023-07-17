@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\InsuranceFeature;
+use App\Models\Feature;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class InsuranceFeatureFactory extends Factory
+class FeatureFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = InsuranceFeature::class;
+    protected $model = Feature::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,8 @@ class InsuranceFeatureFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->text(35),            
+            'name' => $this->faker->text(35),    
+            'description' => $this->faker->text(150),            
         ];
     }
 }

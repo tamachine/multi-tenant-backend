@@ -66,6 +66,27 @@
                         Image
                     </a>
                 </li>
+
+                @if($extra->is_insurance)
+                <li class="mr-2">
+                    <a href="javascript:void(0);"
+                        @click.prevent="tab='features'"
+                        class="inline-flex p-4 rounded-t-lg border-b-2"
+                        :class="tab == 'features' ? 'text-blue-600 border-blue-600' : 'border-transparent hover:text-gray-600 hover:border-gray-300'"
+                    >
+                        
+
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
+                            class="mr-2 w-5 h-5"
+                            :class="tab == 'features' ? 'text-blue-600' : 'text-gray-400'">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+
+                        Features
+                    </a>
+                </li>
+                @endif
             </ul>
         </div>
 
@@ -80,5 +101,11 @@
         <div x-show="tab == 'image'" style="display:none;">
             <livewire:admin.extra.image :extra="$extra" />
         </div>
+
+        @if($extra->is_insurance)
+        <div x-show="tab == 'features'" style="display:none;">
+            <livewire:admin.extra.features :insurance="$extra->insurance" />
+        </div>
+        @endif
     </div>
 </x-admin-layout>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin\InsuranceFeature;
 
-use App\Models\InsuranceFeature;
+use App\Models\Feature;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -48,7 +48,7 @@ class Index extends Component
 
     public function render()
     {
-        $insuranceFeatures = InsuranceFeature::livewireSearch($this->search)            
+        $insuranceFeatures = Feature::livewireSearch($this->search)            
             ->paginate(perPage());
 
         $this->count = $insuranceFeatures->count();

@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Admin\InsuranceFeature;
 
 use Livewire\Component;
 use App\Helpers\Language;
-use App\Models\InsuranceFeature;
+use App\Models\Feature as InsuranceFeature;
 
 class Create extends Component
 {

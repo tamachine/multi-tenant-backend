@@ -55,9 +55,9 @@ class CarSeeder extends Seeder
         $carData['car_code'] = 'UNQA';
         $carData['units'] = 100;
         $carData['fleet_position'] = 12;
-        $carData['caren_id'] = 1462;
+        $carData['caren_id'] = 191;
         $car = Car::create($carData);
-        CarenCar::where('caren_id', 1462)->update(['car_id' => $car->id]);
+        CarenCar::where('caren_id', 191)->update(['car_id' => $car->id]);
 
         // 3. Kia Sportage 4x4 (automatic) Free GPS! Special offer!
         $carData = $defaultCar;

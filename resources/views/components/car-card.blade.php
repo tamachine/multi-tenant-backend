@@ -47,8 +47,10 @@
             <div class="flex flex-row justify-between items-center gap-4
                         sm:flex-col sm:items-start
                         md:flex-row md:items-center">
-                <div>
-                    <div class="text-gray-tertiary">{!! __('cars.card-price-start') !!}</div>
+                <div>                   
+                    <div class="text-gray-tertiary">
+                        {!! __('cars.card-price-start') !!}
+                    </div>                   
                     <div>
                         <span class="font-sans-bold text-2xl">
                             {!! formatPrice($car->daily_price) !!}
@@ -56,14 +58,34 @@
                         <span class="">{!! __('cars.card-perday') !!}</span>
                     </div>
                 </div>
+                
                 <div>
-                    <button class="btn btn-black text-base px-5 py-3"
+                    @if($canBeBooked)
+                    <button 
+                        class="btn btn-black text-base px-5 py-3"
                         x-on:click="redirecting = true"
                         wire:click="selectCar('{{ $car->hashid }}')"
                     >
                         {!! __('cars.card-button') !!}
                     </button>
+                    @elseif($redirectToCarsPage)
+                    <button 
+                        class="btn btn-black text-base px-5 py-3"
+                        x-on:click="window.location.href='{{ route('cars') }}'"
+                    >
+                        {!! __('cars.card-button') !!}
+                    </button>
+                    @else
+                    <button 
+                        class="btn btn-black text-base px-5 py-3"
+                        x-on:click="window.scrollTo({top: 0, behavior: 'smooth'})"                        
+                    >
+                        {!! __('cars.card-button') !!}
+                    </button>
+                    @endif
                 </div>
+                
+                
             </div>
         </div>
     </div>

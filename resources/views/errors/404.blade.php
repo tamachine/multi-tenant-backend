@@ -9,17 +9,17 @@
             <div class="text-[128px] md:text-[220px] font-fredoka-semibold flex flex-col">
                 <div>404</div>
                 <div class="max-w-[240px] md:max-w-md flex md:hidden text-lg title-shadow font-fredoka-medium">
-                    {!! __('not-found.title') !!}
+                    {!! __('app-errors.not-found-title') !!}
                 </div>
             </div>
 
             <div class="max-w-[240px] md:max-w-md">
                 <div class="hidden md:flex text-lg title-shadow font-fredoka-medium">
-                    {!! __('not-found.title') !!}
+                    {!! __('app-errors.not-found-title') !!}
                 </div>
 
                 <div class="mt-6 font-sans-bold">
-                    <button class="btn btn-red font-sans-bold py-3 px-10" onclick='window.location.href="{{route("home")}}"'>    {!! __('not-found.button') !!}</button>
+                    <button class="btn btn-red font-sans-bold py-3 px-10" onclick='window.location.href="{{route("home")}}"'>{!! __('app-errors.not-found-button') !!}</button>
                 </div>
             </div>
         </div>        

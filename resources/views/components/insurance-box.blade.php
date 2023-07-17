@@ -1,16 +1,14 @@
-<div
+<div    
     x-data="{ insuranceBoxVisibility : false }"
-    class="
-    w-full
+    {{ $attributes->merge(['class' => 'w-full
     h-full
     flex flex-col justify-between items-center gap-6
     shadow-lg
-    rounded-xl p-5 text-white bg-[{{ $insurance->color }}]
-    "
+    rounded-xl p-5 text-white bg-['.$insurance->color.']']) }}    
     >
     <div class="font-fredoka-medium text-center text-2xl">{{ $insurance->name }}</div>
     <div>
-        <div class="font-fredoka-semibold text-5xl">{{ formatPrice($insurance->price) }}</div>
+        <div class="font-fredoka-semibold text-5xl">{{ formatPrice($price) }}</div>
         <div>{!! __('insurances.price_mode.'.$insurance->price_mode) !!} </div>
     </div>
     <div
@@ -18,16 +16,18 @@
         x-show="insuranceBoxVisibility"
         class="md:hidden flex flex-col gap-4 my-2"
         >
-        @foreach($InsuranceFeatures as $InsuranceFeature)
+        @foreach($insurance->features as $feature)
             <div>
                 <img class="inline mr-3" src="{{ asset('images/icons/check-circle-white.svg') }}" />
-                <span>{!! $InsuranceFeature->name !!}</span>
+                <span>{!! $feature->name !!}</span>
             </div>
         @endforeach
     </div>
+    @if($showButton)
     <div>
         <livewire:web.choose-insurance buttonClass="rounded-xl px-5 py-3 bg-white hover:bg-gray-100 text-black" :insurance="$insurance" />
     </div>
+    @endif
     <div
         x-on:click="insuranceBoxVisibility = !insuranceBoxVisibility"
         class="md:hidden text-sm font-sans-medium cursor-pointer"

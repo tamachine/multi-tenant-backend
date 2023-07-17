@@ -29,6 +29,7 @@ class CarSearchResults extends Component
     public $showFilters;    
     public $showImageIfLittleResults;
     public $widthFillScreen;
+    public $isLanding;
 
     /*
     ***************************************************************
@@ -41,13 +42,14 @@ class CarSearchResults extends Component
         $this->carsSearch = $carsSearch;
     }
 
-    public function mount(bool $showFilters = true, bool $showImageIfLittleResults = false, bool $widthFillScreen = false, array $categories = [], array $dates = [], array $locations = []) {        
+    public function mount(bool $showFilters = true, bool $showImageIfLittleResults = false, bool $widthFillScreen = false, array $categories = [], array $dates = [], array $locations = [], bool $isLanding = false) {        
         $this->showFilters              = $showFilters;
         $this->showImageIfLittleResults = $showImageIfLittleResults;
         $this->widthFillScreen          = $widthFillScreen;
         $this->categories               = $categories;
         $this->dates                    = $dates;
         $this->locations                = $locations;
+        $this->isLanding                = $isLanding;
 
         $this->carSearch();
         $this->setSelectables();
@@ -86,14 +88,12 @@ class CarSearchResults extends Component
 
     protected function carSearch()
     {
-        //$sessionData = request()->session()->get('booking_data');
-
         $this->carsSearch->setData(
             [
                 'types' => $this->categories,
                 'specs' => $this->selectables,
-                'dates' => $this->dates, //['from' => $sessionData['from'], 'to' => $sessionData['to']],
-                'locations' => $this->locations,// ['pickup' => $sessionData['pickup'], 'dropoff' => $sessionData['dropoff']]
+                'dates' => $this->dates, 
+                'locations' => $this->locations,
             ]
         );
 
@@ -126,6 +126,6 @@ class CarSearchResults extends Component
 
     public function render()
     {
-        return view('livewire.web.car-search-results', ['carCategories' => CarType::all()]);
+        return view('livewire.web.car-search-results', ['carCategories' => CarType::all(), 'searchByDates' => $this->carsSearch->searchByDates() ]);
     }
 }
