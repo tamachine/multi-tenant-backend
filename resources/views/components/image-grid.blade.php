@@ -14,7 +14,7 @@
         <x-image path="images/landing-insurances/grid-2.jpg" />
     </div>
     <div class="font-sans text-lg flex flex-col justify-center">
-        <x-read-more-block text="{!! __('landing-insurances.grid-text-2') !!}" arrow-open="images/icons/arrow-red-down.svg" arrow-close="images/icons/arrow-red-up.svg" font-regular="true"/>        
+        <x-read-more-block text="{!! __('landing-insurances.grid-text-2') !!}" arrow-open="images/icons/arrow-red-down.svg" arrow-close="images/icons/arrow-red-up.svg" font-regular="true" text-size-class="text-lg"/>        
     </div>
 </section>
 
