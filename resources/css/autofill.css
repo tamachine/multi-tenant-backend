@@ -1,0 +1,33 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 0px solid white;
+  -webkit-text-fill-color: #AAAAAA;
+  -webkit-box-shadow: 0 0 0px 100px rgba(0,0,0,0) inset;    
+}
+
+#contact-form input:-webkit-autofill,
+#contact-form textarea:-webkit-autofill,
+#contact-form select:-webkit-autofill
+{   
+    border: 1px solid rgb(229 231 235);
+    -webkit-text-fill-color: #000;
+    -webkit-box-shadow: inherit;
+    transition: background-color 5000s ease-in-out 0s; 
+}
+
+#contact-form input:-webkit-autofill:focus,
+#contact-form input:-webkit-autofill:hover,
+#contact-form textarea:-webkit-autofill:hover,
+#contact-form textarea:-webkit-autofill:focus,
+#contact-form select:-webkit-autofill:hover,
+#contact-form select:-webkit-autofill:focus
+{
+    border: 1px solid #E11166;
+}
