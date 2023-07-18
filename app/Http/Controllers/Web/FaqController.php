@@ -9,7 +9,7 @@ class FaqController extends BaseController
         return view(
             'web.faq.index',
             [
-                'breadcrumbs'   => getBreadcrumb(['home', 'faq']),
+                'breadcrumbs'   => getBreadcrumb(['home', 'FAQ']),
             ]
         );
     }
