@@ -1,9 +1,10 @@
-<div class="relative  min-h-[495px] rounded-2xl overflow-hidden
-    @if($hover != '') 
-        hover-change-image
-    @else
-        hover-no-image
-    @endif ">   
+<div
+    x-data 
+    x-on:click="{{ $href ? 'window.location.href="' . $href . '"' : '' }}"
+    class="relative  min-h-[495px] rounded-2xl overflow-hidden
+    {{ $hover != '' ? 'hover-change-image' : 'hover-no-image' }}
+    {{ $href ? 'cursor-pointer' : '' }}
+    ">   
 
     <x-background-hover-transition 
         :image="$image" 
@@ -17,7 +18,7 @@
         </div>
         <div class="drop-shadow-text text-white">
             <div class="font-fredoka-semibold text-3xl">{{ $title }}</div>
-            <div class="font-sans-medium md:text-base text-lg">{{ $text }}</div>
+            <div class="font-sans-medium md:text-base text-lg line-clamp-3">{{ $text }}</div>
         </div>
     </div>  
 </div>
