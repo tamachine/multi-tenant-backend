@@ -1,16 +1,16 @@
 <div 
     x-data="accordion( { group: '{{ $groupId }}' } )"    
-    {{ $groupId ? '@close-accordion-'.$groupId.'.window = close()' : '' }}    
+    x-id="['accordion']"
+    {{ $groupId ? '@close-accordion-'.$groupId.'.window = close($event.detail.id)' : '' }}    
     {{ $attributes->merge(['class' => 'w-full text-xl']) }}    
     >
-    <div @click.prevent="click()" class="flex {{ is_null($questionFontSizeClass) ? 'text-xl' : $questionFontSizeClass }} gap-6 items-center" :class="{ 'text-pink-red text-xl md:text-[22px]': open }">
+    <div @click.prevent="click()" class="flex {{ is_null($questionFontSizeClass) ? 'text-xl' : $questionFontSizeClass }} gap-6 items-center cursor-pointer" :class="{ 'text-pink-red text-xl md:text-[22px]': open }">
         <span class="font-sans-medium font-medium">{{ $question }}</span>
-        <div class="ml-auto cursor-pointer">                        
+        <div class="ml-auto">                        
             <i 
                 x-show="showPlus"
                 class="fa fa-plus"                                 
-                :class=" {'rotate-left-180-animation' : open} "   
-                @click="plusClick()"                     
+                :class=" {'rotate-left-180-animation' : open} "                                                     
                 >
             </i>
             <i 
