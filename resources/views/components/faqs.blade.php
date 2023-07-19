@@ -27,10 +27,13 @@
 
         <div class="max-w-2xl m-auto {{ $isFaqsPage ? 'md:mt-20 mt-10' : 'md:mt-12 mt-14' }}">
             @foreach($categories as $category)
-                <div x-show="tab == '#tab{{ $category->id }}'" class="grid grid-cols-1 divide-y">
+                <div 
+                    x-show="tab == '#tab{{ $category->id }}'" 
+                    class="grid grid-cols-1 divide-y"                                                        
+                    >
                     @foreach($category->takeFaqs($take) as $faq)
                         <div class="py-4 md:py-9">
-                            <x-accordion question="{!! $faq->question !!}" answer="{!! $faq->answer !!}" />
+                            <x-accordion question="{!! $faq->question !!}" answer="{!! $faq->answer !!}" :group-id="'faqs-'.$category->id"/>
                         </div>
                     @endforeach
                 </div>

@@ -8,5 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         locations.style.height = locationsLayerHeight + 'px';
     }
-    new ResizeObserver(locationsHeight).observe(return__layer);
+
+    if (typeof return__layer !== 'undefined') new ResizeObserver(locationsHeight).observe(return__layer);
 });

@@ -43,16 +43,26 @@ class Accordion extends Component
     public $answerFontSizeClass = null;
 
     /**
+     * The accordion group id. 
+     * If groupId is set, then, when an accordion is open in the group, all other accordions will be closed.
+     * If groupId is not set, then, when an accordion is open, all other accordions will remain the same.
+     *
+     * @var string
+     */
+    public $groupId = null;
+
+    /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($question, $answer, $questionFontSizeClass = null, $answerFontSizeClass = null)
+    public function __construct($question, $answer, $questionFontSizeClass = null, $answerFontSizeClass = null, $groupId = null)
     {
         $this->question = $question;
         $this->answer = $answer;
         $this->questionFontSizeClass = $questionFontSizeClass;  
-        $this->answerFontSizeClass = $answerFontSizeClass;       
+        $this->answerFontSizeClass = $answerFontSizeClass;    
+        $this->groupId = $groupId;     
     }
 
     /**
@@ -65,3 +75,4 @@ class Accordion extends Component
         return view('components.accordion');
     }
 }
+
