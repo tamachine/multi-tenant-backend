@@ -1,14 +1,34 @@
-function accordion() {
+function accordion(config) {
     return { 
         open: false,
 
         showPlus: true,
 
-        showMinus: false,
+        showMinus: false,       
+        
+        group : null,
 
-        onClick() {
-            this.open = !this.open
+        init() {
+            this.group = config.group
+        },
+
+        click() {
+            this.open = !this.open                
             
+            this.toggleIcon()
+        },    
+
+        plusClick() { 
+            if(this.group) this.$dispatch('close-accordion-'+this.group) //close all other accordions in the group
+        },
+        
+        close() {
+            this.open = false
+
+            this.toggleIcon()
+        },
+
+        toggleIcon() {
             setTimeout(
                 () => {
                     
@@ -19,6 +39,6 @@ function accordion() {
                 }                        
             , 300
             )
-        },           
+        }
     }
 }
