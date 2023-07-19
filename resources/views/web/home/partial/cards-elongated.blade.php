@@ -1,23 +1,14 @@
 <div class="grid grid-cols-1 md:grid-cols-3 w-100 md:pt-6 md:gap-x-6 gap-y-4">
+  
+    @foreach($latestArticles as $blogPost)   
     <x-card-elongated 
-        background-relative-path="{{ '/images/home/cardElongated-1.png' }}" 
-        background-hover-relative-path="{{ '/images/home/cardElongated-5.png' }}" 
-        title="{!! __('home.card-elongated-1-title') !!}" 
-        text="{!! __('home.card-elongated-1-text') !!}" 
+        background-relative-path="{{ $blogPost->featured_image_path }}" 
+        background-hover-relative-path="{{ $blogPost->featured_image_hover_path }}" 
+        title="{!! $blogPost->title !!}" 
+        text="{!! $blogPost->summary !!}" 
         time="{!! __('home.card-elongated-1-time') !!}" 
-    />    
-    <x-card-elongated 
-        background-relative-path="{{ '/images/home/cardElongated-3.png' }}" 
-        background-hover-relative-path="{{ '/images/home/cardElongated-6.png' }}" 
-        title="{!! __('home.card-elongated-3-title') !!}" 
-        text="{!! __('home.card-elongated-3-text') !!}" 
-        time="{!! __('home.card-elongated-3-time') !!}" 
-    />
-    <x-card-elongated 
-        background-relative-path="{{ '/images/home/cardElongated-2.png' }}" 
-        background-hover-relative-path="{{ '/images/home/cardElongated-4.png' }}" 
-        title="{!! __('home.card-elongated-2-title') !!}" 
-        text="{!! __('home.card-elongated-2-text') !!}" 
-        time="{!! __('home.card-elongated-2-time') !!}" 
-    />
+        href="{{ $blogPost->url }}"
+    />  
+    @endforeach
+    
 </div>
