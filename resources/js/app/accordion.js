@@ -9,23 +9,24 @@ function accordion(config) {
         group : null,
 
         init() {
-            this.group = config.group
+            this.group = config.group                       
         },
 
-        click() {
+        click() {            
+            if(this.group) this.$dispatch('close-accordion-'+this.group, { id: this.$id('accordion') }) //close all other accordions in the group
+
             this.open = !this.open                
             
-            this.toggleIcon()
-        },    
-
-        plusClick() { 
-            if(this.group) this.$dispatch('close-accordion-'+this.group) //close all other accordions in the group
-        },
+            this.toggleIcon()           
+        },           
         
-        close() {
-            this.open = false
+        close(id) {
+            
+            if (this.$id('accordion') != id) {            
+                this.open = false
 
-            this.toggleIcon()
+                this.toggleIcon()
+            }
         },
 
         toggleIcon() {
