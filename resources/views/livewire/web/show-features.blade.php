@@ -12,12 +12,12 @@
     <div class="flex gap-14">
         <div class="w-full">
         @foreach($featuresFirstColumn as $feature)
-            <x-accordion :question="$feature->name" :answer="$feature->description" class="border-b py-4" question-font-size-class="text-base md:text-xl"/>
+            <x-accordion :question="$feature->name" :answer="$feature->description" class="border-b py-4" group-id="insurances-features" question-font-size-class="text-base md:text-xl"/>
         @endforeach
         </div>
         <div class="hidden w-full md:inline-block">
         @foreach($featuresSecondColumn as $feature)
-            <x-accordion :question="$feature->name" :answer="$feature->description" class="border-b py-4"/>
+            <x-accordion :question="$feature->name" :answer="$feature->description" class="border-b py-4" group-id="insurances-features"/>
         @endforeach
         </div>
     </div>
