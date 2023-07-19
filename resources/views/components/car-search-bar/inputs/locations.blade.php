@@ -1,5 +1,5 @@
 <div id="location-inputs" 
-    class="search-input-group flex gap-2 basis-[41%] lg:basis-[44%]"
+    class="search-input-group flex gap-2 basis-[41%] lg:basis-[44%] hover:border-black"
     :class="showOpenLocationsInput ? 'border-gray-tertiary' : ''"
     x-on:click="openLocationsClick()"  
     x-data="locationInputs({ locations: '{{ $locationsIds }}' })"  

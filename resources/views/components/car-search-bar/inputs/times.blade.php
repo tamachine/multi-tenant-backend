@@ -1,5 +1,5 @@
 <div id="time-inputs" 
-    class="search-input-group flex gap-2 basis-[21%]" 
+    class="search-input-group flex gap-2 basis-[21%] hover:border-black" 
     :class="showOpenTimesInput ? 'border-gray-tertiary' : ''"
     x-on:click="openTimeClick()"     
     >
