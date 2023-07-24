@@ -183,5 +183,15 @@ class GeneralSeeder extends Seeder
                 'text' => ['en' => 'Ok', 'es' => 'De acuerdo'],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'general',
+                'key' => 'minutes',
+            ],
+            [
+                'text' => ['en' => ':time Minute|:time Minutes', 'es' => ':time Minuto|:time Minutos'],
+            ]
+        );
     }
 }

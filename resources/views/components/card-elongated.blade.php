@@ -14,7 +14,7 @@
 
     <div class="relative px-5 py-7 h-full flex flex-col justify-between">
         <div class="flex-grow mb-4 md:mb-8">
-            <x-reading-time-icon time="{{ $time }}" />
+            <x-reading-time-icon text="{{ $textForTime }}" />
         </div>
         <div class="drop-shadow-text text-white">
             <div class="font-fredoka-semibold text-3xl">{{ $title }}</div>

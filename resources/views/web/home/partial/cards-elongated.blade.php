@@ -6,7 +6,7 @@
         background-hover-relative-path="{{ $blogPost->featured_image_hover_path }}" 
         title="{!! $blogPost->title !!}" 
         text="{!! $blogPost->summary !!}" 
-        time="{!! __('home.card-elongated-1-time') !!}" 
+        :text-for-time="$blogPost->content" 
         href="{{ $blogPost->url }}"
     />  
     @endforeach

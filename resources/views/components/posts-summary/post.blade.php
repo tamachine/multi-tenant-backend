@@ -15,7 +15,7 @@
         <div class="absolute top-0 left-0 z-10 w-full h-full">
             <div class="bg-black/50 h-full w-full p-3 sm:px-8 md:p-5 rounded-lg">
                 <div class="flex flex-col justify-end items-start h-full">
-                    <x-reading-time-icon time="{{ __('blog.time') }}" />
+                    <x-reading-time-icon :text="$blogPost->content" />
                 </div>
             </div>
         </div>
