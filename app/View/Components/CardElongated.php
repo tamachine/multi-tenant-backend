@@ -28,11 +28,11 @@ class CardElongated extends Component
     public $text;
 
     /**
-     * The text to show after the clock icon
+     * The text to use to show after the clock icon
      *
      * @var string
      */
-    public $time;
+    public $textForTime;
 
     /**
      * The image hover path
@@ -53,13 +53,13 @@ class CardElongated extends Component
      *
      * @return void
      */
-    public function __construct($backgroundRelativePath, $title, $text, $time, $backgroundHoverRelativePath = null, $href = null)
+    public function __construct($backgroundRelativePath, $title, $text, $textForTime, $backgroundHoverRelativePath = null, $href = null)
     {
         $this->backgroundRelativePath = $backgroundRelativePath;
         $this->backgroundHoverRelativePath = $backgroundHoverRelativePath;
         $this->title = $title;
         $this->text = $text;
-        $this->time = $time;
+        $this->textForTime = $textForTime;
         $this->href = $href;
     }
 

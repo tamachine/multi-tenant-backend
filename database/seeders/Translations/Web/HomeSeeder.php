@@ -142,37 +142,7 @@ class HomeSeeder extends Seeder
             [
                 'text' => ['en' => 'to discover all guides and secrets in Iceland', 'es' => 'para descubrir todas las guías y secretos de Islandia'],
             ]
-        );        
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'home',
-                'key' => 'card-elongated-1-time',
-            ],
-            [
-                'text' => ['en' => "2 Minutes", 'es' => '2 Minutos'],
-            ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'home',
-                'key' => 'card-elongated-2-time',
-            ],
-            [
-                'text' => ['en' => "2 Minutes", 'es' => '2 Minutos'],
-            ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'home',
-                'key' => 'card-elongated-3-time',
-            ],
-            [
-                'text' => ['en' => "2 Minutes", 'es' => '2 Minutos'],
-            ]
-        );
+        );               
 
         Translation::firstOrCreate(
             [

@@ -82,17 +82,7 @@ class BlogSeeder extends Seeder
             [
                 'text' => ['en' => 'View all', 'es' => 'Ver todos'],
             ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'blog',
-                'key' => 'time',
-            ],
-            [
-                'text' => ['en' => '2 Minutes', 'es' => '2 Minutos'],
-            ]
-        );
+        );       
 
         Translation::firstOrCreate(
             [
