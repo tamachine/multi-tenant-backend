@@ -2,7 +2,7 @@
     <h1 class="text-black-primary" >{{ $post->title }}</h1>
     <div class="text-[#9b9b9b]">
         <p>
-            {{ __('blog.by') }} <a href="{{ $post->author->url }}" class="text-black"> {!! $post->author->name !!}</a>  {{ __('blog.in') }} <a href="#" class="text-black"> {!! $post->category->name !!} </a>
+            {{ __('blog.by') }} <a href="{{ $post->author->url }}" class="text-black"> {!! $post->author->name !!}</a>  {{ __('blog.in') }} <a href="{{ $post->category->url }}" class="text-black"> {!! $post->category->name !!} </a>
         </p>
         
         <p class="text-black mt-1">
