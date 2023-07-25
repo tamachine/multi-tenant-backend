@@ -12,9 +12,9 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 100px rgba(0,0,0,0) inset;    
 }
 
-#contact-form input:-webkit-autofill,
-#contact-form textarea:-webkit-autofill,
-#contact-form select:-webkit-autofill
+.autofill-black input:-webkit-autofill,
+.autofill-black textarea:-webkit-autofill,
+.autofill-black select:-webkit-autofill
 {   
     border: 1px solid rgb(229 231 235);
     -webkit-text-fill-color: #000;
@@ -22,12 +22,22 @@ select:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s; 
 }
 
-#contact-form input:-webkit-autofill:focus,
-#contact-form input:-webkit-autofill:hover,
-#contact-form textarea:-webkit-autofill:hover,
-#contact-form textarea:-webkit-autofill:focus,
-#contact-form select:-webkit-autofill:hover,
-#contact-form select:-webkit-autofill:focus
+.autofill-border-red input:-webkit-autofill:focus,
+.autofill-border-red input:-webkit-autofill:hover,
+.autofill-border-red textarea:-webkit-autofill:hover,
+.autofill-border-red textarea:-webkit-autofill:focus,
+.autofill-border-red select:-webkit-autofill:hover,
+.autofill-border-red select:-webkit-autofill:focus
 {
     border: 1px solid #E11166;
+}
+
+.autofill-border-none input:-webkit-autofill:focus,
+.autofill-border-none input:-webkit-autofill:hover,
+.autofill-border-none textarea:-webkit-autofill:hover,
+.autofill-border-none textarea:-webkit-autofill:focus,
+.autofill-border-none select:-webkit-autofill:hover,
+.autofill-border-none select:-webkit-autofill:focus
+{
+    border: none;
 }
