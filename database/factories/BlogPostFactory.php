@@ -31,7 +31,8 @@ class BlogPostFactory extends Factory
         return [
             'title' => $title,
             'slug' => Str::slug($title),            
-            'published_at' => rand(0,1) ? Carbon::today()->subDays(rand(0, 180)) : Carbon::today()->addDays(rand(1, 180)),
+            'published_at' => $published ? Carbon::today()->subDays(rand(0, 180)) : Carbon::today()->addDays(rand(1, 180)),
+            'show_date' => $published ? rand(0,1) : 0,
             'summary' => $this->faker->text(200),
             'content' => $this->faker->text(1000),
             'blog_author_id' => BlogAuthor::inRandomOrder()->first(),
