@@ -22,8 +22,10 @@
                 <section>                    
                     {{-- Published Date --}}
                     <div class="pl-3">
-                        <x-admin.label for="published_at" value="Published date" />
-
+                        <div class="flex items-center">
+                            <x-admin.label for="published_at" value="Published date" />
+                            <x-admin.label-tooltip for="show_date" tooltip="Post will be published on the published date. Until then, it is only available in preview mode"/>  
+                        </div>
                         <div class="flex justify-start mt-1">
                             <div>
                                 <x-admin.date-picker
@@ -53,7 +55,7 @@
                         </div>
 
                         <x-admin.input-error for="published_at" class="mt-2" />
-                        <x-admin.input-error for="published_at_hour" class="mt-2" />
+                        <x-admin.input-error for="published_at_hour" class="mt-2" />                        
                     </div>
                 </section>
 
@@ -81,6 +83,16 @@
                 <section class="ml-auto">
                     <x-admin.button x-on:click.prevent="window.open('{{ $post->preview_url }}','_blank');">Preview</x-admin.button>
                 </section>
+            </div>
+
+            <div></div>
+
+            <div class="px-4 mt-4 sm:mt-0 pl-7">
+                <div class="flex items-center">
+                    <x-admin.label for="top" value="{{ __('Show date') }}" class="inline"/>
+                    <x-admin.label-tooltip for="show_date" tooltip="If marked, published date will be visible in the post. Only news posts (not evergreen) should show a date"/>                                                                                        
+                </div>
+                <x-admin.checkbox id="show_date" wire:model="show_date" class="w-10 h-10 mt-1" />
             </div>
         </div>
 

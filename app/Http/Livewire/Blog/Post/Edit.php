@@ -56,6 +56,11 @@ class Edit extends Component
      */
     public $top;
 
+     /**
+     * @var bool
+     */
+    public $show_date;
+
     /**
      * @var string
      */
@@ -125,6 +130,7 @@ class Edit extends Component
         $this->allTags = BlogTag::pluck('name', 'id');
         $this->tags = $post->tags->pluck('id')->toArray();
         $this->hours = hours_dropdown();
+        $this->show_date = $post->show_date;
     }
 
     public function savePost()
@@ -147,6 +153,7 @@ class Edit extends Component
             'slug'              => $this->slug ? $this->slug : slugify($this->title),           
             'hero'              => $this->hero ? 1 : 0,
             'top'               => $this->top ? 1 : 0,
+            'show_date'         => $this->show_date ? 1 : 0,
             'published_at'      => Carbon::createFromFormat("d-m-Y H:i", $this->published_at . " " . $this->published_at_hour),
             'summary'           => $this->summary,
             'content'           => $this->content,
@@ -156,10 +163,12 @@ class Edit extends Component
 
         $this->post->tags()->sync($this->tags ?: null);
 
-        session()->flash('status', 'success');
-        session()->flash('message', 'Post "' . $this->title . '" updated');
+        $this->dispatchBrowserEvent('open-success', ['message' => 'Post "' . $this->title .'" updated']);   
 
-        return redirect()->route('intranet.blog.post.index');
+        //session()->flash('status', 'success');
+        //session()->flash('message', 'Post "' . $this->title . '" updated');
+
+        //return redirect()->route('intranet.blog.post.index');
     }  
 
     public function deletePost()
