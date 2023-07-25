@@ -12,6 +12,8 @@
 
         <x-seo-tags />
 
+        <x-hreflang-tags />
+
         <!-- Favicon -->
 		<link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
 
