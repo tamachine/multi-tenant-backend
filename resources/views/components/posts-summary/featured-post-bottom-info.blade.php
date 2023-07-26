@@ -12,6 +12,6 @@
         {!! $blogPost->summary !!}
     </div>
     <div>
-        <button class="rounded-lg bg-white md:bg-black font-sans-medium text-pink-red md:text-white px-7 py-2" onclick="window.location.href='{{ $blogPost->url }}'">{{ __('blog.read-more') }}</button>
+        <a href="{{ $blogPost->url }}" class="rounded-lg bg-white md:bg-black font-sans-medium text-pink-red md:text-white px-7 py-2">{{ __('blog.read-more') }}</a>
     </div>
 </div>

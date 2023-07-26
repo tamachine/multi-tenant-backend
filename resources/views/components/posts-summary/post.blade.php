@@ -1,11 +1,8 @@
 <div>
-    <div class="h-[260px] rounded-lg relative overflow-hidden
-        @if($blogPost->featured_image_hover_url != '') 
-            hover-change-image
-        @else
-            hover-no-image
-        @endif
-        ">
+    <div class="h-[260px] rounded-lg relative overflow-hidden cursor-pointer
+        {{ ($blogPost->featured_image_hover_url != '') ? 'hover-change-image' : 'hover-no-image' }}
+        "
+        x-on:click="window.location.href='{{ $blogPost->url }}'">
 
         <x-background-hover-transition 
             :image="$blogPost->featured_image_url" 
@@ -22,7 +19,7 @@
        
     </div>
 
-    <div href="{{ $blogPost->url }}" class="flex flex-col gap-2">
+    <div class="flex flex-col gap-2">
         <div class="font-fredoka-semibold text-[22px] md:text-2xl text-left">
             <a href="{{ $blogPost->url }}">{!! $blogPost->title !!}</a>
         </div>
