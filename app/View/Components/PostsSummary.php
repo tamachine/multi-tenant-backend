@@ -22,22 +22,22 @@ class PostsSummary extends Component
     public $title;
 
      /**
-     * To show or hide the View all button
+     * The link for the view all button
      *
      * @var boolean
      */
-    public $enableViewAll;
+    public $viewAllHref;    
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(Collection $blogPosts, $title, $enableViewAll = true)
+    public function __construct(Collection $blogPosts, $title, $viewAllHref = null)
     {
         $this->blogPosts = $blogPosts;
         $this->title     = $title;
-        $this->enableViewAll = $enableViewAll;
+        $this->viewAllHref = $viewAllHref;
     }
 
     /**

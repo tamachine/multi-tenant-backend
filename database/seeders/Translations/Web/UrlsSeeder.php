@@ -224,6 +224,26 @@ class UrlsSeeder extends Seeder
                 'text' => ['en' => 'insurances', 'es' => 'seguros'],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'blog/all',
+            ],
+            [
+                'text' => ['en' => 'blog/articles', 'es' => 'blog/articulos'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'blog/top-10',
+            ],
+            [
+                'text' => ['en' => 'blog/top', 'es' => 'blog/mejores'],
+            ]
+        );
        
     }
 }

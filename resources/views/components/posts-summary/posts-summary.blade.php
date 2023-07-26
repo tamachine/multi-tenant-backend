@@ -2,8 +2,8 @@
     <section>
         <div class="mb-7 flex justify-between items-end">
             <div class="font-fredoka-semibold text-pink-red text-4xl">{!! $title !!}</div>
-            @if($enableViewAll)
-                <button class="flex-shrink-0 bg-pink-red text-white rounded-md p-2 font-sans-medium text-xs w-16">{!! __('blog.view-all-btn') !!}</button>
+            @if($viewAllHref)
+                <a href="{{ $viewAllHref }}" class="flex-shrink-0 bg-pink-red text-white rounded-md p-2 font-sans-medium text-xs w-16">{!! __('blog.view-all-btn') !!}</a>
             @endif 
         </div>
         <div class="flex flex-col gap-7 md:gap-6">

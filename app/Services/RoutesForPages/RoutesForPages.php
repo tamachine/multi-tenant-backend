@@ -70,6 +70,8 @@ class RoutesForPages {
 
         /* Blog */        
         $this->storeRoute('blog.search.category', 'routes.blog/category/{blog_category_slug}', \App\Http\Controllers\Web\BlogSearchCategoryController::class, 'Category search results page', 'index', \App\Models\BlogCategory::class);
+        $this->storeRoute('blog.search.all', 'routes.blog/all', \App\Http\Controllers\Web\BlogSearchAllController::class, 'View all results page', 'index');
+        $this->storeRoute('blog.search.top-10', 'routes.blog/top-10', \App\Http\Controllers\Web\BlogSearchTop10Controller::class, 'Top 10 view all results page', 'index');
         $this->storeRoute('blog.search.tag', 'routes.blog/tag/{blog_tag_slug}', \App\Http\Controllers\Web\BlogSearchTagController::class, 'Tag search results page', 'index', \App\Models\BlogTag::class);
         $this->storeRoute('blog.search.author', 'routes.blog/author/{blog_author_slug}', \App\Http\Controllers\Web\BlogSearchAuthorController::class, 'Author search results page', 'index', \App\Models\BlogAuthor::class);
         $this->storeRoute('blog.show', 'routes.blog/post/{blog_post_slug}', \App\Http\Controllers\Web\BlogController::class, 'Blog post page', 'show', \App\Models\BlogPost::class);
