@@ -60,7 +60,7 @@
 
                                 <div class="font-sans-medium swiper-no-swiping">
                                     {!! $post->summary !!}
-                                </div>
+                                </div>                                
                             
                             </div>
                         </div>
@@ -105,7 +105,12 @@
                         document.querySelector('#hero-blog-category').innerHTML = dataset.category;
                         document.querySelector('#hero-blog-category').href      = dataset.categoryUrl;
                         document.querySelector('#hero-blog-link').onclick       = function() { window.location.href = dataset.url; }
-                       
+
+                        fadeOut(document.querySelector('#hero-blog-link'))
+                                                
+                        setTimeout(function() {
+                            fadeIn(document.querySelector('#hero-blog-link'))                                                       
+                        }, 200);                                               
                     },
                 },
             }
