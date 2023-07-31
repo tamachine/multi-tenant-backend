@@ -12,6 +12,7 @@
     </x-slot>
 
     <div x-data="{ tab: '{{$tab}}' }"
+        x-query-string="tab"
         class="space-y-6 p-10"
     >
         <div class="border-b border-gray-200">

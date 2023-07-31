@@ -61,7 +61,7 @@ class CarController extends Controller
                 'Settings' => route('intranet.settings'),
                 'Cars' => route('intranet.car.index')
             ],
-            'tab' => emptyOrNull($tab) ? 'basic' : $tab,
+            'tab' => request()->query('tab') ?? 'basic' ,
         ];
 
         return view('admin.car.edit')->with($data);

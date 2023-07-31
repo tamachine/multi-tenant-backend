@@ -59,7 +59,7 @@ class CategoryController extends Controller
                 'Blog' => route('intranet.blog.dashboard'),
                 'Categories' => route('intranet.blog.category.index')
             ],
-            'tab' => emptyOrNull($tab) ? 'basic' : $tab,
+            'tab' => request()->query('tab') ?? 'basic' ,
         ];
 
         return view('blog.category.edit')->with($data);
