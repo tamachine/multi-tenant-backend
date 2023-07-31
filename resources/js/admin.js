@@ -1,7 +1,9 @@
 import Alpine from 'alpinejs';
+import queryString from "@invoate/alpine-query-string" //this plugin adds the functionallity to use x-query-string='param' which adds the param to the url: https://github.com/invoate/alpine-query-string
 import Clipboard from "@ryangjchandler/alpine-clipboard"
 window.Alpine = Alpine;
 Alpine.plugin(Clipboard)
+Alpine.plugin(queryString)
 Alpine.start();
 
 window.Pikaday = require('pikaday');
