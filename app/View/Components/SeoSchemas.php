@@ -21,7 +21,7 @@ class SeoSchemas extends SeoTags
     {
         parent::__construct($seoConfigurations);
 
-        $this->schemas = $this->configurations->seoSchemas;
+        $this->schemas = $this->configurations?->seoSchemas;
     }
 
     /**
