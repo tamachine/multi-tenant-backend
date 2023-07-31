@@ -106,6 +106,10 @@ class Edit extends Component
      */
     public $hours = [];    
 
+    public $tab;
+
+    protected $queryString = ['tab'];
+
     /*
     ***************************************************************
     ** METHODS

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use App\Models\Page;
+use App\Models\SeoSchema;
 
 class SeoConfiguration extends Model
 {  
@@ -29,5 +30,9 @@ class SeoConfiguration extends Model
     
     public function page() {        
         return $this->belongsTo(Page::class);
+    }
+
+    public function seoSchemas() {
+        return $this->hasMany(SeoSchema::class, 'seo_configuration_id', 'id');
     }
 }

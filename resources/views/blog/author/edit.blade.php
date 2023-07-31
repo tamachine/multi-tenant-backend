@@ -12,7 +12,8 @@
     </x-slot>
 
     <div x-data="{ tab: '{{$tab}}' }"
-         class="space-y-6 p-10"
+        x-query-string="tab"
+        class="space-y-6 p-10"
     >
         <div class="border-b border-gray-200">
             <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500">

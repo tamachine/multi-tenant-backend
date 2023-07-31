@@ -59,7 +59,7 @@ class PostController extends Controller
                 'Blog' => route('intranet.blog.dashboard'),
                 'Posts' => route('intranet.blog.post.index')
             ],
-            'tab' => emptyOrNull($tab) ? 'basic' : $tab,
+            'tab' => request()->query('tab') ?? 'basic' ,
         ];
 
         return view('blog.post.edit')->with($data);

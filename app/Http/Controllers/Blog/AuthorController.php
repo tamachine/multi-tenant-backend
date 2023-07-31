@@ -59,7 +59,7 @@ class AuthorController extends Controller
                 'Blog' => route('intranet.blog.dashboard'),
                 'Authors' => route('intranet.blog.author.index')
             ],
-            'tab' => emptyOrNull($tab) ? 'basic' : $tab,
+            'tab' => request()->query('tab') ?? 'basic' ,
         ];
 
         return view('blog.author.edit')->with($data);
