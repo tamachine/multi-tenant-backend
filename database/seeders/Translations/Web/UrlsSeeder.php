@@ -138,6 +138,36 @@ class UrlsSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'routes',
+                'key' => 'cancellation-policy',
+            ],
+            [
+                'text' => ['en' => 'cancellation-policy', 'es' => 'politica-de-cancelacion'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'privacy-and-cookie-policy',
+            ],
+            [
+                'text' => ['en' => 'privacy-and-cookie-policy', 'es' => 'privacidad-y-politica-de-cookies'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'routes.legal-notice',
+            ],
+            [
+                'text' => ['en' => 'legal-notice', 'es' => 'nota-legal'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
                 'key' => 'payment',
             ],
             [
