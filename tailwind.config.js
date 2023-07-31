@@ -92,6 +92,7 @@ module.exports = {
                 '3xl' : "20px",
             },
             screens: { //Breakpoints
+                '2sm': '410px', // => @media (min-width: 410px) { ... }
                 'md-max': {'max': '767px'}, // => @media (max-width: 767px) { ... }
                 '7xl': '1440px'
             },

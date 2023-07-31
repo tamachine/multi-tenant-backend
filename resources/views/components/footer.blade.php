@@ -59,7 +59,7 @@
                     <div class="font-fredokaOne text-3xl text-pink-red">{{ __('general.brand') }}</div>
                     <div class="text-sm text-[#8c8c8c] hidden md:block">{!! __('footer.copyright') !!}</div>
                 </div>
-                <div class="flex gap-4 justify-end md:justify-center">
+                <div class="flex gap-2 2sm:gap-4 justify-end md:justify-center">
                     <x-social color="white"/>
                 </div>
                 <div class="ml-auto col-span-2 md:col-auto text-center md:text-right w-full">
