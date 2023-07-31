@@ -39,16 +39,16 @@
                 font-medium text-gray-secondary text-sm md:text-base
                 px-3 sm:px-8 md:px-14 py-12"
                 >
-                @for ($i = 1; $i <= 4; $i++)
+                @foreach($items as $item)
                 <div>
-                    <div class="font-fredoka-semibold text-xl text-white pb-6">{!! __('footer.col-'.$i.'-links-title') !!}</div>
+                    <div class="font-fredoka-semibold text-xl text-white pb-6">{!! $item['title'] !!}</div>
                     <ul class="font-sans-medium font-medium flex flex-col gap-4">
-                    @for ($x = 1; $x <= 5; $x++)
-                        <li><a href="javascript:void(0)">{!! __('footer.col-'.$i.'-link-'.$x) !!}</a></li>
-                    @endfor
+                    @foreach ($item['items'] as $item)                        
+                        <li><a target="_blank" href="{{ $item['href'] }}" alt="{!! $item['text'] !!}" class="hover:text-pink-red">{!! $item['text'] !!}</a></li>
+                    @endforeach
                     </ul>
                 </div>
-                @endfor
+                @endforeach                
             </div>
 
             <div class="

@@ -46,7 +46,12 @@ class RoutesForPages {
         $this->storeRoute('about', 'routes.about', \App\Http\Controllers\Web\AboutController::class, 'About us page');           
         $this->storeRoute('contact', 'routes.contact', \App\Http\Controllers\Web\ContactController::class, 'Contact page'); 
         $this->storeRoute('faq', 'routes.faq', \App\Http\Controllers\Web\FaqController::class, 'FAQs page'); 
-        $this->storeRoute('terms', 'routes.terms-and-conditions', \App\Http\Controllers\Web\TermsAndConditionsController::class, 'Terms and conditions page'); 
+        
+        /* Privacy and terms */
+        $this->storeRoute('terms', 'routes.terms-and-conditions', \App\Http\Controllers\Web\TermsAndConditionsController::class, 'Terms and conditions page');         
+        $this->storeRoute('cancellation', 'routes.cancellation-policy', \App\Http\Controllers\Web\CancellationPolicyController::class, 'Cancellation policy page'); 
+        $this->storeRoute('privacy', 'routes.privacy-and-cookie-policy', \App\Http\Controllers\Web\PrivacyAndCookiePolicyController::class, 'Privacy and cookie policy page'); 
+        $this->storeRoute('legal', 'routes.legal-notice', \App\Http\Controllers\Web\LegalNoticeController::class, 'Legal notice page'); 
 
         /* Blog */
         $this->storeRoute('blog', 'routes.blog', \App\Http\Controllers\Web\BlogController::class, 'Blog list page'); 

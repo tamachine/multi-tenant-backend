@@ -18,6 +18,7 @@ class LanguageLineSeeder extends Seeder
         $this->call(Translations\Web\BlogSearchSeeder::class);
         $this->call(Translations\Web\BlogSeeder::class);        
         $this->call(Translations\Web\BreadcrumbsSeeder::class);
+        $this->call(Translations\Web\CancellationPolicySeeder::class);
         $this->call(Translations\Web\CarSearchBarSeeder::class);
         $this->call(Translations\Web\CarsSeeder::class);
         $this->call(Translations\Web\ContactSeeder::class);        
@@ -30,9 +31,11 @@ class LanguageLineSeeder extends Seeder
         $this->call(Translations\Web\InsurancesSeeder::class);
         $this->call(Translations\Web\LandingCarsSeeder::class);
         $this->call(Translations\Web\LandingInsurancesSeeder::class);
+        $this->call(Translations\Web\LegalNoticeSeeder::class);
         $this->call(Translations\Web\NavBarSeeder::class);
         $this->call(Translations\Web\NewsletterSeeder::class);        
         $this->call(Translations\Web\PaymentSeeder::class);
+        $this->call(Translations\Web\PrivacyAndCookiePolicySeeder::class);
         $this->call(Translations\Web\ReviewsSeeder::class);
         $this->call(Translations\Web\StepsSeeder::class);
         $this->call(Translations\Web\SuccessSeeder::class);
