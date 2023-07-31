@@ -162,17 +162,7 @@ class FooterSeeder extends Seeder
             [                
                 'text' => ['en' => 'Exchange Rate', 'es' => 'Tipo de cambio'],
             ]
-        ); 
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'footer',
-                'key' => 'col-1-link-6',    
-            ],
-            [                
-                'text' => ['en' => 'Icelandic Embassis', 'es' => 'Embajadas de Islandia'],
-            ]
-        ); 
+        );         
 
         Translation::firstOrCreate(
             [

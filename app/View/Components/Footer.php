@@ -79,8 +79,7 @@ class Footer extends Component
         $this->hrefs[1][2] = 'https://www.safetravel.is/'; // Safe travel
         $this->hrefs[1][3] = 'https://en.vedur.is/'; // Weather
         $this->hrefs[1][4] = 'https://www.reykjavikauto.com/'; //Car Rental Iceland
-        $this->hrefs[1][5] = 'https://www.xe.com/currencyconverter/convert/?Amount=1&From=USD&To=ISK'; // Exchange rate
-        $this->hrefs[1][6] = 'https://www.iceland.is/iceland-abroad/'; // Icelandic Embassis
+        $this->hrefs[1][5] = 'https://www.xe.com/currencyconverter/convert/?Amount=1&From=USD&To=ISK'; // Exchange rate        
 
         //Regions
         $this->hrefs[2][1] = 'https://www.south.is/'; // South Iceland
