@@ -12,6 +12,8 @@
 
         <x-seo-tags />
 
+        <x-seo-schemas />
+
         <x-hreflang-tags />
 
         <!-- Favicon -->
