@@ -101,6 +101,13 @@ trait BlogSearchTrait
     }
 
     /**
+     * Returns the current url for the pagination. query params are not needed as the paginator will add them
+     */
+    protected function getUrlForPagination(): string {              
+        return route('blog.search.string');
+    }
+
+    /**
      * render the view for the filtered posts
      */
     public function render()
@@ -113,7 +120,8 @@ trait BlogSearchTrait
             [           
                 'tags'        => BlogTag::has('postsPublished')->get(),
                 'posts'       => $this->getPosts(),        
-                'breadcrumbs' => getBreadcrumb(['home', 'blog', $this->getBreadcrumb()]),                           
+                'breadcrumbs' => getBreadcrumb(['home', 'blog', $this->getBreadcrumb()]),   
+                'urlForPagination'   => $this->getUrlForPagination()                        
             ]               
         );
     }
