@@ -25,7 +25,7 @@
         </div>
 
         <div class="text-sm md:text-base text-gray-400">
-            {{ __('blog.by') }} <a href="#" class="text-black"> {!! $blogPost->author->name !!} </a>
+            {{ __('blog.by') }} <a href="{{ $blogPost->author->url }}" class="text-black"> {!! $blogPost->author->name !!} </a>
         </div>
 
         <div>
