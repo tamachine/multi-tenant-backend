@@ -41,3 +41,12 @@ function addClass(e, klass) {
     }
 }
 
+function isHidden(el) {
+    if(el) {
+        var style = window.getComputedStyle(el);
+        return (style.display === 'none')
+    }
+    
+    return false;
+}
+
