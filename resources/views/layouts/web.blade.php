@@ -2,7 +2,7 @@
 <html
     lang="{{ app('getHTMLLang')  }}"
     x-data="{'showMobileNavBar': false, 'htmlOverflowHidden': false}"
-    :class="showMobileNavBar || htmlOverflowHidden ? 'overflow-hidden' : ''"
+    :class="htmlOverflowHidden ? 'overflow-hidden' : ''"
     x-ref="html"
     >
     <head>
