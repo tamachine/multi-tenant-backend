@@ -3,6 +3,8 @@ navBar = function () {
         show: false,
 
         lastScrollPos: 0, 
+
+        navbarHeight: 76,
         
         scrolledUp: false,     
         
@@ -11,6 +13,7 @@ navBar = function () {
         disableTransition: false,        
 
         init: function() {
+            
             this.setAtTop();
 
             this.scrollEvent();
@@ -18,17 +21,32 @@ navBar = function () {
 
         scrollEvent: function() {
             window.addEventListener('scroll', () => { 
+                
                 this.disableTransition = false;
                 
                 this.scrollDetection();
                 
-                this.setAtTop();                
+                this.setAtTop();                                
             });
         },
 
-        scrollDetection: function() {
-            this.scrolledUp = window.scrollY < this.lastScrollPos;
-            this.lastScrollPos = window.scrollY;
+        scrollDetection: function() {    
+            let scrollY = this.getScrollY();
+            
+            this.scrolledUp     = scrollY < this.lastScrollPos;
+            this.lastScrollPos  = scrollY;            
+        },
+
+        //when scrolling down, navbar disappears so the lastScrollPos won't work when comparing to the scrollY unless we substract the navbar height. 
+        //If we don't do it, an infinity loop will fire when the user scrolls down
+        getScrollY: function() {
+            let scrollY = window.scrollY;
+
+            if(isHidden(this.$refs.navbar)) {
+                scrollY += this.navbarHeight; 
+            }
+
+            return scrollY;
         },
 
         close: function() {

@@ -7,7 +7,7 @@
     :class="scrollingUp() ? 'z-50 shadow-lg' : 'z-30'"
     x-transition.opacity.duration.500ms    
     x-on:click.away="clickAway()"
-    
+    x-ref='navbar'
     >
     <a href="{{route("home")}}" class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-2xl lg:text-3xl leading-9">
         {{ __('general.brand') }}
