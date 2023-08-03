@@ -11,10 +11,7 @@
             <div class="absolute md:top-[5%] top-0 left-0 right-0 bottom-0 z-10 text-lg">
                 <div class="max-w-6xl mx-auto px-3 sm:px-8 md:px-14">
                     <div class="max-w-xs text-center md:text-left mx-auto md:mx-0">
-                        <span>{!! __('footer.text') !!}</span>
-                        <div class="flex gap-4 pt-7 md:pt-3 justify-center md:justify-start">
-                            <x-social color="red"/>
-                        </div>
+                        <span>{!! __('footer.text') !!}</span>                        
                     </div>
                 </div>
             </div>
