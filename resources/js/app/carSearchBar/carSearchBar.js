@@ -178,18 +178,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const startInput = document.querySelectorAll('.start-date')
     const endInput = document.querySelectorAll('.end-date')
 
-    searchButtonMobile.addEventListener('click', function(e) {
-        if (startInput[0].value == '' || endInput[0].value == '') {
-            e.preventDefault();
-            searchBarMobile.click()
-        } else {
-            // ATENCIÓN: FALTA FUNCIÓN DE ENVIAR
-            // Aquí irá la función de enviar formulario
-            console.log('Enviar')
-        }
-    })
-
-
+    if(searchButtonMobile){
+        searchButtonMobile.addEventListener('click', function(e) {
+            if (startInput[0].value == '' || endInput[0].value == '') {
+                e.preventDefault();
+                searchBarMobile.click()
+            } else {
+                // ATENCIÓN: FALTA FUNCIÓN DE ENVIAR
+                // Aquí irá la función de enviar formulario
+                console.log('Enviar')
+            }
+        })    
+    }
+    
     /********************
      Click on mobile hours picker
     ********************/
@@ -199,17 +200,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const endSelectHour = document.getElementById('end-hours-list')
 
 
-    startInputHour.addEventListener('click', function(e) {
-        e.preventDefault();
-        startSelectHour.click()
-    })
-
-    endInputHour.addEventListener('click', function(e) {
-        e.preventDefault();
-        endSelectHour.click()
-    })
-
-
+    if(startInputHour) {
+        startInputHour.addEventListener('click', function(e) {
+            e.preventDefault();
+            startSelectHour.click()
+        })
+    }
+    
+    if(endInputHour) {
+        endInputHour.addEventListener('click', function(e) {
+            e.preventDefault();
+            endSelectHour.click()
+        })
+    }
+    
 
     /******************
         SELECT TIME: select and show time selected on mobile
@@ -236,10 +240,13 @@ document.addEventListener('DOMContentLoaded', () => {
         range.resumeType.innerHTML = type;
     }
 
-    timeStart.hoursList.addEventListener('change', () => showTimeValue(timeStart));
-    timeEnd.hoursList.addEventListener('change', () => showTimeValue(timeEnd));
-
-
+    if(timeStart.hoursList) {
+        timeStart.hoursList.addEventListener('change', () => showTimeValue(timeStart));
+    }
+    
+    if(timeEnd.hoursList) {
+        timeEnd.hoursList.addEventListener('change', () => showTimeValue(timeEnd));
+    }
 
     /******************
         SELECT LOCATION: select and show time selected on mobile
@@ -262,13 +269,12 @@ document.addEventListener('DOMContentLoaded', () => {
         range.resumeLocation.innerHTML = location;
     }
 
-    locationStart.locationsList.addEventListener('change', () => showLocationValue(locationStart));
-    locationEnd.locationsList.addEventListener('change', () => showLocationValue(locationEnd));
-
-
-    /******************
-        Check if times or locations were selected previously
-    ******************/
-
+    if(locationStart.locationsList) {
+        locationStart.locationsList.addEventListener('change', () => showLocationValue(locationStart));
+    }
     
+    if(locationEnd.locationsList) {
+        locationEnd.locationsList.addEventListener('change', () => showLocationValue(locationEnd));
+    }
+        
 });

@@ -118,7 +118,7 @@ function toggleClassToInputGroup(input, klass, add = true) {
  * @returns {String}
  */
 function getStartDateFromUrl() {
-    return carSearchUrlParams.startDate;    
+    if((typeof carSearchUrlParams !== 'undefined')) return carSearchUrlParams.startDate;    
 }
 
 /**
@@ -126,6 +126,6 @@ function getStartDateFromUrl() {
  * @returns {String}
  */
 function getEndDateFromUrl() {
-    return carSearchUrlParams.endDate;  
+    if((typeof carSearchUrlParams !== 'undefined')) return carSearchUrlParams.endDate;  
 }
 

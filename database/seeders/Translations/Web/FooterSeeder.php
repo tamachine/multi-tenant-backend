@@ -90,7 +90,7 @@ class FooterSeeder extends Seeder
                 'key' => 'col-2-links-title',    
             ],
             [                
-                'text' => ['en' => 'About Iceland', 'es' => 'Sobre Islandia'],
+                'text' => ['en' => 'Regions', 'es' => 'Regiones'],
             ]
         ); 
 
@@ -100,9 +100,9 @@ class FooterSeeder extends Seeder
                 'key' => 'col-3-links-title',    
             ],
             [                
-                'text' => ['en' => 'Regions', 'es' => 'Regiones'],
+                'text' => ['en' => 'Shortcuts', 'es' => 'Atajos'],
             ]
-        ); 
+        );         
 
         Translation::firstOrCreate(
             [
@@ -110,7 +110,7 @@ class FooterSeeder extends Seeder
                 'key' => 'col-4-links-title',    
             ],
             [                
-                'text' => ['en' => 'Shorcuts', 'es' => 'Atajos'],
+                'text' => ['en' => 'Privacy & Terms', 'es' => 'Privacidad y términos'],
             ]
         ); 
 
@@ -162,7 +162,7 @@ class FooterSeeder extends Seeder
             [                
                 'text' => ['en' => 'Exchange Rate', 'es' => 'Tipo de cambio'],
             ]
-        ); 
+        );         
 
         Translation::firstOrCreate(
             [
@@ -170,7 +170,7 @@ class FooterSeeder extends Seeder
                 'key' => 'col-2-link-1',    
             ],
             [                
-                'text' => ['en' => 'Get to know Iceland', 'es' => 'Conoce Islandia'],
+                'text' => ['en' => 'South Iceland', 'es' => 'Sur de Islandia'],
             ]
         ); 
 
@@ -180,7 +180,7 @@ class FooterSeeder extends Seeder
                 'key' => 'col-2-link-2',    
             ],
             [                
-                'text' => ['en' => 'Facts and Figures', 'es' => 'Hechos y Cifras'],
+                'text' => ['en' => 'Visit Reykjavik', 'es' => 'Visita Reykjavik'],
             ]
         ); 
 
@@ -190,7 +190,7 @@ class FooterSeeder extends Seeder
                 'key' => 'col-2-link-3',    
             ],
             [                
-                'text' => ['en' => 'Practical Information', 'es' => 'Información práctica'],
+                'text' => ['en' => 'North Iceland', 'es' => 'Norte de Islandia'],
             ]
         ); 
 
@@ -200,7 +200,7 @@ class FooterSeeder extends Seeder
                 'key' => 'col-2-link-4',    
             ],
             [                
-                'text' => ['en' => 'People and Language', 'es' => 'Gente e Idioma'],
+                'text' => ['en' => 'East Iceland', 'es' => 'Este de Islandia'],
             ]
         ); 
 
@@ -210,9 +210,20 @@ class FooterSeeder extends Seeder
                 'key' => 'col-2-link-5',    
             ],
             [                
-                'text' => ['en' => 'Iceland safe place to visit', 'es' => 'Islandia un lugar seguro para visitar'],
+                'text' => ['en' => 'West Iceland', 'es' => 'Oeste de Islandia'],
             ]
         ); 
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'footer',
+                'key' => 'col-2-link-6',    
+            ],
+            [                
+                'text' => ['en' => 'Westfjords', 'es' => 'Fiordos del oeste'],
+            ]
+        ); 
+
 
         Translation::firstOrCreate(
             [
@@ -220,7 +231,7 @@ class FooterSeeder extends Seeder
                 'key' => 'col-3-link-1',    
             ],
             [                
-                'text' => ['en' => 'South Iceland', 'es' => 'Sur de Islandia'],
+                'text' => ['en' => 'Keflavik Airport', 'es' => 'Aeropuerto de Keflavik'],
             ]
         ); 
 
@@ -230,7 +241,7 @@ class FooterSeeder extends Seeder
                 'key' => 'col-3-link-2',    
             ],
             [                
-                'text' => ['en' => 'Visit Reykjavik', 'es' => 'Visita Reykjavik'],
+                'text' => ['en' => 'Reykjavik Car Rental', 'es' => 'Alquiler de coches en Reykjavik'],
             ]
         ); 
 
@@ -240,29 +251,10 @@ class FooterSeeder extends Seeder
                 'key' => 'col-3-link-3',    
             ],
             [                
-                'text' => ['en' => 'North Iceland', 'es' => 'Norte de Islandia'],
+                'text' => ['en' => 'Location Voiture', 'es' => 'Ubicación'],
             ]
         ); 
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'footer',
-                'key' => 'col-3-link-4',    
-            ],
-            [                
-                'text' => ['en' => 'East Iceland', 'es' => 'Este de Islandia'],
-            ]
-        ); 
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'footer',
-                'key' => 'col-3-link-5',    
-            ],
-            [                
-                'text' => ['en' => 'West Iceland', 'es' => 'Oeste de Islandia'],
-            ]
-        ); 
+       
 
         Translation::firstOrCreate(
             [
@@ -270,7 +262,7 @@ class FooterSeeder extends Seeder
                 'key' => 'col-4-link-1',    
             ],
             [                
-                'text' => ['en' => 'South Iceland', 'es' => 'Sur de Islandia'],
+                'text' => ['en' => 'Cancellation policy', 'es' => 'Política de cancelación'],
             ]
         ); 
 
@@ -280,7 +272,7 @@ class FooterSeeder extends Seeder
                 'key' => 'col-4-link-2',    
             ],
             [                
-                'text' => ['en' => 'Visit Reykjavik', 'es' => 'Visita Reykjavik'],
+                'text' => ['en' => 'Terms and conditions', 'es' => 'Términos y condiciones'],
             ]
         ); 
 
@@ -290,7 +282,7 @@ class FooterSeeder extends Seeder
                 'key' => 'col-4-link-3',    
             ],
             [                
-                'text' => ['en' => 'North Iceland', 'es' => 'Norte de Islandia'],
+                'text' => ['en' => 'Privacy and Cookie Policy', 'es' => 'Privacidad y política de cookies'],
             ]
         ); 
 
@@ -300,19 +292,9 @@ class FooterSeeder extends Seeder
                 'key' => 'col-4-link-4',    
             ],
             [                
-                'text' => ['en' => 'East Iceland', 'es' => 'Este de Islandia'],
+                'text' => ['en' => 'Legal Notice', 'es' => 'Aviso legal'],
             ]
-        ); 
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'footer',
-                'key' => 'col-4-link-5',    
-            ],
-            [                
-                'text' => ['en' => 'West Iceland', 'es' => 'Oeste de Islandia'],
-            ]
-        ); 
+        );         
 
         Translation::firstOrCreate(
             [

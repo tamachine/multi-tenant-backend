@@ -30,6 +30,7 @@
         "@easepick/bundle": "^1.2.0",
         "@fortawesome/fontawesome-free": "^6.2.0",
         "@googlemaps/js-api-loader": "^1.15.1",
+        "@invoate/alpine-query-string": "^1.0.0",
         "@ryangjchandler/alpine-clipboard": "^2.2.0",
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/forms": "^0.5.3",

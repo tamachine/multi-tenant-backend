@@ -29,7 +29,7 @@ class ImageUpload extends Component
      */
     public function updatedImage()
     {       
-        $this->model->uploadImage($this->image);     
+        $this->model->uploadImage($this->image, $this->imageName());     
         
         $this->emit('imageUploaded'); //listener to refresh the ImageGallery
     }
@@ -37,5 +37,9 @@ class ImageUpload extends Component
     public function render()
     {
         return view('livewire.common.image-upload');
+    }
+
+    protected function imageName() {
+        return pathinfo($this->image->getClientOriginalName(), PATHINFO_FILENAME);        
     }
 }

@@ -1,12 +1,14 @@
-copyToClipboard = function () {
+copyToClipboard = function (config) {
     return {
-        text: 'Copy url to clipboard',        
+        text: config.text,        
+
+        initialText: config.text,
 
         click: function() {
             this.text = 'Copied!'
             
             setInterval(() => {
-                this.text = 'Copy to clipboard'
+                this.text = this.initialText
             }, 3000);
         },
     }

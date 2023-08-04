@@ -2,7 +2,7 @@
 <html
     lang="{{ app('getHTMLLang')  }}"
     x-data="{'showMobileNavBar': false, 'htmlOverflowHidden': false}"
-    :class="showMobileNavBar || htmlOverflowHidden ? 'overflow-hidden' : ''"
+    :class="htmlOverflowHidden || showMobileNavBar ? 'overflow-hidden' : ''"
     x-ref="html"
     >
     <head>
@@ -11,6 +11,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <x-seo-tags />
+
+        <x-seo-schemas />
+
+        <x-hreflang-tags />
 
         <!-- Favicon -->
 		<link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">

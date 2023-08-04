@@ -1,4 +1,14 @@
-<nav x-data="visibilitySelector()" @languageSelector-show="show()" class="max-w-7xl mx-auto flex items-center justify-between flex-wrap p-3 md:px-4 md:py-5 border md:border-0 border-[#E7ECF3] bg-white relative z-50">
+<nav 
+    x-data="navBar()"         
+    @languageSelector-show="show()" 
+    x-cloak 
+    x-show="navbarVisibility()"
+    class="max-w-7xl mx-auto flex items-center justify-between flex-wrap p-3 md:px-4 md:py-5 border md:border-0 border-[#E7ECF3] bg-white sticky top-0" 
+    :class="scrollingUp() ? 'z-50 shadow-lg' : 'z-30'"
+    x-transition.opacity.duration.500ms    
+    x-on:click.away="clickAway()"
+    x-ref='navbar'
+    >
     <a href="{{route("home")}}" class="font-fredokaOne text-pink-red font-normal text-[26px] md:text-2xl lg:text-3xl leading-9">
         {{ __('general.brand') }}
     </a>
@@ -6,7 +16,7 @@
     {{-- mobile --}}
     <div
         class="cursor-pointer md:hidden font-sans-medium menu-selector"
-        x-on:click="showMobileNavBar = !showMobileNavBar"
+        x-on:click="window.scrollTo(0, 0); showMobileNavBar = !showMobileNavBar;"
         >
         <div x-show="!showMobileNavBar">
             <span>{!! __('navbar.open') !!}</span>
@@ -61,7 +71,7 @@
     x-transition:leave="transition ease-out duration-700"
     x-transition:leave-start="transform translate-y-0 opacity-full"
     x-transition:leave-end="transform -translate-y-full opacity-[90%]"
-    x-data="visibilitySelector()"
+    x-data="navBar()"
     >
     <div class="flex flex-col h-full justify-between">
         <div class="h-full overflow-auto">

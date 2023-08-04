@@ -1,4 +1,4 @@
-<div class="relative">
+<div class="relative autofill-black autofill-border-red">
     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <x-wire-spinner /> 
     </div>
@@ -14,7 +14,8 @@
                     type="text" 
                     class="
                         mt-2 w-full rounded-md border-gray-200 
-                        h-[60px] focus:border-1 focus:border-pink-red focus:ring-0"
+                        h-[60px] focus:border-1 focus:border-pink-red focus:ring-0                        
+                        "
                     maxlength="255" 
                     wire:model.defer="{{ $input }}" 
                     autocomplete="{{ $input }}" 

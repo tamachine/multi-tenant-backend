@@ -1,4 +1,8 @@
-<div class="flex flex-col md:flex-row w-full">
+<div 
+    class="flex flex-col md:flex-row w-full"  
+    x-data="{ tooltip: false, tooltipHeight: 0, mobileTooltipTop: 36/2 }" {{-- 36 px are the top-9 class in the mobile tooltip --}}
+    x-init="$nextTick(() => { tooltipHeight = getHiddenHeight($refs.mobileTooltip); });"
+    >
     <div class="relative md:pl-20 md:pt-20 pt-40">
         <div
             class="
@@ -55,22 +59,34 @@
             </div>
             <div class="font-sans-medium font-medium">
                 <div class="text-pink-red text-xl md:text-xl pt-7 pb-5 text-center md:text-left">{!! __('home.location-map-hours-title') !!}</div>
-                <div
-                    class="
-                        grid md:grid-cols-4 grid-cols-1 justify-between gap-y-2
-                        text-center text-sm md:text-sm text-black"
-                    >
-                    <div class="md:flex md:justify-start">{!! __('home.location-map-hours-monday') !!}</div>
-                    <div>{!! __('home.location-map-hours-tuesday') !!}</div>
-                    <div>{!! __('home.location-map-hours-wednesday') !!}</div>
-                    <div class="md:flex md:justify-end">{!! __('home.location-map-hours-thursday') !!}</div>
-                    <div class="md:flex md:justify-start">{!! __('home.location-map-hours-friday') !!}</div>
-                    <div>{!! __('home.location-map-hours-saturday') !!}</div>
-                    <div>{!! __('home.location-map-hours-sunday') !!}</div>
+                
+                <div class="font-sans-bold text-lg">{!! __('home.location-map-open24') !!}</div>
+                
+                <div class="flex justify-start items-center gap-1 relative">
+                    <span class="text-sm mt-2 md:mt-1">{!! __('home.location-map-see-all-hours') !!}</span>
+                    
+                    <div class="relative flex">
+
+                        <img class="w-5 md:w-4 cursor-pointer" src="{{ asset('images/icons/info-black.svg') }}" x-on:click="tooltip = true"  />
+                        
+                        <div class="hidden md:block md:absolute md:top-0 md:left-5">
+                            @include('web.home.partial.location-map-tooltip-info')
+                        </div>
+                                                
+                    </div>
+
+                    <div class="md:hidden block absolute top-9 w-full">
+                        @include('web.home.partial.location-map-tooltip-info', ['ref' => 'mobileTooltip'])
+                    </div>
+                    
                 </div>
+                 
             </div>
         </div>
     </div>
+
+    {{-- this div is used to expand the content below the tooltip modal when the modal is open in mobile version --}}
+    <div x-cloak x-show="tooltip" class="bg-white" :style="tooltip ? ('height: ' + (tooltipHeight - mobileTooltipTop) + 'px') : '' " ></div>
 </div>
 
 @push('scripts')

@@ -11,10 +11,7 @@
             <div class="absolute md:top-[5%] top-0 left-0 right-0 bottom-0 z-10 text-lg">
                 <div class="max-w-6xl mx-auto px-3 sm:px-8 md:px-14">
                     <div class="max-w-xs text-center md:text-left mx-auto md:mx-0">
-                        <span>{!! __('footer.text') !!}</span>
-                        <div class="flex gap-4 pt-7 md:pt-3 justify-center md:justify-start">
-                            <x-social color="red"/>
-                        </div>
+                        <span>{!! __('footer.text') !!}</span>                        
                     </div>
                 </div>
             </div>
@@ -39,16 +36,16 @@
                 font-medium text-gray-secondary text-sm md:text-base
                 px-3 sm:px-8 md:px-14 py-12"
                 >
-                @for ($i = 1; $i <= 4; $i++)
+                @foreach($items as $item)
                 <div>
-                    <div class="font-fredoka-semibold text-xl text-white pb-6">{!! __('footer.col-'.$i.'-links-title') !!}</div>
+                    <div class="font-fredoka-semibold text-xl text-white pb-6">{!! $item['title'] !!}</div>
                     <ul class="font-sans-medium font-medium flex flex-col gap-4">
-                    @for ($x = 1; $x <= 5; $x++)
-                        <li><a href="javascript:void(0)">{!! __('footer.col-'.$i.'-link-'.$x) !!}</a></li>
-                    @endfor
+                    @foreach ($item['items'] as $item)                        
+                        <li><a target="_blank" href="{{ $item['href'] }}" alt="{!! $item['text'] !!}" class="hover:text-pink-red">{!! $item['text'] !!}</a></li>
+                    @endforeach
                     </ul>
                 </div>
-                @endfor
+                @endforeach                
             </div>
 
             <div class="
@@ -56,10 +53,10 @@
                 px-3 sm:px-8 md:px-[14px] pb-10 md:pb-7"
                 >
                 <div class="flex flex-col">
-                    <a href="{{route("home")}}" class="font-fredokaOne text-3xl text-pink-red">{{ __('general.brand') }}</a>
+                    <div class="font-fredokaOne text-3xl text-pink-red">{{ __('general.brand') }}</div>
                     <div class="text-sm text-[#8c8c8c] hidden md:block">{!! __('footer.copyright') !!}</div>
                 </div>
-                <div class="flex gap-4 justify-end md:justify-center">
+                <div class="flex gap-2 2sm:gap-4 justify-end md:justify-center">
                     <x-social color="white"/>
                 </div>
                 <div class="ml-auto col-span-2 md:col-auto text-center md:text-right w-full">

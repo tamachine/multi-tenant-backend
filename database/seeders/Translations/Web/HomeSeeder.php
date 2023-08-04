@@ -142,97 +142,7 @@ class HomeSeeder extends Seeder
             [
                 'text' => ['en' => 'to discover all guides and secrets in Iceland', 'es' => 'para descubrir todas las guías y secretos de Islandia'],
             ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'home',
-                'key' => 'card-elongated-1-title',
-            ],
-            [
-                'text' => ['en' => 'Tap Water in Iceland: Is it Safe?', 'es' => 'Agua del grifo en Islandia: ¿es segura?'],
-            ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'home',
-                'key' => 'card-elongated-1-text',
-            ],
-            [
-                'text' => ['en' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all.", 'es' => "¿Es seguro beber agua del grifo en Islandia? ¿Y qué pasa con los rumores de un olor a azufre? Respondamos a estas preguntas de una vez por todas."],
-            ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'home',
-                'key' => 'card-elongated-2-title',
-            ],
-            [
-                'text' => ['en' => 'Driving Highland Road F208 in Iceland', 'es' => 'Conducir Highland Road F208 en Islandia'],
-            ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'home',
-                'key' => 'card-elongated-2-text',
-            ],
-            [
-                'text' => ['en' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all.", 'es' => "¿Es seguro beber agua del grifo en Islandia? ¿Y qué pasa con los rumores de un olor a azufre? Respondamos a estas preguntas de una vez por todas."],
-            ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'home',
-                'key' => 'card-elongated-3-title',
-            ],
-            [
-                'text' => ['en' => "Seljalandsfoss Waterfall: Iceland's Beauty", 'es' => "Cascada de Seljalandsfoss: la belleza de Islandia"],
-            ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'home',
-                'key' => 'card-elongated-3-text',
-            ],
-            [
-                'text' => ['en' => "Is it safe to drink tap water in Iceland? And what about rumors of a sulphur smell? Let's answer these questions once and for all.", 'es' => "¿Es seguro beber agua del grifo en Islandia? ¿Y qué pasa con los rumores de un olor a azufre? Respondamos a estas preguntas de una vez por todas."],
-            ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'home',
-                'key' => 'card-elongated-1-time',
-            ],
-            [
-                'text' => ['en' => "2 Minutes", 'es' => '2 Minutos'],
-            ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'home',
-                'key' => 'card-elongated-2-time',
-            ],
-            [
-                'text' => ['en' => "2 Minutes", 'es' => '2 Minutos'],
-            ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'home',
-                'key' => 'card-elongated-3-time',
-            ],
-            [
-                'text' => ['en' => "2 Minutes", 'es' => '2 Minutos'],
-            ]
-        );
+        );               
 
         Translation::firstOrCreate(
             [
@@ -472,12 +382,12 @@ class HomeSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'home',
-                'key' => 'location-map-hours-monday',
+                'key' => 'location-map-open24',
             ],
             [
                 'text' => [
-                    'en' => "Monday - Open 24 hours",
-                    "es" => "Lunes - Abierto 24 horas"
+                    'en' => "Open 24 Hours",
+                    "es" => "Abierto 24 horas"
                 ],
             ]
         );
@@ -485,12 +395,12 @@ class HomeSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'home',
-                'key' => 'location-map-hours-tuesday',
+                'key' => 'location-map-see-all-hours',
             ],
             [
                 'text' => [
-                    'en' => "Tuesday - Open 24 hours",
-                    "es" => "Martes - Abierto 24 horas"
+                    'en' => "See all hours",
+                    "es" => "Ver todas las horas"
                 ],
             ]
         );
@@ -498,12 +408,12 @@ class HomeSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'home',
-                'key' => 'location-map-hours-wednesday',
+                'key' => 'location-map-monday',
             ],
             [
                 'text' => [
-                    'en' => "Wednesday - Open 24 hours",
-                    "es" => "Miércoles - Abierto 24 horas"
+                    'en' => "Monday",
+                    "es" => "Lunes"
                 ],
             ]
         );
@@ -511,12 +421,12 @@ class HomeSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'home',
-                'key' => 'location-map-hours-thursday',
+                'key' => 'location-map-tuesday',
             ],
             [
                 'text' => [
-                    'en' => "Thursday - Open 24 hours",
-                    "es" => "Jueves - Abierto 24 horas"
+                    'en' => "Tuesday",
+                    "es" => "Martes"
                 ],
             ]
         );
@@ -524,12 +434,12 @@ class HomeSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'home',
-                'key' => 'location-map-hours-friday',
+                'key' => 'location-map-wednesday',
             ],
             [
                 'text' => [
-                    'en' => "Friday - Open 24 hours",
-                    "es" => "Viernes - Abierto 24 horas"
+                    'en' => "Wednesday",
+                    "es" => "Miércoles"
                 ],
             ]
         );
@@ -537,12 +447,12 @@ class HomeSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'home',
-                'key' => 'location-map-hours-saturday',
+                'key' => 'location-map-thursday',
             ],
             [
                 'text' => [
-                    'en' => "Saturday - Open 24 hours",
-                    "es" => "Sábado - Abierto 24 horas"
+                    'en' => "Thursday",
+                    "es" => "Jueves"
                 ],
             ]
         );
@@ -550,12 +460,129 @@ class HomeSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'home',
-                'key' => 'location-map-hours-sunday',
+                'key' => 'location-map-friday',
             ],
             [
                 'text' => [
-                    'en' => "Sunday - Open 24 hours",
-                    "es" => "Domingo - Abierto 24 horas"
+                    'en' => "Friday",
+                    "es" => "Viernes"
+                ],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'home',
+                'key' => 'location-map-saturday',
+            ],
+            [
+                'text' => [
+                    'en' => "Saturday",
+                    "es" => "Sábado"
+                ],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'home',
+                'key' => 'location-map-sunday',
+            ],
+            [
+                'text' => [
+                    'en' => "Sunday",
+                    "es" => "Domingo"
+                ],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'home',
+                'key' => 'location-map-monday-hours',
+            ],
+            [
+                'text' => [
+                    'en' => "from  12:00 PM - 12:00 AM",
+                    "es" => "de 12:00 PM - 12:00 AM"
+                ],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'home',
+                'key' => 'location-map-tuesday-hours',
+            ],
+            [
+                'text' => [
+                    'en' => "from  12:00 PM - 12:00 AM",
+                    "es" => "de 12:00 PM - 12:00 AM"
+                ],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'home',
+                'key' => 'location-map-wednesday-hours',
+            ],
+            [
+                'text' => [
+                    'en' => "from  12:00 PM - 12:00 AM",
+                    "es" => "de 12:00 PM - 12:00 AM"
+                ],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'home',
+                'key' => 'location-map-thursday-hours',
+            ],
+            [
+                'text' => [
+                    'en' => "from  12:00 PM - 12:00 AM",
+                    "es" => "de 12:00 PM - 12:00 AM"
+                ],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'home',
+                'key' => 'location-map-friday-hours',
+            ],
+            [
+                'text' => [
+                    'en' => "from  12:00 PM - 12:00 AM",
+                    "es" => "de 12:00 PM - 12:00 AM"
+                ],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'home',
+                'key' => 'location-map-saturday-hours',
+            ],
+            [
+                'text' => [
+                    'en' => "from  12:00 PM - 12:00 AM",
+                    "es" => "de 12:00 PM - 12:00 AM"
+                ],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'home',
+                'key' => 'location-map-sunday-hours',
+            ],
+            [
+                'text' => [
+                    'en' => "from  12:00 PM - 12:00 AM",
+                    "es" => "de 12:00 PM - 12:00 AM"
                 ],
             ]
         );

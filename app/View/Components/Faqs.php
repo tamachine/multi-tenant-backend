@@ -19,14 +19,21 @@ class Faqs extends Component
      */
     public $allFaqs;
 
+     /**    
+     *
+     * @var string
+     */
+    public $isFaqsPage;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(bool $allFaqs = false)
+    public function __construct(bool $allFaqs = false, $isFaqsPage = false)
     {
         $this->allFaqs = $allFaqs;
+        $this->isFaqsPage = $isFaqsPage;
     }
 
     /**

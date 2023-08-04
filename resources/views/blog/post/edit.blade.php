@@ -13,13 +13,14 @@
 
 
     <div x-data="{ tab: '{{$tab}}' }"
+        x-query-string = 'tab'
          class="space-y-6 p-10"
     >
         <div class="border-b border-gray-200">
             <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500">
                 <li class="mr-2">
-                    <a href="javascript:void(0);"
-                       @click.prevent="tab='basic'"
+                    <a href="javascript:void(0);"                       
+                       @click.prevent="tab='basic'" 
                        class="inline-flex p-4 rounded-t-lg border-b-2"
                        :class="tab == 'basic' ? 'text-blue-600 border-blue-600' : 'border-transparent hover:text-gray-600 hover:border-gray-300'"
                     >
@@ -37,8 +38,8 @@
                 </li>
 
                 <li class="mr-2">
-                    <a href="javascript:void(0);"
-                       @click.prevent="tab='translations'"
+                    <a href="javascript:void(0);"                       
+                       @click.prevent="tab='translations'" 
                        class="inline-flex p-4 rounded-t-lg border-b-2"
                        :class="tab == 'translations' ? 'text-blue-600 border-blue-600' : 'border-transparent hover:text-gray-600 hover:border-gray-300'"
                     >
@@ -54,8 +55,8 @@
                 </li>
 
                 <li class="mr-2">
-                    <a href="javascript:void(0);"
-                       @click.prevent="tab='seo-configuration'"
+                    <a href="javascript:void(0);"                       
+                       @click.prevent="tab='seo-configuration'" 
                        class="inline-flex p-4 rounded-t-lg border-b-2"
                        :class="tab == 'seo-configuration' ? 'text-blue-600 border-blue-600' : 'border-transparent hover:text-gray-600 hover:border-gray-300'"
                     >

@@ -14,7 +14,7 @@ class FeaturedImageHoverUpload extends FeaturedImageUpload
       */
     protected function uploadImage()
     {
-        $this->model->uploadFeaturedImageHover($this->image);   
+        $this->model->uploadFeaturedImageHover($this->image, $this->imageName());   
     }   
 
     /**

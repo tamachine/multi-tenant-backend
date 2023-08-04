@@ -9,5 +9,5 @@ document.addEventListener('DOMContentLoaded', () => {
         calendar.style.height = calendarLayerHeight + 'px';        
     }
 
-    new ResizeObserver(calendarHeight).observe(calendar__layer);
+    if (typeof calendar__layer !== 'undefined')  new ResizeObserver(calendarHeight).observe(calendar__layer);
 });

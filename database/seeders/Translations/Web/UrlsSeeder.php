@@ -138,6 +138,36 @@ class UrlsSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'routes',
+                'key' => 'cancellation-policy',
+            ],
+            [
+                'text' => ['en' => 'cancellation-policy', 'es' => 'politica-de-cancelacion'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'privacy-and-cookie-policy',
+            ],
+            [
+                'text' => ['en' => 'privacy-and-cookie-policy', 'es' => 'privacidad-y-politica-de-cookies'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'routes.legal-notice',
+            ],
+            [
+                'text' => ['en' => 'legal-notice', 'es' => 'nota-legal'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
                 'key' => 'payment',
             ],
             [
@@ -222,6 +252,26 @@ class UrlsSeeder extends Seeder
             ],
             [
                 'text' => ['en' => 'insurances', 'es' => 'seguros'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'blog/all',
+            ],
+            [
+                'text' => ['en' => 'blog/articles', 'es' => 'blog/articulos'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'routes',
+                'key' => 'blog/top-10',
+            ],
+            [
+                'text' => ['en' => 'blog/top', 'es' => 'blog/mejores'],
             ]
         );
        

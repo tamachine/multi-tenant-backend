@@ -15,7 +15,7 @@
             <x-posts-summary.featured-post :blogPost="$post"/>
         @endforeach
 
-        {{ $posts->links('livewire.web.pagination') }}
+        {{ $posts->links('livewire.web.pagination', ['customUrl' => $urlForPagination]) }}
 
     </div>
 
