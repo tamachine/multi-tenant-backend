@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use App\Traits\HasWebp;
 use Spatie\Translatable\HasTranslations;
+use Illuminate\Support\Facades\URL;
 
 class ModelImage extends Model
 {  
@@ -21,7 +22,7 @@ class ModelImage extends Model
 
     protected $fillable = ['image_path', 'instance_type', 'instance_id', 'alt'];
 
-    protected $append = ['url', 'image_name', 'is_external_url', 'has_webp', 'webp_url'];
+    protected $append = ['url', 'image_name', 'is_external_url', 'has_webp', 'webp_url', 'relative_path', 'image_extension'];
 
     /**
      * SCOPES ------------
@@ -58,6 +59,15 @@ class ModelImage extends Model
             return $this->image_path ? Storage::disk($this->disk)->url($this->image_path) : '';
         } 
     }   
+    
+     /**
+     * @return string Returns the relative url of the image
+     */
+    public function getRelativePathAttribute() {
+        $absoluteUrl = $this->url;
+        $baseUrl = URL::to('/');
+        return str_replace($baseUrl, '', $absoluteUrl); 
+    } 
 
     /** Returns true if the image_path is already an external url and not a path
      * @return boolean
@@ -99,8 +109,16 @@ class ModelImage extends Model
         return pathinfo($this->image_path, PATHINFO_FILENAME);
     }
 
+     /** Returns the name of the image without extension
+     * @return string 
+     */
+    public function getImageExtensionAttribute() {
+        return pathinfo($this->image_path, PATHINFO_EXTENSION );
+    }
+
     /**
      * Changes the file name
+     * @return string the new image path
      */
     public function changeFileName($newFileName) {
         $newImagePath = str_replace_last(
@@ -112,5 +130,7 @@ class ModelImage extends Model
         $this->image_path = $newImagePath;
 
         $this->save();
+
+        return $newImagePath;
     }
 }

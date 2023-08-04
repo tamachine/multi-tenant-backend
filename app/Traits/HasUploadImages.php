@@ -34,11 +34,11 @@ trait HasUploadImages
     /**
      * Uploads an image, creates its corresponding webp and stores it in database
      * @var file $input The image input to be stored
-     * @var string $fileName The file name of the image
+     * @var string $fileName The file name of the image without extension
      * @var string $alt The alt of the image
      * @return int id of the image in the database
      */
-    public function uploadImage($input, $fileName = null, $alt = null) {     
+    public function uploadImage($input, $fileName = null, $alt = null) {             
 
         $path = $input->storeAs(
                     $this->getFolderPath(), 
@@ -74,10 +74,11 @@ trait HasUploadImages
      * renames the file, its corresponding webp file and the record in the database
      * @var string $currentPath The current image path
      * @var string $newName The new name
+     * @return string the newPath
      */
     public function changeUploadedFileName($currentPath, $newName) {
         
-        $this->changeModelImageFileName($currentPath, $newName); //change the name in the database
+        $newPath = $this->changeModelImageFileName($currentPath, $newName); //change the name in the database
 
         if (Storage::disk($this->disk)->exists($currentPath)) {
             
@@ -90,6 +91,8 @@ trait HasUploadImages
 
             $this->changeFileName($currentPath, $newName); //change the image name           
         }
+
+        return $newPath;
     }
     
     /**
@@ -99,9 +102,29 @@ trait HasUploadImages
      * @return string the base name of the image (file name + extension)
      */
     protected function getBaseName($input, $fileName = null) {
-        $fileName = $fileName ?? now()->timestamp;
+        $fileName = $fileName ?? now()->timestamp;       
 
-        return $fileName . '.' . $input->getClientOriginalExtension();
+        return $this->getFileName($fileName, $input->getClientOriginalExtension());
+    }
+
+    /**
+     * Returns the file name to be uploaded. It is a recursive method that returns the fileName with a (1) at the end if the image already exists
+     * @var string $fileName The file name of the image (only file name)
+     * @var string $extension The extension
+     */
+    protected function getFileName($fileName, $extension) {
+
+        $fullPath = $this->getFolderPath() . '/' . $fileName . '.' . $extension;
+
+        if (Storage::disk($this->disk)->exists($fullPath)) {            
+            
+            return $this->getFileName($fileName. ' (1)', $extension);
+
+        } else {
+            
+            return pathinfo($fullPath, PATHINFO_BASENAME);
+            
+        }        
     }
 
     /**

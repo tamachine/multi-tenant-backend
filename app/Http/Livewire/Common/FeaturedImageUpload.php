@@ -65,7 +65,7 @@ class FeaturedImageUpload extends ImageUpload
       */
     protected function uploadImage()
     {
-        $this->model->uploadFeaturedImage($this->image);   
+        $this->model->uploadFeaturedImage($this->image, $this->imageName());   
     }    
 
     /**

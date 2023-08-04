@@ -53,7 +53,7 @@ trait HasImages
 
     public function changeModelImageFileName($path, $newFileName) {
         $modelImage = ModelImage::findByPath($path);
-        $modelImage->changeFileName($newFileName);
+        return $modelImage->changeFileName($newFileName);
     }
     
     /**

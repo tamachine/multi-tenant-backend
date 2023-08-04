@@ -16,8 +16,14 @@ use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
 class BlogPost extends Model implements LocalizedUrlRoutable
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasUploadImages, HasFeaturedImage, HasFeaturedImageHover, HasSEOConfigurations;    
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasFeaturedImage, HasUploadImages,HasFeaturedImageHover, HasSEOConfigurations;    
     
+    //these are overrided here
+    use HasUploadImages {
+        HasUploadImages::changeUploadedFileName as protected parent_changeUploadedFileName;         
+    }
+   
+
     /**
      * The attributes that are mass assignable.
      *
@@ -55,6 +61,37 @@ class BlogPost extends Model implements LocalizedUrlRoutable
     public function getLocalizedRouteKey($locale)
     {
         return $this->getTranslation('slug', $locale);
+    }
+
+     /**
+     * override the method in HasUploadImages trait in order to change the added image links in the post
+     * @var string $currentPath The current image path
+     * @var string $newName The new name
+     */
+    public function changeUploadedFileName($currentPath, $newName) {        
+        $newPath = $this->parent_changeUploadedFileName($currentPath, $newName);     
+        
+        $this->updateImageInContent($currentPath, $newPath);
+    }
+    
+    /**
+     * updates the content to change the old path to the new one
+     * @var string $oldPath
+     * @var string $newPath
+     */
+    protected function updateImageInContent($oldPath, $newPath) {
+        if($this->imagePathIsUsedInContent($oldPath)) {
+            $this->content = str_replace($oldPath, $newPath, $this->content);
+            $this->save();
+        }        
+    }
+  
+    /**
+     * check if image is used in content
+     * @var string path to check
+     */
+    public function imagePathIsUsedInContent($path) {
+        return str_contains($this->content, $path);
     }
 
     /**********************************
