@@ -16,7 +16,7 @@
     {{-- mobile --}}
     <div
         class="cursor-pointer md:hidden font-sans-medium menu-selector"
-        x-on:click="showMobileNavBar = !showMobileNavBar"
+        x-on:click="window.scrollTo(0, 0); showMobileNavBar = !showMobileNavBar;"
         >
         <div x-show="!showMobileNavBar">
             <span>{!! __('navbar.open') !!}</span>
