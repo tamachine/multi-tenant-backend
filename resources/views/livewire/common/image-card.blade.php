@@ -70,17 +70,24 @@
             @endif
         </div>
                 
-        <div class="flex justify-between" x-data="copyToClipboard()">
+        <div class="flex justify-between" x-data="copyToClipboard({ text: 'Copy url to clipboard' })">
+            {{-- it is better to use the image relative path in the post content because in case we change the domain of the website then there wont be the need to update the images urls
             <!-- url -->            
-            <x-admin.button type="button" class="m-4 mt-0 bg-green-700" x-clipboard.raw="{{ asset($imageUrl) }}" x-on:click="click()">
+            <x-admin.button type="button" class="m-4 mt-0 bg-green-700" x-clipboard.raw="{{ ($imageUrl) }}" x-on:click="click()">
+                <span x-text="text"></span>
+            </x-admin.button>
+            --}}
+            <!-- relative url -->            
+            <x-admin.button type="button" class="m-4 mt-0 bg-green-700" x-clipboard.raw="{{ ($imageRelativePath) }}" x-on:click="click()">
                 <span x-text="text"></span>
             </x-admin.button>
 
-            <!-- delete button -->
+            <!-- delete button -->            
             <x-admin.button type="button" class="m-4 mt-0 bg-red-700" x-on:click="openConfirm = true">
-                Delete
-            </x-admin.button>
+                Delete                
+            </x-admin.button>                            
         </div>
+        <x-admin.input-error for="delete" class="m-4"/>
     </div>
 
     <!-- delete modal -->
