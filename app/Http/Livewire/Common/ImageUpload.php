@@ -29,6 +29,9 @@ class ImageUpload extends Component
      */
     public function updatedImage()
     {       
+
+        $this->validate(['image' => 'file|max:50000']); //50mb
+
         $this->model->uploadImage($this->image, $this->imageName());     
         
         $this->emit('imageUploaded'); //listener to refresh the ImageGallery

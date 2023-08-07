@@ -9,5 +9,6 @@
     </div>
     <div>
         <input type="file" name="image" wire:model="image">
+        <x-admin.input-error for="image" class="mt-2" />
     </div>
 </section>
