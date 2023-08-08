@@ -32,6 +32,8 @@
         <script src="{{ url(mix('js/swiper.js')) }}"></script>
         <script src="{{ url(mix('js/app/scripts.js')) }}"></script>
 
+        <script async src="//www.instagram.com/embed.js"></script>
+
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
