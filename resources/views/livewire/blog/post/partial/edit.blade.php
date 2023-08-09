@@ -159,7 +159,7 @@
         <!-- Content -->
         <div class="px-4 mt-4">
             <x-admin.label for="content" value="{{ __('Content') }}" class="mb-2" />
-            <x-admin.tinymce-editor wire:model="content" placeholder="Write a nice post..." height="400px" />
+            <x-admin.tinymce-editor wire:model.defer="content" placeholder="Write a nice post..." height="400px" />
         </div>
 
         <hr class="my-4">

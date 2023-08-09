@@ -47,7 +47,7 @@
         <!-- Bio -->
         <div class="px-4 mt-4">
             <x-admin.label for="bio" value="{{ __('Bio') }}" />
-            <x-admin.tinymce-editor wire:model="bio" placeholder="Write a nice author bio..." />
+            <x-admin.tinymce-editor wire:model.defer="bio" placeholder="Write a nice author bio..." />
         </div>
 
         <hr class="my-4">       
