@@ -1,4 +1,4 @@
-@extends('layouts.web')
+@extends('layouts.errors')
 
 @section('body')
     <div class="bg-errors image-wrapper">
