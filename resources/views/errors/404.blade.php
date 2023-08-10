@@ -1,4 +1,4 @@
-@extends('layouts.web')
+@extends('layouts.errors')
 
 @section('body')
     <div class="h-[calc(100vh_-_62px)] md:h-[calc(100vh_-_76px)] w-fill-screen text-white">
