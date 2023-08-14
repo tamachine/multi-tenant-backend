@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use App\Models\Landlord\Tenant;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -55,8 +56,12 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
-    protected function webRoutes() {                  
-        Route::middleware('web')->group(base_path('routes/web.php')); 
+    protected function webRoutes() {     
+        if(Tenant::checkCurrent()) {            
+            Route::middleware('web')->group(base_path('routes/web.php')); 
+        } else {
+            Route::middleware('web')->group(base_path('routes/landlord.php')); 
+        }                   
     }
 
     protected function apiRoutes() {
@@ -109,7 +114,7 @@ class RouteServiceProvider extends ServiceProvider
                     ->as('blog.')
                     ->group(base_path('routes/blog.php'));
             }
-        );
+        )->middleware(['tenant']);
     }
 
     /**

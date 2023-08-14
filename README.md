@@ -1,7 +1,11 @@
 # Getting started
 
 ## Description
-New Reykjavik Auto site (Intergalactic spaceship)
+This is the backend for the Intergalactic spaceship
+
+It is a multi-tenant back-end that uses the package: https://spatie.be/docs/laravel-multitenancy/v3 for the multitenancy. It has a database for every tenant
+
+It also has an API to serve all the differente front-ends
 
 ## Pre requisites
 This project is using PHP 8.1 with TALL stack (Tailwind 3, Alpine, Livewire and Laravel 9) and Laravel mix 6
@@ -35,12 +39,10 @@ Copy the example env file and make the required configuration changes in the .en
     cp .env.example .env
 
 Run the database migrations and default seeder(**Set the database connection in .env before migrating**)
+This is a multi tenant site (https://spatie.be/docs/laravel-multitenancy/v3). Migrations should be run like:
 
-    php artisan migrate:refresh --seed
-
-Start the local development server
-
-    php artisan serve
+    php artisan migrate --path=database/migrations/landlord --database=landlord
+    php artisan tenants:artisan "migrate --database=tenant --seed"
 
 You can now access the server at http://localhost:8000
 
