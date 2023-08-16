@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Helpers\Language;
 use Illuminate\Http\Request;
-use App\Exceptions\InvalidLocaleException;
 use App\Helpers\Api;
 
 abstract class BaseController extends Controller
@@ -53,9 +52,7 @@ abstract class BaseController extends Controller
             if(Language::isAvailableCode($request->input('locale'))) {
                 $this->locale = $request->input('locale');
             } else {
-                $this->badRequestError();
-    
-                throw new InvalidLocaleException(); 
+                $this->locale = Language::defaultCode();
             }
         }
     }
