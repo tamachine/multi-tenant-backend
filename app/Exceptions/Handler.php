@@ -55,6 +55,19 @@ class Handler extends ExceptionHandler
             return response()->json(['succes' => false, 'code' => 404, 'error' => 'Not Found!'], 404);
         }
 
+        if ($exception instanceof \Illuminate\Auth\AuthenticationException) {          
+
+            $guards = $exception->guards();
+
+            if (in_array('sanctum', $guards)) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Invalid token',
+                    'code' => 401
+                ],401);
+            }
+        }
+
         return parent::render($request, $exception);
     }
 }
