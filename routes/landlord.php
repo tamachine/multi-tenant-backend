@@ -18,7 +18,7 @@ Route::get('/', function() {
     echo "<h1>nave intergalactica</h1>";
 
     foreach(Tenant::all() as $tenant) {
-        echo "<a href='https://".$tenant->domain."/login'>".$tenant->domain."</a><br>";
+        echo "<a href='".$tenant->login_url."'>".$tenant->url."</a><br>";
     }
 })
 ->name('home');
