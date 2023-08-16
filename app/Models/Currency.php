@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Helpers\Currency as CurrencyHelper;
 use App\Traits\HasApiResponse;
+use App;
 
 class Currency {
 
@@ -23,7 +24,7 @@ class Currency {
             $currency = new Currency();
             $currency->id = $item;
 
-            foreach(CurrencyHelper::availableCodes() as $code) {
+            foreach(CurrencyHelper::availableCurrencies() as $code) {
                 $text[$code] = $item;
             }
 
