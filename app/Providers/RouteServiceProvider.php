@@ -64,13 +64,13 @@ class RouteServiceProvider extends ServiceProvider
         }                   
     }
 
-    protected function apiRoutes() {
-        if(Tenant::checkCurrent()) {  
+    protected function apiRoutes() {     
+       //if(Tenant::checkCurrent()) {     
             Route::prefix('api')
-            ->middleware(['api', 'auth:sanctum'])
+            ->middleware(['api', 'auth:sanctum', 'tenant'])
             ->namespace($this->namespaceApi)
-            ->group(base_path('routes/api.php'));
-        }
+            ->group(base_path('routes/api.php'));        
+        //}
     }
 
     protected function intranetRoutes() {

@@ -15,17 +15,13 @@ abstract class BaseController extends Controller
     protected function successResponse($data) {
         return response()->json([
             'success'   => true,
-            'count'     => count($data),
+            //'count'     => count($data),
             'data'      => $data,
         ]);
     }
 
     protected function errorResponse($error) {
-        return response()->json([
-            'success'  => false,
-            'code'     => $this->errorCode,
-            'error'    => $error
-        ]);
+        return Api::errorResponse($this->errorCode, $error);        
     }
 
     protected function notFoundError() {        
@@ -44,7 +40,7 @@ abstract class BaseController extends Controller
      * maps a collection based on toApiResponse model method (HasApiResponse)
      */
     protected function mapApiResponse($collection) {
-        return Api::mapApiRepsonse($collection);        
+        return Api::mapApiRepsonse($collection, $this->locale);        
     }
 
     protected function checkLocale(Request $request) {

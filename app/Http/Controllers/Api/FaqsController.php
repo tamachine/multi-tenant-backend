@@ -48,13 +48,7 @@ class FaqsController extends BaseController
      * ## faq_hashid: full_key of the translation 
      * @lrd:end    
      */
-    public function show(Faq $faq):JsonResponse {        
-        if($faq->exists) {  
-            return $this->successResponse($faq->toApiResponse());
-        } else {
-            $this->notFoundError();
-
-            return $this->errorResponse("the faq does not exist");
-        }        
+    public function show(Faq $faq):JsonResponse {                
+        return $this->successResponse($faq->toApiResponse());                
     }        
 }

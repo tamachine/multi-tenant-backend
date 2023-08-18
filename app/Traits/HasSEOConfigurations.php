@@ -28,7 +28,7 @@ trait HasSEOConfigurations
     public function SEOConfigurations()
     {        
         return $this->morphMany(SeoConfiguration::class, 'instance');
-    }
+    } 
 
     public function scopePage($query, $page_id) {
         return $query->where('page_id', $page_id);
