@@ -21,7 +21,7 @@ class SeoConfiguration extends Model
 
     protected $fillable  = ['meta_title', 'meta_description', 'noindex', 'nofollow', 'lang', 'canonical', 'instance_type', 'instance_id', 'page_id'];
 
-    protected $apiResponse = ['meta_title', 'meta_description', 'noindex', 'nofollow', 'lang', 'canonical'];
+    protected $apiResponse = ['meta_title', 'meta_description', 'noindex', 'nofollow', 'lang', 'canonical', 'seoSchemas'];
 
      /**
      * Get the parent instance model
