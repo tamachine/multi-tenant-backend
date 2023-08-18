@@ -100,6 +100,7 @@ class BindingServiceProvider extends ServiceProvider
         Route::bind('blog_author_slug', function ($value) {
             $resource = new \App\Models\BlogAuthor();
             return $resource->where('slug', $value)->firstOrFail();
-        });       
+        });   
+            
     }
 }

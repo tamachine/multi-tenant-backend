@@ -17,26 +17,30 @@ namespace App\Traits;
  *  ...
  */
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use App\Helpers\Api;
+use App;
 
 trait HasApiResponse
 {
-    public function toApiResponse(): array {
+    public function toApiResponse($locale = null): array {
         
         if (!is_subclass_of($this, 'Illuminate\Database\Eloquent\Model')) return $this->toApiResponseNotModel();
 
-        $apiResponse[] = $this->toArray();
+        $apiResponse = $this->toArray();
         
         if(isset($this->apiResponse)){
             $apiResponse = [];
 
             foreach($this->apiResponse as $param) {
-                if (isset($this->attributes[$param])) { //its an attribute
-                    $apiResponse[$param] = $this->jsonResponse($this->attributes[$param]);
+                if (isset($this->attributes[$param])) { //its an attribute                                                        
+                    $apiResponse[$param] = $this->jsonResponse($this->attributes[$param]);                    
                 } elseif (in_array($param, $this->appends)) { //its an append attribute
                     $apiResponse[$param] = $this->jsonResponse($this->$param);
                 } elseif (method_exists($this, $param)) {  
                     if($this->$param() instanceof HasMany) { //its a HasMany relation
+                        $apiResponse[$param] = $this->jsonResponse($this->getHasMany($this->$param));  
+                    } elseif($this->$param() instanceof MorphMany) { //its a MorphMany relation
                         $apiResponse[$param] = $this->jsonResponse($this->getHasMany($this->$param));  
                     } else { //its a method
                         $apiResponse[$param] = $this->jsonResponse($this->$param());               
@@ -44,7 +48,15 @@ trait HasApiResponse
                     
                 }                
             }            
-        }        
+        }  
+        
+        if(isset($this->translatable)) {        
+            foreach($apiResponse as $param => $value) {
+                if (isset($this->attributes[$param]) && in_array($param, $this->translatable)) { //its an attribute and its translatable                                    
+                    $apiResponse[$param] = $this->jsonResponse($this->getTranslation($param, $locale ?? App::getLocale()));
+                }
+            }
+        }
 
         return $apiResponse;
     }    

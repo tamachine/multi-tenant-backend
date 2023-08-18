@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasApiResponse;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\HashidTrait;
 use App\Traits\HasSEOConfigurations;
@@ -10,7 +11,9 @@ use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 class Page extends Model implements LocalizedUrlRoutable
 {  
 
-    use HashidTrait, HasSEOConfigurations;     
+    use HashidTrait, HasSEOConfigurations, HasApiResponse;         
+
+    protected $apiResponse = ['route_name', 'uri_fullkey', 'description', 'controller', 'method', 'instance_type','SEOConfigurationsSamePage' ];
 
     /**
      * The attributes that are translatable.
@@ -96,5 +99,13 @@ class Page extends Model implements LocalizedUrlRoutable
         }      
         
         return $query;
+    }
+
+    /**
+     * Get the SEO Configurations.
+     */
+    public function SEOConfigurationsSamePage()
+    {        
+        return $this->hasMany(SeoConfiguration::class, 'page_id', 'id');
     }
 }

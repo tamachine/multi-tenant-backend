@@ -5,7 +5,7 @@ namespace App\Exceptions\Api;
 use Exception;
 use App\Helpers\Api;
  
-class InvalidLocaleException extends Exception
+class NotFoundException extends Exception
 {
     /**
      * Report the exception.
@@ -26,7 +26,7 @@ class InvalidLocaleException extends Exception
     public function render($request)
     {
         if ($request->is('api/*')) {          
-            return Api::errorResponse(400, 'Locale does not exist');                        
+            return Api::errorResponse(404, 'Not found exception');                        
         }        
     }
 }

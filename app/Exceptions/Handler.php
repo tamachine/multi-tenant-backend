@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use App\Helpers\Api;
 
 class Handler extends ExceptionHandler
 {
@@ -60,11 +61,7 @@ class Handler extends ExceptionHandler
             $guards = $exception->guards();
 
             if (in_array('sanctum', $guards)) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Invalid token',
-                    'code' => 401
-                ],401);
+                return Api::errorResponse(401, 'Invalid token');                
             }
         }
 
