@@ -20,8 +20,6 @@ class CarCategoriesController extends BaseController
      * @QAparam locale string nullable    
      */
     public function index(Request $request):JsonResponse {
-        $this->checkLocale($request);        
-
         $query = CarType::all();    
         
         return $this->successResponse($this->mapApiResponse($query));      
