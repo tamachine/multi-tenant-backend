@@ -13,10 +13,11 @@ use App\Traits\HasFeaturedImage;
 use App\Traits\HasFeaturedImageHover;
 use App\Traits\HasSEOConfigurations;
 use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
+use App\Traits\HasApiResponse;
 
 class BlogPost extends Model implements LocalizedUrlRoutable
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasFeaturedImage, HasUploadImages,HasFeaturedImageHover, HasSEOConfigurations;    
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasFeaturedImage, HasUploadImages,HasFeaturedImageHover, HasSEOConfigurations, HasApiResponse;    
     
     //these are overrided here
     use HasUploadImages {
@@ -33,6 +34,7 @@ class BlogPost extends Model implements LocalizedUrlRoutable
         'hashid', 'title', 'slug', 'published_at', 'summary', 'content', 'featured_image', 'featured_image_hover',
         'blog_author_id', 'blog_category_id', 'hero', 'top', 'show_date'
     ];
+
 
     /**
      * The attributes that are translatable.

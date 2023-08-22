@@ -5,15 +5,19 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Str;
 use App\Models\User;
+use App\Models\Landlord\Tenant;
+use Spatie\Multitenancy\Commands\Concerns\TenantAware;
 
 class WebToken extends Command
 {
+    use TenantAware;
+
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'web:create-token';
+    protected $signature = 'web:create-token {--tenant=*}';
 
     /**
      * The console command description.
@@ -46,7 +50,7 @@ class WebToken extends Command
 
         $token = $apiUser->createToken(env('APP_NAME'));
 
-        $this->line("This is the new token to use in ". env('APP_NAME'). ", copy and save it now because it won't be accessible henceforth: ");
+        $this->line("This is the new token to use in ". Tenant::current()->url . ", copy and save it now because it won't be accessible henceforth: ");
         $this->info($token->plainTextToken);                
     }
 }

@@ -38,6 +38,11 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('content', [ContentPolicy::class, 'content']);
         Gate::define('developer', [DeveloperPolicy::class, 'developer']);
         Gate::define('scandinavian', [ScandinavianPolicy::class, 'scandinavian']);
-        Gate::define('superAdmin', [SuperAdminPolicy::class, 'superAdmin']);
+        Gate::define('superAdmin', [SuperAdminPolicy::class, 'superAdmin']);       
+        
+        Gate::define('admin-or-content', function ($user) {
+            return Gate::allows('admin', $user) || Gate::allows('content', $user);
+        });
+
     }
 }

@@ -8,15 +8,7 @@ use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Verify;
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\Web\BookingController;
-use App\Http\Controllers\Web\InsurancesController;
-use App\Http\Controllers\Web\ExtrasController;
-use App\Http\Controllers\Web\SummaryController;
-use App\Http\Controllers\Web\BlogController;
-use App\Http\Controllers\Web\BlogSearchCategoryController;
-use App\Http\Controllers\Web\BlogSearchTagController;
-use App\Http\Controllers\Web\BlogSearchAuthorController;
+use App\Models\Landlord\Tenant;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +24,7 @@ use App\Http\Controllers\Web\BlogSearchAuthorController;
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(), 
-        'middleware' => [ 'localize', 'localizationRedirect' ]
+        'middleware' => [ 'localize', 'localizationRedirect', 'tenant' ]
     ],  function()
 {
 
@@ -79,7 +71,7 @@ Route::group(
      *  - Pages that need seo-configuration have to be stored in database so they have to be defined in RoutesForPages class
      * **/
      
-    if (!App::runningInConsole()) { //to fix migrations to fail. Routes are loading before migrations but they are database dependant.           
+    if (!App::runningInConsole() && Tenant::checkCurrent()) { //to fix migrations to fail. Routes are loading before migrations but they are database dependant.           
         RoutesForPages::registerRoutes(); // Routes stored in database (Pages)
     }    
 });

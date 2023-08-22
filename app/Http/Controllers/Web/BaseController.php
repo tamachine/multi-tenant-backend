@@ -8,9 +8,7 @@ use App\Services\ReviewsInfo\GoogleReviewsInfoComponent;
 use App\Services\ReviewsInfo\FacebookReviewsInfoComponent;
 use App\Services\ReviewsInfo\TrustPilotReviewsInfoComponent;
 use App\Services\Selectable\CarSearchHoursSelectableComponent;
-use App\Services\Breadcrumbs\Breadcrumbs;
 use App\Models\CarType;
-use App\Services\Breadcrumbs\Breadcrumb;
 
 abstract class BaseController extends Controller
 {    

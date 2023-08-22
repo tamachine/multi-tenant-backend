@@ -42,6 +42,7 @@ import 'tinymce/themes/silver';
 /* Import plugins */
 import 'tinymce/plugins/link';
 import 'tinymce/plugins/anchor';
+import 'tinymce/plugins/code';
 import 'tinymce/plugins/codesample';
 import 'tinymce/plugins/autolink';
 import 'tinymce/plugins/charmap';

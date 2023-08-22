@@ -130,7 +130,7 @@ class NavBarSeeder extends Seeder
                 'key' => 'cars-button',
             ],
             [
-                'text' => ['en' => 'View all cars', 'es' => 'Todos los coches'],
+                'text' => ['en' => 'View all cars', 'es' => 'Ver todos'],
             ]
         );
 

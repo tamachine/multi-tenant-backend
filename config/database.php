@@ -43,6 +43,24 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
+        'default' => env('DB_CONNECTION', 'tenant'),
+
+        'tenant' => [
+            'driver' => 'mysql',
+            'database' => null,
+            'host' => '127.0.0.1',
+            'username' => env('DB_USERNAME', 'nave'),
+            'password' => env('DB_PASSWORD', 'nave'),            
+        ],
+    
+        'landlord' => [
+            'driver' => 'mysql',
+            'database' => env('DB_DATABASE','nave'),
+            'host' => env('DB_HOST','127.0.0.1') ,
+            'username' => env('DB_USERNAME', 'nave'),
+            'password' => env('DB_PASSWORD', 'nave'),            
+        ],
+
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
