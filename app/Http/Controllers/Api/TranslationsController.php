@@ -18,14 +18,14 @@ class TranslationsController extends BaseController
      */
     public function index(Request $request):JsonResponse {
 
+        $this->checkLocale($request);    
+
         $query = Translation::query(); 
 
         if ($request->has('group')) { //if group is set, it returns only the group passed
             $query->where('group', $request->input('group'));
         } 
-
-        $this->checkLocale($request);        
-         
+                 
         return $this->successResponse($this->mapApiResponse($query->get()));                
     }
 
