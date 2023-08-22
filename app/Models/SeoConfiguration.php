@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use App\Models\Page;
 use App\Models\SeoSchema;
+use App\Traits\HasApiResponse;
 
 class SeoConfiguration extends Model
 {  
-    use HasTranslations;
+    use HasTranslations, HasApiResponse;
 
     /**
      * The attributes that are translatable.
@@ -19,6 +20,8 @@ class SeoConfiguration extends Model
     public $translatable = ['meta_title', 'meta_description', 'lang', 'canonical'];
 
     protected $fillable  = ['meta_title', 'meta_description', 'noindex', 'nofollow', 'lang', 'canonical', 'instance_type', 'instance_id', 'page_id'];
+
+    protected $apiResponse = ['meta_title', 'meta_description', 'noindex', 'nofollow', 'lang', 'canonical', 'seoSchemas'];
 
      /**
      * Get the parent instance model

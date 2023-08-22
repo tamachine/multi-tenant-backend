@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use App\Helpers\Api;
 
 class Handler extends ExceptionHandler
 {
@@ -53,6 +54,15 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof NotFoundHttpException && $request->wantsJson()) {
             return response()->json(['succes' => false, 'code' => 404, 'error' => 'Not Found!'], 404);
+        }
+
+        if ($exception instanceof \Illuminate\Auth\AuthenticationException) {          
+
+            $guards = $exception->guards();
+
+            if (in_array('sanctum', $guards)) {
+                return Api::errorResponse(401, 'Invalid token');                
+            }
         }
 
         return parent::render($request, $exception);

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Helpers\Language;
 use Illuminate\Http\Request;
-use App\Exceptions\InvalidLocaleException;
 use App\Helpers\Api;
 
 abstract class BaseController extends Controller
@@ -16,17 +15,13 @@ abstract class BaseController extends Controller
     protected function successResponse($data) {
         return response()->json([
             'success'   => true,
-            'count'     => count($data),
+            //'count'     => count($data),
             'data'      => $data,
         ]);
     }
 
     protected function errorResponse($error) {
-        return response()->json([
-            'success'  => false,
-            'code'     => $this->errorCode,
-            'error'    => $error
-        ]);
+        return Api::errorResponse($this->errorCode, $error);        
     }
 
     protected function notFoundError() {        
@@ -45,7 +40,7 @@ abstract class BaseController extends Controller
      * maps a collection based on toApiResponse model method (HasApiResponse)
      */
     protected function mapApiResponse($collection) {
-        return Api::mapApiRepsonse($collection);        
+        return Api::mapApiRepsonse($collection, $this->locale);        
     }
 
     protected function checkLocale(Request $request) {
@@ -53,9 +48,7 @@ abstract class BaseController extends Controller
             if(Language::isAvailableCode($request->input('locale'))) {
                 $this->locale = $request->input('locale');
             } else {
-                $this->badRequestError();
-    
-                throw new InvalidLocaleException(); 
+                $this->locale = Language::defaultCode();
             }
         }
     }

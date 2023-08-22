@@ -14,7 +14,10 @@ class SeoConfigurations
 {
     protected $seoConfiguration;   
 
-    public function __construct() {        
+    protected $currentUrl;
+
+    public function __construct() {    
+        $this->setUrl(url()->current());    
         $this->setSeoConfiguration();                      
     }
     
@@ -25,16 +28,18 @@ class SeoConfigurations
      */
     public function getConfigurations() {
         return $this->seoConfiguration;
-    }    
+    }  
+    
+    public function setUrl($value) {
+        $this->currentUrl = $value;
+    }
 
     /**
      * Sets the instance that corresponds to the page
      */
     protected function setSeoConfiguration() {
-        $currentUrl = url()->current();
-
         foreach(SeoConfiguration::all() as $seoConfiguration) {                
-            if($seoConfiguration->page->url($seoConfiguration->instance->getLocalizedRouteKey(App::getLocale())) == $currentUrl) { //check if the url of the seoConfiguration instance is the current one
+            if($seoConfiguration->page->url($seoConfiguration->instance->getLocalizedRouteKey(App::getLocale())) == $this->currentUrl) { //check if the url of the seoConfiguration instance is the current one
                 $this->seoConfiguration = $seoConfiguration;                
                 break;
             }

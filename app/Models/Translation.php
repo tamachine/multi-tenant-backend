@@ -14,7 +14,7 @@ class Translation extends LanguageLine
 
     protected $appends = ['full_key'];    
 
-    protected $apiResponse = ['full_key', 'text']; //HasApiResponse
+    protected $apiResponse = ['full_key', 'text', 'group', 'key']; //HasApiResponse
 
     public function getFullKeyAttribute() 
     {

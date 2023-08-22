@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use DB;
+use App\Models\Landlord\Tenant;
+use Database\Seeders\Landlord\LandlordSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,9 +26,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Work out which seeding type should fire (environment specific)
-        $method = 'run' . ucfirst(app()->environment());
-        $this->{$method}();
+        if(Tenant::checkCurrent()) {
+            // Work out which seeding type should fire (environment specific)
+            $method = 'run' . ucfirst(app()->environment());
+            $this->{$method}();
+        } else {
+            $this->call([LandlordSeeder::class]);
+        }
+        
     }
 
     /**
