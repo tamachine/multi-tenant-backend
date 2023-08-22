@@ -46,7 +46,7 @@ This is a multi tenant site (https://spatie.be/docs/laravel-multitenancy/v3). Mi
 
 You can now access the server at http://localhost:8000
 
-## API token (**This feature is no longer used**)
+## API token 
 
 There is an API to be consumed from the front-end.
 
@@ -68,11 +68,9 @@ The structure for the translations is always:
 
 There is one Seeder for every 'group'. You can run LanguageLineSeeder to run all translations seeders (if you create a new one, include it in LanguageLineSeeder). You can run it as many times as you want since it uses the firstOrCreate method.
 
-Please, note that 'group.key' must be unique and that all translations can be changed by users so as far as possible, don't include parameters in the translations becasue the user can not modify them.
-
 ## Model Translations
 
-Model translations use the package https://github.com/spatie/laravel-translatable:4.6.0 (**version 4.6.0 is the one with compapatibility with PHP 7.4 and Laravel 8**)
+Model translations use the package https://github.com/spatie/laravel-translatable
 
 ## Tailwind
 
