@@ -22,6 +22,7 @@ Route::apiResource('translations', TranslationsController::class, ['parameters' 
 Route::apiResource('faqcategories', FaqCategoriesController::class)->only('index');     
 Route::apiResource('faqs', FaqsController::class, ['parameters' => ['faqs' => 'api_faq_hashid']])->only(['index', 'show']);     
 
+Route::apiResource('carcategories', CarCategoriesController::class)->only(['index']);     
 Route::apiResource('carfilters', CarFiltersController::class, ['parameters' => ['carfilters' => 'car_filter_id']])->only(['index', 'show']);     
 Route::apiResource('cars', CarsController::class)->only('index');
 
