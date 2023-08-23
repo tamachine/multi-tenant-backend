@@ -71,7 +71,7 @@ trait HasApiResponse
             $apiResponse = [];
 
             foreach($this->apiResponse as $param) {
-                if (isset($this->attributes[$param])) { //its an attribute                                                        
+                if (array_key_exists($param, $this->attributes)) { //its an attribute                                                        
                     $apiResponse[$param] = $this->jsonResponse($this->attributes[$param]);                                    
                 } elseif (isset($this->append)) {
                     if (in_array($param, $this->append)) { //its an append attribute
