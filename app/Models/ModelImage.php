@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasApiResponse;
 use App\Traits\HasUploadImages;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\URL;
 
 class ModelImage extends Model
 {  
-    use HasWebp, HasTranslations, HasUploadImages;
+    use HasWebp, HasTranslations, HasUploadImages, HasApiResponse;
 
     /**
      * The attributes that are translatable.
@@ -23,6 +24,8 @@ class ModelImage extends Model
     protected $fillable = ['image_path', 'instance_type', 'instance_id', 'alt'];
 
     protected $append = ['url', 'image_name', 'is_external_url', 'has_webp', 'webp_url', 'relative_path', 'image_extension'];
+
+    protected $apiResponse = ['url', 'webp_url', 'alt'];
 
     /**
      * SCOPES ------------
