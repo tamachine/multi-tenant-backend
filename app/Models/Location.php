@@ -14,7 +14,7 @@ class Location extends Model
 {
     use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasApiResponse, HasFeaturedImage;
 
-    protected $apiResponse = ['hashid', 'name', 'pickup_show_input', 'dropoff_show_input', 'pickup_input_require', 'dropoff_input_require', 'pickup_input_info', 'dropoff_input_info'];
+    protected $apiResponse = ['hashid', 'name', 'pickup_show_input', 'dropoff_show_input', 'pickup_input_require', 'dropoff_input_require', 'pickup_input_info', 'dropoff_input_info', 'getFeaturedImageModelImageInstance'];
 
     /**
      * The attributes that are mass assignable.
