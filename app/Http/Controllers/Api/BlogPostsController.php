@@ -27,7 +27,7 @@ class BlogPostsController extends BaseController
         $query = BlogPost::published()->orderBy('published_at', 'desc'); 
 
         if($request->has('latest')) {            
-            if(is_int($request->input('latest'))) $query->take($request->input('latest'));            
+            if(is_numeric($request->input('latest'))) $query->take($request->input('latest'));            
         }                  
 
         return $this->successResponse($this->mapApiResponse($query->get()));                
