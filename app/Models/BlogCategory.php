@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasApiResponse;
 use App\Traits\HashidTrait;
 use App\Traits\HasSEOConfigurations;
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +13,7 @@ use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
 class BlogCategory extends Model implements LocalizedUrlRoutable
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasSEOConfigurations;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasSEOConfigurations, HasApiResponse;
 
     /**
      * The attributes that are mass assignable.
@@ -22,6 +23,8 @@ class BlogCategory extends Model implements LocalizedUrlRoutable
     protected $fillable = [
         'hashid', 'name', 'slug',
     ];
+
+    protected $apiResponse = ['hashid', 'name', 'slug', 'url'];
 
 
     /**

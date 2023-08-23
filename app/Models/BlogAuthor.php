@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasApiResponse;
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,7 +13,7 @@ use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
 class BlogAuthor extends Model implements LocalizedUrlRoutable
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImage, HasSEOConfigurations;
+    use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImage, HasSEOConfigurations, HasApiResponse;
 
     //for HasFeaturedImage
     protected $featured_image_attribute = 'photo';
@@ -29,6 +30,8 @@ class BlogAuthor extends Model implements LocalizedUrlRoutable
     protected $append = [
         'url'
     ];
+
+    protected $apiResponse = ['hashid', 'name', 'bio', 'short_bio', 'photo', 'url'];
 
      /**
      * Returns for a given locale the translated slug

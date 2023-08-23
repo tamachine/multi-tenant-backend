@@ -24,6 +24,7 @@ class BlogPost extends Model implements LocalizedUrlRoutable
         HasUploadImages::changeUploadedFileName as protected parent_changeUploadedFileName;         
     }
    
+    protected $apiResponse = ['hashid', 'title', 'published_at', 'summary', 'content', 'updated_at', 'hero', 'top', 'show_date', 'getFeaturedImageModelImageInstance', 'getFeaturedImageHoverModelImageInstance', 'author', 'category'];
 
     /**
      * The attributes that are mass assignable.
