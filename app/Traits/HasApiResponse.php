@@ -27,7 +27,7 @@ trait HasApiResponse
         
         if (!is_subclass_of($this, 'Illuminate\Database\Eloquent\Model')) return $this->toApiResponseNotModel();        
         
-        $apiResponse = $this->getParams();
+        $apiResponse = $this->getParams($locale);
         
         $this->handleLocale($apiResponse,  $locale);
 
@@ -64,26 +64,27 @@ trait HasApiResponse
      * handles the apiResponse params defined in the model. 
      * @return array params defined in $apiResponse or all of them
      */
-    protected function getParams():array {
-        $apiResponse = $this->toArray();
+    protected function getParams($locale = null):array {
+        $apiResponse = $this->attributesToArray();
 
         if(isset($this->apiResponse)){
             $apiResponse = [];
 
             foreach($this->apiResponse as $param) {
                 if (isset($this->attributes[$param])) { //its an attribute                                                        
-                    $apiResponse[$param] = $this->jsonResponse($this->attributes[$param]);                    
-                } elseif (in_array($param, $this->appends)) { //its an append attribute
-                    $apiResponse[$param] = $this->jsonResponse($this->$param);
+                    $apiResponse[$param] = $this->jsonResponse($this->attributes[$param]);                                    
+                } elseif (isset($this->append)) {
+                    if (in_array($param, $this->append)) { //its an append attribute
+                        $apiResponse[$param] = $this->jsonResponse($this->$param);
+                    }
                 } elseif (method_exists($this, $param)) {  
                     if($this->$param() instanceof HasMany) { //its a HasMany relation
                         $apiResponse[$param] = $this->jsonResponse($this->getHasMany($this->$param));  
                     } elseif($this->$param() instanceof MorphMany) { //its a MorphMany relation
-                        $apiResponse[$param] = $this->jsonResponse($this->getHasMany($this->$param));  
+                        $apiResponse[$param] = $this->jsonResponse($this->getHasMany($this->$param, $locale));  
                     } else { //its a method
-                        $apiResponse[$param] = $this->jsonResponse($this->$param());               
-                    }
-                    
+                        $apiResponse[$param] = $this->jsonResponse($this->getMethod($param, $locale));
+                    }                  
                 }                
             }            
         }  
@@ -119,7 +120,19 @@ trait HasApiResponse
         else return $value;
     }
 
-    protected function getHasMany($collection) {
-        return Api::mapApiRepsonse($collection);
+    protected function getHasMany($collection, $locale = null) {
+        return Api::mapApiRepsonse($collection, $locale);
+    }
+
+    protected function getMethod($param, $locale = null) {
+        $methodResult = $this->$param();
+
+        if(is_object($methodResult) && method_exists($methodResult, 'toApiResponse')) { //the method returns an instance of an object model that uses the apiResponse trait
+            $response = $methodResult->toApiResponse($locale);
+        } else {
+            $response = $methodResult;
+        }
+
+        return $response;
     }
 }
