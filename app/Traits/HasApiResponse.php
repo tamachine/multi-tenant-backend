@@ -86,7 +86,14 @@ trait HasApiResponse
                     } else { //its a method
                         $apiResponse[$param] = $this->jsonResponse($this->getMethod($param, $locale));
                     }                  
-                }                
+                } else { //for example when an attribute is defined with a method but not added in the append array (getFeaturedImagePathAttribute for instance)
+                    try{                        
+                        $apiResponse[$param] = $this->jsonResponse($this->$param);  
+                    } catch(\Exception $e) {
+
+                    }
+                    
+                }              
             }            
         }  
 
@@ -119,7 +126,7 @@ trait HasApiResponse
         elseif (is_array($value)) return $value;        
         elseif (str($value)->isJson()) return json_decode($value); 
         else return $value;
-    }
+    }    
 
     protected function getHasMany($collection, $locale = null) {
         return Api::mapApiRepsonse($collection, $locale);
