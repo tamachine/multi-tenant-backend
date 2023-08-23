@@ -18,6 +18,7 @@ namespace App\Traits;
  */
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Helpers\Api;
 use App;
 
@@ -73,15 +74,15 @@ trait HasApiResponse
             foreach($this->apiResponse as $param) {
                 if (array_key_exists($param, $this->attributes)) { //its an attribute                                                        
                     $apiResponse[$param] = $this->jsonResponse($this->attributes[$param]);                                    
-                } elseif (isset($this->append)) {
-                    if (in_array($param, $this->append)) { //its an append attribute
-                        $apiResponse[$param] = $this->jsonResponse($this->$param);
-                    }
+                } elseif (is_array($this->append) && in_array($param, $this->append)) { //its an append attribute                    
+                    $apiResponse[$param] = $this->jsonResponse($this->$param);                    
                 } elseif (method_exists($this, $param)) {  
                     if($this->$param() instanceof HasMany) { //its a HasMany relation
-                        $apiResponse[$param] = $this->jsonResponse($this->getHasMany($this->$param));  
+                        $apiResponse[$param] = $this->jsonResponse($this->getHasMany($this->$param, $locale));  
                     } elseif($this->$param() instanceof MorphMany) { //its a MorphMany relation
                         $apiResponse[$param] = $this->jsonResponse($this->getHasMany($this->$param, $locale));  
+                    } elseif($this->$param() instanceof BelongsTo) { //its a MorphMany relation
+                        $apiResponse[$param] = $this->jsonResponse($this->getBelongsTo($param, $locale));  
                     } else { //its a method
                         $apiResponse[$param] = $this->jsonResponse($this->getMethod($param, $locale));
                     }                  
@@ -122,6 +123,10 @@ trait HasApiResponse
 
     protected function getHasMany($collection, $locale = null) {
         return Api::mapApiRepsonse($collection, $locale);
+    }
+
+    protected function getBelongsTo($param, $locale = null) {
+        return $this->$param->toApiResponse($locale);
     }
 
     protected function getMethod($param, $locale = null) {
