@@ -24,7 +24,7 @@ class Faq extends Model
 
     use HasApiResponse;
     
-    protected $apiResponse = ['hashid', 'question', 'answer'];
+    protected $apiResponse = ['hashid', 'question', 'answer', 'faqCategories'];
     
     public function faqCategories()
     {

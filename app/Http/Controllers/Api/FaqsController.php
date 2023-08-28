@@ -27,17 +27,7 @@ class FaqsController extends BaseController
             });
         }
        
-        $this->checkLocale($request);
-
-        if($this->locale) {
-            $selects = [
-                'question->'.$request->input('locale'). ' as question',                
-                'answer->'.$request->input('locale'). ' as answer',                
-                'hashid'
-            ];
-            
-            $query->select($selects);    
-        }
+        $this->checkLocale($request);        
 
         return $this->successResponse($this->mapApiResponse($query->get()));                
     }
