@@ -19,6 +19,7 @@ namespace App\Traits;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Helpers\Api;
 use App;
 
@@ -77,10 +78,8 @@ trait HasApiResponse
                 } elseif (is_array($this->append) && in_array($param, $this->append)) { //its an append attribute                    
                     $apiResponse[$param] = $this->jsonResponse($this->$param);                    
                 } elseif (method_exists($this, $param)) {  
-                    if($this->$param() instanceof HasMany) { //its a HasMany relation
-                        $apiResponse[$param] = $this->jsonResponse($this->getHasMany($this->$param, $locale));  
-                    } elseif($this->$param() instanceof MorphMany) { //its a MorphMany relation
-                        $apiResponse[$param] = $this->jsonResponse($this->getHasMany($this->$param, $locale));  
+                    if($this->$param() instanceof HasMany || $this->$param() instanceof MorphMany || $this->$param() instanceof BelongsToMany) { 
+                        $apiResponse[$param] = $this->jsonResponse($this->getHasMany($this->$param, $locale));   
                     } elseif($this->$param() instanceof BelongsTo) { //its a MorphMany relation
                         $apiResponse[$param] = $this->jsonResponse($this->getBelongsTo($param, $locale));  
                     } else { //its a method
