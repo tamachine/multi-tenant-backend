@@ -7,10 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\BlogTagColor;
+use App\Traits\HasApiResponse;
 
 class BlogTag extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes;
+    use HasFactory, HashidTrait, SoftDeletes, HasApiResponse;
+
+    protected $apiResponse = ['hashid', 'name', 'slug'];
 
     public static function boot() {
         parent::boot();
