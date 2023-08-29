@@ -13,7 +13,7 @@ class BlogTag extends Model
 {
     use HasFactory, HashidTrait, SoftDeletes, HasApiResponse;
 
-    protected $apiResponse = ['hashid', 'name', 'slug'];
+    protected $apiResponse = ['hashid', 'name', 'slug', 'color'];
 
     public static function boot() {
         parent::boot();
