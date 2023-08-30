@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use App\Traits\HasApiResponse;
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class NewsletterUser extends Model
 {
-    use HashidTrait;
+    use HashidTrait, HasApiResponse;
 
-    protected $fillable = ['email','active'];    
+    protected $fillable = ['email','active'];   
+    
+    protected $apiResponse = ['email','active'];
 
     public function bookings() {
         return $this->hasMany(Booking::class, 'email', 'email');
