@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +32,7 @@ Route::apiResource('config', ConfigController::class)->only('index');
 Route::get('pages/{api_page_name}/seoconfigurations', 'PagesController@seoConfigurations'); 
 Route::apiResource('pages', PagesController::class, ['parameters' => ['pages' => 'api_page_name']])->only(['index', 'show']);
 
+Route::apiResource('postcategories', BlogCategoriesController::class)->only('index');    
 Route::apiResource('posttags', BlogTagsController::class)->only('index');    
 Route::get('posts/{api_blog_post_slug}/seoconfigurations/{api_page_name}', 'BlogPostsController@seoConfigurations'); 
 Route::apiResource('posts', BlogPostsController::class, ['parameters' => ['posts' => 'api_blog_post_slug']])->only(['index', 'show']);    

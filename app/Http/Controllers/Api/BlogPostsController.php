@@ -16,7 +16,8 @@ class BlogPostsController extends BaseController
     /**     
      * @lrd:start
      * ## Returns all posts 
-     * @QAparam latest int nullable "latest n posts"
+     * @QAparam latest integer nullable "latest n posts"     
+     * @QAparam category_hashid string nullable "posts from category hashid"
      * @QAparam locale string nullable 
      * @lrd:end     
      */
@@ -28,7 +29,15 @@ class BlogPostsController extends BaseController
 
         if($request->has('latest')) {            
             if(is_numeric($request->input('latest'))) $query->take($request->input('latest'));            
-        }                  
+        }     
+        
+        if($request->has('category_hashid')) {            
+            $hashid = $request->input('category_hashid');
+
+            $query->whereHas('category', function ($query) use ($hashid) {
+                $query->where('hashid', $hashid );
+            });     
+        }  
 
         return $this->successResponse($this->mapApiResponse($query->get()));                
     }
