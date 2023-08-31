@@ -14,7 +14,7 @@ class TenantSeeder extends Seeder
      */
     public function run()
     {
-        Tenant::create(['name' => 'ra', 'long_name' => 'Reykjavik Auto', 'domain' => 'reykjavik-auto.nave-intergalactica.test', 'database' => 'tenantra']);
-        Tenant::create(['name' => 'ci', 'long_name' => 'Cars Iceland','domain' => 'cars-iceland.nave-intergalactica.test', 'database' => 'tenantci']);
+        Tenant::create(['name' => 'ra', 'long_name' => 'Reykjavik Auto', 'domain' => 'nave.reykjavik-auto.test', 'database' => 'tenantra']);
+        Tenant::create(['name' => 'ci', 'long_name' => 'Cars Iceland','domain' => 'nave.cars-iceland.test', 'database' => 'tenantci']);
     }
 }
