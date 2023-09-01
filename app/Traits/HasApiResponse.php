@@ -125,12 +125,27 @@ trait HasApiResponse
         return $apiResponse;
     }
 
-    protected function jsonResponse($value, $locale = null) {                
-        if ($value instanceof Collection) return $this->getHasMany($value, $locale);
-        elseif (is_object($value)) return $value;
-        elseif (is_array($value)) return $value;        
-        elseif (str($value)->isJson()) return json_decode($value); 
-        else return $value;
+    protected function jsonResponse($value, $locale = null) {         
+        if ($value instanceof Collection) {
+            return $this->getHasMany($value, $locale);
+        }
+
+        if (is_object($value)) {
+            if (method_exists($value, 'toApiResponse')) {
+                return $value->toApiResponse($locale);
+            }
+            return $value;
+        }
+
+        if (is_array($value)) {
+            return $value;
+        }
+
+        if (str($value)->isJson()) {
+            return json_decode($value);
+        }
+        
+        return $value;               
     }    
 
     protected function getHasMany($collection, $locale = null) {
