@@ -52,4 +52,8 @@ abstract class BaseController extends Controller
             }
         }
     }
+
+    protected function addAttributeToApiResponse(object &$instance, $attribute) {                
+        $instance->setApiResponse(array_merge($instance->getApiResponse(), [$attribute]));
+    }
 }
