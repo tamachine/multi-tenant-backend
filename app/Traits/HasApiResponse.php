@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Helpers\Api;
 use App;
+use Illuminate\Database\Eloquent\Collection;
 
 trait HasApiResponse
 {
@@ -38,6 +39,10 @@ trait HasApiResponse
 
     public function setApiResponse($params) {
         $this->apiResponse = $params;
+    }
+
+    public function getApiResponse(): array {
+        return $this->apiResponse;
     }
 
     /**
@@ -74,9 +79,9 @@ trait HasApiResponse
 
             foreach($this->apiResponse as $param) {
                 if (array_key_exists($param, $this->attributes)) { //its an attribute                                                        
-                    $apiResponse[$param] = $this->jsonResponse($this->attributes[$param]);                                    
+                    $apiResponse[$param] = $this->jsonResponse($this->attributes[$param], $locale);                                    
                 } elseif (is_array($this->append) && in_array($param, $this->append)) { //its an append attribute                    
-                    $apiResponse[$param] = $this->jsonResponse($this->$param);                    
+                    $apiResponse[$param] = $this->jsonResponse($this->$param, $locale);                    
                 } elseif (method_exists($this, $param)) {  
                     if($this->$param() instanceof HasMany || $this->$param() instanceof MorphMany || $this->$param() instanceof BelongsToMany) { 
                         $apiResponse[$param] = $this->jsonResponse($this->getHasMany($this->$param, $locale));   
@@ -87,7 +92,7 @@ trait HasApiResponse
                     }                  
                 } else { //for example when an attribute is defined with a method but not added in the append array (getFeaturedImagePathAttribute for instance)
                     try{                        
-                        $apiResponse[$param] = $this->jsonResponse($this->$param);  
+                        $apiResponse[$param] = $this->jsonResponse($this->$param, $locale);  
                     } catch(\Exception $e) {
 
                     }
@@ -120,8 +125,9 @@ trait HasApiResponse
         return $apiResponse;
     }
 
-    protected function jsonResponse($value) {                
-        if (is_object($value)) return $value;
+    protected function jsonResponse($value, $locale = null) {                
+        if ($value instanceof Collection) return $this->getHasMany($value, $locale);
+        elseif (is_object($value)) return $value;
         elseif (is_array($value)) return $value;        
         elseif (str($value)->isJson()) return json_decode($value); 
         else return $value;
