@@ -53,6 +53,8 @@ class BlogPostsController extends BaseController
 
         $this->checkLocale(request());
 
+        $this->addAttributeToApiResponse($blogPost, 'related_posts');        
+
         return $this->successResponse($blogPost->toApiResponse());        
     }    
 
