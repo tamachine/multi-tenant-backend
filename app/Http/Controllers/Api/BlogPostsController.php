@@ -18,6 +18,8 @@ class BlogPostsController extends BaseController
      * ## Returns all posts 
      * @QAparam latest integer nullable "latest n posts"     
      * @QAparam category_hashid string nullable "posts from category hashid"
+     * @QAparam search string nullable "posts that include the search"
+     * @QAparam tag_hash_id string nullable  "posts from tag hashid"
      * @QAparam locale string nullable 
      * @lrd:end     
      */
@@ -32,12 +34,24 @@ class BlogPostsController extends BaseController
         }     
         
         if($request->has('category_hashid')) {            
-            $hashid = $request->input('category_hashid');
+            $categoryHashid = $request->input('category_hashid');
 
-            $query->whereHas('category', function ($query) use ($hashid) {
-                $query->where('hashid', $hashid );
+            $query->whereHas('category', function ($query) use ($categoryHashid) {
+                $query->where('hashid', $categoryHashid );
             });     
         }  
+
+        if($request->has('search')) {
+            $query->livewireSearch($request->input('search'));
+        }
+
+        if($request->has('tag_hash_id')) {
+            $tagHashId = $request->input('tag_hash_id');
+
+            $query->whereHas('tags', function ($query) use ($tagHashId) {
+                $query->where('hashid', $tagHashId);
+            });
+        }
 
         return $this->successResponse($this->mapApiResponse($query->get()));                
     }
