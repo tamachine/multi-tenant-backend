@@ -5,12 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Api\BaseController;
 use Illuminate\Http\JsonResponse;
 use App\Models\BlogCategory;
-use App\Traits\Controllers\Api\HasSeoConfigurations;
 use Illuminate\Http\Request;
 
 class BlogCategoriesController extends BaseController
 {
-    use HasSeoConfigurations;
 
     /**     
      * @lrd:start
