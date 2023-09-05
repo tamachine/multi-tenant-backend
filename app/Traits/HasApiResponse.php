@@ -78,7 +78,9 @@ trait HasApiResponse
             $apiResponse = [];
 
             foreach($this->apiResponse as $param) {
-                if (array_key_exists($param, $this->attributes)) { //its an attribute                                                        
+                if($this?->featured_image_attribute == $param) {
+                    $apiResponse[$param] = $this->jsonResponse($this->getFeaturedImageModelImageInstance());
+                } elseif (array_key_exists($param, $this->attributes)) { //its an attribute                                                        
                     $apiResponse[$param] = $this->jsonResponse($this->attributes[$param], $locale);                                    
                 } elseif (is_array($this->append) && in_array($param, $this->append)) { //its an append attribute                    
                     $apiResponse[$param] = $this->jsonResponse($this->$param, $locale);                    
