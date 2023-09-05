@@ -24,7 +24,7 @@ class BlogCategory extends Model implements LocalizedUrlRoutable
         'hashid', 'name', 'slug',
     ];
 
-    protected $apiResponse = ['hashid', 'name', 'slug', 'url'];
+    protected $apiResponse = ['hashid', 'name', 'slug'];
 
 
     /**
