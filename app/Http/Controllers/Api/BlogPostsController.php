@@ -20,6 +20,7 @@ class BlogPostsController extends BaseController
      * @QAparam category_hashid string nullable "posts from category hashid"
      * @QAparam search string nullable "posts that include the search"
      * @QAparam tag_hash_id string nullable  "posts from tag hashid"
+     * @QAparam author_hashid string nullable  "posts from author hashid"
      * @QAparam locale string nullable 
      * @lrd:end     
      */
@@ -50,6 +51,14 @@ class BlogPostsController extends BaseController
 
             $query->whereHas('tags', function ($query) use ($tagHashId) {
                 $query->where('hashid', $tagHashId);
+            });
+        }
+
+        if($request->has('author_hashid')) {
+            $authorHashId = $request->input('author_hashid');
+
+            $query->whereHas('author', function ($query) use ($authorHashId) {
+                $query->where('hashid', $authorHashId);
             });
         }
 
