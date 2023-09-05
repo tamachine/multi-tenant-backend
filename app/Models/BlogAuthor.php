@@ -31,7 +31,7 @@ class BlogAuthor extends Model implements LocalizedUrlRoutable
         'url'
     ];
 
-    protected $apiResponse = ['hashid', 'name', 'bio', 'short_bio', 'photo', 'url'];
+    protected $apiResponse = ['hashid', 'name', 'bio', 'short_bio', 'getFeaturedImageModelImageInstance', 'url'];
 
      /**
      * Returns for a given locale the translated slug
