@@ -38,7 +38,7 @@ Route::get('posts/{api_blog_post_slug}/seoconfigurations/{api_page_name}', 'Blog
 
 Route::apiResource('postauthors', BlogAuthorsController::class, ['parameters' => ['postauthors' => 'api_blog_author_slug']])->only('show');    
 Route::apiResource('postcategories', BlogCategoriesController::class, ['parameters' => ['postcategories' => 'api_blog_category_slug']])->only(['index', 'show']);    
-Route::apiResource('posttags', BlogTagsController::class)->only('index');    
+Route::apiResource('posttags', BlogTagsController::class, ['parameters' => ['posttags' => 'api_blog_tag_slug']])->only(['index', 'show']);    
 Route::apiResource('posts', BlogPostsController::class, ['parameters' => ['posts' => 'api_blog_post_slug']])->only(['index', 'show']);    
 
 Route::put('/newsletteruser/submitted', 'NewsletterUserController@submitted');

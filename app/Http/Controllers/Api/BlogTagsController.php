@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Api\BaseController;
 use Illuminate\Http\JsonResponse;
 use App\Models\BlogTag;
-use App\Models\Page;
 use App\Traits\Controllers\Api\HasSeoConfigurations;
 use Illuminate\Http\Request;
 
@@ -32,5 +31,19 @@ class BlogTagsController extends BaseController
 
         return $this->successResponse($this->mapApiResponse($query->get()));                
     }    
+
+     /**
+     * @lrd:start
+     * ## Returns one blog tag
+     * ## blog_author_slug: slug of the tag
+     * @QAparam locale string nullable 
+     * @lrd:end    
+     */
+    public function show(BlogTag $blogTag):JsonResponse {        
+
+        $this->checkLocale(request());
+        
+        return $this->successResponse($blogTag->toApiResponse());        
+    }  
        
 }

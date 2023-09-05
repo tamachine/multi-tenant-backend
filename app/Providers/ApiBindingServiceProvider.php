@@ -40,6 +40,11 @@ class ApiBindingServiceProvider extends ServiceProvider
             return $this->processResponse($resource);            
         });
 
+        Route::bind('api_blog_tag_slug', function ($value) {
+            $resource = \App\Models\BlogTag::where('slug', 'LIKE', '%' . $value . '%')->first();
+            return $this->processResponse($resource);            
+        });
+
         Route::bind('api_page_name', function ($value) {
             $resource = \App\Models\Page::where('route_name', $value)->first();            
             return $this->processResponse($resource);  
