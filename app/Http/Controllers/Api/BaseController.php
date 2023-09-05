@@ -56,4 +56,12 @@ abstract class BaseController extends Controller
     protected function addAttributesToApiResponse(object &$instance, array $attribute) {                
         $instance->setApiResponse(array_merge($instance->getApiResponse(), $attribute));
     }
+
+    protected function changeKey(&$array, $originalKey, $newKey) {
+        if(isset($array[$originalKey])) {
+            $array[$newKey] = $array[$originalKey];
+
+            unset($array[$originalKey]);
+        }
+    }
 }
