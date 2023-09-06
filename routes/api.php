@@ -36,7 +36,7 @@ Route::get('postauthors/{api_blog_author_slug}/seoconfigurations/{api_page_name}
 Route::get('postcategories/{api_blog_category_slug}/seoconfigurations/{api_page_name}', 'BlogCategoriesController@seoConfigurations'); 
 Route::get('posts/{api_blog_post_slug}/seoconfigurations/{api_page_name}', 'BlogPostsController@seoConfigurations'); 
 
-Route::apiResource('postauthors', BlogAuthorsController::class, ['parameters' => ['postauthors' => 'api_blog_author_slug']])->only('show');    
+Route::apiResource('postauthors', BlogAuthorsController::class, ['parameters' => ['postauthors' => 'api_blog_author_slug']])->only(['index','show']);    
 Route::apiResource('postcategories', BlogCategoriesController::class, ['parameters' => ['postcategories' => 'api_blog_category_slug']])->only(['index', 'show']);    
 Route::apiResource('posttags', BlogTagsController::class, ['parameters' => ['posttags' => 'api_blog_tag_slug']])->only(['index', 'show']);    
 Route::apiResource('posts', BlogPostsController::class, ['parameters' => ['posts' => 'api_blog_post_slug']])->only(['index', 'show']);    

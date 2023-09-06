@@ -7,10 +7,27 @@ use App\Models\BlogAuthor;
 use App\Models\Page;
 use App\Traits\Controllers\Api\HasSeoConfigurations;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class BlogAuthorsController extends BaseController
 {
     use HasSeoConfigurations;
+
+    /**     
+     * @lrd:start
+     * ## Returns all blog authors           
+     * @QAparam locale string nullable 
+     * @lrd:end     
+     */
+    public function index(Request $request):JsonResponse {
+
+        $this->checkLocale($request);           
+
+        $query = BlogAuthor::query();             
+
+        return $this->successResponse($this->mapApiResponse($query->get()));                
+    }    
+
 
      /**
      * @lrd:start
