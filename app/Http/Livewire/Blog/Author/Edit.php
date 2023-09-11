@@ -73,7 +73,9 @@ class Edit extends Component
         $this->dispatchBrowserEvent('validationError');
 
         $rules = [
-            'name' => ['required'],            
+            'name' => ['required'],  
+            'slug' => ['alpha_dash',
+                        "unique:blog_authors,slug,{$this->author->id}"],          
         ];
 
         $this->validate($rules);

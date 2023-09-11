@@ -148,6 +148,7 @@ class Edit extends Component
             'summary'           => ['max:1023'],
             'published_at'      => ['date_format:d-m-Y'],
             'published_at_hour' => ['date_format:H:i'],
+            'slug'              => ['alpha_dash', "unique_translation:blog_posts,slug,{$this->post->id}" ],
         ];
 
         $this->validate($rules);       
