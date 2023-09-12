@@ -7,6 +7,8 @@ use Illuminate\Http\JsonResponse;
 use App\Models\Page;
 use App\Traits\Controllers\Api\HasSeoConfigurations;
 use RoutesForPages;
+use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class PagesController extends BaseController
 {
@@ -18,11 +20,31 @@ class PagesController extends BaseController
     /**     
      * @lrd:start
      * ## Returns all pages
+     * @QAparam class_name string nullable "class name of the instance. You can get classes from /pageclasses"
      * @lrd:end     
      */
-    public function index():JsonResponse {
+    public function index(Request $request):JsonResponse {
 
-        $query = Page::query(); 
+        $query = Page::query();         
+
+        if($request->has('class_name')) {            
+            $class_name = $request->input('class_name');
+
+            $classes = $this->getClasses();
+
+            $classes_array = Arr::pluck($classes, 'model', 'class_name');
+
+            if(in_array($class_name, array_keys($classes_array))) {
+                if($class_name == 'empty') {
+                    $query = Page::where('instance_type', null);
+                } else {
+                    $query = Page::where('instance_type', $classes_array[$class_name]);
+                }
+                
+            } else {
+                $query = Page::where('instance_type', $class_name);
+            }           
+        }   
 
         return $this->successResponse($this->mapApiResponse($query->get()));                
     }
@@ -48,4 +70,23 @@ class PagesController extends BaseController
         return $this->seoConfigurationsResponse($page, $page);                
     }
     
+    public function classes():JsonResponse {
+        return $this->successResponse($this->getClasses());
+    }
+
+    protected function getClasses(): array {
+        $instances = Page::distinct()->pluck('instance_type');
+
+        $return = [];
+
+        foreach($instances as $instance_type) {
+            $explode = explode("\\", $instance_type);
+
+            $class = $instance_type ? strtolower($explode[count($explode) -1]) : 'empty';
+
+            $return[] = ['class_name' => $class, 'model' => $instance_type];
+        }
+
+        return $return;
+    }
 }
