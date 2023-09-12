@@ -50,9 +50,7 @@ class Edit extends Component
             'slug' => [ 'alpha_dash', "unique_translation:blog_categories,slug,{$this->category->id}" ],
         ];
 
-        $this->validate($rules, [
-            'slug.regex' => 'The :attribute cannot start or end with "-" or "_"',           
-        ],);
+        $this->validate($rules);
 
         $this->category->update([
             'name'              => $this->name,
