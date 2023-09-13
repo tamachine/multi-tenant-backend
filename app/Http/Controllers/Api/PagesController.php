@@ -69,7 +69,12 @@ class PagesController extends BaseController
     public function seoConfigurations(Page $page):JsonResponse {
         return $this->seoConfigurationsResponse($page, $page);                
     }
-    
+
+    /**
+     * @lrd:start
+     * ## Returns the different classes of the pages          
+     * @lrd:end    
+     */
     public function classes():JsonResponse {
         return $this->successResponse($this->getClasses());
     }
