@@ -13,7 +13,7 @@ class Page extends Model implements LocalizedUrlRoutable
 
     use HashidTrait, HasSEOConfigurations, HasApiResponse;         
 
-    protected $apiResponse = ['route_name', 'uri_fullkey', 'description', 'controller', 'method', 'instance_type','SEOConfigurationsSamePage' ];
+    protected $apiResponse = ['route_name'];
 
     /**
      * The attributes that are translatable.

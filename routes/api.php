@@ -29,6 +29,7 @@ Route::apiResource('locations', LocationsController::class)->only('index');
 
 Route::apiResource('config', ConfigController::class)->only('index');
 
+Route::get('pageclasses', 'PagesController@classes'); 
 Route::get('pages/{api_page_name}/seoconfigurations', 'PagesController@seoConfigurations'); 
 Route::apiResource('pages', PagesController::class, ['parameters' => ['pages' => 'api_page_name']])->only(['index', 'show']);
 

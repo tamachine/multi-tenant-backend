@@ -20,11 +20,9 @@ class ConfigController extends BaseController
         $config = [];
 
         $languages = Language::all();
-        $config['languages']['count'] = $languages->count();
         $config['languages']['data']  = $languages;
 
         $currencies = Currency::all();
-        $config['currencies']['count'] = $currencies->count();
         $config['currencies']['data']  = $currencies;
 
         return $this->successResponse($config);
