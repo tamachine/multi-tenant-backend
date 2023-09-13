@@ -40,6 +40,7 @@ class Create extends Component
 
         $rules = [
             'name'  => ['required'],
+            'slug'  => ['unique:blog_tags,slug','alpha_dash'],
         ];
 
         $this->validate($rules);

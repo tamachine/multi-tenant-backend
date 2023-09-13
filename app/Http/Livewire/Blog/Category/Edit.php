@@ -47,6 +47,7 @@ class Edit extends Component
 
         $rules = [
             'name' => ['required'],
+            'slug' => [ 'alpha_dash', "unique_translation:blog_categories,slug,{$this->category->id}" ],
         ];
 
         $this->validate($rules);

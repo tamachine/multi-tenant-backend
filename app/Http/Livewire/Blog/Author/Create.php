@@ -69,6 +69,7 @@ class Create extends Component
         $rules = [
             'name'  => ['required'],
             'photo' => ['nullable', 'mimes:jpeg,jpg,png,gif'],
+            'slug'  => ['unique:blog_authors,slug','alpha_dash'],
         ];
 
         $this->validate($rules);

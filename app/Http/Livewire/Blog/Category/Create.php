@@ -38,8 +38,9 @@ class Create extends Component
     {
         $this->dispatchBrowserEvent('validationError');
 
-        $rules = [
-            'name'  => ['required'],
+       $rules = [
+        'name'  => ['required'],
+        'slug'  => ['unique_translation:blog_categories','alpha_dash',]
         ];
 
         $this->validate($rules);

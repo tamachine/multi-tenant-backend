@@ -36,6 +36,8 @@ class UserSeeder extends Seeder
             ['username' => 'rasheed@scandinavianehf.com', 'email' => 'rasheed@scandinavianehf.com', 'name' => 'Rasheed', 'role' => 'content', 'blogger' => 1],
             ['username' => 'api', 'email' => 'api@scandinavianehf.com', 'name' => 'api', 'role' => 'api'],
             ['username' => 'josevi@scandinavianehf.com', 'email' => 'josevi@scandinavianehf.com', 'name' => 'Josevi', 'role' => 'content', 'blogger' => 1],
+            ['username' => 'maria@scandinavianehf.com', 'email' => 'maria@scandinavianehf.com', 'name' => 'Maria', 'role' => 'developer', 'blogger' => 1],
+
         ];
 
         foreach ($users as $user) {
@@ -54,3 +56,4 @@ class UserSeeder extends Seeder
         User::create($user);
     }
 }
+

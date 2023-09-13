@@ -15,6 +15,8 @@ class BlogCategory extends Model implements LocalizedUrlRoutable
 {
     use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasSEOConfigurations, HasApiResponse;
 
+    protected $table = 'blog_categories';
+
     /**
      * The attributes that are mass assignable.
      *
