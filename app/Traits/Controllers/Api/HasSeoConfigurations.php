@@ -16,7 +16,7 @@ trait HasSeoConfigurations
         $query = SeoConfiguration::where(['instance_type' => get_class($instance), 'instance_id' => $instance->id ,'page_id' => $page->id])->first();
 
         if($query) {
-            return $this->successResponse($query->toApiResponse());     
+            return $this->successResponse($query->toApiResponse($this->locale));     
         } else {
             $newSeoConfiguration = SeoConfiguration::make(
                 [
@@ -30,7 +30,7 @@ trait HasSeoConfigurations
                     'canonical' => null,                     
                     'instance_id' => $instance->id,                     
                 ]);
-            return $this->successResponse($newSeoConfiguration->toApiResponse());
+            return $this->successResponse($newSeoConfiguration->toApiResponse($this->locale));
         }
     }
 }
