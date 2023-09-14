@@ -20,21 +20,7 @@
             <x-admin.label for="slug" value="{{ __('Slug/URL') }}" />
             <x-admin.input id="slug" type="text" class="mt-1 block w-full" maxlength="255" wire:model.defer="slug" autocomplete="author_slug" />
             <x-admin.input-error for="slug" class="mt-2" />
-        </div>
-
-        <!-- Meta title -->
-        <div class="px-4 mt-4">
-            <x-admin.label for="meta_title" value="{{ __('Meta title') }}" />
-            <x-admin.input id="meta_title" type="text" class="mt-1 block w-full" maxlength="255" wire:model.defer="meta_title" autocomplete="author_meta_title" />
-            <x-admin.input-error for="meta_title" class="mt-2" />
-        </div>
-
-        <!-- Meta description -->
-        <div class="px-4 mt-4">
-            <x-admin.label for="meta_description" value="{{ __('Meta description') }}" />
-            <x-admin.input id="meta_description" type="text" class="mt-1 block w-full" maxlength="255" wire:model.defer="meta_description" autocomplete="author_meta_description" />
-            <x-admin.input-error for="meta_description" class="mt-2" />
-        </div>
+        </div>        
 
         <!-- Short Bio -->
         <div class="px-4 mt-4">
