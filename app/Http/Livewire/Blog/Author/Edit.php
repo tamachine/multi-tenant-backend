@@ -85,10 +85,7 @@ class Edit extends Component
             'short_bio'         => $this->short_bio,            
         ]);       
 
-        session()->flash('status', 'success');
-        session()->flash('message', 'Author "' . $this->name . '" updated');
-
-        return redirect()->route('intranet.blog.author.index');
+        $this->dispatchBrowserEvent('open-success', ['message' => 'The author have been saved']);        
     }
 
     public function deleteAuthor()
