@@ -40,7 +40,7 @@ class BlogAuthorsController extends BaseController
 
         $this->checkLocale(request());
         
-        return $this->successResponse($blogAuthor->toApiResponse());        
+        return $this->successResponse($blogAuthor->toApiResponse($this->locale));        
     }  
        
     /**

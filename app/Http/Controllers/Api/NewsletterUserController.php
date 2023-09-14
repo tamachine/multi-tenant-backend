@@ -32,7 +32,7 @@ class NewsletterUserController extends BaseController
 
         $newsletterUser->save();
         
-        return $this->successResponse($newsletterUser->toApiResponse());                
+        return $this->successResponse($newsletterUser->toApiResponse($this->locale));                
     }    
        
 }

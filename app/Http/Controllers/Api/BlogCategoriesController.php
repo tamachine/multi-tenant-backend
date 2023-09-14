@@ -45,7 +45,7 @@ class BlogCategoriesController extends BaseController
 
         $this->checkLocale(request());
         
-        return $this->successResponse($blogCategory->toApiResponse());        
+        return $this->successResponse($blogCategory->toApiResponse($this->locale));        
     }  
 
      /**
