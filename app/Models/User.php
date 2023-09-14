@@ -114,6 +114,12 @@ class User extends Authenticatable
         return $this->role == 'affiliate';
     }
 
+    public function deleteTokens($name) {
+        $this->tokens->where('name', $name)->each(function ($token) {
+            $token->delete();
+        });
+    }
+
     /**********************************
      * Accessors & Mutators
      **********************************/

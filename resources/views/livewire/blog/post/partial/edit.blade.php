@@ -80,8 +80,8 @@
                 </div>
 
                 <!-- Preview -->
-                <section class="ml-auto">
-                    <x-admin.button x-on:click.prevent="window.open('{{ $post->preview_url }}','_blank');">Preview</x-admin.button>
+                <section class="ml-auto">                    
+                    <x-admin.post-preview-button :post="$post"/>                    
                 </section>
             </div>
 
