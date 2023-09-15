@@ -24,7 +24,7 @@ class BlogPostsPreviewController extends BaseController
      * @QAparam locale string nullable 
      * @lrd:end     
      */
-    public function verify(BlogPost $api_blog_post_slug, string $token):JsonResponse {
+    public function verify(BlogPost $blogPost, string $token):JsonResponse {
 
         $tokenObject = PersonalAccessToken::findToken($token);
 
@@ -35,7 +35,7 @@ class BlogPostsPreviewController extends BaseController
         if($valid) {
             request()->merge(['locale' => request('locale')]);
 
-            $data['post'] = $this->blogPostsController->show($api_blog_post_slug)->getData();
+            $data['post'] = $this->blogPostsController->show($blogPost)->getData();
         } 
 
         return $this->successResponse($data);        
