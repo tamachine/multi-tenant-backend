@@ -42,6 +42,8 @@ Route::apiResource('postcategories', BlogCategoriesController::class, ['paramete
 Route::apiResource('posttags', BlogTagsController::class, ['parameters' => ['posttags' => 'api_blog_tag_slug']])->only(['index', 'show']);    
 Route::apiResource('posts', BlogPostsController::class, ['parameters' => ['posts' => 'api_blog_post_slug']])->only(['index', 'show']);    
 
+Route::get('postpreview/{api_blog_post_slug}/token/{token}/verify', 'BlogPostsPreviewController@verify'); 
+
 Route::put('/newsletteruser/submitted', 'NewsletterUserController@submitted');
 
 
