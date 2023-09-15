@@ -80,8 +80,12 @@
                 </div>
 
                 <!-- Preview -->
-                <section class="ml-auto">                    
+                <section class="ml-auto flex">   
+                <div>
+                        <x-admin.label-tooltip tooltip="There is a limited preview time (2 hours). If you get a 404 error when previewing, please, save changes and refresh this page." />                 
+                    </div>
                     <x-admin.post-preview-button :post="$post"/>                    
+                    
                 </section>
             </div>
 
