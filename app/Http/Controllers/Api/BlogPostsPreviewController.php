@@ -35,7 +35,7 @@ class BlogPostsPreviewController extends BaseController
         if($valid) {
             request()->merge(['locale' => request('locale')]);
 
-            $data['post'] = $this->blogPostsController->show($blogPost)->getData();
+            $data['post'] = $this->blogPostsController->show($blogPost)->getData()->data;
         } 
 
         return $this->successResponse($data);        
