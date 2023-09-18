@@ -26,6 +26,7 @@ Route::apiResource('carfilters', CarFiltersController::class, ['parameters' => [
 Route::apiResource('cars', CarsController::class)->only('index');
 
 Route::apiResource('locations', LocationsController::class)->only('index');
+Route::apiResource('carenlocations', CarenLocationsController::class)->only('index');
 
 Route::apiResource('config', ConfigController::class)->only('index');
 
