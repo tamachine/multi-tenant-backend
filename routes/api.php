@@ -43,7 +43,7 @@ Route::apiResource('posttags', BlogTagsController::class, ['parameters' => ['pos
 Route::apiResource('posts', BlogPostsController::class, ['parameters' => ['posts' => 'api_blog_post_slug']])->only(['index', 'show']);    
 
 Route::put('/newsletteruser/submitted', 'NewsletterUserController@submitted');
-
+Route::put('/contactform/submitted', 'ContactFormController@submitted');
 
 
 
