@@ -14,15 +14,19 @@ class CarTransmission {
 
     protected $apiResponse = ['id', 'text'];
     
-    public static function all() {
+    public static function all($locale = null) {
         $transmissions = config('car-specs.transmission');
 
         foreach($transmissions as $transmission) {
             $carTransmission = new CarTransmission();
             $carTransmission->id = $transmission;    
             
-            foreach(Language::availableCodes() as $code) {
-                $text[$code] = __('cars.filters-transmission-'.$transmission, [], $code);
+            if(Language::isAvailableCode($locale)) {
+                $text = __('cars.filters-transmission-'.$transmission, [], $locale);
+            } else {
+                foreach(Language::availableCodes() as $code) {
+                    $text[$code] = __('cars.filters-transmission-'.$transmission, [], $code);
+                }
             }
 
             $carTransmission->text = $text; 
