@@ -12,14 +12,14 @@ class CarsController extends BaseController
 
      /**
      * @lrd:start
-     * ## Returns all filters for cars search.
+     * ## Returns all cars filtered.
      * @lrd:end      
      * @QAparam types array nullable "types[]=4x4&types[]=large ..." multiple search
      * @QAparam specs[engine|road|transmission|seat] array nullable "specs[engine]=value&specs[road]=value..." single search
-     * @QAparam dates[from|to] array nullable "dates['from']='d-m-y H:m'&dates['to]='d-m-y H:m'" 
+     * @QAparam dates[from|to] array nullable "dates[from]=d-m-y H:m&dates[to]=d-m-y H:m" 
      * @QAparam locations[pickup|dropoff] array nullable locations[pickup]=locationid&locations[dropoff]=locationid 
      */
-    public function index(Request $request, CarsSearch $carsSearch):JsonResponse {
+    public function search(Request $request, CarsSearch $carsSearch):JsonResponse {
         
         $carsSearch->setData(
             [
@@ -30,8 +30,12 @@ class CarsController extends BaseController
             ]
         );
 
-        return $this->successResponse($this->mapApiResponse($carsSearch->getCars()));
+        $data['searchByDates'] = $carsSearch->searchByDates();
+        $data['cars'] = $this->mapApiResponse($carsSearch->getCars());
+        
+        return $this->successResponse($data);
     }
 
+    
 
 }

@@ -21,9 +21,9 @@ Route::apiResource('translations', TranslationsController::class, ['parameters' 
 Route::apiResource('faq-categories', FaqCategoriesController::class)->only('index');     
 Route::apiResource('faqs', FaqsController::class, ['parameters' => ['faqs' => 'api_faq_hashid']])->only(['index', 'show']);     
 
-Route::apiResource('car-categories', CarCategoriesController::class)->only(['index']);     
 Route::apiResource('car-filters', CarFiltersController::class, ['parameters' => ['car-filters' => 'car_filter_id']])->only(['index', 'show']);     
-Route::apiResource('cars', CarsController::class)->only('index');
+//Route::apiResource('cars', CarsController::class)->only('index');
+Route::get('car-search', 'CarsController@search'); 
 
 Route::apiResource('locations', LocationsController::class)->only('index');
 Route::apiResource('caren-locations', CarenLocationsController::class)->only('index');

@@ -11,7 +11,7 @@ class CarenLocation extends Model
 {
     use HasFactory, SoftDeletes, HasApiResponse;
 
-    protected $apiResponse = ['name', 'caren_pickup_location_id', 'caren_dropoff_location_id'];
+    protected $apiResponse = ['name', 'caren_pickup_location_id', 'caren_dropoff_location_id', 'location'];
 
     /**
      * The attributes that are mass assignable.
