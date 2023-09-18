@@ -14,9 +14,9 @@ class CarRoad {
 
     protected $apiResponse = ['id', 'text'];
     
-    public static function all($locale = null) {
-        $roads = config('car-specs.road');
-
+    public static function all($locale = null) {        
+        $roads = Car::distinct()->get(['f_roads_name'])->pluck('f_roads_name')->toArray();
+        
         foreach($roads as $road) {
             $carRoad = new CarTransmission();
             $carRoad->id = $road;    

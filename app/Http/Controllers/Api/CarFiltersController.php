@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Api\BaseController;
+use App\Models\CarEngine;
 use Illuminate\Http\JsonResponse;
 use App\Models\CarType;
 use App\Models\CarTransmission;
@@ -26,6 +27,7 @@ class CarFiltersController extends BaseController
         $filters['transmissions'] = $this->getTransmissions();
         $filters['roads'] = $this->getRoads();       
         $filters['seats'] = $this->getSeats();    
+        $filters['engines'] = $this->getEngines();   
         
         return $this->successResponse($filters);        
     }
@@ -48,6 +50,9 @@ class CarFiltersController extends BaseController
                 break;
             case 'seats':
                 $filters = $this->getSeats(); 
+                break;
+            case 'engines':
+                $filters = $this->getEngines(); 
                 break;
             default:
                 $this->notFoundError();
@@ -72,5 +77,9 @@ class CarFiltersController extends BaseController
 
     protected function getSeats() {
         return $this->mapApiResponse(CarSeat::all());
+    }
+
+    protected function getEngines() {
+        return $this->mapApiResponse(CarEngine::all($this->locale));
     }
 }

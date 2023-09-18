@@ -14,8 +14,8 @@ class CarTransmission {
 
     protected $apiResponse = ['id', 'text'];
     
-    public static function all($locale = null) {
-        $transmissions = config('car-specs.transmission');
+    public static function all($locale = null) {        
+        $transmissions = Car::distinct()->get(['transmission'])->pluck('transmission')->toArray();
 
         foreach($transmissions as $transmission) {
             $carTransmission = new CarTransmission();
