@@ -78,7 +78,7 @@ class BlogPostsController extends BaseController
 
         $this->addAttributesToApiResponse($blogPost, ['related_posts', 'prev_post', 'next_post']);        
 
-        return $this->successResponse($blogPost->toApiResponse());        
+        return $this->successResponse($blogPost->toApiResponse($this->locale));        
     }    
 
     /**

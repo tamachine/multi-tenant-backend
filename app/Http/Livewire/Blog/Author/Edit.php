@@ -63,9 +63,7 @@ class Edit extends Component
         $this->name = $author->name;
         $this->slug = $author->slug;
         $this->bio = $author->bio;
-        $this->short_bio = $author->short_bio;
-        $this->meta_title = $author->meta_title;
-        $this->meta_description = $author->meta_description;        
+        $this->short_bio = $author->short_bio;        
     }
 
     public function saveAuthor()
@@ -84,15 +82,10 @@ class Edit extends Component
             'name'              => $this->name,
             'slug'              => $this->slug ? $this->slug : slugify($this->name),
             'bio'               => $this->bio,
-            'short_bio'         => $this->short_bio,
-            'meta_title'        => $this->meta_title,
-            'meta_description'  => $this->meta_description,
+            'short_bio'         => $this->short_bio,            
         ]);       
 
-        session()->flash('status', 'success');
-        session()->flash('message', 'Author "' . $this->name . '" updated');
-
-        return redirect()->route('intranet.blog.author.index');
+        $this->dispatchBrowserEvent('open-success', ['message' => 'The author have been saved']);        
     }
 
     public function deleteAuthor()

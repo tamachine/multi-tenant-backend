@@ -35,7 +35,9 @@ class TranslationsController extends BaseController
      * ## translation_full_key: full_key of the translation (e.g.:home.title)
      * @lrd:end    
      */
-    public function show(Translation $translation):JsonResponse {                 
-        return $this->successResponse($translation->toApiResponse());                
+    public function show(Translation $translation):JsonResponse {     
+        $this->checkLocale(request());                
+
+        return $this->successResponse($translation->toApiResponse($this->locale));                
     }    
 }

@@ -39,6 +39,6 @@ class FaqsController extends BaseController
      * @lrd:end    
      */
     public function show(Faq $faq):JsonResponse {                
-        return $this->successResponse($faq->toApiResponse());                
+        return $this->successResponse($faq->toApiResponse($this->locale));                
     }        
 }

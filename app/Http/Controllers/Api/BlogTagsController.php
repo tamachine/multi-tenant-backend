@@ -43,7 +43,7 @@ class BlogTagsController extends BaseController
 
         $this->checkLocale(request());
         
-        return $this->successResponse($blogTag->toApiResponse());        
+        return $this->successResponse($blogTag->toApiResponse($this->locale));        
     }  
        
 }

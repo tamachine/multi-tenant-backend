@@ -10,10 +10,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Traits\HasFeaturedImage;
 use App\Traits\HasSEOConfigurations;
 use \Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
+use Spatie\Translatable\HasTranslations;
 
 class BlogAuthor extends Model implements LocalizedUrlRoutable
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImage, HasSEOConfigurations, HasApiResponse;
+    use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImage, HasSEOConfigurations, HasApiResponse, HasTranslations;
 
     //for HasFeaturedImage
     protected $featured_image_attribute = 'photo';
@@ -24,7 +25,7 @@ class BlogAuthor extends Model implements LocalizedUrlRoutable
      * @var array
      */
     protected $fillable = [
-        'hashid', 'name', 'slug', 'bio', 'short_bio', 'meta_title', 'meta_description', 'photo'
+        'hashid', 'name', 'slug', 'bio', 'short_bio', 'photo'
     ];
 
     protected $append = [
@@ -32,6 +33,8 @@ class BlogAuthor extends Model implements LocalizedUrlRoutable
     ];
 
     protected $apiResponse = ['hashid', 'name', 'bio', 'short_bio', 'photo', 'slug'];
+
+    protected $translatable = ['bio', 'short_bio'];
 
      /**
      * Returns for a given locale the translated slug

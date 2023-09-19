@@ -32,16 +32,6 @@ class Create extends Component
     public $bio;
 
     /**
-     * @var string
-     */
-    public $meta_title;
-
-     /**
-     * @var string
-     */
-    public $meta_description;
-
-    /**
      * @var object
      */
     public $photo;
@@ -77,9 +67,7 @@ class Create extends Component
         $author = $author->create([
             'name'              => $this->name,
             'slug'              => $this->slug ? $this->slug : slugify($this->name),
-            'bio'               => $this->bio,
-            'meta_title'        => $this->meta_title,
-            'meta_description'  => $this->meta_description,
+            'bio'               => $this->bio,            
         ]);
 
        
