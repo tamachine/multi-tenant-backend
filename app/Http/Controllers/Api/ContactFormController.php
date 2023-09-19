@@ -6,6 +6,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Mail\ContactFormSubmitted;
+use App\Models\ContactUser;
 use Illuminate\Support\Facades\Mail;
 
 class ContactFormController extends BaseController
@@ -29,13 +30,21 @@ class ContactFormController extends BaseController
             'subject'   => ['required'],
             'type'      => ['required'],
             'message'   => ['required'],
-        ]);;
+        ]);
 
         Mail::to(config('settings.email.contact'))->send(new ContactFormSubmitted($request));
 
-        //En este punto se guardará en la BD cuando estén las tablas creadas,etc...
+        $contactUser = ContactUser::firstOrCreate(
+            $request->only('email','name')
+        );
+
+        $contactUser->save();
         
-        return $this->successResponse([]); 
+        $contactUser->contactmessages()->create(
+            $request->only('type','subject','message') + ['contact_user_id' => $contactUser->id]
+        );
+        
+        return $this->successResponse($contactUser->toApiResponse()); 
                
     }    
 }
