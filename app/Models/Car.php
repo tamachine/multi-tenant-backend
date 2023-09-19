@@ -23,7 +23,9 @@ class Car extends Model
         'hashid', 'active', 'name', 'description', 'year',
         'ranking', 'fleet_position', 'users_number_votes', 'adult_passengers',
         'doors', 'luggage', 'beds', 'kitchen', 'heater',
-        'engine', 'transmission', 'vehicle_type', 'vehicle_brand', 'f_roads_name',        
+        'engine', 'transmission', 'vehicle_type', 'vehicle_brand', 'f_roads_name', 
+        'featured_image', 'featured_image_hover', 'getFeaturedImageModelImageInstance', 'getFeaturedImagaHoverModelImageInstance',
+        'fRoadAllowed', 'caren_settings'
     ];
 
     /**

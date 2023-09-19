@@ -30,6 +30,8 @@ Route::apiResource('caren-locations', CarenLocationsController::class)->only('in
 
 Route::apiResource('config', ConfigController::class)->only('index');
 
+Route::apiResource('currency-rates', CurrencyRatesController::class)->only('index');
+
 Route::get('page-classes', 'PagesController@classes'); 
 Route::get('pages/{api_page_name}/seoconfigurations', 'PagesController@seoConfigurations'); 
 Route::apiResource('pages', PagesController::class, ['parameters' => ['pages' => 'api_page_name']])->only(['index', 'show']);
