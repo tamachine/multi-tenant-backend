@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use App\Traits\HasApiResponse;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class CarenLocation extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, HasApiResponse;
+
+    protected $apiResponse = ['name', 'caren_pickup_location_id', 'caren_dropoff_location_id', 'location'];
 
     /**
      * The attributes that are mass assignable.

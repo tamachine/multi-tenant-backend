@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 
+use Illuminate\Support\Collection;
 use ReflectionObject;
 use ReflectionProperty;
 
@@ -10,7 +11,7 @@ class Api
     /**
      * map a collection into its apiResponse
      *
-     * @return array
+     * @return Collection
      */
     public static function mapApiRepsonse($collection, $locale = null)
     {

@@ -14,16 +14,20 @@ class CarRoad {
 
     protected $apiResponse = ['id', 'text'];
     
-    public static function all() {
-        $roads = config('car-specs.road');
-
+    public static function all($locale = null) {        
+        $roads = Car::distinct()->get(['f_roads_name'])->pluck('f_roads_name')->toArray();
+        
         foreach($roads as $road) {
             $carRoad = new CarTransmission();
             $carRoad->id = $road;    
             
-            foreach(Language::availableCodes() as $code) {
-                $text[$code] = __('cars.filters-road-'.$road, [], $code);
-            }
+            if(Language::isAvailableCode($locale)) {
+                $text = __('cars.filters-road-'.$road, [], $locale);
+            } else {
+                foreach(Language::availableCodes() as $code) {
+                    $text[$code] = __('cars.filters-road-'.$road, [], $code);
+                }
+            }            
 
             $carRoad->text = $text; 
                         

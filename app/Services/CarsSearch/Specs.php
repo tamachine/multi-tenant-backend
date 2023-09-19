@@ -93,8 +93,9 @@ class Specs
     } 
 
     protected function checkSeats() {
-        if(is_int($this->seats)) {
-            if ($this->seats == 0) {
+        if(is_numeric($this->seats)) {
+            $this->seats = intval($this->seats);
+            if ($this->seats <= 0) {
                 $this->seats = null;
             }
         } else {

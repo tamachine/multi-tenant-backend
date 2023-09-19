@@ -3,12 +3,13 @@
         ">
         @if ($hasHover)
             <x-image :modelImage="$mainImageModelImage" :path="$mainImagePath" class="w-full transition ease-in-out opacity-100 group-hover:opacity-0 duration-300" />
+            
             <x-image :modelImage="$secondaryImage" class="absolute top-0 left-0 h-full w-full object-cover object-center transition ease-in-out opacity-0 group-hover:opacity-100 duration-300" />                
         @else
-            @if ($mainImageModelImage)                
-                <x-image :modelImage="$mainImageModelImage" class="w-full" />                    
+            @if ($mainImageModelImage)                                 
+                <x-webp-image :image-path="$mainImageModelImage" class="w-full" />              
             @else
-                <x-image :path="$mainImagePath" class="w-full"/>
+                <x-webp-image :image-path="$mainImagePath" class="w-full" />                              
             @endif
         @endif
 
