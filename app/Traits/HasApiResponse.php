@@ -155,7 +155,7 @@ trait HasApiResponse
     }
 
     protected function getBelongsTo($param, $locale = null) {
-        return $this->$param->toApiResponse($locale);
+        return $this->$param?->toApiResponse($locale);
     }
 
     protected function getMethod($param, $locale = null) {
