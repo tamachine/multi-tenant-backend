@@ -47,8 +47,8 @@ Route::apiResource('posts', BlogPostsController::class, ['parameters' => ['posts
 
 Route::get('post-preview/{api_blog_post_slug}/token/{token}/verify', 'BlogPostsPreviewController@verify'); 
 
-Route::put('/newsletteruser/submitted', 'NewsletterUserController@submitted');
-Route::put('/contactform/submitted', 'ContactFormController@submitted');
+Route::put('/newsletter-user/submitted', 'NewsletterUserController@submitted');
+Route::put('/contact-form/submitted', 'ContactFormController@submitted');
 
 
 
