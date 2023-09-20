@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ContactFormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,9 @@ Route::group(
             Route::get('create/{caren_car?}', ['as' => 'create', 'uses' => 'CarController@create']);
             Route::get('{car}/edit/{tab?}', ['as' => 'edit', 'uses' => 'CarController@edit']);
         });
+
+        // Contact Users
+        Route::resource('contact-users', ContactFormController::class, ['parameters' => ['contact_user' => 'contact_user_hashid']]);
 
         // Exchange Rates
         Route::group(['prefix' => 'rate', 'as' => 'rate.'], function () {
