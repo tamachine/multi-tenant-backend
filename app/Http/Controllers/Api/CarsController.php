@@ -3,14 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Api\BaseController;
+use App\Models\Car;
+use App\Models\Page;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Services\CarsSearch\CarsSearch;
-use Illuminate\Support\Collection;
-use Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use App\Traits\Controllers\Api\HasSeoConfigurations;
 
 class CarsController extends BaseController
 {
+    use HasSEOConfigurations;
 
      /**
      * @lrd:start
@@ -33,28 +35,34 @@ class CarsController extends BaseController
         );
 
         $data['searchByDates'] = $carsSearch->searchByDates();
-        $data['cars'] = $this->mapCarApiResponse($carsSearch->getCars());
+        $data['cars'] = $this->mapApiResponseWithExtraParams($carsSearch->getCars(), ['daily_price','total_price']);
         
         return $this->successResponse($data);
     }
 
-    protected function mapCarApiResponse($cars) {        
-        $newCars = collect($this->mapApiResponse($cars));
-        
-        $newParams = ['daily_price','total_price'];
+     /**
+     * @lrd:start
+     * ## Returns all insurances for a car
+     * ## car_hashid: car hashid
+     * @QAparam locale string nullable
+     * @lrd:end           
+     */
+    public function insurances(Car $car, Request $request):JsonResponse {
+        $this->checkLocale($request);  
 
-        $newCars = $newCars->map(function ($car, $key) use ($cars, $newParams) {
-            $originalCar = $cars->where('hashid', $car['hashid'])->first(); 
+        return $this->successResponse($this->mapApiResponseWithExtraParams($car->insuranceList(), ['price']));
+    }
 
-            foreach($newParams as $newParam) {
-                $car[$newParam] = $originalCar->$newParam;    
-            }            
-            
-            return $car;
-        });
-
-        return $newCars;
-
+    /**
+     * @lrd:start
+     * ## Returns the seo configurations for a car
+     * ## car_hashid: hashid of the car
+     * ## page_name: route_name of the page
+     * @QAparam locale string nullable 
+     * @lrd:end    
+     */
+    public function seoConfigurations(Car $car, Page $page):JsonResponse {
+        return $this->seoConfigurationsResponse($car, $page);                
     }
 
 }
