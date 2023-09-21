@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Helpers\Language;
 use Illuminate\Http\Request;
 use App\Helpers\Api;
+use Illuminate\Support\Collection;
 
 abstract class BaseController extends Controller
 {    
@@ -42,6 +43,32 @@ abstract class BaseController extends Controller
     protected function mapApiResponse($collection) {
         return Api::mapApiRepsonse($collection, $this->locale);        
     }
+
+    /**
+     * adds extra attributes that comes from the data collection instead of the model instance  
+     *    
+     * @param Collection $collection
+     * @param Array $params
+     * @param string $attributeToFind
+     * 
+     * @return Collection $newCollection 
+     */
+    protected function mapApiResponseWithExtraParams($collection, array $params, $attributeToFind = 'hashid') {        
+        $newCollection = collect($this->mapApiResponse($collection));
+        
+        $newCollection = $newCollection->map(function ($object, $key) use ($collection, $params, $attributeToFind) {
+            $originalObject = $collection->where($attributeToFind, $object[$attributeToFind])->first(); 
+
+            foreach($params as $param) {
+                $object[$param] = $originalObject->$param;    
+            }            
+            
+            return $object;
+        });
+
+        return $newCollection;
+
+    }    
 
     protected function checkLocale(Request $request) {
         if($request->has('locale')) {
