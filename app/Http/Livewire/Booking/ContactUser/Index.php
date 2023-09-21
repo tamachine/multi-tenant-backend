@@ -26,6 +26,6 @@ class Index extends Component
                     ->orderBy('created_at','desc')
                     ->paginate(perPage());
 
-        return view('livewire.booking.contact-user.index', ['messages' => $contactUsers]);
+        return view('livewire.booking.contact-user.index', ['contactUsers' => $contactUsers]);
     }
 }
