@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Admin\ContactUser;
+namespace App\Http\Livewire\Booking\ContactUser;
 
+use App\Models\ContactUser;
 use App\Models\ContactUserMessage;
 use Livewire\Component;
 
@@ -42,18 +43,26 @@ class Edit extends Component
      */
     public $contactUser;
 
-    public function mount($contactUser) {
+     /**
+     * @var model
+     */
+    public $user;
 
-        $this->contactUser = $contactUser->hashid;
-        $this->name = $contactUser->name;
-        $this->subject = $contactUser->subject;
-        $this->email = $contactUser->email;
-        $this->type = $contactUser->type;
-        $this->message = $contactUser->message;
-        $this->created_at = $contactUser->created_at;
+    public function mount(ContactUserMessage $contactUser) {
+
+        $this->contactUser = $contactUser;
+        $this->user = $contactUser->contactuser()->first();
+
+        $this->name = $this->user->name;
+        $this->subject = $this->contactUser->subject;
+        $this->email = $this->user->email;
+        $this->type = $this->contactUser->type;
+        $this->message = $this->contactUser->message;
+        $this->created_at = $this->contactUser->created_at;
     }
 
     public function saveContact() {
+        
         $this->dispatchBrowserEvent('validationError');
         
         $this->validate([
@@ -70,7 +79,7 @@ class Edit extends Component
             'message' => $this->message,           
         ]);   
         
-        $this->contactUser->contactuser()->update([
+        $this->user->update([
             'email' => $this->email,
             'name' => $this->name
         ]);
@@ -80,6 +89,6 @@ class Edit extends Component
 
     public function render()
     {
-        return view('livewire.admin.contact-user.edit');
+        return view('livewire.booking.contact-user.edit');
     }
 }

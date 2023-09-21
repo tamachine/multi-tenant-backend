@@ -1,6 +1,6 @@
 <x-admin-layout>
     <x-slot name="title">
-        {{ __('Edit Contact:') }} {{$contactUser->name}}
+        {{ __('Edit Contact:') }} {{$contactUserName}}
     </x-slot>
 
     <x-slot name="breadcrumbs">
@@ -11,6 +11,6 @@
         <x-admin.back-to route="{{$action->get('route')}}" title="{{$action->get('title')}}" />
     </x-slot>
 
-    <livewire:admin.contact-user.edit :contactUser="$contactUser" />
+    <livewire:booking.contact-user.edit :contactUser="$contactUser" />
 
 </x-admin-layout>

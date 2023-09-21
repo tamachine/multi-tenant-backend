@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Booking\ContactFormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +32,9 @@ Route::group(
         Route::group(['prefix' => 'mailing', 'as' => 'mailing.'], function () {
             Route::get('{tab?}', ['as' => 'index', 'uses' => 'MailingController@index']);
         });
+
+        // Contact Users
+        Route::resource('/contact-users', ContactFormController::class, ['parameters' => ['contact_user' => 'hashid']]);
+
     }
 );

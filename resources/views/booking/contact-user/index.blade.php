@@ -7,5 +7,5 @@
         <x-admin.breadcrumbs :crumbs="$crumbs" />
     </x-slot>    
 
-    <livewire:admin.contact-user.index />
+    <livewire:booking.contact-user.index />
 </x-admin-layout>
