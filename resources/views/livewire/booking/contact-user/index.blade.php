@@ -1,19 +1,65 @@
 <div class="flex flex-col p-4 sm:p-10">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="pb-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+         
             <!-- Filters -->
-            <div class="sm:flex sm:justify-start">
-                <select id="order" name="order" wire:model="type"
-                    class="disable-arrow block h-10 mt-4 sm:mt-0 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md"
-                >
-                    <option value="" selected> All </option>
-                    @foreach(config('contact.enquiry_types') as $typeOption)
-                        <option value="{{$typeOption}}">{{ $typeOption }}</option>
-                    @endforeach
-                </select>
-            </div>
+            <div class="flex mb-6">
+                <div class="flex flex-col">
+                    <x-admin.label for="type" value="{{ __('Type') }}" />
+                    <div class="sm:flex sm:justify-start mt-2">
+                        <select id="type" name="type" wire:model="type"
+                            class="disable-arrow block h-10 mt-4 sm:mt-0 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md"
+                        >
+                            <option value="" selected> All </option>
+                            @foreach(config('contact.enquiry_types') as $typeOption)
+                                <option value="{{$typeOption}}">{{ $typeOption }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            
+                <!-- Date -->
+                <div class="pl-7">
+                    <x-admin.label for="contact_date" value="{{ __('Contact date') }}" />
+                    <div class="mt-2 flex justify-start items-center">
+                    <x-admin.date-picker class="!w-26"
+                        name="contact_start_date"
+                        placeholder=""
+                        :yearRange="[
+                            now()->subYears(10)->format('Y'),
+                            now()->addYears(3)->format('Y')
+                        ]"
+                        autocomplete="off"
+                        is-wire="true"
+                        variable="contact_start_date"
+                    />
 
+                    <div class="ml-2 font-semibold text-sm text-gray-700">
+                        To
+                    </div>
+
+                    <div class="ml-2">
+                        <x-admin.date-picker
+                            name="contact_end_date"
+                            placeholder=""
+                            :yearRange="[
+                                now()->subYears(10)->format('Y'),
+                                now()->addYears(3)->format('Y')
+                            ]"
+                            autocomplete="off"
+                            is-wire="true"
+                            variable="contact_end_date"
+                        />
+                    </div>
+                </div> 
+            </div>    
+        </div>
+
+        <div class="flex">
             <x-admin.search />
+            <span class="font-medium text-gray-500 self-end" style="align-self:end;"> Num of results: {{$contactUsers->count()}}</span>  
+        </div>
+            
 
             @if ($contactUsers->count())
                 <div class="mt-4 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -29,10 +75,14 @@
                                 <th scope="col" class="px-10 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     SUBJECT
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    CREATED
-                                </th>
-                                
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
+                                    <x-admin.order-table
+                                        name="Created_at"
+                                        order_column="{{$order_column}}"
+                                        order_way="{{$order_way}}"
+                                        column="created_at"
+                                    />
+                                </th>                                                            
                             </tr>
                         </thead>
 

@@ -50,15 +50,12 @@ class Edit extends Component
 
     public function mount(ContactUserMessage $contactUser) {
 
-        $this->contactUser = $contactUser;
-        $this->user = $contactUser->contactuser()->first();
+        $this->fill($contactUser);
 
+        $this->user = $contactUser->contactuser()->first();
         $this->name = $this->user->name;
-        $this->subject = $this->contactUser->subject;
         $this->email = $this->user->email;
-        $this->type = $this->contactUser->type;
-        $this->message = $this->contactUser->message;
-        $this->created_at = $this->contactUser->created_at;
+
     }
 
     public function saveContact() {
