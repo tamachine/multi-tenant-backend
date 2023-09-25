@@ -10,6 +10,7 @@ use App\Policies\ContentPolicy;
 use App\Policies\DeveloperPolicy;
 use App\Policies\ScandinavianPolicy;
 use App\Policies\SuperAdminPolicy;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -29,6 +30,9 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Disable eloquent lazy loading during development
+        Model::preventLazyLoading(! $this->app->isProduction());
+
         $this->registerPolicies();
 
         Gate::define('admin', [AdminPolicy::class, 'admin']);
@@ -38,8 +42,8 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('content', [ContentPolicy::class, 'content']);
         Gate::define('developer', [DeveloperPolicy::class, 'developer']);
         Gate::define('scandinavian', [ScandinavianPolicy::class, 'scandinavian']);
-        Gate::define('superAdmin', [SuperAdminPolicy::class, 'superAdmin']);       
-        
+        Gate::define('superAdmin', [SuperAdminPolicy::class, 'superAdmin']);
+
         Gate::define('admin-or-content', function ($user) {
             return Gate::allows('admin', $user) || Gate::allows('content', $user);
         });

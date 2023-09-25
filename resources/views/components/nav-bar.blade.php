@@ -1,11 +1,11 @@
-<nav 
-    x-data="navBar()"         
-    @languageSelector-show="show()" 
-    x-cloak 
+<nav
+    x-data="navBar()"
+    @languageSelector-show="show()"
+    x-cloak
     x-show="navbarVisibility()"
-    class="max-w-7xl mx-auto flex items-center justify-between flex-wrap p-3 md:px-4 md:py-5 border md:border-0 border-[#E7ECF3] bg-white sticky top-0" 
+    class="max-w-7xl mx-auto flex items-center justify-between flex-wrap p-3 md:px-4 md:py-5 border md:border-0 border-[#E7ECF3] bg-white sticky top-0"
     :class="scrollingUp() ? 'z-50 shadow-lg' : 'z-30'"
-    x-transition.opacity.duration.500ms    
+    x-transition.opacity.duration.500ms
     x-on:click.away="clickAway()"
     x-ref='navbar'
     >
