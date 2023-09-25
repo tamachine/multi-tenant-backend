@@ -41,6 +41,7 @@ class LanguageLineSeeder extends Seeder
         $this->call(Translations\Web\SuccessSeeder::class);
         $this->call(Translations\Web\SummarySeeder::class);
         $this->call(Translations\Web\TermsAndConditionSeeder::class);     
-        $this->call(Translations\Web\UrlsSeeder::class);             
+        $this->call(Translations\Web\UrlsSeeder::class);  
+        $this->call(Translations\Web\ValidationSeeder::class);            
     }
 }
