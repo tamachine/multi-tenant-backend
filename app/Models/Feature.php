@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasApiResponse;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use App\Traits\HashidTrait;
@@ -10,13 +11,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Feature extends Model
 {
 
-    use HasTranslations, HashidTrait, HasFactory;
+    use HasTranslations, HashidTrait, HasFactory, HasApiResponse;
     
     protected $fillable = [
         'name', 'description'
     ];
 
     public $translatable = ['name', 'description'];
+
+    protected $apiResponse = ['hashid', 'name', 'description'];
 
     /**********************************
      * Scopes

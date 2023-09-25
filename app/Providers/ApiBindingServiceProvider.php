@@ -50,6 +50,11 @@ class ApiBindingServiceProvider extends ServiceProvider
             return $this->processResponse($resource);  
         }); 
 
+        Route::bind('api_car_hashid', function ($value) {
+            $resource = \App\Models\Car::where('hashid', $value)->first();
+            return $this->processResponse($resource); 
+        });
+
         Route::bind('api_faq_hashid', function ($value) {
             $resource = \App\Models\Faq::where('hashid', $value)->first();
             return $this->processResponse($resource); 

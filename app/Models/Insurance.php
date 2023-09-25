@@ -2,8 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\HasApiResponse;
+
 class Insurance extends Extra
 {
+    use HasApiResponse;
+
+    protected $apiResponse = ['hashid', 'active','name', 'description', 'image', 'color', 'price_mode', 'features', 'caren_id'];
+
     protected $table = 'extras';
  
     protected $append = ['color'];
