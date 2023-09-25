@@ -2,8 +2,7 @@
 
 namespace App\Http\Livewire\Booking\ContactUser;
 
-use App\Models\ContactUser;
-use App\Models\ContactUserMessage;
+use App\Models\ContactUserDetail;
 use Livewire\Component;
 
 class Edit extends Component
@@ -48,12 +47,11 @@ class Edit extends Component
      */
     public $user;
 
-    public function mount(ContactUserMessage $contactUser) {
+    public function mount(ContactUserDetail $contactUser) {
 
         $this->fill($contactUser);
 
         $this->user = $contactUser->contactuser()->first();
-        $this->name = $this->user->name;
         $this->email = $this->user->email;
 
     }
@@ -73,12 +71,12 @@ class Edit extends Component
         $this->contactUser->update([
             'type' => $this->type,
             'subject' => $this->subject,
-            'message' => $this->message,           
+            'message' => $this->message, 
+            'name' => $this->name          
         ]);   
         
         $this->user->update([
             'email' => $this->email,
-            'name' => $this->name
         ]);
 
         $this->dispatchBrowserEvent('open-success', ['message' => 'The contact user have been saved']);  

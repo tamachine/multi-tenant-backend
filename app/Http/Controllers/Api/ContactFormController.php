@@ -35,13 +35,11 @@ class ContactFormController extends BaseController
         Mail::to(config('settings.email.contact'))->send(new ContactFormSubmitted($request));
 
         $contactUser = ContactUser::firstOrCreate(
-            $request->only('email','name')
+            $request->only('email')
         );
-
-        $contactUser->save();
         
-        $contactUser->contactmessages()->create(
-            $request->only('type','subject','message') + ['contact_user_id' => $contactUser->id]
+        $contactUser->contactuserdetails()->create(
+            $request->only('name','type','subject','message') + ['contact_user_id' => $contactUser->id]
         );
         
         return $this->successResponse($contactUser->toApiResponse()); 

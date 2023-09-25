@@ -10,12 +10,12 @@ class ContactUser extends Model
 {
     use HashidTrait, HasApiResponse;
 
-    protected $fillable = ['email','name'];   
+    protected $fillable = ['email'];   
     
-    protected $apiResponse = ['email','name'];
+    protected $apiResponse = ['email'];
 
-    public function contactmessages() {
-         return $this->hasMany(ContactUserMessage::class, 'contact_user_id','id');
+    public function contactuserdetails() {
+         return $this->hasMany(ContactUserDetail::class, 'contact_user_id','id');
     }
 
 }
