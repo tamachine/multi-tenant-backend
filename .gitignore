@@ -5,6 +5,7 @@ yarn-error.log
 /phpunit.xml
 .phpunit.result.cache
 .DS_Store
+php_errors.log
 
 # Laravel 4 specific
 bootstrap/compiled.php
