@@ -22,8 +22,11 @@ Route::apiResource('faq-categories', FaqCategoriesController::class)->only('inde
 Route::apiResource('faqs', FaqsController::class, ['parameters' => ['faqs' => 'api_faq_hashid']])->only(['index', 'show']);     
 
 Route::apiResource('car-filters', CarFiltersController::class, ['parameters' => ['car-filters' => 'car_filter_id']])->only(['index', 'show']);     
-//Route::apiResource('cars', CarsController::class)->only('index');
 Route::get('car-search', 'CarsController@search'); 
+Route::get('cars/{api_car_hashid}/seoconfigurations/{api_page_name}', 'CarsController@seoConfigurations'); 
+Route::get('cars/{api_car_hashid}/insurances', 'CarsController@insurances'); 
+
+Route::apiResource('insurance-features', InsuranceFeaturesController::class)->only('index');
 
 Route::apiResource('locations', LocationsController::class)->only('index');
 Route::apiResource('caren-locations', CarenLocationsController::class)->only('index');
@@ -39,15 +42,14 @@ Route::apiResource('pages', PagesController::class, ['parameters' => ['pages' =>
 Route::get('post-authors/{api_blog_author_slug}/seoconfigurations/{api_page_name}', 'BlogAuthorsController@seoConfigurations'); 
 Route::get('post-categories/{api_blog_category_slug}/seoconfigurations/{api_page_name}', 'BlogCategoriesController@seoConfigurations'); 
 Route::get('posts/{api_blog_post_slug}/seoconfigurations/{api_page_name}', 'BlogPostsController@seoConfigurations'); 
-
 Route::apiResource('post-authors', BlogAuthorsController::class, ['parameters' => ['post-authors' => 'api_blog_author_slug']])->only(['index','show']);    
 Route::apiResource('post-categories', BlogCategoriesController::class, ['parameters' => ['post-categories' => 'api_blog_category_slug']])->only(['index', 'show']);    
 Route::apiResource('post-tags', BlogTagsController::class, ['parameters' => ['post-tags' => 'api_blog_tag_slug']])->only(['index', 'show']);    
 Route::apiResource('posts', BlogPostsController::class, ['parameters' => ['posts' => 'api_blog_post_slug']])->only(['index', 'show']);    
-
 Route::get('post-preview/{api_blog_post_slug}/token/{token}/verify', 'BlogPostsPreviewController@verify'); 
 
 Route::put('/newsletter-user/submitted', 'NewsletterUserController@submitted');
+
 Route::put('/contact-form/submitted', 'ContactFormController@submitted');
 
 
