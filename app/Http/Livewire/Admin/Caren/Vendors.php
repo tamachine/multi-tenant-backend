@@ -42,7 +42,8 @@ class Vendors extends Component
 
     public function render()
     {
-        $vendors = CarenVendor::livewireSearch($this->search)
+        $vendors = CarenVendor::with(['vendor', 'vendor.vendorLocations'])
+            ->livewireSearch($this->search)
             ->orderBy('name')
             ->paginate(perPage());
 

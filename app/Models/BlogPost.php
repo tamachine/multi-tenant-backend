@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Builder;
@@ -17,13 +19,13 @@ use App\Traits\HasApiResponse;
 
 class BlogPost extends Model implements LocalizedUrlRoutable
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasFeaturedImage, HasUploadImages,HasFeaturedImageHover, HasSEOConfigurations, HasApiResponse;    
-    
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasFeaturedImage, HasUploadImages,HasFeaturedImageHover, HasSEOConfigurations, HasApiResponse;
+
     //these are overrided here
     use HasUploadImages {
-        HasUploadImages::changeUploadedFileName as protected parent_changeUploadedFileName;         
+        HasUploadImages::changeUploadedFileName as protected parent_changeUploadedFileName;
     }
-   
+
     protected $apiResponse = ['hashid', 'slug', 'title', 'published', 'published_at', 'summary', 'content', 'updated_at', 'hero', 'top', 'show_date', 'featured_image_path', 'featured_image_hover_path', 'featured_image_url', 'featured_image_hover_url', 'getFeaturedImageModelImageInstance', 'getFeaturedImageHoverModelImageInstance', 'author', 'category', 'tags'];
 
     /**
@@ -57,7 +59,7 @@ class BlogPost extends Model implements LocalizedUrlRoutable
 
     /**
      * Returns for a given locale the translated slug
-     * It is used for translatable routes in mcnamara localization package and in Services\SeoCOnfigurations class 
+     * It is used for translatable routes in mcnamara localization package and in Services\SeoCOnfigurations class
      * This method has to be defined when implementing LocalizedUrlRoutable or using HasSEOConfigurations trait
      * @return string
      */
@@ -71,12 +73,12 @@ class BlogPost extends Model implements LocalizedUrlRoutable
      * @var string $currentPath The current image path
      * @var string $newName The new name
      */
-    public function changeUploadedFileName($currentPath, $newName) {        
-        $newPath = $this->parent_changeUploadedFileName($currentPath, $newName);     
-        
+    public function changeUploadedFileName($currentPath, $newName) {
+        $newPath = $this->parent_changeUploadedFileName($currentPath, $newName);
+
         $this->updateImageInContent($currentPath, $newPath);
     }
-    
+
     /**
      * updates the content to change the old path to the new one
      * @var string $oldPath
@@ -86,9 +88,9 @@ class BlogPost extends Model implements LocalizedUrlRoutable
         if($this->imagePathIsUsedInContent($oldPath)) {
             $this->content = str_replace($oldPath, $newPath, $this->content);
             $this->save();
-        }        
+        }
     }
-  
+
     /**
      * check if image is used in content
      * @var string path to check
@@ -117,7 +119,7 @@ class BlogPost extends Model implements LocalizedUrlRoutable
     public function getEditUrlAttribute()
     {
         return route('intranet.blog.post.edit', $this->hashid);
-    }   
+    }
 
     /**
      * Get the post's tags in a single string
@@ -250,23 +252,13 @@ class BlogPost extends Model implements LocalizedUrlRoutable
         return $this->belongsTo(BlogCategory::class, 'blog_category_id')->withTrashed();
     }
 
-    /**
-     * Related author
-     *
-     * @return object
-     */
-    public function author()
+    public function author(): BelongsTo
     {
         return $this->belongsTo(BlogAuthor::class, 'blog_author_id')->withTrashed();
     }
 
-    /**
-     * Related tags
-     *
-     * @return object
-     */
-    public function tags()
+    public function tags(): BelongsToMany
     {
-        return $this->belongsToMany('App\Models\BlogTag')->withTimestamps();
+        return $this->belongsToMany(BlogTag::class)->withTimestamps();
     }
 }

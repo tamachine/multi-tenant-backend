@@ -7,7 +7,7 @@ use App\Models\BlogPost;
 class HomeController extends BaseController
 {
     public function index()
-    {                   
+    {
         return view('web.home.index', ['latestArticles' => $this->latestArticles()]);
     }
 
@@ -16,7 +16,7 @@ class HomeController extends BaseController
     }
 
     protected function footerImagePath() : string
-    {       
+    {
         return '/images/footer/home.png';
     }
 }
