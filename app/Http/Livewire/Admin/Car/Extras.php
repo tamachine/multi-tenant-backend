@@ -43,11 +43,13 @@ class Extras extends Component
 
         // Load the current extras
         foreach ($car->extras()->orderBy('order_appearance')->get() as $extra) {
+
             $this->currentExtras[] = [
                 'id'    => $extra->hashid,
                 'name'  => $extra->name,
-                'color' => $extra->is_insurance ? $extra->insurance->color : '',
+                'color' => $extra->load('insurance')->insurance->color ?? '',
             ];
+
             $currentExtras[] = $extra->id;
         }
 
