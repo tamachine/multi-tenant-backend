@@ -8,6 +8,7 @@ use App\Models\BlogPost;
 use App\Models\Page;
 use App\Traits\Controllers\Api\HasSeoConfigurations;
 use Illuminate\Http\Request;
+use PharIo\Manifest\Author;
 
 class BlogPostsController extends BaseController
 {
@@ -28,7 +29,7 @@ class BlogPostsController extends BaseController
 
         $this->checkLocale($request);           
 
-        $query = BlogPost::published()->orderBy('published_at', 'desc'); 
+        $query = BlogPost::with(['author','category','tags'])->published()->orderBy('published_at', 'desc'); 
 
         if($request->has('latest')) {            
             if(is_numeric($request->input('latest'))) $query->take($request->input('latest'));            
@@ -77,7 +78,7 @@ class BlogPostsController extends BaseController
         $this->checkLocale(request());
 
         $this->addAttributesToApiResponse($blogPost, ['related_posts', 'prev_post', 'next_post']);        
-
+       
         return $this->successResponse($blogPost->toApiResponse($this->locale));        
     }    
 

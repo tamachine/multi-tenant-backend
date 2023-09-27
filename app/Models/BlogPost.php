@@ -38,6 +38,13 @@ class BlogPost extends Model implements LocalizedUrlRoutable
         'blog_author_id', 'blog_category_id', 'hero', 'top', 'show_date'
     ];
 
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['author','category','tags'];
+
 
     /**
      * The attributes that are translatable.
