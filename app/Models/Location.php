@@ -43,6 +43,11 @@ class Location extends Model
      */
     public $translatable = ['name', 'pickup_input_info', 'dropoff_input_info'];
 
+    public function carenLocation()
+    {
+        return $this->hasOne(CarenLocation::class);
+    }
+
     /**********************************
      * Accessors & Mutators
      **********************************/
@@ -82,4 +87,9 @@ class Location extends Model
 
         return $query;
     }
+
+    public function scopeCaren($query) {
+        return $query->whereHas('carenLocation');
+    }
+
 }

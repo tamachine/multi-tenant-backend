@@ -25,6 +25,7 @@ Route::apiResource('car-filters', CarFiltersController::class, ['parameters' => 
 Route::get('car-search', 'CarsController@search'); 
 Route::get('cars/{api_car_hashid}/seoconfigurations/{api_page_name}', 'CarsController@seoConfigurations'); 
 Route::get('cars/{api_car_hashid}/insurances', 'CarsController@insurances'); 
+Route::apiResource('car-prices/{api_car_hashid}', CarPricesController::class)->only('index');
 
 Route::apiResource('insurance-features', InsuranceFeaturesController::class)->only('index');
 
