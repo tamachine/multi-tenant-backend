@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
 use App\Mail\ContactFormSubmitted;
 use App\Models\ContactUser;
+use App\Models\ContactUserDetailsType;
 use Illuminate\Support\Facades\Mail;
 
 class ContactFormController extends BaseController
@@ -44,5 +45,17 @@ class ContactFormController extends BaseController
         
         return $this->successResponse($contactUser->toApiResponse()); 
                
-    }    
+    }  
+
+    /**     
+     * @lrd:start
+     * ## contact form types.
+     * @lrd:end     
+     */  
+    public function types():JsonResponse {
+        
+        return $this->successResponse(ContactUserDetailsType::pluck('type')); 
+                   
+        }  
+     
 }
