@@ -114,7 +114,7 @@ class CarPricesValidation {
      */
     protected function validateInsurances():bool {
         if(isset($this->params['insurances'])) {
-            foreach(array_keys($this->params['insurances']) as $hashid) {
+            foreach($this->params['insurances'] as $hashid) {
                 if(!$this->car->insurances->contains('hashid', $hashid)) {                                   
                     $this->errors[] = 'Insurance does not belong to car';
                     return false;

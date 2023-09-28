@@ -36,21 +36,21 @@ class CarPricesParams {
         $this->carenDropoffLocationId = Location::findByHashid($hashid)->carenLocation->caren_dropoff_location_id;
     }
 
-    public function setExtras() {
+    public function setExtras(array $value) {
         $extras = [];
 
-        foreach($this->extras as $hashid => $quantity) {
-            $carenId = Extra::findByHashid($hashid)->caren_id;
-            $extras[] = [$carenId , $quantity];
+        foreach($value as $hashid => $quantity) {            
+            $carenId = optional(Extra::caren()->findByHashid($hashid))->caren_id ?? null; //add only caren extras
+            if($carenId) $extras[] = [$carenId , $quantity];
         }
 
         $this->extras = $extras;
     }
 
-    public function setInsurances() {
+    public function setInsurances(array $value) {
         $insurances = [];
 
-        foreach($this->insurances as $hashid) {
+        foreach($value as $hashid) {
             $carenId = Insurance::findByHashid($hashid)->caren_id;
             $insurances[] =  $carenId;
         }

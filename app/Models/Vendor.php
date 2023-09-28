@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasApiResponse;
 use App\Traits\HasFeaturedImage;
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +12,11 @@ use Illuminate\Support\Facades\Storage;
 
 class Vendor extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImage;
+    use HasFactory, HashidTrait, SoftDeletes, HasFeaturedImage, HasApiResponse;
+
+    protected $apiResponse = ['name', 'service_fee', 'vendor_code', 'status', 'brand_color', 'logo',
+    'long_rental', 'early_bird',
+    'caren_settings'];
 
     protected $featured_image_attribute = 'logo';
 
