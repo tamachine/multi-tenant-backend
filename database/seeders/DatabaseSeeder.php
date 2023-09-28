@@ -67,6 +67,7 @@ class DatabaseSeeder extends Seeder
             CarsIceland\ExtraSeeder::class,
             InsurancesFeaturesSeeder::class,
             BlogSeeder::class,
+            ContactUserDetailsTypesSeeder::class,
         ]);
     }
 
@@ -91,6 +92,7 @@ class DatabaseSeeder extends Seeder
             CarsIceland\ExtraSeeder::class,
             InsurancesFeaturesSeeder::class,
             BlogSeeder::class,
+            ContactUserDetailsTypesSeeder::class,
         ]);
     }
 

@@ -15,9 +15,17 @@ class ContactUserDetail extends Model
     
     protected $apiResponse = ['contact_user_id','subject','type','message','name'];
 
+    /**********************************
+     * Relations
+     **********************************/
     public function contactuser()
     {
         return $this->belongsTo(ContactUser::class,'contact_user_id','id');
+    }
+
+    public function contactuserdetailstype()
+    {
+        return $this->belongsTo(ContactUserDetailsType::class);
     }
     
      /**********************************

@@ -11,7 +11,7 @@
                             class="disable-arrow block h-10 mt-4 sm:mt-0 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md"
                         >
                             <option value="" selected> All </option>
-                            @foreach(config('contact.enquiry_types') as $typeOption)
+                            @foreach($typeOptions as $typeOption)
                                 <option value="{{$typeOption}}">{{ $typeOption }}</option>
                             @endforeach
                         </select>

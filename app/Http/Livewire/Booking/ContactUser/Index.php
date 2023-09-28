@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Booking\ContactUser;
 
 use App\Models\ContactUserDetail;
+use App\Models\ContactUserDetailsType;
 use App\Traits\Livewire\OrderTableTrait;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -32,6 +33,15 @@ class Index extends Component
      * @var string
      */
     public $contact_end_date = "";
+
+     /**
+     * @var collection
+     */
+    public $typeOptions;
+
+    public function mount(){
+        $this->typeOptions = ContactUserDetailsType::pluck('type');
+    }
 
     public function render()
     {   
