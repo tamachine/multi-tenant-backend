@@ -12,13 +12,11 @@ class BlogController extends BaseController
 
     public function index()
     {
-        $blog = BlogPost::with(['author', 'category', 'tags', 'author']);
-
         return view('web.blog.index', [
                 'tags'                  => BlogTag::has('postsPublished')->get(),
-                'latest'                => $blog->published()->orderBy('published_at', 'desc')->take(4)->get(),
-                'hero'                  => $blog->hero()->published()->orderBy('published_at', 'desc')->take(3)->get(),
-                'top'                   => $blog->top()->published()->get(),
+                'latest'                => BlogPost::published()->orderBy('published_at', 'desc')->take(4)->get(),
+                'hero'                  => BlogPost::hero()->published()->orderBy('published_at', 'desc')->take(3)->get(),
+                'top'                   => BlogPost::top()->published()->get(),
                 'categoriesWithPosts'   => BlogCategory::has('postsPublished')->paginate(1),
                 'breadcrumbs'           => getBreadcrumb(['home', 'blog']),
             ]);

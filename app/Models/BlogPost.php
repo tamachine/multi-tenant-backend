@@ -45,7 +45,6 @@ class BlogPost extends Model implements LocalizedUrlRoutable
      */
     protected $with = ['author','category','tags'];
 
-
     /**
      * The attributes that are translatable.
      *
