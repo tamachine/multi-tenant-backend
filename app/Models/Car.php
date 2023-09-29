@@ -211,7 +211,7 @@ class Car extends Model
             function ($extra) use ($carenExtras) {
                 return $extra->getPriceFromCarenExtras($carenExtras) !== null;                
             }
-        );            
+        )->values();            
 
         return $list;
     }
