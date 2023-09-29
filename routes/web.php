@@ -23,7 +23,7 @@ use App\Models\Landlord\Tenant;
 
 Route::group(
     [
-        'prefix' => LaravelLocalization::setLocale(), 
+        'prefix' => LaravelLocalization::setLocale(),
         'middleware' => [ 'localize', 'localizationRedirect', 'tenant' ]
     ],  function()
 {
@@ -32,7 +32,9 @@ Route::group(
      * Fix for the issue:
      * When a Livewire component makes a request after the page has been loaded, it changes the current locale to a different locale.
      */
-    Route::post('livewire/message/{name}', '\Livewire\Controllers\HttpConnectionHandler');    
+    Route::post('livewire/message/{name}', '\Livewire\Controllers\HttpConnectionHandler');
+
+    Route::view('/tenant-test', 'web.tenant-test');
 
     /****  AUTH ROUTES ****/
 
@@ -70,8 +72,8 @@ Route::group(
      *  - URLs are defined in UrlsSeeder class because they are stored in database
      *  - Pages that need seo-configuration have to be stored in database so they have to be defined in RoutesForPages class
      * **/
-     
-    if (!App::runningInConsole() && Tenant::checkCurrent()) { //to fix migrations to fail. Routes are loading before migrations but they are database dependant.           
+
+    if (!App::runningInConsole() && Tenant::checkCurrent()) { //to fix migrations to fail. Routes are loading before migrations but they are database dependant.
         RoutesForPages::registerRoutes(); // Routes stored in database (Pages)
-    }    
+    }
 });

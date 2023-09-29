@@ -23,21 +23,21 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(ApplyPreferredLanguageToLanguageSession::class, function($app) {
 			return new ApplyPreferredLanguageToLanguageSession(new PreferredLanguage());
-		});       
+		});
 
         $this->app->bind('RoutesForPages',function(){
             return new RoutesForPages();
         });
 
-        $this->app->bind('Valitor', function ($app) {            
+        $this->app->bind('Valitor', function ($app) {
             return new Valitor();
         });
 
-        $this->app->bind('CarSearchInitialValues', function ($app) {            
+        $this->app->bind('CarSearchInitialValues', function ($app) {
             return new InitialValues();
         });
 
-        $this->app->bind('getHTMLLang',function(){            
+        $this->app->bind('getHTMLLang',function(){
             $HTMLLang = new HTMLLang(new SeoConfigurations);
             return $HTMLLang->getHTMLLang();
         });
@@ -50,6 +50,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
+        //Schema::defaultStringLength(191);
     }
 }
