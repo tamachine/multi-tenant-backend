@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('contact_user_details_types', function (Blueprint $table) {
             $table->id();
             $table->string('hashid')->nullable()->index();
-            $table->string('type');
+            $table->json('type');
             $table->timestamps();
         });
     }

@@ -50,11 +50,16 @@ class ContactFormController extends BaseController
     /**     
      * @lrd:start
      * ## contact form types.
+     * @QAparam locale string nullable
      * @lrd:end     
      */  
-    public function types():JsonResponse {
+    public function types(Request $request):JsonResponse {
+
+        $this->checkLocale($request);
         
-        return $this->successResponse(ContactUserDetailsType::pluck('type')); 
+        $query = ContactUserDetailsType::query();
+        
+        return $this->successResponse($this->mapApiResponse($query->get())); 
                    
         }  
      

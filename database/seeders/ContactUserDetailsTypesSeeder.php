@@ -14,23 +14,58 @@ class ContactUserDetailsTypesSeeder extends Seeder
      */
     public function run()
     {
-        $types = [  "amendments on my booking",
-                    "booking cancellation",
-                    "make a new booking / Get a quote",
-                    "road assistance and travel support",
-                    "insurance information",
-                    "pick up or drop off information",
-                    "other"
-                ];
 
-        foreach ($types as $type) { 
-            ContactUserDetailsType::create([
-                'type'=> $type,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ]);
-        }
+        ContactUserDetailsType::create([
+            'type' => json_encode([
+                'en' => "Amendments on my booking",
+                'es' => "Modificaciones en mi reserva"
+            ]),            
+        ]);
+
+        ContactUserDetailsType::create([
+            'type' => json_encode([
+                'en' => "Booking cancellation",
+                'es' => "Cancelación de reserva"
+            ]),            
+        ]);
+
+        ContactUserDetailsType::create([
+            'type' => json_encode([
+                'en' => "Make a new booking / Get a quote",
+                'es' => "Hacer una nueva reserva/ obtener un presupuesto"
+            ]),            
+        ]);
+
+        ContactUserDetailsType::create([
+            'type' => json_encode([
+                'en' => "Road assistance and travel support",
+                'es' => "Asistencia en carretera y apoyo en viaje"
+            ]),            
+        ]);
+        
+        ContactUserDetailsType::create([
+            'type' => json_encode([
+                'en' => "Insurance information",
+                'es' => "Información del seguro"
+            ]),            
+        ]);
+
+        ContactUserDetailsType::create([
+            'type' => json_encode([
+                'en' => "Pick up or drop off information",
+                'es' => "Recoger o dejar información"
+            ]),            
+        ]);
+
+        ContactUserDetailsType::create([
+            'type' => json_encode([
+                'en' => "Other",
+                'es' => "Otro"
+            ]),            
+        ]);            
+        
     }
 
 }
+
 
