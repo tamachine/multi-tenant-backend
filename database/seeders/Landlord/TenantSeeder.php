@@ -15,17 +15,17 @@ class TenantSeeder extends Seeder
     public function run()
     {
         Tenant::create([
-            'name' => 'ra',
+            'name' => 'reykjavikauto',
             'long_name' => 'Reykjavik Auto',
-            'domain' => 'ra.suspicious-poincare.62-151-178-253.plesk.page',
-            'database' => 'tenantra'
+            'domain' => 'dev.reykjavikauto.com',
+            'database' => 'tenant_reykjavikauto'
         ]);
 
         Tenant::create([
-            'name' => 'ci',
+            'name' => 'carsiceland',
             'long_name' => 'Cars Iceland',
-            'domain' => 'ci.suspicious-poincare.62-151-178-253.plesk.page',
-            'database' => 'tenantci'
+            'domain' => 'dev.carsiceland.com',
+            'database' => 'tenant_carsiceland'
         ]);
     }
 }
