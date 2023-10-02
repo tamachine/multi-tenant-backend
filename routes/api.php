@@ -51,9 +51,6 @@ Route::get('post-preview/{api_blog_post_slug}/token/{token}/verify', 'BlogPostsP
 Route::put('/newsletter-user/submitted', 'NewsletterUserController@submitted');
 
 Route::put('/contact-form/submitted', 'ContactFormController@submitted');
-
-
-
-
+Route::get('/contact-form/types', 'ContactFormController@types');
 
 
