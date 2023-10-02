@@ -26,7 +26,7 @@ class BlogCategory extends Model implements LocalizedUrlRoutable
         'hashid', 'name', 'slug',
     ];
 
-    protected $apiResponse = ['hashid', 'name', 'slug'];
+    protected $apiResponse = ['hashid', 'name', 'slug', 'translatedSlugs'];
 
 
     /**
@@ -62,7 +62,7 @@ class BlogCategory extends Model implements LocalizedUrlRoutable
     {
         return route('blog.search.category', $this->slug);
     }
-     
+
     /**
      * Get the category's edit URL
      *
@@ -121,5 +121,10 @@ class BlogCategory extends Model implements LocalizedUrlRoutable
     public function postsPublished()
     {
         return $this->hasMany(BlogPost::class)->published();
+    }
+
+    protected function translatedSlugs(): array
+    {
+        return $this->getTranslations("slug");
     }
 }

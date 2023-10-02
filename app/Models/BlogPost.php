@@ -26,7 +26,10 @@ class BlogPost extends Model implements LocalizedUrlRoutable
         HasUploadImages::changeUploadedFileName as protected parent_changeUploadedFileName;
     }
 
-    protected $apiResponse = ['hashid', 'slug', 'title', 'published', 'published_at', 'summary', 'content', 'updated_at', 'hero', 'top', 'show_date', 'featured_image_path', 'featured_image_hover_path', 'featured_image_url', 'featured_image_hover_url', 'getFeaturedImageModelImageInstance', 'getFeaturedImageHoverModelImageInstance', 'author', 'category', 'tags'];
+    protected $apiResponse = ['hashid', 'slug', 'title', 'published', 'published_at', 'summary', 'content', 'updated_at',
+        'hero', 'top', 'show_date', 'featured_image_path', 'featured_image_hover_path', 'featured_image_url',
+        'featured_image_hover_url', 'getFeaturedImageModelImageInstance', 'getFeaturedImageHoverModelImageInstance',
+        'author', 'category', 'tags', 'translatedSlugs'];
 
     /**
      * The attributes that are mass assignable.
@@ -266,5 +269,10 @@ class BlogPost extends Model implements LocalizedUrlRoutable
     public function tags(): BelongsToMany
     {
         return $this->belongsToMany(BlogTag::class)->withTimestamps();
+    }
+
+    protected function translatedSlugs(): array
+    {
+        return $this->getTranslations("slug");
     }
 }

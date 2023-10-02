@@ -19,12 +19,29 @@ class BlogSeeder extends Seeder
     {
 
         // Create 5 categories
-        for ($i = 1; $i <= 5; $i++) {
-            BlogCategory::factory()->create();
+        foreach (range(1, 5) as $i) {
+
+            BlogCategory::factory()->create([
+                'name' => [
+                    'en' => 'Category ' . $i,
+                    'es' => 'Categoría ' . $i,
+                    'de' => 'Kategorie ' . $i,
+                    'fr' => 'Catégorie ' . $i,
+                    'it' => 'Categoria ' . $i,
+                    'da' => 'Kategori ' . $i,
+                ],
+                'slug' => [
+                    'en' => 'category-' . $i,
+                    'es' => 'categoria-' . $i,
+                    'de' => 'kategorie-' . $i,
+                    'fr' => 'categorie-' . $i,
+                    'it' => 'categoria-' . $i,
+                    'da' => 'kategori-' . $i,
+                ]
+            ]);
         }
 
-        // Create 5 tags
-        for ($i = 1; $i <= 5; $i++) {
+        foreach (range(1, 5) as $i) {
             BlogTag::factory()->create();
         }
 
@@ -34,9 +51,26 @@ class BlogSeeder extends Seeder
         }
 
         //Create 20 posts
-        for ($i = 1; $i <= 20; $i++) {
-            $post = BlogPost::factory()->create();  
-            
+        foreach (range(1, 20) as $i) {
+            $post = BlogPost::factory()->create([
+                'title' => [
+                    'en' => 'Example post for languages ' . $i,
+                    'es' => 'Post de ejemplo para idiomas ' . $i,
+                    'de' => 'Beispielbeitrag für Sprachen ' . $i,
+                    'fr' => 'Exemple de message pour les langues ' . $i,
+                    'it' => 'Post di esempio per le lingue ' . $i,
+                    'da' => 'Eksempelindlæg til sprog ' . $i,
+                ],
+                'slug' => [
+                    'en' => 'example-post-for-languages-' . $i,
+                    'es' => 'post-de-ejemplo-para-idiomas-' . $i,
+                    'de' => 'beispielbeitrag-fur-sprachen-' . $i,
+                    'fr' => 'exemple-de-message-pour-les-langues-' . $i,
+                    'it' => 'post-di-esempio-per-le-lingue-' . $i,
+                    'da' => 'eksempelindlag-til-sprog-' . $i,
+                ]
+            ]);
+
             sleep(1); //for published_at time
 
             $post->tags()->attach(BlogTag::inRandomOrder()->take(3)->pluck('id')->toArray());
@@ -44,7 +78,7 @@ class BlogSeeder extends Seeder
             $post->featured_image = $post->addImage('https://picsum.photos/id/'. rand(0,200). '/1436/960', '');
 
             $post->save();
-            
+
         }
     }
 }
