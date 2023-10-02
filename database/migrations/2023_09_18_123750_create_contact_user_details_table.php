@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contact_user_messages', function (Blueprint $table) {
+        Schema::create('contact_user_details', function (Blueprint $table) {
             $table->id();
+            $table->string('hashid')->nullable()->index();
             $table->integer('contact_user_id');
+            $table->string('name');
             $table->string('type');
             $table->text('subject');
             $table->text('message');
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_user_messages');
+        Schema::dropIfExists('contact_user_details');
     }
 };

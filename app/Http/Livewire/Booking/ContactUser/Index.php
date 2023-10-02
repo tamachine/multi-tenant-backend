@@ -2,7 +2,8 @@
 
 namespace App\Http\Livewire\Booking\ContactUser;
 
-use App\Models\ContactUserMessage;
+use App\Models\ContactUserDetail;
+use App\Models\ContactUserDetailsType;
 use App\Traits\Livewire\OrderTableTrait;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -33,9 +34,18 @@ class Index extends Component
      */
     public $contact_end_date = "";
 
+     /**
+     * @var collection
+     */
+    public $typeOptions;
+
+    public function mount(){
+        $this->typeOptions = ContactUserDetailsType::pluck('type');
+    }
+
     public function render()
     {   
-        $contactUsers = ContactUserMessage::livewireSearch($this->type,$this->contact_start_date, $this->contact_end_date, $this->search)
+        $contactUsers = ContactUserDetail::livewireSearch($this->type,$this->contact_start_date, $this->contact_end_date, $this->search)
                     ->orderBy($this->order_column, $this->order_way)
                     ->paginate(perPage());
 

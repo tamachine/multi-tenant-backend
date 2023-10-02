@@ -77,22 +77,72 @@ class ContactSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'contact',
-                'key' => 'enquiry_general',
+                'key' => 'enquiry_amendments on my booking',
             ],
             [
-                'text' => ['en' => 'General', 'es' => 'General'],
+                'text' => ['en' => 'Amendments on my booking', 'es' => 'Modificaciones en mi reserva'],
             ]
         );
 
         Translation::firstOrCreate(
             [
                 'group' => 'contact',
-                'key' => 'enquiry_bookings',
+                'key' => 'enquiry_booking cancellation',
             ],
             [
-                'text' => ['en' => 'Bookings', 'es' => 'Reservas'],
+                'text' => ['en' => 'Booking cancellation', 'es' => 'Cancelación de reserva'],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'contact',
+                'key' => 'enquiry_make a new booking / Get a quote',
+            ],
+            [
+                'text' => ['en' => 'Make a new booking / Get a quote', 'es' => 'Hacer una nueva reserva/ obtener un presupuesto'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'contact',
+                'key' => 'enquiry_road assistance and travel support',
+            ],
+            [
+                'text' => ['en' => 'Road assistance and travel support', 'es' => 'Asistencia en carretera y apoyo en viaje'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'contact',
+                'key' => 'enquiry_insurance information',
+            ],
+            [
+                'text' => ['en' => 'Insurance information', 'es' => 'Información del seguro'],
+            ]
+        );
+        Translation::firstOrCreate(
+            [
+                'group' => 'contact',
+                'key' => 'enquiry_pick up or drop off information',
+            ],
+            [
+                'text' => ['en' => 'Pick up or drop off information', 'es' => 'Recoger o dejar información'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'contact',
+                'key' => 'enquiry_other',
+            ],
+            [
+                'text' => ['en' => 'Other', 'es' => 'Otro'],
+            ]
+        );
+        
 
         Translation::firstOrCreate(
             [

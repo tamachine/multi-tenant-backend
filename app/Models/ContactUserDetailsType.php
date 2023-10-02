@@ -6,16 +6,15 @@ use App\Traits\HasApiResponse;
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class ContactUser extends Model
+class ContactUserDetailsType extends Model
 {
     use HashidTrait, HasApiResponse;
 
-    protected $fillable = ['email'];   
+    protected $fillable = ['type'];   
     
-    protected $apiResponse = ['email'];
+    protected $apiResponse = ['hashid','type'];
 
-    public function contactuserdetails() {
+    public function contactuserdetail() {
          return $this->hasMany(ContactUserDetail::class, 'contact_user_id','id');
     }
-
 }

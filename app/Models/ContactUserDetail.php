@@ -7,17 +7,25 @@ use App\Traits\HashidTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class ContactUserMessage extends Model
+class ContactUserDetail extends Model
 {
     use HashidTrait, HasApiResponse;
 
-    protected $fillable = ['contact_user_id','subject','type','message'];   
+    protected $fillable = ['contact_user_id','subject','type','message','name'];   
     
-    protected $apiResponse = ['contact_user_id','subject','type','message'];
+    protected $apiResponse = ['contact_user_id','subject','type','message','name'];
 
+    /**********************************
+     * Relations
+     **********************************/
     public function contactuser()
     {
         return $this->belongsTo(ContactUser::class,'contact_user_id','id');
+    }
+
+    public function contactuserdetailstype()
+    {
+        return $this->belongsTo(ContactUserDetailsType::class);
     }
     
      /**********************************
@@ -36,19 +44,19 @@ class ContactUserMessage extends Model
      */
     public function scopeLivewireSearch($query, $type, $contact_start_date, $contact_end_date, $search)
     {
-        $query = $query->join('contact_users as cu','cu.id','=','contact_user_messages.contact_user_id')
-                 ->select('name','email','contact_user_messages.created_at','subject','message','type','contact_user_messages.hashid');
+        $query = $query->join('contact_users as cu','cu.id','=','contact_user_details.contact_user_id')
+                 ->select('name','email','contact_user_details.created_at','subject','message','type','contact_user_details.hashid');
 
         if (!empty($type)) {
             $query->where('type', $type);
         }
 
         if (!empty($contact_start_date)) {
-            $query->whereDate('contact_user_messages.created_at', '>=', Carbon::createFromFormat("d-m-Y", $contact_start_date));
+            $query->whereDate('contact_user_details.created_at', '>=', Carbon::createFromFormat("d-m-Y", $contact_start_date));
         }
 
         if (!empty($contact_end_date)) {
-            $query->whereDate('contact_user_messages.created_at', '<=', Carbon::createFromFormat("d-m-Y", $contact_end_date));
+            $query->whereDate('contact_user_details.created_at', '<=', Carbon::createFromFormat("d-m-Y", $contact_end_date));
         }
         
         if (!empty($search)) {

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Booking;
 
 use App\Http\Controllers\Controller;
-use App\Models\ContactUserMessage;
+use App\Models\ContactUserDetail;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Gate;
 
@@ -22,7 +22,7 @@ class ContactFormController extends Controller
         return view('booking.contact-user.index')->with($data);
     }
 
-    public function edit(ContactUserMessage $contactUser, $tab = null): View
+    public function edit(ContactUserDetail $contactUser, $tab = null): View
     {
         $this->authorize('booking');
 
