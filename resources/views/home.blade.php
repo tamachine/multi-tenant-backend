@@ -9,6 +9,9 @@
 </head>
 <body>
     <h2>Acceso paneles de administración de la Nave</h2>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, in ipsa. Adipisci at et, illo inventore iste minus, mollitia nobis odit placeat praesentium quae sunt. Cumque debitis error placeat possimus!
+    </p>
     <ul>
         @foreach($tenants as $tenant)
         <li><a href="{{ $tenant->login_url }}">{{ $tenant->domain }}</a></li>
