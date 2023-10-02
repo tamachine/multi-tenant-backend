@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasApiResponse;
 use App\Traits\HasFeaturedImage;
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -11,9 +12,17 @@ use Spatie\Translatable\HasTranslations;
 
 class Extra extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasFeaturedImage;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasFeaturedImage, HasApiResponse;
+
+    protected $apiResponse = [
+        "hashid", "vendor_id", "name", "description", "order_appearance", 
+        "image", "price", "maximum_fee", "max_units", "price_mode",
+        "category", "included", "insurance_premium", "caren_id", "price_from", 
+        "getFeaturedImageModelImageInstance", "featured_image_url"
+    ];
 
     protected $featured_image_attribute = "image";
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -123,6 +132,10 @@ class Extra extends Model
         }
 
         return $query;
+    }
+
+    public function scopeCaren($query) {
+        return $query->whereHas('carenExtra');
     }
 
     /**********************************
