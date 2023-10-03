@@ -32,6 +32,8 @@ Route::apiResource('extras', ExtrasController::class, ['parameters' => ['extras'
 
 Route::apiResource('insurance-features', InsuranceFeaturesController::class)->only('index');
 
+Route::apiResource('affiliates', AffiliatesController::Class)->only('index');
+
 Route::apiResource('locations', LocationsController::class)->only('index');
 Route::apiResource('caren-locations', CarenLocationsController::class)->only('index');
 
