@@ -115,4 +115,5 @@ return [
     'not_tenant_aware_jobs' => [
         // ...
     ],
+    'tenants_from_env' => env('TENANTS')
 ];

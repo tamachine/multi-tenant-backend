@@ -66,7 +66,7 @@
                                 <tbody class="divide-y divide-gray-200 bg-white">
                                 @foreach($tenants as $tenant)
                                     <tr>
-                                        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">{{ $tenant->name }}</td>
+                                        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">{{ $tenant->long_name }}</td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                             <a href="{{ url($tenant->login_url) }}" class="rounded bg-indigo-600 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login</a>
                                         </td>
