@@ -33,7 +33,7 @@ class ContactFormController extends BaseController
             'message'   => ['required'],
         ]);
 
-        Mail::to(config('settings.email.contact'))->send(new ContactFormSubmitted($request));
+       Mail::to(config('settings.email.contact'))->send(new ContactFormSubmitted($request));
 
         $contactUser = ContactUser::firstOrCreate(
             $request->only('email')

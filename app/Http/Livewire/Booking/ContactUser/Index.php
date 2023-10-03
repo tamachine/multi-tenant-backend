@@ -34,13 +34,9 @@ class Index extends Component
      */
     public $contact_end_date = "";
 
-     /**
-     * @var collection
-     */
-    public $typeOptions;
-
-    public function mount(){
-        $this->typeOptions = ContactUserDetailsType::pluck('type');
+    public function getTypeOptionsProperty()
+    {
+        return ContactUserDetailsType::get(['hashid','type']);  
     }
 
     public function render()

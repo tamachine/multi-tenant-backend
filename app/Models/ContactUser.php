@@ -15,6 +15,7 @@ class ContactUser extends Model
     protected $apiResponse = ['email'];
 
     public function contactuserdetails() {
+        
          return $this->hasMany(ContactUserDetail::class, 'contact_user_id','id');
     }
 

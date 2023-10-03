@@ -11,8 +11,8 @@
                             class="disable-arrow block h-10 mt-4 sm:mt-0 pt-2 pl-3 pr-10 text-left border-gray-300 rounded-md"
                         >
                             <option value="" selected> All </option>
-                            @foreach($typeOptions as $typeOption)
-                                <option value="{{$typeOption}}">{{ $typeOption }}</option>
+                            @foreach($this->typeOptions as $index => $typeOption)
+                                <option value="{{$typeOption->hashid}}">{{ $typeOption->type }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -94,7 +94,8 @@
                                             {{ $contactUser->email }}  
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        {{ $contactUser->type }}
+                                        {{-- {{ json_decode($contactUsers[$index]->typeDescription)->en}} --}}
+                                        {{$contactUser->typeDescription}}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         {{ $contactUser->subject }}

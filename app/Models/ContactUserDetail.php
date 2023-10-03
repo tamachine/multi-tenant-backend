@@ -45,10 +45,11 @@ class ContactUserDetail extends Model
     public function scopeLivewireSearch($query, $type, $contact_start_date, $contact_end_date, $search)
     {
         $query = $query->join('contact_users as cu','cu.id','=','contact_user_details.contact_user_id')
-                 ->select('name','email','contact_user_details.created_at','subject','message','type','contact_user_details.hashid');
+                 ->join('contact_user_details_types as cudt','cudt.hashid','=','contact_user_details.type')
+                 ->select('name','email','contact_user_details.created_at','subject','message','contact_user_details.type','contact_user_details.hashid', 'cudt.type->en as typeDescription');
 
         if (!empty($type)) {
-            $query->where('type', $type);
+            $query->where('cudt.hashid', $type);
         }
 
         if (!empty($contact_start_date)) {
