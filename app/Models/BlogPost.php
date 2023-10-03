@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -26,7 +25,10 @@ class BlogPost extends Model implements LocalizedUrlRoutable
         HasUploadImages::changeUploadedFileName as protected parent_changeUploadedFileName;
     }
 
-    protected $apiResponse = ['hashid', 'slug', 'title', 'published', 'published_at', 'summary', 'content', 'updated_at', 'hero', 'top', 'show_date', 'featured_image_path', 'featured_image_hover_path', 'featured_image_url', 'featured_image_hover_url', 'getFeaturedImageModelImageInstance', 'getFeaturedImageHoverModelImageInstance', 'author', 'category', 'tags'];
+    protected $apiResponse = ['hashid', 'slug', 'title', 'published', 'published_at', 'summary', 'content', 'updated_at',
+        'hero', 'top', 'show_date', 'featured_image_path', 'featured_image_hover_path', 'featured_image_url',
+        'featured_image_hover_url', 'getFeaturedImageModelImageInstance', 'getFeaturedImageHoverModelImageInstance',
+        'author', 'category', 'tags', 'translatedSlugs'];
 
     /**
      * The attributes that are mass assignable.
@@ -258,13 +260,23 @@ class BlogPost extends Model implements LocalizedUrlRoutable
         return $this->belongsTo(BlogCategory::class, 'blog_category_id')->withTrashed();
     }
 
-    public function author(): BelongsTo
+    /**
+     * Related author
+     *
+     * @return object
+     */
+    public function author()
     {
         return $this->belongsTo(BlogAuthor::class, 'blog_author_id')->withTrashed();
     }
 
     public function tags(): BelongsToMany
     {
-        return $this->belongsToMany(BlogTag::class)->withTimestamps();
+        return $this->belongsToMany('App\Models\BlogTag')->withTimestamps();
+    }
+
+    protected function translatedSlugs(): array
+    {
+        return $this->getTranslations("slug");
     }
 }

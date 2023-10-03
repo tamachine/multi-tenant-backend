@@ -24,10 +24,10 @@ class BlogTagFactory extends Factory
     {
         $name = $this->faker->text(10);
         $name = mb_substr($name, 0, -1);
-        
+
         return [
             'name' => $name,
-            'slug' => Str::slug($name),            
+            'slug' => Str::slug($name),
         ];
     }
 }

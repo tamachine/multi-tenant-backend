@@ -25,6 +25,10 @@ Route::apiResource('car-filters', CarFiltersController::class, ['parameters' => 
 Route::get('car-search', 'CarsController@search'); 
 Route::get('cars/{api_car_hashid}/seoconfigurations/{api_page_name}', 'CarsController@seoConfigurations'); 
 Route::get('cars/{api_car_hashid}/insurances', 'CarsController@insurances'); 
+Route::get('cars/{api_car_hashid}/extras', 'CarsController@extras'); 
+Route::get('cars/{api_car_hashid}/prices', 'CarsController@prices'); 
+
+Route::apiResource('extras', ExtrasController::class, ['parameters' => ['extras' => 'api_extra_hashid']])->only(['index', 'show']);
 
 Route::apiResource('insurance-features', InsuranceFeaturesController::class)->only('index');
 

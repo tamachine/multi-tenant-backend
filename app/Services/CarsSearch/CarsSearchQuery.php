@@ -53,7 +53,7 @@ class CarsSearchQuery
 
     public function get()
     {
-        $results = $this->query->get();
+        $results = $this->query->with('vendor')->get();
 
         foreach ($results as $result) {
             $result['daily_price'] = $this->carenPrices[$result->caren_id]['daily_price'];
