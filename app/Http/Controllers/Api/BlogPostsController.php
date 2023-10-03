@@ -7,9 +7,7 @@ use Illuminate\Http\JsonResponse;
 use App\Models\BlogPost;
 use App\Models\Page;
 use App\Traits\Controllers\Api\HasSeoConfigurations;
-use Dompdf\FrameDecorator\Block;
 use Illuminate\Http\Request;
-use PharIo\Manifest\Author;
 
 class BlogPostsController extends BaseController
 {
