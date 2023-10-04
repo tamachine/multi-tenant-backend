@@ -9,8 +9,8 @@ use App\Services\Car\Caren\CarenParams;
 
 class CarBookingParams extends CarenParams {
     
-    public $extras = []; //array of ['extra' => 'App\Models\Extra instance', 'quantity' => int]
-    public $insurances = []; //array of 'App\Models\Insurance'
+    public array $extras = []; //array of ['extra' => 'App\Models\Extra instance', 'quantity' => int]
+    public array $insurances = []; //array of 'App\Models\Insurance'
     public array $details = [];
     public Affiliate|null $affiliate = null;
 
