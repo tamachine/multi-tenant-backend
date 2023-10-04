@@ -29,6 +29,8 @@ Route::get('cars/{api_car_hashid}/extras', 'CarsController@extras');
 Route::get('cars/{api_car_hashid}/prices', 'CarsController@prices'); 
 Route::put('cars/{api_car_hashid}/booking/create', 'CarBookingController@create'); 
 
+Route::get('bookings/{api_booking_hashid}/payments', 'BookingController@payments'); 
+
 Route::apiResource('extras', ExtrasController::class, ['parameters' => ['extras' => 'api_extra_hashid']])->only(['index', 'show']);
 
 Route::apiResource('insurance-features', InsuranceFeaturesController::class)->only('index');
@@ -58,6 +60,8 @@ Route::get('post-preview/{api_blog_post_slug}/token/{token}/verify', 'BlogPostsP
 Route::put('/newsletter-user/submitted', 'NewsletterUserController@submitted');
 
 Route::put('/contact-form/submitted', 'ContactFormController@submitted');
+
+
 
 
 
