@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Api\BaseController;
 use App\Models\Car;
 use App\Models\Page;
-use App\Services\CarPrices\CarPrices;
+use App\Services\Car\CarPrices\CarPrices;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use App\Services\CarsSearch\CarsSearch;
+use App\Services\Car\CarsSearch\CarsSearch;
 use App\Traits\Controllers\Api\HasSeoConfigurations;
 
 class CarsController extends BaseController

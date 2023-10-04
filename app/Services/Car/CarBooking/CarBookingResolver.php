@@ -18,9 +18,9 @@ class CarBookingResolver {
     protected int $carType; 
 
     /**
-     * Determine and return the appropriate CarPrices class based on the given Car object.
+     * Determine and return the appropriate CarBooking class based on the given Car object.
      *
-     * @param Car $car The car object used to determine the appropriate CarPrices class.
+     * @param Car $car The car object used to determine the appropriate CarBooking class.
      * @return CarBookingInterface The resolved CarBooking class.
      */
     public function resolveCarBookingClass(Car $car): CarBookingInterface {
@@ -31,7 +31,7 @@ class CarBookingResolver {
     }
 
     /**
-     * Based on the car object's properties, determine and return the appropriate CarPrices class.
+     * Based on the car object's properties, determine and return the appropriate CarBooking class.
      *
      * @return CarBookingInterface The determined CarBooking class.
      */

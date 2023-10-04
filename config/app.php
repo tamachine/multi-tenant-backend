@@ -216,6 +216,6 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'RoutesForPages' => App\Services\RoutesForPages\RoutesForPagesFacade::class,
         'Valitor' => App\Services\Valitor\ValitorFacade::class,
-        'CarSearchInitialValues' => App\Services\CarsSearch\CarSearchInitialValuesFacade::class,
+        'CarSearchInitialValues' => App\Services\Car\CarsSearch\CarSearchInitialValuesFacade::class,
     ])->toArray(),
 ];

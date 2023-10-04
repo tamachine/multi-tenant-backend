@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services\CarPrices\Caren;
+namespace App\Services\Car\CarPrices\Caren;
 
 use App\Apis\Caren\Api;
 use App\Models\Car;
-use App\Services\CarPrices\CarPricesInterface;
-use App\Services\CarPrices\CarPricesResult;
+use App\Services\Car\CarPrices\CarPricesInterface;
+use App\Services\Car\CarPrices\CarPricesResult;
 
 /**
  * This class implements the CarPricesInterface for fetching car prices from the Caren API.
@@ -42,7 +42,7 @@ class CarPricesCaren implements CarPricesInterface {
         $carPricesValidation = new CarPricesValidation($this->car, $this->params);
 
         $this->errors           = $carPricesValidation->getErrors();
-        $this->carPricesParams  = $carPricesValidation->getCarPricesParams();
+        $this->carPricesParams  = $carPricesValidation->getParams();
 
         return $carPricesValidation->isValid();
     }

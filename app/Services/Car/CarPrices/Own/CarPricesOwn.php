@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services\CarPrices\Own;
+namespace App\Services\Car\CarPrices\Own;
 
 use App\Models\Car;
 use App\Models\Location;
-use App\Services\CarPrices\CarPricesInterface;
-use App\Services\CarPrices\CarPricesResult;
+use App\Services\Car\CarPrices\CarPricesInterface;
+use App\Services\Car\CarPrices\CarPricesResult;
 use DateTime;
 
 /**

@@ -6,7 +6,7 @@ use App\Jobs\CreateCarenBooking;
 use App\Models\Booking;
 use App\Models\Car;
 use App\Services\Car\CarBooking\CarBookingInterface;
-use App\Services\CarPrices\CarPrices;
+use App\Services\Car\CarPrices\CarPrices;
 use Illuminate\Support\Facades\Log;
 
 class CarBookingCaren implements CarBookingInterface{

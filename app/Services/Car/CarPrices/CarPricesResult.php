@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\CarPrices;
+namespace App\Services\Car\CarPrices;
 
 use App\Traits\HasApiResponse;
 

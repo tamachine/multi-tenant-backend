@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services\CarsSearch;
+namespace App\Services\Car\CarsSearch;
 
-use App\Services\CarsSearch\Dates;
-use App\Services\CarsSearch\Locations;
-use App\Services\CarsSearch\Specs;
+use App\Services\Car\CarsSearch\Dates;
+use App\Services\Car\CarsSearch\Locations;
+use App\Services\Car\CarsSearch\Specs;
 
 /**
  * 

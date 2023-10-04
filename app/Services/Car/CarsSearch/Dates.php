@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\CarsSearch;
+namespace App\Services\Car\CarsSearch;
 
 use Carbon\Carbon;
 
