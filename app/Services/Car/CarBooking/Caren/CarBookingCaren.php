@@ -91,7 +91,7 @@ class CarBookingCaren implements CarBookingInterface{
                 'affiliate_commission' => $this->carBookingParams->affiliate
                     ? round($prices->payNow * $this->carBookingParams->affiliate->commission_percentage / 100)
                     : null,
-            ]);
+            ]);           
 
             // Add the insurances
             foreach( $this->carBookingParams->insurances as $insurance) {
@@ -116,8 +116,8 @@ class CarBookingCaren implements CarBookingInterface{
 
             // Create booking in caren
             dispatch(new CreateCarenBooking($booking)); 
-            
-            return $booking;
+
+            return $booking->refresh();
 
         } catch(\Exception $e) {
 
