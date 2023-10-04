@@ -5,12 +5,8 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
-use App\Mail\ContactFormSubmitted;
 use App\Models\Car;
-use App\Models\ContactUser;
-use App\Models\Location;
 use App\Services\Car\CarBooking\CarBooking;
-use Illuminate\Support\Facades\Mail;
 
 class CarBookingController extends BaseController
 {
@@ -28,14 +24,11 @@ class CarBookingController extends BaseController
      
      * @QAparam currency string nullable default "ISK"
      * @QAparam affiliate string nullable affiliate hashid 
-     * 
-     * @QAparam locale string nullable   
+     *       
      * @lrd:end     
      */  
     public function create(Car $car, Request $request, CarBooking $carBooking):JsonResponse {
        
-        $this->checkLocale($request);        
-
         $booking = $carBooking->create($car, $request->all());
 
         if($booking) {            
