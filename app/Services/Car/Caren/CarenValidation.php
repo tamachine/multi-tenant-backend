@@ -5,8 +5,10 @@ namespace App\Services\Car\Caren;
 use App\Models\Car;
 use App\Models\Location;
 use DateTime;
-use Illuminate\Foundation\Mix;
 
+/**
+ * Calidates parameters related to Caren car services.
+ */
 class CarenValidation {
 
     const DATE_FORMAT = 'Y-m-d H:i:s';
