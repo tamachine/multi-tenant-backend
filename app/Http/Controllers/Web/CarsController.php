@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Services\CarsSearch\InitialValues;
-use App\Services\CarsSearch\ValidateCarSearchDates;
-use App\Services\CarsSearch\ValidateCarSearchLocations;
+use App\Services\Car\CarsSearch\InitialValues;
+use App\Services\Car\CarsSearch\ValidateCarSearchDates;
+use App\Services\Car\CarsSearch\ValidateCarSearchLocations;
 
 class CarsController extends BaseController
 {
