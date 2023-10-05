@@ -29,7 +29,8 @@ Route::get('cars/{api_car_hashid}/extras', 'CarsController@extras');
 Route::get('cars/{api_car_hashid}/prices', 'CarsController@prices'); 
 Route::put('cars/{api_car_hashid}/booking/create', 'CarBookingController@create'); 
 
-Route::get('bookings/{api_booking_hashid}/payments', 'BookingController@payments'); 
+Route::get('payments/valitor/{api_booking_hashid}', 'PaymentsController@valitor'); 
+Route::apiResource('bookings', BookingsController::class, ['parameters' => ['bookings' => 'api_booking_hashid']])->only(['update']);
 
 Route::apiResource('extras', ExtrasController::class, ['parameters' => ['extras' => 'api_extra_hashid']])->only(['index', 'show']);
 

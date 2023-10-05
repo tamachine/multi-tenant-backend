@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Valitor;
+namespace App\Services\Payment\Valitor;
 
 use App\Models\Booking;
 use App;
@@ -33,8 +33,11 @@ class ValitorParams {
     protected $paymentSuccessfulAutomaticRedirect;
     protected $paymentCancelledURL;
 
-    public function __construct(Booking $booking) {
+    public function __construct(Booking $booking, string $paymentSuccessfulURL, string $paymentSuccessfulServerSideURL, string $paymentCancelledURL) {
         $this->booking = $booking;  
+        $this->paymentSuccessfulURL = $paymentSuccessfulURL;
+        $this->paymentSuccessfulServerSideURL = $paymentSuccessfulServerSideURL;
+        $this->paymentCancelledURL = $paymentCancelledURL;
         
         $this->setValitorConfig();
 
@@ -78,12 +81,9 @@ class ValitorParams {
         $this->setAUthorizationOnly();
         $this->setReferenceNumber();
         $this->setProductParams();
-        $this->setPaymentSuccessfulURL();
-        $this->setPaymentSuccessfulServerSideURL();
         $this->setPaymentSuccessfulURLText();
         $this->setVerificationCode();      
-        $this->setPaymentSuccessfulAutomaticRedirect();   
-        $this->setPaymentCancelledURL();             
+        $this->setPaymentSuccessfulAutomaticRedirect();                    
     }   
 
     /**
@@ -145,16 +145,8 @@ class ValitorParams {
         $this->productXY = $this->productQuantity .  $this->productPrice . $this->productDiscount;
     }
 
-    protected function setPaymentSuccessfulURL() {
-        $this->paymentSuccessfulURL = route('success');
-    }
-
     protected function setPaymentSuccessfulURLText() {
         $this->paymentSuccessfulURLText = 'successfulURLText';
-    }
-
-    protected function setPaymentSuccessfulServerSideURL() {
-        $this->paymentSuccessfulServerSideURL = route('success');
     }
 
     protected function setVerificationCode() {        
@@ -163,13 +155,6 @@ class ValitorParams {
 
     protected function setPaymentSuccessfulAutomaticRedirect() {
         $this->paymentSuccessfulAutomaticRedirect = 1;
-    }
-
-    /**
-     * @todo -> it has to be another url
-     */
-    protected function setPaymentCancelledURL() {
-        $this->paymentCancelledURL = route('success'); 
     }
 
     /**

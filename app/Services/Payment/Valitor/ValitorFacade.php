@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Valitor;
+namespace App\Services\Payment\Valitor;
 
 use Illuminate\Support\Facades\Facade;
 

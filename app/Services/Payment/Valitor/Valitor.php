@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Valitor;
+namespace App\Services\Payment\Valitor;
 
 use App\Models\Booking;
 
@@ -9,8 +9,13 @@ class Valitor {
     /**
      * Get the valitor params to be sent in the form used to redirect to the valitor payment website
      */
-    public function getParams(Booking $booking) {
-        $params = new ValitorParams($booking);
+    public function getParams(
+        Booking $booking, 
+        string $paymentSuccessfulURL, 
+        string $paymentSuccessfulServerSideURL,
+        string $paymentCancelledURL    ) 
+    {
+        $params = new ValitorParams($booking, $paymentSuccessfulURL, $paymentSuccessfulServerSideURL, $paymentCancelledURL);
         return $params->getParams();        
     }
 

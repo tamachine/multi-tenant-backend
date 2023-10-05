@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Valitor;
+namespace App\Services\Payment\Valitor;
 
 trait ValitorBase
 {
