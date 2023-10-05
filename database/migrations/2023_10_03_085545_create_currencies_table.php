@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rates', function (Blueprint $table) {
+        Schema::create('currencies', function (Blueprint $table) {
             $table->id();
-            $table->string('code', 3)->index();
+            $table->string('hashid')->nullable()->index();
             $table->string('name');
-            $table->decimal('rate', 12, 6);
-
+            $table->string('code', 3)->index();
+            $table->string('symbol');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rates');
+        Schema::dropIfExists('currencies');
     }
 };

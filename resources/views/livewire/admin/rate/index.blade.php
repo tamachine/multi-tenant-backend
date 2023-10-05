@@ -3,13 +3,16 @@
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <x-admin.search />
 
-            @if ($rates->count())
+            @if ($currencies->count())
                 <div class="mt-4 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-100">
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Code
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Symbol
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Name
@@ -21,18 +24,21 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($rates as $index => $rate)
+                            @foreach ($currencies as $index => $currency)
                                 <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <a href="{{route('intranet.rate.edit', $rate->id)}}" class="font-bold text-purple-700 hover:underline">
-                                            {{ $rate->code }}
+                                        <a href="{{route('intranet.rate.edit', $currency->hashid)}}" class="font-bold text-purple-700 hover:underline">
+                                            {{ $currency->code }}
                                         </a>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                        {{ $rate->name }}
+                                        {{ $currency->symbol }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        {{ $currency->name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                        {{ $rate->rate }}
+                                        {{ $currency->rate->rate }}
                                     </td>
                                 </tr>
                             @endforeach
