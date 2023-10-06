@@ -53,7 +53,7 @@ class ContactUserDetailsTypesSeeder extends Seeder
         ContactUserDetailsType::create([
             'name' => [
                 'en' => "Pick up or drop off information",
-                'es' => "Recoger o dejar información"
+                'es' => "Información sobre recogida o entrega del vehículo"
             ],            
         ]);
 
