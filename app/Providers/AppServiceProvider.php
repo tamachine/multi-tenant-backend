@@ -3,14 +3,15 @@
 namespace App\Providers;
 
 use App\Services\HTMLLang;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Services\PreferredLanguage\ApplyPreferredLanguageToLanguageSession;
 use App\Services\PreferredLanguage\PreferredLanguage;
 use App\Services\RoutesForPages\RoutesForPages;
 use App\Services\SeoConfigurations;
-use App\Services\Valitor\Valitor;
-use App\Services\CarsSearch\InitialValues;
+use App\Services\Payment\Valitor\Valitor;
+use App\Services\Car\CarsSearch\InitialValues;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(ApplyPreferredLanguageToLanguageSession::class, function($app) {
-			return new ApplyPreferredLanguageToLanguageSession(new PreferredLanguage());
-		});
+            return new ApplyPreferredLanguageToLanguageSession(new PreferredLanguage());
+        });
 
         $this->app->bind('RoutesForPages',function(){
             return new RoutesForPages();
@@ -50,6 +51,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //Schema::defaultStringLength(191);
+        // Disable eloquent lazy loading during development
+        Model::preventLazyLoading(! $this->app->isProduction());
+
+        Schema::defaultStringLength(191);
     }
 }
