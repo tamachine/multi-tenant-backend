@@ -11,11 +11,11 @@ class ContactUserDetailsType extends Model
 {
     use HashidTrait, HasApiResponse, HasTranslations;
 
-    protected $fillable = ['hashid','type'];   
+    protected $fillable = ['hashid','name'];   
     
-    protected $apiResponse = ['hashid','type'];
+    protected $apiResponse = ['hashid','name'];
 
-    public $translatable = ['type'];
+    public $translatable = ['name'];
 
     public function contactuserdetail() {
          return $this->hasMany(ContactUserDetail::class, 'contact_user_id','id');

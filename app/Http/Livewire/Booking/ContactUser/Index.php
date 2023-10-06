@@ -36,7 +36,7 @@ class Index extends Component
 
     public function getTypeOptionsProperty()
     {
-        return ContactUserDetailsType::get(['hashid','type']);  
+        return ContactUserDetailsType::get(['hashid','name']);  
     }
 
     public function render()

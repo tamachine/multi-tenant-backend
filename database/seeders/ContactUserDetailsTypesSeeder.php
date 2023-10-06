@@ -16,52 +16,52 @@ class ContactUserDetailsTypesSeeder extends Seeder
     {
 
         ContactUserDetailsType::create([
-            'type' => json_encode([
+            'name' => [
                 'en' => "Amendments on my booking",
                 'es' => "Modificaciones en mi reserva"
-            ]),            
+            ],            
         ]);
 
         ContactUserDetailsType::create([
-            'type' => json_encode([
+            'name' => [
                 'en' => "Booking cancellation",
                 'es' => "Cancelación de reserva"
-            ]),            
+            ],            
         ]);
 
         ContactUserDetailsType::create([
-            'type' => json_encode([
+            'name' => [
                 'en' => "Make a new booking / Get a quote",
                 'es' => "Hacer una nueva reserva/ obtener un presupuesto"
-            ]),            
+            ],            
         ]);
 
         ContactUserDetailsType::create([
-            'type' => json_encode([
+            'name' => [
                 'en' => "Road assistance and travel support",
                 'es' => "Asistencia en carretera y apoyo en viaje"
-            ]),            
+            ],            
         ]);
         
         ContactUserDetailsType::create([
-            'type' => json_encode([
+            'name' => [
                 'en' => "Insurance information",
                 'es' => "Información del seguro"
-            ]),            
+            ],            
         ]);
 
         ContactUserDetailsType::create([
-            'type' => json_encode([
+            'name' => [
                 'en' => "Pick up or drop off information",
                 'es' => "Recoger o dejar información"
-            ]),            
+            ],            
         ]);
 
         ContactUserDetailsType::create([
-            'type' => json_encode([
+            'name' => [
                 'en' => "Other",
                 'es' => "Otro"
-            ]),            
+            ],            
         ]);            
         
     }
