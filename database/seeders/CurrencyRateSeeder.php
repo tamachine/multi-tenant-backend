@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Currency;
-use App\Models\CurrencyRate;
 use Illuminate\Database\Seeder;
+use App\Apis\OpenExchangeRates\Api;
 
 class CurrencyRateSeeder extends Seeder
 {
@@ -13,17 +12,8 @@ class CurrencyRateSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Api $api)
     {
-        $currenciesHashids = Currency::pluck('hashid');
-        $rates = [0.934669,0.8226,141.23,1];
-
-        foreach ($currenciesHashids as $key => $value) {
-            CurrencyRate::create([
-                'currency_id' =>  $value,
-                'rate' =>  $rates[$key]
-            ]);
-        }
-
+        $api->syncRates();
     }
 }
