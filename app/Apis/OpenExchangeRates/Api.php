@@ -2,7 +2,8 @@
 
 namespace App\Apis\OpenExchangeRates;
 
-use App\Models\Rate;
+use App\Models\Currency;
+use App\Models\CurrencyRate;
 use Exception;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
@@ -67,7 +68,7 @@ class Api
                 $this->openExchangeSlackAlertsWhenApiFails->failed(); //send message to slack              
 
                 // If OpenExchangeRates fails, use the rates in the database
-                return Rate::all()->pluck('rate', 'code')->toArray();
+                return CurrencyRate::all()->pluck('rate', 'code')->toArray();
             }
         });
     }
@@ -77,15 +78,16 @@ class Api
      */
     public function syncRates():void
     {
-
         $rates = $this->getRates();
 
-        foreach(Rate::all() as $rate) {
-            $code = $rate->code;
+        foreach(Currency::all() as $currency) {
+            $code = $currency->code;
 
-            if(isset($rates[$code])) {
-                $rate->update(['rate' => $rates[$rate->code]]);
-            }
+            CurrencyRate::updateOrCreate(
+                ['currency_id' => $currency->id],
+                ['rate' => $rates[$code]]
+            );
+
             Log::info('Rates table updated: code: '.$code . ' to '.$rates[$code]);
         }
 

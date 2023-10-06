@@ -59,7 +59,6 @@ class DatabaseSeeder extends Seeder
             LanguageLineSeeder::class,
             FaqsSeeder::class,
             //FreeDaySeeder::class,
-            RateSeeder::class,
             CarsIceland\UserSeeder::class,
             CarsIceland\AffiliateSeeder::class,
             CarsIceland\VendorLocationSeeder::class,
@@ -67,6 +66,8 @@ class DatabaseSeeder extends Seeder
             CarsIceland\ExtraSeeder::class,
             InsurancesFeaturesSeeder::class,
             BlogSeeder::class,
+            CurrencySeeder::class,
+            CurrencyRateSeeder::class,
             ContactUserDetailsTypesSeeder::class,
         ]);
     }
@@ -84,7 +85,6 @@ class DatabaseSeeder extends Seeder
             LanguageLineSeeder::class,
             FaqsSeeder::class,
             //FreeDaySeeder::class,
-            RateSeeder::class,
             CarsIceland\UserSeeder::class,
             CarsIceland\AffiliateSeeder::class,
             CarsIceland\VendorLocationSeeder::class,
@@ -92,6 +92,8 @@ class DatabaseSeeder extends Seeder
             CarsIceland\ExtraSeeder::class,
             InsurancesFeaturesSeeder::class,
             BlogSeeder::class,
+            CurrencySeeder::class,
+            CurrencyRateSeeder::class,
             ContactUserDetailsTypesSeeder::class,
         ]);
     }

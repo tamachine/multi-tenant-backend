@@ -1,4 +1,4 @@
-<x-admin.form-section submit="saveRate">
+<x-admin.form-section submit="saveRate" formClass="md:grid md:gap-4 md:grid-cols-2 xl:grid-cols-4">
     <x-slot name="title">
         {{ $formTitle }}
     </x-slot>
@@ -13,6 +13,13 @@
             <x-admin.label for="code" value="{{ __('Code') }}" />
             <x-admin.input id="code" type="text" class="mt-1 block w-20" maxlength="3" wire:model.defer="code" />
             <x-admin.input-error for="code" class="mt-2" />
+        </div>
+
+        <!-- Symbol -->
+        <div class="px-4 mt-4 md:mt-0">
+            <x-admin.label for="symbol" value="{{ __('Symbol') }}" />
+            <x-admin.input id="symbol" type="text" class="mt-1 block w-20" maxlength="1" wire:model.defer="symbol" />
+            <x-admin.input-error for="symbol" class="mt-2" />
         </div>
 
         <!-- Name -->

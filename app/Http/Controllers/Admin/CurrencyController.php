@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Rate;
+use App\Models\Currency;
 use Illuminate\View\View;
 
-class RateController extends Controller
+class CurrencyController extends Controller
 {
     public function index(): View
     {
@@ -47,11 +47,11 @@ class RateController extends Controller
     {
         $this->authorize('admin');
 
-        $rate = Rate::find($id);
+        $currency = Currency::where('hashid',$id)->first();
 
         $data = [
-            'rate' => $rate,
-            'rateName' => $rate->name,
+            'rate' => $currency,
+            'rateName' => $currency->name,
             'action' => collect([
                 'route' => route('intranet.rate.index'),
                 'title' => 'Exchange Rate'

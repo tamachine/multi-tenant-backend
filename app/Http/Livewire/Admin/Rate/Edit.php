@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Admin\Rate;
 
+use App\Models\Currency;
+use App\Models\CurrencyRate;
 use App\Models\Rate;
 use Livewire\Component;
 
@@ -14,9 +16,9 @@ class Edit extends Component
     */
 
     /**
-     * @var App\Models\Rate
+     * @var App\Models\Currency
      */
-    public $rate;
+    public $currency;
 
     /**
      * @var string
@@ -29,6 +31,11 @@ class Edit extends Component
     public $name;
 
     /**
+     * @var string
+     */
+    public $symbol;
+
+    /**
      * @var float
      */
     public $value;
@@ -39,13 +46,12 @@ class Edit extends Component
     ***************************************************************
     */
 
-    public function mount(Rate $rate)
+    public function mount(Currency $currency)
     {
-        $this->rate = $rate;
-
-        $this->code = $this->rate->code;
-        $this->name = $this->rate->name;
-        $this->value = $this->rate->rate;
+        $this->currency = $currency;
+        $this->fill($currency);
+        
+        $this->value = $currency->rate->rate;
     }
 
     public function saveRate()
@@ -53,26 +59,31 @@ class Edit extends Component
         $this->dispatchBrowserEvent('validationError');
 
         $this->validate([
-            'code' => ['required', 'unique:rates,code,' . $this->rate->id],
-            'name' => ['required', 'unique:rates,name,' . $this->rate->id],
+            'code' => ['required', 'unique:currencies,code,' . $this->currency->id],
+            'name' => ['required', 'unique:currencies,name,' . $this->currency->id],
             'value' => ['required', 'numeric'],
+            'symbol' => ['required', 'max:1'],
         ]);
 
-        $this->rate->update([
+        $this->currency->update([
             'code' => $this->code,
             'name' => $this->name,
+            'symbol' => $this->symbol,
+            'rate' => $this->value,
+        ]);
+        $this->currency->rate->update([
             'rate' => $this->value,
         ]);
 
         session()->flash('status', 'success');
         session()->flash('message', 'Exchange Rate "' . $this->code .'" edited');
 
-        return redirect()->route('intranet.rate.edit', $this->rate->id);
+        return redirect()->route('intranet.rate.edit', $this->currency->hashid);
     }
 
     public function deleteRate()
     {
-        $this->rate->delete();
+        $this->currency->delete();
 
         session()->flash('status', 'success');
         session()->flash('message', __('The exchange rate has been deleted'));

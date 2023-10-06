@@ -2,7 +2,8 @@
 
 namespace App\Http\Livewire\Admin\Rate;
 
-use App\Models\Rate;
+use App\Models\Currency;
+use App\Models\CurrencyRate;
 use Livewire\Component;
 
 class Index extends Component
@@ -36,10 +37,11 @@ class Index extends Component
 
     public function render()
     {
-        $rates = Rate::livewireSearch($this->search)
+        $currencies = Currency::livewireSearch($this->search)
             ->orderBy('code')
+            ->with('rate')
             ->get();
 
-        return view('livewire.admin.rate.index', ['rates' => $rates]);
+        return view('livewire.admin.rate.index', ['currencies' => $currencies]);
     }
 }

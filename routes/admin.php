@@ -31,9 +31,9 @@ Route::group(
 
         // Exchange Rates
         Route::group(['prefix' => 'rate', 'as' => 'rate.'], function () {
-            Route::get('/', ['as' => 'index', 'uses' => 'RateController@index']);
-            Route::get('create', ['as' => 'create', 'uses' => 'RateController@create']);
-            Route::get('{rate}/edit', ['as' => 'edit', 'uses' => 'RateController@edit']);
+            Route::get('/', ['as' => 'index', 'uses' => 'CurrencyController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'CurrencyController@create']);
+            Route::get('{rate}/edit', ['as' => 'edit', 'uses' => 'CurrencyController@edit']);
         });
 
         // Extras
