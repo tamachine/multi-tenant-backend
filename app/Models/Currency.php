@@ -26,7 +26,7 @@ class Currency extends Model{
      **********************************/
     public function rate()
     {
-        return $this->hasOne(CurrencyRate::class,'currency_id','hashid');
+        return $this->hasOne(CurrencyRate::class);
     }
 
     /**********************************
