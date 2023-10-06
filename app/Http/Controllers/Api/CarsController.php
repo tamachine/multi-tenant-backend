@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Api\BaseController;
 use App\Models\Car;
 use App\Models\Page;
-use App\Services\CarPrices\CarPrices;
+use App\Services\Car\CarPrices\CarPrices;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use App\Services\CarsSearch\CarsSearch;
+use App\Services\Car\CarsSearch\CarsSearch;
 use App\Traits\Controllers\Api\HasSeoConfigurations;
 
 class CarsController extends BaseController
@@ -74,13 +74,22 @@ class CarsController extends BaseController
      * @lrd:start
      * ## Returns all insurances for a car
      * ## car_hashid: car hashid
+     * @QAparam included bool nullable "true for extras included or false for extras not included. Null for all"
      * @QAparam locale string nullable
      * @lrd:end           
      */
     public function extras(Car $car, Request $request):JsonResponse {
         $this->checkLocale($request);  
 
-        return $this->successResponse($this->mapApiResponse($car->extraList(true)));
+        $query = $car->extraList(true);
+
+        if ($request->has('included')) {                         
+            $included = $this->castBool($request->input('included'));   
+
+            $query->where('included', $included);          
+        } 
+
+        return $this->successResponse($this->mapApiResponse($query));
     }
 
      /**

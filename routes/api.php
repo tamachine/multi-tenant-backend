@@ -27,10 +27,16 @@ Route::get('cars/{api_car_hashid}/seoconfigurations/{api_page_name}', 'CarsContr
 Route::get('cars/{api_car_hashid}/insurances', 'CarsController@insurances'); 
 Route::get('cars/{api_car_hashid}/extras', 'CarsController@extras'); 
 Route::get('cars/{api_car_hashid}/prices', 'CarsController@prices'); 
+Route::put('cars/{api_car_hashid}/booking/create', 'CarBookingController@create'); 
+
+Route::get('payments/valitor/{api_booking_hashid}', 'PaymentsController@valitor'); 
+Route::apiResource('bookings', BookingsController::class, ['parameters' => ['bookings' => 'api_booking_hashid']])->only(['update']);
 
 Route::apiResource('extras', ExtrasController::class, ['parameters' => ['extras' => 'api_extra_hashid']])->only(['index', 'show']);
 
 Route::apiResource('insurance-features', InsuranceFeaturesController::class)->only('index');
+
+Route::apiResource('affiliates', AffiliatesController::Class)->only('index');
 
 Route::apiResource('locations', LocationsController::class)->only('index');
 Route::apiResource('caren-locations', CarenLocationsController::class)->only('index');
@@ -55,7 +61,7 @@ Route::get('post-preview/{api_blog_post_slug}/token/{token}/verify', 'BlogPostsP
 Route::put('/newsletter-user/submitted', 'NewsletterUserController@submitted');
 
 Route::put('/contact-form/submitted', 'ContactFormController@submitted');
-
+Route::get('/contact-form/types', 'ContactFormController@types');
 
 
 

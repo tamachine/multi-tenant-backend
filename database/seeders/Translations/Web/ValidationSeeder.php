@@ -35,5 +35,15 @@ class ValidationSeeder extends Seeder
             ]
         );
 
+        Translation::firstOrCreate(
+            [
+                'group' => 'validation',
+                'key' => 'min.numeric',
+            ],
+            [
+                'text' => ['en' => 'This is a required field', 'es' => 'Este es un campo obligatorio.'],
+            ]
+        );
+
     }
 }

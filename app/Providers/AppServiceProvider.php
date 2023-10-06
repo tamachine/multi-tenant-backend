@@ -10,8 +10,8 @@ use App\Services\PreferredLanguage\ApplyPreferredLanguageToLanguageSession;
 use App\Services\PreferredLanguage\PreferredLanguage;
 use App\Services\RoutesForPages\RoutesForPages;
 use App\Services\SeoConfigurations;
-use App\Services\Valitor\Valitor;
-use App\Services\CarsSearch\InitialValues;
+use App\Services\Payment\Valitor\Valitor;
+use App\Services\Car\CarsSearch\InitialValues;
 
 class AppServiceProvider extends ServiceProvider
 {

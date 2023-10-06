@@ -33,6 +33,10 @@ abstract class BaseController extends Controller
         $this->errorCode = 400;        
     }
 
+    protected function missingParameterError() {                
+        $this->errorCode = 422;            
+    }
+
     protected function castBool($string):bool {
         return filter_var($string, FILTER_VALIDATE_BOOLEAN);
     }

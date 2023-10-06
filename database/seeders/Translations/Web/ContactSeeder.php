@@ -72,27 +72,7 @@ class ContactSeeder extends Seeder
             [
                 'text' => ['en' => 'Enquiry type', 'es' => 'Tipo de consulta'],
             ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'contact',
-                'key' => 'enquiry_general',
-            ],
-            [
-                'text' => ['en' => 'General', 'es' => 'General'],
-            ]
-        );
-
-        Translation::firstOrCreate(
-            [
-                'group' => 'contact',
-                'key' => 'enquiry_bookings',
-            ],
-            [
-                'text' => ['en' => 'Bookings', 'es' => 'Reservas'],
-            ]
-        );
+        );        
 
         Translation::firstOrCreate(
             [

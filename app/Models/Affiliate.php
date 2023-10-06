@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasApiResponse;
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -9,7 +10,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Affiliate extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes;
+    use HasFactory, HashidTrait, SoftDeletes, HasApiResponse;
+
+    protected $apiResponse = ['commission_percentage', 'hashid'];
 
     /**
      * The attributes that are mass assignable.
