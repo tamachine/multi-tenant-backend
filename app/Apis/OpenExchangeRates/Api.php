@@ -2,6 +2,7 @@
 
 namespace App\Apis\OpenExchangeRates;
 
+use App\Models\Currency;
 use App\Models\CurrencyRate;
 use Exception;
 use Illuminate\Support\Facades\Cache;
@@ -79,12 +80,14 @@ class Api
     {
         $rates = $this->getRates();
 
-        foreach(CurrencyRate::all() as $rate) {
-            $code = $rate->currency->code;
+        foreach(Currency::all() as $currency) {
+            $code = $currency->code;
 
-            if(isset($rates[$code])) {
-                $rate->update(['rate' => $rates[$code]]);
-            }
+            CurrencyRate::updateOrCreate(
+                ['currency_id' => $currency->id],
+                ['rate' => $rates[$code]]
+            );
+
             Log::info('Rates table updated: code: '.$code . ' to '.$rates[$code]);
         }
 
