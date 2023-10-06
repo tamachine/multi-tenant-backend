@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\BlogTagColor;
@@ -17,9 +18,9 @@ class BlogTag extends Model
 
     public static function boot() {
         parent::boot();
-    
-        static::creating(function (BlogTag $item) { 
-            $color = new BlogTagColor(); 
+
+        static::creating(function (BlogTag $item) {
+            $color = new BlogTagColor();
             $item->color_id = $color->getColorId();
         });
     }
@@ -77,26 +78,12 @@ class BlogTag extends Model
         return $query;
     }
 
-    /**********************************
-     * Relationships
-     **********************************/
-
-    /**
-     * Related posts
-     *
-     * @return object
-     */
-    public function posts()
+    public function posts(): BelongsToMany
     {
-        return $this->belongsToMany('App\Models\BlogPost')->withTimestamps();
+        return $this->belongsToMany(BlogPost::class)->withTimestamps();
     }
 
-    /**
-     * Related published posts
-     *
-     * @return object
-     */
-    public function postsPublished()
+    public function postsPublished(): BelongsToMany
     {
         return $this->belongsToMany(BlogPost::class)->published();
     }

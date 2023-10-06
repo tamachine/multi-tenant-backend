@@ -44,6 +44,7 @@ class Extra extends Model
      */
     public $translatable = ['name', 'description'];
 
+
     /**********************************
      * Accessors & Mutators
      **********************************/
@@ -55,13 +56,13 @@ class Extra extends Model
       * @return double
       */
      public function getPriceForCar(Car $car) {
-        if($this->caren_id) {                    
+        if($this->caren_id) {
             $carenExtras = $car->getCarenExtras(); //calls caren in every instance. use getPriceFromCarenExtras better if multiple calls to extra prices
-            
+
             return $this->getPriceFromCarenExtras($carenExtras);
         } else {
             return $this->price;
-        }        
+        }
      }
 
      /**
@@ -71,7 +72,7 @@ class Extra extends Model
       * @return double|null
       */
      public function getPriceFromCarenExtras(array $carenExtras) {
-        if(!empty($this->caren_id)) { 
+        if(!empty($this->caren_id)) {
 
             if (isset($carenExtras['Extras'])) {
                 $carenIdKeys = array_column($carenExtras['Extras'],'Id');
@@ -85,7 +86,7 @@ class Extra extends Model
             return null; // if no price found in carenExtra, the price is null
         } else {
             return $this->price; // if the extra is not a caren extra, the current price must be returned
-        }        
+        }
      }
 
      /**
@@ -96,7 +97,7 @@ class Extra extends Model
     public function getEditUrlAttribute()
     {
         return route('intranet.extra.edit', $this->hashid);
-    }    
+    }
 
     public function getIsInsuranceAttribute() {
         return $this->category == 'insurance';
@@ -163,7 +164,7 @@ class Extra extends Model
     }
 
     public function insurance()
-    {        
+    {
         return $this->hasOne(Insurance::class, 'id')->where('category', 'insurance');
     }
 

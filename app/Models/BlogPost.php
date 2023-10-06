@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -40,6 +41,12 @@ class BlogPost extends Model implements LocalizedUrlRoutable
         'blog_author_id', 'blog_category_id', 'hero', 'top', 'show_date'
     ];
 
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['author','category','tags'];
 
     /**
      * The attributes that are translatable.

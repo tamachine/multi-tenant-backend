@@ -215,7 +215,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'Image' => Intervention\Image\Facades\Image::class,
         'RoutesForPages' => App\Services\RoutesForPages\RoutesForPagesFacade::class,
-        'Valitor' => App\Services\Valitor\ValitorFacade::class,
-        'CarSearchInitialValues' => App\Services\CarsSearch\CarSearchInitialValuesFacade::class,
+        'Valitor' => App\Services\Payment\Valitor\ValitorFacade::class,
+        'CarSearchInitialValues' => App\Services\Car\CarsSearch\CarSearchInitialValuesFacade::class,
     ])->toArray(),
 ];

@@ -3,14 +3,15 @@
 namespace App\Providers;
 
 use App\Services\HTMLLang;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Services\PreferredLanguage\ApplyPreferredLanguageToLanguageSession;
 use App\Services\PreferredLanguage\PreferredLanguage;
 use App\Services\RoutesForPages\RoutesForPages;
 use App\Services\SeoConfigurations;
-use App\Services\Valitor\Valitor;
-use App\Services\CarsSearch\InitialValues;
+use App\Services\Payment\Valitor\Valitor;
+use App\Services\Car\CarsSearch\InitialValues;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,21 +24,21 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(ApplyPreferredLanguageToLanguageSession::class, function($app) {
 			return new ApplyPreferredLanguageToLanguageSession(new PreferredLanguage());
-		});       
+		});
 
         $this->app->bind('RoutesForPages',function(){
             return new RoutesForPages();
         });
 
-        $this->app->bind('Valitor', function ($app) {            
+        $this->app->bind('Valitor', function ($app) {
             return new Valitor();
         });
 
-        $this->app->bind('CarSearchInitialValues', function ($app) {            
+        $this->app->bind('CarSearchInitialValues', function ($app) {
             return new InitialValues();
         });
 
-        $this->app->bind('getHTMLLang',function(){            
+        $this->app->bind('getHTMLLang',function(){
             $HTMLLang = new HTMLLang(new SeoConfigurations);
             return $HTMLLang->getHTMLLang();
         });
@@ -50,6 +51,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Disable eloquent lazy loading during development
+        Model::preventLazyLoading(! $this->app->isProduction());
+
         Schema::defaultStringLength(191);
     }
 }

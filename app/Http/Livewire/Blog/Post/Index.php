@@ -45,10 +45,11 @@ class Index extends Component
     public function render()
     {
         $posts = BlogPost::livewireSearch($this->search)
+            ->with(['category', 'author'])
             ->orderBy($this->order_column, $this->order_way)
             ->paginate(perPage());
 
-           
+
         return view('livewire.blog.post.index', ['posts' => $posts]);
     }
 }

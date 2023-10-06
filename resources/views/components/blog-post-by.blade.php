@@ -1,1 +1,1 @@
-{{ __('blog.by') }} <a href="{{ $blogPost->author->url }}"> {!! $blogPost->author->name !!} </a> {{ __('blog.in') }} <a href="{{ $blogPost->category->url }}"> {!! $blogPost->category->name !!} </a>
+{{ __('blog.by') }} <a href="{{ $blogPost->load('author')->author->url }}"> {!! $blogPost->author->name !!} </a> {{ __('blog.in') }} <a href="{{ $blogPost->load('category')->category->url }}"> {!! $blogPost->category->name !!} </a>

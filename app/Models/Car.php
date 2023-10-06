@@ -25,7 +25,7 @@ class Car extends Model
         'doors', 'luggage', 'beds', 'kitchen', 'heater',
         'engine', 'transmission', 'vehicle_type', 'vehicle_brand', 'f_roads_name', 
         'featured_image', 'featured_image_hover', 'getFeaturedImageModelImageInstance', 'getFeaturedImagaHoverModelImageInstance',
-        'fRoadAllowed', 'caren_settings', 'vendor'
+        'fRoadAllowed', 'caren_settings', 'vendor', 'booking_percentage'
     ];
 
     /**

@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Web;
 
 use Livewire\Component;
 use App\Services\SelectableFull\AllSelectables;
-use App\Services\CarsSearch\CarsSearch;
+use App\Services\Car\CarsSearch\CarsSearch;
 use App\Models\CarType;
 
 class CarSearchResults extends Component
