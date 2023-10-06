@@ -9,10 +9,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Casts\ArrayCast;
+use App\Traits\HasApiResponse;
 
 class Booking extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasPdf;    
+    use HasFactory, HashidTrait, SoftDeletes, HasPdf, HasApiResponse;    
+
+    protected $apiResponse = ['hashid', 'status', 'valitor_request'];
 
     protected $valitor_reference_number_column = 'hashid';
 
