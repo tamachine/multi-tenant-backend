@@ -46,7 +46,7 @@ class ContactUserDetail extends Model
     {
         $query = $query->join('contact_users as cu','cu.id','=','contact_user_details.contact_user_id')
                  ->join('contact_user_details_types as cudt','cudt.hashid','=','contact_user_details.type')
-                 ->select('name','email','contact_user_details.created_at','subject','message','contact_user_details.type','contact_user_details.hashid', 'cudt.type->en as typeDescription');
+                 ->select('contact_user_details.name','email','contact_user_details.created_at','subject','message','contact_user_details.type','contact_user_details.hashid', 'cudt.name->en as typeDescription');
 
         if (!empty($type)) {
             $query->where('cudt.hashid', $type);

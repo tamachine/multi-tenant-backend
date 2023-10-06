@@ -12,7 +12,7 @@
                         >
                             <option value="" selected> All </option>
                             @foreach($this->typeOptions as $index => $typeOption)
-                                <option value="{{$typeOption->hashid}}">{{ $typeOption->type }}</option>
+                                <option value="{{$typeOption->hashid}}">{{ $typeOption->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -20,7 +20,7 @@
             
                 <!-- Date -->
                 <div class="pl-7">
-                    <x-admin.label for="contact_date" value="{{ __('Contact date') }}" />
+                    <x-admin.label for="contact_date" value="{{ __('Date') }}" />
                     <div class="mt-2 flex justify-start items-center">
                     <x-admin.date-picker class="!w-26"
                         name="contact_start_date"
