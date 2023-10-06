@@ -9,6 +9,8 @@ use Spatie\Multitenancy\Actions\MakeQueueTenantAwareAction;
 use Spatie\Multitenancy\Actions\MakeTenantCurrentAction;
 use Spatie\Multitenancy\Actions\MigrateTenantAction;
 use App\Models\Landlord\Tenant;
+use Spatie\Multitenancy\Tasks\SwitchTenantDatabaseTask;
+use Spatie\Multitenancy\TenantFinder\DomainTenantFinder;
 
 return [
     /*
@@ -18,7 +20,7 @@ return [
      * This class should extend `Spatie\Multitenancy\TenantFinder\TenantFinder`
      *
      */
-    'tenant_finder' => Spatie\Multitenancy\TenantFinder\DomainTenantFinder::class,
+    'tenant_finder' => DomainTenantFinder::class,
 
     /*
      * These fields are used by tenant:artisan command to match one or more tenant
@@ -34,7 +36,7 @@ return [
      */
     'switch_tenant_tasks' => [
         // \Spatie\Multitenancy\Tasks\PrefixCacheTask::class,
-        \Spatie\Multitenancy\Tasks\SwitchTenantDatabaseTask::class,
+        SwitchTenantDatabaseTask::class,
         App\Tasks\SwitchTenantConfigTask::class,
         // \Spatie\Multitenancy\Tasks\SwitchRouteCacheTask::class,
     ],
@@ -113,4 +115,5 @@ return [
     'not_tenant_aware_jobs' => [
         // ...
     ],
+    'tenants_from_env' => env('TENANTS')
 ];

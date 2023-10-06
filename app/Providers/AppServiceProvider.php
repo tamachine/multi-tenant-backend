@@ -23,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(ApplyPreferredLanguageToLanguageSession::class, function($app) {
-			return new ApplyPreferredLanguageToLanguageSession(new PreferredLanguage());
-		});
+            return new ApplyPreferredLanguageToLanguageSession(new PreferredLanguage());
+        });
 
         $this->app->bind('RoutesForPages',function(){
             return new RoutesForPages();
