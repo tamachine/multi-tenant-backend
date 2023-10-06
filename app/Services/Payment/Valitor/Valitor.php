@@ -3,6 +3,8 @@
 namespace App\Services\Payment\Valitor;
 
 use App\Models\Booking;
+use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class Valitor {
 
@@ -30,8 +32,8 @@ class Valitor {
     /**
      * Checks the valitor response
      */
-    public function checkResponse() {
-        $response = new ValitorCheckResponse();
+    public function checkResponse(Collection $request, Booking $booking) {
+        $response = new ValitorCheckResponse($request, $booking);
 
         return $response->check();
     }

@@ -4,6 +4,7 @@ namespace App\Services\Payment\Valitor;
 
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 /**
  * This class checks the response of valitor when a payment is made
@@ -11,13 +12,16 @@ use Illuminate\Http\Request;
 class ValitorCheckResponse {
 
     protected Booking $booking;
-    protected Request $request;
+    protected Booking $bookingToCheck;
+    protected Collection $request;
 
     use ValitorBase;
 
-    public function __construct() 
+    public function __construct(Collection $request, Booking $bookingToCheck) 
     {
-        $this->request = request();
+        $this->request = $request;
+
+        $this->bookingToCheck = $bookingToCheck;
 
         $this->setValitorConfig();
         
@@ -54,7 +58,7 @@ class ValitorCheckResponse {
     protected function checkBooking() : bool
     {
         if($this->booking) {
-            return ($this->booking->hashid == $this->request->session()->get('booking_data')['booking']);
+            return ($this->booking->hashid == $this->bookingToCheck->hashid);
         }
         
         return false;

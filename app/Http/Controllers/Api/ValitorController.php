@@ -8,7 +8,7 @@ use App\Services\Payment\PaymentResolver;
 use Illuminate\Http\Request;
 use Valitor;
 
-class PaymentsController extends BaseController
+class ValitorController extends BaseController
 {
     /**
      * Returns valitor params
@@ -16,7 +16,7 @@ class PaymentsController extends BaseController
      * @QAparam url_ok string required "url where valitor must redirect after successful payment"
      * @QAparam url_ko string required "url where valitor must redirect after cancelled payment"
      */    
-    public function valitor(Booking $booking, Request $request, PaymentResolver $paymentResolver) {
+    public function requestParams(Booking $booking, Request $request, PaymentResolver $paymentResolver) {
 
         $paymentClasses = $paymentResolver->getPaymentClasses();
 
@@ -49,5 +49,28 @@ class PaymentsController extends BaseController
             'form_action' => Valitor::getFormAction()
         ]);
 
+    }
+
+    /**
+    * Checks the valitor response 
+    * * ## booking: hashid of the booking
+    * @QAparam valitor_response array required "params from valitor response"
+    */
+    public function checkResponse(Booking $booking, Request $request) {
+
+        if(!$request->has('valitor_response')) {
+
+            if(!is_array($request->input('valitor_response'))) {
+                $this->missingParameterError();
+
+                $this->errorResponse('valitor_response is required and must be of type array');
+            }
+            
+        }
+
+        $valitor_request = $request->input('valitor_response');
+        
+        return $this->successResponse(Valitor::checkResponse($valitor_request, $booking));
+        
     }
 }

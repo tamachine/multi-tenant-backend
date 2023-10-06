@@ -52,7 +52,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // Disable eloquent lazy loading during development
-        Model::preventLazyLoading(! $this->app->isProduction());
+        //Model::preventLazyLoading(! $this->app->isProduction());
 
         Schema::defaultStringLength(191);
     }
