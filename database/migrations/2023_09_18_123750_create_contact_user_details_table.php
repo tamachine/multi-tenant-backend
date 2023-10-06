@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contact_users', function (Blueprint $table) {
+        Schema::create('contact_user_details', function (Blueprint $table) {
             $table->id();
             $table->string('hashid')->nullable()->index();
-            $table->string('email')->unique();
+            $table->integer('contact_user_id');
+            $table->string('name');
+            $table->string('type');
+            $table->text('subject');
+            $table->text('message');
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_users');
+        Schema::dropIfExists('contact_user_details');
     }
 };

@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contact_user_messages', function (Blueprint $table) {
+        Schema::create('contact_user_details_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('contact_user_id');
-            $table->string('type');
-            $table->text('subject');
-            $table->text('message');
+            $table->string('hashid')->nullable()->index();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_user_messages');
+        Schema::dropIfExists('contact_user_details_types');
     }
 };
