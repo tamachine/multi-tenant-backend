@@ -42,7 +42,8 @@ class Extras extends Component
 
     public function render()
     {
-        $extras = CarenExtra::livewireSearch($this->search)
+        $extras = CarenExtra::with('extra')
+            ->livewireSearch($this->search)
             ->orderBy('name')
             ->paginate(perPage());
 

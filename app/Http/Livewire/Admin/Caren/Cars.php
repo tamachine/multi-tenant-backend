@@ -42,7 +42,8 @@ class Cars extends Component
 
     public function render()
     {
-        $cars = CarenCar::livewireSearch($this->search)
+        $cars = CarenCar::with('car')
+            ->livewireSearch($this->search)
             ->orderBy('name')
             ->paginate(perPage());
 

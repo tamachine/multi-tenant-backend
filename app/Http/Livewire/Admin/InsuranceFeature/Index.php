@@ -48,7 +48,8 @@ class Index extends Component
 
     public function render()
     {
-        $insuranceFeatures = Feature::livewireSearch($this->search)            
+        $insuranceFeatures = Feature::with(['insurances', 'insurances.carenExtra'])
+            ->livewireSearch($this->search)
             ->paginate(perPage());
 
         $this->count = $insuranceFeatures->count();

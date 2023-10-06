@@ -18,8 +18,7 @@ class CarenLocationsController extends BaseController
      */
     public function index(Request $request):JsonResponse {       
         $this->checkLocale($request);  
-
-        return $this->successResponse($this->mapApiResponse(CarenLocation::all()));
+        return $this->successResponse($this->mapApiResponse(CarenLocation::with('location')->get()));
     }
 
 

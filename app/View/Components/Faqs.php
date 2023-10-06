@@ -19,7 +19,7 @@ class Faqs extends Component
      */
     public $allFaqs;
 
-     /**    
+     /**
      *
      * @var string
      */
@@ -42,16 +42,16 @@ class Faqs extends Component
      * @return \Illuminate\Contracts\View\View|\Closure|string
      */
     public function render()
-    {        
+    {
         return view(
-            'components.faqs', 
+            'components.faqs',
             [
                 'faqs' => Faq::all(),
-                'categories' => FaqCategory::has('faqs')->get(),
+                'categories' => FaqCategory::with('faqs')->has('faqs')->get(),
                 'showViewAllButton' => !$this->allFaqs,
                 'take' => $this->allFaqs ? null : self::NUM_FAQS,
             ]
         );
     }
-        
+
 }

@@ -22,6 +22,11 @@ class VendorLocation extends Model
         'vendor_id', 'location_id', 'price'
     ];
 
+    protected $with = [
+        'location',
+        'vendor'
+    ];
+
     /**********************************
      * Accessors & Mutators
      **********************************/
