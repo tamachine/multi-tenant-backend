@@ -50,11 +50,13 @@ class Index extends Component
     {
         $this->fill(request()->only('search', 'page'));
     }
-   
+
 
     public function render()
-    {        
-        $faqs = Faq::livewireSearch($this->faq_category, $this->search)->paginate(perPage());
+    {
+        $faqs = Faq::with('faqCategories')
+            ->livewireSearch($this->faq_category, $this->search)
+            ->paginate(perPage());
 
         $this->count = $faqs->count();
 

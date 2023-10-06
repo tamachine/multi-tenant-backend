@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasApiResponse;
 use App\Traits\HasFeaturedImage;
 use App\Traits\HashidTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -11,9 +12,17 @@ use Spatie\Translatable\HasTranslations;
 
 class Extra extends Model
 {
-    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasFeaturedImage;
+    use HasFactory, HashidTrait, SoftDeletes, HasTranslations, HasFeaturedImage, HasApiResponse;
+
+    protected $apiResponse = [
+        "hashid", "vendor_id", "name", "description", "order_appearance", 
+        "image", "price", "maximum_fee", "max_units", "price_mode",
+        "category", "included", "insurance_premium", "caren_id", "price_from", 
+        "getFeaturedImageModelImageInstance", "featured_image_url"
+    ];
 
     protected $featured_image_attribute = "image";
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -35,6 +44,7 @@ class Extra extends Model
      */
     public $translatable = ['name', 'description'];
 
+
     /**********************************
      * Accessors & Mutators
      **********************************/
@@ -46,13 +56,13 @@ class Extra extends Model
       * @return double
       */
      public function getPriceForCar(Car $car) {
-        if($this->caren_id) {                    
+        if($this->caren_id) {
             $carenExtras = $car->getCarenExtras(); //calls caren in every instance. use getPriceFromCarenExtras better if multiple calls to extra prices
-            
+
             return $this->getPriceFromCarenExtras($carenExtras);
         } else {
             return $this->price;
-        }        
+        }
      }
 
      /**
@@ -62,7 +72,7 @@ class Extra extends Model
       * @return double|null
       */
      public function getPriceFromCarenExtras(array $carenExtras) {
-        if(!empty($this->caren_id)) { 
+        if(!empty($this->caren_id)) {
 
             if (isset($carenExtras['Extras'])) {
                 $carenIdKeys = array_column($carenExtras['Extras'],'Id');
@@ -76,7 +86,7 @@ class Extra extends Model
             return null; // if no price found in carenExtra, the price is null
         } else {
             return $this->price; // if the extra is not a caren extra, the current price must be returned
-        }        
+        }
      }
 
      /**
@@ -87,7 +97,7 @@ class Extra extends Model
     public function getEditUrlAttribute()
     {
         return route('intranet.extra.edit', $this->hashid);
-    }    
+    }
 
     public function getIsInsuranceAttribute() {
         return $this->category == 'insurance';
@@ -125,6 +135,10 @@ class Extra extends Model
         return $query;
     }
 
+    public function scopeCaren($query) {
+        return $query->whereHas('carenExtra');
+    }
+
     /**********************************
      * Relationships
      **********************************/
@@ -150,7 +164,7 @@ class Extra extends Model
     }
 
     public function insurance()
-    {        
+    {
         return $this->hasOne(Insurance::class, 'id')->where('category', 'insurance');
     }
 

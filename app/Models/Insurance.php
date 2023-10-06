@@ -14,6 +14,8 @@ class Insurance extends Extra
  
     protected $append = ['color'];
 
+    protected $with = ['carenExtra','features'];
+
     public static function boot()
     {
         parent::boot();

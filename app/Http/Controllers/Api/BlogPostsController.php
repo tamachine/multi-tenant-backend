@@ -73,11 +73,11 @@ class BlogPostsController extends BaseController
      * @lrd:end    
      */
     public function show(BlogPost $blogPost):JsonResponse {        
-
+        
         $this->checkLocale(request());
 
         $this->addAttributesToApiResponse($blogPost, ['related_posts', 'prev_post', 'next_post']);        
-
+       
         return $this->successResponse($blogPost->toApiResponse($this->locale));        
     }    
 

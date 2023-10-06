@@ -42,7 +42,8 @@ class Locations extends Component
 
     public function render()
     {
-        $locations = CarenLocation::livewireSearch($this->search)
+        $locations = CarenLocation::with('location')
+            ->livewireSearch($this->search)
             ->orderBy('name')
             ->paginate(perPage());
 

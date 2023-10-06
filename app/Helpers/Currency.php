@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+use App\Models\Currency as ModelsCurrency;
+
 class Currency
 {
     /**
@@ -31,7 +33,7 @@ class Currency
      */
     public static function availableCurrencies()
     {
-        return config('currencies');
+        return ModelsCurrency::pluck('code')->toArray();
     }
 
     /**

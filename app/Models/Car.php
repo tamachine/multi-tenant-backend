@@ -25,7 +25,7 @@ class Car extends Model
         'doors', 'luggage', 'beds', 'kitchen', 'heater',
         'engine', 'transmission', 'vehicle_type', 'vehicle_brand', 'f_roads_name', 
         'featured_image', 'featured_image_hover', 'getFeaturedImageModelImageInstance', 'getFeaturedImagaHoverModelImageInstance',
-        'fRoadAllowed', 'caren_settings'
+        'fRoadAllowed', 'caren_settings', 'vendor', 'booking_percentage'
     ];
 
     /**
@@ -158,7 +158,7 @@ class Car extends Model
      *
      * @return  object
      */
-    public function insuranceList()
+    public function insuranceList($active = null)
     {
         $list = new Collection();
 
@@ -177,7 +177,13 @@ class Car extends Model
             }
         }
 
-        foreach($this->insurances as $insurance) {
+        if($active) {
+            $insurances = $this->insurances()->where('active', 1);
+        } else {
+            $insurances = $this->insurances;
+        }
+
+        foreach($insurances as $insurance) {            
             $insurance->price = isset($insurancePrices[$insurance['caren_id']])
                 ? $insurancePrices[$insurance['caren_id']]
                 : 0;
@@ -192,18 +198,20 @@ class Car extends Model
      *
      * @return mixed
      */
-    public function extraList()
+    public function extraList($active = null)
     {        
         $carenExtras = $this->getCarenExtras();
 
         // Get extras and use filter to remove extras that does not have price
-        $list = $this->extras()
-            ->where('category', 'standard')
-            ->orderBy('order_appearance')
-            ->get()
-            ->filter(function ($extra) use ($carenExtras) {
+        $query = $this->extras()->where('category', 'standard');
+
+        if($active) $query->where('active', 1);
+
+        $list = $query->orderBy('order_appearance')->get()->filter(
+            function ($extra) use ($carenExtras) {
                 return $extra->getPriceFromCarenExtras($carenExtras) !== null;                
-            });            
+            }
+        )->values();            
 
         return $list;
     }
