@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('currency_rates', function (Blueprint $table) {
-            $table->id();
-            $table->string('currency_id');
-            $table->foreign('currency_id')->references('hashid')->on('currencies')->onUpdate('cascade')->onDelete('cascade');
+            $table->increments('id');
+            $table->unsignedBigInteger('currency_id');
+            $table->foreign('currency_id')->references('id')->on('currencies')->onUpdate('cascade')->onDelete('cascade');
             $table->decimal('rate', 12, 6);
-            $table->timestamps();
+            $table->timestamps();            
         });
     
     }
