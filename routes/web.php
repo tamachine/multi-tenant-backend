@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\HomeController as LandLordHomeController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Livewire\Auth\Passwords\Email;
