@@ -4,7 +4,9 @@
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <div>
             <a href="{{ route('home') }}">
-                <img src="{{ asset('images/logo.jpeg') }}" alt="Logo" class="mx-auto w-32">
+                <a href="{{ config('multitenancy.landlord_url') }}">
+                    <img src="{{ asset('images/logo.jpeg') }}" alt="Logo" class="mx-auto w-32">
+                </a>
             </a>
 
             <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
@@ -29,7 +31,7 @@
                         </label>
 
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input wire:model.lazy="username_email" id="username_email" name="username_email" type="text" autofocus class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('username_email') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror" />
+                            <input wire:model.lazy="username_email" id="username_email" name="username_email" type="email" autofocus class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('username_email') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror" />
                         </div>
 
                         @error('username_email')
