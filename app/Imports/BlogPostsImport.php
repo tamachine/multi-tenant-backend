@@ -8,18 +8,27 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Concerns\OnEachRow;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 use Illuminate\Support\Str;
+use Hashids\Hashids;
+use Maatwebsite\Excel\Row;
 
-class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBatchInserts
+class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBatchInserts, onEachRow
 {
+    protected Hashids $hashids;
+
+    public function __construct()
+    {
+        $this->hashids = new Hashids();
+    }
     public function startRow(): int
     {
-        return 2;
+        return 1;
     }
 
     public function batchSize(): int
@@ -32,11 +41,13 @@ class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBa
         return 1000;
     }
 
+
+
     public function model(array $row): BlogPost
     {
-        $post = new BlogPost([
+        return new BlogPost([
             'id' => $row[0], //id 0
-            //'hashid' => $row[1],
+            'hashid' => $this->hashids->encode($row[0], 2, 3),
             'title' => $row[1], // title
             'slug' => Str::of($row[1])->slug('-'), //
             'published_at' => $row[4],
@@ -53,14 +64,6 @@ class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBa
             'top' => 1,
             'show_date' => 1
         ]);
-
-        $image = Storage::get('app/Paris.jpg');
-
-        dd($image);
-
-        $post->uploadImage($image, 'Image name');
-
-        return $post;
     }
 
     protected function getDateTimeString($row): string
@@ -74,5 +77,13 @@ class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBa
         return Carbon::parse($date)->toDateTimeString();
     }
 
+    public function onRow(Row $row): void
+    {
+        $post = BlogPost::find($row->getRowIndex());
 
+        $post->images()->create([
+            'image_path' => "/public/image_{$post->id}.png",
+            'alt' => 'texto'
+        ]);
+    }
 }

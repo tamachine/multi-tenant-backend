@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Models\BlogPost;
+use App\Models\ModelImage;
 use Illuminate\Http\Request;
 use App\Imports\BlogPostsImport;
 use Illuminate\Support\Facades\DB;
@@ -34,13 +35,14 @@ class ImportController extends Controller
 
             DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
+            ModelImage::truncate();
             BlogPost::truncate();
 
-            Excel::import(new BlogPostsImport, 'blog_ra.csv');
+            Excel::import(new BlogPostsImport, $request->file('file'));
 
             DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-            return back()->with('flash', 'Importación correcta');
+            return back()->with('flash', __('Import successful'));
         }
     }
 }
