@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Blog\Author;
 
 use App\Models\BlogAuthor;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -77,16 +78,21 @@ class Create extends Component
         $author = $author->create([
             'name'              => $this->name,
             'slug'              => $this->slug ? $this->slug : slugify($this->name),
-            'bio'               => $this->bio, 
+            'bio'               => $this->bio,
             'short_bio'         => $this->short_bio
         ]);
 
-       
+
 
         session()->flash('status', 'success');
         session()->flash('message', 'Author "' . $this->name . '" created');
 
         return redirect()->route('intranet.blog.author.edit', $author->hashid);
+    }
+
+    public function updatedName($name): void
+    {
+        $this->slug = Str::slug($name);
     }
 
     public function render()
