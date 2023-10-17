@@ -4,17 +4,11 @@ namespace App\Imports;
 
 use App\Models\BlogPost;
 use Carbon\Carbon;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Concerns\OnEachRow;
-use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithStartRow;
-use Illuminate\Support\Str;
 use Hashids\Hashids;
 use Maatwebsite\Excel\Row;
 
@@ -41,15 +35,13 @@ class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBa
         return 1000;
     }
 
-
-
     public function model(array $row): BlogPost
     {
         return new BlogPost([
             'id' => $row[0], //id 0
             'hashid' => $this->hashids->encode($row[0], 2, 3),
             'title' => $row[1], // title
-            'slug' => Str::of($row[1])->slug('-'), //
+            'slug' => $row[11], //
             'published_at' => $row[4],
             'summary' => $row[2], //short text 2
             'content' => $row[3], // long text 3
@@ -61,7 +53,7 @@ class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBa
             'updated_at' => null,
             'deleted_at' => null,
             'hero' => 1,
-            'top' => 1,
+            'top' => 0,
             'show_date' => 1
         ]);
     }
@@ -82,8 +74,12 @@ class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBa
         $post = BlogPost::find($row->getRowIndex());
 
         $post->images()->create([
-            'image_path' => "/public/image_{$post->id}.png",
+            'image_path' => "blog/{$post->id}.png",
             'alt' => 'texto'
         ]);
+
+        $post->featured_image = $post->id;
+
+        $post->save();
     }
 }
