@@ -20,6 +20,7 @@ class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBa
     {
         $this->hashids = new Hashids();
     }
+
     public function startRow(): int
     {
         return 1;
@@ -35,6 +36,11 @@ class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBa
         return 1000;
     }
 
+    protected function getId()
+    {
+        return rand(100, 100000);
+    }
+
     public function model(array $row): BlogPost
     {
         return new BlogPost([
@@ -45,15 +51,15 @@ class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBa
             'published_at' => $row[4],
             'summary' => $row[2], //short text 2
             'content' => $row[3], // long text 3
-            'featured_image' => null,
+            'featured_image' => $row[0],
             'featured_image_hover' => null,
-            'blog_author_id' => 1,
-            'blog_category_id' => 1,
+            'blog_author_id' => rand(1, 5),
+            'blog_category_id' => rand(1, 5),
             'created_at' => null,
             'updated_at' => null,
             'deleted_at' => null,
-            'hero' => 1,
-            'top' => 0,
+            'hero' => 0,
+            'top' => rand(0, 1),
             'show_date' => 1
         ]);
     }
@@ -71,15 +77,14 @@ class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBa
 
     public function onRow(Row $row): void
     {
-        $post = BlogPost::find($row->getRowIndex());
+        $id = $row->toArray()[0];
+
+        $post = BlogPost::find($id);
 
         $post->images()->create([
-            'image_path' => "blog/{$post->id}.png",
-            'alt' => 'texto'
+            'id' => $id,
+            'image_path' => "blogpost/migrated_from_ra/{$id}.png",
+            'alt' => $post->title
         ]);
-
-        $post->featured_image = $post->id;
-
-        $post->save();
     }
 }

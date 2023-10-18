@@ -37,7 +37,7 @@ class BlogPost extends Model implements LocalizedUrlRoutable
      * @var array
      */
     protected $fillable = [
-        'hashid', 'title', 'slug', 'published_at', 'summary', 'content', 'featured_image', 'featured_image_hover',
+        'id', 'hashid', 'title', 'slug', 'published_at', 'summary', 'content', 'featured_image', 'featured_image_hover',
         'blog_author_id', 'blog_category_id', 'hero', 'top', 'show_date'
     ];
 
