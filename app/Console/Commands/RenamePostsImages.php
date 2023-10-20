@@ -41,7 +41,7 @@ class RenamePostsImages extends Command
                 'https://www.reykjavikauto.com/assets/img/blog',
                 'https://www.icelandcars.is/assets/img/blog'
             ];
-            $content = str_replace($search, "/storage/images/blogpost/migrated_from_ra", $post->content);
+            $content = str_replace($search, "https://dev.reykjavikauto.com/storage/images/blogpost/migrated_from_ra", $post->content);
             $post->content = $content;
             $post->save();
             echo $post->content . PHP_EOL;
