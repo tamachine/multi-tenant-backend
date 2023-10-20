@@ -121,6 +121,21 @@ trait BookingHistoryTrait
         'page' => ['except' => 1],
     ];
 
+     /**
+     * @var array
+     */
+    public $locations = [];
+
+    /**
+     * @var string
+     */
+    public $pickup_location = "";
+
+     /**
+     * @var string
+     */
+    public $dropoff_location = "";
+
     /*
     ***************************************************************
     ** METHODS
@@ -145,5 +160,7 @@ trait BookingHistoryTrait
         $this->first_name = "";
         $this->last_name = "";
         $this->telephone = "";
+        $this->pickup_location = "";
+        $this->dropoff_location = "";
     }
 }

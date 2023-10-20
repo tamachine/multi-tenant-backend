@@ -30,6 +30,12 @@
                                 Car
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
+                                Pickup location
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
+                                Dropoff location
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
                                 Payment Status
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
@@ -90,6 +96,12 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                     {{ $booking->car_name }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    {{ $booking->pickup_name }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    {{ $booking->dropoff_name }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                     {{ ucfirst($booking->payment_status) }}

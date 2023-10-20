@@ -191,6 +191,34 @@
                             @endforeach
                         </select>
                     </div>
+
+                    <!-- Pickup Location -->
+                    <div class="px-4 mt-4">
+                        <x-admin.label for="pickup_location" value="{{ __('Pickup Location') }}" />
+
+                        <select id="pickup_location" name="pickup_location" wire:model="pickup_location"
+                            class="disable-arrow block w-full mt-2 pt-2 px-3 text-left border-gray-300 rounded-md"
+                        >
+                            <option value="">All</option>
+                            @foreach($locations as $id => $name)
+                                <option value="{{$id}}">{{ $name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <!-- Dropoff Location -->
+                    <div class="px-4 mt-4">
+                        <x-admin.label for="dropoff_location" value="{{ __('Dropoff location') }}" />
+
+                        <select id="dropoff_location" name="dropoff_location" wire:model="dropoff_location"
+                            class="disable-arrow block w-full mt-2 pt-2 px-3 text-left border-gray-300 rounded-md"
+                        >
+                            <option value="">All</option>
+                            @foreach($locations as $id => $name)
+                                <option value="{{$id}}">{{ $name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
 
                 <div class="mt-4 flex flex-col">

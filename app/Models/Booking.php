@@ -241,6 +241,8 @@ class Booking extends Model
      * @param      string  $first_name          string
      * @param      string  $last_name           string
      * @param      string  $telephone           string
+     * @param      string  $pickup_location     string
+     * @param      string  $dropoff_location     string
      *
      * @return     object  Illuminate\Database\Query\Builder
      */
@@ -261,7 +263,9 @@ class Booking extends Model
         $email,
         $first_name,
         $last_name,
-        $telephone
+        $telephone,
+        $pickup_location,
+        $dropoff_location,
     ) {
         if (!empty($booking_start_date)) {
             $query->whereDate('created_at', '>=', Carbon::createFromFormat("d-m-Y", $booking_start_date));
@@ -343,6 +347,13 @@ class Booking extends Model
             });
         }
 
+        if (!empty($pickup_location)) {
+            $query->where('pickup_location', dehash($pickup_location));
+        }
+
+        if (!empty($dropoff_location)) {
+            $query->where('dropoff_location', dehash($dropoff_location));
+        }
 
         return $query;
     }
