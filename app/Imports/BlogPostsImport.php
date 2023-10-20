@@ -4,6 +4,7 @@ namespace App\Imports;
 
 use App\Models\BlogPost;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Concerns\OnEachRow;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
@@ -81,10 +82,24 @@ class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBa
 
         $post = BlogPost::find($id);
 
+        // featured image
         $post->images()->create([
             'id' => $id,
             'image_path' => "blogpost/migrated_from_ra/{$id}.png",
             'alt' => $post->title
         ]);
+
+        // images
+        $files = Storage::disk('public')->allFiles("images/blogpost/migrated_from_ra/{$id}");
+
+        if($files) {
+            foreach ($files as $key => $file) {
+                $post->images()->create([
+                    'id' => $id + ($key + 1),
+                    'image_path' => str_replace('images/', '', $file),
+                    'alt' => $post->title
+                ]);
+            }
+        }
     }
 }
