@@ -6,6 +6,7 @@ use App\Models\BlogAuthor;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\BlogTag;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Storage;
@@ -104,7 +105,7 @@ class Edit extends Component
     /**
      * @var array
      */
-    public $hours = [];    
+    public $hours = [];
 
     public $tab;
 
@@ -144,18 +145,18 @@ class Edit extends Component
         $rules = [
             'title'             => ['required'],
             'category'          => ['required'],
-            'author'            => ['required'],            
+            'author'            => ['required'],
             'summary'           => ['max:1023'],
             'published_at'      => ['date_format:d-m-Y'],
             'published_at_hour' => ['date_format:H:i'],
-            'slug'              => ['alpha_dash', "unique_translation:blog_posts,slug,{$this->post->id}" ],
+            'slug'              => ['required', "unique_translation:blog_posts,slug,{$this->post->id}" ],
         ];
 
-        $this->validate($rules);       
+        $this->validate($rules);
 
         $this->post->update([
             'title'             => $this->title,
-            'slug'              => $this->slug ? $this->slug : slugify($this->title),           
+            'slug'              => Str::slug($this->slug),
             'hero'              => $this->hero ? 1 : 0,
             'top'               => $this->top ? 1 : 0,
             'show_date'         => $this->show_date ? 1 : 0,
@@ -168,13 +169,14 @@ class Edit extends Component
 
         $this->post->tags()->sync($this->tags ?: null);
 
-        $this->dispatchBrowserEvent('open-success', ['message' => 'Post "' . $this->title .'" updated']);   
+        //$this->dispatchBrowserEvent('open-success', ['message' => 'Post "' . $this->title .'" updated']);
 
-        //session()->flash('status', 'success');
-        //session()->flash('message', 'Post "' . $this->title . '" updated');
 
-        //return redirect()->route('intranet.blog.post.index');
-    }  
+        session()->flash('status', 'success');
+        session()->flash('message', 'Post "' . $this->title . '" updated');
+
+        return redirect()->route('intranet.blog.post.edit', $this->post);
+    }
 
     public function deletePost()
     {
@@ -189,5 +191,5 @@ class Edit extends Component
     public function render()
     {
         return view('livewire.blog.post.edit');
-    }   
+    }
 }
