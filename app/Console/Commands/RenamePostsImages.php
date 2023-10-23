@@ -15,7 +15,7 @@ class RenamePostsImages extends Command
      *
      * @var string
      */
-    protected $signature = 'blog:rename-images {--tenant=*}';
+    protected $signature = 'blog:rename-images {--tenant=} {--url=}';
 
     /**
      * The console command description.
@@ -44,9 +44,9 @@ class RenamePostsImages extends Command
 
             if ($this->contains($post->content, $search)) {
 
-                $content = str_replace($search, "https://reykjavikauto.dev.campervanplanet.com/storage/images/blogpost/migrated_from_ra", $post->content);
+                $content = str_replace($search, "{$this->option('url')}/storage/images/blogpost/migrated_from_ra", $post->content);
                 $post->content = $content;
-                //$post->save();
+                $post->save();
                 $result ++;
             }
         }
