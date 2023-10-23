@@ -74,6 +74,7 @@ class History extends Component
             $this->last_name,
             $this->telephone
         )
+            ->with('affiliate')
             ->orderBy($this->order_column, $this->order_way)
             ->paginate($this->records);
 

@@ -44,7 +44,7 @@ class Extras extends Component
         $this->availableExtras = [];
 
         // Load the current extras
-        foreach ($this->booking->bookingExtras as $bookingExtra) {
+        foreach ($this->booking->bookingExtras->load('extra') as $bookingExtra) {
             $this->currentExtras[] = [
                 'id'    => $bookingExtra->extra_id,
                 'name'  => $bookingExtra->extra->name,
