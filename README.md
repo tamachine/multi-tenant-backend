@@ -44,6 +44,10 @@ This is a multi tenant site (https://spatie.be/docs/laravel-multitenancy/v3). Mi
     php artisan migrate --path=database/migrations/landlord --database=landlord
     php artisan tenants:artisan "migrate --database=tenant --seed"
 
+If the command only needs to run for a specific tenant, you can pass its id to the tenant option.
+
+    php artisan tenants:artisan "migrate --database=tenant" --tenant=1
+
 You can now access the server at http://localhost:8000
 
 ## API token 
