@@ -209,27 +209,14 @@ class BlogPost extends Model implements LocalizedUrlRoutable
      * Scopes
      **********************************/
 
-    /**
-     * Scope to search the model
-     *
-     * @param      object  $query    Illuminate\Database\Query\Builder
-     * @param      object  $request  Illuminate\Http\Request
-     *
-     * @return     object  Illuminate\Database\Query\Builder
-     */
-    public function scopeLivewireSearch($query, $search)
+    public function scopeLivewireSearch($query, $search): void
     {
-        if (!empty($search)) {
-            //break down multiple words into sepearate string queries, using " " to group words
-            //into a single query
-            collect(str_getcsv($search, ' ', '"'))->filter()->each(function ($term) use ($query) {
-                $term = '%' . $term . '%';
-                $query->where('title', 'like', $term)
-                    ->orWhere('summary', 'like', $term);
-            });
+        if (empty ($search)) {
+            return;
         }
 
-        return $query;
+        $query->where('title', 'like', "%{$search}%")
+            ->orWhere('summary', 'like', "%{$search}%");
     }
 
     public function scopePublished($query)
