@@ -19,12 +19,12 @@
 
             <div class="px-4 mt-4 sm:mt-0 flex gap-3 ">
                 <!-- Published -->
-                <section>                    
+                <section>
                     {{-- Published Date --}}
                     <div class="pl-3">
                         <div class="flex items-center">
                             <x-admin.label for="published_at" value="Published date" />
-                            <x-admin.label-tooltip for="show_date" tooltip="Post will be published on the published date. Until then, it is only available in preview mode"/>  
+                            <x-admin.label-tooltip for="show_date" tooltip="Post will be published on the published date. Until then, it is only available in preview mode"/>
                         </div>
                         <div class="flex justify-start mt-1">
                             <div>
@@ -55,7 +55,7 @@
                         </div>
 
                         <x-admin.input-error for="published_at" class="mt-2" />
-                        <x-admin.input-error for="published_at_hour" class="mt-2" />                        
+                        <x-admin.input-error for="published_at_hour" class="mt-2" />
                     </div>
                 </section>
 
@@ -80,12 +80,12 @@
                 </div>
 
                 <!-- Preview -->
-                <section class="ml-auto flex">   
+                <section class="ml-auto flex">
                 <div>
-                        <x-admin.label-tooltip tooltip="There is a limited preview time (2 hours). If you get a 404 error when previewing, please, save changes and refresh this page." />                 
+                        <x-admin.label-tooltip tooltip="There is a limited preview time (2 hours). If you get a 404 error when previewing, please, save changes and refresh this page." />
                     </div>
-                    <x-admin.post-preview-button :post="$post"/>                    
-                    
+                    <x-admin.post-preview-button :post="$post"/>
+
                 </section>
             </div>
 
@@ -93,10 +93,10 @@
 
             <div class="px-4 mt-4 sm:mt-0 pl-7">
                 <div class="flex items-center">
-                    <x-admin.label for="top" value="{{ __('Show date') }}" class="inline"/>
-                    <x-admin.label-tooltip for="show_date" tooltip="If marked, published date will be visible in the post. Only news posts (not evergreen) should show a date"/>                                                                                        
+                    <x-admin.checkbox id="show_date" wire:model="show_date" class="w-5 h-5 mr-1" />
+                    <x-admin.label for="show_date" value="{{ __('Show date') }}" class="inline"/>
+                    <x-admin.label-tooltip tooltip="If marked, published date will be visible in the post. Only news posts (not evergreen) should show a date"/>
                 </div>
-                <x-admin.checkbox id="show_date" wire:model="show_date" class="w-10 h-10 mt-1" />
             </div>
         </div>
 
@@ -167,30 +167,30 @@
         </div>
 
         <hr class="my-4">
-        
+
         <!-- images -->
-        <div class="px-4 mt-4">            
+        <div class="px-4 mt-4">
             <x-admin.label for="images" value="Images" class="mb-2" />
             <livewire:common.image-gallery :model="$post" :wire:key="$post->id" :hidde-image-card-alts="true"/>
         </div>
 
-        <div class="px-4 mt-4">            
+        <div class="px-4 mt-4">
             <x-admin.label for="image" value="Upload images" class="mb-2" />
             <livewire:common.image-upload text="Upload images" :model="$post" :wire:key="$post->hashid" />
         </div>
 
         <hr class="my-4">
-        
+
         <!-- featured image -->
-        <div class="px-4 mt-4">            
+        <div class="px-4 mt-4">
             <x-admin.label for="image" value="Featured image" class="mb-2" />
-            <livewire:common.featured-image-upload text="Upload featured image" :model="$post" :wire:key="$post->hashid . 'featured'" />        
+            <livewire:common.featured-image-upload text="Upload featured image" :model="$post" :wire:key="$post->hashid . 'featured'" />
         </div>
 
         <hr class="my-4">
-        
+
          <!-- featured image hover -->
-        <div class="px-4 mt-4">            
+        <div class="px-4 mt-4">
             <x-admin.label for="image" value="Featured image hover" class="mb-2" />
             <livewire:common.featured-image-hover-upload text="Upload featured image hover" :model="$post" :wire:key="$post->id . 'featured_hover'" />
         </div>
