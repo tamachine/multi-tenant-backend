@@ -3,8 +3,6 @@
 namespace App\Services\Payment\Valitor;
 
 use App\Models\Booking;
-use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 
 /**
  * This class checks the response of valitor when a payment is made
@@ -13,11 +11,11 @@ class ValitorCheckResponse {
 
     protected Booking $booking;
     protected Booking $bookingToCheck;
-    protected Collection $request;
+    protected array $request = [];
 
     use ValitorBase;
 
-    public function __construct(Collection $request, Booking $bookingToCheck) 
+    public function __construct(array $request, Booking $bookingToCheck) 
     {
         $this->request = $request;
 
@@ -47,7 +45,7 @@ class ValitorCheckResponse {
      */
     protected function setBooking()
     {
-        $this->booking = Booking::ValitorReferenceNumber($this->request->ReferenceNumber)->first();
+        $this->booking = Booking::ValitorReferenceNumber($this->request['ReferenceNumber'])->first();
     }
 
     /**
@@ -56,7 +54,7 @@ class ValitorCheckResponse {
      * @return bool
      */
     protected function checkBooking() : bool
-    {
+    {        
         if($this->booking) {
             return ($this->booking->hashid == $this->bookingToCheck->hashid);
         }
@@ -73,7 +71,7 @@ class ValitorCheckResponse {
     protected function checkDigitalSignatureResponse() : bool
     {
         if($this->booking) {
-            return ($this->request->DigitalSignatureResponse == hash('sha256', ($this->valitorConfig['verification_code'] . $this->booking->valitor_reference_number)));
+            return ($this->request['DigitalSignatureResponse'] == hash('sha256', ($this->valitorConfig['verification_code'] . $this->booking->valitor_reference_number)));
         }
         
         return false;

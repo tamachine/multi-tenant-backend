@@ -32,7 +32,7 @@ class Valitor {
     /**
      * Checks the valitor response
      */
-    public function checkResponse(Collection $request, Booking $booking) {
+    public function checkResponse(array $request, Booking $booking) {             
         $response = new ValitorCheckResponse($request, $booking);
 
         return $response->check();
