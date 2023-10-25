@@ -11,14 +11,15 @@ return [
     * localhost:8080/request-docs
     */
     'url' => 'developer/api/request-docs',
-    'middlewares' => ['web', 'auth', 'can:developer'], 
+    //'middlewares' => ['web', 'auth', 'can:developer'],
+    'middlewares' => ['web'],
 
     /*
     * Default headers shown on the request headers editor
     */
     'default_request_headers' => [
-        'Accept' => 'application/json',            
-        'Authorization' => (env('APP_ENV') == 'staging' ? 'Basic c2NhbmRpbmF2aWFudHJhdmVsOmpiZi1leHcyZmJnOXRoZ0BaTko=, ' : '') .'Bearer your_token_here'        
+        'Accept' => 'application/json',
+        'Authorization' => (env('APP_ENV') == 'staging' ? 'Basic c2NhbmRpbmF2aWFudHJhdmVsOmpiZi1leHcyZmJnOXRoZ0BaTko=, ' : '') .'Bearer your_token_here'
     ],
 
     /*

@@ -23,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(ApplyPreferredLanguageToLanguageSession::class, function($app) {
-			return new ApplyPreferredLanguageToLanguageSession(new PreferredLanguage());
-		});
+            return new ApplyPreferredLanguageToLanguageSession(new PreferredLanguage());
+        });
 
         $this->app->bind('RoutesForPages',function(){
             return new RoutesForPages();
@@ -52,8 +52,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         // Disable eloquent lazy loading during development
-        //Model::preventLazyLoading(! $this->app->isProduction());
-
-        Schema::defaultStringLength(191);
+        Model::preventLazyLoading(! $this->app->isProduction());
     }
 }

@@ -8,7 +8,8 @@ class HomeController extends BaseController
 {
     public function index()
     {
-        return view('web.home.index', ['latestArticles' => $this->latestArticles()]);
+        //return view('web.home.index', ['latestArticles' => $this->latestArticles()]);
+        return redirect()->route('login');
     }
 
     protected function latestArticles() {

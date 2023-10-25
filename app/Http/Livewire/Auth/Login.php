@@ -17,18 +17,13 @@ class Login extends Component
     public $remember = false;
 
     protected $rules = [
-        'username_email' => ['required'],
-        'password' => ['required'],
+        'username_email' => ['required', 'email'],
+        'password' => ['required', 'min:6'],
     ];
 
     public function authenticate()
     {
-        $this->validate(
-            $this->rules,
-            [
-                'username_email' => 'Username/Email is required',
-            ]
-        );
+        $this->validate($this->rules);
 
         if(filter_var($this->username_email, FILTER_VALIDATE_EMAIL)) {
             $field = 'email';

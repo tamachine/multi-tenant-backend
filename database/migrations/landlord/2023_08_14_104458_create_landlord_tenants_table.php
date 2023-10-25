@@ -11,7 +11,7 @@ class CreateLandlordTenantsTable extends Migration
     public function up()
     {
         Schema::create('tenants', function (Blueprint $table) {
-            $table->id();            
+            $table->id();
             $table->string('name')->unique();
             $table->string('long_name');
             $table->string('domain')->unique();
@@ -19,9 +19,9 @@ class CreateLandlordTenantsTable extends Migration
             $table->timestamps();
         });
 
-       
-        Artisan::call('db:seed', [
+
+        /*Artisan::call('db:seed', [
             '--class' => TenantSeeder::class
-        ]);
+        ]);*/
     }
 }

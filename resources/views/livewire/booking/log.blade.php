@@ -15,7 +15,7 @@
         </thead>
 
         <tbody>
-            @foreach ($booking->logs()->orderBy('id', 'desc')->get() as $index => $log)
+            @foreach ($booking->logs()->with('user')->orderBy('id', 'desc')->get() as $index => $log)
                 <tr class="{{$index % 2 == 0 ? 'bg-white' : 'bg-gray-50'}}">
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                         {{ $log->created_at->format('d-m-Y H:i') }}
