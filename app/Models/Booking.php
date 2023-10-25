@@ -15,7 +15,7 @@ class Booking extends Model
 {
     use HasFactory, HashidTrait, SoftDeletes, HasPdf, HasApiResponse;    
 
-    protected $apiResponse = ['hashid', 'status', 'valitor_request', 'valitor_response', 'name'];
+    protected $apiResponse = ['hashid', 'status', 'payment_status', 'valitor_request', 'valitor_response', 'name', 'email', 'telephone', 'address', 'city', 'postal_code', 'country'];
 
     protected $valitor_reference_number_column = 'hashid';
 
