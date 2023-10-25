@@ -16,7 +16,8 @@ class BookingsController extends BaseController {
      * ## Updates a booking 
      * ## api_booking_hashid: hashid of the booking
      * @QAparam valitor_request array nullable "the valitor request for the booking"     
-     * @QAparam valitor_response array nullable "the valitor response for the booking"     
+     * @QAparam valitor_response array nullable "the valitor response for the booking"  
+     * @QAparam payment_status string nullable "the payment status: 'pending', 'confirmed'"     
      * @lrd:end     
      */
     public function update(Booking $booking) {
@@ -70,11 +71,10 @@ class BookingsController extends BaseController {
     protected function updateBooking($attribute) {
         if(request()->has($attribute)) {
             $attribute_value = request()->input($attribute);
-
-            if(is_array($attribute_value)) {
-                $this->booking->$attribute = $attribute_value;
-                $this->booking->save();
-            } 
+            
+            $this->booking->$attribute = $attribute_value;
+            $this->booking->save();
+           
         }
     }   
 }
