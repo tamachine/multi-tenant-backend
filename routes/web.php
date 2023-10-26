@@ -75,6 +75,6 @@ Route::group(
      * **/
 
     if (!App::runningInConsole() && Tenant::checkCurrent()) { //to fix migrations to fail. Routes are loading before migrations but they are database dependant.
-        RoutesForPages::registerRoutes(); // Routes stored in database (Pages)
+        RoutesForPages::storeRoutes(); // Routes stored in database (Pages)
     }
 });
