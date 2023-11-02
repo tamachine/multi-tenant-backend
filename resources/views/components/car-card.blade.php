@@ -7,9 +7,9 @@
             <x-image :modelImage="$secondaryImage" class="absolute top-0 left-0 h-full w-full object-cover object-center transition ease-in-out opacity-0 group-hover:opacity-100 duration-300" />                
         @else
             @if ($mainImageModelImage)                                 
-                <x-webp-image :image-path="$mainImageModelImage" class="w-full" />              
+                <x-image :image-path="$mainImageModelImage" class="w-full" />              
             @else
-                <x-webp-image :image-path="$mainImagePath" class="w-full" />                              
+                <x-image :image-path="$mainImagePath" class="w-full" />                              
             @endif
         @endif
 

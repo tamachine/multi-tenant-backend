@@ -83,6 +83,7 @@ class CarBookingCaren implements CarBookingInterface{
                 'telephone' =>$this->carBookingParams->details['telephone'],
                 'address' => $this->carBookingParams->details['address'],
                 'postal_code' => $this->carBookingParams->details['postal_code'],
+                'additional_info' => $this->carBookingParams->details['additional_info'],
                 'city' => $this->carBookingParams->details['city'],
                 'country' => $this->carBookingParams->details['country'],
                 'number_passengers' => $this->carBookingParams->details['number_passengers'],

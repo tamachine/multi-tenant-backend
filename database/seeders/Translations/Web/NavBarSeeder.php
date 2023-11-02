@@ -27,6 +27,36 @@ class NavBarSeeder extends Seeder
         Translation::firstOrCreate(
             [
                 'group' => 'navbar',
+                'key' => 'cars.small',
+            ],
+            [
+                'text' => ['en' => 'Small & Medium', 'es' => 'Pequeños y Medianos'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'navbar',
+                'key' => 'cars.large',
+            ],
+            [
+                'text' => ['en' => 'Large', 'es' => 'Grandes'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'navbar',
+                'key' => 'cars.premium',
+            ],
+            [
+                'text' => ['en' => 'Premium', 'es' => 'Premium'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'navbar',
                 'key' => 'about',
             ],
             [
@@ -41,6 +71,16 @@ class NavBarSeeder extends Seeder
             ],
             [
                 'text' => ['en' => 'FAQ', 'es' => 'FAQ'],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'navbar',
+                'key' => 'insurances',
+            ],
+            [
+                'text' => ['en' => 'Insurance', 'es' => 'Seguros'],
             ]
         );
 

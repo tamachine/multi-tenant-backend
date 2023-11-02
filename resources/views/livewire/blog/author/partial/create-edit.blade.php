@@ -11,7 +11,7 @@
         <!-- Name -->
         <div class="px-4">
             <x-admin.label for="name" value="{{ __('Name') }}" />
-            <x-admin.input id="name" type="text" class="mt-1 block w-full" maxlength="255" wire:model.defer="name" autocomplete="author_name" />
+            <x-admin.input id="name" type="text" class="mt-1 block w-full" maxlength="255" wire:model="name" autocomplete="author_name" />
             <x-admin.input-error for="name" class="mt-2" />
         </div>
 
@@ -20,7 +20,7 @@
             <x-admin.label for="slug" value="{{ __('Slug/URL') }}" />
             <x-admin.input id="slug" type="text" class="mt-1 block w-full" maxlength="255" wire:model.defer="slug" autocomplete="author_slug" />
             <x-admin.input-error for="slug" class="mt-2" />
-        </div>        
+        </div>
 
         <!-- Short Bio -->
         <div class="px-4 mt-4">
@@ -36,11 +36,11 @@
             <x-admin.tinymce-editor wire:model.defer="bio" placeholder="Write a nice author bio..." />
         </div>
 
-        <hr class="my-4">       
+        <hr class="my-4">
 
         <div class="m-4">
             <livewire:common.featured-image-upload text="Upload photo" :model="$author" :wire:key="$author->hashid" />
-        </div>        
+        </div>
     </x-slot>
 
     <x-slot name="actions">

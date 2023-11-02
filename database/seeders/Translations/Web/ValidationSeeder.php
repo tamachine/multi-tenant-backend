@@ -44,6 +44,16 @@ class ValidationSeeder extends Seeder
                 'text' => ['en' => 'This is a required field', 'es' => 'Este es un campo obligatorio.'],
             ]
         );
+        
+        Translation::firstOrCreate(
+            [
+                'group' => 'validation',
+                'key' => 'accepted',
+            ],
+            [
+                'text' => ['en' => 'Please, you must accept the terms and conditions.', 'es' => 'Por favor, debe aceptar aceptar los términos y condiciones.'],
+            ]
+        );
 
     }
 }

@@ -29,10 +29,14 @@ Route::get('cars/{api_car_hashid}/extras', 'CarsController@extras');
 Route::get('cars/{api_car_hashid}/prices', 'CarsController@prices'); 
 Route::put('cars/{api_car_hashid}/booking/create', 'CarBookingController@create'); 
 
-Route::get('payments/valitor/{api_booking_hashid}', 'PaymentsController@valitor'); 
-Route::apiResource('bookings', BookingsController::class, ['parameters' => ['bookings' => 'api_booking_hashid']])->only(['update']);
+Route::get('valitor/requestParams/{api_booking_hashid}', 'ValitorController@requestParams'); 
+Route::get('valitor/checkResponse/{api_booking_hashid}', 'ValitorController@checkResponse'); 
+
+Route::apiResource('bookings', BookingsController::class, ['parameters' => ['bookings' => 'api_booking_hashid']])->only(['update', 'show']);
+Route::put('bookings/pdf', 'BookingsController@pdf'); 
 
 Route::apiResource('extras', ExtrasController::class, ['parameters' => ['extras' => 'api_extra_hashid']])->only(['index', 'show']);
+Route::apiResource('insurances', InsurancesController::class)->only(['index']);
 
 Route::apiResource('insurance-features', InsuranceFeaturesController::class)->only('index');
 

@@ -54,7 +54,8 @@ class History extends Component
             $this->dropoff_location,
             $this->order_column,
             $this->order_way,
-            $this->date_format
+            $this->date_format,
+            $this->additional_info
         ), 'Booking History.xlsx');
     }
 
@@ -79,7 +80,9 @@ class History extends Component
             $this->telephone,
             $this->pickup_location,
             $this->dropoff_location
+            $this->additional_info
         )
+            ->with('affiliate')
             ->orderBy($this->order_column, $this->order_way)
             ->paginate($this->records);
 
