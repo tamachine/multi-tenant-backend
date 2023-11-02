@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="mt-6 font-sans-bold">
-                    <button class="btn btn-red font-sans-bold py-3 px-10" onclick='window.location.href="{{route("home")}}"'>{!! __('app-errors.not-found-button') !!}</button>
+                    <button class="btn btn-red font-sans-bold py-3 px-10" onclick='window.location.href="{{route("login")}}"'>{!! __('app-errors.not-found-button') !!}</button>
                 </div>
             </div>
         </div>        

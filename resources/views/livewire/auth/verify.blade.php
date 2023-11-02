@@ -3,7 +3,7 @@
 <div class="flex items-center justify-center h-screen">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <div>
-            <a href="{{ route('home') }}">
+            <a href="{{ route('login') }}">
                 <x-logo class="w-auto h-16 mx-auto text-indigo-600" />
             </a>
 

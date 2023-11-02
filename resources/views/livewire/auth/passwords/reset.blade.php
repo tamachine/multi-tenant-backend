@@ -3,7 +3,7 @@
 <div class="flex items-center justify-center h-screen">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <div>
-            <a href="{{ route('home') }}">
+            <a href="{{ route('login') }}">
                 <img src="{{ asset('images/logo.jpeg') }}" alt="Logo" class="mx-auto w-32">
             </a>
 
