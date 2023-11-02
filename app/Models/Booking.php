@@ -32,7 +32,7 @@ class Booking extends Model
         'payment_status', 'vendor_status', 'pickup_input_info', 'dropoff_input_info',
         'first_name', 'last_name', 'email', 'telephone', 'number_passengers',
         'driver_name', 'driver_date_birth', 'driver_id_passport', 'driver_license_number',
-        'country', 'address', 'city', 'state', 'postal_code', 'weight_info',
+        'country', 'address', 'city', 'state', 'postal_code','additional_info', 'weight_info',
         'extra_driver_info1', 'extra_driver_info2', 'extra_driver_info3', 'extra_driver_info4',
         'affiliate_id', 'affiliate_commission',
         'caren_id', 'caren_guid', 'caren_info',

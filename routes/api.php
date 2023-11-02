@@ -36,6 +36,7 @@ Route::apiResource('bookings', BookingsController::class, ['parameters' => ['boo
 Route::put('bookings/pdf', 'BookingsController@pdf'); 
 
 Route::apiResource('extras', ExtrasController::class, ['parameters' => ['extras' => 'api_extra_hashid']])->only(['index', 'show']);
+Route::apiResource('insurances', InsurancesController::class)->only(['index']);
 
 Route::apiResource('insurance-features', InsuranceFeaturesController::class)->only('index');
 

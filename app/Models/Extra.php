@@ -18,7 +18,7 @@ class Extra extends Model
         "hashid", "vendor_id", "name", "description", "order_appearance", 
         "image", "price", "maximum_fee", "max_units", "price_mode",
         "category", "included", "insurance_premium", "caren_id", "price_from", 
-        "getFeaturedImageModelImageInstance", "featured_image_url"
+        "getFeaturedImageModelImageInstance", "featured_image_url", "price_from"
     ];
 
     protected $featured_image_attribute = "image";

@@ -11,35 +11,11 @@ use \Mcamara\LaravelLocalization\Facades\LaravelLocalization;
  */
 class RoutesForPages {
 
-    protected $pages;
-
-    public function __construct() {
-        $this->storeRoutes();
-        $this->setPages();           
-    }   
-
-    /**
-     * Register the routes that are stored in Pages table
-     */
-    public function registerRoutes() {       
-        foreach($this->pages as $page) {
-            /* URLs are defined in UrlsSeeder class because they are stored in database - LaravelLocalization::transRoute */
-            Route::get(LaravelLocalization::transRoute($page->uri_fullkey), [$page->controller, $page->method])->name($page->route_name);
-        }               
-    }
-
-    /**
-     * Sets the pages to be stored and register
-     */
-    protected function setPages() {
-        $this->pages = Page::all();
-    }
-
     /**
      * Stores all the routes that need SEO Configuration
      * Routes that have instance dependency, don't have to be included in here as their SEO configurations will be managed throught they correponding CRUD
      */
-    protected function storeRoutes() {
+    public function storeRoutes() {
 
         /* Static pages */
         $this->storeRoute('home', '/', \App\Http\Controllers\Web\HomeController::class, 'Home page');
