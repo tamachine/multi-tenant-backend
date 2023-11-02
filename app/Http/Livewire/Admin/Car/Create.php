@@ -90,7 +90,7 @@ class Create extends Component
             // Update some information from the Caren car and its extras
             $car->updateFromCarenCar($carenCar->caren_data);
             foreach($carenCar->carenExtras as $carenExtra) {
-                $car->extras()->attach($carenExtra->id);
+                $car->extras()->attach($carenExtra->extra_id);
             }
         }
 
