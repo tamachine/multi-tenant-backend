@@ -24,8 +24,8 @@ class Car extends Model
         'ranking', 'fleet_position', 'users_number_votes', 'adult_passengers',
         'doors', 'luggage', 'beds', 'kitchen', 'heater',
         'engine', 'transmission', 'vehicle_type', 'vehicle_brand', 'f_roads_name', 
-        'featured_image', 'featured_image_hover', 'getFeaturedImageModelImageInstance', 'getFeaturedImagaHoverModelImageInstance',
-        'fRoadAllowed', 'caren_settings', 'vendor', 'booking_percentage'
+        'featured_image', 'featured_image_url', 'featured_image_hover', 'getFeaturedImageModelImageInstance', 'getFeaturedImagaHoverModelImageInstance',
+        'fRoadAllowed', 'caren_settings', 'vendor', 'booking_percentage', 'price_from'
     ];
 
     /**

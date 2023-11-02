@@ -59,5 +59,28 @@ class AppErrorsSeeder extends Seeder
                 'text' => ['en' => 'Go to homepage', 'es' => 'Ir a la página de inicio'],
             ]
         );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'app-errors',
+                'key' => 'error-403-title',
+            ],
+            [
+                'text' => [
+                    'en' => "Hmmm... you shouldn't be around here.",
+                    'es' => 'Mmmm... no deberías estar por aquí.'
+                ],
+            ]
+        );
+
+        Translation::firstOrCreate(
+            [
+                'group' => 'app-errors',
+                'key' => 'error-403-button',
+            ],
+            [
+                'text' => ['en' => 'Go to homepage', 'es' => 'Ir a la página de inicio'],
+            ]
+        );
     }
 }
