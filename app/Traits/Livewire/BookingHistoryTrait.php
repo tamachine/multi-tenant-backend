@@ -104,6 +104,11 @@ trait BookingHistoryTrait
      */
     public $telephone = "";
 
+     /**
+     * @var string
+     */
+    public $additional_info = "";
+
     /**
      * @var int
      */

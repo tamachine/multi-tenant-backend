@@ -2,13 +2,11 @@
 
 <div class="flex items-center justify-center h-screen">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <div>
-            <a href="{{ route('home') }}">
-                <a href="{{ config('multitenancy.landlord_url') }}">
-                    <img src="{{ asset('images/logo.jpeg') }}" alt="Logo" class="mx-auto w-32">
-                </a>
+        <div>            
+            <a href="{{ config('multitenancy.landlord_url') }}">
+                <img src="{{ asset('images/logo.jpeg') }}" alt="Logo" class="mx-auto w-32">
             </a>
-
+            
             <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
                 Log in {{ app('currentTenant')->long_name }}
             </h2>
