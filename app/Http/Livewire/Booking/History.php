@@ -50,7 +50,8 @@ class History extends Component
             $this->telephone,
             $this->order_column,
             $this->order_way,
-            $this->date_format
+            $this->date_format,
+            $this->additional_info
         ), 'Booking History.xlsx');
     }
 
@@ -72,7 +73,8 @@ class History extends Component
             $this->email,
             $this->first_name,
             $this->last_name,
-            $this->telephone
+            $this->telephone,
+            $this->additional_info
         )
             ->with('affiliate')
             ->orderBy($this->order_column, $this->order_way)
