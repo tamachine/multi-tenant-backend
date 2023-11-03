@@ -19,7 +19,7 @@
                         <img src="{{ asset('images/logo.jpeg') }}" alt="Logo" class="w-12">
                     </div>
                     <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
-                        {{--<x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{--<x-nav-link :href="route('login')" :active="request()->routeIs('home')">
                             {{ __('Home') }}
                         </x-nav-link>--}}
                     </div>
@@ -30,7 +30,7 @@
         <!-- Mobile menu, show/hide based on menu state. -->
         <div class="sm:hidden" id="mobile-menu">
             <div class="space-y-1 pb-3 pt-2">
-               {{-- <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+               {{-- <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('home')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>--}}
             </div>
