@@ -38,6 +38,10 @@ Copy the example env file and make the required configuration changes in the .en
 
     cp .env.example .env
 
+Copy the tenant.example env file for every tenant. tenant-name must be the same as the name in the landlord database
+
+    cp .env.tenant.example .env.tenant-name
+
 Run the database migrations and default seeder(**Set the database connection in .env before migrating**)
 This is a multi tenant site (https://spatie.be/docs/laravel-multitenancy/v3). Migrations should be run like:
 
