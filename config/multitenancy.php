@@ -38,6 +38,7 @@ return [
         // \Spatie\Multitenancy\Tasks\PrefixCacheTask::class,
         SwitchTenantDatabaseTask::class,
         App\Tasks\SwitchTenantConfigTask::class,
+        App\Tasks\SwitchEnvironmentTask::class,
         // \Spatie\Multitenancy\Tasks\SwitchRouteCacheTask::class,
     ],
 
