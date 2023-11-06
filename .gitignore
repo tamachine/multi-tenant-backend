@@ -21,6 +21,8 @@ public_html/hot
 
 storage/*.key
 .env
+.env.ci 
+.env.ra
 .env.testing
 .env.dusk.local
 Homestead.yaml
