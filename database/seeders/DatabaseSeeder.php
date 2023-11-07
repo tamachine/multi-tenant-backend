@@ -69,6 +69,7 @@ class DatabaseSeeder extends Seeder
             CurrencySeeder::class,
             CurrencyRateSeeder::class,
             ContactUserDetailsTypesSeeder::class,
+            SeoConfigurationSeeder::class
         ]);
     }
 
@@ -95,6 +96,7 @@ class DatabaseSeeder extends Seeder
             CurrencySeeder::class,
             CurrencyRateSeeder::class,
             ContactUserDetailsTypesSeeder::class,
+            SeoConfigurationSeeder::class
         ]);
     }
 
