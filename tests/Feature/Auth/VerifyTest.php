@@ -56,7 +56,7 @@ class VerifyTest extends TestCase
         ]);
 
         $this->get($url)
-            ->assertRedirect(route('home'));
+            ->assertRedirect(route('login'));
 
         $this->assertTrue($user->hasVerifiedEmail());
     }

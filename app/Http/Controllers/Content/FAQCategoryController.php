@@ -28,7 +28,7 @@ class FAQCategoryController extends Controller
     
     public function create(): View
     {
-        $this->authorize('admin');
+        $this->authorize('content');
 
         $data = [
             'action' => collect([

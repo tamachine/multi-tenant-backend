@@ -30,6 +30,12 @@
                                 Car
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
+                                Pickup location
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
+                                Dropoff location
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
                                 Payment Status
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
@@ -68,6 +74,9 @@
                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
                                 Affiliate
                             </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-500 tracking-wider">
+                                Additional info
+                            </th>
                         </tr>
                     </thead>
 
@@ -92,6 +101,12 @@
                                     {{ $booking->car_name }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    {{ $booking->pickup_name }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    {{ $booking->dropoff_name }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                     {{ ucfirst($booking->payment_status) }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -114,6 +129,9 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                     {{ $booking->affiliate_name }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    {{ $booking->additional_info }}
                                 </td>
                             </tr>
                         @endforeach

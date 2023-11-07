@@ -32,7 +32,7 @@ class Booking extends Model
         'payment_status', 'vendor_status', 'pickup_input_info', 'dropoff_input_info',
         'first_name', 'last_name', 'email', 'telephone', 'number_passengers',
         'driver_name', 'driver_date_birth', 'driver_id_passport', 'driver_license_number',
-        'country', 'address', 'city', 'state', 'postal_code', 'weight_info',
+        'country', 'address', 'city', 'state', 'postal_code','additional_info', 'weight_info',
         'extra_driver_info1', 'extra_driver_info2', 'extra_driver_info3', 'extra_driver_info4',
         'affiliate_id', 'affiliate_commission',
         'caren_id', 'caren_guid', 'caren_info',
@@ -241,6 +241,8 @@ class Booking extends Model
      * @param      string  $first_name          string
      * @param      string  $last_name           string
      * @param      string  $telephone           string
+     * @param      string  $pickup_location     string
+     * @param      string  $dropoff_location     string
      *
      * @return     object  Illuminate\Database\Query\Builder
      */
@@ -261,7 +263,9 @@ class Booking extends Model
         $email,
         $first_name,
         $last_name,
-        $telephone
+        $telephone,
+        $pickup_location,
+        $dropoff_location,
     ) {
         if (!empty($booking_start_date)) {
             $query->whereDate('created_at', '>=', Carbon::createFromFormat("d-m-Y", $booking_start_date));
@@ -343,6 +347,13 @@ class Booking extends Model
             });
         }
 
+        if (!empty($pickup_location)) {
+            $query->where('pickup_location', dehash($pickup_location));
+        }
+
+        if (!empty($dropoff_location)) {
+            $query->where('dropoff_location', dehash($dropoff_location));
+        }
 
         return $query;
     }

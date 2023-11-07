@@ -92,6 +92,6 @@ class CarenCar extends Model
      */
     public function carenExtras()
     {
-        return $this->belongsToMany('App\Models\CarenExtra')->withTimestamps();
+        return $this->belongsToMany(CarenExtra::class)->withTimestamps();
     }
 }

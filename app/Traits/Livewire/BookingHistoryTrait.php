@@ -104,6 +104,11 @@ trait BookingHistoryTrait
      */
     public $telephone = "";
 
+     /**
+     * @var string
+     */
+    public $additional_info = "";
+
     /**
      * @var int
      */
@@ -120,6 +125,21 @@ trait BookingHistoryTrait
     protected $updatesQueryString = [
         'page' => ['except' => 1],
     ];
+
+     /**
+     * @var array
+     */
+    public $locations = [];
+
+    /**
+     * @var string
+     */
+    public $pickup_location = "";
+
+     /**
+     * @var string
+     */
+    public $dropoff_location = "";
 
     /*
     ***************************************************************
@@ -145,5 +165,7 @@ trait BookingHistoryTrait
         $this->first_name = "";
         $this->last_name = "";
         $this->telephone = "";
+        $this->pickup_location = "";
+        $this->dropoff_location = "";
     }
 }
