@@ -150,7 +150,7 @@ class NavBarSeeder extends Seeder
                 'key' => 'email',
             ],
             [
-                'text' => ['en' => 'info@reykjavikauto.com', 'es' => 'info@reykjavikauto.com'],
+                'text' => ['en' => 'info@icelandcars.is', 'es' => 'info@icelandcars.is'],
             ]
         );
 

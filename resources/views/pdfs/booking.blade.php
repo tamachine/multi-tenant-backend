@@ -17,16 +17,16 @@
             {{-- Logo & Details --}}
             <div class="h-14 relative w-full">
                 <div class="absolute top-3 left-0">
-                    <div class="font-fredokaOne text-pink-red font-normal text-2xl leading-9">Reykjavik Auto</div>                    
+                    <div class="font-fredokaOne text-pink-red font-normal text-2xl leading-9">Iceland Cars</div>                    
                 </div>
 
                 <div class="absolute top-0 left-52 text-xs">
                     <div class="font-bold mb-1">
-                    Reykjavik Auto
+                    Iceland Cars
                     </div>
                     
                     <div class="mb-1">
-                    +354 5390605 - info@reykjavikauto.com - www.reykjavikauto.com
+                    +354 5390605 - info@icelandcars.is - www.icelandcars.is
                     </div>
                     
                     <div>
@@ -38,7 +38,7 @@
             <hr class="bg-black h-0.5 my-4">
 
             <div class="text-center text-xl font-bold">
-                Thank you for booking witd Reykjavik Auto
+                Thank you for booking witd Iceland Cars
             </div>
 
             <div class="mt-4 text-lg font-bold">

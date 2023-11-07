@@ -14,9 +14,6 @@ class PagesController extends BaseController
 {
     use HasSeoConfigurations;
 
-    public function __construct() {
-        RoutesForPages::storeRoutes();
-    }
     /**     
      * @lrd:start
      * ## Returns all pages
