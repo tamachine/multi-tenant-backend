@@ -195,6 +195,7 @@ class Car extends Model
 
     /**
      * Get extra list for a car including caren and own
+     * It also includes the price of the extra in unit_price extra property
      *
      * @return mixed
      */
@@ -207,11 +208,16 @@ class Car extends Model
 
         if($active) $query->where('active', 1);
 
-        $list = $query->orderBy('order_appearance')->get()->filter(
-            function ($extra) use ($carenExtras) {
-                return $extra->getPriceFromCarenExtras($carenExtras) !== null;                
-            }
-        )->values();            
+        $list = $query->get()
+            ->map(function ($extra) use ($carenExtras) {  
+                $extra->unit_price = $extra->getPriceUsingCarenExtras($carenExtras);
+
+                return $extra;
+            })
+            ->filter(function ($extra) {
+                return $extra->unit_price !== null;
+            })
+            ->values();
 
         return $list;
     }
