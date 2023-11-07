@@ -6,7 +6,7 @@ use Spatie\Multitenancy\Models\Tenant;
 /**
  * This class manage config params when tenant is switched
  */
-class SwitchTenantConfigTask implements \Spatie\Multitenancy\Tasks\SwitchTenantTask
+class SwitchConfigTask implements \Spatie\Multitenancy\Tasks\SwitchTenantTask
 {
 
     public function __construct(protected ?string $original_server_url = null)
