@@ -66,7 +66,7 @@ class Handler extends ExceptionHandler
             }
         }
         if ($exception instanceof LazyLoadingViolationException) {
-            return Api::errorResponse(500, 'Lazy Loading'); 
+            return Api::errorResponse(500, 'Lazy Loading: '.$exception->getMessage()); 
         }
 
         return parent::render($request, $exception);
