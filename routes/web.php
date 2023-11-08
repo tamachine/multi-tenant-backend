@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\HomeController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Livewire\Auth\Passwords\Email;
@@ -21,6 +22,7 @@ use App\Models\Landlord\Tenant;
 |
 */
 
+Route::get('/', HomeController::class)->name('home');
 
 Route::group(
     [
