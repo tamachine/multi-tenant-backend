@@ -23,6 +23,7 @@ storage/*.key
 .env
 .env.ci 
 .env.ra
+.env.mhi
 .env.testing
 .env.dusk.local
 Homestead.yaml
