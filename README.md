@@ -109,7 +109,7 @@ For not local environment use: https://laravel.com/docs/9.x/scheduling#running-t
 
 ## Slack
 
-Currently two slack channels are used to send notifications.
+Currently two slack channels are used to send notifications
 
     #caren-observer
     #nave-intergalactica
