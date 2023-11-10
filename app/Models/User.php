@@ -45,7 +45,7 @@ class User extends Authenticatable
      * Methods
      **********************************/
 
-    public function setPasswordAttribute($password)
+    public function setPasswordAttribute($password): void
     {
         $this->attributes['password'] = Hash::make($password);
     }

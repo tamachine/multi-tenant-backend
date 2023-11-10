@@ -110,7 +110,7 @@ return [
 
     'faker_locale' => 'en_US',
 
-    'seeding_password' => env('SEEDING_PASSWORD', 'password'),
+    'seeding_password' => env('SEEDING_PASSWORD', ''),
 
     /*
     |--------------------------------------------------------------------------
