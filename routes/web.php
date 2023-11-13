@@ -21,6 +21,8 @@ use App\Models\Landlord\Tenant;
 |
 */
 
+Route::get('/', function() { return redirect('login'); })->name('home');
+
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
