@@ -24,8 +24,8 @@ class Car extends Model
         'ranking', 'fleet_position', 'users_number_votes', 'adult_passengers',
         'doors', 'luggage', 'beds', 'kitchen', 'heater',
         'engine', 'transmission', 'vehicle_type', 'vehicle_brand', 'f_roads_name', 
-        'featured_image', 'featured_image_hover', 'getFeaturedImageModelImageInstance', 'getFeaturedImagaHoverModelImageInstance',
-        'fRoadAllowed', 'caren_settings', 'vendor', 'booking_percentage'
+        'featured_image', 'featured_image_url', 'featured_image_hover', 'getFeaturedImageModelImageInstance', 'getFeaturedImagaHoverModelImageInstance',
+        'fRoadAllowed', 'caren_settings', 'vendor', 'booking_percentage', 'price_from'
     ];
 
     /**
@@ -195,6 +195,7 @@ class Car extends Model
 
     /**
      * Get extra list for a car including caren and own
+     * It also includes the price of the extra in unit_price extra property
      *
      * @return mixed
      */
@@ -207,11 +208,16 @@ class Car extends Model
 
         if($active) $query->where('active', 1);
 
-        $list = $query->orderBy('order_appearance')->get()->filter(
-            function ($extra) use ($carenExtras) {
-                return $extra->getPriceFromCarenExtras($carenExtras) !== null;                
-            }
-        )->values();            
+        $list = $query->get()
+            ->map(function ($extra) use ($carenExtras) {  
+                $extra->unit_price = $extra->getPriceUsingCarenExtras($carenExtras);
+
+                return $extra;
+            })
+            ->filter(function ($extra) {
+                return $extra->unit_price !== null;
+            })
+            ->values();
 
         return $list;
     }

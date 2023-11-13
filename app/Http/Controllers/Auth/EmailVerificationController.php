@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Access\AuthorizationException;
 
 class EmailVerificationController extends Controller
@@ -22,13 +21,13 @@ class EmailVerificationController extends Controller
         }
 
         if (Auth::user()->hasVerifiedEmail()) {
-            return redirect(route('home'));
+            return redirect(route('login'));
         }
 
         if (Auth::user()->markEmailAsVerified()) {
             event(new Verified(Auth::user()));
         }
 
-        return redirect(route('home'));
+        return redirect(route('login'));
     }
 }

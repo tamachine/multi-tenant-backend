@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Blog\Author;
 
 use App\Models\BlogAuthor;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -63,7 +64,7 @@ class Edit extends Component
         $this->name = $author->name;
         $this->slug = $author->slug;
         $this->bio = $author->bio;
-        $this->short_bio = $author->short_bio;        
+        $this->short_bio = $author->short_bio;
     }
 
     public function saveAuthor()
@@ -71,9 +72,9 @@ class Edit extends Component
         $this->dispatchBrowserEvent('validationError');
 
         $rules = [
-            'name' => ['required'],  
+            'name' => ['required'],
             'slug' => ['alpha_dash',
-                        "unique:blog_authors,slug,{$this->author->id}"],          
+                        "unique:blog_authors,slug,{$this->author->id}"],
         ];
 
         $this->validate($rules);
@@ -82,10 +83,15 @@ class Edit extends Component
             'name'              => $this->name,
             'slug'              => $this->slug ? $this->slug : slugify($this->name),
             'bio'               => $this->bio,
-            'short_bio'         => $this->short_bio,            
-        ]);       
+            'short_bio'         => $this->short_bio,
+        ]);
 
-        $this->dispatchBrowserEvent('open-success', ['message' => 'The author have been saved']);        
+        $this->dispatchBrowserEvent('open-success', ['message' => 'The author have been saved']);
+    }
+
+    public function updatedName($name): void
+    {
+        $this->slug = Str::slug($name);
     }
 
     public function deleteAuthor()

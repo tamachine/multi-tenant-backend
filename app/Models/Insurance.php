@@ -8,7 +8,7 @@ class Insurance extends Extra
 {
     use HasApiResponse;
 
-    protected $apiResponse = ['hashid', 'active','name', 'description', 'image', 'color', 'price_mode', 'features', 'caren_id'];
+    protected $apiResponse = ['hashid', 'active','name', 'description', 'image', 'color', 'price_mode', 'features', 'caren_id', 'price_from'];
 
     protected $table = 'extras';
  

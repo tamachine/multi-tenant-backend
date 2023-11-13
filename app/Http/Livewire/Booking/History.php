@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Booking;
 use App\Exports\BookingHistoryExport;
 use App\Models\Booking;
 use App\Models\Car;
+use App\Models\Location;
 use App\Models\Vendor;
 use App\Traits\Livewire\BookingHistoryTrait;
 use Excel;
@@ -21,10 +22,11 @@ class History extends Component
     ***************************************************************
     */
 
-    public function mount(Car $car, Vendor $vendor)
+    public function mount(Car $car, Vendor $vendor, Location $location)
     {
         $this->vehicles = $car->orderBy('name')->pluck('name', 'hashid');
         $this->vendors = $vendor->orderBy('name')->pluck('name', 'hashid');
+        $this->locations =  $location->orderBy('name')->pluck('name', 'hashid');
 
         $this->fill(request()->only('page'));
     }
@@ -48,9 +50,12 @@ class History extends Component
             $this->first_name,
             $this->last_name,
             $this->telephone,
+            $this->pickup_location,
+            $this->dropoff_location,
             $this->order_column,
             $this->order_way,
-            $this->date_format
+            $this->date_format,
+            $this->additional_info
         ), 'Booking History.xlsx');
     }
 
@@ -72,8 +77,12 @@ class History extends Component
             $this->email,
             $this->first_name,
             $this->last_name,
-            $this->telephone
+            $this->telephone,
+            $this->pickup_location,
+            $this->dropoff_location,
+            $this->additional_info
         )
+            ->with('affiliate')
             ->orderBy($this->order_column, $this->order_way)
             ->paginate($this->records);
 

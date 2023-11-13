@@ -96,6 +96,16 @@ class BookingHistoryExport implements FromView
     /**
      * @var string
      */
+    public $pickup_location = "";
+
+    /**
+     * @var string
+     */
+    public $dropoff_location = "";
+
+    /**
+     * @var string
+     */
     public $date_format = "d-m-Y H:i";
 
     /**
@@ -115,6 +125,8 @@ class BookingHistoryExport implements FromView
      * @param      string  $first_name
      * @param      string  $last_name
      * @param      string  $telephone
+     * @param      string  $pickup_location
+     * @param      string  $dropoff_location
      * @param      string  $order_column
      * @param      string  $order_way
      * @param      string  $date_format
@@ -136,6 +148,8 @@ class BookingHistoryExport implements FromView
         $first_name,
         $last_name,
         $telephone,
+        $pickup_location,
+        $dropoff_location,
         $order_column,
         $order_way,
         $date_format
@@ -156,6 +170,8 @@ class BookingHistoryExport implements FromView
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->telephone = $telephone;
+        $this->pickup_location = $pickup_location;
+        $this->dropoff_location = $dropoff_location;
         $this->order_column = $order_column;
         $this->order_way = $order_way;
         $this->date_format = $date_format;
@@ -176,7 +192,9 @@ class BookingHistoryExport implements FromView
             $this->email,
             $this->first_name,
             $this->last_name,
-            $this->telephone
+            $this->telephone,
+            $this->pickup_location,
+            $this->dropoff_location
         )
             ->orderBy($this->order_column, $this->order_way)
             ->get();

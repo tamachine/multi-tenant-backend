@@ -38,6 +38,10 @@ Copy the example env file and make the required configuration changes in the .en
 
     cp .env.example .env
 
+Copy the tenant.example env file for every tenant. tenant-name must be the same as the name in the landlord database
+
+    cp .env.tenant.example .env.tenant-name
+
 Run the database migrations and default seeder(**Set the database connection in .env before migrating**)
 This is a multi tenant site (https://spatie.be/docs/laravel-multitenancy/v3). Migrations should be run like:
 
@@ -59,6 +63,12 @@ To create a token to access the api run:
     php artisan web:create-token
 
 If your user has a developer role, you'll be able to check the API docs from the administration panel.
+
+## Create a new tenant
+
+You can use the below command to create a new tenant:
+
+    php artisan tenant:create
 
 ## Translations
 

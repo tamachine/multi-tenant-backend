@@ -6,6 +6,8 @@ class Tenant extends \Spatie\Multitenancy\Models\Tenant
 {
     protected $append = ['url', 'login_url'];
 
+    protected $fillable = ['name', 'long_name', 'domain', 'database'];
+
     public function getUrlAttribute() {
         return 'https://' . $this->domain;
     }
