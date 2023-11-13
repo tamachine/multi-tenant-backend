@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Car;
 
 use App\Models\Car;
+use App\Models\CarenExtra;
 use App\Models\Extra;
 use Livewire\Component;
 
@@ -38,7 +39,9 @@ class Extras extends Component
     public function mount(Car $car, Extra $extra)
     {
         $this->car = $car;
-        $extras = $extra->where('vendor_id', $car->vendor_id)->orderBy('order_appearance')->get();
+        $carenExtras = CarenExtra::with('carenCars','extra')->whereHas('carenCars', function ($query) {
+            $query->where('caren_id', $this->car->caren_id);
+        })->get();
         $currentExtras = [];
 
         // Load the current extras
@@ -54,16 +57,17 @@ class Extras extends Component
         }
 
         // Load the available plans
-        foreach ($extras as $extra) {
-            if (!in_array($extra->id, $currentExtras)) {
+         foreach ( $carenExtras as $carenExtra) {
+            if (!is_null($carenExtra->extra) && !in_array($carenExtra->extra_id, $currentExtras)) {
                 $this->availableExtras[] = [
-                    'id'        => $extra->hashid,
-                    'name'      => $extra->name,
+                    'id'        => $carenExtra->extra->hashid,
+                    'name'      => $carenExtra->extra->name,
                     'selected'  => false,
-                    'color'     => $extra->is_insurance ? $extra->insurance->color : '',
+                    'color'     => $carenExtra->is_insurance ? $carenExtra->insurance->color : '',
                 ];
             }
         }
+
     }
 
     public function addExtras()
