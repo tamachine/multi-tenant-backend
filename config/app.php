@@ -110,6 +110,8 @@ return [
 
     'faker_locale' => 'en_US',
 
+    'seeding_password' => env('SEEDING_PASSWORD', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Encryption Key
@@ -195,7 +197,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\BindingServiceProvider::class,
-        App\Providers\EventServiceProvider::class,        
+        App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
 

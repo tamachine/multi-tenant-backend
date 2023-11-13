@@ -54,8 +54,8 @@ class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBa
             'content' => $row[3], // long text 3
             'featured_image' => null,
             'featured_image_hover' => null,
-            'blog_author_id' => rand(1, 5),
-            'blog_category_id' => rand(1, 5),
+            'blog_author_id' => 1,
+            'blog_category_id' => 1,
             'created_at' => null,
             'updated_at' => null,
             'deleted_at' => null,
@@ -83,14 +83,14 @@ class BlogPostsImport implements ToModel, WithStartRow, WithChunkReading, WithBa
         $post = BlogPost::find($id);
 
         $featuredImage = $post->images()->create([
-            'image_path' => "blogpost/migrated_from_ra/{$id}.png",
+            'image_path' => "blogpost/migrated_from_ic/{$id}.png",
             'alt' => $post->title
         ]);
 
         $post->update(['featured_image' => $featuredImage->id]);
 
         // images
-        $files = Storage::disk('public')->allFiles("images/blogpost/migrated_from_ra/{$id}");
+        $files = Storage::disk('public')->allFiles("images/blogpost/migrated_from_ic/{$id}");
 
         if($files) {
             foreach ($files as $file) {

@@ -48,7 +48,7 @@ class CreateTenant extends Command
     protected function setValues() {
         $options = [
             'long_name' => 'What is the name of the tenant? (Reykjavik Auto, Iceland Cars, Motorhome Iceland, etc ...)',
-            'name' => 'What is the if the tenant? (ra, ic, mhi, etc ...)', 
+            'name' => 'What is the string id of the tenant? (ra, ic, mhi, etc ...)', 
             'domain' => 'What is the domain of the tenant? (api.reykjavikauto.com, api.icelandcars.is, api.motorhomeiceland.com, etc ...)'];
 
         foreach ($options as $name => $message) {
