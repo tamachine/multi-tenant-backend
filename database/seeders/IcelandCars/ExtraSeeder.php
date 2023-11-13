@@ -4,7 +4,6 @@ namespace Database\Seeders\IcelandCars;
 
 use App\Models\CarenExtra;
 use App\Models\Extra;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
