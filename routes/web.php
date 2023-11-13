@@ -21,7 +21,6 @@ use App\Models\Landlord\Tenant;
 |
 */
 
-
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),

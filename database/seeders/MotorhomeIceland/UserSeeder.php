@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
         ];
 
         foreach ($users as $user) {
-            $this->create($user, bcrypt(env('SEEDING_PASSWORD', Str::random(20))));
+            $this->create($user, config('app.seeding_password'));
         }
     }
 
