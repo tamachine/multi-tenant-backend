@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\Landlord;
+namespace Database\Seeders\IcelandCars\Landlord;
 
 use Exception;
 use Illuminate\Database\Seeder;
