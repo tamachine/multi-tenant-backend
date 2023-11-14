@@ -17,7 +17,7 @@ class CarsSearchQuery
 {
     protected $query;
     protected $carenApi;
-    
+
     protected $dates;
     protected $locations;
     protected $specs;
@@ -31,7 +31,7 @@ class CarsSearchQuery
 
     public function __construct(Api $carenApi)
     {
-        $this->carenApi = $carenApi;        
+        $this->carenApi = $carenApi;
     }
 
     /**
@@ -55,9 +55,13 @@ class CarsSearchQuery
     {
         $results = $this->query->with('vendor')->get();
 
-        foreach ($results as $result) {
-            $result['daily_price'] = $this->carenPrices[$result->caren_id]['daily_price'];
-            $result['total_price'] = $this->carenPrices[$result->caren_id]['total_price'];
+        foreach ($results as $key => $result) {
+            if(isset($this->carenPrices[$result->caren_id])) {
+                $result['daily_price'] = $this->carenPrices[$result->caren_id]['daily_price'];
+                $result['total_price'] = $this->carenPrices[$result->caren_id]['total_price'];
+            } else {
+                unset($results[$key]);
+            }
         }
 
         return $results;
@@ -92,7 +96,7 @@ class CarsSearchQuery
     protected function initSearch()
     {
         $this->query = Car::fromCaren()->Active();
-        
+
         if ($this->vendors->count() > 0) {
             $this->query->whereIn('vendor_id', $this->vendors->pluck('id')->toArray());
         }
@@ -117,7 +121,7 @@ class CarsSearchQuery
     {
 
         $params = [];
-        
+
         if ($this->dates->datesDefined()) {
             $params['dateFrom'] = $this->dates->getDateFrom();
             $params['dateTo']   = $this->dates->getDateTo();
@@ -144,20 +148,20 @@ class CarsSearchQuery
             );
 
             if (isset($cars['Classes'])) {
-                                
+
                 foreach ($cars['Classes'] as $carenCar) {
                     $carenId = $carenCar['Id'];
-                    
+
                     $this->carenPrices[$carenId] = [
                         'daily_price'   => $this->searchByDates() ? $carenCar['DailyPrice'] : Car::where('caren_id', $carenId)->first()?->price_from,
                         'total_price'   => $carenCar['TotalPrice'],
                     ];
                 }
 
-            } 
+            }
         }
 
         $this->query->whereIn('caren_id', array_keys($this->carenPrices));
-        
+
     }
 }
