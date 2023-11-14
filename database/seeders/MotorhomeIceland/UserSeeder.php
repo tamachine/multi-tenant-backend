@@ -38,22 +38,14 @@ class UserSeeder extends Seeder
             ['username' => 'josevi@scandinavianehf.com', 'email' => 'josevi@scandinavianehf.com', 'name' => 'Josevi', 'role' => 'content', 'blogger' => 1],
             ['username' => 'maria@scandinavianehf.com', 'email' => 'maria@scandinavianehf.com', 'name' => 'Maria', 'role' => 'developer', 'blogger' => 1],
             ['username' => 'antonio@scandinavianehf.com', 'email' => 'antonio@scandinavianehf.com', 'name' => 'Antonio Jenaro', 'role' => 'developer', 'blogger' => 1],
+            ['username' => 'laraliroliero@gmail.com', 'email' => 'laraliroliero@gmail.com', 'name' => 'Tam', 'role' => 'developer', 'blogger' => 1],
         ];
 
         foreach ($users as $user) {
-            $this->create($user, config('app.seeding_password'));
+            $user['password'] = env('SEEDING_PASSWORD');
+
+            User::firstOrCreate(['email' => $user['email']], $user);
         }
-    }
-
-    private function create($user, $password)
-    {
-        $user = array_merge($user, [
-            'password' => $password,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ]);
-
-        User::firstOrCreate(['email' => $user['email']], $user);
-    }
+    }    
 }
 
