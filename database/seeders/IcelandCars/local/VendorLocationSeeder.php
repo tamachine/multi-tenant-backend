@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\IcelandCars;
+namespace Database\Seeders\IcelandCars\local;
 
 use App\Models\CarenLocation;
 use App\Models\CarenVendor;
@@ -20,41 +20,40 @@ class VendorLocationSeeder extends Seeder
      */
     public function run()
     {
-        // 1. Vendor: Create Lotus
+        // 1. Vendor: Create Blue Car Rental
         $vendor = Vendor::create([
-            'name' => 'LOTUS',
-            'vendor_code' => 'LOTUS',
-            'service_fee' => 0,
+            'name' => 'Blue Car Rental',
+            'vendor_code' => 'BLUE CAR RE',
+            'service_fee' => 2000,
             'status' => 'active',
-            'brand_color' => '#9e233f',
+            'brand_color' => '#14c2fc',
             'caren_settings' => [
                 'online_percentage' => 15,
                 'caren_payment_option_id' => 598,
                 'link_cms_caren' => false,
-                'rental_id' => 6
+                'rental_id' => 11
             ]
         ]);
 
         CarenVendor::create([
-            'name'              => 'Lotus',
-            'caren_rental_id'   => 6,
+            'name'              => 'Blue Car Rental',
+            'caren_rental_id'   => 11,
             'vendor_id'         => $vendor->id,
         ]);
 
         // 2. Location: Create 3 locations
         $location1 = Location::create([
-            'name' => 'Keflavik International Airport',
+            'name' => 'Keflavik Airport',
             'caren_settings' => [
-                'caren_pickup_location_id' => 486,
-                'caren_dropoff_location_id' => 487,
-            ],
-            'order_appearance' => 1
+                'caren_pickup_location_id' => 44,
+                'caren_dropoff_location_id' => 418,
+            ]
         ]);
 
         CarenLocation::create([
             'name'                      => 'Keflavik International Airport',
-            'caren_pickup_location_id'  => 486,
-            'caren_dropoff_location_id' => 487,
+            'caren_pickup_location_id'  => 44,
+            'caren_dropoff_location_id' => 418,
             'location_id'               => $location1->id
         ]);
 
@@ -65,18 +64,17 @@ class VendorLocationSeeder extends Seeder
         ]);
 
         $location2 = Location::create([
-            'name' => 'Address in Keflavik',
+            'name' => 'Reykjavik City Office',
             'caren_settings' => [
-                'caren_pickup_location_id' => 9,
-                'caren_dropoff_location_id' => 9,
-            ],
-            'order_appearance' => 2
+                'caren_pickup_location_id' => 51,
+                'caren_dropoff_location_id' => 419,
+            ]
         ]);
 
         CarenLocation::create([
-            'name'                      => 'Address in Keflavik',
-            'caren_pickup_location_id'  => 9,
-            'caren_dropoff_location_id' => 9,
+            'name'                      => 'Reykjavik City Office',
+            'caren_pickup_location_id'  => 44,
+            'caren_dropoff_location_id' => 418,
             'location_id'               => $location2->id
         ]);
 
@@ -87,18 +85,17 @@ class VendorLocationSeeder extends Seeder
         ]);
 
         $location3 = Location::create([
-            'name' => 'Address in Reykjavik',
+            'name' => 'Address in Keflavik',
             'caren_settings' => [
-                'caren_pickup_location_id' => 8,
-                'caren_dropoff_location_id' => 8,
-            ],
-            'order_appearance' => 3
+                'caren_pickup_location_id' => 45,
+                'caren_dropoff_location_id' => 420,
+            ]
         ]);
 
         CarenLocation::create([
-            'name'                      => 'Address in Reykjavik',
-            'caren_pickup_location_id'  => 8,
-            'caren_dropoff_location_id' => 8,
+            'name'                      => 'Keflavik City',
+            'caren_pickup_location_id'  => 45,
+            'caren_dropoff_location_id' => 420,
             'location_id'               => $location3->id
         ]);
 
@@ -159,24 +156,6 @@ class VendorLocationSeeder extends Seeder
                 'vendor_id' => $vendor->id,
                 'location_pickup' => $location2->id,
                 'location_dropoff' => $location3->id,
-                'fee' => 0
-            ]
-        );
-
-        VendorLocationFee::updateOrCreate(
-            [
-                'vendor_id' => $vendor->id,
-                'location_pickup' => $location3->id,
-                'location_dropoff' => $location1->id,
-                'fee' => 0
-            ]
-        );
-
-        VendorLocationFee::updateOrCreate(
-            [
-                'vendor_id' => $vendor->id,
-                'location_pickup' => $location3->id,
-                'location_dropoff' => $location2->id,
                 'fee' => 0
             ]
         );

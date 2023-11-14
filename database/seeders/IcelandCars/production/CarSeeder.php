@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\IcelandCars;
+namespace Database\Seeders\IcelandCars\production;
 
 use App\Models\Car;
 use App\Models\CarenCar;

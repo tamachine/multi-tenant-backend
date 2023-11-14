@@ -1,10 +1,9 @@
 <?php
 
-namespace Database\Seeders\IcelandCars;
+namespace Database\Seeders\IcelandCars\production;
 
 use App\Models\Affiliate;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class AffiliateSeeder extends Seeder
