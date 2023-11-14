@@ -37,8 +37,7 @@ class UserSeeder extends Seeder
             ['username' => 'api', 'email' => 'api@scandinavianehf.com', 'name' => 'api', 'role' => 'api'],
             ['username' => 'josevi@scandinavianehf.com', 'email' => 'josevi@scandinavianehf.com', 'name' => 'Josevi', 'role' => 'content', 'blogger' => 1],
             ['username' => 'maria@scandinavianehf.com', 'email' => 'maria@scandinavianehf.com', 'name' => 'Maria', 'role' => 'developer', 'blogger' => 1],
-            ['username' => 'antonio@scandinavianehf.com', 'email' => 'antonio@scandinavianehf.com', 'name' => 'Antonio Jenaro', 'role' => 'developer', 'blogger' => 1],
-            ['username' => 'laraliroliero@gmail.com', 'email' => 'laraliroliero@gmail.com', 'name' => 'Tam', 'role' => 'developer', 'blogger' => 1],
+            ['username' => 'antonio@scandinavianehf.com', 'email' => 'antonio@scandinavianehf.com', 'name' => 'Antonio Jenaro', 'role' => 'developer', 'blogger' => 1],            
         ];
 
         foreach ($users as $user) {
