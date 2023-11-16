@@ -6,6 +6,7 @@ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use App\Helpers\Api;
+use Illuminate\Database\LazyLoadingViolationException;
 
 class Handler extends ExceptionHandler
 {
@@ -63,6 +64,9 @@ class Handler extends ExceptionHandler
             if (in_array('sanctum', $guards)) {
                 return Api::errorResponse(401, 'Invalid token');                
             }
+        }
+        if ($exception instanceof LazyLoadingViolationException) {
+            return Api::errorResponse(500, 'Lazy Loading: '.$exception->getMessage()); 
         }
 
         return parent::render($request, $exception);

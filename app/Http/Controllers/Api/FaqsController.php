@@ -29,7 +29,7 @@ class FaqsController extends BaseController
        
         $this->checkLocale($request);        
 
-        return $this->successResponse($this->mapApiResponse($query->get()));                
+        return $this->successResponse($this->mapApiResponse($query->with('faqCategories')->get()));                
     }
 
     /**
