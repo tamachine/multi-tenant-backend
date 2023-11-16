@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\IcelandCars;
+namespace Database\Seeders\IcelandCars\local;
 
 use App\Models\CarenLocation;
 use App\Models\CarenVendor;

@@ -2,34 +2,52 @@
 
 namespace Database\Seeders\IcelandCars;
 
-
 use Database\Seeders\SeederInterface;
-use Database\Seeders\IcelandCars\BlogSeeder;
-use Database\Seeders\IcelandCars\AffiliateSeeder;
-use Database\Seeders\IcelandCars\CarSeeder;
-use Database\Seeders\IcelandCars\ExtraSeeder;
-use Database\Seeders\IcelandCars\UserSeeder;
-use Database\Seeders\IcelandCars\VendorLocationSeeder;
-use Database\Seeders\IcelandCars\ContactUserDetailsTypesSeeder;
-use Database\Seeders\IcelandCars\CurrencyRateSeeder;
-use Database\Seeders\IcelandCars\CurrencySeeder;
-use Database\Seeders\IcelandCars\FaqsSeeder;
-use Database\Seeders\IcelandCars\InsurancesFeaturesSeeder;
-use Database\Seeders\IcelandCars\LanguageLineSeeder;
-use Database\Seeders\IcelandCars\PageSeeder;
-use Database\Seeders\IcelandCars\SeoConfigurationSeeder;
+use Database\Seeders\IcelandCars\local\AffiliateSeeder;
+use Database\Seeders\IcelandCars\local\CarSeeder;
+use Database\Seeders\IcelandCars\local\ExtraSeeder;
+use Database\Seeders\IcelandCars\local\VendorLocationSeeder;
+use Database\Seeders\IcelandCars\production\AffiliateSeeder as ProductionAffiliateSeeder;
+use Database\Seeders\IcelandCars\production\CarSeeder as ProductionCarSeeder;
+use Database\Seeders\IcelandCars\production\ExtraSeeder as ProductionExtraSeeder;
+use Database\Seeders\IcelandCars\production\VendorLocationSeeder as ProductionVendorLocationSeeder;
 
 class DatabaseSeeder implements SeederInterface {
 
     public function localClasses(): array {
+        return array_merge(
+            $this->commonClasses(),
+            [
+                AffiliateSeeder::class,
+                VendorLocationSeeder::class,
+                CarSeeder::class,
+                ExtraSeeder::class
+            ]
+        );
+    }
+
+    public function stagingClasses(): array {
+        return $this->localClasses();
+    }
+
+    public function productionClasses(): array {
+        return array_merge(
+            $this->commonClasses(),
+            [
+                ProductionAffiliateSeeder::class,
+                ProductionVendorLocationSeeder::class,
+                ProductionCarSeeder::class,
+                ProductionExtraSeeder::class
+            ]
+        );
+    }
+
+    private function commonClasses(): array
+    {
         return [
             UserSeeder::class,
-            AffiliateSeeder::class,
-            VendorLocationSeeder::class,
-            CarSeeder::class,
-            ExtraSeeder::class,
             LanguageLineSeeder::class,
-            FaqsSeeder::class,                                        
+            FaqsSeeder::class,
             InsurancesFeaturesSeeder::class,
             BlogSeeder::class,
             CurrencySeeder::class,
@@ -38,13 +56,5 @@ class DatabaseSeeder implements SeederInterface {
             PageSeeder::class,
             SeoConfigurationSeeder::class
         ];
-    }
-
-    public function stagingClasses(): array {
-        return $this->localClasses();
-    }
-
-    public function productionClasses(): array {
-        return [];
     }
 }

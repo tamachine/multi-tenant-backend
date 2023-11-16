@@ -1,11 +1,11 @@
 <?php
 
-namespace Database\Seeders\IcelandCars;
+namespace Database\Seeders\IcelandCars\local;
 
 use App\Models\CarenExtra;
 use App\Models\Extra;
-use DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ExtraSeeder extends Seeder
 {
