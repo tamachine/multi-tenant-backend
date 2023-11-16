@@ -79,7 +79,7 @@ class History extends Component
             $this->last_name,
             $this->telephone,
             $this->pickup_location,
-            $this->dropoff_location
+            $this->dropoff_location,
             $this->additional_info
         )
             ->with('affiliate')

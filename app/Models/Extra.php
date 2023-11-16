@@ -52,14 +52,14 @@ class Extra extends Model
      /**
       * Returns the extra price for a car
       * IMPORTANT! Use this method only if only one extra price must be returned
-      * This method calls caren api for each instance so if a fast data loading is needed, it is better to use $this->getPriceFromCarenExtras
+      * This method calls caren api for each instance so if a fast data loading is needed, it is better to use $this->getPriceUsingCarenExtras
       * @return double
       */
      public function getPriceForCar(Car $car) {
         if($this->caren_id) {
-            $carenExtras = $car->getCarenExtras(); //calls caren in every instance. use getPriceFromCarenExtras better if multiple calls to extra prices
+            $carenExtras = $car->getCarenExtras(); //calls caren in every instance. use getPriceUsingCarenExtras better if multiple calls to extra prices
 
-            return $this->getPriceFromCarenExtras($carenExtras);
+            return $this->getPriceUsingCarenExtras($carenExtras);
         } else {
             return $this->price;
         }
@@ -71,7 +71,7 @@ class Extra extends Model
       * @var array $carenExtras The result of a Api->extraList call
       * @return double|null
       */
-     public function getPriceFromCarenExtras(array $carenExtras) {
+     public function getPriceUsingCarenExtras(array $carenExtras) {
         if(!empty($this->caren_id)) {
 
             if (isset($carenExtras['Extras'])) {
@@ -79,7 +79,7 @@ class Extra extends Model
                 $carenIdKey  = array_search($this->caren_id, $carenIdKeys);
 
                 if ($carenIdKey !== false) {
-                    return $carenExtras['Extras'][$carenIdKey]; // price found in caren
+                    return $carenExtras['Extras'][$carenIdKey]['Price']; // price found in caren
                 }
             }
 

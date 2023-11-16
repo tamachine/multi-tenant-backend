@@ -89,7 +89,7 @@ class CarsController extends BaseController
             $query->where('included', $included);          
         } 
 
-        return $this->successResponse($this->mapApiResponse($query));
+        return $this->successResponse($this->replaceParams(['price' => 'unit_price'], $this->mapApiResponseWithExtraParams($query, ['unit_price'])));
     }
 
      /**

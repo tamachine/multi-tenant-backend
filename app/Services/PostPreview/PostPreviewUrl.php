@@ -34,9 +34,7 @@ class PostPreviewUrl {
      * Returns the env variable name where the preview url must be stored
      */
     public function getEnvVarName():string {
-        $tenantName = strtoupper(app('currentTenant')->name);
-
-        return $tenantName."_POST_PREVIEW_URL";
+        return 'POST_PREVIEW_URL';
     }
 
     /**

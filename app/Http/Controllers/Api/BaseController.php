@@ -72,7 +72,24 @@ abstract class BaseController extends Controller
 
         return $newCollection;
 
-    }    
+    }  
+    
+    /**
+     * replaces the $currentParam value with the $newParam value
+     * @param array $params ['current param' => 'param new value']
+     * 
+     * @return Collection $newCollection
+     */
+    protected function replaceParams($params, $collection) {
+        return $collection->transform(function ($item) use ($params) {
+            foreach($params as $currentParam => $newValueParam) {
+                $item[$currentParam] = $item[$newValueParam];
+                unset($item[$newValueParam]);
+            }
+            
+            return $item;
+        });
+    }
 
     protected function checkLocale(Request $request) {
         if($request->has('locale')) {

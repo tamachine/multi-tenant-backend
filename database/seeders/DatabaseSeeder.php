@@ -2,11 +2,12 @@
 
 namespace Database\Seeders;
 
+use Database\Seeders\SeederResolver;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 use App\Models\Landlord\Tenant;
-use Database\Seeders\Landlord\LandlordSeeder;
+use Database\Seeders\IcelandCars\Landlord\LandlordSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,17 +20,23 @@ class DatabaseSeeder extends Seeder
         'migrations',
     ];
 
+    protected $tenantSeeder;
+
     /**
      * Seed the application's database.
      *
      * @return void
      */
-    public function run()
+    public function run(SeederResolver $seederResolver)
     {
+        $this->tenantSeeder = $seederResolver->resolveDatabaseSeeder();
+
         if(Tenant::checkCurrent()) {
-            // Work out which seeding type should fire (environment specific)
+            
             $method = 'run' . ucfirst(app()->environment());
+            
             $this->{$method}();
+
         } else {
             $this->call([LandlordSeeder::class]);
         }
@@ -43,7 +50,7 @@ class DatabaseSeeder extends Seeder
      */
     private function runProduction()
     {
-        //
+        $this->call($this->tenantSeeder->productionClasses());
     }
 
     /**
@@ -55,21 +62,8 @@ class DatabaseSeeder extends Seeder
     {
         // Only clean database when running seeders if not on production
         $this->cleanDatabase();
-        $this->call([
-            LanguageLineSeeder::class,
-            FaqsSeeder::class,
-            //FreeDaySeeder::class,
-            CarsIceland\UserSeeder::class,
-            CarsIceland\AffiliateSeeder::class,
-            CarsIceland\VendorLocationSeeder::class,
-            CarsIceland\CarSeeder::class,
-            CarsIceland\ExtraSeeder::class,
-            InsurancesFeaturesSeeder::class,
-            BlogSeeder::class,
-            CurrencySeeder::class,
-            CurrencyRateSeeder::class,
-            ContactUserDetailsTypesSeeder::class,
-        ]);
+
+        $this->call($this->tenantSeeder->stagingClasses());
     }
 
     /**
@@ -81,21 +75,8 @@ class DatabaseSeeder extends Seeder
     {
         // Only clean database when running seeders if not on production
         $this->cleanDatabase();
-        $this->call([
-            LanguageLineSeeder::class,
-            FaqsSeeder::class,
-            //FreeDaySeeder::class,
-            CarsIceland\UserSeeder::class,
-            CarsIceland\AffiliateSeeder::class,
-            CarsIceland\VendorLocationSeeder::class,
-            CarsIceland\CarSeeder::class,
-            CarsIceland\ExtraSeeder::class,
-            InsurancesFeaturesSeeder::class,
-            BlogSeeder::class,
-            CurrencySeeder::class,
-            CurrencyRateSeeder::class,
-            ContactUserDetailsTypesSeeder::class,
-        ]);
+
+        $this->call($this->tenantSeeder->localClasses());
     }
 
     /**
