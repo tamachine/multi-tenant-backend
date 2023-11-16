@@ -33,9 +33,9 @@
                                     </td>      
 
                                     <td class="px-6 py-4 text-sm font-medium">             
-                                        <a href="{{ route($page->route_name) }}" target="_blank" class="text-purple-700 hover:underline">                                
-                                            {{ route($page->route_name) }}
-                                        </a>                                                                                                                                                     
+                                        
+                                            {{ $page->route_name }}
+                                        
                                     </td>    
                                 </tr>
                             @endforeach
