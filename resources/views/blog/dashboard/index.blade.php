@@ -65,6 +65,7 @@
             </div>
         </div>
 
+        @if(auth()->user()->isDeveloper())
         <div
             class="bg-white shadow px-5 py-10 m-5 sm:rounded-lg flex justify-start cursor-pointer hover:underline hover:shadow-xl"
             onclick='window.location.href="{{route("intranet.blog.import.index")}}"'
@@ -79,5 +80,6 @@
                 {{ __('Import') }}
             </div>
         </div>
+        @endif
     </div>
 </x-admin-layout>
