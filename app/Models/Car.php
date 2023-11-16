@@ -368,6 +368,39 @@ class Car extends Model
         return $this->belongsToMany('App\Models\Extra')->withTimestamps();
     }
 
+    public function carenCar() {
+        return $this->hasOne(CarenCar::class, 'caren_id', 'caren_id');
+    }
+
+    /**
+     * If the car does not belong to caren, return all the extras that are not from caren
+     * If the car belongs to caren, return all the extras that are not from caren and the ones that are from caren and belong to the car (excluding the extras that are from caren but belong to another caren car)
+     *
+     * @return object
+     */
+    public function availableExtras()
+    {
+        if($this->caren_id) {     
+            return Extra::where('extras.vendor_id', $this->vendor_id)
+            ->leftJoin('caren_extras', 'extras.caren_id', '=', 'caren_extras.caren_id')
+            ->leftJoin('caren_car_caren_extra', 'caren_extras.id', '=', 'caren_car_caren_extra.caren_extra_id')
+            ->where(function ($query) {
+                // Select extras where caren_id is null
+                $query->whereNull('extras.caren_id')
+                      // Or where caren_extra_id is linked to this car in caren_car_caren_extra
+                      ->orWhere(function ($query)  {
+                          $query->whereNotNull('extras.caren_id')
+                                ->where('caren_car_caren_extra.caren_car_id', $this->carenCar->id);
+                      });
+            })
+            ->select('extras.*') // Select only the columns from the extras table
+            ->distinct();            
+
+        } else {
+            return Extra::where('extras.vendor_id', $this->vendor_id)->whereNull('caren_id');
+        }
+    }
+
     /**
      * Define belongsToMany insurances
      *

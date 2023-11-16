@@ -37,8 +37,7 @@ class Extras extends Component
 
     public function mount(Car $car, Extra $extra)
     {
-        $this->car = $car;
-        $extras = $extra->where('vendor_id', $car->vendor_id)->orderBy('order_appearance')->get();
+        $this->car = $car;        
         $currentExtras = [];
 
         // Load the current extras
@@ -53,8 +52,8 @@ class Extras extends Component
             $currentExtras[] = $extra->id;
         }
 
-        // Load the available plans
-        foreach ($extras as $extra) {
+        // Load the available extras        
+        foreach ($car->availableExtras()->get() as $extra) {
             if (!in_array($extra->id, $currentExtras)) {
                 $this->availableExtras[] = [
                     'id'        => $extra->hashid,
