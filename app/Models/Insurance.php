@@ -26,7 +26,7 @@ class Insurance extends Extra
     }    
 
     public function getColorAttribute() {   
-        if($this->caren_id && !is_null($this->carenExtra)) {
+        if($this->caren_id) {
             if(str_contains($this->carenExtra->name, 'SCDW')) {
                 return '#AA78A6';
             } elseif(str_contains($this->carenExtra->name, 'CDW')) {
