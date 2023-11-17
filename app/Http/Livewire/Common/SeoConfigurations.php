@@ -61,8 +61,8 @@ class SeoConfigurations extends Component
         $validationForSchemaType = 'required_with:';
 
         foreach(Language::availableCodes() as $code) {
-            $validations['seoConfiguration.meta_title.'.$code] = 'nullable|string|max:100';
-            $validations['seoConfiguration.meta_description.'.$code] = 'nullable|string|max:100';
+            $validations['seoConfiguration.meta_title.'.$code] = 'nullable|string|max:60';
+            $validations['seoConfiguration.meta_description.'.$code] = 'nullable|string|max:160';
             $validations['seoConfiguration.lang.'.$code] = 'nullable|string|max:100';
             $validations['seoConfiguration.canonical.'.$code] = 'nullable|url';           
             $validations['seoSchemas.*.'.$code] = 'nullable|json';   
